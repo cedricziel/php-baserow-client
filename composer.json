@@ -1,6 +1,6 @@
 {
     "name": "cedricziel/baserow",
-    "description": "An API client",
+    "description": "An API client for baserow.io",
     "type": "library",
     "license": "Apache-2.0",
     "autoload": {
