@@ -8,44 +8,6103 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace myvendor\mynamespace\Generated;
+namespace cedricziel\phpbaserowclient\Generated;
 
 class Client extends Runtime\Client\Client
 {
     /**
+     * Sends a test email to the provided email address. Useful for testing Baserow's email configuration as errors are clearly returned.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\EmailTesterResponse|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\EmailTesterBadRequestException
+     */
+    public function emailTester(Model\EmailTesterRequest $requestBody, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\EmailTester($requestBody), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\FullHealthCheck|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function fullHealthCheck(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\FullHealthCheck(), $fetch);
+    }
+
+    /**
+     * Lists all audit log entries for the given workspace id.
+     *
+     * This is a **enterprise** feature.
+     *
      * @param array $queryParameters {
      *
-     * @var int $limit How many items to return at one time (max 100)
+     * @var string $action_type filter the audit log entries by action type
+     * @var string $from_timestamp the ISO timestamp to filter the audit log entries from
+     * @var int    $page defines which page should be returned
+     * @var int    $size defines how many audit log entries should be returned per page
+     * @var string $sorts A comma separated string of attributes to sort by, each attribute must be prefixed with `+` for a descending sort or a `-` for an ascending sort. The accepted attribute names are: `user, workspace, type, timestamp, ip_address`. For example `sorts=-user,-workspace` will sort the audit log entries first by descending user and then ascending workspace. A sortparameter with multiple instances of the same sort attribute will respond with the ERROR_INVALID_SORT_ATTRIBUTE error.
+     * @var string $to_timestamp the ISO timestamp to filter the audit log entries to
+     * @var int    $user_id filter the audit log entries by user id
+     * @var int    $workspace_id Filter the audit log entries by workspace id. This filter works only for the admin audit log.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\PaginationSerializerAuditLog|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\AuditLogListBadRequestException
+     * @throws Exception\AuditLogListUnauthorizedException
+     */
+    public function auditLogList(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\AuditLogList($queryParameters), $fetch);
+    }
+
+    /**
+     * List all distinct action types related to an audit log entry.
+     *
+     * This is a **enterprise** feature.
+     *
+     * @param array $queryParameters {
+     *
+     * @var string $search if provided only action_types with name that match the query will be returned
+     * @var int    $workspace_id Return action types related to the workspace.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \cedricziel\phpbaserowclient\Generated\Model\AuditLogActionType[]|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\AuditLogActionTypesBadRequestException
+     * @throws Exception\AuditLogActionTypesUnauthorizedException
+     */
+    public function auditLogActionTypes(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\AuditLogActionTypes($queryParameters), $fetch);
+    }
+
+    /**
+     * Creates a job to export the filtered audit log to a CSV file.
+     *
+     * This is a **enterprise** feature.
+     *
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\SingleAuditLogExportJobResponse|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\AsyncAuditLogExportBadRequestException
+     * @throws Exception\AsyncAuditLogExportNotFoundException
+     */
+    public function asyncAuditLogExport(?Model\SingleAuditLogExportJobRequest $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\AsyncAuditLogExport($requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * List all users that have performed an action in the audit log.
+     *
+     * This is a **enterprise** feature.
+     *
+     * @param array $queryParameters {
+     *
+     * @var int    $page defines which page should be returned
+     * @var string $search if provided only users with email that match the query will be returned
+     * @var int    $size defines how many users should be returned per page
+     * @var int    $workspace_id Return users belonging to the given workspace_id.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\PaginationSerializerAuditLogUser|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\AuditLogUsersBadRequestException
+     * @throws Exception\AuditLogUsersUnauthorizedException
+     */
+    public function auditLogUsers(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\AuditLogUsers($queryParameters), $fetch);
+    }
+
+    /**
+     * List all distinct workspace names related to an audit log entry.
+     *
+     * This is a **enterprise** feature.
+     *
+     * @param array $queryParameters {
+     *
+     * @var int    $page defines which page should be returned
+     * @var string $search if provided only workspaces with name that match the query will be returned
+     * @var int    $size Defines how many workspaces should be returned per page.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\PaginationSerializerAuditLogWorkspace|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\AuditLogWorkspacesBadRequestException
+     * @throws Exception\AuditLogWorkspacesUnauthorizedException
+     */
+    public function auditLogWorkspaces(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\AuditLogWorkspaces($queryParameters), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function listAuthProviders(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListAuthProviders(), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\CreateAuthProviderBadRequestException
+     */
+    public function createAuthProvider(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\CreateAuthProvider(), $fetch);
+    }
+
+    /**
+     * Delete an authentication provider.
+     *
+     * @param int    $authProviderId the authentication provider id to delete
+     * @param string $fetch          Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DeleteAuthProviderNotFoundException
+     */
+    public function deleteAuthProvider(int $authProviderId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DeleteAuthProvider($authProviderId), $fetch);
+    }
+
+    /**
+     * Get an authentication provider.
+     *
+     * @param int    $authProviderId the authentication provider id to fetch
+     * @param string $fetch          Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GetAuthProviderNotFoundException
+     */
+    public function getAuthProvider(int $authProviderId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GetAuthProvider($authProviderId), $fetch);
+    }
+
+    /**
+     * Updates a new authentication provider. This can be used to enable authentication with a third party service like Google or Facebook.
+     *
+     * @param int    $authProviderId the authentication provider id to update
+     * @param string $fetch          Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UpdateAuthProviderBadRequestException
+     * @throws Exception\UpdateAuthProviderNotFoundException
+     */
+    public function updateAuthProvider(int $authProviderId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UpdateAuthProvider($authProviderId), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\AdminDashboard|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\AdminDashboardUnauthorizedException
+     */
+    public function adminDashboard(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\AdminDashboard(), $fetch);
+    }
+
+    /**
+     * **This endpoint has been deprecated and replaced with a new endpoint, [admin_list_workspaces](#tag/Admin/operation/admin_list_workspaces).**.
+     *
+     **Support for this endpoint will end in 2024.**
+     *
+     * Returns all groups with detailed information on each group, if the requesting user is staff.
+     *
+     * This is a **premium** feature.
+     *
+     * @param array $queryParameters {
+     *
+     * @var int    $page defines which page should be returned
+     * @var string $search if provided only groups with id or name that match the query will be returned
+     * @var int    $size defines how many groups should be returned per page
+     * @var string $sorts A comma separated string of attributes to sort by, each attribute must be prefixed with `+` for a descending sort or a `-` for an ascending sort. The accepted attribute names are: `id, name, application_count, created_on, row_count, storage_usage`. For example `sorts=-id,-name` will sort the groups first by descending id and then ascending name. A sortparameter with multiple instances of the same sort attribute will respond with the ERROR_INVALID_SORT_ATTRIBUTE error.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\PaginationSerializerWorkspacesAdminResponse|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\AdminListGroupsBadRequestException
+     * @throws Exception\AdminListGroupsUnauthorizedException
+     */
+    public function adminListGroups(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\AdminListGroups($queryParameters), $fetch);
+    }
+
+    /**
+     * **This endpoint has been deprecated and replaced with a new endpoint, [admin_delete_workspace](#tag/Admin/operation/admin_delete_workspace).**.
+     *
+     **Support for this endpoint will end in 2024.**
+     *
+     * Deletes the specified group and the applications inside that group, if the requesting user is staff.
+     *
+     * This is a **premium** feature.
+     *
+     * @param int    $groupId The id of the group to delete
+     * @param string $fetch   Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\AdminDeleteGroupBadRequestException
+     * @throws Exception\AdminDeleteGroupUnauthorizedException
+     */
+    public function adminDeleteGroup(int $groupId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\AdminDeleteGroup($groupId), $fetch);
+    }
+
+    /**
+     * Returns all users with detailed information on each user, if the requesting user is staff.
+     *
+     * This is a **premium** feature.
+     *
+     * @param array $queryParameters {
+     *
+     * @var int    $page defines which page should be returned
+     * @var string $search if provided only users with username that match the query will be returned
+     * @var int    $size defines how many users should be returned per page
+     * @var string $sorts A comma separated string of attributes to sort by, each attribute must be prefixed with `+` for a descending sort or a `-` for an ascending sort. The accepted attribute names are: `id, is_active, name, username, date_joined, last_login`. For example `sorts=-id,-is_active` will sort the users first by descending id and then ascending is_active. A sortparameter with multiple instances of the same sort attribute will respond with the ERROR_INVALID_SORT_ATTRIBUTE error.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\PaginationSerializerUserAdminResponse|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\AdminListUsersBadRequestException
+     * @throws Exception\AdminListUsersUnauthorizedException
+     */
+    public function adminListUsers(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\AdminListUsers($queryParameters), $fetch);
+    }
+
+    /**
+     * Creates and returns a new user if the requesting user is staff. This works even if new signups are disabled.
+     *
+     * This is a **premium** feature.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\UserAdminResponse|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\AdminCreateUserBadRequestException
+     */
+    public function adminCreateUser(Model\UserAdminCreate $requestBody, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\AdminCreateUser($requestBody), $fetch);
+    }
+
+    /**
+     * Deletes the specified user, if the requesting user has admin permissions. You cannot delete yourself.
+     *
+     * This is a **premium** feature.
+     *
+     * @param int    $userId The id of the user to delete
+     * @param string $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\AdminDeleteUserBadRequestException
+     * @throws Exception\AdminDeleteUserUnauthorizedException
+     */
+    public function adminDeleteUser(int $userId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\AdminDeleteUser($userId), $fetch);
+    }
+
+    /**
+     * Updates specified user attributes and returns the updated user if the requesting user is staff. You cannot update yourself to no longer be an admin or active.
+     *
+     * This is a **premium** feature.
+     *
+     * @param int    $userId The id of the user to edit
+     * @param string $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\UserAdminResponse|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\AdminEditUserBadRequestException
+     * @throws Exception\AdminEditUserUnauthorizedException
+     */
+    public function adminEditUser(int $userId, ?Model\PatchedUserAdminUpdate $requestBody = null, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\AdminEditUser($userId, $requestBody), $fetch);
+    }
+
+    /**
+     * This endpoint allows staff to impersonate another user by requesting a JWT token and user object. The requesting user must have staff access in order to do this. It's not possible to impersonate a superuser or staff.
+     *
+     * This is a **premium** feature.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\ApiAdminUsersImpersonatePostResponse200|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function adminImpersonateUser(Model\BaserowImpersonateAuthToken $requestBody, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\AdminImpersonateUser($requestBody), $fetch);
+    }
+
+    /**
+     * Returns all workspaces with detailed information on each workspace, if the requesting user is staff.
+     *
+     * This is a **premium** feature.
+     *
+     * @param array $queryParameters {
+     *
+     * @var int    $page defines which page should be returned
+     * @var string $search if provided only workspaces with id or name that match the query will be returned
+     * @var int    $size defines how many workspaces should be returned per page
+     * @var string $sorts A comma separated string of attributes to sort by, each attribute must be prefixed with `+` for a descending sort or a `-` for an ascending sort. The accepted attribute names are: `id, name, application_count, created_on, row_count, storage_usage`. For example `sorts=-id,-name` will sort the workspaces first by descending id and then ascending name. A sortparameter with multiple instances of the same sort attribute will respond with the ERROR_INVALID_SORT_ATTRIBUTE error.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\PaginationSerializerWorkspacesAdminResponse|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\AdminListWorkspacesBadRequestException
+     * @throws Exception\AdminListWorkspacesUnauthorizedException
+     */
+    public function adminListWorkspaces(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\AdminListWorkspaces($queryParameters), $fetch);
+    }
+
+    /**
+     * Deletes the specified workspace and the applications inside that workspace, if the requesting user is staff.
+     *
+     * This is a **premium** feature.
+     *
+     * @param int    $workspaceId The id of the workspace to delete
+     * @param string $fetch       Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\AdminDeleteWorkspaceBadRequestException
+     * @throws Exception\AdminDeleteWorkspaceUnauthorizedException
+     */
+    public function adminDeleteWorkspace(int $workspaceId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\AdminDeleteWorkspace($workspaceId), $fetch);
+    }
+
+    /**
+     * Lists all the integrations of the application related to the provided parameter if the user has access to the related application's workspace. If the workspace is related to a template, then this endpoint will be publicly accessible.
+     *
+     * @param int    $applicationId returns only the integrations of the application related to the provided Id
+     * @param string $fetch         Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ListApplicationIntegrationsNotFoundException
+     */
+    public function listApplicationIntegrations(int $applicationId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListApplicationIntegrations($applicationId), $fetch);
+    }
+
+    /**
+     * Creates a new integration.
+     *
+     * @param int        $applicationId    creates an integration for the application related to the provided value
+     * @param mixed|null $requestBody
+     * @param array      $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\CreateApplicationIntegrationBadRequestException
+     * @throws Exception\CreateApplicationIntegrationNotFoundException
+     */
+    public function createApplicationIntegration(int $applicationId, $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\CreateApplicationIntegration($applicationId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * List per user sources the first 5 users available.
+     *
+     * @param int    $applicationId the application we want the users for
+     * @param string $fetch         Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\UsersPerUserSource|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ListApplicationUserSourceUsersNotFoundException
+     */
+    public function listApplicationUserSourceUsers(int $applicationId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListApplicationUserSourceUsers($applicationId), $fetch);
+    }
+
+    /**
+     * Lists all the user_sources of the application related to the provided parameter if the user has access to the related application's workspace. If the workspace is related to a template, then this endpoint will be publicly accessible.
+     *
+     * @param int    $applicationId returns only the user_sources of the application related to the provided Id
+     * @param string $fetch         Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ListApplicationUserSourcesNotFoundException
+     */
+    public function listApplicationUserSources(int $applicationId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListApplicationUserSources($applicationId), $fetch);
+    }
+
+    /**
+     * Creates a new user_source.
+     *
+     * @param int        $applicationId    creates an user_source for the application related to the provided value
+     * @param mixed|null $requestBody
+     * @param array      $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\CreateApplicationUserSourceBadRequestException
+     * @throws Exception\CreateApplicationUserSourceNotFoundException
+     */
+    public function createApplicationUserSource(int $applicationId, $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\CreateApplicationUserSource($applicationId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Lists all the roles of the application related to the provided parameter if the user has access to the related application's workspace. If the workspace is related to a template, then this endpoint will be publicly accessible.
+     *
+     * @param int    $applicationId returns only the roles of the application related to the provided Id
+     * @param string $fetch         Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ListApplicationUserSourceRolesNotFoundException
+     */
+    public function listApplicationUserSourceRoles(int $applicationId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListApplicationUserSourceRoles($applicationId), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ListAllApplicationsBadRequestException
+     */
+    public function listAllApplications(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListAllApplications(), $fetch);
+    }
+
+    /**
+     * Deletes an application if the authorized user is in the application's workspace. All the related children are also going to be deleted. For example in case of a database application all the underlying tables, fields, views and rows are going to be deleted.
+     *
+     * @param int   $applicationId    deletes the application related to the provided value
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DeleteApplicationBadRequestException
+     * @throws Exception\DeleteApplicationNotFoundException
+     */
+    public function deleteApplication(int $applicationId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DeleteApplication($applicationId, $headerParameters), $fetch);
+    }
+
+    /**
+     * Returns the requested application if the authorized user is in the application's workspace. The properties that belong to the application can differ per type.
+     *
+     * @param int    $applicationId returns the application related to the provided value
+     * @param string $fetch         Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\WorkspaceGetApplicationBadRequestException
+     * @throws Exception\WorkspaceGetApplicationNotFoundException
+     */
+    public function workspaceGetApplication(int $applicationId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\WorkspaceGetApplication($applicationId), $fetch);
+    }
+
+    /**
+     * Updates the existing application related to the provided `application_id` param if the authorized user is in the application's workspace. It is not possible to change the type, but properties like the name can be changed.
+     *
+     * @param int        $applicationId    updates the application related to the provided value
+     * @param mixed|null $requestBody
+     * @param array      $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UpdateApplicationBadRequestException
+     * @throws Exception\UpdateApplicationNotFoundException
+     */
+    public function updateApplication(int $applicationId, $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UpdateApplication($applicationId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Duplicate an application if the authorized user is in the application's workspace. All the related children are also going to be duplicated. For example in case of a database application all the underlying tables, fields, views and rows are going to be duplicated.
+     *
+     * @param int   $applicationId    the id of the application to duplicate
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\SingleDuplicateApplicationJobType|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DuplicateApplicationAsyncBadRequestException
+     * @throws Exception\DuplicateApplicationAsyncNotFoundException
+     */
+    public function duplicateApplicationAsync(int $applicationId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DuplicateApplicationAsync($applicationId, $headerParameters), $fetch);
+    }
+
+    /**
+     * **This endpoint has been deprecated and replaced with a new endpoint, [workspace_list_applications](#tag/Applications/operation/workspace_list_applications).**.
+     *
+     **Support for this endpoint will end in 2024.**
+     *
+     * Lists all the applications of the group related to the provided `group_id` parameter if the authorized user is in that group. If the group is related to a template, then this endpoint will be publicly accessible. The properties that belong to the application can differ per type. An application always belongs to a single group.
+     *
+     * @param int    $groupId returns only applications that are in the group related to the provided value
+     * @param string $fetch   Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GroupListApplicationsBadRequestException
+     * @throws Exception\GroupListApplicationsNotFoundException
+     */
+    public function groupListApplications(int $groupId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GroupListApplications($groupId), $fetch);
+    }
+
+    /**
+     * **This endpoint has been deprecated and replaced with a new endpoint, [workspace_create_application](#tag/Applications/operation/workspace_create_application).**.
+     *
+     **Support for this endpoint will end in 2024.**
+     *
+     * Creates a new application based on the provided type. The newly created application is going to be added to the group related to the provided `group_id` parameter. If the authorized user does not belong to the group an error will be returned.
+     *
+     * @param int        $groupId          creates an application for the group related to the provided value
+     * @param mixed|null $requestBody
+     * @param array      $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GroupCreateApplicationBadRequestException
+     * @throws Exception\GroupCreateApplicationNotFoundException
+     */
+    public function groupCreateApplication(int $groupId, $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GroupCreateApplication($groupId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * **This endpoint has been deprecated and replaced with a new endpoint, [workspace_order_applications](#tag/Applications/operation/workspace_order_applications).**.
+     *
+     **Support for this endpoint will end in 2024.**
+     *
+     * Changes the order of the provided application ids to the matching position that the id has in the list. If the authorized user does not belong to the group it will be ignored. The order of the not provided tables will be set to `0`.
+     *
+     * @param int   $groupId          updates the order of the applications in the group related to the provided value
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GroupOrderApplicationsBadRequestException
+     * @throws Exception\GroupOrderApplicationsNotFoundException
+     */
+    public function groupOrderApplications(int $groupId, Model\OrderApplications $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GroupOrderApplications($groupId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Lists all the applications of the workspace related to the provided `workspace_id` parameter if the authorized user is in that workspace. If theworkspace is related to a template, then this endpoint will be publicly accessible. The properties that belong to the application can differ per type. An application always belongs to a single workspace.
+     *
+     * @param int    $workspaceId returns only applications that are in the workspace related to the provided value
+     * @param string $fetch       Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\WorkspaceListApplicationsBadRequestException
+     * @throws Exception\WorkspaceListApplicationsNotFoundException
+     */
+    public function workspaceListApplications(int $workspaceId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\WorkspaceListApplications($workspaceId), $fetch);
+    }
+
+    /**
+     * Creates a new application based on the provided type. The newly created application is going to be added to the workspace related to the provided `workspace_id` parameter. If the authorized user does not belong to the workspace an error will be returned.
+     *
+     * @param int        $workspaceId      creates an application for the workspace related to the provided value
+     * @param mixed|null $requestBody
+     * @param array      $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\WorkspaceCreateApplicationBadRequestException
+     * @throws Exception\WorkspaceCreateApplicationNotFoundException
+     */
+    public function workspaceCreateApplication(int $workspaceId, $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\WorkspaceCreateApplication($workspaceId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Changes the order of the provided application ids to the matching position that the id has in the list. If the authorized user does not belong to the workspace it will be ignored. The order of the not provided tables will be set to `0`.
+     *
+     * @param int   $workspaceId      updates the order of the applications in the workspace related to the provided value
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\WorkspaceOrderApplicationsBadRequestException
+     * @throws Exception\WorkspaceOrderApplicationsNotFoundException
+     */
+    public function workspaceOrderApplications(int $workspaceId, Model\OrderApplications $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\WorkspaceOrderApplications($workspaceId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Lists all audit log entries for the given workspace id.
+     *
+     * This is a **enterprise** feature.
+     *
+     * @param array $queryParameters {
+     *
+     * @var string $action_type filter the audit log entries by action type
+     * @var string $from_timestamp the ISO timestamp to filter the audit log entries from
+     * @var int    $page defines which page should be returned
+     * @var int    $size defines how many audit log entries should be returned per page
+     * @var string $sorts A comma separated string of attributes to sort by, each attribute must be prefixed with `+` for a descending sort or a `-` for an ascending sort. The accepted attribute names are: `user, workspace, type, timestamp, ip_address`. For example `sorts=-user,-workspace` will sort the audit log entries first by descending user and then ascending workspace. A sortparameter with multiple instances of the same sort attribute will respond with the ERROR_INVALID_SORT_ATTRIBUTE error.
+     * @var string $to_timestamp the ISO timestamp to filter the audit log entries to
+     * @var int    $user_id filter the audit log entries by user id
+     * @var int    $workspace_id Filter the audit log entries by workspace id. This filter works only for the admin audit log.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\PaginationSerializerAuditLog|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\AuditLogList2BadRequestException
+     * @throws Exception\AuditLogList2UnauthorizedException
+     */
+    public function auditLogList2(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\AuditLogList2($queryParameters), $fetch);
+    }
+
+    /**
+     * List all distinct action types related to an audit log entry.
+     *
+     * This is a **enterprise** feature.
+     *
+     * @param array $queryParameters {
+     *
+     * @var string $search if provided only action_types with name that match the query will be returned
+     * @var int    $workspace_id Return action types related to the workspace.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \cedricziel\phpbaserowclient\Generated\Model\AuditLogActionType[]|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\AuditLogActionTypes2BadRequestException
+     * @throws Exception\AuditLogActionTypes2UnauthorizedException
+     */
+    public function auditLogActionTypes2(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\AuditLogActionTypes2($queryParameters), $fetch);
+    }
+
+    /**
+     * Creates a job to export the filtered audit log to a CSV file.
+     *
+     * This is a **enterprise** feature.
+     *
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\SingleAuditLogExportJobResponse|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\AsyncAuditLogExport2BadRequestException
+     * @throws Exception\AsyncAuditLogExport2NotFoundException
+     */
+    public function asyncAuditLogExport2(?Model\SingleAuditLogExportJobRequest $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\AsyncAuditLogExport2($requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * List all users that have performed an action in the audit log.
+     *
+     * This is a **enterprise** feature.
+     *
+     * @param array $queryParameters {
+     *
+     * @var int    $page defines which page should be returned
+     * @var string $search if provided only users with email that match the query will be returned
+     * @var int    $size defines how many users should be returned per page
+     * @var int    $workspace_id Return users belonging to the given workspace_id.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\PaginationSerializerAuditLogUser|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\AuditLogUsers2BadRequestException
+     * @throws Exception\AuditLogUsers2UnauthorizedException
+     */
+    public function auditLogUsers2(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\AuditLogUsers2($queryParameters), $fetch);
+    }
+
+    /**
+     * List all distinct workspace names related to an audit log entry.
+     *
+     * This is a **enterprise** feature.
+     *
+     * @param array $queryParameters {
+     *
+     * @var int    $page defines which page should be returned
+     * @var string $search if provided only workspaces with name that match the query will be returned
+     * @var int    $size Defines how many workspaces should be returned per page.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\PaginationSerializerAuditLogWorkspace|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\AuditLogWorkspaces2BadRequestException
+     * @throws Exception\AuditLogWorkspaces2UnauthorizedException
+     */
+    public function auditLogWorkspaces2(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\AuditLogWorkspaces2($queryParameters), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function listAuthProvidersLoginOptions(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListAuthProvidersLoginOptions(), $fetch);
+    }
+
+    /**
+     * Gets all the domains of a builder.
+     *
+     * @param int   $builderId        Gets all the domains for the specified builder
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GetBuilderDomainsBadRequestException
+     * @throws Exception\GetBuilderDomainsNotFoundException
+     */
+    public function getBuilderDomains(int $builderId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GetBuilderDomains($builderId, $headerParameters), $fetch);
+    }
+
+    /**
+     * Creates a new domain for an application builder.
+     *
+     * @param int        $builderId        Creates a domain for the application builder related tothe provided value
+     * @param mixed|null $requestBody
+     * @param array      $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\CreateBuilderDomainBadRequestException
+     * @throws Exception\CreateBuilderDomainNotFoundException
+     */
+    public function createBuilderDomain(int $builderId, $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\CreateBuilderDomain($builderId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Apply a new order to the domains of a builder.
+     *
+     * @param int   $builderId        The builder the domain belongs to
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\OrderBuilderDomainsBadRequestException
+     * @throws Exception\OrderBuilderDomainsNotFoundException
+     */
+    public function orderBuilderDomains(int $builderId, Model\OrderDomains $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\OrderBuilderDomains($builderId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Creates a new page for an application builder.
+     *
+     * @param int   $builderId        creates a page for the application builder related to the provided value
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\Page|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\CreateBuilderPageBadRequestException
+     * @throws Exception\CreateBuilderPageNotFoundException
+     */
+    public function createBuilderPage(int $builderId, Model\CreatePage $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\CreateBuilderPage($builderId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Apply a new order to the pages of a builder.
+     *
+     * @param int   $builderId        The builder the page belongs to
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\OrderBuilderPagesBadRequestException
+     * @throws Exception\OrderBuilderPagesNotFoundException
+     */
+    public function orderBuilderPages(int $builderId, Model\OrderPages $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\OrderBuilderPages($builderId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Updates the theme properties for the provided id.
+     *
+     * @param int   $builderId        updates the theme for the application builder related to the provided value
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\CombinedThemeConfigBlocks|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UpdateBuilderThemeBadRequestException
+     * @throws Exception\UpdateBuilderThemeNotFoundException
+     */
+    public function updateBuilderTheme(int $builderId, ?Model\PatchedCombinedThemeConfigBlocks $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UpdateBuilderTheme($builderId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Deletes the data_source related by the given id.
+     *
+     * @param int   $dataSourceId     The id of the data_source
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DeleteBuilderPageDataSourceBadRequestException
+     * @throws Exception\DeleteBuilderPageDataSourceNotFoundException
+     */
+    public function deleteBuilderPageDataSource(int $dataSourceId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DeleteBuilderPageDataSource($dataSourceId, $headerParameters), $fetch);
+    }
+
+    /**
+     * Updates an existing builder data_source.
+     *
+     * @param int        $dataSourceId     The id of the data_source
+     * @param mixed|null $requestBody
+     * @param array      $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UpdateBuilderPageDataSourceBadRequestException
+     * @throws Exception\UpdateBuilderPageDataSourceNotFoundException
+     */
+    public function updateBuilderPageDataSource(int $dataSourceId, $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UpdateBuilderPageDataSource($dataSourceId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Dispatches the service of the related data_source and returns the result.
+     *
+     * @param int   $dataSourceId     The id of the data_source you want to call the dispatch for
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DispatchBuilderPageDataSourceNotFoundException
+     */
+    public function dispatchBuilderPageDataSource(int $dataSourceId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DispatchBuilderPageDataSource($dataSourceId, $headerParameters), $fetch);
+    }
+
+    /**
+     * Moves the data_source in the page before another data_source or at the end of the page if no before data_source is given. The data_sources must belong to the same page.
+     *
+     * @param int   $dataSourceId     The id of the data_source to move
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\MoveBuilderPageDataSourceBadRequestException
+     * @throws Exception\MoveBuilderPageDataSourceNotFoundException
+     */
+    public function moveBuilderPageDataSource(int $dataSourceId, ?Model\PatchedMoveDataSource $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\MoveBuilderPageDataSource($dataSourceId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Deletes an existing domain of an application builder.
+     *
+     * @param int   $domainId         The id of the domain
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DeleteBuilderDomainBadRequestException
+     * @throws Exception\DeleteBuilderDomainNotFoundException
+     */
+    public function deleteBuilderDomain(int $domainId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DeleteBuilderDomain($domainId, $headerParameters), $fetch);
+    }
+
+    /**
+     * Updates an existing domain of an application builder.
+     *
+     * @param int   $domainId         The id of the domain
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UpdateBuilderDomainBadRequestException
+     * @throws Exception\UpdateBuilderDomainNotFoundException
+     */
+    public function updateBuilderDomain(int $domainId, ?Model\PatchedUpdateDomain $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UpdateBuilderDomain($domainId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * This endpoint starts an asynchronous job to publish the builder. The job clones the current version of the given builder and publish it for the given domain.
+     *
+     * @param int   $domainId         the builder application id the user wants to publish
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\PublishBuilderDomainBadRequestException
+     * @throws Exception\PublishBuilderDomainNotFoundException
+     */
+    public function publishBuilderDomain(int $domainId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\PublishBuilderDomain($domainId, $headerParameters), $fetch);
+    }
+
+    /**
+     * This endpoint can be used to check whether a domain exists for SSL certificate purposes. It's compatible with the Caddy on_demand TLS as described here: https://caddyserver.com/docs/json/apps/tls/automation/on_demand/ask/. It will respond with a 200 status code if it exists or a 404 if it doesn't exist.
+     *
+     * @param array $queryParameters {
+     *
+     * @var int $domain The domain name for which
      *          }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \myvendor\mynamespace\Generated\Model\Pet[]|\myvendor\mynamespace\Generated\Model\Error|\Psr\Http\Message\ResponseInterface|null
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\AskPublicBuilderDomainExistsNotFoundException
      */
-    public function listPets(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function askPublicBuilderDomainExists(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new Endpoint\ListPets($queryParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\AskPublicBuilderDomainExists($queryParameters), $fetch);
+    }
+
+    /**
+     * Returns the public serialized version of the builder and its pages for the given builder id.
+     *
+     * @param int    $builderId returns the builder related to the provided Id and its pages
+     * @param string $fetch     Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\PublicBuilder|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GetPublicBuilderByIdNotFoundException
+     */
+    public function getPublicBuilderById(int $builderId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GetPublicBuilderById($builderId), $fetch);
+    }
+
+    /**
+     * Returns the public serialized version of the builder for the given domain name and its pages .
+     *
+     * @param string $domainName returns the builder published for the given domain name
+     * @param string $fetch      Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\PublicBuilder|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GetPublicBuilderByDomainNameNotFoundException
+     */
+    public function getPublicBuilderByDomainName(string $domainName, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GetPublicBuilderByDomainName($domainName), $fetch);
+    }
+
+    /**
+     * Lists all the data_sources of the page related to the provided parameter if the builder is public.
+     *
+     * @param int    $pageId returns only the data_sources of the page related to the provided Id if the related builder is public
+     * @param string $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ListPublicBuilderPageDataSourcesNotFoundException
+     */
+    public function listPublicBuilderPageDataSources(int $pageId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListPublicBuilderPageDataSources($pageId), $fetch);
+    }
+
+    /**
+     * Lists all the elements of the page related to the provided parameter. If the user is Anonymous, the page must belong to a published builder instance to being accessible.
+     *
+     * @param int    $pageId returns the elements of the page related to the provided Id
+     * @param string $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ListPublicBuilderPageElementsNotFoundException
+     */
+    public function listPublicBuilderPageElements(int $pageId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListPublicBuilderPageElements($pageId), $fetch);
+    }
+
+    /**
+     * Lists all the workflow actions with their public accessible data. Some configuration might be omitted for security reasons such as passwords or PII.
+     *
+     * @param int    $pageId returns only the public workflow actions of the page related to the provided Id
+     * @param string $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ListPublicBuilderPageWorkflowActionsNotFoundException
+     */
+    public function listPublicBuilderPageWorkflowActions(int $pageId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListPublicBuilderPageWorkflowActions($pageId), $fetch);
+    }
+
+    /**
+     * Deletes the element related by the given id.
+     *
+     * @param int   $elementId        The id of the element
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DeleteBuilderPageElementBadRequestException
+     * @throws Exception\DeleteBuilderPageElementNotFoundException
+     */
+    public function deleteBuilderPageElement(int $elementId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DeleteBuilderPageElement($elementId, $headerParameters), $fetch);
+    }
+
+    /**
+     * Updates an existing builder element.
+     *
+     * @param int        $elementId        The id of the element
+     * @param mixed|null $requestBody
+     * @param array      $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UpdateBuilderPageElementBadRequestException
+     * @throws Exception\UpdateBuilderPageElementNotFoundException
+     */
+    public function updateBuilderPageElement(int $elementId, $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UpdateBuilderPageElement($elementId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Duplicates an element and all of the elements children and the associated workflow actions as well.
+     *
+     * @param int   $elementId        The id of the element to duplicate
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\DuplicateElement|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DuplicateBuilderPageElementBadRequestException
+     * @throws Exception\DuplicateBuilderPageElementNotFoundException
+     */
+    public function duplicateBuilderPageElement(int $elementId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DuplicateBuilderPageElement($elementId, $headerParameters), $fetch);
+    }
+
+    /**
+     * Moves the element in the page before another element or at the end of the page if no before element is given. The elements must belong to the same page.
+     *
+     * @param int   $elementId        The id of the element to move
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\MoveBuilderPageElementBadRequestException
+     * @throws Exception\MoveBuilderPageElementNotFoundException
+     */
+    public function moveBuilderPageElement(int $elementId, ?Model\PatchedMoveElement $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\MoveBuilderPageElement($elementId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Lists all the data_sources of the page related to the provided parameter if the user has access to the related builder's workspace. If the workspace is related to a template, then this endpoint will be publicly accessible.
+     *
+     * @param int    $pageId returns only the data_sources of the page related to the provided Id
+     * @param string $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ListBuilderPageDataSourcesNotFoundException
+     */
+    public function listBuilderPageDataSources(int $pageId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListBuilderPageDataSources($pageId), $fetch);
+    }
+
+    /**
+     * Creates a new builder data_source.
+     *
+     * @param int        $pageId           creates a data_source for the builder page related to the provided value
+     * @param mixed|null $requestBody
+     * @param array      $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\CreateBuilderPageDataSourceBadRequestException
+     * @throws Exception\CreateBuilderPageDataSourceNotFoundException
+     */
+    public function createBuilderPageDataSource(int $pageId, $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\CreateBuilderPageDataSource($pageId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Dispatches the service of the related page data_sources.
+     *
+     * @param int   $pageId           the page we want to dispatch the data source for
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DispatchBuilderPageDataSourcesNotFoundException
+     */
+    public function dispatchBuilderPageDataSources(int $pageId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DispatchBuilderPageDataSources($pageId, $headerParameters), $fetch);
+    }
+
+    /**
+     * Lists all the elements of the page related to the provided parameter if the user has access to the related builder's workspace. If the workspace is related to a template, then this endpoint will be publicly accessible.
+     *
+     * @param int    $pageId returns only the elements of the page related to the provided Id
+     * @param string $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ListBuilderPageElementsNotFoundException
+     */
+    public function listBuilderPageElements(int $pageId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListBuilderPageElements($pageId), $fetch);
+    }
+
+    /**
+     * Creates a new builder element.
+     *
+     * @param int        $pageId           creates an element for the builder page related to the provided value
+     * @param mixed|null $requestBody
+     * @param array      $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\CreateBuilderPageElementBadRequestException
+     * @throws Exception\CreateBuilderPageElementNotFoundException
+     */
+    public function createBuilderPageElement(int $pageId, $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\CreateBuilderPageElement($pageId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Lists all the workflow actions of the page related to the provided parameter if the user has access to the related builder's workspace. If the workspace is related to a template, then this endpoint will be publicly accessible.
+     *
+     * @param int    $pageId returns only the workflow actions of the page related to the provided Id
+     * @param string $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ListBuilderPageWorkflowActionsNotFoundException
+     */
+    public function listBuilderPageWorkflowActions(int $pageId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListBuilderPageWorkflowActions($pageId), $fetch);
+    }
+
+    /**
+     * Creates a new builder workflow action.
+     *
+     * @param int        $pageId           creates a workflow action for the builder page related to the provided value
+     * @param mixed|null $requestBody
+     * @param array      $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\CreateBuilderPageWorkflowActionBadRequestException
+     * @throws Exception\CreateBuilderPageWorkflowActionNotFoundException
+     */
+    public function createBuilderPageWorkflowAction(int $pageId, $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\CreateBuilderPageWorkflowAction($pageId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Apply a new order to the workflow actions of a page.
+     *
+     * @param int   $pageId           The page the workflow actions belong to
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\OrderBuilderWorkflowActionsBadRequestException
+     * @throws Exception\OrderBuilderWorkflowActionsNotFoundException
+     */
+    public function orderBuilderWorkflowActions(int $pageId, Model\OrderWorkflowActions $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\OrderBuilderWorkflowActions($pageId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Deletes an existing page of an application builder.
+     *
+     * @param int   $pageId           The id of the page
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DeleteBuilderPageBadRequestException
+     * @throws Exception\DeleteBuilderPageNotFoundException
+     */
+    public function deleteBuilderPage(int $pageId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DeleteBuilderPage($pageId, $headerParameters), $fetch);
+    }
+
+    /**
+     * Updates an existing page of an application builder.
+     *
+     * @param int   $pageId           The id of the page
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\Page|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UpdateBuilderPageBadRequestException
+     * @throws Exception\UpdateBuilderPageNotFoundException
+     */
+    public function updateBuilderPage(int $pageId, ?Model\PatchedUpdatePage $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UpdateBuilderPage($pageId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Start a job to duplicate the page with the provided `page_id` parameter if the authorized user has access to the builder's workspace.
+     *
+     * @param int   $pageId           the page to duplicate
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\SingleDuplicatePageJobType|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DuplicateBuilderPageAsyncBadRequestException
+     * @throws Exception\DuplicateBuilderPageAsyncNotFoundException
+     */
+    public function duplicateBuilderPageAsync(int $pageId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DuplicateBuilderPageAsync($pageId, $headerParameters), $fetch);
+    }
+
+    /**
+     * Deletes the workflow action related by the given id.
+     *
+     * @param int   $workflowActionId The id of the workflow action
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DeleteBuilderPageWorkflowActionBadRequestException
+     * @throws Exception\DeleteBuilderPageWorkflowActionNotFoundException
+     */
+    public function deleteBuilderPageWorkflowAction(int $workflowActionId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DeleteBuilderPageWorkflowAction($workflowActionId, $headerParameters), $fetch);
+    }
+
+    /**
+     * Updates an existing builder workflow action.
+     *
+     * @param int        $workflowActionId The id of the workflow action
+     * @param mixed|null $requestBody
+     * @param array      $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UpdateBuilderPageWorkflowActionBadRequestException
+     * @throws Exception\UpdateBuilderPageWorkflowActionNotFoundException
+     */
+    public function updateBuilderPageWorkflowAction(int $workflowActionId, $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UpdateBuilderPageWorkflowAction($workflowActionId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Dispatches the service of the related workflow_action and returns the result.
+     *
+     * @param int   $workflowActionId the id of the workflow_action you want to call the dispatch for
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DispatchBuilderPageWorkflowActionBadRequestException
+     */
+    public function dispatchBuilderPageWorkflowAction(int $workflowActionId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DispatchBuilderPageWorkflowAction($workflowActionId, $headerParameters), $fetch);
+    }
+
+    /**
+     * Returns information such as export progress and state or the url of the exported file for the specified export job, only if the requesting user has access.
+     *
+     * @param int    $jobId the job id to lookup information about
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\ExportJob|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GetExportJobNotFoundException
+     */
+    public function getExportJob(int $jobId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GetExportJob($jobId), $fetch);
+    }
+
+    /**
+     * Creates and starts a new export job for a table given some exporter options. Returns an error if the requesting user does not have permissionsto view the table.
+     *
+     * @param int        $tableId     The table id to create and start an export job for
+     * @param mixed|null $requestBody
+     * @param string     $fetch       Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\ExportJob|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ExportTableBadRequestException
+     * @throws Exception\ExportTableNotFoundException
+     */
+    public function exportTable(int $tableId, $requestBody = null, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ExportTable($tableId, $requestBody), $fetch);
+    }
+
+    /**
+     * Deletes the existing field if the authorized user has access to the related database's workspace. Note that all the related data to that field is also deleted. Primary fields cannot be deleted because their value represents the row. If deleting the field causes other fields to change then the specificinstances of those fields will be included in the related fields response key.
+     *
+     * @param int   $fieldId          deletes the field related to the provided value
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\RelatedFields|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DeleteDatabaseTableFieldBadRequestException
+     * @throws Exception\DeleteDatabaseTableFieldNotFoundException
+     */
+    public function deleteDatabaseTableField(int $fieldId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DeleteDatabaseTableField($fieldId, $headerParameters), $fetch);
+    }
+
+    /**
+     * Returns the existing field if the authorized user has access to the related database's workspace. Depending on the type different properties could be returned.
+     *
+     * @param int    $fieldId returns the field related to the provided value
+     * @param string $fetch   Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GetDatabaseTableFieldBadRequestException
+     * @throws Exception\GetDatabaseTableFieldNotFoundException
+     */
+    public function getDatabaseTableField(int $fieldId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GetDatabaseTableField($fieldId), $fetch);
+    }
+
+    /**
+     * Updates the existing field if the authorized user has access to the related database's workspace. The type can also be changed and depending on that type, different additional properties can optionally be set. If you change the field type it could happen that the data conversion fails, in that case the `ERROR_CANNOT_CHANGE_FIELD_TYPE` is returned, but this rarely happens. If a data value cannot be converted it is set to `null` so data might go lost.If updated the field causes other fields to change then the specificinstances of those fields will be included in the related fields response key.
+     *
+     * @param int        $fieldId          updates the field related to the provided value
+     * @param mixed|null $requestBody
+     * @param array      $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UpdateDatabaseTableFieldBadRequestException
+     * @throws Exception\UpdateDatabaseTableFieldNotFoundException
+     */
+    public function updateDatabaseTableField(int $fieldId, $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UpdateDatabaseTableField($fieldId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Duplicates the table with the provided `table_id` parameter if the authorized user has access to the database's workspace.
+     *
+     * @param int   $fieldId          the field to duplicate
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\SingleDuplicateFieldJobType|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DuplicateTableFieldBadRequestException
+     * @throws Exception\DuplicateTableFieldNotFoundException
+     */
+    public function duplicateTableField(int $fieldId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DuplicateTableField($fieldId, $headerParameters), $fetch);
+    }
+
+    /**
+     * Endpoint that's used by the AI field to start an sync task that will update the cell value of the provided row IDs based on the dynamically constructed prompt configured in the field settings.
+     * This is a **premium** feature.
+     *
+     * @param int   $fieldId          the field to generate the value for
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GenerateTableAiFieldValueBadRequestException
+     * @throws Exception\GenerateTableAiFieldValueNotFoundException
+     */
+    public function generateTableAiFieldValue(int $fieldId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GenerateTableAiFieldValue($fieldId, $headerParameters), $fetch);
+    }
+
+    /**
+     * Returns a list of all the unique row values for an existing field, sorted in order of frequency.
+     *
+     * @param int   $fieldId         returns the values related to the provided field
+     * @param array $queryParameters {
+     *
+     * @var int  $limit defines how many values should be returned
+     * @var bool $split_comma_separated Indicates whether the original column values must be splitted by comma.
+     *           }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\UniqueRowValues|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GetDatabaseFieldUniqueRowValuesBadRequestException
+     * @throws Exception\GetDatabaseFieldUniqueRowValuesNotFoundException
+     */
+    public function getDatabaseFieldUniqueRowValues(int $fieldId, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GetDatabaseFieldUniqueRowValues($fieldId, $queryParameters), $fetch);
+    }
+
+    /**
+     * Lists all the fields of the table related to the provided parameter if the user has access to the related database's workspace. If the workspace is related to a template, then this endpoint will be publicly accessible. A table consists of fields and each field can have a different type. Each type can have different properties. A field is comparable with a regular table's column.
+     *
+     * @param int    $tableId returns only the fields of the table related to the provided value
+     * @param string $fetch   Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ListDatabaseTableFieldsBadRequestException
+     * @throws Exception\ListDatabaseTableFieldsUnauthorizedException
+     * @throws Exception\ListDatabaseTableFieldsNotFoundException
+     */
+    public function listDatabaseTableFields(int $tableId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListDatabaseTableFields($tableId), $fetch);
+    }
+
+    /**
+     * Creates a new field for the table related to the provided `table_id` parameter if the authorized user has access to the related database's workspace. Depending on the type, different properties can optionally be set.If creating the field causes other fields to change then the specificinstances of those fields will be included in the related fields response key.
+     *
+     * @param int        $tableId          creates a new field for the provided table related to the value
+     * @param mixed|null $requestBody
+     * @param array      $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\CreateDatabaseTableFieldBadRequestException
+     * @throws Exception\CreateDatabaseTableFieldUnauthorizedException
+     * @throws Exception\CreateDatabaseTableFieldNotFoundException
+     */
+    public function createDatabaseTableField(int $tableId, $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\CreateDatabaseTableField($tableId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * This endpoint generates a Baserow formula for the table related to the provided id, based on the human readable input provided in the request body.
+     * This is a **premium** feature.
+     *
+     * @param int    $tableId the table to generate the formula for
+     * @param string $fetch   Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\GenerateFormulaWithAIResponse|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GenerateFormulaWithAiBadRequestException
+     * @throws Exception\GenerateFormulaWithAiNotFoundException
+     */
+    public function generateFormulaWithAi(int $tableId, Model\GenerateFormulaWithAIRequest $requestBody, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GenerateFormulaWithAi($tableId, $requestBody), $fetch);
+    }
+
+    /**
+     * Calculates and returns the type of the specified formula value. Does not change the state of the field in any way.
+     *
+     * @param int    $tableId the table id of the formula field to type
+     * @param string $fetch   Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\TypeFormulaResult|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\TypeFormulaFieldBadRequestException
+     * @throws Exception\TypeFormulaFieldNotFoundException
+     */
+    public function typeFormulaField(int $tableId, Model\TypeFormulaRequest $requestBody, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\TypeFormulaField($tableId, $requestBody), $fetch);
+    }
+
+    /**
+     * Returns the names of the given row of the given tables. The nameof a row is the primary field value for this row. The result can be usedfor example, when you want to display the name of a linked row from another table.
+     *
+     * @param array $queryParameters {
+     *
+     * @var string $table__{id} A list of comma separated row ids to query from the table with id {id}. For example, if you want the name of row `42` and `43` from table `28` this parameter will be `table__28=42,43`. You can specify multiple rows for different tables but every tables must be in the same database. You need at least read permission on all specified tables.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\ApiDatabaseRowsNamesGetResponse200|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ListDatabaseTableRowNamesBadRequestException
+     * @throws Exception\ListDatabaseTableRowNamesUnauthorizedException
+     * @throws Exception\ListDatabaseTableRowNamesNotFoundException
+     */
+    public function listDatabaseTableRowNames(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListDatabaseTableRowNames($queryParameters), $fetch);
+    }
+
+    /**
+     * Lists all the rows of the table related to the provided parameter if the user has access to the related database's workspace. The response is paginated by a page/size style. It is also possible to provide an optional search query, only rows where the data matches the search query are going to be returned then. The properties of the returned rows depends on which fields the table has. For a complete overview of fields use the **list_database_table_fields** endpoint to list them all. In the example all field types are listed, but normally the number in field_{id} key is going to be the id of the field. Or if the GET parameter `user_field_names` is provided then the keys will be the name of the field. The value is what the user has provided and the format of it depends on the fields type.
+     *
+     * @param int   $tableId         returns the rows of the table related to the provided value
+     * @param array $queryParameters {
+     *
+     * @var string $exclude All the fields are included in the response by default. You can select a subset of fields by providing the exclude query parameter. If you for example provide the following GET parameter `exclude=field_1,field_2` then the fields with id `1` and id `2` are going to be excluded from the selection and response. If the `user_field_names` parameter is provided then instead exclude should be a comma separated list of the actual field names. For field names with commas you should surround the name with quotes like so: `exclude=My Field,"Field With , "`. A backslash can be used to escape field names which contain double quotes like so: `exclude=My Field,Field with \"`.
+     * @var string $filter__{field}__{filter} The rows can optionally be filtered by the same view filters available for the views. Multiple filters can be provided if they follow the same format. The field and filter variable indicate how to filter and the value indicates where to filter on.
+     *
+     * Please note that if the `filters` parameter is provided, this parameter will be ignored.
+     *
+     * For example if you provide the following GET parameter `filter__field_1__equal=test` then only rows where the value of field_1 is equal to test are going to be returned.
+     *
+     * The following filters are available: equal, not_equal, filename_contains, files_lower_than, has_file_type, contains, contains_not, contains_word, doesnt_contain_word, length_is_lower_than, higher_than, higher_than_or_equal, lower_than, lower_than_or_equal, is_even_and_whole, date_equal, date_before, date_before_or_equal, date_after_days_ago, date_after, date_after_or_equal, date_not_equal, date_equals_today, date_before_today, date_after_today, date_within_days, date_within_weeks, date_within_months, date_equals_days_ago, date_equals_months_ago, date_equals_years_ago, date_equals_week, date_equals_month, date_equals_day_of_month, date_equals_year, date_is, date_is_not, date_is_before, date_is_on_or_before, date_is_after, date_is_on_or_after, date_is_within, single_select_equal, single_select_not_equal, single_select_is_any_of, single_select_is_none_of, link_row_has, link_row_has_not, link_row_contains, link_row_not_contains, boolean, empty, not_empty, multiple_select_has, multiple_select_has_not, multiple_collaborators_has, multiple_collaborators_has_not, user_is, user_is_not.
+     * @var string $filter_type `AND`: Indicates that the rows must match all the provided filters.
+     *             `OR`: Indicates that the rows only have to match one of the filters.
+     *
+     * This works only if two or more filters are provided.Please note that if the `filters` parameter is provided, this parameter will be ignored.
+     * @var string $filters A JSON serialized string containing the filter tree to apply to this view. The filter tree is a nested structure containing the filters that need to be applied.
+     *
+     * Please note that if this parameter is provided, all other `filter__{field}__{filter}` will be ignored, as well as the `filter_type` parameter.
+     *
+     * An example of a valid filter tree is the following:`{"filter_type": "AND", "filters": [{"field": 1, "type": "equal", "value": "test"}]}`. The `field` value must be the ID of the field to filter on, or the name of the field if `user_field_names` is true.
+     *
+     * The following filters are available: equal, not_equal, filename_contains, files_lower_than, has_file_type, contains, contains_not, contains_word, doesnt_contain_word, length_is_lower_than, higher_than, higher_than_or_equal, lower_than, lower_than_or_equal, is_even_and_whole, date_equal, date_before, date_before_or_equal, date_after_days_ago, date_after, date_after_or_equal, date_not_equal, date_equals_today, date_before_today, date_after_today, date_within_days, date_within_weeks, date_within_months, date_equals_days_ago, date_equals_months_ago, date_equals_years_ago, date_equals_week, date_equals_month, date_equals_day_of_month, date_equals_year, date_is, date_is_not, date_is_before, date_is_on_or_before, date_is_after, date_is_on_or_after, date_is_within, single_select_equal, single_select_not_equal, single_select_is_any_of, single_select_is_none_of, link_row_has, link_row_has_not, link_row_contains, link_row_not_contains, boolean, empty, not_empty, multiple_select_has, multiple_select_has_not, multiple_collaborators_has, multiple_collaborators_has_not, user_is, user_is_not.
+     * @var string $include All the fields are included in the response by default. You can select a subset of fields by providing the include query parameter. If you for example provide the following GET parameter `include=field_1,field_2` then only the fields withid `1` and id `2` are going to be selected and included in the response. If the `user_field_names` parameter is provided then instead include should be a comma separated list of the actual field names. For field names with commas you should surround the name with quotes like so: `include=My Field,"Field With , "`. A backslash can be used to escape field names which contain double quotes like so: `include=My Field,Field with \"`.
+     * @var string $order_by Optionally the rows can be ordered by provided field ids separated by comma. By default a field is ordered in ascending (A-Z) order, but by prepending the field with a '-' it can be ordered descending (Z-A). If the `user_field_names` parameter is provided then instead order_by should be a comma separated list of the actual field names. For field names with commas you should surround the name with quotes like so: `order_by=My Field,"Field With , "`. A backslash can be used to escape field names which contain double quotes like so: `order_by=My Field,Field with \"`.
+     * @var int    $page defines which page of rows should be returned
+     * @var string $search if provided only rows with data that matches the search query are going to be returned
+     * @var string $search_mode If provided, allows API consumers to determine what kind of search experience they wish to have. If the default `SearchModes.MODE_FT_WITH_COUNT` is used, then Postgres full-text search is used. If `SearchModes.MODE_COMPAT` is provided then the search term will be exactly searched for including whitespace on each cell. This is the Baserow legacy search behaviour.
+     * @var int    $size defines how many rows should be returned per page
+     * @var bool   $user_field_names a flag query parameter which if provided the returned json will use the user specified field names instead of internal Baserow field names (field_123 etc)
+     * @var int    $view_id Includes all the filters and sorts of the provided view.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\PaginationSerializerExampleRowResponseSerializerWithUserFieldNames|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ListDatabaseTableRowsBadRequestException
+     * @throws Exception\ListDatabaseTableRowsUnauthorizedException
+     * @throws Exception\ListDatabaseTableRowsNotFoundException
+     */
+    public function listDatabaseTableRows(int $tableId, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListDatabaseTableRows($tableId, $queryParameters), $fetch);
+    }
+
+    /**
+     * Creates a new row in the table if the user has access to the related table's workspace. The accepted body fields are depending on the fields that the table has. For a complete overview of fields use the **list_database_table_fields** to list them all. None of the fields are required, if they are not provided the value is going to be `null` or `false` or some default value is that is set. If you want to add a value for the field with for example id `10`, the key must be named `field_10`. Or instead if the `user_field_names` GET param is provided the key must be the name of the field. Of course multiple fields can be provided in one request. In the examples below you will find all the different field types, the numbers/ids in the example are just there for example purposes, the field_ID must be replaced with the actual id of the field or the name of the field if `user_field_names` is provided.
+     *
+     * @param int   $tableId         creates a row in the table related to the provided value
+     * @param array $queryParameters {
+     *
+     * @var int  $before if provided then the newly created row will be positioned before the row with the provided id
+     * @var bool $user_field_names A flag query parameter which if provided this endpoint will expect and return the user specified field names instead of internal Baserow field names (field_123 etc).
+     *           }
+     *
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\ExampleRowResponseSerializerWithUserFieldNames|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\CreateDatabaseTableRowBadRequestException
+     * @throws Exception\CreateDatabaseTableRowUnauthorizedException
+     * @throws Exception\CreateDatabaseTableRowNotFoundException
+     */
+    public function createDatabaseTableRow(int $tableId, ?Model\ExampleRowRequestSerializerWithUserFieldNames $requestBody = null, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\CreateDatabaseTableRow($tableId, $requestBody, $queryParameters, $headerParameters), $fetch);
+    }
+
+    /**
+     * Deletes an existing row in the table if the user has access to the table's workspace.
+     *
+     * @param int   $rowId            deletes the row related to the value
+     * @param int   $tableId          deletes the row in the table related to the value
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DeleteDatabaseTableRowBadRequestException
+     * @throws Exception\DeleteDatabaseTableRowNotFoundException
+     */
+    public function deleteDatabaseTableRow(int $rowId, int $tableId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DeleteDatabaseTableRow($rowId, $tableId, $headerParameters), $fetch);
+    }
+
+    /**
+     * Fetches an existing row from the table if the user has access to the related table's workspace. The properties of the returned row depend on which fields the table has. For a complete overview of fields use the **list_database_table_fields** endpoint to list them all. In the example all field types are listed, but normally the number in field_{id} key is going to be the id of the field of the field. Or if the GET parameter `user_field_names` is provided then the keys will be the name of the field. The value is what the user has provided and the format of it depends on the fields type.
+     *
+     * @param int   $rowId           returns the row related the provided value
+     * @param int   $tableId         returns the row of the table related to the provided value
+     * @param array $queryParameters {
+     *
+     * @var bool $user_field_names A flag query parameter which if provided the returned json will use the user specified field names instead of internal Baserow field names (field_123 etc).
+     *           }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\ExampleRowResponseSerializerWithUserFieldNames|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GetDatabaseTableRowBadRequestException
+     * @throws Exception\GetDatabaseTableRowUnauthorizedException
+     * @throws Exception\GetDatabaseTableRowNotFoundException
+     */
+    public function getDatabaseTableRow(int $rowId, int $tableId, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GetDatabaseTableRow($rowId, $tableId, $queryParameters), $fetch);
+    }
+
+    /**
+     * Updates an existing row in the table if the user has access to the related table's workspace. The accepted body fields are depending on the fields that the table has. For a complete overview of fields use the **list_database_table_fields** endpoint to list them all. None of the fields are required, if they are not provided the value is not going to be updated. When you want to update a value for the field with id `10`, the key must be named `field_10`. Or if the GET parameter `user_field_names` is provided the key of the field to update must be the name of the field. Multiple different fields to update can be provided in one request. In the examples below you will find all the different field types, the numbers/ids in the example are just there for example purposes, the field_ID must be replaced with the actual id of the field or the name of the field if `user_field_names` is provided.
+     *
+     * @param int   $rowId           updates the row related to the value
+     * @param int   $tableId         updates the row in the table related to the value
+     * @param array $queryParameters {
+     *
+     * @var bool $user_field_names A flag query parameter which if provided this endpoint will expect and return the user specified field names instead of internal Baserow field names (field_123 etc).
+     *           }
+     *
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\ExampleRowResponseSerializerWithUserFieldNames|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UpdateDatabaseTableRowBadRequestException
+     * @throws Exception\UpdateDatabaseTableRowUnauthorizedException
+     * @throws Exception\UpdateDatabaseTableRowNotFoundException
+     */
+    public function updateDatabaseTableRow(int $rowId, int $tableId, ?Model\PatchedExampleUpdateRowRequestSerializerWithUserFieldNames $requestBody = null, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UpdateDatabaseTableRow($rowId, $tableId, $requestBody, $queryParameters, $headerParameters), $fetch);
+    }
+
+    /**
+     * Fetches the adjacent row to a given row_id in the table with the given table_id. If the previous flag is set it will return the previous row, otherwise it will return the next row. You can specifya view_id and it will apply the filters and sorts of the provided view.
+     *
+     * @param int   $rowId           returns the row adjacent the provided value
+     * @param int   $tableId         returns the row of the table related to the provided value
+     * @param array $queryParameters {
+     *
+     * @var bool   $previous A flag query parameter which if provided returns theprevious row to the specified row_id. If it's not setit will return the next row.
+     * @var string $search if provided, the adjacent row will be one that matchesthe search query
+     * @var string $search_mode If provided, allows API consumers to determine what kind of search experience they wish to have. If the default `SearchModes.MODE_FT_WITH_COUNT` is used, then Postgres full-text search is used. If `SearchModes.MODE_COMPAT` is provided then the search term will be exactly searched for including whitespace on each cell. This is the Baserow legacy search behaviour.
+     * @var bool   $user_field_names a flag query parameter which if provided the returned json will use the user specified field names instead of internal Baserow field names (field_123 etc)
+     * @var int    $view_id Applies the filters and sorts of the provided view.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\ExampleRowResponseSerializerWithUserFieldNames|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GetAdjacentDatabaseTableRowBadRequestException
+     * @throws Exception\GetAdjacentDatabaseTableRowNotFoundException
+     */
+    public function getAdjacentDatabaseTableRow(int $rowId, int $tableId, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GetAdjacentDatabaseTableRow($rowId, $tableId, $queryParameters), $fetch);
+    }
+
+    /**
+     * Fetches the row change history of a given row_id in the table with the given table_id. The row change history is paginated and can be limited with the limit and offset query parameters.
+     *
+     * @param int   $rowId           the id of the row to fetch the change history from
+     * @param int   $tableId         the id of the table to fetch the row change history from
+     * @param array $queryParameters {
+     *
+     * @var int $limit the maximum number of row change history entries to return
+     * @var int $offset The offset of the row change history entries to return.
+     *          }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\PaginationSerializerRowHistory|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GetDatabaseTableRowHistoryBadRequestException
+     * @throws Exception\GetDatabaseTableRowHistoryNotFoundException
+     */
+    public function getDatabaseTableRowHistory(int $rowId, int $tableId, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GetDatabaseTableRowHistory($rowId, $tableId, $queryParameters), $fetch);
+    }
+
+    /**
+     * Moves the row related to given `row_id` parameter to another position. It is only possible to move the row before another existing row or to the end. If the `before_id` is provided then the row related to the `row_id` parameter is moved before that row. If the `before_id` parameter is not provided, then the row will be moved to the end.
+     *
+     * @param int   $rowId           moves the row related to the value
+     * @param int   $tableId         moves the row in the table related to the value
+     * @param array $queryParameters {
+     *
+     * @var int  $before_id Moves the row related to the given `row_id` before the row related to the provided value. If not provided, then the row will be moved to the end.
+     * @var bool $user_field_names A flag query parameter which if provided the returned json will use the user specified field names instead of internal Baserow field names (field_123 etc).
+     *           }
+     *
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\ExampleRowResponseSerializerWithUserFieldNames|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\MoveDatabaseTableRowBadRequestException
+     * @throws Exception\MoveDatabaseTableRowUnauthorizedException
+     * @throws Exception\MoveDatabaseTableRowNotFoundException
+     */
+    public function moveDatabaseTableRow(int $rowId, int $tableId, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\MoveDatabaseTableRow($rowId, $tableId, $queryParameters, $headerParameters), $fetch);
+    }
+
+    /**
+     * Updates existing rows in the table if the user has access to the related table's workspace. The accepted body fields are depending on the fields that the table has. For a complete overview of fields use the **list_database_table_fields** endpoint to list them all. None of the fields are required, if they are not provided the value is not going to be updated. When you want to update a value for the field with id `10`, the key must be named `field_10`. Or if the GET parameter `user_field_names` is provided the key of the field to update must be the name of the field. Multiple different fields to update can be provided for each row. In the examples below you will find all the different field types, the numbers/ids in the example are just there for example purposes, the field_ID must be replaced with the actual id of the field or the name of the field if `user_field_names` is provided.
+     **WARNING:** This endpoint doesn't yet work with row updated webhooks.
+     *
+     * @param int   $tableId         updates the rows in the table
+     * @param array $queryParameters {
+     *
+     * @var bool $user_field_names A flag query parameter which if provided this endpoint will expect and return the user specified field names instead of internal Baserow field names (field_123 etc).
+     *           }
+     *
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\ExampleBatchRowsResponse|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\BatchUpdateDatabaseTableRowsBadRequestException
+     * @throws Exception\BatchUpdateDatabaseTableRowsUnauthorizedException
+     * @throws Exception\BatchUpdateDatabaseTableRowsNotFoundException
+     */
+    public function batchUpdateDatabaseTableRows(int $tableId, ?Model\PatchedExampleBatchUpdateRowsRequest $requestBody = null, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\BatchUpdateDatabaseTableRows($tableId, $requestBody, $queryParameters, $headerParameters), $fetch);
+    }
+
+    /**
+     * Creates new rows in the table if the user has access to the related table's workspace. The accepted body fields are depending on the fields that the table has. For a complete overview of fields use the **list_database_table_fields** to list them all. None of the fields are required, if they are not provided the value is going to be `null` or `false` or some default value is that is set. If you want to add a value for the field with for example id `10`, the key must be named `field_10`. Or instead if the `user_field_names` GET param is provided the key must be the name of the field. Of course multiple fields can be provided in one request. In the examples below you will find all the different field types, the numbers/ids in the example are just there for example purposes, the field_ID must be replaced with the actual id of the field or the name of the field if `user_field_names` is provided.
+     **WARNING:** This endpoint doesn't yet work with row created webhooks.
+     *
+     * @param int   $tableId         creates the rows in the table
+     * @param array $queryParameters {
+     *
+     * @var int  $before if provided then the newly created rows will be positioned before the row with the provided id
+     * @var bool $user_field_names A flag query parameter which if provided this endpoint will expect and return the user specified field names instead of internal Baserow field names (field_123 etc).
+     *           }
+     *
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\ExampleBatchRowsResponse|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\BatchCreateDatabaseTableRowsBadRequestException
+     * @throws Exception\BatchCreateDatabaseTableRowsUnauthorizedException
+     * @throws Exception\BatchCreateDatabaseTableRowsNotFoundException
+     */
+    public function batchCreateDatabaseTableRows(int $tableId, Model\ExampleBatchRowsRequest $requestBody, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\BatchCreateDatabaseTableRows($tableId, $requestBody, $queryParameters, $headerParameters), $fetch);
+    }
+
+    /**
+     * Deletes existing rows in the table if the user has access to the table's workspace.
+     **WARNING:**  This endpoint doesn't yet work with row deleted webhooks.
+     *
+     * @param int   $tableId          deletes the rows in the table related to the value
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\BatchDeleteDatabaseTableRowsBadRequestException
+     * @throws Exception\BatchDeleteDatabaseTableRowsNotFoundException
+     */
+    public function batchDeleteDatabaseTableRows(int $tableId, Model\BatchDeleteRows $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\BatchDeleteDatabaseTableRows($tableId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Deletes the existing table if the authorized user has access to the related database's workspace.
+     *
+     * @param int   $tableId          deletes the table related to the provided value
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DeleteDatabaseTableBadRequestException
+     * @throws Exception\DeleteDatabaseTableNotFoundException
+     */
+    public function deleteDatabaseTable(int $tableId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DeleteDatabaseTable($tableId, $headerParameters), $fetch);
+    }
+
+    /**
+     * Returns the requested table if the authorized user has access to the related database's workspace.
+     *
+     * @param int    $tableId returns the table related to the provided value
+     * @param string $fetch   Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\Table|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GetDatabaseTableBadRequestException
+     * @throws Exception\GetDatabaseTableNotFoundException
+     */
+    public function getDatabaseTable(int $tableId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GetDatabaseTable($tableId), $fetch);
+    }
+
+    /**
+     * Updates the existing table if the authorized user has access to the related database's workspace.
+     *
+     * @param int   $tableId          updates the table related to the provided value
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\Table|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UpdateDatabaseTableBadRequestException
+     * @throws Exception\UpdateDatabaseTableNotFoundException
+     */
+    public function updateDatabaseTable(int $tableId, ?Model\PatchedTableUpdate $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UpdateDatabaseTable($tableId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Start a job to duplicate the table with the provided `table_id` parameter if the authorized user has access to the database's workspace.
+     *
+     * @param int   $tableId          the table to duplicate
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\SingleDuplicateTableJobType|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DuplicateDatabaseTableAsyncBadRequestException
+     * @throws Exception\DuplicateDatabaseTableAsyncNotFoundException
+     */
+    public function duplicateDatabaseTableAsync(int $tableId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DuplicateDatabaseTableAsync($tableId, $headerParameters), $fetch);
+    }
+
+    /**
+     * Import data in the specified table if the authorized user has access to the related database's workspace. This endpoint is asynchronous and return the created job to track the progress of the task.
+     *
+     * @param int    $tableId import data into the table related to the provided value
+     * @param string $fetch   Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\SingleFileImportJobSerializerClass|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ImportDataDatabaseTableAsyncBadRequestException
+     * @throws Exception\ImportDataDatabaseTableAsyncNotFoundException
+     */
+    public function importDataDatabaseTableAsync(int $tableId, Model\TableImport $requestBody, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ImportDataDatabaseTableAsync($tableId, $requestBody), $fetch);
+    }
+
+    /**
+     * Lists all the tables that are in the database related to the `database_id` parameter if the user has access to the database's workspace. A table is exactly as the name suggests. It can hold multiple fields, each having their own type and multiple rows. They can be added via the **create_database_table_field** and **create_database_table_row** endpoints.
+     *
+     * @param int    $databaseId returns only tables that are related to the provided value
+     * @param string $fetch      Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \cedricziel\phpbaserowclient\Generated\Model\Table[]|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ListDatabaseTablesBadRequestException
+     * @throws Exception\ListDatabaseTablesNotFoundException
+     */
+    public function listDatabaseTables(int $databaseId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListDatabaseTables($databaseId), $fetch);
+    }
+
+    /**
+     * Creates synchronously a new table for the database related to the provided `database_id` parameter if the authorized user has access to the database's workspace.
+     *
+     * As an alternative you can use the `create_async_database_table` for better performances and importing bigger files.
+     *
+     * @param int   $databaseId       creates a table for the database related to the provided value
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\Table|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\CreateDatabaseTableBadRequestException
+     * @throws Exception\CreateDatabaseTableNotFoundException
+     */
+    public function createDatabaseTable(int $databaseId, Model\TableCreate $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\CreateDatabaseTable($databaseId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Creates a job that creates a new table for the database related to the provided `database_id` parameter if the authorized user has access to the database's workspace. This endpoint is asynchronous and return the created job to track the progress of the task.
+     *
+     * @param int   $databaseId       creates a table for the database related to the provided value
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\SingleFileImportJobSerializerClass|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\CreateDatabaseTableAsyncBadRequestException
+     * @throws Exception\CreateDatabaseTableAsyncNotFoundException
+     */
+    public function createDatabaseTableAsync(int $databaseId, Model\TableCreate $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\CreateDatabaseTableAsync($databaseId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Changes the order of the provided table ids to the matching position that the id has in the list. If the authorized user does not belong to the workspace it will be ignored. The order of the not provided tables will be set to `0`.
+     *
+     * @param int   $databaseId       updates the order of the tables in the database related to the provided value
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\OrderDatabaseTablesBadRequestException
+     * @throws Exception\OrderDatabaseTablesNotFoundException
+     */
+    public function orderDatabaseTables(int $databaseId, Model\OrderTables $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\OrderDatabaseTables($databaseId, $requestBody, $headerParameters), $fetch);
     }
 
     /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return Model\Error|\Psr\Http\Message\ResponseInterface|null
+     * @return \cedricziel\phpbaserowclient\Generated\Model\Token[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function createPets(Model\Pet $requestBody, string $fetch = self::FETCH_OBJECT)
+    public function listDatabaseTokens(string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new Endpoint\CreatePets($requestBody), $fetch);
+        return $this->executeEndpoint(new Endpoint\ListDatabaseTokens(), $fetch);
     }
 
     /**
-     * @param string $petId The id of the pet to retrieve
+     * Creates a new database token for a given workspace and for the authorized user.
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return Model\Pet|Model\Error|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\Token|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\CreateDatabaseTokenBadRequestException
      */
-    public function showPetById(string $petId, string $fetch = self::FETCH_OBJECT)
+    public function createDatabaseToken(Model\TokenCreate $requestBody, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new Endpoint\ShowPetById($petId), $fetch);
+        return $this->executeEndpoint(new Endpoint\CreateDatabaseToken($requestBody), $fetch);
+    }
+
+    /**
+     * Deletes the existing database token if it is owned by the authorized user and ifthe user has access to the related workspace.
+     *
+     * @param int    $tokenId deletes the database token related to the provided value
+     * @param string $fetch   Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DeleteDatabaseTokenBadRequestException
+     * @throws Exception\DeleteDatabaseTokenNotFoundException
+     */
+    public function deleteDatabaseToken(int $tokenId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DeleteDatabaseToken($tokenId), $fetch);
+    }
+
+    /**
+     * Returns the requested database token if it is owned by the authorized user andif the user has access to the related workspace.
+     *
+     * @param int    $tokenId returns the database token related to the provided value
+     * @param string $fetch   Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\Token|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GetDatabaseTokenBadRequestException
+     * @throws Exception\GetDatabaseTokenNotFoundException
+     */
+    public function getDatabaseToken(int $tokenId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GetDatabaseToken($tokenId), $fetch);
+    }
+
+    /**
+     * Updates the existing database token if it is owned by the authorized user and ifthe user has access to the related workspace.
+     *
+     * @param int    $tokenId updates the database token related to the provided value
+     * @param string $fetch   Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\Token|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UpdateDatabaseTokenBadRequestException
+     * @throws Exception\UpdateDatabaseTokenNotFoundException
+     */
+    public function updateDatabaseToken(int $tokenId, ?Model\PatchedTokenUpdate $requestBody = null, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UpdateDatabaseToken($tokenId, $requestBody), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\CheckDatabaseTokenForbiddenException
+     */
+    public function checkDatabaseToken(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\CheckDatabaseToken(), $fetch);
+    }
+
+    /**
+     * Sets view attributes only available for premium users.
+     *
+     * @param int    $viewId sets show_logo of this view
+     * @param string $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\View|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\PremiumViewAttributesUpdateBadRequestException
+     * @throws Exception\PremiumViewAttributesUpdateNotFoundException
+     */
+    public function premiumViewAttributesUpdate(int $viewId, ?Model\PatchedUpdatePremiumViewAttributes $requestBody = null, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\PremiumViewAttributesUpdate($viewId, $requestBody), $fetch);
+    }
+
+    /**
+     * If the view is publicly shared or if an authenticated user has access to the related workspace, then this endpoint can be used to do a value lookup of the link row fields that are included in the view. Normally it is not possible for a not authenticated visitor to fetch the rows of a table. This endpoint makes it possible to fetch the id and primary field value of the related table of a link row included in the view.
+     *
+     * @param int    $fieldId         the field id of the link row field
+     * @param string $slug            the slug related to the view
+     * @param array  $queryParameters {
+     *
+     * @var string $search if provided only rows with data that matches the search query are going to be returned
+     * @var string $search_mode If provided, allows API consumers to determine what kind of search experience they wish to have. If the default `SearchModes.MODE_FT_WITH_COUNT` is used, then Postgres full-text search is used. If `SearchModes.MODE_COMPAT` is provided then the search term will be exactly searched for including whitespace on each cell. This is the Baserow legacy search behaviour.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\PaginationSerializerLinkRowValue|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DatabaseTablePublicViewLinkRowFieldLookupUnauthorizedException
+     * @throws Exception\DatabaseTablePublicViewLinkRowFieldLookupNotFoundException
+     */
+    public function databaseTablePublicViewLinkRowFieldLookup(int $fieldId, string $slug, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DatabaseTablePublicViewLinkRowFieldLookup($fieldId, $slug, $queryParameters), $fetch);
+    }
+
+    /**
+     * Returns a valid never-expiring JWT token for this public shared view if the password provided matches with the one saved by the view's owner.
+     *
+     * @param string $slug  the slug of the grid view to get public information about
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\PublicViewAuthResponse|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\PublicViewTokenAuthUnauthorizedException
+     * @throws Exception\PublicViewTokenAuthNotFoundException
+     */
+    public function publicViewTokenAuth(string $slug, Model\PublicViewAuthRequest $requestBody, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\PublicViewTokenAuth($slug, $requestBody), $fetch);
+    }
+
+    /**
+     * Returns the required public information to display a single shared view.
+     *
+     * @param string $slug  the slug of the view to get public information about
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\PublicViewInfo|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GetPublicViewInfoBadRequestException
+     * @throws Exception\GetPublicViewInfoUnauthorizedException
+     * @throws Exception\GetPublicViewInfoNotFoundException
+     */
+    public function getPublicViewInfo(string $slug, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GetPublicViewInfo($slug), $fetch);
+    }
+
+    /**
+     * Deletes the existing view. Note that all the related settings of the view are going to be deleted also. The data stays intact after deleting the view because this is related to the table and not the view.
+     *
+     * @param int   $viewId           deletes the view related to the provided value
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DeleteDatabaseTableViewBadRequestException
+     * @throws Exception\DeleteDatabaseTableViewNotFoundException
+     */
+    public function deleteDatabaseTableView(int $viewId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DeleteDatabaseTableView($viewId, $headerParameters), $fetch);
+    }
+
+    /**
+     * Returns the existing view. Depending on the type different propertiescould be returned.
+     *
+     * @param int   $viewId          returns the view related to the provided value
+     * @param array $queryParameters {
+     *
+     * @var string $include A comma separated list of extra attributes to include on the returned view. The supported attributes are `filters`, `sortings` and `decorations`. For example `include=filters,sortings` will add the attributes `filters` and `sortings` to every returned view, containing a list of the views filters and sortings respectively.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GetDatabaseTableViewBadRequestException
+     * @throws Exception\GetDatabaseTableViewNotFoundException
+     */
+    public function getDatabaseTableView(int $viewId, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GetDatabaseTableView($viewId, $queryParameters), $fetch);
+    }
+
+    /**
+     * Updates the existing view. The type cannot be changed. It depends on the existing type which properties can be changed.
+     *
+     * @param int        $viewId          updates the view related to the provided value
+     * @param mixed|null $requestBody
+     * @param array      $queryParameters {
+     *
+     * @var string $include A comma separated list of extra attributes to include on the returned view. The supported attributes are `filters`, `sortings` and `decorations`. For example `include=filters,sortings` will add the attributes `filters` and `sortings` to every returned view, containing a list of the views filters and sortings respectively.
+     *             }
+     *
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UpdateDatabaseTableViewBadRequestException
+     * @throws Exception\UpdateDatabaseTableViewNotFoundException
+     */
+    public function updateDatabaseTableView(int $viewId, $requestBody = null, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UpdateDatabaseTableView($viewId, $requestBody, $queryParameters, $headerParameters), $fetch);
+    }
+
+    /**
+     * Lists all decorations of the view related to the provided `view_id` if the user has access to the related database's workspace. A view can have multiple decorations. View decorators can be used to decorate rows. This can, for example, be used to change the border or background color of a row if it matches certain conditions.
+     *
+     * @param int    $viewId returns only decoration of the view given to the provided value
+     * @param string $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ListDatabaseTableViewDecorationsBadRequestException
+     * @throws Exception\ListDatabaseTableViewDecorationsNotFoundException
+     */
+    public function listDatabaseTableViewDecorations(int $viewId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListDatabaseTableViewDecorations($viewId), $fetch);
+    }
+
+    /**
+     * Creates a new decoration for the view related to the provided `view_id` parameter if the authorized user has access to the related database's workspace.
+     *
+     * @param int        $viewId           creates a decoration for the view related to the given value
+     * @param mixed|null $requestBody
+     * @param array      $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\CreateDatabaseTableViewDecorationBadRequestException
+     * @throws Exception\CreateDatabaseTableViewDecorationNotFoundException
+     */
+    public function createDatabaseTableViewDecoration(int $viewId, $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\CreateDatabaseTableViewDecoration($viewId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Duplicates an existing view if the user has access to it. When a view is duplicated everything is copied except:
+     * - The name is appended with the copy number. Ex: `ViewName`->`ViewName(2)` and `View(2)`->`View(3)`
+     * - If the original view is publicly shared, the new view will not be shared anymore
+     *
+     * @param int   $viewId           duplicates the view related to the provided value
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DuplicateDatabaseTableViewBadRequestException
+     * @throws Exception\DuplicateDatabaseTableViewNotFoundException
+     */
+    public function duplicateDatabaseTableView(int $viewId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DuplicateDatabaseTableView($viewId, $headerParameters), $fetch);
+    }
+
+    /**
+     * Responds with the fields options of the provided view if the authenticated user has access to the related workspace.
+     *
+     * @param int    $viewId responds with field options related to the provided value
+     * @param string $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GetDatabaseTableViewFieldOptionsBadRequestException
+     * @throws Exception\GetDatabaseTableViewFieldOptionsNotFoundException
+     */
+    public function getDatabaseTableViewFieldOptions(int $viewId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GetDatabaseTableViewFieldOptions($viewId), $fetch);
+    }
+
+    /**
+     * Updates the field options of a view. The field options differ per field type  This could for example be used to update the field width of a `grid` view if the user changes it.
+     *
+     * @param int        $viewId           updates the field options related to the provided value
+     * @param mixed|null $requestBody
+     * @param array      $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UpdateDatabaseTableViewFieldOptionsBadRequestException
+     * @throws Exception\UpdateDatabaseTableViewFieldOptionsNotFoundException
+     */
+    public function updateDatabaseTableViewFieldOptions(int $viewId, $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UpdateDatabaseTableViewFieldOptions($viewId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Creates a new filter group for the view related to the provided `view_id` parameter.
+     *
+     * @param int   $viewId           the ID of the view where create the new filter group
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\ViewFilterGroup|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\CreateDatabaseTableViewFilterGroupBadRequestException
+     * @throws Exception\CreateDatabaseTableViewFilterGroupNotFoundException
+     */
+    public function createDatabaseTableViewFilterGroup(int $viewId, ?Model\CreateViewFilterGroup $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\CreateDatabaseTableViewFilterGroup($viewId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Lists all filters of the view related to the provided `view_id`. A view can have multiple filters. When all the rows are requested for the view only those that apply to the filters are returned.
+     *
+     * @param int    $viewId returns only filters of the view related to the provided value
+     * @param string $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \cedricziel\phpbaserowclient\Generated\Model\ViewFilter[]|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ListDatabaseTableViewFiltersBadRequestException
+     * @throws Exception\ListDatabaseTableViewFiltersNotFoundException
+     */
+    public function listDatabaseTableViewFilters(int $viewId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListDatabaseTableViewFilters($viewId), $fetch);
+    }
+
+    /**
+     * Creates a new filter for the view related to the provided `view_id` parameter. When the rows of a view are requested, for example via the `list_database_table_grid_view_rows` endpoint, then only the rows that apply to all the filters are going to be returned. A filter compares the value of a field to the value of a filter. It depends on the type how values are going to be compared.
+     *
+     * @param int   $viewId           creates a filter for the view related to the provided value
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\ViewFilter|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\CreateDatabaseTableViewFilterBadRequestException
+     * @throws Exception\CreateDatabaseTableViewFilterNotFoundException
+     */
+    public function createDatabaseTableViewFilter(int $viewId, Model\CreateViewFilter $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\CreateDatabaseTableViewFilter($viewId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Lists all groupings of the view related to the provided `view_id` if the user has access to the related database's workspace. A view can have multiple groupings.
+     *
+     * @param int    $viewId returns only groupings of the view related to the provided value
+     * @param string $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \cedricziel\phpbaserowclient\Generated\Model\ViewGroupBy[]|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ListDatabaseTableViewGroupingsBadRequestException
+     * @throws Exception\ListDatabaseTableViewGroupingsNotFoundException
+     */
+    public function listDatabaseTableViewGroupings(int $viewId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListDatabaseTableViewGroupings($viewId), $fetch);
+    }
+
+    /**
+     * Creates a new group by for the view related to the provided `view_id` parameter if the authorized user has access to the related database's workspace.
+     *
+     * @param int   $viewId           creates a group by for the view related to the provided value
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\ViewGroupBy|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\CreateDatabaseTableViewGroupBadRequestException
+     * @throws Exception\CreateDatabaseTableViewGroupNotFoundException
+     */
+    public function createDatabaseTableViewGroup(int $viewId, Model\CreateViewGroupBy $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\CreateDatabaseTableViewGroup($viewId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Rotates the unique slug of the view by replacing it with a new value. This would mean that the publicly shared URL of the view will change. Anyone with the old URL won't be able to access the viewanymore. Only view types which are sharable can have their slugs rotated.
+     *
+     * @param int   $viewId           rotates the slug of the view related to the provided value
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\RotateDatabaseViewSlugBadRequestException
+     * @throws Exception\RotateDatabaseViewSlugNotFoundException
+     */
+    public function rotateDatabaseViewSlug(int $viewId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\RotateDatabaseViewSlug($viewId, $headerParameters), $fetch);
+    }
+
+    /**
+     * Lists all sortings of the view related to the provided `view_id` if the user has access to the related database's workspace. A view can have multiple sortings. When all the rows are requested they will be in the desired order.
+     *
+     * @param int    $viewId returns only sortings of the view related to the provided value
+     * @param string $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \cedricziel\phpbaserowclient\Generated\Model\ViewSort[]|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ListDatabaseTableViewSortingsBadRequestException
+     * @throws Exception\ListDatabaseTableViewSortingsNotFoundException
+     */
+    public function listDatabaseTableViewSortings(int $viewId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListDatabaseTableViewSortings($viewId), $fetch);
+    }
+
+    /**
+     * Creates a new sort for the view related to the provided `view_id` parameter if the authorized user has access to the related database's workspace. When the rows of a view are requested, for example via the `list_database_table_grid_view_rows` endpoint, they will be returned in the respected order defined by all the sortings.
+     *
+     * @param int   $viewId           creates a sort for the view related to the provided value
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\ViewSort|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\CreateDatabaseTableViewSortBadRequestException
+     * @throws Exception\CreateDatabaseTableViewSortNotFoundException
+     */
+    public function createDatabaseTableViewSort(int $viewId, Model\CreateViewSort $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\CreateDatabaseTableViewSort($viewId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Responds with serialized rows grouped by the view's date field options related to the `slug` if the calendar view is publicly shared. Additional query parameters can be provided to control the `limit` and `offset` per select option.
+     *
+     * This is a **premium** feature.
+     *
+     * @param string $slug            returns only rows that belong to the related view
+     * @param array  $queryParameters {
+     *
+     * @var string $from_timestamp restricts results based on the calendar date field
+     * @var int    $limit Defines how many rows should be returned by default. This value can be overwritten per select option.
+     * @var int    $offset Defines from which offset the rows should be returned.This value can be overwritten per select option.
+     * @var string $to_timestamp restricts results based on the calendar date field
+     * @var string $user_timezone User's timezone will be taken into account for date fieldtypes that have a time and don't enforce a timezone. The timezone will be used for aggregating the dates. For date fields without a time this will be ignored and UTC will be forced.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\CalendarViewExampleResponse|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\PublicListDatabaseTableCalendarViewRowsUnauthorizedException
+     * @throws Exception\PublicListDatabaseTableCalendarViewRowsBadRequestException
+     * @throws Exception\PublicListDatabaseTableCalendarViewRowsNotFoundException
+     */
+    public function publicListDatabaseTableCalendarViewRows(string $slug, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\PublicListDatabaseTableCalendarViewRows($slug, $queryParameters), $fetch);
+    }
+
+    /**
+     * Responds with serialized rows grouped by date regarding view's date fieldif the user is authenticated and has access to the related workspace.
+     *
+     * This is a **premium** feature.
+     *
+     * @param int   $viewId          returns only rows that belong to the related view's table
+     * @param array $queryParameters {
+     *
+     * @var string $from_timestamp restricts results based on the calendar date field
+     * @var string $include A comma separated list allowing the values of `field_options` and `row_metadata` which will add the object/objects with the same name to the response if included. The `field_options` object contains user defined view settings for each field. For example the field's width is included in here. The `row_metadata` object includes extra row specific data on a per row basis.
+     * @var int    $limit defines how many rows should be returned by default
+     * @var int    $offset defines from which offset the rows should be returned
+     * @var string $search if provided only rows with data that matches the search query are going to be returned
+     * @var string $search_mode If provided, allows API consumers to determine what kind of search experience they wish to have. If the default `SearchModes.MODE_FT_WITH_COUNT` is used, then Postgres full-text search is used. If `SearchModes.MODE_COMPAT` is provided then the search term will be exactly searched for including whitespace on each cell. This is the Baserow legacy search behaviour.
+     * @var string $to_timestamp restricts results based on the calendar date field
+     * @var string $user_timezone User's timezone will be taken into account for date fieldtypes that have a time and don't enforce a timezone. The timezone will be used for aggregating the dates. For date fields without a time this will be ignored and UTC will be forced.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\CalendarViewExampleResponse|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ListDatabaseTableCalendarViewRowsBadRequestException
+     * @throws Exception\ListDatabaseTableCalendarViewRowsNotFoundException
+     */
+    public function listDatabaseTableCalendarViewRows(int $viewId, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListDatabaseTableCalendarViewRows($viewId, $queryParameters), $fetch);
+    }
+
+    /**
+     * Deletes the existing decoration if the authorized user has access to the related database's workspace.
+     *
+     * @param int   $viewDecorationId deletes the decoration related to the provided value
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DeleteDatabaseTableViewDecorationBadRequestException
+     * @throws Exception\DeleteDatabaseTableViewDecorationNotFoundException
+     */
+    public function deleteDatabaseTableViewDecoration(int $viewDecorationId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DeleteDatabaseTableViewDecoration($viewDecorationId, $headerParameters), $fetch);
+    }
+
+    /**
+     * Returns the existing view decoration if the current user has access to the related database's workspace.
+     *
+     * @param int    $viewDecorationId returns the view decoration related to the provided id
+     * @param string $fetch            Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GetDatabaseTableViewDecorationBadRequestException
+     * @throws Exception\GetDatabaseTableViewDecorationNotFoundException
+     */
+    public function getDatabaseTableViewDecoration(int $viewDecorationId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GetDatabaseTableViewDecoration($viewDecorationId), $fetch);
+    }
+
+    /**
+     * Updates the existing decoration if the authorized user has access to the related database's workspace.
+     *
+     * @param int        $viewDecorationId updates the view decoration related to the provided value
+     * @param mixed|null $requestBody
+     * @param array      $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UpdateDatabaseTableViewDecorationBadRequestException
+     * @throws Exception\UpdateDatabaseTableViewDecorationNotFoundException
+     */
+    public function updateDatabaseTableViewDecoration(int $viewDecorationId, $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UpdateDatabaseTableViewDecoration($viewDecorationId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Deletes the existing filter group with the given `view_filter_group_id`.
+     *
+     * @param int   $viewFilterGroupId the ID of the view filter group to delete
+     * @param array $headerParameters  {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DeleteDatabaseTableViewFilterGroupBadRequestException
+     * @throws Exception\DeleteDatabaseTableViewFilterGroupNotFoundException
+     */
+    public function deleteDatabaseTableViewFilterGroup(string $filterGroupId, int $viewFilterGroupId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DeleteDatabaseTableViewFilterGroup($filterGroupId, $viewFilterGroupId, $headerParameters), $fetch);
+    }
+
+    /**
+     * Returns the existing view filter group with the given `view_filter_group_id`.
+     *
+     * @param int    $viewFilterGroupId teh ID of the view filter group to return
+     * @param string $fetch             Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\ViewFilterGroup|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GetDatabaseTableViewFilterGroupBadRequestException
+     * @throws Exception\GetDatabaseTableViewFilterGroupNotFoundException
+     */
+    public function getDatabaseTableViewFilterGroup(string $filterGroupId, int $viewFilterGroupId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GetDatabaseTableViewFilterGroup($filterGroupId, $viewFilterGroupId), $fetch);
+    }
+
+    /**
+     * Updates the existing filter group with the given `view_filter_group_id`.
+     *
+     * @param int   $viewFilterGroupId the ID of the view filter group to update
+     * @param array $headerParameters  {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\ViewFilterGroup|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UpdateDatabaseTableViewFilterGroupBadRequestException
+     * @throws Exception\UpdateDatabaseTableViewFilterGroupNotFoundException
+     */
+    public function updateDatabaseTableViewFilterGroup(string $filterGroupId, int $viewFilterGroupId, ?Model\PatchedUpdateViewFilterGroup $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UpdateDatabaseTableViewFilterGroup($filterGroupId, $viewFilterGroupId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Deletes the existing filter if the authorized user has access to the related database's workspace.
+     *
+     * @param int   $viewFilterId     the ID of the view filter to delete
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DeleteDatabaseTableViewFilterBadRequestException
+     * @throws Exception\DeleteDatabaseTableViewFilterNotFoundException
+     */
+    public function deleteDatabaseTableViewFilter(int $viewFilterId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DeleteDatabaseTableViewFilter($viewFilterId, $headerParameters), $fetch);
+    }
+
+    /**
+     * Returns the existing view filter.
+     *
+     * @param int    $viewFilterId the ID of the view filter to return
+     * @param string $fetch        Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\ViewFilter|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GetDatabaseTableViewFilterBadRequestException
+     * @throws Exception\GetDatabaseTableViewFilterNotFoundException
+     */
+    public function getDatabaseTableViewFilter(int $viewFilterId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GetDatabaseTableViewFilter($viewFilterId), $fetch);
+    }
+
+    /**
+     * Updates the existing filter.
+     *
+     * @param int   $viewFilterId     the ID of the view filter to update
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\ViewFilter|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UpdateDatabaseTableViewFilterBadRequestException
+     * @throws Exception\UpdateDatabaseTableViewFilterNotFoundException
+     */
+    public function updateDatabaseTableViewFilter(int $viewFilterId, ?Model\PatchedUpdateViewFilter $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UpdateDatabaseTableViewFilter($viewFilterId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Returns the metadata related to the form view if the form is publicly shared or if the user has access to the related workspace. This data can be used to construct a form with the right fields.
+     *
+     * @param string $slug  the slug related to the form form
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\PublicFormView|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GetMetaDatabaseTableFormViewUnauthorizedException
+     * @throws Exception\GetMetaDatabaseTableFormViewNotFoundException
+     */
+    public function getMetaDatabaseTableFormView(string $slug, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GetMetaDatabaseTableFormView($slug), $fetch);
+    }
+
+    /**
+     * Submits the form if the form is publicly shared or if the user has access to the related workspace. The provided data will be validated based on the fields that are in the form and the rules per field. If valid, a new row will be created in the table.
+     *
+     * @param string $slug  the slug related to the form
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\FormViewSubmitted|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\SubmitDatabaseTableFormViewUnauthorizedException
+     * @throws Exception\SubmitDatabaseTableFormViewNotFoundException
+     */
+    public function submitDatabaseTableFormView(string $slug, ?Model\ExampleRowRequest $requestBody = null, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\SubmitDatabaseTableFormView($slug, $requestBody), $fetch);
+    }
+
+    /**
+     * Uploads a file anonymously to Baserow by uploading the file contents directly. A `file` multipart is expected containing the file contents.
+     *
+     * @param string $slug  submits files only if the view with the provided slughas a public file field
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\UserFile|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UploadFileFormViewUnauthorizedException
+     * @throws Exception\UploadFileFormViewBadRequestException
+     * @throws Exception\UploadFileFormViewNotFoundException
+     */
+    public function uploadFileFormView(string $slug, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UploadFileFormView($slug), $fetch);
+    }
+
+    /**
+     * Lists the requested rows of the view's table related to the provided `slug` if the gallery view is public.The response is paginated either by a limit/offset or page/size style. The style depends on the provided GET parameters. The properties of the returned rows depends on which fields the table has. For a complete overview of fields use the **list_database_table_fields** endpoint to list them all. In the example all field types are listed, but normally the number in field_{id} key is going to be the id of the field. The value is what the user has provided and the format of it depends on the fields type.
+     *
+     * @param string $slug            returns only rows that belong to the related view
+     * @param array  $queryParameters {
+     *
+     * @var bool   $count if provided only the count will be returned
+     * @var string $exclude_fields All the fields are included in the response by default. You can select a subset of fields by providing the exclude_fields query parameter. If you for example provide the following GET parameter `exclude_fields=field_1,field_2` then the fields with id `1` and id `2` are going to be excluded from the selection and response.
+     * @var string $filter__{field}__{filter} The rows can optionally be filtered by the same view filters available for the views. Multiple filters can be provided if they follow the same format. The field and filter variable indicate how to filter and the value indicates where to filter on.
+     *
+     * Please note that if the `filters` parameter is provided, this parameter will be ignored.
+     *
+     * For example if you provide the following GET parameter `filter__field_1__equal=test` then only rows where the value of field_1 is equal to test are going to be returned.
+     *
+     * The following filters are available: equal, not_equal, filename_contains, files_lower_than, has_file_type, contains, contains_not, contains_word, doesnt_contain_word, length_is_lower_than, higher_than, higher_than_or_equal, lower_than, lower_than_or_equal, is_even_and_whole, date_equal, date_before, date_before_or_equal, date_after_days_ago, date_after, date_after_or_equal, date_not_equal, date_equals_today, date_before_today, date_after_today, date_within_days, date_within_weeks, date_within_months, date_equals_days_ago, date_equals_months_ago, date_equals_years_ago, date_equals_week, date_equals_month, date_equals_day_of_month, date_equals_year, date_is, date_is_not, date_is_before, date_is_on_or_before, date_is_after, date_is_on_or_after, date_is_within, single_select_equal, single_select_not_equal, single_select_is_any_of, single_select_is_none_of, link_row_has, link_row_has_not, link_row_contains, link_row_not_contains, boolean, empty, not_empty, multiple_select_has, multiple_select_has_not, multiple_collaborators_has, multiple_collaborators_has_not, user_is, user_is_not.
+     * @var string $filter_type `AND`: Indicates that the rows must match all the provided filters.
+     *             `OR`: Indicates that the rows only have to match one of the filters.
+     *
+     * This works only if two or more filters are provided.Please note that if the `filters` parameter is provided, this parameter will be ignored.
+     * @var string $filters A JSON serialized string containing the filter tree to apply to this view. The filter tree is a nested structure containing the filters that need to be applied.
+     *
+     * Please note that if this parameter is provided, all other `filter__{field}__{filter}` will be ignored, as well as the `filter_type` parameter.
+     *
+     * An example of a valid filter tree is the following:`{"filter_type": "AND", "filters": [{"field": 1, "type": "equal", "value": "test"}]}`.
+     *
+     * The following filters are available: equal, not_equal, filename_contains, files_lower_than, has_file_type, contains, contains_not, contains_word, doesnt_contain_word, length_is_lower_than, higher_than, higher_than_or_equal, lower_than, lower_than_or_equal, is_even_and_whole, date_equal, date_before, date_before_or_equal, date_after_days_ago, date_after, date_after_or_equal, date_not_equal, date_equals_today, date_before_today, date_after_today, date_within_days, date_within_weeks, date_within_months, date_equals_days_ago, date_equals_months_ago, date_equals_years_ago, date_equals_week, date_equals_month, date_equals_day_of_month, date_equals_year, date_is, date_is_not, date_is_before, date_is_on_or_before, date_is_after, date_is_on_or_after, date_is_within, single_select_equal, single_select_not_equal, single_select_is_any_of, single_select_is_none_of, link_row_has, link_row_has_not, link_row_contains, link_row_not_contains, boolean, empty, not_empty, multiple_select_has, multiple_select_has_not, multiple_collaborators_has, multiple_collaborators_has_not, user_is, user_is_not.
+     * @var string $include A comma separated list allowing the values of `field_options` which will add the object/objects with the same name to the response if included. The `field_options` object contains user defined view settings for each field. For example the field's width is included in here.
+     * @var string $include_fields All the fields are included in the response by default. You can select a subset of fields by providing the fields query parameter. If you for example provide the following GET parameter `include_fields=field_1,field_2` then only the fields with id `1` and id `2` are going to be selected and included in the response.
+     * @var int    $limit defines how many rows should be returned
+     * @var int    $offset can only be used in combination with the `limit` parameter and defines from which offset the rows should be returned
+     * @var string $order_by Optionally the rows can be ordered by provided field ids separated by comma. By default a field is ordered in ascending (A-Z) order, but by prepending the field with a '-' it can be ordered descending (Z-A).
+     * @var int    $page Defines which page of rows should be returned. Either the `page` or `limit` can be provided, not both.
+     * @var string $search if provided only rows with data that matches the search query are going to be returned
+     * @var string $search_mode If provided, allows API consumers to determine what kind of search experience they wish to have. If the default `SearchModes.MODE_FT_WITH_COUNT` is used, then Postgres full-text search is used. If `SearchModes.MODE_COMPAT` is provided then the search term will be exactly searched for including whitespace on each cell. This is the Baserow legacy search behaviour.
+     * @var int    $size Can only be used in combination with the `page` parameter and defines how many rows should be returned.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\PublicPaginationSerializerWithGalleryViewFieldOptionsExampleRowResponse|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\PublicListDatabaseTableGalleryViewRowsBadRequestException
+     * @throws Exception\PublicListDatabaseTableGalleryViewRowsUnauthorizedException
+     * @throws Exception\PublicListDatabaseTableGalleryViewRowsNotFoundException
+     */
+    public function publicListDatabaseTableGalleryViewRows(string $slug, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\PublicListDatabaseTableGalleryViewRows($slug, $queryParameters), $fetch);
+    }
+
+    /**
+     * Lists the requested rows of the view's table related to the provided `view_id` if the authorized user has access to the database's workspace. The response is paginated by a limit/offset style.
+     *
+     * @param int   $viewId          returns only rows that belong to the related view's table
+     * @param array $queryParameters {
+     *
+     * @var bool   $count if provided only the count will be returned
+     * @var string $filter__{field}__{filter} The rows can optionally be filtered by the same view filters available for the views. Multiple filters can be provided if they follow the same format. The field and filter variable indicate how to filter and the value indicates where to filter on.
+     *
+     * Please note that if the `filters` parameter is provided, this parameter will be ignored.
+     *
+     * For example if you provide the following GET parameter `filter__field_1__equal=test` then only rows where the value of field_1 is equal to test are going to be returned.
+     *
+     * The following filters are available: equal, not_equal, filename_contains, files_lower_than, has_file_type, contains, contains_not, contains_word, doesnt_contain_word, length_is_lower_than, higher_than, higher_than_or_equal, lower_than, lower_than_or_equal, is_even_and_whole, date_equal, date_before, date_before_or_equal, date_after_days_ago, date_after, date_after_or_equal, date_not_equal, date_equals_today, date_before_today, date_after_today, date_within_days, date_within_weeks, date_within_months, date_equals_days_ago, date_equals_months_ago, date_equals_years_ago, date_equals_week, date_equals_month, date_equals_day_of_month, date_equals_year, date_is, date_is_not, date_is_before, date_is_on_or_before, date_is_after, date_is_on_or_after, date_is_within, single_select_equal, single_select_not_equal, single_select_is_any_of, single_select_is_none_of, link_row_has, link_row_has_not, link_row_contains, link_row_not_contains, boolean, empty, not_empty, multiple_select_has, multiple_select_has_not, multiple_collaborators_has, multiple_collaborators_has_not, user_is, user_is_not.Please note that by passing the filter parameters the view filters saved for the view itself will be ignored.
+     * @var string $filter_type `AND`: Indicates that the rows must match all the provided filters.
+     *             `OR`: Indicates that the rows only have to match one of the filters.
+     *
+     * This works only if two or more filters are provided.Please note that if the `filters` parameter is provided, this parameter will be ignored.
+     * @var string $filters A JSON serialized string containing the filter tree to apply to this view. The filter tree is a nested structure containing the filters that need to be applied.
+     *
+     * An example of a valid filter tree is the following:`{"filter_type": "AND", "filters": [{"field": 1, "type": "equal", "value": "test"}]}`.
+     *
+     * The following filters are available: equal, not_equal, filename_contains, files_lower_than, has_file_type, contains, contains_not, contains_word, doesnt_contain_word, length_is_lower_than, higher_than, higher_than_or_equal, lower_than, lower_than_or_equal, is_even_and_whole, date_equal, date_before, date_before_or_equal, date_after_days_ago, date_after, date_after_or_equal, date_not_equal, date_equals_today, date_before_today, date_after_today, date_within_days, date_within_weeks, date_within_months, date_equals_days_ago, date_equals_months_ago, date_equals_years_ago, date_equals_week, date_equals_month, date_equals_day_of_month, date_equals_year, date_is, date_is_not, date_is_before, date_is_on_or_before, date_is_after, date_is_on_or_after, date_is_within, single_select_equal, single_select_not_equal, single_select_is_any_of, single_select_is_none_of, link_row_has, link_row_has_not, link_row_contains, link_row_not_contains, boolean, empty, not_empty, multiple_select_has, multiple_select_has_not, multiple_collaborators_has, multiple_collaborators_has_not, user_is, user_is_not.Please note that by passing the filters parameter the view filters saved for the view itself will be ignored.
+     * @var string $include A comma separated list allowing the values of `field_options` and `row_metadata` which will add the object/objects with the same name to the response if included. The `field_options` object contains user defined view settings for each field. For example the field's width is included in here. The `row_metadata` object includes extra row specific data on a per row basis.
+     * @var int    $limit defines how many rows should be returned
+     * @var int    $offset can only be used in combination with the `limit` parameter and defines from which offset the rows should be returned
+     * @var string $order_by Optionally the rows can be ordered by provided field ids separated by comma. By default a field is ordered in ascending (A-Z) order, but by prepending the field with a '-' it can be ordered descending (Z-A).
+     * @var string $search if provided only rows with data that matches the search query are going to be returned
+     * @var string $search_mode If provided, allows API consumers to determine what kind of search experience they wish to have. If the default `SearchModes.MODE_FT_WITH_COUNT` is used, then Postgres full-text search is used. If `SearchModes.MODE_COMPAT` is provided then the search term will be exactly searched for including whitespace on each cell. This is the Baserow legacy search behaviour.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\PaginationSerializerWithGalleryViewFieldOptionsExampleRowResponse|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ListDatabaseTableGalleryViewRowsBadRequestException
+     * @throws Exception\ListDatabaseTableGalleryViewRowsNotFoundException
+     */
+    public function listDatabaseTableGalleryViewRows(int $viewId, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListDatabaseTableGalleryViewRows($viewId, $queryParameters), $fetch);
+    }
+
+    /**
+     * Returns all field aggregations values previously defined for this grid view. If filters exist for this view, the aggregations are computed only on filtered rows.
+     *
+     * @param string $slug            select the view you want the aggregations for
+     * @param array  $queryParameters {
+     *
+     * @var string $filter__{field}__{filter} The aggregation can optionally be filtered by the same view filters available for the views. Multiple filters can be provided if they follow the same format. The field and filter variable indicate how to filter and the value indicates where to filter on.
+     *
+     * Please note that if the `filters` parameter is provided, this parameter will be ignored.
+     *
+     * For example if you provide the following GET parameter `filter__field_1__equal=test` then only rows where the value of field_1 is equal to test are going to be returned.
+     *
+     * The following filters are available: equal, not_equal, filename_contains, files_lower_than, has_file_type, contains, contains_not, contains_word, doesnt_contain_word, length_is_lower_than, higher_than, higher_than_or_equal, lower_than, lower_than_or_equal, is_even_and_whole, date_equal, date_before, date_before_or_equal, date_after_days_ago, date_after, date_after_or_equal, date_not_equal, date_equals_today, date_before_today, date_after_today, date_within_days, date_within_weeks, date_within_months, date_equals_days_ago, date_equals_months_ago, date_equals_years_ago, date_equals_week, date_equals_month, date_equals_day_of_month, date_equals_year, date_is, date_is_not, date_is_before, date_is_on_or_before, date_is_after, date_is_on_or_after, date_is_within, single_select_equal, single_select_not_equal, single_select_is_any_of, single_select_is_none_of, link_row_has, link_row_has_not, link_row_contains, link_row_not_contains, boolean, empty, not_empty, multiple_select_has, multiple_select_has_not, multiple_collaborators_has, multiple_collaborators_has_not, user_is, user_is_not.Please note that by passing the filter parameters the view filters saved for the view itself will be ignored.
+     * @var string $filter_type `AND`: Indicates that the aggregated rows must match all the provided filters.
+     *             `OR`: Indicates that the aggregated rows only have to match one of the filters.
+     *
+     * This works only if two or more filters are provided.Please note that if the `filters` parameter is provided, this parameter will be ignored.
+     * @var string $filters A JSON serialized string containing the filter tree to apply for the aggregation. The filter tree is a nested structure containing the filters that need to be applied.
+     *
+     * An example of a valid filter tree is the following:`{"filter_type": "AND", "filters": [{"field": 1, "type": "equal", "value": "test"}]}`.
+     *
+     * The following filters are available: equal, not_equal, filename_contains, files_lower_than, has_file_type, contains, contains_not, contains_word, doesnt_contain_word, length_is_lower_than, higher_than, higher_than_or_equal, lower_than, lower_than_or_equal, is_even_and_whole, date_equal, date_before, date_before_or_equal, date_after_days_ago, date_after, date_after_or_equal, date_not_equal, date_equals_today, date_before_today, date_after_today, date_within_days, date_within_weeks, date_within_months, date_equals_days_ago, date_equals_months_ago, date_equals_years_ago, date_equals_week, date_equals_month, date_equals_day_of_month, date_equals_year, date_is, date_is_not, date_is_before, date_is_on_or_before, date_is_after, date_is_on_or_after, date_is_within, single_select_equal, single_select_not_equal, single_select_is_any_of, single_select_is_none_of, link_row_has, link_row_has_not, link_row_contains, link_row_not_contains, boolean, empty, not_empty, multiple_select_has, multiple_select_has_not, multiple_collaborators_has, multiple_collaborators_has_not, user_is, user_is_not.Please note that by passing the filters parameter the view filters saved for the view itself will be ignored.
+     * @var string $include if `include` is set to `total`, the total row count will be returned with the result
+     * @var string $search if provided the aggregations are calculated only for matching rows
+     * @var string $search_mode If provided, allows API consumers to determine what kind of search experience they wish to have. If the default `SearchModes.MODE_FT_WITH_COUNT` is used, then Postgres full-text search is used. If `SearchModes.MODE_COMPAT` is provided then the search term will be exactly searched for including whitespace on each cell. This is the Baserow legacy search behaviour.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse200|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GetDatabaseTablePublicGridViewFieldAggregationsBadRequestException
+     * @throws Exception\GetDatabaseTablePublicGridViewFieldAggregationsUnauthorizedException
+     * @throws Exception\GetDatabaseTablePublicGridViewFieldAggregationsNotFoundException
+     */
+    public function getDatabaseTablePublicGridViewFieldAggregations(string $slug, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GetDatabaseTablePublicGridViewFieldAggregations($slug, $queryParameters), $fetch);
+    }
+
+    /**
+     * Lists the requested rows of the view's table related to the provided `slug` if the grid view is public.The response is paginated either by a limit/offset or page/size style. The style depends on the provided GET parameters. The properties of the returned rows depends on which fields the table has. For a complete overview of fields use the **list_database_table_fields** endpoint to list them all. In the example all field types are listed, but normally the number in field_{id} key is going to be the id of the field. The value is what the user has provided and the format of it depends on the fields type.
+     *
+     * @param string $slug            returns only rows that belong to the related view
+     * @param array  $queryParameters {
+     *
+     * @var bool   $count if provided only the count will be returned
+     * @var string $exclude_fields All the fields are included in the response by default. You can select a subset of fields by providing the exclude_fields query parameter. If you for example provide the following GET parameter `exclude_fields=field_1,field_2` then the fields with id `1` and id `2` are going to be excluded from the selection and response.
+     * @var string $filter__{field}__{filter} The rows can optionally be filtered by the same view filters available for the views. Multiple filters can be provided if they follow the same format. The field and filter variable indicate how to filter and the value indicates where to filter on.
+     *
+     * Please note that if the `filters` parameter is provided, this parameter will be ignored.
+     *
+     * For example if you provide the following GET parameter `filter__field_1__equal=test` then only rows where the value of field_1 is equal to test are going to be returned.
+     *
+     * The following filters are available: equal, not_equal, filename_contains, files_lower_than, has_file_type, contains, contains_not, contains_word, doesnt_contain_word, length_is_lower_than, higher_than, higher_than_or_equal, lower_than, lower_than_or_equal, is_even_and_whole, date_equal, date_before, date_before_or_equal, date_after_days_ago, date_after, date_after_or_equal, date_not_equal, date_equals_today, date_before_today, date_after_today, date_within_days, date_within_weeks, date_within_months, date_equals_days_ago, date_equals_months_ago, date_equals_years_ago, date_equals_week, date_equals_month, date_equals_day_of_month, date_equals_year, date_is, date_is_not, date_is_before, date_is_on_or_before, date_is_after, date_is_on_or_after, date_is_within, single_select_equal, single_select_not_equal, single_select_is_any_of, single_select_is_none_of, link_row_has, link_row_has_not, link_row_contains, link_row_not_contains, boolean, empty, not_empty, multiple_select_has, multiple_select_has_not, multiple_collaborators_has, multiple_collaborators_has_not, user_is, user_is_not.
+     * @var string $filter_type `AND`: Indicates that the rows must match all the provided filters.
+     *             `OR`: Indicates that the rows only have to match one of the filters.
+     *
+     * This works only if two or more filters are provided.Please note that if the `filters` parameter is provided, this parameter will be ignored.
+     * @var string $filters A JSON serialized string containing the filter tree to apply to this view. The filter tree is a nested structure containing the filters that need to be applied.
+     *
+     * Please note that if this parameter is provided, all other `filter__{field}__{filter}` will be ignored, as well as the `filter_type` parameter.
+     *
+     * An example of a valid filter tree is the following:`{"filter_type": "AND", "filters": [{"field": 1, "type": "equal", "value": "test"}]}`.
+     *
+     * The following filters are available: equal, not_equal, filename_contains, files_lower_than, has_file_type, contains, contains_not, contains_word, doesnt_contain_word, length_is_lower_than, higher_than, higher_than_or_equal, lower_than, lower_than_or_equal, is_even_and_whole, date_equal, date_before, date_before_or_equal, date_after_days_ago, date_after, date_after_or_equal, date_not_equal, date_equals_today, date_before_today, date_after_today, date_within_days, date_within_weeks, date_within_months, date_equals_days_ago, date_equals_months_ago, date_equals_years_ago, date_equals_week, date_equals_month, date_equals_day_of_month, date_equals_year, date_is, date_is_not, date_is_before, date_is_on_or_before, date_is_after, date_is_on_or_after, date_is_within, single_select_equal, single_select_not_equal, single_select_is_any_of, single_select_is_none_of, link_row_has, link_row_has_not, link_row_contains, link_row_not_contains, boolean, empty, not_empty, multiple_select_has, multiple_select_has_not, multiple_collaborators_has, multiple_collaborators_has_not, user_is, user_is_not.
+     * @var string $group_by Optionally the rows can be grouped by provided field ids separated by comma. By default no groups are applied. This doesn't actually responds with the rows groups, this is just what's needed for the Baserow group by feature.
+     * @var string $include A comma separated list allowing the values of `field_options` which will add the object/objects with the same name to the response if included. The `field_options` object contains user defined view settings for each field. For example the field's width is included in here.
+     * @var string $include_fields All the fields are included in the response by default. You can select a subset of fields by providing the fields query parameter. If you for example provide the following GET parameter `include_fields=field_1,field_2` then only the fields with id `1` and id `2` are going to be selected and included in the response.
+     * @var int    $limit defines how many rows should be returned
+     * @var int    $offset can only be used in combination with the `limit` parameter and defines from which offset the rows should be returned
+     * @var string $order_by Optionally the rows can be ordered by provided field ids separated by comma. By default a field is ordered in ascending (A-Z) order, but by prepending the field with a '-' it can be ordered descending (Z-A).
+     * @var int    $page Defines which page of rows should be returned. Either the `page` or `limit` can be provided, not both.
+     * @var string $search if provided only rows with data that matches the search query are going to be returned
+     * @var string $search_mode If provided, allows API consumers to determine what kind of search experience they wish to have. If the default `SearchModes.MODE_FT_WITH_COUNT` is used, then Postgres full-text search is used. If `SearchModes.MODE_COMPAT` is provided then the search term will be exactly searched for including whitespace on each cell. This is the Baserow legacy search behaviour.
+     * @var int    $size Can only be used in combination with the `page` parameter and defines how many rows should be returned.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\PublicPaginationSerializerWithGridViewFieldOptionsExampleRowResponse|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\PublicListDatabaseTableGridViewRowsBadRequestException
+     * @throws Exception\PublicListDatabaseTableGridViewRowsUnauthorizedException
+     * @throws Exception\PublicListDatabaseTableGridViewRowsNotFoundException
+     */
+    public function publicListDatabaseTableGridViewRows(string $slug, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\PublicListDatabaseTableGridViewRows($slug, $queryParameters), $fetch);
+    }
+
+    /**
+     * Lists the requested rows of the view's table related to the provided `view_id` if the authorized user has access to the database's workspace. The response is paginated either by a limit/offset or page/size style. The style depends on the provided GET parameters. The properties of the returned rows depends on which fields the table has. For a complete overview of fields use the **list_database_table_fields** endpoint to list them all. In the example all field types are listed, but normally the number in field_{id} key is going to be the id of the field. The value is what the user has provided and the format of it depends on the fields type.
+     *
+     * The filters and sortings are automatically applied. To get a full overview of the applied filters and sortings you can use the `list_database_table_view_filters` and `list_database_table_view_sortings` endpoints.
+     *
+     * @param int   $viewId          returns only rows that belong to the related view's table
+     * @param array $queryParameters {
+     *
+     * @var bool   $count if provided only the count will be returned
+     * @var string $exclude_fields All the fields are included in the response by default. You can select a subset of fields by providing the exclude_fields query parameter. If you for example provide the following GET parameter `exclude_fields=field_1,field_2` then the fields with id `1` and id `2` are going to be excluded from the selection and response.
+     * @var string $filter__{field}__{filter} The rows can optionally be filtered by the same view filters available for the views. Multiple filters can be provided if they follow the same format. The field and filter variable indicate how to filter and the value indicates where to filter on.
+     *
+     * Please note that if the `filters` parameter is provided, this parameter will be ignored.
+     *
+     * For example if you provide the following GET parameter `filter__field_1__equal=test` then only rows where the value of field_1 is equal to test are going to be returned.
+     *
+     * The following filters are available: equal, not_equal, filename_contains, files_lower_than, has_file_type, contains, contains_not, contains_word, doesnt_contain_word, length_is_lower_than, higher_than, higher_than_or_equal, lower_than, lower_than_or_equal, is_even_and_whole, date_equal, date_before, date_before_or_equal, date_after_days_ago, date_after, date_after_or_equal, date_not_equal, date_equals_today, date_before_today, date_after_today, date_within_days, date_within_weeks, date_within_months, date_equals_days_ago, date_equals_months_ago, date_equals_years_ago, date_equals_week, date_equals_month, date_equals_day_of_month, date_equals_year, date_is, date_is_not, date_is_before, date_is_on_or_before, date_is_after, date_is_on_or_after, date_is_within, single_select_equal, single_select_not_equal, single_select_is_any_of, single_select_is_none_of, link_row_has, link_row_has_not, link_row_contains, link_row_not_contains, boolean, empty, not_empty, multiple_select_has, multiple_select_has_not, multiple_collaborators_has, multiple_collaborators_has_not, user_is, user_is_not.Please note that by passing the filter parameters the view filters saved for the view itself will be ignored.
+     * @var string $filter_type `AND`: Indicates that the rows must match all the provided filters.
+     *             `OR`: Indicates that the rows only have to match one of the filters.
+     *
+     * This works only if two or more filters are provided.Please note that if the `filters` parameter is provided, this parameter will be ignored.
+     * @var string $filters A JSON serialized string containing the filter tree to apply to this view. The filter tree is a nested structure containing the filters that need to be applied.
+     *
+     * An example of a valid filter tree is the following:`{"filter_type": "AND", "filters": [{"field": 1, "type": "equal", "value": "test"}]}`.
+     *
+     * The following filters are available: equal, not_equal, filename_contains, files_lower_than, has_file_type, contains, contains_not, contains_word, doesnt_contain_word, length_is_lower_than, higher_than, higher_than_or_equal, lower_than, lower_than_or_equal, is_even_and_whole, date_equal, date_before, date_before_or_equal, date_after_days_ago, date_after, date_after_or_equal, date_not_equal, date_equals_today, date_before_today, date_after_today, date_within_days, date_within_weeks, date_within_months, date_equals_days_ago, date_equals_months_ago, date_equals_years_ago, date_equals_week, date_equals_month, date_equals_day_of_month, date_equals_year, date_is, date_is_not, date_is_before, date_is_on_or_before, date_is_after, date_is_on_or_after, date_is_within, single_select_equal, single_select_not_equal, single_select_is_any_of, single_select_is_none_of, link_row_has, link_row_has_not, link_row_contains, link_row_not_contains, boolean, empty, not_empty, multiple_select_has, multiple_select_has_not, multiple_collaborators_has, multiple_collaborators_has_not, user_is, user_is_not.Please note that by passing the filters parameter the view filters saved for the view itself will be ignored.
+     * @var string $include A comma separated list allowing the values of `field_options` and `row_metadata` which will add the object/objects with the same name to the response if included. The `field_options` object contains user defined view settings for each field. For example the field's width is included in here. The `row_metadata` object includes extra row specific data on a per row basis.
+     * @var string $include_fields All the fields are included in the response by default. You can select a subset of fields by providing the fields query parameter. If you for example provide the following GET parameter `include_fields=field_1,field_2` then only the fields with id `1` and id `2` are going to be selected and included in the response.
+     * @var int    $limit defines how many rows should be returned
+     * @var int    $offset can only be used in combination with the `limit` parameter and defines from which offset the rows should be returned
+     * @var string $order_by Optionally the rows can be ordered by provided field ids separated by comma. By default a field is ordered in ascending (A-Z) order, but by prepending the field with a '-' it can be ordered descending (Z-A).
+     * @var int    $page Defines which page of rows should be returned. Either the `page` or `limit` can be provided, not both.
+     * @var string $search if provided only rows with data that matches the search query are going to be returned
+     * @var string $search_mode If provided, allows API consumers to determine what kind of search experience they wish to have. If the default `SearchModes.MODE_FT_WITH_COUNT` is used, then Postgres full-text search is used. If `SearchModes.MODE_COMPAT` is provided then the search term will be exactly searched for including whitespace on each cell. This is the Baserow legacy search behaviour.
+     * @var int    $size Can only be used in combination with the `page` parameter and defines how many rows should be returned.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\PaginationSerializerWithGridViewFieldOptionsExampleRowResponse|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ListDatabaseTableGridViewRowsBadRequestException
+     * @throws Exception\ListDatabaseTableGridViewRowsNotFoundException
+     */
+    public function listDatabaseTableGridViewRows(int $viewId, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListDatabaseTableGridViewRows($viewId, $queryParameters), $fetch);
+    }
+
+    /**
+     * Lists only the rows and fields that match the request. Only the rows with the ids that are in the `row_ids` list are going to be returned. Same goes for the fields, only the fields with the ids in the `field_ids` are going to be returned. This endpoint could be used to refresh data after changes something. For example in the web frontend after changing a field type, the data of the related cells will be refreshed using this endpoint. In the example all field types are listed, but normally  the number in field_{id} key is going to be the id of the field. The value is what the user has provided and the format of it depends on the fields type.
+     *
+     * @param int    $viewId returns only rows that belong to the related view's table
+     * @param string $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponse[]|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\FilterDatabaseTableGridViewRowsBadRequestException
+     * @throws Exception\FilterDatabaseTableGridViewRowsNotFoundException
+     */
+    public function filterDatabaseTableGridViewRows(int $viewId, Model\GridViewFilter $requestBody, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\FilterDatabaseTableGridViewRows($viewId, $requestBody), $fetch);
+    }
+
+    /**
+     * Computes the aggregation of all the values for a specified field from the selected grid view. You must select the aggregation type by setting the `type` GET parameter. If filters are configured for the selected view, the aggregation is calculated only on filtered rows. You need to have read permissions on the view to request an aggregation.
+     *
+     * @param int   $fieldId         The field id you want to aggregate
+     * @param int   $viewId          select the view you want the aggregation for
+     * @param array $queryParameters {
+     *
+     * @var string $include if `include` is set to `total`, the total row count will be returned with the result
+     * @var string $type The aggregation type you want. Available aggregation types: empty_count, not_empty_count, unique_count, min, max, sum, average, median, decile, variance, std_dev
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse200|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GetDatabaseTableGridViewFieldAggregationBadRequestException
+     * @throws Exception\GetDatabaseTableGridViewFieldAggregationNotFoundException
+     */
+    public function getDatabaseTableGridViewFieldAggregation(int $fieldId, int $viewId, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GetDatabaseTableGridViewFieldAggregation($fieldId, $viewId, $queryParameters), $fetch);
+    }
+
+    /**
+     * Returns all field aggregations values previously defined for this grid view. If filters exist for this view, the aggregations are computed only on filtered rows.You need to have read permissions on the view to request aggregations.
+     *
+     * @param int   $viewId          select the view you want the aggregations for
+     * @param array $queryParameters {
+     *
+     * @var string $filter__{field}__{filter} The aggregation can optionally be filtered by the same view filters available for the views. Multiple filters can be provided if they follow the same format. The field and filter variable indicate how to filter and the value indicates where to filter on.
+     *
+     * Please note that if the `filters` parameter is provided, this parameter will be ignored.
+     *
+     * For example if you provide the following GET parameter `filter__field_1__equal=test` then only rows where the value of field_1 is equal to test are going to be returned.
+     *
+     * The following filters are available: equal, not_equal, filename_contains, files_lower_than, has_file_type, contains, contains_not, contains_word, doesnt_contain_word, length_is_lower_than, higher_than, higher_than_or_equal, lower_than, lower_than_or_equal, is_even_and_whole, date_equal, date_before, date_before_or_equal, date_after_days_ago, date_after, date_after_or_equal, date_not_equal, date_equals_today, date_before_today, date_after_today, date_within_days, date_within_weeks, date_within_months, date_equals_days_ago, date_equals_months_ago, date_equals_years_ago, date_equals_week, date_equals_month, date_equals_day_of_month, date_equals_year, date_is, date_is_not, date_is_before, date_is_on_or_before, date_is_after, date_is_on_or_after, date_is_within, single_select_equal, single_select_not_equal, single_select_is_any_of, single_select_is_none_of, link_row_has, link_row_has_not, link_row_contains, link_row_not_contains, boolean, empty, not_empty, multiple_select_has, multiple_select_has_not, multiple_collaborators_has, multiple_collaborators_has_not, user_is, user_is_not.Please note that by passing the filter parameters the view filters saved for the view itself will be ignored.
+     * @var string $filter_type `AND`: Indicates that the aggregated rows must match all the provided filters.
+     *             `OR`: Indicates that the aggregated rows only have to match one of the filters.
+     *
+     * This works only if two or more filters are provided.Please note that if the `filters` parameter is provided, this parameter will be ignored.
+     * @var string $filters A JSON serialized string containing the filter tree to apply for the aggregation. The filter tree is a nested structure containing the filters that need to be applied.
+     *
+     * An example of a valid filter tree is the following:`{"filter_type": "AND", "filters": [{"field": 1, "type": "equal", "value": "test"}]}`.
+     *
+     * The following filters are available: equal, not_equal, filename_contains, files_lower_than, has_file_type, contains, contains_not, contains_word, doesnt_contain_word, length_is_lower_than, higher_than, higher_than_or_equal, lower_than, lower_than_or_equal, is_even_and_whole, date_equal, date_before, date_before_or_equal, date_after_days_ago, date_after, date_after_or_equal, date_not_equal, date_equals_today, date_before_today, date_after_today, date_within_days, date_within_weeks, date_within_months, date_equals_days_ago, date_equals_months_ago, date_equals_years_ago, date_equals_week, date_equals_month, date_equals_day_of_month, date_equals_year, date_is, date_is_not, date_is_before, date_is_on_or_before, date_is_after, date_is_on_or_after, date_is_within, single_select_equal, single_select_not_equal, single_select_is_any_of, single_select_is_none_of, link_row_has, link_row_has_not, link_row_contains, link_row_not_contains, boolean, empty, not_empty, multiple_select_has, multiple_select_has_not, multiple_collaborators_has, multiple_collaborators_has_not, user_is, user_is_not.Please note that by passing the filters parameter the view filters saved for the view itself will be ignored.
+     * @var string $include if `include` is set to `total`, the total row count will be returned with the result
+     * @var string $search if provided the aggregations are calculated only for matching rows
+     * @var string $search_mode If provided, allows API consumers to determine what kind of search experience they wish to have. If the default `SearchModes.MODE_FT_WITH_COUNT` is used, then Postgres full-text search is used. If `SearchModes.MODE_COMPAT` is provided then the search term will be exactly searched for including whitespace on each cell. This is the Baserow legacy search behaviour.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse200|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GetDatabaseTableGridViewFieldAggregationsBadRequestException
+     * @throws Exception\GetDatabaseTableGridViewFieldAggregationsNotFoundException
+     */
+    public function getDatabaseTableGridViewFieldAggregations(int $viewId, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GetDatabaseTableGridViewFieldAggregations($viewId, $queryParameters), $fetch);
+    }
+
+    /**
+     * Deletes the existing group by if the authorized user has access to the related database's workspace.
+     *
+     * @param int   $viewGroupById    deletes the group by related to the provided value
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DeleteDatabaseTableViewGroupBadRequestException
+     * @throws Exception\DeleteDatabaseTableViewGroupNotFoundException
+     */
+    public function deleteDatabaseTableViewGroup(int $viewGroupById, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DeleteDatabaseTableViewGroup($viewGroupById, $headerParameters), $fetch);
+    }
+
+    /**
+     * Returns the existing view group by if the authorized user has access to the related database's workspace.
+     *
+     * @param int    $viewGroupById returns the view group by related to the provided value
+     * @param string $fetch         Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\ViewGroupBy|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GetDatabaseTableViewGroupBadRequestException
+     * @throws Exception\GetDatabaseTableViewGroupNotFoundException
+     */
+    public function getDatabaseTableViewGroup(int $viewGroupById, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GetDatabaseTableViewGroup($viewGroupById), $fetch);
+    }
+
+    /**
+     * Updates the existing group by if the authorized user has access to the related database's workspace.
+     *
+     * @param int   $viewGroupById    updates the view group by related to the provided value
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\ViewGroupBy|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UpdateDatabaseTableViewGroupBadRequestException
+     * @throws Exception\UpdateDatabaseTableViewGroupNotFoundException
+     */
+    public function updateDatabaseTableViewGroup(int $viewGroupById, ?Model\PatchedUpdateViewGroupBy $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UpdateDatabaseTableViewGroup($viewGroupById, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Responds with serialized rows grouped by the view's single select field options related to the `slug` if the kanban view is publicly shared. Additional query parameters can be provided to control the `limit` and `offset` per select option.
+     *
+     * This is a **premium** feature.
+     *
+     * @param string $slug            returns only rows that belong to the related view
+     * @param array  $queryParameters {
+     *
+     * @var string $filter__{field}__{filter} The rows can optionally be filtered by the same view filters available for the views. Multiple filters can be provided if they follow the same format. The field and filter variable indicate how to filter and the value indicates where to filter on.
+     *
+     * Please note that if the `filters` parameter is provided, this parameter will be ignored.
+     *
+     * For example if you provide the following GET parameter `filter__field_1__equal=test` then only rows where the value of field_1 is equal to test are going to be returned.
+     *
+     * The following filters are available: equal, not_equal, filename_contains, files_lower_than, has_file_type, contains, contains_not, contains_word, doesnt_contain_word, length_is_lower_than, higher_than, higher_than_or_equal, lower_than, lower_than_or_equal, is_even_and_whole, date_equal, date_before, date_before_or_equal, date_after_days_ago, date_after, date_after_or_equal, date_not_equal, date_equals_today, date_before_today, date_after_today, date_within_days, date_within_weeks, date_within_months, date_equals_days_ago, date_equals_months_ago, date_equals_years_ago, date_equals_week, date_equals_month, date_equals_day_of_month, date_equals_year, date_is, date_is_not, date_is_before, date_is_on_or_before, date_is_after, date_is_on_or_after, date_is_within, single_select_equal, single_select_not_equal, single_select_is_any_of, single_select_is_none_of, link_row_has, link_row_has_not, link_row_contains, link_row_not_contains, boolean, empty, not_empty, multiple_select_has, multiple_select_has_not, multiple_collaborators_has, multiple_collaborators_has_not, user_is, user_is_not.
+     * @var string $filter_type `AND`: Indicates that the rows must match all the provided filters.
+     *             `OR`: Indicates that the rows only have to match one of the filters.
+     *
+     * This works only if two or more filters are provided.Please note that if the `filters` parameter is provided, this parameter will be ignored.
+     * @var string $filters A JSON serialized string containing the filter tree to apply to this view. The filter tree is a nested structure containing the filters that need to be applied.
+     *
+     * Please note that if this parameter is provided, all other `filter__{field}__{filter}` will be ignored, as well as the `filter_type` parameter.
+     *
+     * An example of a valid filter tree is the following:`{"filter_type": "AND", "filters": [{"field": 1, "type": "equal", "value": "test"}]}`.
+     *
+     * The following filters are available: equal, not_equal, filename_contains, files_lower_than, has_file_type, contains, contains_not, contains_word, doesnt_contain_word, length_is_lower_than, higher_than, higher_than_or_equal, lower_than, lower_than_or_equal, is_even_and_whole, date_equal, date_before, date_before_or_equal, date_after_days_ago, date_after, date_after_or_equal, date_not_equal, date_equals_today, date_before_today, date_after_today, date_within_days, date_within_weeks, date_within_months, date_equals_days_ago, date_equals_months_ago, date_equals_years_ago, date_equals_week, date_equals_month, date_equals_day_of_month, date_equals_year, date_is, date_is_not, date_is_before, date_is_on_or_before, date_is_after, date_is_on_or_after, date_is_within, single_select_equal, single_select_not_equal, single_select_is_any_of, single_select_is_none_of, link_row_has, link_row_has_not, link_row_contains, link_row_not_contains, boolean, empty, not_empty, multiple_select_has, multiple_select_has_not, multiple_collaborators_has, multiple_collaborators_has_not, user_is, user_is_not.
+     * @var int    $limit Defines how many rows should be returned by default. This value can be overwritten per select option.
+     * @var int    $offset Defines from which offset the rows should be returned.This value can be overwritten per select option.
+     * @var string $select_option Accepts multiple `select_option` parameters. If not provided, the rows of all select options will be returned. If one or more `select_option` parameters are provided, then only the rows of those will be included in the response. `?select_option=1&select_option=null` will only include the rows for both select option with id `1` and `null`. `?select_option=1,10,20` will only include the rows of select option id `1` with a limit of `10` and and offset of `20`.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\KanbanViewExampleResponse|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\PublicListDatabaseTableKanbanViewRowsUnauthorizedException
+     * @throws Exception\PublicListDatabaseTableKanbanViewRowsBadRequestException
+     * @throws Exception\PublicListDatabaseTableKanbanViewRowsNotFoundException
+     */
+    public function publicListDatabaseTableKanbanViewRows(string $slug, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\PublicListDatabaseTableKanbanViewRows($slug, $queryParameters), $fetch);
+    }
+
+    /**
+     * Responds with serialized rows grouped by the view's single select field options if the user is authenticated and has access to the related workspace. Additional query parameters can be provided to control the `limit` and `offset` per select option.
+     *
+     * This is a **premium** feature.
+     *
+     * @param int   $viewId          returns only rows that belong to the related view's table
+     * @param array $queryParameters {
+     *
+     * @var string $filter__{field}__{filter} The rows can optionally be filtered by the same view filters available for the views. Multiple filters can be provided if they follow the same format. The field and filter variable indicate how to filter and the value indicates where to filter on.
+     *
+     * Please note that if the `filters` parameter is provided, this parameter will be ignored.
+     *
+     * For example if you provide the following GET parameter `filter__field_1__equal=test` then only rows where the value of field_1 is equal to test are going to be returned.
+     *
+     * The following filters are available: equal, not_equal, filename_contains, files_lower_than, has_file_type, contains, contains_not, contains_word, doesnt_contain_word, length_is_lower_than, higher_than, higher_than_or_equal, lower_than, lower_than_or_equal, is_even_and_whole, date_equal, date_before, date_before_or_equal, date_after_days_ago, date_after, date_after_or_equal, date_not_equal, date_equals_today, date_before_today, date_after_today, date_within_days, date_within_weeks, date_within_months, date_equals_days_ago, date_equals_months_ago, date_equals_years_ago, date_equals_week, date_equals_month, date_equals_day_of_month, date_equals_year, date_is, date_is_not, date_is_before, date_is_on_or_before, date_is_after, date_is_on_or_after, date_is_within, single_select_equal, single_select_not_equal, single_select_is_any_of, single_select_is_none_of, link_row_has, link_row_has_not, link_row_contains, link_row_not_contains, boolean, empty, not_empty, multiple_select_has, multiple_select_has_not, multiple_collaborators_has, multiple_collaborators_has_not, user_is, user_is_not.Please note that by passing the filter parameters the view filters saved for the view itself will be ignored.
+     * @var string $filter_type `AND`: Indicates that the rows must match all the provided filters.
+     *             `OR`: Indicates that the rows only have to match one of the filters.
+     *
+     * This works only if two or more filters are provided.Please note that if the `filters` parameter is provided, this parameter will be ignored.
+     * @var string $filters A JSON serialized string containing the filter tree to apply to this view. The filter tree is a nested structure containing the filters that need to be applied.
+     *
+     * An example of a valid filter tree is the following:`{"filter_type": "AND", "filters": [{"field": 1, "type": "equal", "value": "test"}]}`.
+     *
+     * The following filters are available: equal, not_equal, filename_contains, files_lower_than, has_file_type, contains, contains_not, contains_word, doesnt_contain_word, length_is_lower_than, higher_than, higher_than_or_equal, lower_than, lower_than_or_equal, is_even_and_whole, date_equal, date_before, date_before_or_equal, date_after_days_ago, date_after, date_after_or_equal, date_not_equal, date_equals_today, date_before_today, date_after_today, date_within_days, date_within_weeks, date_within_months, date_equals_days_ago, date_equals_months_ago, date_equals_years_ago, date_equals_week, date_equals_month, date_equals_day_of_month, date_equals_year, date_is, date_is_not, date_is_before, date_is_on_or_before, date_is_after, date_is_on_or_after, date_is_within, single_select_equal, single_select_not_equal, single_select_is_any_of, single_select_is_none_of, link_row_has, link_row_has_not, link_row_contains, link_row_not_contains, boolean, empty, not_empty, multiple_select_has, multiple_select_has_not, multiple_collaborators_has, multiple_collaborators_has_not, user_is, user_is_not.Please note that by passing the filters parameter the view filters saved for the view itself will be ignored.
+     * @var string $include A comma separated list allowing the values of `field_options` and `row_metadata` which will add the object/objects with the same name to the response if included. The `field_options` object contains user defined view settings for each field. For example the field's width is included in here. The `row_metadata` object includes extra row specific data on a per row basis.
+     * @var int    $limit Defines how many rows should be returned by default. This value can be overwritten per select option.
+     * @var int    $offset Defines from which offset the rows should be returned.This value can be overwritten per select option.
+     * @var string $select_option Accepts multiple `select_option` parameters. If not provided, the rows of all select options will be returned. If one or more `select_option` parameters are provided, then only the rows of those will be included in the response. `?select_option=1&select_option=null` will only include the rows for both select option with id `1` and `null`. `?select_option=1,10,20` will only include the rows of select option id `1` with a limit of `10` and and offset of `20`.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\KanbanViewExampleResponse|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ListDatabaseTableKanbanViewRowsBadRequestException
+     * @throws Exception\ListDatabaseTableKanbanViewRowsNotFoundException
+     */
+    public function listDatabaseTableKanbanViewRows(int $viewId, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListDatabaseTableKanbanViewRows($viewId, $queryParameters), $fetch);
+    }
+
+    /**
+     * Deletes the existing sort if the authorized user has access to the related database's workspace.
+     *
+     * @param int   $viewSortId       deletes the sort related to the provided value
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DeleteDatabaseTableViewSortBadRequestException
+     * @throws Exception\DeleteDatabaseTableViewSortNotFoundException
+     */
+    public function deleteDatabaseTableViewSort(int $viewSortId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DeleteDatabaseTableViewSort($viewSortId, $headerParameters), $fetch);
+    }
+
+    /**
+     * Returns the existing view sort if the authorized user has access to the related database's workspace.
+     *
+     * @param int    $viewSortId returns the view sort related to the provided value
+     * @param string $fetch      Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\ViewSort|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GetDatabaseTableViewSortBadRequestException
+     * @throws Exception\GetDatabaseTableViewSortNotFoundException
+     */
+    public function getDatabaseTableViewSort(int $viewSortId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GetDatabaseTableViewSort($viewSortId), $fetch);
+    }
+
+    /**
+     * Updates the existing sort if the authorized user has access to the related database's workspace.
+     *
+     * @param int   $viewSortId       updates the view sort related to the provided value
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\ViewSort|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UpdateDatabaseTableViewSortBadRequestException
+     * @throws Exception\UpdateDatabaseTableViewSortNotFoundException
+     */
+    public function updateDatabaseTableViewSort(int $viewSortId, ?Model\PatchedUpdateViewSort $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UpdateDatabaseTableViewSort($viewSortId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Lists all views of the table related to the provided `table_id`. If the workspace is related to a template, then this endpoint will be publicly accessible. A table can have multiple views. Each view can display the data in a different way. For example the `grid` view shows the in a spreadsheet like way. That type has custom endpoints for data retrieval and manipulation. In the future other views types like a calendar or Kanban are going to be added. Each type can have different properties.
+     *
+     * @param int   $tableId         returns only views of the table related to the provided value
+     * @param array $queryParameters {
+     *
+     * @var string $include A comma separated list of extra attributes to include on each view in the response. The supported attributes are `filters`, `sortings` and `decorations`. For example `include=filters,sortings` will add the attributes `filters` and `sortings` to every returned view, containing a list of the views filters and sortings respectively.
+     * @var int    $limit The maximum amount of views that must be returned. This endpoint doesn't support pagination, but if you for example just need to fetch the first view, you can do that by setting a limit. There isn't a limit by default.
+     * @var string $type Optionally filter on the view type. If provided, only views of that type will be returned.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ListDatabaseTableViewsBadRequestException
+     * @throws Exception\ListDatabaseTableViewsNotFoundException
+     */
+    public function listDatabaseTableViews(int $tableId, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListDatabaseTableViews($tableId, $queryParameters), $fetch);
+    }
+
+    /**
+     * Creates a new view for the table related to the provided `table_id` parameter. Depending on the type, different properties can optionally be set.
+     *
+     * @param int        $tableId         creates a view for the table related to the provided value
+     * @param mixed|null $requestBody
+     * @param array      $queryParameters {
+     *
+     * @var string $include A comma separated list of extra attributes to include on each view in the response. The supported attributes are `filters`, `sortings` and `decorations`. For example `include=filters,sortings` will add the attributes `filters` and `sortings` to every returned view, containing a list of the views filters and sortings respectively.
+     *             }
+     *
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\CreateDatabaseTableViewBadRequestException
+     * @throws Exception\CreateDatabaseTableViewNotFoundException
+     */
+    public function createDatabaseTableView(int $tableId, $requestBody = null, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\CreateDatabaseTableView($tableId, $requestBody, $queryParameters, $headerParameters), $fetch);
+    }
+
+    /**
+     * Changes the order of the provided view ids to the matching position that the id has in the list. The order of the not provided views will be set to `0`.
+     *
+     * @param int   $tableId          updates the order of the views in the table related to the provided value
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\OrderDatabaseTableViewsBadRequestException
+     * @throws Exception\OrderDatabaseTableViewsNotFoundException
+     */
+    public function orderDatabaseTableViews(int $tableId, Model\OrderViews $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\OrderDatabaseTableViews($tableId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Deletes the existing webhook if the authorized user has access to the related database's workspace.
+     *
+     * @param int    $webhookId deletes the webhook related to the provided value
+     * @param string $fetch     Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DeleteDatabaseTableWebhookBadRequestException
+     * @throws Exception\DeleteDatabaseTableWebhookNotFoundException
+     */
+    public function deleteDatabaseTableWebhook(int $webhookId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DeleteDatabaseTableWebhook($webhookId), $fetch);
+    }
+
+    /**
+     * Returns the existing webhook if the authorized user has access to the related database workspace.
+     *
+     * @param int    $webhookId returns the webhook related to the provided value
+     * @param string $fetch     Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\TableWebhook|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GetDatabaseTableWebhookBadRequestException
+     * @throws Exception\GetDatabaseTableWebhookNotFoundException
+     */
+    public function getDatabaseTableWebhook(int $webhookId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GetDatabaseTableWebhook($webhookId), $fetch);
+    }
+
+    /**
+     * Updates the existing view if the authorized user has access to the related database workspace.
+     *
+     * @param int    $webhookId updates the webhook related to the provided value
+     * @param string $fetch     Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\TableWebhook|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UpdateDatabaseTableWebhookBadRequestException
+     * @throws Exception\UpdateDatabaseTableWebhookNotFoundException
+     */
+    public function updateDatabaseTableWebhook(int $webhookId, ?Model\PatchedTableWebhookUpdateRequest $requestBody = null, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UpdateDatabaseTableWebhook($webhookId, $requestBody), $fetch);
+    }
+
+    /**
+     * Lists all webhooks of the table related to the provided `table_id` if the user has access to the related database workspace.
+     *
+     * @param int    $tableId returns only webhooks of the table related to this value
+     * @param string $fetch   Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \cedricziel\phpbaserowclient\Generated\Model\TableWebhook[]|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ListDatabaseTableWebhooksBadRequestException
+     * @throws Exception\ListDatabaseTableWebhooksNotFoundException
+     */
+    public function listDatabaseTableWebhooks(int $tableId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListDatabaseTableWebhooks($tableId), $fetch);
+    }
+
+    /**
+     * Creates a new webhook for the table related to the provided `table_id` parameter if the authorized user has access to the related database workspace.
+     *
+     * @param int    $tableId creates a webhook for the table related to the provided value
+     * @param string $fetch   Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\TableWebhook|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\CreateDatabaseTableWebhookBadRequestException
+     * @throws Exception\CreateDatabaseTableWebhookNotFoundException
+     */
+    public function createDatabaseTableWebhook(int $tableId, Model\TableWebhookCreateRequest $requestBody, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\CreateDatabaseTableWebhook($tableId, $requestBody), $fetch);
+    }
+
+    /**
+     * This endpoint triggers a test call based on the provided data if the user has access to the workspace related to the table. The test call will be made immediately and a copy of the request, response and status will be included in the response.
+     *
+     * @param int    $tableId the id of the table that must be tested
+     * @param string $fetch   Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\TableWebhookTestCallResponse|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\TestCallDatabaseTableWebhookBadRequestException
+     * @throws Exception\TestCallDatabaseTableWebhookNotFoundException
+     */
+    public function testCallDatabaseTableWebhook(int $tableId, Model\TableWebhookTestCallRequest $requestBody, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\TestCallDatabaseTableWebhook($tableId, $requestBody), $fetch);
+    }
+
+    /**
+     * Downloads a file using the backend and the secure file serve feature. The signed data is extracted from the URL and used to verify if the user has access to the file. If the permissions check passes and the file exists, the file is served to the user.
+     *
+     * This is a **enterprise** feature.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function secureFileServeDownload(string $signedData, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\SecureFileServeDownload($signedData), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \cedricziel\phpbaserowclient\Generated\Model\WorkspaceUserWorkspace[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listGroups(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListGroups(), $fetch);
+    }
+
+    /**
+     * **This endpoint has been deprecated and replaced with a new endpoint, [create_workspace](#tag/Workspaces/operation/create_workspace).**.
+     *
+     **Support for this endpoint will end in 2024.**
+     *
+     * Creates a new group where only the authorized user has access to. No initial data like database applications are added, they have to be created via other endpoints.
+     *
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\WorkspaceUserWorkspace|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createGroup(Model\Workspace $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\CreateGroup($requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * **This endpoint has been deprecated and replaced with a new endpoint, [delete_workspace](#tag/Workspaces/operation/delete_workspace).**.
+     *
+     **Support for this endpoint will end in 2024.**
+     *
+     * Deletes an existing group if the authorized user belongs to the group. All the applications, databases, tables etc that were in the group are going to be deleted also.
+     *
+     * @param int   $groupId          deletes the group related to the provided value
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DeleteGroupBadRequestException
+     * @throws Exception\DeleteGroupNotFoundException
+     */
+    public function deleteGroup(int $groupId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DeleteGroup($groupId, $headerParameters), $fetch);
+    }
+
+    /**
+     * **This endpoint has been deprecated and replaced with a new endpoint, [update_workspace](#tag/Workspaces/operation/update_workspace).**.
+     *
+     **Support for this endpoint will end in 2024.**
+     *
+     * Updates the existing group related to the provided `group_id` parameter if the authorized user belongs to the group. It is not yet possible to add additional users to a group.
+     *
+     * @param int   $groupId          updates the group related to the provided value
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\Workspace|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UpdateGroupBadRequestException
+     * @throws Exception\UpdateGroupNotFoundException
+     */
+    public function updateGroup(int $groupId, ?Model\PatchedWorkspace $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UpdateGroup($groupId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * **This endpoint has been deprecated and replaced with a new endpoint, [leave_workspace](#tag/Workspaces/operation/leave_workspace).**.
+     *
+     **Support for this endpoint will end in 2024.**
+     *
+     * Makes the authenticated user leave the group related to the provided `group_id` if the user is in that group. If the user is the last admin in the group, they will not be able to leave it. There must always be one admin in the group, otherwise it will be left without control. If that is the case, they must either delete the group or give another member admin permissions first.
+     *
+     * @param int    $groupId leaves the group related to the value
+     * @param string $fetch   Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\LeaveGroupBadRequestException
+     * @throws Exception\LeaveGroupNotFoundException
+     */
+    public function leaveGroup(int $groupId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\LeaveGroup($groupId), $fetch);
+    }
+
+    /**
+     * **This endpoint has been deprecated and replaced with a new endpoint, [workspace_permissions](#tag/Workspaces/operation/workspace_permissions).**.
+     *
+     **Support for this endpoint will end in 2024.**
+     *
+     * Returns a the permission data necessary to determine the permissions of a specific user over a specific group.
+     * See `core.handler.CoreHandler.get_permissions()` for more details.
+     *
+     * @param int    $groupId the group id we want the permission object for
+     * @param string $fetch   Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \cedricziel\phpbaserowclient\Generated\Model\PermissionObject[]|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GroupPermissionsNotFoundException
+     */
+    public function groupPermissions(int $groupId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GroupPermissions($groupId), $fetch);
+    }
+
+    /**
+     * **This endpoint has been deprecated and replaced with a new endpoint, [delete_workspace_invitation](#tag/Workspace-invitations/operation/delete_workspace_invitation).**.
+     *
+     **Support for this endpoint will end in 2024.**
+     *
+     * Deletes a group invitation if the authorized user has admin rights to the related group.
+     *
+     * @param int    $groupInvitationId deletes the group invitation related to the provided value
+     * @param string $fetch             Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DeleteGroupInvitationBadRequestException
+     * @throws Exception\DeleteGroupInvitationNotFoundException
+     */
+    public function deleteGroupInvitation(int $groupInvitationId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DeleteGroupInvitation($groupInvitationId), $fetch);
+    }
+
+    /**
+     * **This endpoint has been deprecated and replaced with a new endpoint, [get_workspace_invitation](#tag/Workspace-invitations/operation/get_workspace_invitation).**.
+     *
+     **Support for this endpoint will end in 2024.**
+     *
+     * Returns the requested group invitation if the authorized user has admin right to the related group
+     *
+     * @param int    $groupInvitationId returns the group invitation related to the provided value
+     * @param string $fetch             Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\WorkspaceInvitation|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GetGroupInvitationBadRequestException
+     * @throws Exception\GetGroupInvitationNotFoundException
+     */
+    public function getGroupInvitation(int $groupInvitationId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GetGroupInvitation($groupInvitationId), $fetch);
+    }
+
+    /**
+     * **This endpoint has been deprecated and replaced with a new endpoint, [update_workspace_invitation](#tag/Workspace-invitations/operation/update_workspace_invitation).**.
+     *
+     **Support for this endpoint will end in 2024.**
+     *
+     * Updates the existing group invitation related to the provided `group_invitation_id` param if the authorized user has admin rights to the related group.
+     *
+     * @param int    $groupInvitationId updates the group invitation related to the provided value
+     * @param string $fetch             Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\WorkspaceInvitation|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UpdateGroupInvitationBadRequestException
+     * @throws Exception\UpdateGroupInvitationNotFoundException
+     */
+    public function updateGroupInvitation(int $groupInvitationId, ?Model\PatchedUpdateWorkspaceInvitation $requestBody = null, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UpdateGroupInvitation($groupInvitationId, $requestBody), $fetch);
+    }
+
+    /**
+     * **This endpoint has been deprecated and replaced with a new endpoint, [accept_workspace_invitation](#tag/Workspace-invitations/operation/accept_workspace_invitation).**.
+     *
+     **Support for this endpoint will end in 2024.**
+     *
+     * Accepts a group invitation with the given id if the email address of the user matches that of the invitation.
+     *
+     * @param int    $groupInvitationId accepts the group invitation related to the provided value
+     * @param string $fetch             Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\WorkspaceUserWorkspace|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\AcceptGroupInvitationBadRequestException
+     * @throws Exception\AcceptGroupInvitationNotFoundException
+     */
+    public function acceptGroupInvitation(int $groupInvitationId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\AcceptGroupInvitation($groupInvitationId), $fetch);
+    }
+
+    /**
+     * **This endpoint has been deprecated and replaced with a new endpoint, [reject_workspace_invitation](#tag/Workspace-invitations/operation/reject_workspace_invitation).**.
+     *
+     **Support for this endpoint will end in 2024.**
+     *
+     * Rejects a group invitation with the given id if the email address of the user matches that of the invitation.
+     *
+     * @param int    $groupInvitationId rejects the group invitation related to the provided value
+     * @param string $fetch             Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\RejectGroupInvitationBadRequestException
+     * @throws Exception\RejectGroupInvitationNotFoundException
+     */
+    public function rejectGroupInvitation(int $groupInvitationId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\RejectGroupInvitation($groupInvitationId), $fetch);
+    }
+
+    /**
+     * **This endpoint has been deprecated and replaced with a new endpoint, [list_workspace_invitations](#tag/Workspace-invitations/operation/list_workspace_invitations).**.
+     *
+     **Support for this endpoint will end in 2024.**
+     *
+     * Lists all the group invitations of the group related to the provided `group_id` parameter if the authorized user has admin rights to that group.
+     *
+     * @param int    $groupId returns only invitations that are in the group related to the provided value
+     * @param string $fetch   Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \cedricziel\phpbaserowclient\Generated\Model\WorkspaceInvitation[]|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ListGroupInvitationsBadRequestException
+     * @throws Exception\ListGroupInvitationsNotFoundException
+     */
+    public function listGroupInvitations(int $groupId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListGroupInvitations($groupId), $fetch);
+    }
+
+    /**
+     * **This endpoint has been deprecated and replaced with a new endpoint, [create_workspace_invitation](#tag/Workspace-invitations/operation/create_workspace_invitation).**.
+     *
+     **Support for this endpoint will end in 2024.**
+     *
+     * Creates a new group invitations for an email address if the authorized user has admin rights to the related group. An email containing a sign up link will be send to the user.
+     *
+     * @param int    $groupId creates a group invitation to the group related to the provided value
+     * @param string $fetch   Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\WorkspaceInvitation|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\CreateGroupInvitationBadRequestException
+     * @throws Exception\CreateGroupInvitationNotFoundException
+     */
+    public function createGroupInvitation(int $groupId, Model\CreateWorkspaceInvitation $requestBody, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\CreateGroupInvitation($groupId, $requestBody), $fetch);
+    }
+
+    /**
+     * **This endpoint has been deprecated and replaced with a new endpoint, [get_workspace_invitation_by_token](#tag/Workspace-invitations/operation/get_workspace_invitation_by_token).**.
+     *
+     **Support for this endpoint will end in 2024.**
+     *
+     * Responds with the serialized group invitation if an invitation with the provided token is found.
+     *
+     * @param string $token returns the group invitation related to the provided token
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\UserWorkspaceInvitation|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GetGroupInvitationByTokenBadRequestException
+     * @throws Exception\GetGroupInvitationByTokenNotFoundException
+     */
+    public function getGroupInvitationByToken(string $token, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GetGroupInvitationByToken($token), $fetch);
+    }
+
+    /**
+     * **This endpoint has been deprecated and replaced with a new endpoint, [order_workspaces](#tag/Workspaces/operation/order_workspaces).**.
+     *
+     **Support for this endpoint will end in 2024.**
+     *
+     * Changes the order of the provided group ids to the matching position that the id has in the list. If the authorized user does not belong to the group it will be ignored. The order will be custom for each user.
+     *
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function orderGroups(Model\OrderWorkspaces $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\OrderGroups($requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * **This endpoint has been deprecated and replaced with a new endpoint, [delete_workspace_user](#tag/Workspaces/operation/delete_workspace_user).**.
+     *
+     * Deletes a group user if the authorized user has admin rights to the related group.
+     *
+     * @param int    $groupUserId deletes the group user related to the provided value
+     * @param string $fetch       Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DeleteGroupUserBadRequestException
+     * @throws Exception\DeleteGroupUserNotFoundException
+     */
+    public function deleteGroupUser(int $groupUserId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DeleteGroupUser($groupUserId), $fetch);
+    }
+
+    /**
+     * **This endpoint has been deprecated and replaced with a new endpoint, [update_workspace_user](#tag/Workspaces/operation/update_workspace_user).**.
+     *
+     * Updates the existing group user related to the provided `group_user_id` param if the authorized user has admin rights to the related group.
+     *
+     * @param int    $groupUserId updates the group user related to the provided value
+     * @param string $fetch       Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\WorkspaceUser|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UpdateGroupUserBadRequestException
+     * @throws Exception\UpdateGroupUserNotFoundException
+     */
+    public function updateGroupUser(int $groupUserId, ?Model\PatchedUpdateWorkspaceUser $requestBody = null, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UpdateGroupUser($groupUserId, $requestBody), $fetch);
+    }
+
+    /**
+     * **This endpoint has been deprecated and replaced with a new endpoint, [list_workspace_users](#tag/Workspaces/operation/list_workspace_users).**.
+     *
+     * Lists all the users that are in a group if the authorized user has admin permissions to the related group. To add a user to a group an invitation must be sent first.
+     *
+     * @param int   $groupId         lists group users related to the provided group value
+     * @param array $queryParameters {
+     *
+     * @var string $search search for group users by username, or email
+     * @var string $sorts Sort group users by name, email or role.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \cedricziel\phpbaserowclient\Generated\Model\ListWorkspaceUsersWithMemberData[]|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ListGroupUsersBadRequestException
+     * @throws Exception\ListGroupUsersNotFoundException
+     */
+    public function listGroupUsers(int $groupId, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListGroupUsers($groupId, $queryParameters), $fetch);
+    }
+
+    /**
+     * Deletes the integration related by the given id.
+     *
+     * @param int   $integrationId    The id of the integration
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DeleteApplicationIntegrationBadRequestException
+     * @throws Exception\DeleteApplicationIntegrationNotFoundException
+     */
+    public function deleteApplicationIntegration(int $integrationId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DeleteApplicationIntegration($integrationId, $headerParameters), $fetch);
+    }
+
+    /**
+     * Updates an existing integration.
+     *
+     * @param int        $integrationId    The id of the integration
+     * @param mixed|null $requestBody
+     * @param array      $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UpdateApplicationIntegrationBadRequestException
+     * @throws Exception\UpdateApplicationIntegrationNotFoundException
+     */
+    public function updateApplicationIntegration(int $integrationId, $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UpdateApplicationIntegration($integrationId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Moves the integration in the application before another integration or at the end of the application if no before integration is given. The integrations must belong to the same application.
+     *
+     * @param int   $integrationId    The id of the integration to move
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\MoveApplicationIntegrationBadRequestException
+     * @throws Exception\MoveApplicationIntegrationNotFoundException
+     */
+    public function moveApplicationIntegration(int $integrationId, ?Model\PatchedMoveIntegration $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\MoveApplicationIntegration($integrationId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * List all existing jobs. Jobs are task executed asynchronously in the background. You can use the `get_job` endpoint to read the currentprogress of a the job.
+     *
+     * @param array $queryParameters {
+     *
+     * @var string $job_ids A comma separated list of job ids in the desired order.The jobs will be returned in the same order as the ids.If a job id is not found it will be ignored.
+     * @var string $states A comma separated list of jobs state to look for. The only possible values are: `pending`, `finished` and `failed`. It's possible to exclude a state by prefixing it with a `!`.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function listJob(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListJob($queryParameters), $fetch);
+    }
+
+    /**
+     * Creates a new job. This job runs asynchronously in the background and execute the task specific to the provided typeparameters. The `get_job` can be used to get the current state of the job.
+     *
+     * @param mixed|null $requestBody
+     * @param string     $fetch       Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\CreateJobBadRequestException
+     * @throws Exception\CreateJobNotFoundException
+     */
+    public function createJob($requestBody = null, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\CreateJob($requestBody), $fetch);
+    }
+
+    /**
+     * Returns the information related to the provided job id. This endpoint can for example be polled to get the state and progress of the job in real time.
+     *
+     * @param int    $jobId the job id to lookup information about
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GetJobNotFoundException
+     */
+    public function getJob(int $jobId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GetJob($jobId), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \cedricziel\phpbaserowclient\Generated\Model\License[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function adminLicenses(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\AdminLicenses(), $fetch);
+    }
+
+    /**
+     * Registers a new license. After registering you can assign users to the license that will be able to use the license's features while the license is active. If an existing license with the same `license_id` already exists and the provided license has been issued later than that one, the existing one will be upgraded.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\License|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\AdminRegisterLicenseBadRequestException
+     */
+    public function adminRegisterLicense(Model\RegisterLicense $requestBody, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\AdminRegisterLicense($requestBody), $fetch);
+    }
+
+    /**
+     * Removes the existing license related to the provided parameter. If the license is active, then all the users that are using the license will lose access to the features granted by that license.
+     *
+     * @param int    $id    the internal identifier of the license, this is `id` and not `license_id`
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\AdminRemoveLicenseNotFoundException
+     */
+    public function adminRemoveLicense(int $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\AdminRemoveLicense($id), $fetch);
+    }
+
+    /**
+     * Responds with detailed information about the license related to the provided parameter.
+     *
+     * @param int    $id    the internal identifier of the license
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\LicenseWithUsers|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\AdminGetLicenseNotFoundException
+     */
+    public function adminGetLicense(int $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\AdminGetLicense($id), $fetch);
+    }
+
+    /**
+     * Removes the user related to the provided parameter and to the license related to the parameter. This only happens if the user is on the license, otherwise nothing will happen.
+     *
+     * @param int    $id     the internal identifier of the license, this is `id` and not `license_id`
+     * @param int    $userId the ID of the user that must be removed from the license
+     * @param string $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\AdminRemoveUserFromLicenseBadRequestException
+     * @throws Exception\AdminRemoveUserFromLicenseNotFoundException
+     */
+    public function adminRemoveUserFromLicense(int $id, int $userId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\AdminRemoveUserFromLicense($id, $userId), $fetch);
+    }
+
+    /**
+     * Adds the user related to the provided parameter and to the license related to the parameter. This only happens if there are enough seats left on the license and if the user is not already on the license.
+     *
+     * @param int    $id     the internal identifier of the license, this is `id` and not `license_id`
+     * @param int    $userId the ID of the user that must be added to the license
+     * @param string $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\LicenseUser|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\AdminAddUserToLicenseBadRequestException
+     * @throws Exception\AdminAddUserToLicenseNotFoundException
+     */
+    public function adminAddUserToLicense(int $id, int $userId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\AdminAddUserToLicense($id, $userId), $fetch);
+    }
+
+    /**
+     * This endpoint checks with the authority if the license needs to be updated. It also checks if the license is operating within its limits and might take action on that. It could also happen that the license has been deleted because there is an instance id mismatch or because it's invalid. In that case a `204` status code is returned.
+     *
+     * @param int    $id    the internal identifier of the license, this is `id` and not `license_id`
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\LicenseWithUsers|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\AdminLicenseCheckNotFoundException
+     */
+    public function adminLicenseCheck(int $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\AdminLicenseCheck($id), $fetch);
+    }
+
+    /**
+     * Fills the remaining empty seats of the license with the first users that are found.
+     *
+     * @param int    $id    the internal identifier of the license, this is `id` and not `license_id`
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \cedricziel\phpbaserowclient\Generated\Model\LicenseUser[]|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\AdminFillRemainingSeatsOfLicenseBadRequestException
+     * @throws Exception\AdminFillRemainingSeatsOfLicenseNotFoundException
+     */
+    public function adminFillRemainingSeatsOfLicense(int $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\AdminFillRemainingSeatsOfLicense($id), $fetch);
+    }
+
+    /**
+     * This endpoint can be used to lookup users that can be added to a  license. Users that are already in the license are not returned here. Optionally a `search` query parameter can be provided to filter the results.
+     *
+     * @param int   $id              the internal identifier of the license, this is `id` and not `license_id`
+     * @param array $queryParameters {
+     *
+     * @var int    $page defines which page of users should be returned
+     * @var string $search if provided, only users where the name or email contains the value are returned
+     * @var int    $size Defines how many users should be returned per page.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\PaginationSerializerLicenseUserLookup|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\AdminLicenseLookupUsersNotFoundException
+     */
+    public function adminLicenseLookupUsers(int $id, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\AdminLicenseLookupUsers($id, $queryParameters), $fetch);
+    }
+
+    /**
+     * Removes all the users that are on the license. This will empty all the seats.
+     *
+     * @param int    $id    the internal identifier of the license, this is `id` and not `license_id`
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\AdminRemoveAllUsersFromLicenseBadRequestException
+     * @throws Exception\AdminRemoveAllUsersFromLicenseNotFoundException
+     */
+    public function adminRemoveAllUsersFromLicense(int $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\AdminRemoveAllUsersFromLicense($id), $fetch);
+    }
+
+    /**
+     * Clear all the notifications for the given workspace and user.
+     *
+     * @param int    $workspaceId the workspace the notifications are in
+     * @param string $fetch       Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ClearWorkspaceNotificationsBadRequestException
+     * @throws Exception\ClearWorkspaceNotificationsNotFoundException
+     */
+    public function clearWorkspaceNotifications(int $workspaceId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ClearWorkspaceNotifications($workspaceId), $fetch);
+    }
+
+    /**
+     * Lists the notifications for the given workspace and the current user. The response is paginated and the limit and offset parameters can be controlled using the query parameters.
+     *
+     * @param int   $workspaceId     the workspace id that the notifications belong to
+     * @param array $queryParameters {
+     *
+     * @var int $limit defines how many notifications should be returned
+     * @var int $offset Defines the offset of the notifications that should be returned.
+     *          }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\PaginationSerializerNotificationRecipient|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ListWorkspaceNotificationsBadRequestException
+     * @throws Exception\ListWorkspaceNotificationsNotFoundException
+     */
+    public function listWorkspaceNotifications(int $workspaceId, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListWorkspaceNotifications($workspaceId, $queryParameters), $fetch);
+    }
+
+    /**
+     * Marks a notification as read.
+     *
+     * @param int    $notificationId the notification id to update
+     * @param int    $workspaceId    the workspace the notification is in
+     * @param string $fetch          Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\NotificationRecipient|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\MarkNotificationAsReadBadRequestException
+     * @throws Exception\MarkNotificationAsReadNotFoundException
+     */
+    public function markNotificationAsRead(int $notificationId, int $workspaceId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\MarkNotificationAsRead($notificationId, $workspaceId), $fetch);
+    }
+
+    /**
+     * Mark as read all the notifications for the given workspace and user.
+     *
+     * @param int    $workspaceId the workspace the notifications are in
+     * @param string $fetch       Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\MarkAllWorkspaceNotificationsAsReadBadRequestException
+     * @throws Exception\MarkAllWorkspaceNotificationsAsReadNotFoundException
+     */
+    public function markAllWorkspaceNotificationsAsRead(int $workspaceId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\MarkAllWorkspaceNotificationsAsRead($workspaceId), $fetch);
+    }
+
+    /**
+     * **This endpoint has been deprecated and replaced with a new endpoint, [workspace_assign_role](#tag/Role-assignments/operation/workspace_assign_role).**.
+     *
+     **Support for this endpoint will end in 2024.**
+     *
+     * You can list the role assignments within a group, optionally filtered down to a specific scope inside of that group. If the scope isn't specified,the group will be considered the scope.
+     *
+     * @param int   $groupId         the group in which the role assignments are related to
+     * @param array $queryParameters {
+     *
+     * @var int    $scope_id the id of the scope you are trying to get all roleassignments for
+     * @var string $scope_type The type of scope you are trying to get all roleassignments for.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \cedricziel\phpbaserowclient\Generated\Model\OpenApiRoleAssignment[]|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GroupListRoleAssignmentsBadRequestException
+     * @throws Exception\GroupListRoleAssignmentsNotFoundException
+     */
+    public function groupListRoleAssignments(int $groupId, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GroupListRoleAssignments($groupId, $queryParameters), $fetch);
+    }
+
+    /**
+     * **This endpoint has been deprecated and replaced with a new endpoint, [workspace_assign_role](#tag/Role-assignments/operation/workspace_assign_role).**.
+     *
+     **Support for this endpoint will end in 2024.**
+     *
+     * You can assign a role to a subject into the given group for the given scope with this endpoint. If you want to remove the role you can omit the role property.
+     *
+     * @param int    $groupId the group in which the role assignment takes place
+     * @param string $fetch   Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\OpenApiRoleAssignment|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GroupAssignRoleBadRequestException
+     * @throws Exception\GroupAssignRoleNotFoundException
+     */
+    public function groupAssignRole(int $groupId, Model\CreateRoleAssignment $requestBody, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GroupAssignRole($groupId, $requestBody), $fetch);
+    }
+
+    /**
+     * **This endpoint has been deprecated and replaced with a new endpoint, [workspace_batch_assign_role](#tag/Role-assignments/operation/workspace_batch_assign_role).**.
+     *
+     **Support for this endpoint will end in 2024.**
+     *
+     * You can assign a role to a multiple subjects into the given group for the given scope with this endpoint. If you want to remove the role you can omit the role property.
+     *
+     * @param int    $groupId the group in which the role assignment takes place
+     * @param string $fetch   Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \cedricziel\phpbaserowclient\Generated\Model\OpenApiRoleAssignment[]|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GroupBatchAssignRoleBadRequestException
+     * @throws Exception\GroupBatchAssignRoleNotFoundException
+     */
+    public function groupBatchAssignRole(int $groupId, Model\BatchCreateRoleAssignment $requestBody, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GroupBatchAssignRole($groupId, $requestBody), $fetch);
+    }
+
+    /**
+     * You can list the role assignments within a workspace, optionally filtered downto a specific scope inside of that workspace. If the scope isn't specified,the workspace will be considered the scope.
+     *
+     * @param int   $workspaceId     the workspace in which the role assignments are related to
+     * @param array $queryParameters {
+     *
+     * @var int    $scope_id the id of the scope you are trying to get all roleassignments for
+     * @var string $scope_type The type of scope you are trying to get all roleassignments for.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \cedricziel\phpbaserowclient\Generated\Model\OpenApiRoleAssignment[]|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ListRoleAssignmentsBadRequestException
+     * @throws Exception\ListRoleAssignmentsNotFoundException
+     */
+    public function listRoleAssignments(int $workspaceId, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListRoleAssignments($workspaceId, $queryParameters), $fetch);
+    }
+
+    /**
+     * You can assign a role to a subject into the given workspace for the given scope with this endpoint. If you want to remove the role you can omit the role property.
+     *
+     * @param int    $workspaceId the workspace in which the role assignment takes place
+     * @param string $fetch       Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\OpenApiRoleAssignment|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\AssignRoleBadRequestException
+     * @throws Exception\AssignRoleNotFoundException
+     */
+    public function assignRole(int $workspaceId, Model\CreateRoleAssignment $requestBody, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\AssignRole($workspaceId, $requestBody), $fetch);
+    }
+
+    /**
+     * You can assign a role to a multiple subjects into the given workspace for the given scopes with this endpoint. If you want to remove the role you can omit the role property.
+     *
+     * @param int    $workspaceId the workspace in which the role assignment takes place
+     * @param string $fetch       Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \cedricziel\phpbaserowclient\Generated\Model\OpenApiRoleAssignment[]|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\BatchAssignRoleBadRequestException
+     * @throws Exception\BatchAssignRoleNotFoundException
+     */
+    public function batchAssignRole(int $workspaceId, Model\BatchCreateRoleAssignment $requestBody, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\BatchAssignRole($workspaceId, $requestBody), $fetch);
+    }
+
+    /**
+     * Returns all row comments for the specified table and row.
+     *
+     * This is a **premium** feature.
+     *
+     * @param int   $rowId           the row to get row comments for
+     * @param int   $tableId         the table the row is in
+     * @param array $queryParameters {
+     *
+     * @var int $limit defines how many rows should be returned
+     * @var int $offset can only be used in combination with the `limit` parameter and defines from which offset the rows should be returned
+     * @var int $page Defines which page of rows should be returned. Either the `page` or `limit` can be provided, not both.
+     * @var int $size Can only be used in combination with the `page` parameter and defines how many rows should be returned.
+     *          }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\PaginationSerializerRowComment|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GetRowCommentsBadRequestException
+     * @throws Exception\GetRowCommentsNotFoundException
+     */
+    public function getRowComments(int $rowId, int $tableId, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GetRowComments($rowId, $tableId, $queryParameters), $fetch);
+    }
+
+    /**
+     * Creates a comment on the specified row.
+     *
+     * This is a **premium** feature.
+     *
+     * @param int    $rowId   the row to create a comment for
+     * @param int    $tableId the table to find the row to comment on in
+     * @param string $fetch   Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\RowComment|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\CreateRowCommentBadRequestException
+     * @throws Exception\CreateRowCommentNotFoundException
+     */
+    public function createRowComment(int $rowId, int $tableId, Model\RowCommentCreate $requestBody, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\CreateRowComment($rowId, $tableId, $requestBody), $fetch);
+    }
+
+    /**
+     * Updates the user's notification preferences for comments made on a specified table row.
+     *
+     * This is a **premium** feature.
+     *
+     * @param int    $rowId   the row on which to manage the comment subscription
+     * @param int    $tableId the table id where the row is in
+     * @param string $fetch   Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UpdateRowCommentNotificationModeBadRequestException
+     * @throws Exception\UpdateRowCommentNotificationModeNotFoundException
+     */
+    public function updateRowCommentNotificationMode(int $rowId, int $tableId, Model\RowCommentsNotificationMode $requestBody, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UpdateRowCommentNotificationMode($rowId, $tableId, $requestBody), $fetch);
+    }
+
+    /**
+     * Delete a row comment.
+     *
+     * This is a **premium** feature.
+     *
+     * @param int    $commentId the row comment to delete
+     * @param int    $tableId   the table the row is in
+     * @param string $fetch     Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\RowComment|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DeleteRowCommentBadRequestException
+     * @throws Exception\DeleteRowCommentUnauthorizedException
+     * @throws Exception\DeleteRowCommentNotFoundException
+     */
+    public function deleteRowComment(int $commentId, int $tableId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DeleteRowComment($commentId, $tableId), $fetch);
+    }
+
+    /**
+     * Update a row comment.
+     *
+     * This is a **premium** feature.
+     *
+     * @param int    $commentId the row comment to update
+     * @param int    $tableId   the table the row is in
+     * @param string $fetch     Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\RowComment|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UpdateRowCommentBadRequestException
+     * @throws Exception\UpdateRowCommentUnauthorizedException
+     * @throws Exception\UpdateRowCommentNotFoundException
+     */
+    public function updateRowComment(int $commentId, int $tableId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UpdateRowComment($commentId, $tableId), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\Settings|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getSettings(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GetSettings(), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\InstanceId|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getInstanceId(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GetInstanceId(), $fetch);
+    }
+
+    /**
+     * Updates the admin configured settings if the user has admin permissions.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\Settings|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateSettings(?Model\PatchedSettings $requestBody = null, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UpdateSettings($requestBody), $fetch);
+    }
+
+    /**
+     * Deletes a snapshot. Deleting a snapshot doesn't affect the application that the snapshot is made from and doesn't affect any applications that were created by restoring it. Snapshot deletion is permanent and can't be undone.
+     *
+     * @param int    $snapshotId id of the snapshot to delete
+     * @param string $fetch      Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DeleteSnapshotBadRequestException
+     * @throws Exception\DeleteSnapshotNotFoundException
+     */
+    public function deleteSnapshot(int $snapshotId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DeleteSnapshot($snapshotId), $fetch);
+    }
+
+    /**
+     * Restores a snapshot. When an application snapshot is restored, a new application will be created in the same workspace that the original application was placed in with the name of the snapshot and data that were in the original application at the time the snapshot was taken. The original application that the snapshot was taken from is unaffected. Snapshots can be restored multiple times and a number suffix is added to the new application name in the case of a collision.
+     *
+     * @param int    $snapshotId id of the snapshot to restore
+     * @param string $fetch      Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\Job|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\RestoreSnapshotBadRequestException
+     * @throws Exception\RestoreSnapshotNotFoundException
+     */
+    public function restoreSnapshot(int $snapshotId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\RestoreSnapshot($snapshotId), $fetch);
+    }
+
+    /**
+     * Lists snapshots that were created for a given application.
+     *
+     * @param int    $applicationId application ID for which to list snapshots
+     * @param string $fetch         Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \cedricziel\phpbaserowclient\Generated\Model\Snapshot[]|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ListSnapshotsBadRequestException
+     * @throws Exception\ListSnapshotsNotFoundException
+     */
+    public function listSnapshots(int $applicationId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListSnapshots($applicationId), $fetch);
+    }
+
+    /**
+     * Creates a new application snapshot. Snapshots represent a state of an application at a specific point in time and can be restored later, making it easy to create backups of entire applications.
+     *
+     * @param int    $applicationId application ID for which to list snapshots
+     * @param string $fetch         Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\Job|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\CreateSnapshotBadRequestException
+     * @throws Exception\CreateSnapshotNotFoundException
+     */
+    public function createSnapshot(int $applicationId, Model\Snapshot $requestBody, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\CreateSnapshot($applicationId, $requestBody), $fetch);
+    }
+
+    /**
+     * Processes callback from OAuth2 provider and logs the user in if successful.
+     *
+     * @param int   $providerId      the id of the provider for which to process the callback
+     * @param array $queryParameters {
+     *
+     * @var int $code The id of the provider for which to process the callback.
+     *          }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function oauthProviderLoginCallback(int $providerId, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\OauthProviderLoginCallback($providerId, $queryParameters), $fetch);
+    }
+
+    /**
+     * Redirects to the OAuth2 provider's authentication URL based on the provided auth provider's id.
+     *
+     * @param int   $providerId      the id of the provider for redirect
+     * @param array $queryParameters {
+     *
+     * @var string $group_invitation_token please use the functionally identical `workspace_invitation_token` instead as this querystring is being removed in the future
+     * @var int    $original the relative part of URL that the user wanted to access
+     * @var string $workspace_invitation_token The invitation token sent to the user to join a specific workspace.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function oauthProviderLoginRedirect(int $providerId, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\OauthProviderLoginRedirect($providerId, $queryParameters), $fetch);
+    }
+
+    /**
+     * Complete the SAML authentication flow by validating the SAML response. Sign in the user if already exists in Baserow or create a new one otherwise. Once authenticated, the user will be redirected to the original URL they were trying to access. If the response is invalid, the user will be redirected to an error page with a specific error message.It accepts the language code and the workspace invitation token as query parameters if provided.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function authProviderSamlAcsUrl(Model\SAMLResponse $requestBody, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\AuthProviderSamlAcsUrl($requestBody), $fetch);
+    }
+
+    /**
+     * This is the endpoint that is called when the user wants to initiate a SSO SAML login from Baserow (the service provider). The user will be redirected to the SAML identity provider (IdP) where the user can authenticate. Once logged in in the IdP, the user will be redirected back to the assertion consumer service endpoint (ACS) where the SAML response will be validated and a new JWT session token will be provided to work with Baserow APIs.
+     *
+     * @param array $queryParameters {
+     *
+     * @var string $email the email address of the user that want to sign in using SAML
+     * @var string $group_invitation_token Please use the functionally identical `workspace_invitation_token` instead as this querystring is being removed in the future
+     * @var string $language An ISO 639 language code (with optional variant) selected by the user. Ex: en-GB.
+     * @var string $original the url to which the user should be redirected after a successful login or sign up
+     * @var string $workspace_invitation_token If provided and valid, the user accepts the workspace invitation and will have access to the workspace after login or signing up.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function authProviderSamlSpLogin(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\AuthProviderSamlSpLogin($queryParameters), $fetch);
+    }
+
+    /**
+     * Return the correct redirect_url to initiate the SSO SAML login. It needs an email address if multiple SAML providers are configured otherwise the only configured SAML provider signup URL will be returned.
+     *
+     * @param array $queryParameters {
+     *
+     * @var string $email the email address of the user that want to sign in using SAML
+     * @var string $group_invitation_token please use the functionally identical `workspace_invitation_token` instead as this querystring is being removed in the future
+     * @var string $language An ISO 639 language code (with optional variant) selected by the user. Ex: en-GB.
+     * @var string $original the url to which the user should be redirected after a successful login
+     * @var string $workspace_invitation_token If provided and valid, the user accepts the workspace invitation and will have access to the workspace after login or signing up.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\AuthProviderLoginUrlBadRequestException
+     */
+    public function authProviderLoginUrl(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\AuthProviderLoginUrl($queryParameters), $fetch);
+    }
+
+    /**
+     * Deletes a team if the authorized user is in the team's workspace. All the related children (e.g. subjects) are also going to be deleted.
+     *
+     * @param int   $teamId           deletes the team related to the provided value
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DeleteTeamBadRequestException
+     * @throws Exception\DeleteTeamNotFoundException
+     */
+    public function deleteTeam(int $teamId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DeleteTeam($teamId, $headerParameters), $fetch);
+    }
+
+    /**
+     * Returns the information related to the provided team id.
+     *
+     * @param int    $teamId returns the team related to the provided value
+     * @param string $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\TeamResponse|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GetTeamNotFoundException
+     */
+    public function getTeam(int $teamId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GetTeam($teamId), $fetch);
+    }
+
+    /**
+     * Updates an existing team with a new name.
+     *
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\TeamResponse|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UpdateTeamBadRequestException
+     * @throws Exception\UpdateTeamNotFoundException
+     */
+    public function updateTeam(string $teamId, Model\Team $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UpdateTeam($teamId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Lists all team subjects in a given team.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \cedricziel\phpbaserowclient\Generated\Model\TeamSubjectResponse[]|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ListTeamSubjectsBadRequestException
+     */
+    public function listTeamSubjects(string $teamId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListTeamSubjects($teamId), $fetch);
+    }
+
+    /**
+     * Creates a new team subject.
+     *
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\TeamSubjectResponse|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\CreateSubjectBadRequestException
+     * @throws Exception\CreateSubjectNotFoundException
+     */
+    public function createSubject(string $teamId, Model\TeamSubject $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\CreateSubject($teamId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Deletes a subject if the authorized user is in the team's workspace.
+     *
+     * @param int   $subjectId        the subject id to remove from the team
+     * @param int   $teamId           the team id which the subject will be removed from
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DeleteSubjectBadRequestException
+     * @throws Exception\DeleteSubjectNotFoundException
+     */
+    public function deleteSubject(int $subjectId, int $teamId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DeleteSubject($subjectId, $teamId, $headerParameters), $fetch);
+    }
+
+    /**
+     * Returns the information related to the provided subject id.
+     *
+     * @param int    $subjectId returns the subject related to the provided value
+     * @param string $fetch     Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\TeamSubjectResponse|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GetSubjectNotFoundException
+     */
+    public function getSubject(int $subjectId, string $teamId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GetSubject($subjectId, $teamId), $fetch);
+    }
+
+    /**
+     * **This endpoint has been deprecated and replaced with a new endpoint, [workspace_list_teams](#tag/Teams/operation/workspace_list_teams).**.
+     *
+     **Support for this endpoint will end in 2024.**
+     *
+     * Lists all teams in a given group.
+     *
+     * @param int   $groupId         lists all teams in a given group
+     * @param array $queryParameters {
+     *
+     * @var string $search search for teams by their name
+     * @var string $sorts Sort teams by name or subjects.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \cedricziel\phpbaserowclient\Generated\Model\TeamResponse[]|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GroupListTeamsNotFoundException
+     */
+    public function groupListTeams(int $groupId, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GroupListTeams($groupId, $queryParameters), $fetch);
+    }
+
+    /**
+     * **This endpoint has been deprecated and replaced with a new endpoint, [workspace_create_team](#tag/Teams/operation/create_workspace).**.
+     *
+     **Support for this endpoint will end in 2024.**
+     *
+     * Creates a new team in a given group.
+     *
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\TeamResponse|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GroupCreateTeamBadRequestException
+     * @throws Exception\GroupCreateTeamNotFoundException
+     */
+    public function groupCreateTeam(string $groupId, Model\Team $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GroupCreateTeam($groupId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Lists all teams in a given workspace.
+     *
+     * @param int   $workspaceId     lists all teams in a given workspace
+     * @param array $queryParameters {
+     *
+     * @var string $search search for teams by their name
+     * @var string $sorts Sort teams by name or subjects.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \cedricziel\phpbaserowclient\Generated\Model\TeamResponse[]|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\WorkspaceListTeamsNotFoundException
+     */
+    public function workspaceListTeams(int $workspaceId, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\WorkspaceListTeams($workspaceId, $queryParameters), $fetch);
+    }
+
+    /**
+     * Creates a new team.
+     *
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\TeamResponse|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\WorkspaceCreateTeamBadRequestException
+     * @throws Exception\WorkspaceCreateTeamNotFoundException
+     */
+    public function workspaceCreateTeam(string $workspaceId, Model\Team $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\WorkspaceCreateTeam($workspaceId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \cedricziel\phpbaserowclient\Generated\Model\TemplateCategories[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listTemplates(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListTemplates(), $fetch);
+    }
+
+    /**
+     * **This endpoint has been deprecated and replaced with a new endpoint, [workspace_install_template](#tag/Templates/operation/workspace_install_template).**.
+     *
+     **Support for this endpoint will end in 2024.**
+     *
+     * Installs the applications of the given template into the given group if the user has access to that group. The response contains those newly created applications.
+     *
+     * @param int   $groupId          the id related to the group where the template applications must be installed into
+     * @param int   $templateId       the id related to the template that must be installed
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GroupInstallTemplateBadRequestException
+     * @throws Exception\GroupInstallTemplateNotFoundException
+     */
+    public function groupInstallTemplate(int $groupId, int $templateId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GroupInstallTemplate($groupId, $templateId, $headerParameters), $fetch);
+    }
+
+    /**
+     * **This endpoint has been deprecated and replaced with a new endpoint, [workspace_install_template_async](#tag/Templates/operation/workspace_install_template_async).**.
+     *
+     **Support for this endpoint will end in 2024.**
+     *
+     * Start an async job to install the applications of the given template into the given group if the user has access to that group. The response contains those newly created applications.
+     *
+     * @param int   $groupId          the id related to the group where the template applications must be installed into
+     * @param int   $templateId       the id related to the template that must be installed
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\SingleInstallTemplateJobType|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GroupInstallTemplateAsyncBadRequestException
+     * @throws Exception\GroupInstallTemplateAsyncNotFoundException
+     */
+    public function groupInstallTemplateAsync(int $groupId, int $templateId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GroupInstallTemplateAsync($groupId, $templateId, $headerParameters), $fetch);
+    }
+
+    /**
+     * (Deprecated) Installs the applications of the given template into the given workspace if the user has access to that workspace. The response contains those newly created applications.
+     *
+     * @param int   $templateId       the id related to the template that must be installed
+     * @param int   $workspaceId      the id related to the workspace where the template applications must be installed into
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\InstallTemplateBadRequestException
+     * @throws Exception\InstallTemplateNotFoundException
+     */
+    public function installTemplate(int $templateId, int $workspaceId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\InstallTemplate($templateId, $workspaceId, $headerParameters), $fetch);
+    }
+
+    /**
+     * Start an async job to install the applications of the given template into the given workspace if the user has access to that workspace. The response contains those newly created applications.
+     *
+     * @param int   $templateId       the id related to the template that must be installed
+     * @param int   $workspaceId      the id related to the workspace where the template applications must be installed into
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\SingleInstallTemplateJobType|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\InstallTemplateAsyncBadRequestException
+     * @throws Exception\InstallTemplateAsyncNotFoundException
+     */
+    public function installTemplateAsync(int $templateId, int $workspaceId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\InstallTemplateAsync($templateId, $workspaceId, $headerParameters), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\TrashStructure|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getTrashStructure(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GetTrashStructure(), $fetch);
+    }
+
+    /**
+     * **This endpoint has been deprecated and replaced with a new endpoint, [workspace_empty_contents](#tag/Trash/operation/workspace_empty_contents).**.
+     *
+     **Support for this endpoint will end in 2024.**
+     *
+     * Empties the specified group and/or application of trash, including the group and application themselves if they are trashed also.
+     *
+     * @param int   $groupId         the group whose trash contents to empty, including the group itself if it is also trashed
+     * @param array $queryParameters {
+     *
+     * @var int $application_id Optionally filters down the trash to delete to only items for this application in the group.
+     *          }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GroupEmptyContentsBadRequestException
+     */
+    public function groupEmptyContents(int $groupId, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GroupEmptyContents($groupId, $queryParameters), $fetch);
+    }
+
+    /**
+     * **This endpoint has been deprecated and replaced with a new endpoint, [workspace_get_contents](#tag/Trash/operation/workspace_get_contents).**.
+     *
+     **Support for this endpoint will end in 2024.**
+     *
+     * Responds with trash contents for a group optionally filtered to a specific application.
+     *
+     * @param int   $groupId         returns the trash for the group with this id
+     * @param array $queryParameters {
+     *
+     * @var int $application_id optionally filters down the trash to only items for this application in the group
+     * @var int $page Selects which page of trash contents should be returned.
+     *          }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\PaginationSerializerTrashContents|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GroupGetContentsBadRequestException
+     */
+    public function groupGetContents(int $groupId, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GroupGetContents($groupId, $queryParameters), $fetch);
+    }
+
+    /**
+     * Restores the specified trashed item back into baserow.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\RestoreBadRequestException
+     */
+    public function restore(?Model\PatchedTrashEntryRequest $requestBody = null, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\Restore($requestBody), $fetch);
+    }
+
+    /**
+     * Empties the specified workspace and/or application of trash, including the workspace and application themselves if they are trashed also.
+     *
+     * @param int   $workspaceId     the workspace whose trash contents to empty, including the workspace itself if it is also trashed
+     * @param array $queryParameters {
+     *
+     * @var int $application_id Optionally filters down the trash to delete to only items for this application in the workspace.
+     *          }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\WorkspaceEmptyContentsBadRequestException
+     */
+    public function workspaceEmptyContents(int $workspaceId, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\WorkspaceEmptyContents($workspaceId, $queryParameters), $fetch);
+    }
+
+    /**
+     * Responds with trash contents for a workspace optionally filtered to a specific application.
+     *
+     * @param int   $workspaceId     returns the trash for the workspace with this id
+     * @param array $queryParameters {
+     *
+     * @var int $application_id optionally filters down the trash to only items for this application in the workspace
+     * @var int $page Selects which page of trash contents should be returned.
+     *          }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\PaginationSerializerTrashContents|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\WorkspaceGetContentsBadRequestException
+     */
+    public function workspaceGetContents(int $workspaceId, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\WorkspaceGetContents($workspaceId, $queryParameters), $fetch);
+    }
+
+    /**
+     * Creates a new user based on the provided values. If desired an authentication JWT can be generated right away. After creating an account the initial workspace containing a database is created.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\ApiUserPostResponse200|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\CreateUserBadRequestException
+     * @throws Exception\CreateUserNotFoundException
+     */
+    public function createUser(Model\Register $requestBody, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\CreateUser($requestBody), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\UserFile|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UploadFileBadRequestException
+     */
+    public function uploadFile(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UploadFile(), $fetch);
+    }
+
+    /**
+     * Uploads a file to Baserow by downloading it from the provided URL.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\UserFile|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UploadViaUrlBadRequestException
+     */
+    public function uploadViaUrl(Model\UserFileUploadViaURLRequest $requestBody, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UploadViaUrl($requestBody), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\ApiUserSourceAuthRefreshPostResponse200|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UserSourceTokenRefreshUnauthorizedException
+     */
+    public function userSourceTokenRefresh(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UserSourceTokenRefresh(), $fetch);
+    }
+
+    /**
+     * Blacklists the provided user source token. This can be used the sign the user off.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UserSourceTokenBlacklistUnauthorizedException
+     */
+    public function userSourceTokenBlacklist(Model\TokenBlacklist $requestBody, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UserSourceTokenBlacklist($requestBody), $fetch);
+    }
+
+    /**
+     * Deletes the user_source related by the given id.
+     *
+     * @param int   $userSourceId     The id of the user_source
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DeleteApplicationUserSourceBadRequestException
+     * @throws Exception\DeleteApplicationUserSourceNotFoundException
+     */
+    public function deleteApplicationUserSource(int $userSourceId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DeleteApplicationUserSource($userSourceId, $headerParameters), $fetch);
+    }
+
+    /**
+     * Updates an existing user_source.
+     *
+     * @param int        $userSourceId     The id of the user_source
+     * @param mixed|null $requestBody
+     * @param array      $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UpdateApplicationUserSourceBadRequestException
+     * @throws Exception\UpdateApplicationUserSourceNotFoundException
+     */
+    public function updateApplicationUserSource(int $userSourceId, $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UpdateApplicationUserSource($userSourceId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Force authenticates an existing user based on their ID. If successful, an access token and a refresh token will be returned.
+     *
+     * @param int    $userSourceId the user source to use to authenticate the user
+     * @param string $fetch        Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\ApiUserSourceUserSourceIdForceTokenAuthPostResponse200|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UserSourceForceTokenAuthUnauthorizedException
+     */
+    public function userSourceForceTokenAuth(int $userSourceId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UserSourceForceTokenAuth($userSourceId), $fetch);
+    }
+
+    /**
+     * Moves the user_source in the application before another user_source or at the end of the application if no before user_source is given. The user_sources must belong to the same application.
+     *
+     * @param int   $userSourceId     The id of the user_source to move
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\MoveApplicationUserSourceBadRequestException
+     * @throws Exception\MoveApplicationUserSourceNotFoundException
+     */
+    public function moveApplicationUserSource(int $userSourceId, ?Model\PatchedMoveUserSource $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\MoveApplicationUserSource($userSourceId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Authenticates an existing user against a user source based on their credentials. If successful, an access token and a refresh token will be returned.
+     *
+     * @param int    $userSourceId The id of the user_source to move
+     * @param string $fetch        Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\ApiUserSourceUserSourceIdTokenAuthPostResponse200|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UserSourceTokenAuthUnauthorizedException
+     */
+    public function userSourceTokenAuth(int $userSourceId, Model\TokenObtainPair $requestBody, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UserSourceTokenAuth($userSourceId, $requestBody), $fetch);
+    }
+
+    /**
+     * Updates the account information of the authenticated user.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\Account|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UpdateAccountBadRequestException
+     */
+    public function updateAccount(?Model\PatchedAccount $requestBody = null, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UpdateAccount($requestBody), $fetch);
+    }
+
+    /**
+     * Changes the password of an authenticated user, but only if the old password matches.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ChangePasswordBadRequestException
+     */
+    public function changePassword(Model\ChangePasswordBodyValidation $requestBody, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ChangePassword($requestBody), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\Dashboard|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function dashboard(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\Dashboard(), $fetch);
+    }
+
+    /**
+     * Redoes the latest redoable action performed by the user making the request. a ClientSessionId header must be provided and only actions which were performed the same user with the same ClientSessionId value set on the api request that performed the action will be redone.Additionally the ClientSessionId header must be between 1 and 256 characters long and must only contain alphanumeric or the - characters.
+     *
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId The particular client session to redo actions for. The actions must have been performed with this same header set with the same value for them to be redoable by this endpoint.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\UndoRedoResponse|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function redo(?Model\PatchedUndoRedoRequest $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\Redo($requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Changes the password of a user if the reset token is valid. The **send_password_reset_email** endpoint sends an email to the user containing the token. That token can be used to change the password here without providing the old password.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ResetPasswordBadRequestException
+     */
+    public function resetPassword(Model\ResetPasswordBodyValidation $requestBody, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ResetPassword($requestBody), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ScheduleAccountDeletionBadRequestException
+     */
+    public function scheduleAccountDeletion(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ScheduleAccountDeletion(), $fetch);
+    }
+
+    /**
+     * Sends an email containing the password reset link to the email address of the user. This will only be done if a user is found with the given email address. The endpoint will not fail if the email address is not found. The link is going to the valid for 48 hours.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\SendPasswordResetEmailBadRequestException
+     */
+    public function sendPasswordResetEmail(Model\SendResetPasswordEmailBodyValidation $requestBody, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\SendPasswordResetEmail($requestBody), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function sendVerifyEmail(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\SendVerifyEmail(), $fetch);
+    }
+
+    /**
+     * Authenticates an existing user based on their email and their password. If successful, an access token and a refresh token will be returned.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\ApiUserTokenAuthPostResponse200|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\TokenAuthUnauthorizedException
+     */
+    public function tokenAuth(Model\TokenObtainPairWithUser $requestBody, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\TokenAuth($requestBody), $fetch);
+    }
+
+    /**
+     * Blacklists the provided token. This can be used the sign the user off.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\TokenBlacklistUnauthorizedException
+     */
+    public function tokenBlacklist(Model\TokenBlacklist $requestBody, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\TokenBlacklist($requestBody), $fetch);
+    }
+
+    /**
+     * Generate a new access_token that can be used to continue operating on Baserow starting from a valid refresh token.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\ApiUserTokenRefreshPostResponse200|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\TokenRefreshUnauthorizedException
+     */
+    public function tokenRefresh(?Model\TokenRefreshWithUser $requestBody = null, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\TokenRefresh($requestBody), $fetch);
+    }
+
+    /**
+     * Verifies if the refresh token is valid and can be used to generate a new access_token.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\ApiUserTokenVerifyPostResponse200|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\TokenVerifyUnauthorizedException
+     */
+    public function tokenVerify(Model\TokenVerifyWithUser $requestBody, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\TokenVerify($requestBody), $fetch);
+    }
+
+    /**
+     * undoes the latest undoable action performed by the user making the request. a ClientSessionId header must be provided and only actions which were performed the same user with the same ClientSessionId value set on the api request that performed the action will be undone.Additionally the ClientSessionId header must be between 1 and 256 characters long and must only contain alphanumeric or the - characters.
+     *
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId The particular client session to undo actions for. The actions must have been performed with this same header set with the same value for them to be undoable by this endpoint.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\UndoRedoResponse|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function undo(?Model\PatchedUndoRedoRequest $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\Undo($requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Passing the correct verification token will confirm that the user's email address belongs to the user. This endpoint also optionally returns user information, access token and the refresh token for automatically signing user in the system if the request is performed by unauthenticated user.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\ApiUserVerifyEmailPostResponse200|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\VerifyEmailBadRequestException
+     * @throws Exception\VerifyEmailUnauthorizedException
+     */
+    public function verifyEmail(Model\VerifyEmailAddress $requestBody, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\VerifyEmail($requestBody), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \cedricziel\phpbaserowclient\Generated\Model\WorkspaceUserWorkspace[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listWorkspaces(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListWorkspaces(), $fetch);
+    }
+
+    /**
+     * Creates a new workspace where only the authorized user has access to. No initial data like database applications are added, they have to be created via other endpoints.
+     *
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\WorkspaceUserWorkspace|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createWorkspace(Model\Workspace $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\CreateWorkspace($requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Deletes an existing workspace if the authorized user belongs to the workspace. All the applications, databases, tables etc that were in the workspace are going to be deleted also.
+     *
+     * @param int   $workspaceId      deletes the workspace related to the provided value
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DeleteWorkspaceBadRequestException
+     * @throws Exception\DeleteWorkspaceNotFoundException
+     */
+    public function deleteWorkspace(int $workspaceId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DeleteWorkspace($workspaceId, $headerParameters), $fetch);
+    }
+
+    /**
+     * Updates the existing workspace related to the provided `workspace_id` parameter if the authorized user belongs to the workspace. It is not yet possible to add additional users to a workspace.
+     *
+     * @param int   $workspaceId      updates the workspace related to the provided value
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\Workspace|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UpdateWorkspaceBadRequestException
+     * @throws Exception\UpdateWorkspaceNotFoundException
+     */
+    public function updateWorkspace(int $workspaceId, ?Model\PatchedWorkspace $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UpdateWorkspace($workspaceId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Makes the authenticated user leave the workspace related to the provided `workspace_id` if the user is in that workspace. If the user is the last admin in the workspace, they will not be able to leave it. There must always be one admin in the workspace, otherwise it will be left without control. If that is the case, they must either delete the workspace or give another member admin permissions first.
+     *
+     * @param int    $workspaceId leaves the workspace related to the value
+     * @param string $fetch       Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\LeaveWorkspaceBadRequestException
+     * @throws Exception\LeaveWorkspaceNotFoundException
+     */
+    public function leaveWorkspace(int $workspaceId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\LeaveWorkspace($workspaceId), $fetch);
+    }
+
+    /**
+     * Returns a the permission data necessary to determine the permissions of a specific user over a specific workspace.
+     * See `core.handler.CoreHandler.get_permissions()` for more details.
+     *
+     * @param int    $workspaceId the workspace id we want the permission object for
+     * @param string $fetch       Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \cedricziel\phpbaserowclient\Generated\Model\PermissionObject[]|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\WorkspacePermissionsNotFoundException
+     */
+    public function workspacePermissions(int $workspaceId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\WorkspacePermissions($workspaceId), $fetch);
+    }
+
+    /**
+     * Returns the generative AI models settings for the given workspace.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\GenerativeAISettings|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getWorkspaceGenerativeAiModelsSettings(string $workspaceId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GetWorkspaceGenerativeAiModelsSettings($workspaceId), $fetch);
+    }
+
+    /**
+     * Updates the generative AI models settings for the given workspace.
+     *
+     * @param int   $workspaceId      updates the workspace settings for the generative AI models available
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\Workspace|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UpdateWorkspaceGenerativeAiModelsSettingsBadRequestException
+     * @throws Exception\UpdateWorkspaceGenerativeAiModelsSettingsNotFoundException
+     */
+    public function updateWorkspaceGenerativeAiModelsSettings(int $workspaceId, ?Model\PatchedGenerativeAISettings $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UpdateWorkspaceGenerativeAiModelsSettings($workspaceId, $requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\WorkspaceUserWorkspace|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createInitialWorkspace(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\CreateInitialWorkspace(), $fetch);
+    }
+
+    /**
+     * Deletes a workspace invitation if the authorized user has admin rights to the related workspace.
+     *
+     * @param int    $workspaceInvitationId deletes the workspace invitation related to the provided value
+     * @param string $fetch                 Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DeleteWorkspaceInvitationBadRequestException
+     * @throws Exception\DeleteWorkspaceInvitationNotFoundException
+     */
+    public function deleteWorkspaceInvitation(int $workspaceInvitationId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DeleteWorkspaceInvitation($workspaceInvitationId), $fetch);
+    }
+
+    /**
+     * Returns the requested workspace invitation if the authorized user has admin right to the related workspace.
+     *
+     * @param int    $workspaceInvitationId returns the workspace invitation related to the provided value
+     * @param string $fetch                 Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\WorkspaceInvitation|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GetWorkspaceInvitationBadRequestException
+     * @throws Exception\GetWorkspaceInvitationNotFoundException
+     */
+    public function getWorkspaceInvitation(int $workspaceInvitationId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GetWorkspaceInvitation($workspaceInvitationId), $fetch);
+    }
+
+    /**
+     * Updates the existing workspace invitation related to the provided `workspace_invitation_id` param if the authorized user has admin rights to the related workspace.
+     *
+     * @param int    $workspaceInvitationId updates the workspace invitation related to the provided value
+     * @param string $fetch                 Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\WorkspaceInvitation|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UpdateWorkspaceInvitationBadRequestException
+     * @throws Exception\UpdateWorkspaceInvitationNotFoundException
+     */
+    public function updateWorkspaceInvitation(int $workspaceInvitationId, ?Model\PatchedUpdateWorkspaceInvitation $requestBody = null, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UpdateWorkspaceInvitation($workspaceInvitationId, $requestBody), $fetch);
+    }
+
+    /**
+     * Accepts a workspace invitation with the given id if the email address of the user matches that of the invitation.
+     *
+     * @param int    $workspaceInvitationId accepts the workspace invitation related to the provided value
+     * @param string $fetch                 Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\WorkspaceUserWorkspace|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\AcceptWorkspaceInvitationBadRequestException
+     * @throws Exception\AcceptWorkspaceInvitationNotFoundException
+     */
+    public function acceptWorkspaceInvitation(int $workspaceInvitationId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\AcceptWorkspaceInvitation($workspaceInvitationId), $fetch);
+    }
+
+    /**
+     * Rejects a workspace invitation with the given id if the email address of the user matches that of the invitation.
+     *
+     * @param int    $workspaceInvitationId rejects the workspace invitation related to the provided value
+     * @param string $fetch                 Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\RejectWorkspaceInvitationBadRequestException
+     * @throws Exception\RejectWorkspaceInvitationNotFoundException
+     */
+    public function rejectWorkspaceInvitation(int $workspaceInvitationId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\RejectWorkspaceInvitation($workspaceInvitationId), $fetch);
+    }
+
+    /**
+     * Responds with the serialized workspace invitation if an invitation with the provided token is found.
+     *
+     * @param string $token returns the workspace invitation related to the provided token
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\UserWorkspaceInvitation|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\GetWorkspaceInvitationByTokenBadRequestException
+     * @throws Exception\GetWorkspaceInvitationByTokenNotFoundException
+     */
+    public function getWorkspaceInvitationByToken(string $token, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\GetWorkspaceInvitationByToken($token), $fetch);
+    }
+
+    /**
+     * Lists all the workspace invitations of the workspace related to the provided `workspace_id` parameter if the authorized user has admin rights to that workspace.
+     *
+     * @param int    $workspaceId returns only invitations that are in the workspace related to the provided value
+     * @param string $fetch       Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \cedricziel\phpbaserowclient\Generated\Model\WorkspaceInvitation[]|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ListWorkspaceInvitationsBadRequestException
+     * @throws Exception\ListWorkspaceInvitationsNotFoundException
+     */
+    public function listWorkspaceInvitations(int $workspaceId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListWorkspaceInvitations($workspaceId), $fetch);
+    }
+
+    /**
+     * Creates a new workspace invitations for an email address if the authorized user has admin rights to the related workspace. An email containing a sign up link will be send to the user.
+     *
+     * @param int    $workspaceId creates a workspace invitation to the workspace related to the provided value
+     * @param string $fetch       Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\WorkspaceInvitation|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\CreateWorkspaceInvitationBadRequestException
+     * @throws Exception\CreateWorkspaceInvitationNotFoundException
+     */
+    public function createWorkspaceInvitation(int $workspaceId, Model\CreateWorkspaceInvitation $requestBody, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\CreateWorkspaceInvitation($workspaceId, $requestBody), $fetch);
+    }
+
+    /**
+     * Changes the order of the provided workspace ids to the matching position that the id has in the list. If the authorized user does not belong to the workspace it will be ignored. The order will be custom for each user.
+     *
+     * @param array $headerParameters {
+     *
+     * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
+     * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function orderWorkspaces(Model\OrderWorkspaces $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\OrderWorkspaces($requestBody, $headerParameters), $fetch);
+    }
+
+    /**
+     * Deletes a workspace user if the authorized user has admin rights to the related workspace.
+     *
+     * @param int    $workspaceUserId deletes the workspace user related to the provided value
+     * @param string $fetch           Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\DeleteWorkspaceUserBadRequestException
+     * @throws Exception\DeleteWorkspaceUserNotFoundException
+     */
+    public function deleteWorkspaceUser(int $workspaceUserId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\DeleteWorkspaceUser($workspaceUserId), $fetch);
+    }
+
+    /**
+     * Updates the existing workspace user related to the provided `workspace_user_id` param if the authorized user has admin rights to the related workspace.
+     *
+     * @param int    $workspaceUserId updates the workspace user related to the provided value
+     * @param string $fetch           Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return Model\WorkspaceUser|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\UpdateWorkspaceUserBadRequestException
+     * @throws Exception\UpdateWorkspaceUserNotFoundException
+     */
+    public function updateWorkspaceUser(int $workspaceUserId, ?Model\PatchedUpdateWorkspaceUser $requestBody = null, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\UpdateWorkspaceUser($workspaceUserId, $requestBody), $fetch);
+    }
+
+    /**
+     * Lists all the users that are in a workspace if the authorized user has admin permissions to the related workspace. To add a user to a workspace an invitation must be sent first.
+     *
+     * @param int   $workspaceId     lists workspace users related to the provided workspace value
+     * @param array $queryParameters {
+     *
+     * @var string $search search for workspace users by username, or email
+     * @var string $sorts Sort workspace users by name, email or role.
+     *             }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \cedricziel\phpbaserowclient\Generated\Model\ListWorkspaceUsersWithMemberData[]|\Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws Exception\ListWorkspaceUsersBadRequestException
+     * @throws Exception\ListWorkspaceUsersNotFoundException
+     */
+    public function listWorkspaceUsers(int $workspaceId, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new Endpoint\ListWorkspaceUsers($workspaceId, $queryParameters), $fetch);
     }
 
     public static function create($httpClient = null, array $additionalPlugins = [], array $additionalNormalizers = [])
@@ -53,9 +6112,6 @@ class Client extends Runtime\Client\Client
         if (null === $httpClient) {
             $httpClient = \Http\Discovery\Psr18ClientDiscovery::find();
             $plugins = [];
-            $uri = \Http\Discovery\Psr17FactoryDiscovery::findUriFactory()->createUri('http://petstore.swagger.io/v1');
-            $plugins[] = new \Http\Client\Common\Plugin\AddHostPlugin($uri);
-            $plugins[] = new \Http\Client\Common\Plugin\AddPathPlugin($uri);
             if (count($additionalPlugins) > 0) {
                 $plugins = array_merge($plugins, $additionalPlugins);
             }
