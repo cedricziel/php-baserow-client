@@ -1,8 +1,8 @@
 {
-    "name": "cedricziel/phpbaserowclient",
+    "name": "cedricziel/baserow",
     "description": "An API client",
     "type": "library",
-    "license": "MIT",
+    "license": "Apache 2",
     "autoload": {
         "psr-4": {
             "cedricziel\\phpbaserowclient\\": "src/",
@@ -11,8 +11,8 @@
     },
     "authors": [
         {
-            "name": "cedricziel",
-            "email": "mail@example.com"
+            "name": "Cedric Ziel",
+            "email": "mail@cedric-ziel.com"
         }
     ],
     "require-dev": {
