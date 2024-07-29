@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/cedricziel/php-baserow-client/compare/v1.0.0...v1.0.1) (2024-07-29)
+
+
+### Bug Fixes
+
+* rename readme template ([#8](https://github.com/cedricziel/php-baserow-client/issues/8)) ([6a9e917](https://github.com/cedricziel/php-baserow-client/commit/6a9e9175192423180b3053cc3d2351fe21ff97ce))
+
 ## 1.0.0 (2024-07-29)
 
 
