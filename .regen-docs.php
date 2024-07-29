@@ -13,7 +13,7 @@ function underscoreToCamelCase($string, $capitalizeFirstCharacter = false)
     return $str;
 }
 
-$readme = file_get_contents('./.github/README.md');
+$readme = file_get_contents('./.github/README.template.md');
 $json = json_decode(file_get_contents('openapi.json'), true);
 
 $doc = '';
