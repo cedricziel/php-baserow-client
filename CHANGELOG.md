@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.0.0 (2024-07-29)
+
+
+### Features
+
+* Update openapi.json ([#1](https://github.com/cedricziel/php-baserow-client/issues/1)) ([e15f828](https://github.com/cedricziel/php-baserow-client/commit/e15f8282dc4885f93510e303cdba0a914769dc2a))
+
+
+### Bug Fixes
+
+* set correct spdx identifier ([#4](https://github.com/cedricziel/php-baserow-client/issues/4)) ([32b7bc4](https://github.com/cedricziel/php-baserow-client/commit/32b7bc406b649bd7218ad39c45462a132a7ae1b0))
+* set namespace with correct casing ([#5](https://github.com/cedricziel/php-baserow-client/issues/5)) ([a21ab9b](https://github.com/cedricziel/php-baserow-client/commit/a21ab9b8ce2715bd2b5a29f0941bb290fe250fe5))
+* set package meta ([#3](https://github.com/cedricziel/php-baserow-client/issues/3)) ([06ebedf](https://github.com/cedricziel/php-baserow-client/commit/06ebedfce9b1c3ceb4e17abc9f11764ea558372e))
+
 ## [1.0.1](https://github.com/cedricziel/php-openapi-client-template/compare/v1.0.0...v1.0.1) (2024-07-14)
 
 
