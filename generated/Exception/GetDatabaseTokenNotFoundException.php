@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class GetDatabaseTokenNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensTokenIdGetResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdGetResponse404
      */
     private $apiDatabaseTokensTokenIdGetResponse404;
     /**
@@ -21,14 +21,14 @@ class GetDatabaseTokenNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensTokenIdGetResponse404 $apiDatabaseTokensTokenIdGetResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdGetResponse404 $apiDatabaseTokensTokenIdGetResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiDatabaseTokensTokenIdGetResponse404 = $apiDatabaseTokensTokenIdGetResponse404;
         $this->response = $response;
     }
 
-    public function getApiDatabaseTokensTokenIdGetResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensTokenIdGetResponse404
+    public function getApiDatabaseTokensTokenIdGetResponse404(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdGetResponse404
     {
         return $this->apiDatabaseTokensTokenIdGetResponse404;
     }

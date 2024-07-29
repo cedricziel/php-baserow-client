@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class BatchUpdateDatabaseTableRowsBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse400
      */
     private $apiDatabaseRowsTableTableIdBatchPatchResponse400;
     /**
@@ -21,14 +21,14 @@ class BatchUpdateDatabaseTableRowsBadRequestException extends BadRequestExceptio
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse400 $apiDatabaseRowsTableTableIdBatchPatchResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse400 $apiDatabaseRowsTableTableIdBatchPatchResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiDatabaseRowsTableTableIdBatchPatchResponse400 = $apiDatabaseRowsTableTableIdBatchPatchResponse400;
         $this->response = $response;
     }
 
-    public function getApiDatabaseRowsTableTableIdBatchPatchResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse400
+    public function getApiDatabaseRowsTableTableIdBatchPatchResponse400(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse400
     {
         return $this->apiDatabaseRowsTableTableIdBatchPatchResponse400;
     }

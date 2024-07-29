@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class FilterDatabaseTableGridViewRowsNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdPostResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdPostResponse404
      */
     private $apiDatabaseViewsGridViewIdPostResponse404;
     /**
@@ -21,14 +21,14 @@ class FilterDatabaseTableGridViewRowsNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdPostResponse404 $apiDatabaseViewsGridViewIdPostResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdPostResponse404 $apiDatabaseViewsGridViewIdPostResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiDatabaseViewsGridViewIdPostResponse404 = $apiDatabaseViewsGridViewIdPostResponse404;
         $this->response = $response;
     }
 
-    public function getApiDatabaseViewsGridViewIdPostResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdPostResponse404
+    public function getApiDatabaseViewsGridViewIdPostResponse404(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdPostResponse404
     {
         return $this->apiDatabaseViewsGridViewIdPostResponse404;
     }

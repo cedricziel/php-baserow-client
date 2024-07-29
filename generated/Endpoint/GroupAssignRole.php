@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class GroupAssignRole extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class GroupAssignRole extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $group_id;
 
     /**
@@ -24,7 +24,7 @@ class GroupAssignRole extends \cedricziel\phpbaserowclient\Generated\Runtime\Cli
      *
      * @param int $groupId the group in which the role assignment takes place
      */
-    public function __construct(int $groupId, \cedricziel\phpbaserowclient\Generated\Model\CreateRoleAssignment $requestBody)
+    public function __construct(int $groupId, \CedricZiel\Baserow\Generated\Model\CreateRoleAssignment $requestBody)
     {
         $this->group_id = $groupId;
         $this->body = $requestBody;
@@ -42,13 +42,13 @@ class GroupAssignRole extends \cedricziel\phpbaserowclient\Generated\Runtime\Cli
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\CreateRoleAssignment) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\CreateRoleAssignment) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\CreateRoleAssignment) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\CreateRoleAssignment) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\CreateRoleAssignment) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\CreateRoleAssignment) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -68,26 +68,26 @@ class GroupAssignRole extends \cedricziel\phpbaserowclient\Generated\Runtime\Cli
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\OpenApiRoleAssignment|null
+     * @return \CedricZiel\Baserow\Generated\Model\OpenApiRoleAssignment|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\GroupAssignRoleBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\GroupAssignRoleNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\GroupAssignRoleBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\GroupAssignRoleNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\OpenApiRoleAssignment', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\OpenApiRoleAssignment', 'json');
         }
         if (204 === $status) {
             return null;
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\GroupAssignRoleBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiRoleGroupIdPostResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\GroupAssignRoleBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdPostResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\GroupAssignRoleNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiRoleGroupIdPostResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\GroupAssignRoleNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdPostResponse404', 'json'), $response);
         }
     }
 

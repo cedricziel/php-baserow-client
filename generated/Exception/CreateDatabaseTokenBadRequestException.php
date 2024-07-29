@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class CreateDatabaseTokenBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensPostResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensPostResponse400
      */
     private $apiDatabaseTokensPostResponse400;
     /**
@@ -21,14 +21,14 @@ class CreateDatabaseTokenBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensPostResponse400 $apiDatabaseTokensPostResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensPostResponse400 $apiDatabaseTokensPostResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiDatabaseTokensPostResponse400 = $apiDatabaseTokensPostResponse400;
         $this->response = $response;
     }
 
-    public function getApiDatabaseTokensPostResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensPostResponse400
+    public function getApiDatabaseTokensPostResponse400(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensPostResponse400
     {
         return $this->apiDatabaseTokensPostResponse400;
     }

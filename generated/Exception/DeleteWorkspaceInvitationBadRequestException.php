@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class DeleteWorkspaceInvitationBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse400
      */
     private $apiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse400;
     /**
@@ -21,14 +21,14 @@ class DeleteWorkspaceInvitationBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse400 $apiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse400 $apiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse400 = $apiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse400;
         $this->response = $response;
     }
 
-    public function getApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse400
+    public function getApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse400(): \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse400
     {
         return $this->apiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse400;
     }

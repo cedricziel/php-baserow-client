@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class GetMetaDatabaseTableFormView extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class GetMetaDatabaseTableFormView extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $slug;
 
     /**
@@ -46,23 +46,23 @@ class GetMetaDatabaseTableFormView extends \cedricziel\phpbaserowclient\Generate
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\PublicFormView|null
+     * @return \CedricZiel\Baserow\Generated\Model\PublicFormView|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\GetMetaDatabaseTableFormViewUnauthorizedException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\GetMetaDatabaseTableFormViewNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\GetMetaDatabaseTableFormViewUnauthorizedException
+     * @throws \CedricZiel\Baserow\Generated\Exception\GetMetaDatabaseTableFormViewNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\PublicFormView', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\PublicFormView', 'json');
         }
         if (false === is_null($contentType) && (401 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\GetMetaDatabaseTableFormViewUnauthorizedException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugSubmitGetResponse401', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\GetMetaDatabaseTableFormViewUnauthorizedException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugSubmitGetResponse401', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\GetMetaDatabaseTableFormViewNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugSubmitGetResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\GetMetaDatabaseTableFormViewNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugSubmitGetResponse404', 'json'), $response);
         }
     }
 

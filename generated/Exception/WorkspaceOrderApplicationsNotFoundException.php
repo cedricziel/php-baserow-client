@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class WorkspaceOrderApplicationsNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdOrderPostResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdOrderPostResponse404
      */
     private $apiApplicationsWorkspaceWorkspaceIdOrderPostResponse404;
     /**
@@ -21,14 +21,14 @@ class WorkspaceOrderApplicationsNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdOrderPostResponse404 $apiApplicationsWorkspaceWorkspaceIdOrderPostResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdOrderPostResponse404 $apiApplicationsWorkspaceWorkspaceIdOrderPostResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiApplicationsWorkspaceWorkspaceIdOrderPostResponse404 = $apiApplicationsWorkspaceWorkspaceIdOrderPostResponse404;
         $this->response = $response;
     }
 
-    public function getApiApplicationsWorkspaceWorkspaceIdOrderPostResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdOrderPostResponse404
+    public function getApiApplicationsWorkspaceWorkspaceIdOrderPostResponse404(): \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdOrderPostResponse404
     {
         return $this->apiApplicationsWorkspaceWorkspaceIdOrderPostResponse404;
     }

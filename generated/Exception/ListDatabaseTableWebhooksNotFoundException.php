@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class ListDatabaseTableWebhooksNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksTableTableIdGetResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdGetResponse404
      */
     private $apiDatabaseWebhooksTableTableIdGetResponse404;
     /**
@@ -21,14 +21,14 @@ class ListDatabaseTableWebhooksNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksTableTableIdGetResponse404 $apiDatabaseWebhooksTableTableIdGetResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdGetResponse404 $apiDatabaseWebhooksTableTableIdGetResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiDatabaseWebhooksTableTableIdGetResponse404 = $apiDatabaseWebhooksTableTableIdGetResponse404;
         $this->response = $response;
     }
 
-    public function getApiDatabaseWebhooksTableTableIdGetResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksTableTableIdGetResponse404
+    public function getApiDatabaseWebhooksTableTableIdGetResponse404(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdGetResponse404
     {
         return $this->apiDatabaseWebhooksTableTableIdGetResponse404;
     }

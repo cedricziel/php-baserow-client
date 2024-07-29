@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class AdminDeleteWorkspace extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class AdminDeleteWorkspace extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $workspace_id;
 
     /**
@@ -50,8 +50,8 @@ class AdminDeleteWorkspace extends \cedricziel\phpbaserowclient\Generated\Runtim
     /**
      * @return null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\AdminDeleteWorkspaceBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\AdminDeleteWorkspaceUnauthorizedException
+     * @throws \CedricZiel\Baserow\Generated\Exception\AdminDeleteWorkspaceBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\AdminDeleteWorkspaceUnauthorizedException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
@@ -61,10 +61,10 @@ class AdminDeleteWorkspace extends \cedricziel\phpbaserowclient\Generated\Runtim
             return null;
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\AdminDeleteWorkspaceBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiAdminWorkspacesWorkspaceIdDeleteResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\AdminDeleteWorkspaceBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiAdminWorkspacesWorkspaceIdDeleteResponse400', 'json'), $response);
         }
         if (401 === $status) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\AdminDeleteWorkspaceUnauthorizedException($response);
+            throw new \CedricZiel\Baserow\Generated\Exception\AdminDeleteWorkspaceUnauthorizedException($response);
         }
     }
 

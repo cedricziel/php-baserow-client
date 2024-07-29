@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class CreateDatabaseTableViewGroupNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdGroupBysPostResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGroupBysPostResponse404
      */
     private $apiDatabaseViewsViewIdGroupBysPostResponse404;
     /**
@@ -21,14 +21,14 @@ class CreateDatabaseTableViewGroupNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdGroupBysPostResponse404 $apiDatabaseViewsViewIdGroupBysPostResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGroupBysPostResponse404 $apiDatabaseViewsViewIdGroupBysPostResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiDatabaseViewsViewIdGroupBysPostResponse404 = $apiDatabaseViewsViewIdGroupBysPostResponse404;
         $this->response = $response;
     }
 
-    public function getApiDatabaseViewsViewIdGroupBysPostResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdGroupBysPostResponse404
+    public function getApiDatabaseViewsViewIdGroupBysPostResponse404(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGroupBysPostResponse404
     {
         return $this->apiDatabaseViewsViewIdGroupBysPostResponse404;
     }

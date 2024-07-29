@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class ScheduleAccountDeletionBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiUserScheduleAccountDeletionPostResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiUserScheduleAccountDeletionPostResponse400
      */
     private $apiUserScheduleAccountDeletionPostResponse400;
     /**
@@ -21,14 +21,14 @@ class ScheduleAccountDeletionBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiUserScheduleAccountDeletionPostResponse400 $apiUserScheduleAccountDeletionPostResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiUserScheduleAccountDeletionPostResponse400 $apiUserScheduleAccountDeletionPostResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiUserScheduleAccountDeletionPostResponse400 = $apiUserScheduleAccountDeletionPostResponse400;
         $this->response = $response;
     }
 
-    public function getApiUserScheduleAccountDeletionPostResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiUserScheduleAccountDeletionPostResponse400
+    public function getApiUserScheduleAccountDeletionPostResponse400(): \CedricZiel\Baserow\Generated\Model\ApiUserScheduleAccountDeletionPostResponse400
     {
         return $this->apiUserScheduleAccountDeletionPostResponse400;
     }

@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class CheckDatabaseTokenForbiddenException extends ForbiddenException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensCheckGetResponse403
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensCheckGetResponse403
      */
     private $apiDatabaseTokensCheckGetResponse403;
     /**
@@ -21,14 +21,14 @@ class CheckDatabaseTokenForbiddenException extends ForbiddenException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensCheckGetResponse403 $apiDatabaseTokensCheckGetResponse403, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensCheckGetResponse403 $apiDatabaseTokensCheckGetResponse403, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Forbidden');
         $this->apiDatabaseTokensCheckGetResponse403 = $apiDatabaseTokensCheckGetResponse403;
         $this->response = $response;
     }
 
-    public function getApiDatabaseTokensCheckGetResponse403(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensCheckGetResponse403
+    public function getApiDatabaseTokensCheckGetResponse403(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensCheckGetResponse403
     {
         return $this->apiDatabaseTokensCheckGetResponse403;
     }

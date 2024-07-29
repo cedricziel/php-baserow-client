@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class TypeFormulaFieldNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFormulaTableIdTypePostResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseFormulaTableIdTypePostResponse404
      */
     private $apiDatabaseFormulaTableIdTypePostResponse404;
     /**
@@ -21,14 +21,14 @@ class TypeFormulaFieldNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFormulaTableIdTypePostResponse404 $apiDatabaseFormulaTableIdTypePostResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseFormulaTableIdTypePostResponse404 $apiDatabaseFormulaTableIdTypePostResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiDatabaseFormulaTableIdTypePostResponse404 = $apiDatabaseFormulaTableIdTypePostResponse404;
         $this->response = $response;
     }
 
-    public function getApiDatabaseFormulaTableIdTypePostResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFormulaTableIdTypePostResponse404
+    public function getApiDatabaseFormulaTableIdTypePostResponse404(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseFormulaTableIdTypePostResponse404
     {
         return $this->apiDatabaseFormulaTableIdTypePostResponse404;
     }

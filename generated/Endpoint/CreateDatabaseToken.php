@@ -8,16 +8,16 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class CreateDatabaseToken extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class CreateDatabaseToken extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
 
     /**
      * Creates a new database token for a given workspace and for the authorized user.
      */
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\TokenCreate $requestBody)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\TokenCreate $requestBody)
     {
         $this->body = $requestBody;
     }
@@ -34,13 +34,13 @@ class CreateDatabaseToken extends \cedricziel\phpbaserowclient\Generated\Runtime
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\TokenCreate) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\TokenCreate) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\TokenCreate) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\TokenCreate) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\TokenCreate) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\TokenCreate) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -60,19 +60,19 @@ class CreateDatabaseToken extends \cedricziel\phpbaserowclient\Generated\Runtime
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\Token|null
+     * @return \CedricZiel\Baserow\Generated\Model\Token|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\CreateDatabaseTokenBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\CreateDatabaseTokenBadRequestException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\Token', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\Token', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\CreateDatabaseTokenBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensPostResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\CreateDatabaseTokenBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensPostResponse400', 'json'), $response);
         }
     }
 

@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class ListRoleAssignmentsNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiRoleWorkspaceIdGetResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdGetResponse404
      */
     private $apiRoleWorkspaceIdGetResponse404;
     /**
@@ -21,14 +21,14 @@ class ListRoleAssignmentsNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiRoleWorkspaceIdGetResponse404 $apiRoleWorkspaceIdGetResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdGetResponse404 $apiRoleWorkspaceIdGetResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiRoleWorkspaceIdGetResponse404 = $apiRoleWorkspaceIdGetResponse404;
         $this->response = $response;
     }
 
-    public function getApiRoleWorkspaceIdGetResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiRoleWorkspaceIdGetResponse404
+    public function getApiRoleWorkspaceIdGetResponse404(): \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdGetResponse404
     {
         return $this->apiRoleWorkspaceIdGetResponse404;
     }

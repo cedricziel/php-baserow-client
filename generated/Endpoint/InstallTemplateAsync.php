@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class InstallTemplateAsync extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class InstallTemplateAsync extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $template_id;
     protected $workspace_id;
 
@@ -67,23 +67,23 @@ class InstallTemplateAsync extends \cedricziel\phpbaserowclient\Generated\Runtim
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\SingleInstallTemplateJobType|null
+     * @return \CedricZiel\Baserow\Generated\Model\SingleInstallTemplateJobType|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\InstallTemplateAsyncBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\InstallTemplateAsyncNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\InstallTemplateAsyncBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\InstallTemplateAsyncNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (202 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\SingleInstallTemplateJobType', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\SingleInstallTemplateJobType', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\InstallTemplateAsyncBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\InstallTemplateAsyncBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\InstallTemplateAsyncNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\InstallTemplateAsyncNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse404', 'json'), $response);
         }
     }
 

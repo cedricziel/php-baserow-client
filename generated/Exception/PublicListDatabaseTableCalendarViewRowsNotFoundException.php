@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class PublicListDatabaseTableCalendarViewRowsNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse404
      */
     private $apiDatabaseViewsCalendarSlugPublicRowsGetResponse404;
     /**
@@ -21,14 +21,14 @@ class PublicListDatabaseTableCalendarViewRowsNotFoundException extends NotFoundE
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse404 $apiDatabaseViewsCalendarSlugPublicRowsGetResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse404 $apiDatabaseViewsCalendarSlugPublicRowsGetResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiDatabaseViewsCalendarSlugPublicRowsGetResponse404 = $apiDatabaseViewsCalendarSlugPublicRowsGetResponse404;
         $this->response = $response;
     }
 
-    public function getApiDatabaseViewsCalendarSlugPublicRowsGetResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse404
+    public function getApiDatabaseViewsCalendarSlugPublicRowsGetResponse404(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse404
     {
         return $this->apiDatabaseViewsCalendarSlugPublicRowsGetResponse404;
     }

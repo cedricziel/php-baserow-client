@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class DeleteAuthProviderNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuthProviderAuthProviderIdDeleteResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderAuthProviderIdDeleteResponse404
      */
     private $apiAdminAuthProviderAuthProviderIdDeleteResponse404;
     /**
@@ -21,14 +21,14 @@ class DeleteAuthProviderNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuthProviderAuthProviderIdDeleteResponse404 $apiAdminAuthProviderAuthProviderIdDeleteResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderAuthProviderIdDeleteResponse404 $apiAdminAuthProviderAuthProviderIdDeleteResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiAdminAuthProviderAuthProviderIdDeleteResponse404 = $apiAdminAuthProviderAuthProviderIdDeleteResponse404;
         $this->response = $response;
     }
 
-    public function getApiAdminAuthProviderAuthProviderIdDeleteResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuthProviderAuthProviderIdDeleteResponse404
+    public function getApiAdminAuthProviderAuthProviderIdDeleteResponse404(): \CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderAuthProviderIdDeleteResponse404
     {
         return $this->apiAdminAuthProviderAuthProviderIdDeleteResponse404;
     }

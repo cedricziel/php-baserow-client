@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class UpdateApplicationIntegrationBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdPatchResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdPatchResponse400
      */
     private $apiIntegrationIntegrationIdPatchResponse400;
     /**
@@ -21,14 +21,14 @@ class UpdateApplicationIntegrationBadRequestException extends BadRequestExceptio
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdPatchResponse400 $apiIntegrationIntegrationIdPatchResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdPatchResponse400 $apiIntegrationIntegrationIdPatchResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiIntegrationIntegrationIdPatchResponse400 = $apiIntegrationIntegrationIdPatchResponse400;
         $this->response = $response;
     }
 
-    public function getApiIntegrationIntegrationIdPatchResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdPatchResponse400
+    public function getApiIntegrationIntegrationIdPatchResponse400(): \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdPatchResponse400
     {
         return $this->apiIntegrationIntegrationIdPatchResponse400;
     }

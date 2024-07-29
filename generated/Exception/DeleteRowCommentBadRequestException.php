@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class DeleteRowCommentBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse400
      */
     private $apiRowCommentsTableIdCommentCommentIdDeleteResponse400;
     /**
@@ -21,14 +21,14 @@ class DeleteRowCommentBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse400 $apiRowCommentsTableIdCommentCommentIdDeleteResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse400 $apiRowCommentsTableIdCommentCommentIdDeleteResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiRowCommentsTableIdCommentCommentIdDeleteResponse400 = $apiRowCommentsTableIdCommentCommentIdDeleteResponse400;
         $this->response = $response;
     }
 
-    public function getApiRowCommentsTableIdCommentCommentIdDeleteResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse400
+    public function getApiRowCommentsTableIdCommentCommentIdDeleteResponse400(): \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse400
     {
         return $this->apiRowCommentsTableIdCommentCommentIdDeleteResponse400;
     }

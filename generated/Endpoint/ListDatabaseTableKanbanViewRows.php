@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class ListDatabaseTableKanbanViewRows extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class ListDatabaseTableKanbanViewRows extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $view_id;
 
     /**
@@ -89,23 +89,23 @@ class ListDatabaseTableKanbanViewRows extends \cedricziel\phpbaserowclient\Gener
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\KanbanViewExampleResponse|null
+     * @return \CedricZiel\Baserow\Generated\Model\KanbanViewExampleResponse|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\ListDatabaseTableKanbanViewRowsBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\ListDatabaseTableKanbanViewRowsNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\ListDatabaseTableKanbanViewRowsBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\ListDatabaseTableKanbanViewRowsNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\KanbanViewExampleResponse', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\KanbanViewExampleResponse', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\ListDatabaseTableKanbanViewRowsBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsKanbanViewIdGetResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\ListDatabaseTableKanbanViewRowsBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanViewIdGetResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\ListDatabaseTableKanbanViewRowsNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsKanbanViewIdGetResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\ListDatabaseTableKanbanViewRowsNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanViewIdGetResponse404', 'json'), $response);
         }
     }
 

@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class MoveBuilderPageElementNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdMovePatchResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdMovePatchResponse404
      */
     private $apiBuilderElementElementIdMovePatchResponse404;
     /**
@@ -21,14 +21,14 @@ class MoveBuilderPageElementNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdMovePatchResponse404 $apiBuilderElementElementIdMovePatchResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdMovePatchResponse404 $apiBuilderElementElementIdMovePatchResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiBuilderElementElementIdMovePatchResponse404 = $apiBuilderElementElementIdMovePatchResponse404;
         $this->response = $response;
     }
 
-    public function getApiBuilderElementElementIdMovePatchResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdMovePatchResponse404
+    public function getApiBuilderElementElementIdMovePatchResponse404(): \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdMovePatchResponse404
     {
         return $this->apiBuilderElementElementIdMovePatchResponse404;
     }

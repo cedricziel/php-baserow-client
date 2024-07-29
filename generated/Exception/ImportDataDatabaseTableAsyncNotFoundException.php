@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class ImportDataDatabaseTableAsyncNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdImportAsyncPostResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdImportAsyncPostResponse404
      */
     private $apiDatabaseTablesTableIdImportAsyncPostResponse404;
     /**
@@ -21,14 +21,14 @@ class ImportDataDatabaseTableAsyncNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdImportAsyncPostResponse404 $apiDatabaseTablesTableIdImportAsyncPostResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdImportAsyncPostResponse404 $apiDatabaseTablesTableIdImportAsyncPostResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiDatabaseTablesTableIdImportAsyncPostResponse404 = $apiDatabaseTablesTableIdImportAsyncPostResponse404;
         $this->response = $response;
     }
 
-    public function getApiDatabaseTablesTableIdImportAsyncPostResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdImportAsyncPostResponse404
+    public function getApiDatabaseTablesTableIdImportAsyncPostResponse404(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdImportAsyncPostResponse404
     {
         return $this->apiDatabaseTablesTableIdImportAsyncPostResponse404;
     }

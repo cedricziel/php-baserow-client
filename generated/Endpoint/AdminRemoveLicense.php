@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class AdminRemoveLicense extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class AdminRemoveLicense extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $id;
 
     /**
@@ -48,7 +48,7 @@ class AdminRemoveLicense extends \cedricziel\phpbaserowclient\Generated\Runtime\
     /**
      * @return null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\AdminRemoveLicenseNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\AdminRemoveLicenseNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
@@ -58,7 +58,7 @@ class AdminRemoveLicense extends \cedricziel\phpbaserowclient\Generated\Runtime\
             return null;
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\AdminRemoveLicenseNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdDeleteResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\AdminRemoveLicenseNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiLicensesIdDeleteResponse404', 'json'), $response);
         }
     }
 

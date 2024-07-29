@@ -8,16 +8,16 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class Restore extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class Restore extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
 
     /**
      * Restores the specified trashed item back into baserow.
      */
-    public function __construct(?\cedricziel\phpbaserowclient\Generated\Model\PatchedTrashEntryRequest $requestBody = null)
+    public function __construct(?\CedricZiel\Baserow\Generated\Model\PatchedTrashEntryRequest $requestBody = null)
     {
         $this->body = $requestBody;
     }
@@ -34,13 +34,13 @@ class Restore extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\Base
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\PatchedTrashEntryRequest) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedTrashEntryRequest) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\PatchedTrashEntryRequest) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedTrashEntryRequest) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\PatchedTrashEntryRequest) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedTrashEntryRequest) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -62,7 +62,7 @@ class Restore extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\Base
     /**
      * @return null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\RestoreBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\RestoreBadRequestException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
@@ -72,7 +72,7 @@ class Restore extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\Base
             return null;
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\RestoreBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiTrashRestorePatchResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\RestoreBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiTrashRestorePatchResponse400', 'json'), $response);
         }
     }
 

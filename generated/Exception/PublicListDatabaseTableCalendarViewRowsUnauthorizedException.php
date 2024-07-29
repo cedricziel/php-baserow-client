@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class PublicListDatabaseTableCalendarViewRowsUnauthorizedException extends UnauthorizedException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse401
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse401
      */
     private $apiDatabaseViewsCalendarSlugPublicRowsGetResponse401;
     /**
@@ -21,14 +21,14 @@ class PublicListDatabaseTableCalendarViewRowsUnauthorizedException extends Unaut
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse401 $apiDatabaseViewsCalendarSlugPublicRowsGetResponse401, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse401 $apiDatabaseViewsCalendarSlugPublicRowsGetResponse401, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Unauthorized');
         $this->apiDatabaseViewsCalendarSlugPublicRowsGetResponse401 = $apiDatabaseViewsCalendarSlugPublicRowsGetResponse401;
         $this->response = $response;
     }
 
-    public function getApiDatabaseViewsCalendarSlugPublicRowsGetResponse401(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse401
+    public function getApiDatabaseViewsCalendarSlugPublicRowsGetResponse401(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse401
     {
         return $this->apiDatabaseViewsCalendarSlugPublicRowsGetResponse401;
     }

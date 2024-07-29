@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class AdminLicenseCheckNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdCheckGetResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiLicensesIdCheckGetResponse404
      */
     private $apiLicensesIdCheckGetResponse404;
     /**
@@ -21,14 +21,14 @@ class AdminLicenseCheckNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdCheckGetResponse404 $apiLicensesIdCheckGetResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiLicensesIdCheckGetResponse404 $apiLicensesIdCheckGetResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiLicensesIdCheckGetResponse404 = $apiLicensesIdCheckGetResponse404;
         $this->response = $response;
     }
 
-    public function getApiLicensesIdCheckGetResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdCheckGetResponse404
+    public function getApiLicensesIdCheckGetResponse404(): \CedricZiel\Baserow\Generated\Model\ApiLicensesIdCheckGetResponse404
     {
         return $this->apiLicensesIdCheckGetResponse404;
     }

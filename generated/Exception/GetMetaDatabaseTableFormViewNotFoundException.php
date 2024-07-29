@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class GetMetaDatabaseTableFormViewNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugSubmitGetResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugSubmitGetResponse404
      */
     private $apiDatabaseViewsFormSlugSubmitGetResponse404;
     /**
@@ -21,14 +21,14 @@ class GetMetaDatabaseTableFormViewNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugSubmitGetResponse404 $apiDatabaseViewsFormSlugSubmitGetResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugSubmitGetResponse404 $apiDatabaseViewsFormSlugSubmitGetResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiDatabaseViewsFormSlugSubmitGetResponse404 = $apiDatabaseViewsFormSlugSubmitGetResponse404;
         $this->response = $response;
     }
 
-    public function getApiDatabaseViewsFormSlugSubmitGetResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugSubmitGetResponse404
+    public function getApiDatabaseViewsFormSlugSubmitGetResponse404(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugSubmitGetResponse404
     {
         return $this->apiDatabaseViewsFormSlugSubmitGetResponse404;
     }

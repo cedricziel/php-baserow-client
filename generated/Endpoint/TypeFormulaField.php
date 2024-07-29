@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class TypeFormulaField extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class TypeFormulaField extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $table_id;
 
     /**
@@ -20,7 +20,7 @@ class TypeFormulaField extends \cedricziel\phpbaserowclient\Generated\Runtime\Cl
      *
      * @param int $tableId the table id of the formula field to type
      */
-    public function __construct(int $tableId, \cedricziel\phpbaserowclient\Generated\Model\TypeFormulaRequest $requestBody)
+    public function __construct(int $tableId, \CedricZiel\Baserow\Generated\Model\TypeFormulaRequest $requestBody)
     {
         $this->table_id = $tableId;
         $this->body = $requestBody;
@@ -38,13 +38,13 @@ class TypeFormulaField extends \cedricziel\phpbaserowclient\Generated\Runtime\Cl
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\TypeFormulaRequest) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\TypeFormulaRequest) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\TypeFormulaRequest) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\TypeFormulaRequest) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\TypeFormulaRequest) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\TypeFormulaRequest) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -64,23 +64,23 @@ class TypeFormulaField extends \cedricziel\phpbaserowclient\Generated\Runtime\Cl
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\TypeFormulaResult|null
+     * @return \CedricZiel\Baserow\Generated\Model\TypeFormulaResult|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\TypeFormulaFieldBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\TypeFormulaFieldNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\TypeFormulaFieldBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\TypeFormulaFieldNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\TypeFormulaResult', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\TypeFormulaResult', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\TypeFormulaFieldBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFormulaTableIdTypePostResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\TypeFormulaFieldBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseFormulaTableIdTypePostResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\TypeFormulaFieldNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFormulaTableIdTypePostResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\TypeFormulaFieldNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseFormulaTableIdTypePostResponse404', 'json'), $response);
         }
     }
 

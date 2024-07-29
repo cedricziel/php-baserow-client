@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class UpdateGroupUserNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupUserIdPatchResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdPatchResponse404
      */
     private $apiGroupsUsersGroupUserIdPatchResponse404;
     /**
@@ -21,14 +21,14 @@ class UpdateGroupUserNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupUserIdPatchResponse404 $apiGroupsUsersGroupUserIdPatchResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdPatchResponse404 $apiGroupsUsersGroupUserIdPatchResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiGroupsUsersGroupUserIdPatchResponse404 = $apiGroupsUsersGroupUserIdPatchResponse404;
         $this->response = $response;
     }
 
-    public function getApiGroupsUsersGroupUserIdPatchResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupUserIdPatchResponse404
+    public function getApiGroupsUsersGroupUserIdPatchResponse404(): \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdPatchResponse404
     {
         return $this->apiGroupsUsersGroupUserIdPatchResponse404;
     }

@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class UpdateDatabaseTableNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdPatchResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdPatchResponse404
      */
     private $apiDatabaseTablesTableIdPatchResponse404;
     /**
@@ -21,14 +21,14 @@ class UpdateDatabaseTableNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdPatchResponse404 $apiDatabaseTablesTableIdPatchResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdPatchResponse404 $apiDatabaseTablesTableIdPatchResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiDatabaseTablesTableIdPatchResponse404 = $apiDatabaseTablesTableIdPatchResponse404;
         $this->response = $response;
     }
 
-    public function getApiDatabaseTablesTableIdPatchResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdPatchResponse404
+    public function getApiDatabaseTablesTableIdPatchResponse404(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdPatchResponse404
     {
         return $this->apiDatabaseTablesTableIdPatchResponse404;
     }

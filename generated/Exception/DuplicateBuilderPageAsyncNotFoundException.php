@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class DuplicateBuilderPageAsyncNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagesPageIdDuplicateAsyncPostResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdDuplicateAsyncPostResponse404
      */
     private $apiBuilderPagesPageIdDuplicateAsyncPostResponse404;
     /**
@@ -21,14 +21,14 @@ class DuplicateBuilderPageAsyncNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagesPageIdDuplicateAsyncPostResponse404 $apiBuilderPagesPageIdDuplicateAsyncPostResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdDuplicateAsyncPostResponse404 $apiBuilderPagesPageIdDuplicateAsyncPostResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiBuilderPagesPageIdDuplicateAsyncPostResponse404 = $apiBuilderPagesPageIdDuplicateAsyncPostResponse404;
         $this->response = $response;
     }
 
-    public function getApiBuilderPagesPageIdDuplicateAsyncPostResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagesPageIdDuplicateAsyncPostResponse404
+    public function getApiBuilderPagesPageIdDuplicateAsyncPostResponse404(): \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdDuplicateAsyncPostResponse404
     {
         return $this->apiBuilderPagesPageIdDuplicateAsyncPostResponse404;
     }

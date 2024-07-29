@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class ExportTableNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseExportTableTableIdPostResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseExportTableTableIdPostResponse404
      */
     private $apiDatabaseExportTableTableIdPostResponse404;
     /**
@@ -21,14 +21,14 @@ class ExportTableNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseExportTableTableIdPostResponse404 $apiDatabaseExportTableTableIdPostResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseExportTableTableIdPostResponse404 $apiDatabaseExportTableTableIdPostResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiDatabaseExportTableTableIdPostResponse404 = $apiDatabaseExportTableTableIdPostResponse404;
         $this->response = $response;
     }
 
-    public function getApiDatabaseExportTableTableIdPostResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseExportTableTableIdPostResponse404
+    public function getApiDatabaseExportTableTableIdPostResponse404(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseExportTableTableIdPostResponse404
     {
         return $this->apiDatabaseExportTableTableIdPostResponse404;
     }

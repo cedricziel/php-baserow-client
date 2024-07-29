@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class CreateSnapshot extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class CreateSnapshot extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $application_id;
 
     /**
@@ -20,7 +20,7 @@ class CreateSnapshot extends \cedricziel\phpbaserowclient\Generated\Runtime\Clie
      *
      * @param int $applicationId application ID for which to list snapshots
      */
-    public function __construct(int $applicationId, \cedricziel\phpbaserowclient\Generated\Model\Snapshot $requestBody)
+    public function __construct(int $applicationId, \CedricZiel\Baserow\Generated\Model\Snapshot $requestBody)
     {
         $this->application_id = $applicationId;
         $this->body = $requestBody;
@@ -38,13 +38,13 @@ class CreateSnapshot extends \cedricziel\phpbaserowclient\Generated\Runtime\Clie
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\Snapshot) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\Snapshot) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\Snapshot) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\Snapshot) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\Snapshot) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\Snapshot) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -64,23 +64,23 @@ class CreateSnapshot extends \cedricziel\phpbaserowclient\Generated\Runtime\Clie
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\Job|null
+     * @return \CedricZiel\Baserow\Generated\Model\Job|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\CreateSnapshotBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\CreateSnapshotNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\CreateSnapshotBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\CreateSnapshotNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (202 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\Job', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\Job', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\CreateSnapshotBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsApplicationApplicationIdPostResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\CreateSnapshotBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiSnapshotsApplicationApplicationIdPostResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\CreateSnapshotNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsApplicationApplicationIdPostResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\CreateSnapshotNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiSnapshotsApplicationApplicationIdPostResponse404', 'json'), $response);
         }
     }
 

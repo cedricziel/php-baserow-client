@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class DeleteWorkspaceUser extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class DeleteWorkspaceUser extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $workspace_user_id;
 
     /**
@@ -48,8 +48,8 @@ class DeleteWorkspaceUser extends \cedricziel\phpbaserowclient\Generated\Runtime
     /**
      * @return null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\DeleteWorkspaceUserBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\DeleteWorkspaceUserNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\DeleteWorkspaceUserBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\DeleteWorkspaceUserNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
@@ -59,10 +59,10 @@ class DeleteWorkspaceUser extends \cedricziel\phpbaserowclient\Generated\Runtime
             return null;
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\DeleteWorkspaceUserBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdDeleteResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\DeleteWorkspaceUserBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdDeleteResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\DeleteWorkspaceUserNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdDeleteResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\DeleteWorkspaceUserNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdDeleteResponse404', 'json'), $response);
         }
     }
 

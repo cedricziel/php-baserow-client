@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class CreateJobBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiJobsPostResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiJobsPostResponse400
      */
     private $apiJobsPostResponse400;
     /**
@@ -21,14 +21,14 @@ class CreateJobBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiJobsPostResponse400 $apiJobsPostResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiJobsPostResponse400 $apiJobsPostResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiJobsPostResponse400 = $apiJobsPostResponse400;
         $this->response = $response;
     }
 
-    public function getApiJobsPostResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiJobsPostResponse400
+    public function getApiJobsPostResponse400(): \CedricZiel\Baserow\Generated\Model\ApiJobsPostResponse400
     {
         return $this->apiJobsPostResponse400;
     }

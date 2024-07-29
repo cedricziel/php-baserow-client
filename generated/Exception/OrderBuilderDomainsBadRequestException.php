@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class OrderBuilderDomainsBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdDomainsOrderPostResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsOrderPostResponse400
      */
     private $apiBuilderBuilderIdDomainsOrderPostResponse400;
     /**
@@ -21,14 +21,14 @@ class OrderBuilderDomainsBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdDomainsOrderPostResponse400 $apiBuilderBuilderIdDomainsOrderPostResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsOrderPostResponse400 $apiBuilderBuilderIdDomainsOrderPostResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiBuilderBuilderIdDomainsOrderPostResponse400 = $apiBuilderBuilderIdDomainsOrderPostResponse400;
         $this->response = $response;
     }
 
-    public function getApiBuilderBuilderIdDomainsOrderPostResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdDomainsOrderPostResponse400
+    public function getApiBuilderBuilderIdDomainsOrderPostResponse400(): \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsOrderPostResponse400
     {
         return $this->apiBuilderBuilderIdDomainsOrderPostResponse400;
     }

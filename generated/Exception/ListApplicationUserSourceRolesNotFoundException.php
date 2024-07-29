@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class ListApplicationUserSourceRolesNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdUserSourcesRolesGetResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdUserSourcesRolesGetResponse404
      */
     private $apiApplicationApplicationIdUserSourcesRolesGetResponse404;
     /**
@@ -21,14 +21,14 @@ class ListApplicationUserSourceRolesNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdUserSourcesRolesGetResponse404 $apiApplicationApplicationIdUserSourcesRolesGetResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdUserSourcesRolesGetResponse404 $apiApplicationApplicationIdUserSourcesRolesGetResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiApplicationApplicationIdUserSourcesRolesGetResponse404 = $apiApplicationApplicationIdUserSourcesRolesGetResponse404;
         $this->response = $response;
     }
 
-    public function getApiApplicationApplicationIdUserSourcesRolesGetResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdUserSourcesRolesGetResponse404
+    public function getApiApplicationApplicationIdUserSourcesRolesGetResponse404(): \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdUserSourcesRolesGetResponse404
     {
         return $this->apiApplicationApplicationIdUserSourcesRolesGetResponse404;
     }

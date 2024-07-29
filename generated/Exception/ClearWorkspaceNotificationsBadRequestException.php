@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class ClearWorkspaceNotificationsBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse400
      */
     private $apiNotificationsWorkspaceIdDeleteResponse400;
     /**
@@ -21,14 +21,14 @@ class ClearWorkspaceNotificationsBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse400 $apiNotificationsWorkspaceIdDeleteResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse400 $apiNotificationsWorkspaceIdDeleteResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiNotificationsWorkspaceIdDeleteResponse400 = $apiNotificationsWorkspaceIdDeleteResponse400;
         $this->response = $response;
     }
 
-    public function getApiNotificationsWorkspaceIdDeleteResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse400
+    public function getApiNotificationsWorkspaceIdDeleteResponse400(): \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse400
     {
         return $this->apiNotificationsWorkspaceIdDeleteResponse400;
     }

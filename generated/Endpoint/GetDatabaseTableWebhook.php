@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class GetDatabaseTableWebhook extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class GetDatabaseTableWebhook extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $webhook_id;
 
     /**
@@ -46,23 +46,23 @@ class GetDatabaseTableWebhook extends \cedricziel\phpbaserowclient\Generated\Run
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\TableWebhook|null
+     * @return \CedricZiel\Baserow\Generated\Model\TableWebhook|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\GetDatabaseTableWebhookBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\GetDatabaseTableWebhookNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\GetDatabaseTableWebhookBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\GetDatabaseTableWebhookNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\TableWebhook', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\TableWebhook', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\GetDatabaseTableWebhookBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksWebhookIdGetResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\GetDatabaseTableWebhookBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdGetResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\GetDatabaseTableWebhookNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksWebhookIdGetResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\GetDatabaseTableWebhookNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdGetResponse404', 'json'), $response);
         }
     }
 

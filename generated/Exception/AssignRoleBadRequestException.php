@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class AssignRoleBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiRoleWorkspaceIdPostResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdPostResponse400
      */
     private $apiRoleWorkspaceIdPostResponse400;
     /**
@@ -21,14 +21,14 @@ class AssignRoleBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiRoleWorkspaceIdPostResponse400 $apiRoleWorkspaceIdPostResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdPostResponse400 $apiRoleWorkspaceIdPostResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiRoleWorkspaceIdPostResponse400 = $apiRoleWorkspaceIdPostResponse400;
         $this->response = $response;
     }
 
-    public function getApiRoleWorkspaceIdPostResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiRoleWorkspaceIdPostResponse400
+    public function getApiRoleWorkspaceIdPostResponse400(): \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdPostResponse400
     {
         return $this->apiRoleWorkspaceIdPostResponse400;
     }

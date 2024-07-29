@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class UploadFileFormViewBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse400
      */
     private $apiDatabaseViewsFormSlugUploadFilePostResponse400;
     /**
@@ -21,14 +21,14 @@ class UploadFileFormViewBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse400 $apiDatabaseViewsFormSlugUploadFilePostResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse400 $apiDatabaseViewsFormSlugUploadFilePostResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiDatabaseViewsFormSlugUploadFilePostResponse400 = $apiDatabaseViewsFormSlugUploadFilePostResponse400;
         $this->response = $response;
     }
 
-    public function getApiDatabaseViewsFormSlugUploadFilePostResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse400
+    public function getApiDatabaseViewsFormSlugUploadFilePostResponse400(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse400
     {
         return $this->apiDatabaseViewsFormSlugUploadFilePostResponse400;
     }

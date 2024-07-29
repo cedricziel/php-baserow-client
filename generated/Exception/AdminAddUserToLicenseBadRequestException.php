@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class AdminAddUserToLicenseBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdUserIdPostResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiLicensesIdUserIdPostResponse400
      */
     private $apiLicensesIdUserIdPostResponse400;
     /**
@@ -21,14 +21,14 @@ class AdminAddUserToLicenseBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdUserIdPostResponse400 $apiLicensesIdUserIdPostResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiLicensesIdUserIdPostResponse400 $apiLicensesIdUserIdPostResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiLicensesIdUserIdPostResponse400 = $apiLicensesIdUserIdPostResponse400;
         $this->response = $response;
     }
 
-    public function getApiLicensesIdUserIdPostResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdUserIdPostResponse400
+    public function getApiLicensesIdUserIdPostResponse400(): \CedricZiel\Baserow\Generated\Model\ApiLicensesIdUserIdPostResponse400
     {
         return $this->apiLicensesIdUserIdPostResponse400;
     }

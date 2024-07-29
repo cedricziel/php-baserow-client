@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class OrderBuilderWorkflowActionsNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdWorkflowActionsOrderPostResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdWorkflowActionsOrderPostResponse404
      */
     private $apiBuilderPagePageIdWorkflowActionsOrderPostResponse404;
     /**
@@ -21,14 +21,14 @@ class OrderBuilderWorkflowActionsNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdWorkflowActionsOrderPostResponse404 $apiBuilderPagePageIdWorkflowActionsOrderPostResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdWorkflowActionsOrderPostResponse404 $apiBuilderPagePageIdWorkflowActionsOrderPostResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiBuilderPagePageIdWorkflowActionsOrderPostResponse404 = $apiBuilderPagePageIdWorkflowActionsOrderPostResponse404;
         $this->response = $response;
     }
 
-    public function getApiBuilderPagePageIdWorkflowActionsOrderPostResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdWorkflowActionsOrderPostResponse404
+    public function getApiBuilderPagePageIdWorkflowActionsOrderPostResponse404(): \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdWorkflowActionsOrderPostResponse404
     {
         return $this->apiBuilderPagePageIdWorkflowActionsOrderPostResponse404;
     }

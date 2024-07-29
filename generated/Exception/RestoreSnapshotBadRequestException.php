@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class RestoreSnapshotBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsSnapshotIdRestorePostResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiSnapshotsSnapshotIdRestorePostResponse400
      */
     private $apiSnapshotsSnapshotIdRestorePostResponse400;
     /**
@@ -21,14 +21,14 @@ class RestoreSnapshotBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsSnapshotIdRestorePostResponse400 $apiSnapshotsSnapshotIdRestorePostResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiSnapshotsSnapshotIdRestorePostResponse400 $apiSnapshotsSnapshotIdRestorePostResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiSnapshotsSnapshotIdRestorePostResponse400 = $apiSnapshotsSnapshotIdRestorePostResponse400;
         $this->response = $response;
     }
 
-    public function getApiSnapshotsSnapshotIdRestorePostResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsSnapshotIdRestorePostResponse400
+    public function getApiSnapshotsSnapshotIdRestorePostResponse400(): \CedricZiel\Baserow\Generated\Model\ApiSnapshotsSnapshotIdRestorePostResponse400
     {
         return $this->apiSnapshotsSnapshotIdRestorePostResponse400;
     }

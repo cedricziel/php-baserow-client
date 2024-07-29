@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class GetDatabaseFieldUniqueRowValuesNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse404
      */
     private $apiDatabaseFieldsFieldIdUniqueRowValuesGetResponse404;
     /**
@@ -21,14 +21,14 @@ class GetDatabaseFieldUniqueRowValuesNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse404 $apiDatabaseFieldsFieldIdUniqueRowValuesGetResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse404 $apiDatabaseFieldsFieldIdUniqueRowValuesGetResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiDatabaseFieldsFieldIdUniqueRowValuesGetResponse404 = $apiDatabaseFieldsFieldIdUniqueRowValuesGetResponse404;
         $this->response = $response;
     }
 
-    public function getApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse404
+    public function getApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse404(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse404
     {
         return $this->apiDatabaseFieldsFieldIdUniqueRowValuesGetResponse404;
     }

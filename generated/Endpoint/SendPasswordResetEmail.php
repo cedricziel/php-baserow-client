@@ -8,16 +8,16 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class SendPasswordResetEmail extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class SendPasswordResetEmail extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
 
     /**
      * Sends an email containing the password reset link to the email address of the user. This will only be done if a user is found with the given email address. The endpoint will not fail if the email address is not found. The link is going to the valid for 48 hours.
      */
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\SendResetPasswordEmailBodyValidation $requestBody)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\SendResetPasswordEmailBodyValidation $requestBody)
     {
         $this->body = $requestBody;
     }
@@ -34,13 +34,13 @@ class SendPasswordResetEmail extends \cedricziel\phpbaserowclient\Generated\Runt
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\SendResetPasswordEmailBodyValidation) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\SendResetPasswordEmailBodyValidation) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\SendResetPasswordEmailBodyValidation) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\SendResetPasswordEmailBodyValidation) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\SendResetPasswordEmailBodyValidation) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\SendResetPasswordEmailBodyValidation) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -62,7 +62,7 @@ class SendPasswordResetEmail extends \cedricziel\phpbaserowclient\Generated\Runt
     /**
      * @return null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\SendPasswordResetEmailBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\SendPasswordResetEmailBadRequestException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
@@ -72,7 +72,7 @@ class SendPasswordResetEmail extends \cedricziel\phpbaserowclient\Generated\Runt
             return null;
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\SendPasswordResetEmailBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiUserSendResetPasswordEmailPostResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\SendPasswordResetEmailBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiUserSendResetPasswordEmailPostResponse400', 'json'), $response);
         }
     }
 

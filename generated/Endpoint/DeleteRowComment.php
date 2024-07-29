@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class DeleteRowComment extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class DeleteRowComment extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $comment_id;
     protected $table_id;
 
@@ -51,27 +51,27 @@ class DeleteRowComment extends \cedricziel\phpbaserowclient\Generated\Runtime\Cl
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\RowComment|null
+     * @return \CedricZiel\Baserow\Generated\Model\RowComment|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\DeleteRowCommentBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\DeleteRowCommentUnauthorizedException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\DeleteRowCommentNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\DeleteRowCommentBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\DeleteRowCommentUnauthorizedException
+     * @throws \CedricZiel\Baserow\Generated\Exception\DeleteRowCommentNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\RowComment', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\RowComment', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\DeleteRowCommentBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\DeleteRowCommentBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (401 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\DeleteRowCommentUnauthorizedException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse401', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\DeleteRowCommentUnauthorizedException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse401', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\DeleteRowCommentNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\DeleteRowCommentNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse404', 'json'), $response);
         }
     }
 

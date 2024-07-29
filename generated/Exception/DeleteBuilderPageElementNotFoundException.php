@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class DeleteBuilderPageElementNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdDeleteResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdDeleteResponse404
      */
     private $apiBuilderElementElementIdDeleteResponse404;
     /**
@@ -21,14 +21,14 @@ class DeleteBuilderPageElementNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdDeleteResponse404 $apiBuilderElementElementIdDeleteResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdDeleteResponse404 $apiBuilderElementElementIdDeleteResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiBuilderElementElementIdDeleteResponse404 = $apiBuilderElementElementIdDeleteResponse404;
         $this->response = $response;
     }
 
-    public function getApiBuilderElementElementIdDeleteResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdDeleteResponse404
+    public function getApiBuilderElementElementIdDeleteResponse404(): \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdDeleteResponse404
     {
         return $this->apiBuilderElementElementIdDeleteResponse404;
     }

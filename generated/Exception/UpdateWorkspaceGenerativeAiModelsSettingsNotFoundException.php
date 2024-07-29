@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class UpdateWorkspaceGenerativeAiModelsSettingsNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse404
      */
     private $apiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse404;
     /**
@@ -21,14 +21,14 @@ class UpdateWorkspaceGenerativeAiModelsSettingsNotFoundException extends NotFoun
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse404 $apiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse404 $apiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse404 = $apiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse404;
         $this->response = $response;
     }
 
-    public function getApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse404
+    public function getApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse404(): \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse404
     {
         return $this->apiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse404;
     }

@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class EmailTesterBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiHealthEmailPostResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiHealthEmailPostResponse400
      */
     private $apiHealthEmailPostResponse400;
     /**
@@ -21,14 +21,14 @@ class EmailTesterBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiHealthEmailPostResponse400 $apiHealthEmailPostResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiHealthEmailPostResponse400 $apiHealthEmailPostResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiHealthEmailPostResponse400 = $apiHealthEmailPostResponse400;
         $this->response = $response;
     }
 
-    public function getApiHealthEmailPostResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiHealthEmailPostResponse400
+    public function getApiHealthEmailPostResponse400(): \CedricZiel\Baserow\Generated\Model\ApiHealthEmailPostResponse400
     {
         return $this->apiHealthEmailPostResponse400;
     }

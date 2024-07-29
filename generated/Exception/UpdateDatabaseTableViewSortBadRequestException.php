@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class UpdateDatabaseTableViewSortBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSortViewSortIdPatchResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdPatchResponse400
      */
     private $apiDatabaseViewsSortViewSortIdPatchResponse400;
     /**
@@ -21,14 +21,14 @@ class UpdateDatabaseTableViewSortBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSortViewSortIdPatchResponse400 $apiDatabaseViewsSortViewSortIdPatchResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdPatchResponse400 $apiDatabaseViewsSortViewSortIdPatchResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiDatabaseViewsSortViewSortIdPatchResponse400 = $apiDatabaseViewsSortViewSortIdPatchResponse400;
         $this->response = $response;
     }
 
-    public function getApiDatabaseViewsSortViewSortIdPatchResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSortViewSortIdPatchResponse400
+    public function getApiDatabaseViewsSortViewSortIdPatchResponse400(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdPatchResponse400
     {
         return $this->apiDatabaseViewsSortViewSortIdPatchResponse400;
     }

@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class MarkNotificationAsRead extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class MarkNotificationAsRead extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $notification_id;
     protected $workspace_id;
 
@@ -49,23 +49,23 @@ class MarkNotificationAsRead extends \cedricziel\phpbaserowclient\Generated\Runt
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\NotificationRecipient|null
+     * @return \CedricZiel\Baserow\Generated\Model\NotificationRecipient|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\MarkNotificationAsReadBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\MarkNotificationAsReadNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\MarkNotificationAsReadBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\MarkNotificationAsReadNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\NotificationRecipient', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\NotificationRecipient', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\MarkNotificationAsReadBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdNotificationIdPatchResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\MarkNotificationAsReadBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdNotificationIdPatchResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\MarkNotificationAsReadNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdNotificationIdPatchResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\MarkNotificationAsReadNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdNotificationIdPatchResponse404', 'json'), $response);
         }
     }
 

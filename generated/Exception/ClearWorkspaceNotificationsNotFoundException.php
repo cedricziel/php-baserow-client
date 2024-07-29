@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class ClearWorkspaceNotificationsNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse404
      */
     private $apiNotificationsWorkspaceIdDeleteResponse404;
     /**
@@ -21,14 +21,14 @@ class ClearWorkspaceNotificationsNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse404 $apiNotificationsWorkspaceIdDeleteResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse404 $apiNotificationsWorkspaceIdDeleteResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiNotificationsWorkspaceIdDeleteResponse404 = $apiNotificationsWorkspaceIdDeleteResponse404;
         $this->response = $response;
     }
 
-    public function getApiNotificationsWorkspaceIdDeleteResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse404
+    public function getApiNotificationsWorkspaceIdDeleteResponse404(): \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse404
     {
         return $this->apiNotificationsWorkspaceIdDeleteResponse404;
     }

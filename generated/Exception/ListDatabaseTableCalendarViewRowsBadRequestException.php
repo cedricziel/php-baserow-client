@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class ListDatabaseTableCalendarViewRowsBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsCalendarViewIdGetResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarViewIdGetResponse400
      */
     private $apiDatabaseViewsCalendarViewIdGetResponse400;
     /**
@@ -21,14 +21,14 @@ class ListDatabaseTableCalendarViewRowsBadRequestException extends BadRequestExc
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsCalendarViewIdGetResponse400 $apiDatabaseViewsCalendarViewIdGetResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarViewIdGetResponse400 $apiDatabaseViewsCalendarViewIdGetResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiDatabaseViewsCalendarViewIdGetResponse400 = $apiDatabaseViewsCalendarViewIdGetResponse400;
         $this->response = $response;
     }
 
-    public function getApiDatabaseViewsCalendarViewIdGetResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsCalendarViewIdGetResponse400
+    public function getApiDatabaseViewsCalendarViewIdGetResponse400(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarViewIdGetResponse400
     {
         return $this->apiDatabaseViewsCalendarViewIdGetResponse400;
     }

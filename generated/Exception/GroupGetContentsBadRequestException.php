@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class GroupGetContentsBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiTrashGroupGroupIdGetResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiTrashGroupGroupIdGetResponse400
      */
     private $apiTrashGroupGroupIdGetResponse400;
     /**
@@ -21,14 +21,14 @@ class GroupGetContentsBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiTrashGroupGroupIdGetResponse400 $apiTrashGroupGroupIdGetResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiTrashGroupGroupIdGetResponse400 $apiTrashGroupGroupIdGetResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiTrashGroupGroupIdGetResponse400 = $apiTrashGroupGroupIdGetResponse400;
         $this->response = $response;
     }
 
-    public function getApiTrashGroupGroupIdGetResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiTrashGroupGroupIdGetResponse400
+    public function getApiTrashGroupGroupIdGetResponse400(): \CedricZiel\Baserow\Generated\Model\ApiTrashGroupGroupIdGetResponse400
     {
         return $this->apiTrashGroupGroupIdGetResponse400;
     }

@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class UpdateBuilderPageDataSourceBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDataSourceDataSourceIdPatchResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdPatchResponse400
      */
     private $apiBuilderDataSourceDataSourceIdPatchResponse400;
     /**
@@ -21,14 +21,14 @@ class UpdateBuilderPageDataSourceBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDataSourceDataSourceIdPatchResponse400 $apiBuilderDataSourceDataSourceIdPatchResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdPatchResponse400 $apiBuilderDataSourceDataSourceIdPatchResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiBuilderDataSourceDataSourceIdPatchResponse400 = $apiBuilderDataSourceDataSourceIdPatchResponse400;
         $this->response = $response;
     }
 
-    public function getApiBuilderDataSourceDataSourceIdPatchResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDataSourceDataSourceIdPatchResponse400
+    public function getApiBuilderDataSourceDataSourceIdPatchResponse400(): \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdPatchResponse400
     {
         return $this->apiBuilderDataSourceDataSourceIdPatchResponse400;
     }

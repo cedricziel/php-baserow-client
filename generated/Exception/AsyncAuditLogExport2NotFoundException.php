@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class AsyncAuditLogExport2NotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiAuditLogExportPostResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiAuditLogExportPostResponse404
      */
     private $apiAuditLogExportPostResponse404;
     /**
@@ -21,14 +21,14 @@ class AsyncAuditLogExport2NotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiAuditLogExportPostResponse404 $apiAuditLogExportPostResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiAuditLogExportPostResponse404 $apiAuditLogExportPostResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiAuditLogExportPostResponse404 = $apiAuditLogExportPostResponse404;
         $this->response = $response;
     }
 
-    public function getApiAuditLogExportPostResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiAuditLogExportPostResponse404
+    public function getApiAuditLogExportPostResponse404(): \CedricZiel\Baserow\Generated\Model\ApiAuditLogExportPostResponse404
     {
         return $this->apiAuditLogExportPostResponse404;
     }

@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class UpdateRowCommentNotificationMode extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class UpdateRowCommentNotificationMode extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $row_id;
     protected $table_id;
 
@@ -24,7 +24,7 @@ class UpdateRowCommentNotificationMode extends \cedricziel\phpbaserowclient\Gene
      * @param int $rowId   the row on which to manage the comment subscription
      * @param int $tableId the table id where the row is in
      */
-    public function __construct(int $rowId, int $tableId, \cedricziel\phpbaserowclient\Generated\Model\RowCommentsNotificationMode $requestBody)
+    public function __construct(int $rowId, int $tableId, \CedricZiel\Baserow\Generated\Model\RowCommentsNotificationMode $requestBody)
     {
         $this->row_id = $rowId;
         $this->table_id = $tableId;
@@ -43,13 +43,13 @@ class UpdateRowCommentNotificationMode extends \cedricziel\phpbaserowclient\Gene
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\RowCommentsNotificationMode) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\RowCommentsNotificationMode) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\RowCommentsNotificationMode) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\RowCommentsNotificationMode) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\RowCommentsNotificationMode) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\RowCommentsNotificationMode) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -71,8 +71,8 @@ class UpdateRowCommentNotificationMode extends \cedricziel\phpbaserowclient\Gene
     /**
      * @return null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\UpdateRowCommentNotificationModeBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\UpdateRowCommentNotificationModeNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\UpdateRowCommentNotificationModeBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\UpdateRowCommentNotificationModeNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
@@ -82,10 +82,10 @@ class UpdateRowCommentNotificationMode extends \cedricziel\phpbaserowclient\Gene
             return null;
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\UpdateRowCommentNotificationModeBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdRowIdNotificationModePutResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\UpdateRowCommentNotificationModeBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdNotificationModePutResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\UpdateRowCommentNotificationModeNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdRowIdNotificationModePutResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\UpdateRowCommentNotificationModeNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdNotificationModePutResponse404', 'json'), $response);
         }
     }
 

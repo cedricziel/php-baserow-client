@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class DeleteDatabaseTableWebhookBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksWebhookIdDeleteResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdDeleteResponse400
      */
     private $apiDatabaseWebhooksWebhookIdDeleteResponse400;
     /**
@@ -21,14 +21,14 @@ class DeleteDatabaseTableWebhookBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksWebhookIdDeleteResponse400 $apiDatabaseWebhooksWebhookIdDeleteResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdDeleteResponse400 $apiDatabaseWebhooksWebhookIdDeleteResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiDatabaseWebhooksWebhookIdDeleteResponse400 = $apiDatabaseWebhooksWebhookIdDeleteResponse400;
         $this->response = $response;
     }
 
-    public function getApiDatabaseWebhooksWebhookIdDeleteResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksWebhookIdDeleteResponse400
+    public function getApiDatabaseWebhooksWebhookIdDeleteResponse400(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdDeleteResponse400
     {
         return $this->apiDatabaseWebhooksWebhookIdDeleteResponse400;
     }

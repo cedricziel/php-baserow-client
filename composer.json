@@ -5,8 +5,8 @@
     "license": "Apache-2.0",
     "autoload": {
         "psr-4": {
-            "cedricziel\\phpbaserowclient\\": "src/",
-            "cedricziel\\phpbaserowclient\\Generated\\": "generated/"
+            "CedricZiel\\Baserow\\": "src/",
+            "CedricZiel\\Baserow\\Generated\\": "generated/"
         }
     },
     "authors": [

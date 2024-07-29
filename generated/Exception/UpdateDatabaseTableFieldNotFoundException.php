@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class UpdateDatabaseTableFieldNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdPatchResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdPatchResponse404
      */
     private $apiDatabaseFieldsFieldIdPatchResponse404;
     /**
@@ -21,14 +21,14 @@ class UpdateDatabaseTableFieldNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdPatchResponse404 $apiDatabaseFieldsFieldIdPatchResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdPatchResponse404 $apiDatabaseFieldsFieldIdPatchResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiDatabaseFieldsFieldIdPatchResponse404 = $apiDatabaseFieldsFieldIdPatchResponse404;
         $this->response = $response;
     }
 
-    public function getApiDatabaseFieldsFieldIdPatchResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdPatchResponse404
+    public function getApiDatabaseFieldsFieldIdPatchResponse404(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdPatchResponse404
     {
         return $this->apiDatabaseFieldsFieldIdPatchResponse404;
     }

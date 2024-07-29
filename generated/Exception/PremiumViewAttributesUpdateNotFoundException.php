@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class PremiumViewAttributesUpdateNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewViewIdPremiumPatchResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewViewIdPremiumPatchResponse404
      */
     private $apiDatabaseViewViewIdPremiumPatchResponse404;
     /**
@@ -21,14 +21,14 @@ class PremiumViewAttributesUpdateNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewViewIdPremiumPatchResponse404 $apiDatabaseViewViewIdPremiumPatchResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseViewViewIdPremiumPatchResponse404 $apiDatabaseViewViewIdPremiumPatchResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiDatabaseViewViewIdPremiumPatchResponse404 = $apiDatabaseViewViewIdPremiumPatchResponse404;
         $this->response = $response;
     }
 
-    public function getApiDatabaseViewViewIdPremiumPatchResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewViewIdPremiumPatchResponse404
+    public function getApiDatabaseViewViewIdPremiumPatchResponse404(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewViewIdPremiumPatchResponse404
     {
         return $this->apiDatabaseViewViewIdPremiumPatchResponse404;
     }

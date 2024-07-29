@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class CreateSubjectBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdSubjectsPostResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsPostResponse400
      */
     private $apiTeamsTeamIdSubjectsPostResponse400;
     /**
@@ -21,14 +21,14 @@ class CreateSubjectBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdSubjectsPostResponse400 $apiTeamsTeamIdSubjectsPostResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsPostResponse400 $apiTeamsTeamIdSubjectsPostResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiTeamsTeamIdSubjectsPostResponse400 = $apiTeamsTeamIdSubjectsPostResponse400;
         $this->response = $response;
     }
 
-    public function getApiTeamsTeamIdSubjectsPostResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdSubjectsPostResponse400
+    public function getApiTeamsTeamIdSubjectsPostResponse400(): \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsPostResponse400
     {
         return $this->apiTeamsTeamIdSubjectsPostResponse400;
     }

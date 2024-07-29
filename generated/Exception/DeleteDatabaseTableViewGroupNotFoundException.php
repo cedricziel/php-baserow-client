@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class DeleteDatabaseTableViewGroupNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse404
      */
     private $apiDatabaseViewsGroupByViewGroupByIdDeleteResponse404;
     /**
@@ -21,14 +21,14 @@ class DeleteDatabaseTableViewGroupNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse404 $apiDatabaseViewsGroupByViewGroupByIdDeleteResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse404 $apiDatabaseViewsGroupByViewGroupByIdDeleteResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiDatabaseViewsGroupByViewGroupByIdDeleteResponse404 = $apiDatabaseViewsGroupByViewGroupByIdDeleteResponse404;
         $this->response = $response;
     }
 
-    public function getApiDatabaseViewsGroupByViewGroupByIdDeleteResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse404
+    public function getApiDatabaseViewsGroupByViewGroupByIdDeleteResponse404(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse404
     {
         return $this->apiDatabaseViewsGroupByViewGroupByIdDeleteResponse404;
     }

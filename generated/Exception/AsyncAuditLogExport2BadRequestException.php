@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class AsyncAuditLogExport2BadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiAuditLogExportPostResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiAuditLogExportPostResponse400
      */
     private $apiAuditLogExportPostResponse400;
     /**
@@ -21,14 +21,14 @@ class AsyncAuditLogExport2BadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiAuditLogExportPostResponse400 $apiAuditLogExportPostResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiAuditLogExportPostResponse400 $apiAuditLogExportPostResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiAuditLogExportPostResponse400 = $apiAuditLogExportPostResponse400;
         $this->response = $response;
     }
 
-    public function getApiAuditLogExportPostResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiAuditLogExportPostResponse400
+    public function getApiAuditLogExportPostResponse400(): \CedricZiel\Baserow\Generated\Model\ApiAuditLogExportPostResponse400
     {
         return $this->apiAuditLogExportPostResponse400;
     }

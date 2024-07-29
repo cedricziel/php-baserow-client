@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class GetMetaDatabaseTableFormViewUnauthorizedException extends UnauthorizedException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugSubmitGetResponse401
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugSubmitGetResponse401
      */
     private $apiDatabaseViewsFormSlugSubmitGetResponse401;
     /**
@@ -21,14 +21,14 @@ class GetMetaDatabaseTableFormViewUnauthorizedException extends UnauthorizedExce
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugSubmitGetResponse401 $apiDatabaseViewsFormSlugSubmitGetResponse401, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugSubmitGetResponse401 $apiDatabaseViewsFormSlugSubmitGetResponse401, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Unauthorized');
         $this->apiDatabaseViewsFormSlugSubmitGetResponse401 = $apiDatabaseViewsFormSlugSubmitGetResponse401;
         $this->response = $response;
     }
 
-    public function getApiDatabaseViewsFormSlugSubmitGetResponse401(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugSubmitGetResponse401
+    public function getApiDatabaseViewsFormSlugSubmitGetResponse401(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugSubmitGetResponse401
     {
         return $this->apiDatabaseViewsFormSlugSubmitGetResponse401;
     }

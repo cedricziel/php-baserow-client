@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class DatabaseTablePublicViewLinkRowFieldLookupUnauthorizedException extends UnauthorizedException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse401
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse401
      */
     private $apiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse401;
     /**
@@ -21,14 +21,14 @@ class DatabaseTablePublicViewLinkRowFieldLookupUnauthorizedException extends Una
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse401 $apiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse401, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse401 $apiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse401, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Unauthorized');
         $this->apiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse401 = $apiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse401;
         $this->response = $response;
     }
 
-    public function getApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse401(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse401
+    public function getApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse401(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse401
     {
         return $this->apiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse401;
     }

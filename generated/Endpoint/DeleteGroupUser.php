@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class DeleteGroupUser extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class DeleteGroupUser extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $group_user_id;
 
     /**
@@ -50,8 +50,8 @@ class DeleteGroupUser extends \cedricziel\phpbaserowclient\Generated\Runtime\Cli
     /**
      * @return null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\DeleteGroupUserBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\DeleteGroupUserNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\DeleteGroupUserBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\DeleteGroupUserNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
@@ -61,10 +61,10 @@ class DeleteGroupUser extends \cedricziel\phpbaserowclient\Generated\Runtime\Cli
             return null;
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\DeleteGroupUserBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\DeleteGroupUserBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\DeleteGroupUserNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\DeleteGroupUserNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse404', 'json'), $response);
         }
     }
 

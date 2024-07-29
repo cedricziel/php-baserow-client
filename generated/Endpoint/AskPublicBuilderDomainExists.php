@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class AskPublicBuilderDomainExists extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class AskPublicBuilderDomainExists extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
 
     /**
      * This endpoint can be used to check whether a domain exists for SSL certificate purposes. It's compatible with the Caddy on_demand TLS as described here: https://caddyserver.com/docs/json/apps/tls/automation/on_demand/ask/. It will respond with a 200 status code if it exists or a 404 if it doesn't exist.
@@ -56,7 +56,7 @@ class AskPublicBuilderDomainExists extends \cedricziel\phpbaserowclient\Generate
     /**
      * @return null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\AskPublicBuilderDomainExistsNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\AskPublicBuilderDomainExistsNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
@@ -66,7 +66,7 @@ class AskPublicBuilderDomainExists extends \cedricziel\phpbaserowclient\Generate
             return null;
         }
         if (404 === $status) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\AskPublicBuilderDomainExistsNotFoundException($response);
+            throw new \CedricZiel\Baserow\Generated\Exception\AskPublicBuilderDomainExistsNotFoundException($response);
         }
     }
 

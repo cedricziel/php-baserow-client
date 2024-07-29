@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class UpdateDatabaseTableRowUnauthorizedException extends UnauthorizedException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdPatchResponse401
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdPatchResponse401
      */
     private $apiDatabaseRowsTableTableIdRowIdPatchResponse401;
     /**
@@ -21,14 +21,14 @@ class UpdateDatabaseTableRowUnauthorizedException extends UnauthorizedException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdPatchResponse401 $apiDatabaseRowsTableTableIdRowIdPatchResponse401, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdPatchResponse401 $apiDatabaseRowsTableTableIdRowIdPatchResponse401, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Unauthorized');
         $this->apiDatabaseRowsTableTableIdRowIdPatchResponse401 = $apiDatabaseRowsTableTableIdRowIdPatchResponse401;
         $this->response = $response;
     }
 
-    public function getApiDatabaseRowsTableTableIdRowIdPatchResponse401(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdPatchResponse401
+    public function getApiDatabaseRowsTableTableIdRowIdPatchResponse401(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdPatchResponse401
     {
         return $this->apiDatabaseRowsTableTableIdRowIdPatchResponse401;
     }

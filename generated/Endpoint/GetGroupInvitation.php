@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class GetGroupInvitation extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class GetGroupInvitation extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $group_invitation_id;
 
     /**
@@ -50,23 +50,23 @@ class GetGroupInvitation extends \cedricziel\phpbaserowclient\Generated\Runtime\
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\WorkspaceInvitation|null
+     * @return \CedricZiel\Baserow\Generated\Model\WorkspaceInvitation|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\GetGroupInvitationBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\GetGroupInvitationNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\GetGroupInvitationBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\GetGroupInvitationNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\WorkspaceInvitation', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\WorkspaceInvitation', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\GetGroupInvitationBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdGetResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\GetGroupInvitationBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdGetResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\GetGroupInvitationNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdGetResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\GetGroupInvitationNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdGetResponse404', 'json'), $response);
         }
     }
 

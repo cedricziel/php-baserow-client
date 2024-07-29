@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class CreateRowComment extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class CreateRowComment extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $row_id;
     protected $table_id;
 
@@ -24,7 +24,7 @@ class CreateRowComment extends \cedricziel\phpbaserowclient\Generated\Runtime\Cl
      * @param int $rowId   the row to create a comment for
      * @param int $tableId the table to find the row to comment on in
      */
-    public function __construct(int $rowId, int $tableId, \cedricziel\phpbaserowclient\Generated\Model\RowCommentCreate $requestBody)
+    public function __construct(int $rowId, int $tableId, \CedricZiel\Baserow\Generated\Model\RowCommentCreate $requestBody)
     {
         $this->row_id = $rowId;
         $this->table_id = $tableId;
@@ -43,13 +43,13 @@ class CreateRowComment extends \cedricziel\phpbaserowclient\Generated\Runtime\Cl
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\RowCommentCreate) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\RowCommentCreate) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\RowCommentCreate) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\RowCommentCreate) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\RowCommentCreate) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\RowCommentCreate) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -69,23 +69,23 @@ class CreateRowComment extends \cedricziel\phpbaserowclient\Generated\Runtime\Cl
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\RowComment|null
+     * @return \CedricZiel\Baserow\Generated\Model\RowComment|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\CreateRowCommentBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\CreateRowCommentNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\CreateRowCommentBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\CreateRowCommentNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\RowComment', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\RowComment', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\CreateRowCommentBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdRowIdPostResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\CreateRowCommentBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdPostResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\CreateRowCommentNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdRowIdPostResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\CreateRowCommentNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdPostResponse404', 'json'), $response);
         }
     }
 

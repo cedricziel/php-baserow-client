@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class BatchUpdateDatabaseTableRowsUnauthorizedException extends UnauthorizedException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse401
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse401
      */
     private $apiDatabaseRowsTableTableIdBatchPatchResponse401;
     /**
@@ -21,14 +21,14 @@ class BatchUpdateDatabaseTableRowsUnauthorizedException extends UnauthorizedExce
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse401 $apiDatabaseRowsTableTableIdBatchPatchResponse401, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse401 $apiDatabaseRowsTableTableIdBatchPatchResponse401, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Unauthorized');
         $this->apiDatabaseRowsTableTableIdBatchPatchResponse401 = $apiDatabaseRowsTableTableIdBatchPatchResponse401;
         $this->response = $response;
     }
 
-    public function getApiDatabaseRowsTableTableIdBatchPatchResponse401(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse401
+    public function getApiDatabaseRowsTableTableIdBatchPatchResponse401(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse401
     {
         return $this->apiDatabaseRowsTableTableIdBatchPatchResponse401;
     }

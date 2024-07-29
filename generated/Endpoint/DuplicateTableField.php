@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class DuplicateTableField extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class DuplicateTableField extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $field_id;
 
     /**
@@ -64,23 +64,23 @@ class DuplicateTableField extends \cedricziel\phpbaserowclient\Generated\Runtime
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicateFieldJobType|null
+     * @return \CedricZiel\Baserow\Generated\Model\SingleDuplicateFieldJobType|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\DuplicateTableFieldBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\DuplicateTableFieldNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\DuplicateTableFieldBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\DuplicateTableFieldNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (202 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\SingleDuplicateFieldJobType', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\SingleDuplicateFieldJobType', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\DuplicateTableFieldBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\DuplicateTableFieldBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\DuplicateTableFieldNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\DuplicateTableFieldNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse404', 'json'), $response);
         }
     }
 

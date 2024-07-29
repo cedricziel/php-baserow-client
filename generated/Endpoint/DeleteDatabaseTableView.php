@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class DeleteDatabaseTableView extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class DeleteDatabaseTableView extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $view_id;
 
     /**
@@ -66,8 +66,8 @@ class DeleteDatabaseTableView extends \cedricziel\phpbaserowclient\Generated\Run
     /**
      * @return null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\DeleteDatabaseTableViewBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\DeleteDatabaseTableViewNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\DeleteDatabaseTableViewBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\DeleteDatabaseTableViewNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
@@ -77,10 +77,10 @@ class DeleteDatabaseTableView extends \cedricziel\phpbaserowclient\Generated\Run
             return null;
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\DeleteDatabaseTableViewBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdDeleteResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\DeleteDatabaseTableViewBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDeleteResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\DeleteDatabaseTableViewNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdDeleteResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\DeleteDatabaseTableViewNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDeleteResponse404', 'json'), $response);
         }
     }
 

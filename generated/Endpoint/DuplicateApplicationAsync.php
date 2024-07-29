@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class DuplicateApplicationAsync extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class DuplicateApplicationAsync extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $application_id;
 
     /**
@@ -64,23 +64,23 @@ class DuplicateApplicationAsync extends \cedricziel\phpbaserowclient\Generated\R
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicateApplicationJobType|null
+     * @return \CedricZiel\Baserow\Generated\Model\SingleDuplicateApplicationJobType|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\DuplicateApplicationAsyncBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\DuplicateApplicationAsyncNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\DuplicateApplicationAsyncBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\DuplicateApplicationAsyncNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (202 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\SingleDuplicateApplicationJobType', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\SingleDuplicateApplicationJobType', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\DuplicateApplicationAsyncBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdDuplicateAsyncPostResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\DuplicateApplicationAsyncBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdDuplicateAsyncPostResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\DuplicateApplicationAsyncNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdDuplicateAsyncPostResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\DuplicateApplicationAsyncNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdDuplicateAsyncPostResponse404', 'json'), $response);
         }
     }
 

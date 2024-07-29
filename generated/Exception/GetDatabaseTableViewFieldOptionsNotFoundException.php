@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class GetDatabaseTableViewFieldOptionsNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsGetResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsGetResponse404
      */
     private $apiDatabaseViewsViewIdFieldOptionsGetResponse404;
     /**
@@ -21,14 +21,14 @@ class GetDatabaseTableViewFieldOptionsNotFoundException extends NotFoundExceptio
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsGetResponse404 $apiDatabaseViewsViewIdFieldOptionsGetResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsGetResponse404 $apiDatabaseViewsViewIdFieldOptionsGetResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiDatabaseViewsViewIdFieldOptionsGetResponse404 = $apiDatabaseViewsViewIdFieldOptionsGetResponse404;
         $this->response = $response;
     }
 
-    public function getApiDatabaseViewsViewIdFieldOptionsGetResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsGetResponse404
+    public function getApiDatabaseViewsViewIdFieldOptionsGetResponse404(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsGetResponse404
     {
         return $this->apiDatabaseViewsViewIdFieldOptionsGetResponse404;
     }

@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class ImportDataDatabaseTableAsync extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class ImportDataDatabaseTableAsync extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $table_id;
 
     /**
@@ -20,7 +20,7 @@ class ImportDataDatabaseTableAsync extends \cedricziel\phpbaserowclient\Generate
      *
      * @param int $tableId import data into the table related to the provided value
      */
-    public function __construct(int $tableId, \cedricziel\phpbaserowclient\Generated\Model\TableImport $requestBody)
+    public function __construct(int $tableId, \CedricZiel\Baserow\Generated\Model\TableImport $requestBody)
     {
         $this->table_id = $tableId;
         $this->body = $requestBody;
@@ -38,13 +38,13 @@ class ImportDataDatabaseTableAsync extends \cedricziel\phpbaserowclient\Generate
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\TableImport) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\TableImport) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\TableImport) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\TableImport) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\TableImport) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\TableImport) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -64,23 +64,23 @@ class ImportDataDatabaseTableAsync extends \cedricziel\phpbaserowclient\Generate
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\SingleFileImportJobSerializerClass|null
+     * @return \CedricZiel\Baserow\Generated\Model\SingleFileImportJobSerializerClass|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\ImportDataDatabaseTableAsyncBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\ImportDataDatabaseTableAsyncNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\ImportDataDatabaseTableAsyncBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\ImportDataDatabaseTableAsyncNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (202 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\SingleFileImportJobSerializerClass', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\SingleFileImportJobSerializerClass', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\ImportDataDatabaseTableAsyncBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdImportAsyncPostResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\ImportDataDatabaseTableAsyncBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdImportAsyncPostResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\ImportDataDatabaseTableAsyncNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdImportAsyncPostResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\ImportDataDatabaseTableAsyncNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdImportAsyncPostResponse404', 'json'), $response);
         }
     }
 

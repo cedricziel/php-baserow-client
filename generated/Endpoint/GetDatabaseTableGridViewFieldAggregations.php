@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class GetDatabaseTableGridViewFieldAggregations extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class GetDatabaseTableGridViewFieldAggregations extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $view_id;
 
     /**
@@ -85,23 +85,23 @@ class GetDatabaseTableGridViewFieldAggregations extends \cedricziel\phpbaserowcl
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse200|null
+     * @return \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse200|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\GetDatabaseTableGridViewFieldAggregationsBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\GetDatabaseTableGridViewFieldAggregationsNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\GetDatabaseTableGridViewFieldAggregationsBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\GetDatabaseTableGridViewFieldAggregationsNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse200', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse200', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\GetDatabaseTableGridViewFieldAggregationsBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\GetDatabaseTableGridViewFieldAggregationsBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\GetDatabaseTableGridViewFieldAggregationsNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\GetDatabaseTableGridViewFieldAggregationsNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse404', 'json'), $response);
         }
     }
 

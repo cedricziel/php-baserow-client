@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class GetDatabaseTableGridViewFieldAggregationsBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse400
      */
     private $apiDatabaseViewsGridViewIdAggregationsGetResponse400;
     /**
@@ -21,14 +21,14 @@ class GetDatabaseTableGridViewFieldAggregationsBadRequestException extends BadRe
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse400 $apiDatabaseViewsGridViewIdAggregationsGetResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse400 $apiDatabaseViewsGridViewIdAggregationsGetResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiDatabaseViewsGridViewIdAggregationsGetResponse400 = $apiDatabaseViewsGridViewIdAggregationsGetResponse400;
         $this->response = $response;
     }
 
-    public function getApiDatabaseViewsGridViewIdAggregationsGetResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse400
+    public function getApiDatabaseViewsGridViewIdAggregationsGetResponse400(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse400
     {
         return $this->apiDatabaseViewsGridViewIdAggregationsGetResponse400;
     }

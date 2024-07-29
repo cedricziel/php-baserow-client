@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class MarkNotificationAsReadNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdNotificationIdPatchResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdNotificationIdPatchResponse404
      */
     private $apiNotificationsWorkspaceIdNotificationIdPatchResponse404;
     /**
@@ -21,14 +21,14 @@ class MarkNotificationAsReadNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdNotificationIdPatchResponse404 $apiNotificationsWorkspaceIdNotificationIdPatchResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdNotificationIdPatchResponse404 $apiNotificationsWorkspaceIdNotificationIdPatchResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiNotificationsWorkspaceIdNotificationIdPatchResponse404 = $apiNotificationsWorkspaceIdNotificationIdPatchResponse404;
         $this->response = $response;
     }
 
-    public function getApiNotificationsWorkspaceIdNotificationIdPatchResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdNotificationIdPatchResponse404
+    public function getApiNotificationsWorkspaceIdNotificationIdPatchResponse404(): \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdNotificationIdPatchResponse404
     {
         return $this->apiNotificationsWorkspaceIdNotificationIdPatchResponse404;
     }

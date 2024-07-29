@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class DispatchBuilderPageDataSourcesNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdDispatchDataSourcesPostResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdDispatchDataSourcesPostResponse404
      */
     private $apiBuilderPagePageIdDispatchDataSourcesPostResponse404;
     /**
@@ -21,14 +21,14 @@ class DispatchBuilderPageDataSourcesNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdDispatchDataSourcesPostResponse404 $apiBuilderPagePageIdDispatchDataSourcesPostResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdDispatchDataSourcesPostResponse404 $apiBuilderPagePageIdDispatchDataSourcesPostResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiBuilderPagePageIdDispatchDataSourcesPostResponse404 = $apiBuilderPagePageIdDispatchDataSourcesPostResponse404;
         $this->response = $response;
     }
 
-    public function getApiBuilderPagePageIdDispatchDataSourcesPostResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdDispatchDataSourcesPostResponse404
+    public function getApiBuilderPagePageIdDispatchDataSourcesPostResponse404(): \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdDispatchDataSourcesPostResponse404
     {
         return $this->apiBuilderPagePageIdDispatchDataSourcesPostResponse404;
     }

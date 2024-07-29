@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class UploadFileBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiUserFilesUploadFilePostResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiUserFilesUploadFilePostResponse400
      */
     private $apiUserFilesUploadFilePostResponse400;
     /**
@@ -21,14 +21,14 @@ class UploadFileBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiUserFilesUploadFilePostResponse400 $apiUserFilesUploadFilePostResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiUserFilesUploadFilePostResponse400 $apiUserFilesUploadFilePostResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiUserFilesUploadFilePostResponse400 = $apiUserFilesUploadFilePostResponse400;
         $this->response = $response;
     }
 
-    public function getApiUserFilesUploadFilePostResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiUserFilesUploadFilePostResponse400
+    public function getApiUserFilesUploadFilePostResponse400(): \CedricZiel\Baserow\Generated\Model\ApiUserFilesUploadFilePostResponse400
     {
         return $this->apiUserFilesUploadFilePostResponse400;
     }

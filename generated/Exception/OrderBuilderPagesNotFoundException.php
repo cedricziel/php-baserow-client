@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class OrderBuilderPagesNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdPagesOrderPostResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdPagesOrderPostResponse404
      */
     private $apiBuilderBuilderIdPagesOrderPostResponse404;
     /**
@@ -21,14 +21,14 @@ class OrderBuilderPagesNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdPagesOrderPostResponse404 $apiBuilderBuilderIdPagesOrderPostResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdPagesOrderPostResponse404 $apiBuilderBuilderIdPagesOrderPostResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiBuilderBuilderIdPagesOrderPostResponse404 = $apiBuilderBuilderIdPagesOrderPostResponse404;
         $this->response = $response;
     }
 
-    public function getApiBuilderBuilderIdPagesOrderPostResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdPagesOrderPostResponse404
+    public function getApiBuilderBuilderIdPagesOrderPostResponse404(): \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdPagesOrderPostResponse404
     {
         return $this->apiBuilderBuilderIdPagesOrderPostResponse404;
     }

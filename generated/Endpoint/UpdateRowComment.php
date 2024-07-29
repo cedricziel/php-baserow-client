@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class UpdateRowComment extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class UpdateRowComment extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $comment_id;
     protected $table_id;
 
@@ -51,27 +51,27 @@ class UpdateRowComment extends \cedricziel\phpbaserowclient\Generated\Runtime\Cl
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\RowComment|null
+     * @return \CedricZiel\Baserow\Generated\Model\RowComment|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\UpdateRowCommentBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\UpdateRowCommentUnauthorizedException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\UpdateRowCommentNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\UpdateRowCommentBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\UpdateRowCommentUnauthorizedException
+     * @throws \CedricZiel\Baserow\Generated\Exception\UpdateRowCommentNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\RowComment', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\RowComment', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\UpdateRowCommentBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdCommentCommentIdPatchResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\UpdateRowCommentBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdPatchResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (401 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\UpdateRowCommentUnauthorizedException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdCommentCommentIdPatchResponse401', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\UpdateRowCommentUnauthorizedException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdPatchResponse401', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\UpdateRowCommentNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdCommentCommentIdPatchResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\UpdateRowCommentNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdPatchResponse404', 'json'), $response);
         }
     }
 

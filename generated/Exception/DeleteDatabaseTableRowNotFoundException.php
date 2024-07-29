@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class DeleteDatabaseTableRowNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdDeleteResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdDeleteResponse404
      */
     private $apiDatabaseRowsTableTableIdRowIdDeleteResponse404;
     /**
@@ -21,14 +21,14 @@ class DeleteDatabaseTableRowNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdDeleteResponse404 $apiDatabaseRowsTableTableIdRowIdDeleteResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdDeleteResponse404 $apiDatabaseRowsTableTableIdRowIdDeleteResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiDatabaseRowsTableTableIdRowIdDeleteResponse404 = $apiDatabaseRowsTableTableIdRowIdDeleteResponse404;
         $this->response = $response;
     }
 
-    public function getApiDatabaseRowsTableTableIdRowIdDeleteResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdDeleteResponse404
+    public function getApiDatabaseRowsTableTableIdRowIdDeleteResponse404(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdDeleteResponse404
     {
         return $this->apiDatabaseRowsTableTableIdRowIdDeleteResponse404;
     }

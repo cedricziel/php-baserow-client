@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class AdminLicenseLookupUsersNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdLookupUsersGetResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiLicensesIdLookupUsersGetResponse404
      */
     private $apiLicensesIdLookupUsersGetResponse404;
     /**
@@ -21,14 +21,14 @@ class AdminLicenseLookupUsersNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdLookupUsersGetResponse404 $apiLicensesIdLookupUsersGetResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiLicensesIdLookupUsersGetResponse404 $apiLicensesIdLookupUsersGetResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiLicensesIdLookupUsersGetResponse404 = $apiLicensesIdLookupUsersGetResponse404;
         $this->response = $response;
     }
 
-    public function getApiLicensesIdLookupUsersGetResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdLookupUsersGetResponse404
+    public function getApiLicensesIdLookupUsersGetResponse404(): \CedricZiel\Baserow\Generated\Model\ApiLicensesIdLookupUsersGetResponse404
     {
         return $this->apiLicensesIdLookupUsersGetResponse404;
     }

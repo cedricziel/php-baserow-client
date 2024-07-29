@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class ListApplicationUserSourceUsersNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdListUserSourceUsersGetResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdListUserSourceUsersGetResponse404
      */
     private $apiApplicationApplicationIdListUserSourceUsersGetResponse404;
     /**
@@ -21,14 +21,14 @@ class ListApplicationUserSourceUsersNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdListUserSourceUsersGetResponse404 $apiApplicationApplicationIdListUserSourceUsersGetResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdListUserSourceUsersGetResponse404 $apiApplicationApplicationIdListUserSourceUsersGetResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiApplicationApplicationIdListUserSourceUsersGetResponse404 = $apiApplicationApplicationIdListUserSourceUsersGetResponse404;
         $this->response = $response;
     }
 
-    public function getApiApplicationApplicationIdListUserSourceUsersGetResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdListUserSourceUsersGetResponse404
+    public function getApiApplicationApplicationIdListUserSourceUsersGetResponse404(): \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdListUserSourceUsersGetResponse404
     {
         return $this->apiApplicationApplicationIdListUserSourceUsersGetResponse404;
     }

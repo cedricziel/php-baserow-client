@@ -8,16 +8,16 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class CreateUser extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class CreateUser extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
 
     /**
      * Creates a new user based on the provided values. If desired an authentication JWT can be generated right away. After creating an account the initial workspace containing a database is created.
      */
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\Register $requestBody)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\Register $requestBody)
     {
         $this->body = $requestBody;
     }
@@ -34,13 +34,13 @@ class CreateUser extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\B
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\Register) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\Register) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\Register) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\Register) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\Register) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\Register) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -60,23 +60,23 @@ class CreateUser extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\B
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\ApiUserPostResponse200|null
+     * @return \CedricZiel\Baserow\Generated\Model\ApiUserPostResponse200|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\CreateUserBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\CreateUserNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\CreateUserBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\CreateUserNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiUserPostResponse200', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiUserPostResponse200', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\CreateUserBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiUserPostResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\CreateUserBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiUserPostResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\CreateUserNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiUserPostResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\CreateUserNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiUserPostResponse404', 'json'), $response);
         }
     }
 

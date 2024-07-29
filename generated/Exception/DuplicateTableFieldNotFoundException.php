@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class DuplicateTableFieldNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse404
      */
     private $apiDatabaseFieldsFieldIdDuplicateAsyncPostResponse404;
     /**
@@ -21,14 +21,14 @@ class DuplicateTableFieldNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse404 $apiDatabaseFieldsFieldIdDuplicateAsyncPostResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse404 $apiDatabaseFieldsFieldIdDuplicateAsyncPostResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiDatabaseFieldsFieldIdDuplicateAsyncPostResponse404 = $apiDatabaseFieldsFieldIdDuplicateAsyncPostResponse404;
         $this->response = $response;
     }
 
-    public function getApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse404
+    public function getApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse404(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse404
     {
         return $this->apiDatabaseFieldsFieldIdDuplicateAsyncPostResponse404;
     }

@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class ListDatabaseTableViews extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class ListDatabaseTableViews extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $table_id;
 
     /**
@@ -68,8 +68,8 @@ class ListDatabaseTableViews extends \cedricziel\phpbaserowclient\Generated\Runt
     /**
      * @return null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\ListDatabaseTableViewsBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\ListDatabaseTableViewsNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\ListDatabaseTableViewsBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\ListDatabaseTableViewsNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
@@ -79,10 +79,10 @@ class ListDatabaseTableViews extends \cedricziel\phpbaserowclient\Generated\Runt
             return json_decode($body);
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\ListDatabaseTableViewsBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsTableTableIdGetResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\ListDatabaseTableViewsBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdGetResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\ListDatabaseTableViewsNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsTableTableIdGetResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\ListDatabaseTableViewsNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdGetResponse404', 'json'), $response);
         }
     }
 

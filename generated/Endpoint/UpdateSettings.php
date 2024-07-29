@@ -8,16 +8,16 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class UpdateSettings extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class UpdateSettings extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
 
     /**
      * Updates the admin configured settings if the user has admin permissions.
      */
-    public function __construct(?\cedricziel\phpbaserowclient\Generated\Model\PatchedSettings $requestBody = null)
+    public function __construct(?\CedricZiel\Baserow\Generated\Model\PatchedSettings $requestBody = null)
     {
         $this->body = $requestBody;
     }
@@ -34,13 +34,13 @@ class UpdateSettings extends \cedricziel\phpbaserowclient\Generated\Runtime\Clie
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\PatchedSettings) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedSettings) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\PatchedSettings) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedSettings) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\PatchedSettings) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedSettings) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -60,14 +60,14 @@ class UpdateSettings extends \cedricziel\phpbaserowclient\Generated\Runtime\Clie
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\Settings|null
+     * @return \CedricZiel\Baserow\Generated\Model\Settings|null
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\Settings', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\Settings', 'json');
         }
     }
 

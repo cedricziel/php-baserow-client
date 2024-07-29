@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class CreateBuilderDomainNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdDomainsPostResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsPostResponse404
      */
     private $apiBuilderBuilderIdDomainsPostResponse404;
     /**
@@ -21,14 +21,14 @@ class CreateBuilderDomainNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdDomainsPostResponse404 $apiBuilderBuilderIdDomainsPostResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsPostResponse404 $apiBuilderBuilderIdDomainsPostResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiBuilderBuilderIdDomainsPostResponse404 = $apiBuilderBuilderIdDomainsPostResponse404;
         $this->response = $response;
     }
 
-    public function getApiBuilderBuilderIdDomainsPostResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdDomainsPostResponse404
+    public function getApiBuilderBuilderIdDomainsPostResponse404(): \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsPostResponse404
     {
         return $this->apiBuilderBuilderIdDomainsPostResponse404;
     }

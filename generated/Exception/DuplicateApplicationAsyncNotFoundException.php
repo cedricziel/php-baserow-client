@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class DuplicateApplicationAsyncNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdDuplicateAsyncPostResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdDuplicateAsyncPostResponse404
      */
     private $apiApplicationsApplicationIdDuplicateAsyncPostResponse404;
     /**
@@ -21,14 +21,14 @@ class DuplicateApplicationAsyncNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdDuplicateAsyncPostResponse404 $apiApplicationsApplicationIdDuplicateAsyncPostResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdDuplicateAsyncPostResponse404 $apiApplicationsApplicationIdDuplicateAsyncPostResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiApplicationsApplicationIdDuplicateAsyncPostResponse404 = $apiApplicationsApplicationIdDuplicateAsyncPostResponse404;
         $this->response = $response;
     }
 
-    public function getApiApplicationsApplicationIdDuplicateAsyncPostResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdDuplicateAsyncPostResponse404
+    public function getApiApplicationsApplicationIdDuplicateAsyncPostResponse404(): \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdDuplicateAsyncPostResponse404
     {
         return $this->apiApplicationsApplicationIdDuplicateAsyncPostResponse404;
     }

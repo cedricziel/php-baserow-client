@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class CreateDatabaseTableViewFilterBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFiltersPostResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFiltersPostResponse400
      */
     private $apiDatabaseViewsViewIdFiltersPostResponse400;
     /**
@@ -21,14 +21,14 @@ class CreateDatabaseTableViewFilterBadRequestException extends BadRequestExcepti
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFiltersPostResponse400 $apiDatabaseViewsViewIdFiltersPostResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFiltersPostResponse400 $apiDatabaseViewsViewIdFiltersPostResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiDatabaseViewsViewIdFiltersPostResponse400 = $apiDatabaseViewsViewIdFiltersPostResponse400;
         $this->response = $response;
     }
 
-    public function getApiDatabaseViewsViewIdFiltersPostResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFiltersPostResponse400
+    public function getApiDatabaseViewsViewIdFiltersPostResponse400(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFiltersPostResponse400
     {
         return $this->apiDatabaseViewsViewIdFiltersPostResponse400;
     }

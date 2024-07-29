@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class UpdateBuilderDomainBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsDomainIdPatchResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdPatchResponse400
      */
     private $apiBuilderDomainsDomainIdPatchResponse400;
     /**
@@ -21,14 +21,14 @@ class UpdateBuilderDomainBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsDomainIdPatchResponse400 $apiBuilderDomainsDomainIdPatchResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdPatchResponse400 $apiBuilderDomainsDomainIdPatchResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiBuilderDomainsDomainIdPatchResponse400 = $apiBuilderDomainsDomainIdPatchResponse400;
         $this->response = $response;
     }
 
-    public function getApiBuilderDomainsDomainIdPatchResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsDomainIdPatchResponse400
+    public function getApiBuilderDomainsDomainIdPatchResponse400(): \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdPatchResponse400
     {
         return $this->apiBuilderDomainsDomainIdPatchResponse400;
     }

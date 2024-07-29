@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class GroupListApplicationsNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGroupGroupIdGetResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdGetResponse404
      */
     private $apiApplicationsGroupGroupIdGetResponse404;
     /**
@@ -21,14 +21,14 @@ class GroupListApplicationsNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGroupGroupIdGetResponse404 $apiApplicationsGroupGroupIdGetResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdGetResponse404 $apiApplicationsGroupGroupIdGetResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiApplicationsGroupGroupIdGetResponse404 = $apiApplicationsGroupGroupIdGetResponse404;
         $this->response = $response;
     }
 
-    public function getApiApplicationsGroupGroupIdGetResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGroupGroupIdGetResponse404
+    public function getApiApplicationsGroupGroupIdGetResponse404(): \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdGetResponse404
     {
         return $this->apiApplicationsGroupGroupIdGetResponse404;
     }

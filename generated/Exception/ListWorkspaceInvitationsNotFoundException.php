@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class ListWorkspaceInvitationsNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse404
      */
     private $apiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse404;
     /**
@@ -21,14 +21,14 @@ class ListWorkspaceInvitationsNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse404 $apiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse404 $apiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse404 = $apiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse404;
         $this->response = $response;
     }
 
-    public function getApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse404
+    public function getApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse404(): \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse404
     {
         return $this->apiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse404;
     }

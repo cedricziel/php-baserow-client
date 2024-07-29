@@ -8,7 +8,7 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Runtime\Normalizer;
+namespace CedricZiel\Baserow\Generated\Runtime\Normalizer;
 
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\Validation;

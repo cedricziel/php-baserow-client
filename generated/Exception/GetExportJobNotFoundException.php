@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class GetExportJobNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseExportJobIdGetResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseExportJobIdGetResponse404
      */
     private $apiDatabaseExportJobIdGetResponse404;
     /**
@@ -21,14 +21,14 @@ class GetExportJobNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseExportJobIdGetResponse404 $apiDatabaseExportJobIdGetResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseExportJobIdGetResponse404 $apiDatabaseExportJobIdGetResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiDatabaseExportJobIdGetResponse404 = $apiDatabaseExportJobIdGetResponse404;
         $this->response = $response;
     }
 
-    public function getApiDatabaseExportJobIdGetResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseExportJobIdGetResponse404
+    public function getApiDatabaseExportJobIdGetResponse404(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseExportJobIdGetResponse404
     {
         return $this->apiDatabaseExportJobIdGetResponse404;
     }

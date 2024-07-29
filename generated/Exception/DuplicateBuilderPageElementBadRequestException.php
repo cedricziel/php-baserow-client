@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class DuplicateBuilderPageElementBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdDuplicatePostResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdDuplicatePostResponse400
      */
     private $apiBuilderElementElementIdDuplicatePostResponse400;
     /**
@@ -21,14 +21,14 @@ class DuplicateBuilderPageElementBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdDuplicatePostResponse400 $apiBuilderElementElementIdDuplicatePostResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdDuplicatePostResponse400 $apiBuilderElementElementIdDuplicatePostResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiBuilderElementElementIdDuplicatePostResponse400 = $apiBuilderElementElementIdDuplicatePostResponse400;
         $this->response = $response;
     }
 
-    public function getApiBuilderElementElementIdDuplicatePostResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdDuplicatePostResponse400
+    public function getApiBuilderElementElementIdDuplicatePostResponse400(): \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdDuplicatePostResponse400
     {
         return $this->apiBuilderElementElementIdDuplicatePostResponse400;
     }

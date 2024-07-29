@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class CreateUserBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiUserPostResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiUserPostResponse400
      */
     private $apiUserPostResponse400;
     /**
@@ -21,14 +21,14 @@ class CreateUserBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiUserPostResponse400 $apiUserPostResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiUserPostResponse400 $apiUserPostResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiUserPostResponse400 = $apiUserPostResponse400;
         $this->response = $response;
     }
 
-    public function getApiUserPostResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiUserPostResponse400
+    public function getApiUserPostResponse400(): \CedricZiel\Baserow\Generated\Model\ApiUserPostResponse400
     {
         return $this->apiUserPostResponse400;
     }

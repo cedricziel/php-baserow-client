@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class ListTeamSubjects extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class ListTeamSubjects extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $team_id;
 
     /**
@@ -44,19 +44,19 @@ class ListTeamSubjects extends \cedricziel\phpbaserowclient\Generated\Runtime\Cl
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\TeamSubjectResponse[]|null
+     * @return \CedricZiel\Baserow\Generated\Model\TeamSubjectResponse[]|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\ListTeamSubjectsBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\ListTeamSubjectsBadRequestException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\TeamSubjectResponse[]', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\TeamSubjectResponse[]', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\ListTeamSubjectsBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdSubjectsGetResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\ListTeamSubjectsBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsGetResponse400', 'json'), $response);
         }
     }
 

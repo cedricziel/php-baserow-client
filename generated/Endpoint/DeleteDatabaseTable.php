@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class DeleteDatabaseTable extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class DeleteDatabaseTable extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $table_id;
 
     /**
@@ -66,8 +66,8 @@ class DeleteDatabaseTable extends \cedricziel\phpbaserowclient\Generated\Runtime
     /**
      * @return null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\DeleteDatabaseTableBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\DeleteDatabaseTableNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\DeleteDatabaseTableBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\DeleteDatabaseTableNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
@@ -77,10 +77,10 @@ class DeleteDatabaseTable extends \cedricziel\phpbaserowclient\Generated\Runtime
             return null;
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\DeleteDatabaseTableBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdDeleteResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\DeleteDatabaseTableBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdDeleteResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\DeleteDatabaseTableNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdDeleteResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\DeleteDatabaseTableNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdDeleteResponse404', 'json'), $response);
         }
     }
 

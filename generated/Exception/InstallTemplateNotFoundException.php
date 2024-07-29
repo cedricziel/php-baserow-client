@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class InstallTemplateNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdPostResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdPostResponse404
      */
     private $apiTemplatesInstallWorkspaceIdTemplateIdPostResponse404;
     /**
@@ -21,14 +21,14 @@ class InstallTemplateNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdPostResponse404 $apiTemplatesInstallWorkspaceIdTemplateIdPostResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdPostResponse404 $apiTemplatesInstallWorkspaceIdTemplateIdPostResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiTemplatesInstallWorkspaceIdTemplateIdPostResponse404 = $apiTemplatesInstallWorkspaceIdTemplateIdPostResponse404;
         $this->response = $response;
     }
 
-    public function getApiTemplatesInstallWorkspaceIdTemplateIdPostResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdPostResponse404
+    public function getApiTemplatesInstallWorkspaceIdTemplateIdPostResponse404(): \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdPostResponse404
     {
         return $this->apiTemplatesInstallWorkspaceIdTemplateIdPostResponse404;
     }

@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class GroupCreateTeamNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsGroupGroupIdPostResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiTeamsGroupGroupIdPostResponse404
      */
     private $apiTeamsGroupGroupIdPostResponse404;
     /**
@@ -21,14 +21,14 @@ class GroupCreateTeamNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiTeamsGroupGroupIdPostResponse404 $apiTeamsGroupGroupIdPostResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiTeamsGroupGroupIdPostResponse404 $apiTeamsGroupGroupIdPostResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiTeamsGroupGroupIdPostResponse404 = $apiTeamsGroupGroupIdPostResponse404;
         $this->response = $response;
     }
 
-    public function getApiTeamsGroupGroupIdPostResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsGroupGroupIdPostResponse404
+    public function getApiTeamsGroupGroupIdPostResponse404(): \CedricZiel\Baserow\Generated\Model\ApiTeamsGroupGroupIdPostResponse404
     {
         return $this->apiTeamsGroupGroupIdPostResponse404;
     }

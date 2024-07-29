@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class GroupAssignRoleNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiRoleGroupIdPostResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdPostResponse404
      */
     private $apiRoleGroupIdPostResponse404;
     /**
@@ -21,14 +21,14 @@ class GroupAssignRoleNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiRoleGroupIdPostResponse404 $apiRoleGroupIdPostResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdPostResponse404 $apiRoleGroupIdPostResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiRoleGroupIdPostResponse404 = $apiRoleGroupIdPostResponse404;
         $this->response = $response;
     }
 
-    public function getApiRoleGroupIdPostResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiRoleGroupIdPostResponse404
+    public function getApiRoleGroupIdPostResponse404(): \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdPostResponse404
     {
         return $this->apiRoleGroupIdPostResponse404;
     }

@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class SendPasswordResetEmailBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiUserSendResetPasswordEmailPostResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiUserSendResetPasswordEmailPostResponse400
      */
     private $apiUserSendResetPasswordEmailPostResponse400;
     /**
@@ -21,14 +21,14 @@ class SendPasswordResetEmailBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiUserSendResetPasswordEmailPostResponse400 $apiUserSendResetPasswordEmailPostResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiUserSendResetPasswordEmailPostResponse400 $apiUserSendResetPasswordEmailPostResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiUserSendResetPasswordEmailPostResponse400 = $apiUserSendResetPasswordEmailPostResponse400;
         $this->response = $response;
     }
 
-    public function getApiUserSendResetPasswordEmailPostResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiUserSendResetPasswordEmailPostResponse400
+    public function getApiUserSendResetPasswordEmailPostResponse400(): \CedricZiel\Baserow\Generated\Model\ApiUserSendResetPasswordEmailPostResponse400
     {
         return $this->apiUserSendResetPasswordEmailPostResponse400;
     }

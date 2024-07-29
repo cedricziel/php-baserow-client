@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class AdminGetLicense extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class AdminGetLicense extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $id;
 
     /**
@@ -46,19 +46,19 @@ class AdminGetLicense extends \cedricziel\phpbaserowclient\Generated\Runtime\Cli
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\LicenseWithUsers|null
+     * @return \CedricZiel\Baserow\Generated\Model\LicenseWithUsers|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\AdminGetLicenseNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\AdminGetLicenseNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\LicenseWithUsers', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\LicenseWithUsers', 'json');
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\AdminGetLicenseNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdGetResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\AdminGetLicenseNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiLicensesIdGetResponse404', 'json'), $response);
         }
     }
 

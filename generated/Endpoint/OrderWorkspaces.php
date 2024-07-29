@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class OrderWorkspaces extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class OrderWorkspaces extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
 
     /**
      * Changes the order of the provided workspace ids to the matching position that the id has in the list. If the authorized user does not belong to the workspace it will be ignored. The order will be custom for each user.
@@ -23,7 +23,7 @@ class OrderWorkspaces extends \cedricziel\phpbaserowclient\Generated\Runtime\Cli
      * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
      *             }
      */
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\OrderWorkspaces $requestBody, array $headerParameters = [])
+    public function __construct(\CedricZiel\Baserow\Generated\Model\OrderWorkspaces $requestBody, array $headerParameters = [])
     {
         $this->body = $requestBody;
         $this->headerParameters = $headerParameters;
@@ -41,13 +41,13 @@ class OrderWorkspaces extends \cedricziel\phpbaserowclient\Generated\Runtime\Cli
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\OrderWorkspaces) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\OrderWorkspaces) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\OrderWorkspaces) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\OrderWorkspaces) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\OrderWorkspaces) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\OrderWorkspaces) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {

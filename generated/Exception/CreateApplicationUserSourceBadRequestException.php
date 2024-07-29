@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class CreateApplicationUserSourceBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdUserSourcesPostResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdUserSourcesPostResponse400
      */
     private $apiApplicationApplicationIdUserSourcesPostResponse400;
     /**
@@ -21,14 +21,14 @@ class CreateApplicationUserSourceBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdUserSourcesPostResponse400 $apiApplicationApplicationIdUserSourcesPostResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdUserSourcesPostResponse400 $apiApplicationApplicationIdUserSourcesPostResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiApplicationApplicationIdUserSourcesPostResponse400 = $apiApplicationApplicationIdUserSourcesPostResponse400;
         $this->response = $response;
     }
 
-    public function getApiApplicationApplicationIdUserSourcesPostResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdUserSourcesPostResponse400
+    public function getApiApplicationApplicationIdUserSourcesPostResponse400(): \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdUserSourcesPostResponse400
     {
         return $this->apiApplicationApplicationIdUserSourcesPostResponse400;
     }

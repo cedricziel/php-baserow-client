@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class AuditLogActionTypesBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuditLogActionTypesGetResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogActionTypesGetResponse400
      */
     private $apiAdminAuditLogActionTypesGetResponse400;
     /**
@@ -21,14 +21,14 @@ class AuditLogActionTypesBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuditLogActionTypesGetResponse400 $apiAdminAuditLogActionTypesGetResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogActionTypesGetResponse400 $apiAdminAuditLogActionTypesGetResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiAdminAuditLogActionTypesGetResponse400 = $apiAdminAuditLogActionTypesGetResponse400;
         $this->response = $response;
     }
 
-    public function getApiAdminAuditLogActionTypesGetResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuditLogActionTypesGetResponse400
+    public function getApiAdminAuditLogActionTypesGetResponse400(): \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogActionTypesGetResponse400
     {
         return $this->apiAdminAuditLogActionTypesGetResponse400;
     }

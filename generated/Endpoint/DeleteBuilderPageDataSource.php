@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class DeleteBuilderPageDataSource extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class DeleteBuilderPageDataSource extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $data_source_id;
 
     /**
@@ -64,8 +64,8 @@ class DeleteBuilderPageDataSource extends \cedricziel\phpbaserowclient\Generated
     /**
      * @return null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\DeleteBuilderPageDataSourceBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\DeleteBuilderPageDataSourceNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\DeleteBuilderPageDataSourceBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\DeleteBuilderPageDataSourceNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
@@ -75,10 +75,10 @@ class DeleteBuilderPageDataSource extends \cedricziel\phpbaserowclient\Generated
             return null;
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\DeleteBuilderPageDataSourceBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDataSourceDataSourceIdDeleteResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\DeleteBuilderPageDataSourceBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdDeleteResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\DeleteBuilderPageDataSourceNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDataSourceDataSourceIdDeleteResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\DeleteBuilderPageDataSourceNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdDeleteResponse404', 'json'), $response);
         }
     }
 

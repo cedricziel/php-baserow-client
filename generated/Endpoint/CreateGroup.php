@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class CreateGroup extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class CreateGroup extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
 
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [create_workspace](#tag/Workspaces/operation/create_workspace).**.
@@ -26,7 +26,7 @@ class CreateGroup extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\
      * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
      *             }
      */
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\Workspace $requestBody, array $headerParameters = [])
+    public function __construct(\CedricZiel\Baserow\Generated\Model\Workspace $requestBody, array $headerParameters = [])
     {
         $this->body = $requestBody;
         $this->headerParameters = $headerParameters;
@@ -44,13 +44,13 @@ class CreateGroup extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\Workspace) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\Workspace) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\Workspace) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\Workspace) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\Workspace) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\Workspace) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -81,14 +81,14 @@ class CreateGroup extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\WorkspaceUserWorkspace|null
+     * @return \CedricZiel\Baserow\Generated\Model\WorkspaceUserWorkspace|null
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\WorkspaceUserWorkspace', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\WorkspaceUserWorkspace', 'json');
         }
     }
 

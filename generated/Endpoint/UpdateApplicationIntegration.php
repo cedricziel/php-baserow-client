@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class UpdateApplicationIntegration extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class UpdateApplicationIntegration extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $integration_id;
 
     /**
@@ -83,8 +83,8 @@ class UpdateApplicationIntegration extends \cedricziel\phpbaserowclient\Generate
     /**
      * @return null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\UpdateApplicationIntegrationBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\UpdateApplicationIntegrationNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\UpdateApplicationIntegrationBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\UpdateApplicationIntegrationNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
@@ -94,10 +94,10 @@ class UpdateApplicationIntegration extends \cedricziel\phpbaserowclient\Generate
             return json_decode($body);
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\UpdateApplicationIntegrationBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdPatchResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\UpdateApplicationIntegrationBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdPatchResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\UpdateApplicationIntegrationNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdPatchResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\UpdateApplicationIntegrationNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdPatchResponse404', 'json'), $response);
         }
     }
 

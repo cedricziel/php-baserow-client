@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class DuplicateBuilderPageElement extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class DuplicateBuilderPageElement extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $element_id;
 
     /**
@@ -62,23 +62,23 @@ class DuplicateBuilderPageElement extends \cedricziel\phpbaserowclient\Generated
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\DuplicateElement|null
+     * @return \CedricZiel\Baserow\Generated\Model\DuplicateElement|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\DuplicateBuilderPageElementBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\DuplicateBuilderPageElementNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\DuplicateBuilderPageElementBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\DuplicateBuilderPageElementNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\DuplicateElement', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\DuplicateElement', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\DuplicateBuilderPageElementBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdDuplicatePostResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\DuplicateBuilderPageElementBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdDuplicatePostResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\DuplicateBuilderPageElementNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdDuplicatePostResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\DuplicateBuilderPageElementNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdDuplicatePostResponse404', 'json'), $response);
         }
     }
 

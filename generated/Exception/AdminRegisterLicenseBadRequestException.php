@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class AdminRegisterLicenseBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesPostResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiLicensesPostResponse400
      */
     private $apiLicensesPostResponse400;
     /**
@@ -21,14 +21,14 @@ class AdminRegisterLicenseBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiLicensesPostResponse400 $apiLicensesPostResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiLicensesPostResponse400 $apiLicensesPostResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiLicensesPostResponse400 = $apiLicensesPostResponse400;
         $this->response = $response;
     }
 
-    public function getApiLicensesPostResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesPostResponse400
+    public function getApiLicensesPostResponse400(): \CedricZiel\Baserow\Generated\Model\ApiLicensesPostResponse400
     {
         return $this->apiLicensesPostResponse400;
     }

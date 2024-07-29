@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class DispatchBuilderPageWorkflowActionBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDispatchPostResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDispatchPostResponse400
      */
     private $apiBuilderWorkflowActionWorkflowActionIdDispatchPostResponse400;
     /**
@@ -21,14 +21,14 @@ class DispatchBuilderPageWorkflowActionBadRequestException extends BadRequestExc
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDispatchPostResponse400 $apiBuilderWorkflowActionWorkflowActionIdDispatchPostResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDispatchPostResponse400 $apiBuilderWorkflowActionWorkflowActionIdDispatchPostResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiBuilderWorkflowActionWorkflowActionIdDispatchPostResponse400 = $apiBuilderWorkflowActionWorkflowActionIdDispatchPostResponse400;
         $this->response = $response;
     }
 
-    public function getApiBuilderWorkflowActionWorkflowActionIdDispatchPostResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDispatchPostResponse400
+    public function getApiBuilderWorkflowActionWorkflowActionIdDispatchPostResponse400(): \CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDispatchPostResponse400
     {
         return $this->apiBuilderWorkflowActionWorkflowActionIdDispatchPostResponse400;
     }

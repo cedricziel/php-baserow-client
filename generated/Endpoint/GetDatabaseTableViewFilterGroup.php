@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class GetDatabaseTableViewFilterGroup extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class GetDatabaseTableViewFilterGroup extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $filter_group_id;
     protected $view_filter_group_id;
 
@@ -48,23 +48,23 @@ class GetDatabaseTableViewFilterGroup extends \cedricziel\phpbaserowclient\Gener
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\ViewFilterGroup|null
+     * @return \CedricZiel\Baserow\Generated\Model\ViewFilterGroup|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\GetDatabaseTableViewFilterGroupBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\GetDatabaseTableViewFilterGroupNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\GetDatabaseTableViewFilterGroupBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\GetDatabaseTableViewFilterGroupNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ViewFilterGroup', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ViewFilterGroup', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\GetDatabaseTableViewFilterGroupBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\GetDatabaseTableViewFilterGroupBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\GetDatabaseTableViewFilterGroupNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\GetDatabaseTableViewFilterGroupNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse404', 'json'), $response);
         }
     }
 

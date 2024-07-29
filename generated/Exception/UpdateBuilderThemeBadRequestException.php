@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class UpdateBuilderThemeBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdThemePatchResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdThemePatchResponse400
      */
     private $apiBuilderBuilderIdThemePatchResponse400;
     /**
@@ -21,14 +21,14 @@ class UpdateBuilderThemeBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdThemePatchResponse400 $apiBuilderBuilderIdThemePatchResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdThemePatchResponse400 $apiBuilderBuilderIdThemePatchResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiBuilderBuilderIdThemePatchResponse400 = $apiBuilderBuilderIdThemePatchResponse400;
         $this->response = $response;
     }
 
-    public function getApiBuilderBuilderIdThemePatchResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdThemePatchResponse400
+    public function getApiBuilderBuilderIdThemePatchResponse400(): \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdThemePatchResponse400
     {
         return $this->apiBuilderBuilderIdThemePatchResponse400;
     }

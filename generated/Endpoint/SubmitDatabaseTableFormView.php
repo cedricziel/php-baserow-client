@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class SubmitDatabaseTableFormView extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class SubmitDatabaseTableFormView extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $slug;
 
     /**
@@ -20,7 +20,7 @@ class SubmitDatabaseTableFormView extends \cedricziel\phpbaserowclient\Generated
      *
      * @param string $slug the slug related to the form
      */
-    public function __construct(string $slug, ?\cedricziel\phpbaserowclient\Generated\Model\ExampleRowRequest $requestBody = null)
+    public function __construct(string $slug, ?\CedricZiel\Baserow\Generated\Model\ExampleRowRequest $requestBody = null)
     {
         $this->slug = $slug;
         $this->body = $requestBody;
@@ -38,13 +38,13 @@ class SubmitDatabaseTableFormView extends \cedricziel\phpbaserowclient\Generated
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\ExampleRowRequest) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\ExampleRowRequest) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\ExampleRowRequest) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\ExampleRowRequest) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\ExampleRowRequest) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\ExampleRowRequest) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -64,23 +64,23 @@ class SubmitDatabaseTableFormView extends \cedricziel\phpbaserowclient\Generated
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\FormViewSubmitted|null
+     * @return \CedricZiel\Baserow\Generated\Model\FormViewSubmitted|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\SubmitDatabaseTableFormViewUnauthorizedException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\SubmitDatabaseTableFormViewNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\SubmitDatabaseTableFormViewUnauthorizedException
+     * @throws \CedricZiel\Baserow\Generated\Exception\SubmitDatabaseTableFormViewNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\FormViewSubmitted', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\FormViewSubmitted', 'json');
         }
         if (false === is_null($contentType) && (401 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\SubmitDatabaseTableFormViewUnauthorizedException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugSubmitPostResponse401', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\SubmitDatabaseTableFormViewUnauthorizedException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugSubmitPostResponse401', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\SubmitDatabaseTableFormViewNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugSubmitPostResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\SubmitDatabaseTableFormViewNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugSubmitPostResponse404', 'json'), $response);
         }
     }
 

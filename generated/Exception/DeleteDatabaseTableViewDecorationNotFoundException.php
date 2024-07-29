@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class DeleteDatabaseTableViewDecorationNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdDeleteResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdDeleteResponse404
      */
     private $apiDatabaseViewsDecorationViewDecorationIdDeleteResponse404;
     /**
@@ -21,14 +21,14 @@ class DeleteDatabaseTableViewDecorationNotFoundException extends NotFoundExcepti
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdDeleteResponse404 $apiDatabaseViewsDecorationViewDecorationIdDeleteResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdDeleteResponse404 $apiDatabaseViewsDecorationViewDecorationIdDeleteResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiDatabaseViewsDecorationViewDecorationIdDeleteResponse404 = $apiDatabaseViewsDecorationViewDecorationIdDeleteResponse404;
         $this->response = $response;
     }
 
-    public function getApiDatabaseViewsDecorationViewDecorationIdDeleteResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdDeleteResponse404
+    public function getApiDatabaseViewsDecorationViewDecorationIdDeleteResponse404(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdDeleteResponse404
     {
         return $this->apiDatabaseViewsDecorationViewDecorationIdDeleteResponse404;
     }

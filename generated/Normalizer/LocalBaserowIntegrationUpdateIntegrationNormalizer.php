@@ -8,10 +8,10 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Normalizer;
+namespace CedricZiel\Baserow\Generated\Normalizer;
 
-use cedricziel\phpbaserowclient\Generated\Runtime\Normalizer\CheckArray;
-use cedricziel\phpbaserowclient\Generated\Runtime\Normalizer\ValidatorTrait;
+use CedricZiel\Baserow\Generated\Runtime\Normalizer\CheckArray;
+use CedricZiel\Baserow\Generated\Runtime\Normalizer\ValidatorTrait;
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
@@ -31,12 +31,12 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
         {
-            return \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationUpdateIntegration::class === $type;
+            return \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationUpdateIntegration::class === $type;
         }
 
         public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
         {
-            return is_object($data) && \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationUpdateIntegration::class === get_class($data);
+            return is_object($data) && \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationUpdateIntegration::class === get_class($data);
         }
 
         public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -47,7 +47,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationUpdateIntegration();
+            $object = new \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationUpdateIntegration();
             if (null === $data || false === \is_array($data)) {
                 return $object;
             }
@@ -56,11 +56,11 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 unset($data['name']);
             }
             if (\array_key_exists('context_data', $data)) {
-                $object->setContextData($this->denormalizer->denormalize($data['context_data'], \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationUpdateIntegrationContextData::class, 'json', $context));
+                $object->setContextData($this->denormalizer->denormalize($data['context_data'], \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationUpdateIntegrationContextData::class, 'json', $context));
                 unset($data['context_data']);
             }
             if (\array_key_exists('authorized_user', $data)) {
-                $object->setAuthorizedUser($this->denormalizer->denormalize($data['authorized_user'], \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationUpdateIntegrationAuthorizedUser::class, 'json', $context));
+                $object->setAuthorizedUser($this->denormalizer->denormalize($data['authorized_user'], \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationUpdateIntegrationAuthorizedUser::class, 'json', $context));
                 unset($data['authorized_user']);
             }
             foreach ($data as $key => $value) {
@@ -89,7 +89,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function getSupportedTypes(?string $format = null): array
         {
-            return [\cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationUpdateIntegration::class => false];
+            return [\CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationUpdateIntegration::class => false];
         }
     }
 } else {
@@ -102,12 +102,12 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function supportsDenormalization($data, $type, ?string $format = null, array $context = []): bool
         {
-            return \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationUpdateIntegration::class === $type;
+            return \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationUpdateIntegration::class === $type;
         }
 
         public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
         {
-            return is_object($data) && \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationUpdateIntegration::class === get_class($data);
+            return is_object($data) && \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationUpdateIntegration::class === get_class($data);
         }
 
         public function denormalize($data, $type, $format = null, array $context = [])
@@ -118,7 +118,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationUpdateIntegration();
+            $object = new \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationUpdateIntegration();
             if (null === $data || false === \is_array($data)) {
                 return $object;
             }
@@ -127,11 +127,11 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 unset($data['name']);
             }
             if (\array_key_exists('context_data', $data)) {
-                $object->setContextData($this->denormalizer->denormalize($data['context_data'], \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationUpdateIntegrationContextData::class, 'json', $context));
+                $object->setContextData($this->denormalizer->denormalize($data['context_data'], \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationUpdateIntegrationContextData::class, 'json', $context));
                 unset($data['context_data']);
             }
             if (\array_key_exists('authorized_user', $data)) {
-                $object->setAuthorizedUser($this->denormalizer->denormalize($data['authorized_user'], \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationUpdateIntegrationAuthorizedUser::class, 'json', $context));
+                $object->setAuthorizedUser($this->denormalizer->denormalize($data['authorized_user'], \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationUpdateIntegrationAuthorizedUser::class, 'json', $context));
                 unset($data['authorized_user']);
             }
             foreach ($data as $key => $value) {
@@ -163,7 +163,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function getSupportedTypes(?string $format = null): array
         {
-            return [\cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationUpdateIntegration::class => false];
+            return [\CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationUpdateIntegration::class => false];
         }
     }
 }

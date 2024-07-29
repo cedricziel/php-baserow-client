@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class CreateDatabaseTableViewGroup extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class CreateDatabaseTableViewGroup extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $view_id;
 
     /**
@@ -25,7 +25,7 @@ class CreateDatabaseTableViewGroup extends \cedricziel\phpbaserowclient\Generate
      * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
      *             }
      */
-    public function __construct(int $viewId, \cedricziel\phpbaserowclient\Generated\Model\CreateViewGroupBy $requestBody, array $headerParameters = [])
+    public function __construct(int $viewId, \CedricZiel\Baserow\Generated\Model\CreateViewGroupBy $requestBody, array $headerParameters = [])
     {
         $this->view_id = $viewId;
         $this->body = $requestBody;
@@ -44,13 +44,13 @@ class CreateDatabaseTableViewGroup extends \cedricziel\phpbaserowclient\Generate
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\CreateViewGroupBy) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\CreateViewGroupBy) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\CreateViewGroupBy) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\CreateViewGroupBy) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\CreateViewGroupBy) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\CreateViewGroupBy) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -82,23 +82,23 @@ class CreateDatabaseTableViewGroup extends \cedricziel\phpbaserowclient\Generate
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\ViewGroupBy|null
+     * @return \CedricZiel\Baserow\Generated\Model\ViewGroupBy|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\CreateDatabaseTableViewGroupBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\CreateDatabaseTableViewGroupNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\CreateDatabaseTableViewGroupBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\CreateDatabaseTableViewGroupNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ViewGroupBy', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ViewGroupBy', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\CreateDatabaseTableViewGroupBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdGroupBysPostResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\CreateDatabaseTableViewGroupBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGroupBysPostResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\CreateDatabaseTableViewGroupNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdGroupBysPostResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\CreateDatabaseTableViewGroupNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGroupBysPostResponse404', 'json'), $response);
         }
     }
 

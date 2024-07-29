@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class ListDatabaseTableGalleryViewRows extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class ListDatabaseTableGalleryViewRows extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $view_id;
 
     /**
@@ -93,23 +93,23 @@ class ListDatabaseTableGalleryViewRows extends \cedricziel\phpbaserowclient\Gene
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerWithGalleryViewFieldOptionsExampleRowResponse|null
+     * @return \CedricZiel\Baserow\Generated\Model\PaginationSerializerWithGalleryViewFieldOptionsExampleRowResponse|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\ListDatabaseTableGalleryViewRowsBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\ListDatabaseTableGalleryViewRowsNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\ListDatabaseTableGalleryViewRowsBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\ListDatabaseTableGalleryViewRowsNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerWithGalleryViewFieldOptionsExampleRowResponse', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\PaginationSerializerWithGalleryViewFieldOptionsExampleRowResponse', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\ListDatabaseTableGalleryViewRowsBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGalleryViewIdGetResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\ListDatabaseTableGalleryViewRowsBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGalleryViewIdGetResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\ListDatabaseTableGalleryViewRowsNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGalleryViewIdGetResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\ListDatabaseTableGalleryViewRowsNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGalleryViewIdGetResponse404', 'json'), $response);
         }
     }
 

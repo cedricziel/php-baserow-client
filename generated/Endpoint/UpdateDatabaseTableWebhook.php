@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class UpdateDatabaseTableWebhook extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class UpdateDatabaseTableWebhook extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $webhook_id;
 
     /**
@@ -20,7 +20,7 @@ class UpdateDatabaseTableWebhook extends \cedricziel\phpbaserowclient\Generated\
      *
      * @param int $webhookId updates the webhook related to the provided value
      */
-    public function __construct(int $webhookId, ?\cedricziel\phpbaserowclient\Generated\Model\PatchedTableWebhookUpdateRequest $requestBody = null)
+    public function __construct(int $webhookId, ?\CedricZiel\Baserow\Generated\Model\PatchedTableWebhookUpdateRequest $requestBody = null)
     {
         $this->webhook_id = $webhookId;
         $this->body = $requestBody;
@@ -38,13 +38,13 @@ class UpdateDatabaseTableWebhook extends \cedricziel\phpbaserowclient\Generated\
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\PatchedTableWebhookUpdateRequest) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedTableWebhookUpdateRequest) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\PatchedTableWebhookUpdateRequest) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedTableWebhookUpdateRequest) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\PatchedTableWebhookUpdateRequest) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedTableWebhookUpdateRequest) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -64,23 +64,23 @@ class UpdateDatabaseTableWebhook extends \cedricziel\phpbaserowclient\Generated\
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\TableWebhook|null
+     * @return \CedricZiel\Baserow\Generated\Model\TableWebhook|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\UpdateDatabaseTableWebhookBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\UpdateDatabaseTableWebhookNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\UpdateDatabaseTableWebhookBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\UpdateDatabaseTableWebhookNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\TableWebhook', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\TableWebhook', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\UpdateDatabaseTableWebhookBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksWebhookIdPatchResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\UpdateDatabaseTableWebhookBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdPatchResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\UpdateDatabaseTableWebhookNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksWebhookIdPatchResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\UpdateDatabaseTableWebhookNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdPatchResponse404', 'json'), $response);
         }
     }
 

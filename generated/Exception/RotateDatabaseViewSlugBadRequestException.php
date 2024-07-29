@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class RotateDatabaseViewSlugBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdRotateSlugPostResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdRotateSlugPostResponse400
      */
     private $apiDatabaseViewsViewIdRotateSlugPostResponse400;
     /**
@@ -21,14 +21,14 @@ class RotateDatabaseViewSlugBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdRotateSlugPostResponse400 $apiDatabaseViewsViewIdRotateSlugPostResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdRotateSlugPostResponse400 $apiDatabaseViewsViewIdRotateSlugPostResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiDatabaseViewsViewIdRotateSlugPostResponse400 = $apiDatabaseViewsViewIdRotateSlugPostResponse400;
         $this->response = $response;
     }
 
-    public function getApiDatabaseViewsViewIdRotateSlugPostResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdRotateSlugPostResponse400
+    public function getApiDatabaseViewsViewIdRotateSlugPostResponse400(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdRotateSlugPostResponse400
     {
         return $this->apiDatabaseViewsViewIdRotateSlugPostResponse400;
     }

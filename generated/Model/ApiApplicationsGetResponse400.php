@@ -8,7 +8,7 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Model;
+namespace CedricZiel\Baserow\Generated\Model;
 
 class ApiApplicationsGetResponse400 extends \ArrayObject
 {

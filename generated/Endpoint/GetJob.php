@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class GetJob extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class GetJob extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $job_id;
 
     /**
@@ -48,7 +48,7 @@ class GetJob extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseE
     /**
      * @return null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\GetJobNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\GetJobNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
@@ -58,7 +58,7 @@ class GetJob extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseE
             return json_decode($body);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\GetJobNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiJobsJobIdGetResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\GetJobNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiJobsJobIdGetResponse404', 'json'), $response);
         }
     }
 

@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class AuditLogWorkspaces2BadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiAuditLogWorkspacesGetResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiAuditLogWorkspacesGetResponse400
      */
     private $apiAuditLogWorkspacesGetResponse400;
     /**
@@ -21,14 +21,14 @@ class AuditLogWorkspaces2BadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiAuditLogWorkspacesGetResponse400 $apiAuditLogWorkspacesGetResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiAuditLogWorkspacesGetResponse400 $apiAuditLogWorkspacesGetResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiAuditLogWorkspacesGetResponse400 = $apiAuditLogWorkspacesGetResponse400;
         $this->response = $response;
     }
 
-    public function getApiAuditLogWorkspacesGetResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiAuditLogWorkspacesGetResponse400
+    public function getApiAuditLogWorkspacesGetResponse400(): \CedricZiel\Baserow\Generated\Model\ApiAuditLogWorkspacesGetResponse400
     {
         return $this->apiAuditLogWorkspacesGetResponse400;
     }

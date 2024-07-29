@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class CreateWorkspaceInvitation extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class CreateWorkspaceInvitation extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $workspace_id;
 
     /**
@@ -20,7 +20,7 @@ class CreateWorkspaceInvitation extends \cedricziel\phpbaserowclient\Generated\R
      *
      * @param int $workspaceId creates a workspace invitation to the workspace related to the provided value
      */
-    public function __construct(int $workspaceId, \cedricziel\phpbaserowclient\Generated\Model\CreateWorkspaceInvitation $requestBody)
+    public function __construct(int $workspaceId, \CedricZiel\Baserow\Generated\Model\CreateWorkspaceInvitation $requestBody)
     {
         $this->workspace_id = $workspaceId;
         $this->body = $requestBody;
@@ -38,13 +38,13 @@ class CreateWorkspaceInvitation extends \cedricziel\phpbaserowclient\Generated\R
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\CreateWorkspaceInvitation) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\CreateWorkspaceInvitation) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\CreateWorkspaceInvitation) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\CreateWorkspaceInvitation) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\CreateWorkspaceInvitation) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\CreateWorkspaceInvitation) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -64,23 +64,23 @@ class CreateWorkspaceInvitation extends \cedricziel\phpbaserowclient\Generated\R
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\WorkspaceInvitation|null
+     * @return \CedricZiel\Baserow\Generated\Model\WorkspaceInvitation|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\CreateWorkspaceInvitationBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\CreateWorkspaceInvitationNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\CreateWorkspaceInvitationBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\CreateWorkspaceInvitationNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\WorkspaceInvitation', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\WorkspaceInvitation', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\CreateWorkspaceInvitationBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdPostResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\CreateWorkspaceInvitationBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdPostResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\CreateWorkspaceInvitationNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdPostResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\CreateWorkspaceInvitationNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdPostResponse404', 'json'), $response);
         }
     }
 

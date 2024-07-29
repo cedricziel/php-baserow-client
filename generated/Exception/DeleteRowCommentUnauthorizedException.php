@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class DeleteRowCommentUnauthorizedException extends UnauthorizedException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse401
+     * @var \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse401
      */
     private $apiRowCommentsTableIdCommentCommentIdDeleteResponse401;
     /**
@@ -21,14 +21,14 @@ class DeleteRowCommentUnauthorizedException extends UnauthorizedException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse401 $apiRowCommentsTableIdCommentCommentIdDeleteResponse401, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse401 $apiRowCommentsTableIdCommentCommentIdDeleteResponse401, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Unauthorized');
         $this->apiRowCommentsTableIdCommentCommentIdDeleteResponse401 = $apiRowCommentsTableIdCommentCommentIdDeleteResponse401;
         $this->response = $response;
     }
 
-    public function getApiRowCommentsTableIdCommentCommentIdDeleteResponse401(): \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse401
+    public function getApiRowCommentsTableIdCommentCommentIdDeleteResponse401(): \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse401
     {
         return $this->apiRowCommentsTableIdCommentCommentIdDeleteResponse401;
     }

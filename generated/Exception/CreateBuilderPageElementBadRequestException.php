@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class CreateBuilderPageElementBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdElementsPostResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdElementsPostResponse400
      */
     private $apiBuilderPagePageIdElementsPostResponse400;
     /**
@@ -21,14 +21,14 @@ class CreateBuilderPageElementBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdElementsPostResponse400 $apiBuilderPagePageIdElementsPostResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdElementsPostResponse400 $apiBuilderPagePageIdElementsPostResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiBuilderPagePageIdElementsPostResponse400 = $apiBuilderPagePageIdElementsPostResponse400;
         $this->response = $response;
     }
 
-    public function getApiBuilderPagePageIdElementsPostResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdElementsPostResponse400
+    public function getApiBuilderPagePageIdElementsPostResponse400(): \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdElementsPostResponse400
     {
         return $this->apiBuilderPagePageIdElementsPostResponse400;
     }

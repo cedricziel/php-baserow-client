@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class AuditLogUsers2 extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class AuditLogUsers2 extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
 
     /**
      * List all users that have performed an action in the audit log.
@@ -67,23 +67,23 @@ class AuditLogUsers2 extends \cedricziel\phpbaserowclient\Generated\Runtime\Clie
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerAuditLogUser|null
+     * @return \CedricZiel\Baserow\Generated\Model\PaginationSerializerAuditLogUser|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\AuditLogUsers2BadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\AuditLogUsers2UnauthorizedException
+     * @throws \CedricZiel\Baserow\Generated\Exception\AuditLogUsers2BadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\AuditLogUsers2UnauthorizedException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerAuditLogUser', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\PaginationSerializerAuditLogUser', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\AuditLogUsers2BadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiAuditLogUsersGetResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\AuditLogUsers2BadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiAuditLogUsersGetResponse400', 'json'), $response);
         }
         if (401 === $status) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\AuditLogUsers2UnauthorizedException($response);
+            throw new \CedricZiel\Baserow\Generated\Exception\AuditLogUsers2UnauthorizedException($response);
         }
     }
 

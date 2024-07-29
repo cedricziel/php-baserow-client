@@ -8,18 +8,18 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class AdminCreateUser extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class AdminCreateUser extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
 
     /**
      * Creates and returns a new user if the requesting user is staff. This works even if new signups are disabled.
      *
      * This is a **premium** feature.
      */
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\UserAdminCreate $requestBody)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\UserAdminCreate $requestBody)
     {
         $this->body = $requestBody;
     }
@@ -36,13 +36,13 @@ class AdminCreateUser extends \cedricziel\phpbaserowclient\Generated\Runtime\Cli
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\UserAdminCreate) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\UserAdminCreate) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\UserAdminCreate) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\UserAdminCreate) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\UserAdminCreate) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\UserAdminCreate) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -62,19 +62,19 @@ class AdminCreateUser extends \cedricziel\phpbaserowclient\Generated\Runtime\Cli
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\UserAdminResponse|null
+     * @return \CedricZiel\Baserow\Generated\Model\UserAdminResponse|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\AdminCreateUserBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\AdminCreateUserBadRequestException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\UserAdminResponse', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\UserAdminResponse', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\AdminCreateUserBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiAdminUsersPostResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\AdminCreateUserBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiAdminUsersPostResponse400', 'json'), $response);
         }
     }
 
