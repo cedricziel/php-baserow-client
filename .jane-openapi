@@ -2,7 +2,7 @@
 
 return [
     'openapi-file' => __DIR__ . '/openapi.json',
-    'namespace' => 'cedricziel\phpbaserowclient\Generated',
+    'namespace' => 'CedricZiel\Baserow\Generated',
     'directory' => __DIR__ . '/generated',
     'use-fixer' => true,
 ];
