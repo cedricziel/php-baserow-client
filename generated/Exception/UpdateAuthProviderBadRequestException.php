@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class UpdateAuthProviderBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuthProviderAuthProviderIdPatchResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderAuthProviderIdPatchResponse400
      */
     private $apiAdminAuthProviderAuthProviderIdPatchResponse400;
     /**
@@ -21,14 +21,14 @@ class UpdateAuthProviderBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuthProviderAuthProviderIdPatchResponse400 $apiAdminAuthProviderAuthProviderIdPatchResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderAuthProviderIdPatchResponse400 $apiAdminAuthProviderAuthProviderIdPatchResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiAdminAuthProviderAuthProviderIdPatchResponse400 = $apiAdminAuthProviderAuthProviderIdPatchResponse400;
         $this->response = $response;
     }
 
-    public function getApiAdminAuthProviderAuthProviderIdPatchResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuthProviderAuthProviderIdPatchResponse400
+    public function getApiAdminAuthProviderAuthProviderIdPatchResponse400(): \CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderAuthProviderIdPatchResponse400
     {
         return $this->apiAdminAuthProviderAuthProviderIdPatchResponse400;
     }

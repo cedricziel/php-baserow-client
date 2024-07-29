@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class ClearWorkspaceNotifications extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class ClearWorkspaceNotifications extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $workspace_id;
 
     /**
@@ -48,8 +48,8 @@ class ClearWorkspaceNotifications extends \cedricziel\phpbaserowclient\Generated
     /**
      * @return null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\ClearWorkspaceNotificationsBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\ClearWorkspaceNotificationsNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\ClearWorkspaceNotificationsBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\ClearWorkspaceNotificationsNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
@@ -59,10 +59,10 @@ class ClearWorkspaceNotifications extends \cedricziel\phpbaserowclient\Generated
             return null;
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\ClearWorkspaceNotificationsBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\ClearWorkspaceNotificationsBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\ClearWorkspaceNotificationsNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\ClearWorkspaceNotificationsNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse404', 'json'), $response);
         }
     }
 

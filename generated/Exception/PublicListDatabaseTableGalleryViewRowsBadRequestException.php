@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class PublicListDatabaseTableGalleryViewRowsBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse400
      */
     private $apiDatabaseViewsGallerySlugPublicRowsGetResponse400;
     /**
@@ -21,14 +21,14 @@ class PublicListDatabaseTableGalleryViewRowsBadRequestException extends BadReque
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse400 $apiDatabaseViewsGallerySlugPublicRowsGetResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse400 $apiDatabaseViewsGallerySlugPublicRowsGetResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiDatabaseViewsGallerySlugPublicRowsGetResponse400 = $apiDatabaseViewsGallerySlugPublicRowsGetResponse400;
         $this->response = $response;
     }
 
-    public function getApiDatabaseViewsGallerySlugPublicRowsGetResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse400
+    public function getApiDatabaseViewsGallerySlugPublicRowsGetResponse400(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse400
     {
         return $this->apiDatabaseViewsGallerySlugPublicRowsGetResponse400;
     }

@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class GenerateTableAiFieldValueBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse400
      */
     private $apiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse400;
     /**
@@ -21,14 +21,14 @@ class GenerateTableAiFieldValueBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse400 $apiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse400 $apiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse400 = $apiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse400;
         $this->response = $response;
     }
 
-    public function getApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse400
+    public function getApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse400(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse400
     {
         return $this->apiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse400;
     }

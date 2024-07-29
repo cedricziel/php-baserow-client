@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class AsyncAuditLogExport2 extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class AsyncAuditLogExport2 extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
 
     /**
      * Creates a job to export the filtered audit log to a CSV file.
@@ -24,7 +24,7 @@ class AsyncAuditLogExport2 extends \cedricziel\phpbaserowclient\Generated\Runtim
      * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
      *             }
      */
-    public function __construct(?\cedricziel\phpbaserowclient\Generated\Model\SingleAuditLogExportJobRequest $requestBody = null, array $headerParameters = [])
+    public function __construct(?\CedricZiel\Baserow\Generated\Model\SingleAuditLogExportJobRequest $requestBody = null, array $headerParameters = [])
     {
         $this->body = $requestBody;
         $this->headerParameters = $headerParameters;
@@ -42,13 +42,13 @@ class AsyncAuditLogExport2 extends \cedricziel\phpbaserowclient\Generated\Runtim
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\SingleAuditLogExportJobRequest) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\SingleAuditLogExportJobRequest) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\SingleAuditLogExportJobRequest) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\SingleAuditLogExportJobRequest) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\SingleAuditLogExportJobRequest) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\SingleAuditLogExportJobRequest) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -79,23 +79,23 @@ class AsyncAuditLogExport2 extends \cedricziel\phpbaserowclient\Generated\Runtim
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\SingleAuditLogExportJobResponse|null
+     * @return \CedricZiel\Baserow\Generated\Model\SingleAuditLogExportJobResponse|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\AsyncAuditLogExport2BadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\AsyncAuditLogExport2NotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\AsyncAuditLogExport2BadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\AsyncAuditLogExport2NotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (202 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\SingleAuditLogExportJobResponse', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\SingleAuditLogExportJobResponse', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\AsyncAuditLogExport2BadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiAuditLogExportPostResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\AsyncAuditLogExport2BadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiAuditLogExportPostResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\AsyncAuditLogExport2NotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiAuditLogExportPostResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\AsyncAuditLogExport2NotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiAuditLogExportPostResponse404', 'json'), $response);
         }
     }
 

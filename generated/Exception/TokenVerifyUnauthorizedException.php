@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class TokenVerifyUnauthorizedException extends UnauthorizedException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenVerifyPostResponse401
+     * @var \CedricZiel\Baserow\Generated\Model\ApiUserTokenVerifyPostResponse401
      */
     private $apiUserTokenVerifyPostResponse401;
     /**
@@ -21,14 +21,14 @@ class TokenVerifyUnauthorizedException extends UnauthorizedException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenVerifyPostResponse401 $apiUserTokenVerifyPostResponse401, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiUserTokenVerifyPostResponse401 $apiUserTokenVerifyPostResponse401, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Unauthorized');
         $this->apiUserTokenVerifyPostResponse401 = $apiUserTokenVerifyPostResponse401;
         $this->response = $response;
     }
 
-    public function getApiUserTokenVerifyPostResponse401(): \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenVerifyPostResponse401
+    public function getApiUserTokenVerifyPostResponse401(): \CedricZiel\Baserow\Generated\Model\ApiUserTokenVerifyPostResponse401
     {
         return $this->apiUserTokenVerifyPostResponse401;
     }

@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class DeleteGroupUserNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse404
      */
     private $apiGroupsUsersGroupUserIdDeleteResponse404;
     /**
@@ -21,14 +21,14 @@ class DeleteGroupUserNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse404 $apiGroupsUsersGroupUserIdDeleteResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse404 $apiGroupsUsersGroupUserIdDeleteResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiGroupsUsersGroupUserIdDeleteResponse404 = $apiGroupsUsersGroupUserIdDeleteResponse404;
         $this->response = $response;
     }
 
-    public function getApiGroupsUsersGroupUserIdDeleteResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse404
+    public function getApiGroupsUsersGroupUserIdDeleteResponse404(): \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse404
     {
         return $this->apiGroupsUsersGroupUserIdDeleteResponse404;
     }

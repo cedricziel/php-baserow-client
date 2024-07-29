@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class ListDatabaseTableRowNames extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class ListDatabaseTableRowNames extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
 
     /**
      * Returns the names of the given row of the given tables. The nameof a row is the primary field value for this row. The result can be usedfor example, when you want to display the name of a linked row from another table.
@@ -59,27 +59,27 @@ class ListDatabaseTableRowNames extends \cedricziel\phpbaserowclient\Generated\R
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsNamesGetResponse200|null
+     * @return \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse200|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\ListDatabaseTableRowNamesBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\ListDatabaseTableRowNamesUnauthorizedException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\ListDatabaseTableRowNamesNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\ListDatabaseTableRowNamesBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\ListDatabaseTableRowNamesUnauthorizedException
+     * @throws \CedricZiel\Baserow\Generated\Exception\ListDatabaseTableRowNamesNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsNamesGetResponse200', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse200', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\ListDatabaseTableRowNamesBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsNamesGetResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\ListDatabaseTableRowNamesBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (401 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\ListDatabaseTableRowNamesUnauthorizedException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsNamesGetResponse401', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\ListDatabaseTableRowNamesUnauthorizedException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse401', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\ListDatabaseTableRowNamesNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsNamesGetResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\ListDatabaseTableRowNamesNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse404', 'json'), $response);
         }
     }
 

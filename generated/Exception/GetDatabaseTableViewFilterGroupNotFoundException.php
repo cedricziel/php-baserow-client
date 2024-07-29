@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class GetDatabaseTableViewFilterGroupNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse404
      */
     private $apiDatabaseViewsFilterGroupFilterGroupIdGetResponse404;
     /**
@@ -21,14 +21,14 @@ class GetDatabaseTableViewFilterGroupNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse404 $apiDatabaseViewsFilterGroupFilterGroupIdGetResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse404 $apiDatabaseViewsFilterGroupFilterGroupIdGetResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiDatabaseViewsFilterGroupFilterGroupIdGetResponse404 = $apiDatabaseViewsFilterGroupFilterGroupIdGetResponse404;
         $this->response = $response;
     }
 
-    public function getApiDatabaseViewsFilterGroupFilterGroupIdGetResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse404
+    public function getApiDatabaseViewsFilterGroupFilterGroupIdGetResponse404(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse404
     {
         return $this->apiDatabaseViewsFilterGroupFilterGroupIdGetResponse404;
     }

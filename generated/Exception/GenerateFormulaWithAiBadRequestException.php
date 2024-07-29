@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class GenerateFormulaWithAiBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse400
      */
     private $apiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse400;
     /**
@@ -21,14 +21,14 @@ class GenerateFormulaWithAiBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse400 $apiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse400 $apiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse400 = $apiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse400;
         $this->response = $response;
     }
 
-    public function getApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse400
+    public function getApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse400(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse400
     {
         return $this->apiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse400;
     }

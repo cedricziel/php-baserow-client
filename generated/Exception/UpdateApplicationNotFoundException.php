@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class UpdateApplicationNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdPatchResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdPatchResponse404
      */
     private $apiApplicationsApplicationIdPatchResponse404;
     /**
@@ -21,14 +21,14 @@ class UpdateApplicationNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdPatchResponse404 $apiApplicationsApplicationIdPatchResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdPatchResponse404 $apiApplicationsApplicationIdPatchResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiApplicationsApplicationIdPatchResponse404 = $apiApplicationsApplicationIdPatchResponse404;
         $this->response = $response;
     }
 
-    public function getApiApplicationsApplicationIdPatchResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdPatchResponse404
+    public function getApiApplicationsApplicationIdPatchResponse404(): \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdPatchResponse404
     {
         return $this->apiApplicationsApplicationIdPatchResponse404;
     }

@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class CreateDatabaseTableField extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class CreateDatabaseTableField extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $table_id;
 
     /**
@@ -85,9 +85,9 @@ class CreateDatabaseTableField extends \cedricziel\phpbaserowclient\Generated\Ru
     /**
      * @return null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\CreateDatabaseTableFieldBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\CreateDatabaseTableFieldUnauthorizedException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\CreateDatabaseTableFieldNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\CreateDatabaseTableFieldBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\CreateDatabaseTableFieldUnauthorizedException
+     * @throws \CedricZiel\Baserow\Generated\Exception\CreateDatabaseTableFieldNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
@@ -97,13 +97,13 @@ class CreateDatabaseTableField extends \cedricziel\phpbaserowclient\Generated\Ru
             return json_decode($body);
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\CreateDatabaseTableFieldBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdPostResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\CreateDatabaseTableFieldBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdPostResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (401 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\CreateDatabaseTableFieldUnauthorizedException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdPostResponse401', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\CreateDatabaseTableFieldUnauthorizedException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdPostResponse401', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\CreateDatabaseTableFieldNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdPostResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\CreateDatabaseTableFieldNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdPostResponse404', 'json'), $response);
         }
     }
 

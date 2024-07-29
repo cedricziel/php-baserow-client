@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class InstallTemplateAsyncBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse400
      */
     private $apiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse400;
     /**
@@ -21,14 +21,14 @@ class InstallTemplateAsyncBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse400 $apiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse400 $apiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse400 = $apiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse400;
         $this->response = $response;
     }
 
-    public function getApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse400
+    public function getApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse400(): \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse400
     {
         return $this->apiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse400;
     }

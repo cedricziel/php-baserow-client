@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class DeleteDatabaseTableViewSortNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSortViewSortIdDeleteResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdDeleteResponse404
      */
     private $apiDatabaseViewsSortViewSortIdDeleteResponse404;
     /**
@@ -21,14 +21,14 @@ class DeleteDatabaseTableViewSortNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSortViewSortIdDeleteResponse404 $apiDatabaseViewsSortViewSortIdDeleteResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdDeleteResponse404 $apiDatabaseViewsSortViewSortIdDeleteResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiDatabaseViewsSortViewSortIdDeleteResponse404 = $apiDatabaseViewsSortViewSortIdDeleteResponse404;
         $this->response = $response;
     }
 
-    public function getApiDatabaseViewsSortViewSortIdDeleteResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSortViewSortIdDeleteResponse404
+    public function getApiDatabaseViewsSortViewSortIdDeleteResponse404(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdDeleteResponse404
     {
         return $this->apiDatabaseViewsSortViewSortIdDeleteResponse404;
     }

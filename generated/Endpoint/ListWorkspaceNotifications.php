@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class ListWorkspaceNotifications extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class ListWorkspaceNotifications extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $workspace_id;
 
     /**
@@ -64,23 +64,23 @@ class ListWorkspaceNotifications extends \cedricziel\phpbaserowclient\Generated\
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerNotificationRecipient|null
+     * @return \CedricZiel\Baserow\Generated\Model\PaginationSerializerNotificationRecipient|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\ListWorkspaceNotificationsBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\ListWorkspaceNotificationsNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\ListWorkspaceNotificationsBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\ListWorkspaceNotificationsNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerNotificationRecipient', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\PaginationSerializerNotificationRecipient', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\ListWorkspaceNotificationsBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdGetResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\ListWorkspaceNotificationsBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdGetResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\ListWorkspaceNotificationsNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdGetResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\ListWorkspaceNotificationsNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdGetResponse404', 'json'), $response);
         }
     }
 

@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class ListRoleAssignmentsBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiRoleWorkspaceIdGetResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdGetResponse400
      */
     private $apiRoleWorkspaceIdGetResponse400;
     /**
@@ -21,14 +21,14 @@ class ListRoleAssignmentsBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiRoleWorkspaceIdGetResponse400 $apiRoleWorkspaceIdGetResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdGetResponse400 $apiRoleWorkspaceIdGetResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiRoleWorkspaceIdGetResponse400 = $apiRoleWorkspaceIdGetResponse400;
         $this->response = $response;
     }
 
-    public function getApiRoleWorkspaceIdGetResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiRoleWorkspaceIdGetResponse400
+    public function getApiRoleWorkspaceIdGetResponse400(): \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdGetResponse400
     {
         return $this->apiRoleWorkspaceIdGetResponse400;
     }

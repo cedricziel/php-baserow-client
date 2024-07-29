@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class TokenRefreshUnauthorizedException extends UnauthorizedException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenRefreshPostResponse401
+     * @var \CedricZiel\Baserow\Generated\Model\ApiUserTokenRefreshPostResponse401
      */
     private $apiUserTokenRefreshPostResponse401;
     /**
@@ -21,14 +21,14 @@ class TokenRefreshUnauthorizedException extends UnauthorizedException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenRefreshPostResponse401 $apiUserTokenRefreshPostResponse401, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiUserTokenRefreshPostResponse401 $apiUserTokenRefreshPostResponse401, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Unauthorized');
         $this->apiUserTokenRefreshPostResponse401 = $apiUserTokenRefreshPostResponse401;
         $this->response = $response;
     }
 
-    public function getApiUserTokenRefreshPostResponse401(): \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenRefreshPostResponse401
+    public function getApiUserTokenRefreshPostResponse401(): \CedricZiel\Baserow\Generated\Model\ApiUserTokenRefreshPostResponse401
     {
         return $this->apiUserTokenRefreshPostResponse401;
     }

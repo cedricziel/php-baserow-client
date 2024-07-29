@@ -8,16 +8,16 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class AdminRegisterLicense extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class AdminRegisterLicense extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
 
     /**
      * Registers a new license. After registering you can assign users to the license that will be able to use the license's features while the license is active. If an existing license with the same `license_id` already exists and the provided license has been issued later than that one, the existing one will be upgraded.
      */
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\RegisterLicense $requestBody)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\RegisterLicense $requestBody)
     {
         $this->body = $requestBody;
     }
@@ -34,13 +34,13 @@ class AdminRegisterLicense extends \cedricziel\phpbaserowclient\Generated\Runtim
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\RegisterLicense) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\RegisterLicense) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\RegisterLicense) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\RegisterLicense) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\RegisterLicense) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\RegisterLicense) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -60,19 +60,19 @@ class AdminRegisterLicense extends \cedricziel\phpbaserowclient\Generated\Runtim
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\License|null
+     * @return \CedricZiel\Baserow\Generated\Model\License|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\AdminRegisterLicenseBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\AdminRegisterLicenseBadRequestException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\License', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\License', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\AdminRegisterLicenseBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiLicensesPostResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\AdminRegisterLicenseBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiLicensesPostResponse400', 'json'), $response);
         }
     }
 

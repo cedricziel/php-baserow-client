@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class UserSourceTokenAuth extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class UserSourceTokenAuth extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $user_source_id;
 
     /**
@@ -20,7 +20,7 @@ class UserSourceTokenAuth extends \cedricziel\phpbaserowclient\Generated\Runtime
      *
      * @param int $userSourceId The id of the user_source to move
      */
-    public function __construct(int $userSourceId, \cedricziel\phpbaserowclient\Generated\Model\TokenObtainPair $requestBody)
+    public function __construct(int $userSourceId, \CedricZiel\Baserow\Generated\Model\TokenObtainPair $requestBody)
     {
         $this->user_source_id = $userSourceId;
         $this->body = $requestBody;
@@ -38,13 +38,13 @@ class UserSourceTokenAuth extends \cedricziel\phpbaserowclient\Generated\Runtime
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\TokenObtainPair) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\TokenObtainPair) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\TokenObtainPair) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\TokenObtainPair) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\TokenObtainPair) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\TokenObtainPair) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -64,19 +64,19 @@ class UserSourceTokenAuth extends \cedricziel\phpbaserowclient\Generated\Runtime
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdTokenAuthPostResponse200|null
+     * @return \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdTokenAuthPostResponse200|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\UserSourceTokenAuthUnauthorizedException
+     * @throws \CedricZiel\Baserow\Generated\Exception\UserSourceTokenAuthUnauthorizedException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdTokenAuthPostResponse200', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdTokenAuthPostResponse200', 'json');
         }
         if (false === is_null($contentType) && (401 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\UserSourceTokenAuthUnauthorizedException($response);
+            throw new \CedricZiel\Baserow\Generated\Exception\UserSourceTokenAuthUnauthorizedException($response);
         }
     }
 

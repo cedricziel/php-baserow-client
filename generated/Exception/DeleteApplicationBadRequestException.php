@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class DeleteApplicationBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdDeleteResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdDeleteResponse400
      */
     private $apiApplicationsApplicationIdDeleteResponse400;
     /**
@@ -21,14 +21,14 @@ class DeleteApplicationBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdDeleteResponse400 $apiApplicationsApplicationIdDeleteResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdDeleteResponse400 $apiApplicationsApplicationIdDeleteResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiApplicationsApplicationIdDeleteResponse400 = $apiApplicationsApplicationIdDeleteResponse400;
         $this->response = $response;
     }
 
-    public function getApiApplicationsApplicationIdDeleteResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdDeleteResponse400
+    public function getApiApplicationsApplicationIdDeleteResponse400(): \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdDeleteResponse400
     {
         return $this->apiApplicationsApplicationIdDeleteResponse400;
     }

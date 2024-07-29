@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class CreateDatabaseTableWebhookBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksTableTableIdPostResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdPostResponse400
      */
     private $apiDatabaseWebhooksTableTableIdPostResponse400;
     /**
@@ -21,14 +21,14 @@ class CreateDatabaseTableWebhookBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksTableTableIdPostResponse400 $apiDatabaseWebhooksTableTableIdPostResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdPostResponse400 $apiDatabaseWebhooksTableTableIdPostResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiDatabaseWebhooksTableTableIdPostResponse400 = $apiDatabaseWebhooksTableTableIdPostResponse400;
         $this->response = $response;
     }
 
-    public function getApiDatabaseWebhooksTableTableIdPostResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksTableTableIdPostResponse400
+    public function getApiDatabaseWebhooksTableTableIdPostResponse400(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdPostResponse400
     {
         return $this->apiDatabaseWebhooksTableTableIdPostResponse400;
     }

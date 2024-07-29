@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class ListApplicationIntegrationsNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdIntegrationsGetResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdIntegrationsGetResponse404
      */
     private $apiApplicationApplicationIdIntegrationsGetResponse404;
     /**
@@ -21,14 +21,14 @@ class ListApplicationIntegrationsNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdIntegrationsGetResponse404 $apiApplicationApplicationIdIntegrationsGetResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdIntegrationsGetResponse404 $apiApplicationApplicationIdIntegrationsGetResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiApplicationApplicationIdIntegrationsGetResponse404 = $apiApplicationApplicationIdIntegrationsGetResponse404;
         $this->response = $response;
     }
 
-    public function getApiApplicationApplicationIdIntegrationsGetResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdIntegrationsGetResponse404
+    public function getApiApplicationApplicationIdIntegrationsGetResponse404(): \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdIntegrationsGetResponse404
     {
         return $this->apiApplicationApplicationIdIntegrationsGetResponse404;
     }

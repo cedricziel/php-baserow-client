@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class UpdateDatabaseTableViewDecoration extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class UpdateDatabaseTableViewDecoration extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $view_decoration_id;
 
     /**
@@ -85,8 +85,8 @@ class UpdateDatabaseTableViewDecoration extends \cedricziel\phpbaserowclient\Gen
     /**
      * @return null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\UpdateDatabaseTableViewDecorationBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\UpdateDatabaseTableViewDecorationNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\UpdateDatabaseTableViewDecorationBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\UpdateDatabaseTableViewDecorationNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
@@ -96,10 +96,10 @@ class UpdateDatabaseTableViewDecoration extends \cedricziel\phpbaserowclient\Gen
             return json_decode($body);
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\UpdateDatabaseTableViewDecorationBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdPatchResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\UpdateDatabaseTableViewDecorationBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdPatchResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\UpdateDatabaseTableViewDecorationNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdPatchResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\UpdateDatabaseTableViewDecorationNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdPatchResponse404', 'json'), $response);
         }
     }
 

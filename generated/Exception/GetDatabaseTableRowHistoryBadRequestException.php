@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class GetDatabaseTableRowHistoryBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdHistoryGetResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdHistoryGetResponse400
      */
     private $apiDatabaseRowsTableTableIdRowIdHistoryGetResponse400;
     /**
@@ -21,14 +21,14 @@ class GetDatabaseTableRowHistoryBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdHistoryGetResponse400 $apiDatabaseRowsTableTableIdRowIdHistoryGetResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdHistoryGetResponse400 $apiDatabaseRowsTableTableIdRowIdHistoryGetResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiDatabaseRowsTableTableIdRowIdHistoryGetResponse400 = $apiDatabaseRowsTableTableIdRowIdHistoryGetResponse400;
         $this->response = $response;
     }
 
-    public function getApiDatabaseRowsTableTableIdRowIdHistoryGetResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdHistoryGetResponse400
+    public function getApiDatabaseRowsTableTableIdRowIdHistoryGetResponse400(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdHistoryGetResponse400
     {
         return $this->apiDatabaseRowsTableTableIdRowIdHistoryGetResponse400;
     }

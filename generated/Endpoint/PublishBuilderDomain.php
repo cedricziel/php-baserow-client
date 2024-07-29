@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class PublishBuilderDomain extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class PublishBuilderDomain extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $domain_id;
 
     /**
@@ -64,8 +64,8 @@ class PublishBuilderDomain extends \cedricziel\phpbaserowclient\Generated\Runtim
     /**
      * @return null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\PublishBuilderDomainBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\PublishBuilderDomainNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\PublishBuilderDomainBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\PublishBuilderDomainNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
@@ -75,10 +75,10 @@ class PublishBuilderDomain extends \cedricziel\phpbaserowclient\Generated\Runtim
             return null;
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\PublishBuilderDomainBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsDomainIdPublishAsyncPostResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\PublishBuilderDomainBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdPublishAsyncPostResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\PublishBuilderDomainNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsDomainIdPublishAsyncPostResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\PublishBuilderDomainNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdPublishAsyncPostResponse404', 'json'), $response);
         }
     }
 

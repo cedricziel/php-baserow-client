@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class ListDatabaseTableViewSortings extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class ListDatabaseTableViewSortings extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $view_id;
 
     /**
@@ -46,23 +46,23 @@ class ListDatabaseTableViewSortings extends \cedricziel\phpbaserowclient\Generat
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\ViewSort[]|null
+     * @return \CedricZiel\Baserow\Generated\Model\ViewSort[]|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\ListDatabaseTableViewSortingsBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\ListDatabaseTableViewSortingsNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\ListDatabaseTableViewSortingsBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\ListDatabaseTableViewSortingsNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ViewSort[]', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ViewSort[]', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\ListDatabaseTableViewSortingsBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdSortingsGetResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\ListDatabaseTableViewSortingsBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdSortingsGetResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\ListDatabaseTableViewSortingsNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdSortingsGetResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\ListDatabaseTableViewSortingsNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdSortingsGetResponse404', 'json'), $response);
         }
     }
 

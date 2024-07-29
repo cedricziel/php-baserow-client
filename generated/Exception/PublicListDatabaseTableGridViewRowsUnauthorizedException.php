@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class PublicListDatabaseTableGridViewRowsUnauthorizedException extends UnauthorizedException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse401
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse401
      */
     private $apiDatabaseViewsGridSlugPublicRowsGetResponse401;
     /**
@@ -21,14 +21,14 @@ class PublicListDatabaseTableGridViewRowsUnauthorizedException extends Unauthori
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse401 $apiDatabaseViewsGridSlugPublicRowsGetResponse401, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse401 $apiDatabaseViewsGridSlugPublicRowsGetResponse401, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Unauthorized');
         $this->apiDatabaseViewsGridSlugPublicRowsGetResponse401 = $apiDatabaseViewsGridSlugPublicRowsGetResponse401;
         $this->response = $response;
     }
 
-    public function getApiDatabaseViewsGridSlugPublicRowsGetResponse401(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse401
+    public function getApiDatabaseViewsGridSlugPublicRowsGetResponse401(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse401
     {
         return $this->apiDatabaseViewsGridSlugPublicRowsGetResponse401;
     }

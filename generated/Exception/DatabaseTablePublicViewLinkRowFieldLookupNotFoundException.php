@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class DatabaseTablePublicViewLinkRowFieldLookupNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse404
      */
     private $apiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse404;
     /**
@@ -21,14 +21,14 @@ class DatabaseTablePublicViewLinkRowFieldLookupNotFoundException extends NotFoun
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse404 $apiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse404 $apiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse404 = $apiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse404;
         $this->response = $response;
     }
 
-    public function getApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse404
+    public function getApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse404(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse404
     {
         return $this->apiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse404;
     }

@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class PublicListDatabaseTableGridViewRowsNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse404
      */
     private $apiDatabaseViewsGridSlugPublicRowsGetResponse404;
     /**
@@ -21,14 +21,14 @@ class PublicListDatabaseTableGridViewRowsNotFoundException extends NotFoundExcep
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse404 $apiDatabaseViewsGridSlugPublicRowsGetResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse404 $apiDatabaseViewsGridSlugPublicRowsGetResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiDatabaseViewsGridSlugPublicRowsGetResponse404 = $apiDatabaseViewsGridSlugPublicRowsGetResponse404;
         $this->response = $response;
     }
 
-    public function getApiDatabaseViewsGridSlugPublicRowsGetResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse404
+    public function getApiDatabaseViewsGridSlugPublicRowsGetResponse404(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse404
     {
         return $this->apiDatabaseViewsGridSlugPublicRowsGetResponse404;
     }

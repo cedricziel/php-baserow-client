@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class DeleteApplicationNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdDeleteResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdDeleteResponse404
      */
     private $apiApplicationsApplicationIdDeleteResponse404;
     /**
@@ -21,14 +21,14 @@ class DeleteApplicationNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdDeleteResponse404 $apiApplicationsApplicationIdDeleteResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdDeleteResponse404 $apiApplicationsApplicationIdDeleteResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiApplicationsApplicationIdDeleteResponse404 = $apiApplicationsApplicationIdDeleteResponse404;
         $this->response = $response;
     }
 
-    public function getApiApplicationsApplicationIdDeleteResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdDeleteResponse404
+    public function getApiApplicationsApplicationIdDeleteResponse404(): \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdDeleteResponse404
     {
         return $this->apiApplicationsApplicationIdDeleteResponse404;
     }

@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class Undo extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class Undo extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
 
     /**
      * undoes the latest undoable action performed by the user making the request. a ClientSessionId header must be provided and only actions which were performed the same user with the same ClientSessionId value set on the api request that performed the action will be undone.Additionally the ClientSessionId header must be between 1 and 256 characters long and must only contain alphanumeric or the - characters.
@@ -22,7 +22,7 @@ class Undo extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEnd
      * @var string $ClientSessionId The particular client session to undo actions for. The actions must have been performed with this same header set with the same value for them to be undoable by this endpoint.
      *             }
      */
-    public function __construct(?\cedricziel\phpbaserowclient\Generated\Model\PatchedUndoRedoRequest $requestBody = null, array $headerParameters = [])
+    public function __construct(?\CedricZiel\Baserow\Generated\Model\PatchedUndoRedoRequest $requestBody = null, array $headerParameters = [])
     {
         $this->body = $requestBody;
         $this->headerParameters = $headerParameters;
@@ -40,13 +40,13 @@ class Undo extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEnd
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\PatchedUndoRedoRequest) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedUndoRedoRequest) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\PatchedUndoRedoRequest) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedUndoRedoRequest) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\PatchedUndoRedoRequest) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedUndoRedoRequest) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -77,14 +77,14 @@ class Undo extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEnd
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\UndoRedoResponse|null
+     * @return \CedricZiel\Baserow\Generated\Model\UndoRedoResponse|null
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\UndoRedoResponse', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\UndoRedoResponse', 'json');
         }
     }
 

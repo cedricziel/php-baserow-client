@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class PublicListDatabaseTableKanbanViewRows extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class PublicListDatabaseTableKanbanViewRows extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $slug;
 
     /**
@@ -89,27 +89,27 @@ class PublicListDatabaseTableKanbanViewRows extends \cedricziel\phpbaserowclient
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\KanbanViewExampleResponse|null
+     * @return \CedricZiel\Baserow\Generated\Model\KanbanViewExampleResponse|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\PublicListDatabaseTableKanbanViewRowsUnauthorizedException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\PublicListDatabaseTableKanbanViewRowsBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\PublicListDatabaseTableKanbanViewRowsNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\PublicListDatabaseTableKanbanViewRowsUnauthorizedException
+     * @throws \CedricZiel\Baserow\Generated\Exception\PublicListDatabaseTableKanbanViewRowsBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\PublicListDatabaseTableKanbanViewRowsNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\KanbanViewExampleResponse', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\KanbanViewExampleResponse', 'json');
         }
         if (false === is_null($contentType) && (401 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\PublicListDatabaseTableKanbanViewRowsUnauthorizedException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse401', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\PublicListDatabaseTableKanbanViewRowsUnauthorizedException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse401', 'json'), $response);
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\PublicListDatabaseTableKanbanViewRowsBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\PublicListDatabaseTableKanbanViewRowsBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\PublicListDatabaseTableKanbanViewRowsNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\PublicListDatabaseTableKanbanViewRowsNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse404', 'json'), $response);
         }
     }
 

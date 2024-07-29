@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class CreateDatabaseTableViewSortNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdSortingsPostResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdSortingsPostResponse404
      */
     private $apiDatabaseViewsViewIdSortingsPostResponse404;
     /**
@@ -21,14 +21,14 @@ class CreateDatabaseTableViewSortNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdSortingsPostResponse404 $apiDatabaseViewsViewIdSortingsPostResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdSortingsPostResponse404 $apiDatabaseViewsViewIdSortingsPostResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiDatabaseViewsViewIdSortingsPostResponse404 = $apiDatabaseViewsViewIdSortingsPostResponse404;
         $this->response = $response;
     }
 
-    public function getApiDatabaseViewsViewIdSortingsPostResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdSortingsPostResponse404
+    public function getApiDatabaseViewsViewIdSortingsPostResponse404(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdSortingsPostResponse404
     {
         return $this->apiDatabaseViewsViewIdSortingsPostResponse404;
     }

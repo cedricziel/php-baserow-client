@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class GroupListTeams extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class GroupListTeams extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $group_id;
 
     /**
@@ -68,19 +68,19 @@ class GroupListTeams extends \cedricziel\phpbaserowclient\Generated\Runtime\Clie
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\TeamResponse[]|null
+     * @return \CedricZiel\Baserow\Generated\Model\TeamResponse[]|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\GroupListTeamsNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\GroupListTeamsNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\TeamResponse[]', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\TeamResponse[]', 'json');
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\GroupListTeamsNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiTeamsGroupGroupIdGetResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\GroupListTeamsNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiTeamsGroupGroupIdGetResponse404', 'json'), $response);
         }
     }
 

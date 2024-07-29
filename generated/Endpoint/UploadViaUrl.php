@@ -8,16 +8,16 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class UploadViaUrl extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class UploadViaUrl extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
 
     /**
      * Uploads a file to Baserow by downloading it from the provided URL.
      */
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\UserFileUploadViaURLRequest $requestBody)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\UserFileUploadViaURLRequest $requestBody)
     {
         $this->body = $requestBody;
     }
@@ -34,13 +34,13 @@ class UploadViaUrl extends \cedricziel\phpbaserowclient\Generated\Runtime\Client
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\UserFileUploadViaURLRequest) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\UserFileUploadViaURLRequest) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\UserFileUploadViaURLRequest) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\UserFileUploadViaURLRequest) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\UserFileUploadViaURLRequest) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\UserFileUploadViaURLRequest) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -60,19 +60,19 @@ class UploadViaUrl extends \cedricziel\phpbaserowclient\Generated\Runtime\Client
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\UserFile|null
+     * @return \CedricZiel\Baserow\Generated\Model\UserFile|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\UploadViaUrlBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\UploadViaUrlBadRequestException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\UserFile', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\UserFile', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\UploadViaUrlBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiUserFilesUploadViaUrlPostResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\UploadViaUrlBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiUserFilesUploadViaUrlPostResponse400', 'json'), $response);
         }
     }
 

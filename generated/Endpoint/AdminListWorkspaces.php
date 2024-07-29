@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class AdminListWorkspaces extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class AdminListWorkspaces extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
 
     /**
      * Returns all workspaces with detailed information on each workspace, if the requesting user is staff.
@@ -67,23 +67,23 @@ class AdminListWorkspaces extends \cedricziel\phpbaserowclient\Generated\Runtime
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerWorkspacesAdminResponse|null
+     * @return \CedricZiel\Baserow\Generated\Model\PaginationSerializerWorkspacesAdminResponse|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\AdminListWorkspacesBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\AdminListWorkspacesUnauthorizedException
+     * @throws \CedricZiel\Baserow\Generated\Exception\AdminListWorkspacesBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\AdminListWorkspacesUnauthorizedException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerWorkspacesAdminResponse', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\PaginationSerializerWorkspacesAdminResponse', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\AdminListWorkspacesBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiAdminWorkspacesGetResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\AdminListWorkspacesBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiAdminWorkspacesGetResponse400', 'json'), $response);
         }
         if (401 === $status) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\AdminListWorkspacesUnauthorizedException($response);
+            throw new \CedricZiel\Baserow\Generated\Exception\AdminListWorkspacesUnauthorizedException($response);
         }
     }
 

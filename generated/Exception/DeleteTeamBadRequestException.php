@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class DeleteTeamBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdDeleteResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdDeleteResponse400
      */
     private $apiTeamsTeamIdDeleteResponse400;
     /**
@@ -21,14 +21,14 @@ class DeleteTeamBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdDeleteResponse400 $apiTeamsTeamIdDeleteResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdDeleteResponse400 $apiTeamsTeamIdDeleteResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiTeamsTeamIdDeleteResponse400 = $apiTeamsTeamIdDeleteResponse400;
         $this->response = $response;
     }
 
-    public function getApiTeamsTeamIdDeleteResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdDeleteResponse400
+    public function getApiTeamsTeamIdDeleteResponse400(): \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdDeleteResponse400
     {
         return $this->apiTeamsTeamIdDeleteResponse400;
     }

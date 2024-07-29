@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class AdminRemoveAllUsersFromLicenseBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdRemoveAllUsersPostResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiLicensesIdRemoveAllUsersPostResponse400
      */
     private $apiLicensesIdRemoveAllUsersPostResponse400;
     /**
@@ -21,14 +21,14 @@ class AdminRemoveAllUsersFromLicenseBadRequestException extends BadRequestExcept
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdRemoveAllUsersPostResponse400 $apiLicensesIdRemoveAllUsersPostResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiLicensesIdRemoveAllUsersPostResponse400 $apiLicensesIdRemoveAllUsersPostResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiLicensesIdRemoveAllUsersPostResponse400 = $apiLicensesIdRemoveAllUsersPostResponse400;
         $this->response = $response;
     }
 
-    public function getApiLicensesIdRemoveAllUsersPostResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdRemoveAllUsersPostResponse400
+    public function getApiLicensesIdRemoveAllUsersPostResponse400(): \CedricZiel\Baserow\Generated\Model\ApiLicensesIdRemoveAllUsersPostResponse400
     {
         return $this->apiLicensesIdRemoveAllUsersPostResponse400;
     }

@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class UpdateDatabaseTableViewFieldOptions extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class UpdateDatabaseTableViewFieldOptions extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $view_id;
 
     /**
@@ -85,8 +85,8 @@ class UpdateDatabaseTableViewFieldOptions extends \cedricziel\phpbaserowclient\G
     /**
      * @return null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\UpdateDatabaseTableViewFieldOptionsBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\UpdateDatabaseTableViewFieldOptionsNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\UpdateDatabaseTableViewFieldOptionsBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\UpdateDatabaseTableViewFieldOptionsNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
@@ -96,10 +96,10 @@ class UpdateDatabaseTableViewFieldOptions extends \cedricziel\phpbaserowclient\G
             return json_decode($body);
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\UpdateDatabaseTableViewFieldOptionsBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsPatchResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\UpdateDatabaseTableViewFieldOptionsBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsPatchResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\UpdateDatabaseTableViewFieldOptionsNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsPatchResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\UpdateDatabaseTableViewFieldOptionsNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsPatchResponse404', 'json'), $response);
         }
     }
 

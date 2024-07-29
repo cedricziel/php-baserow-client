@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class GetSubjectNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdSubjectsSubjectIdGetResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsSubjectIdGetResponse404
      */
     private $apiTeamsTeamIdSubjectsSubjectIdGetResponse404;
     /**
@@ -21,14 +21,14 @@ class GetSubjectNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdSubjectsSubjectIdGetResponse404 $apiTeamsTeamIdSubjectsSubjectIdGetResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsSubjectIdGetResponse404 $apiTeamsTeamIdSubjectsSubjectIdGetResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiTeamsTeamIdSubjectsSubjectIdGetResponse404 = $apiTeamsTeamIdSubjectsSubjectIdGetResponse404;
         $this->response = $response;
     }
 
-    public function getApiTeamsTeamIdSubjectsSubjectIdGetResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdSubjectsSubjectIdGetResponse404
+    public function getApiTeamsTeamIdSubjectsSubjectIdGetResponse404(): \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsSubjectIdGetResponse404
     {
         return $this->apiTeamsTeamIdSubjectsSubjectIdGetResponse404;
     }

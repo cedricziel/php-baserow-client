@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class GroupListApplicationsBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGroupGroupIdGetResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdGetResponse400
      */
     private $apiApplicationsGroupGroupIdGetResponse400;
     /**
@@ -21,14 +21,14 @@ class GroupListApplicationsBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGroupGroupIdGetResponse400 $apiApplicationsGroupGroupIdGetResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdGetResponse400 $apiApplicationsGroupGroupIdGetResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiApplicationsGroupGroupIdGetResponse400 = $apiApplicationsGroupGroupIdGetResponse400;
         $this->response = $response;
     }
 
-    public function getApiApplicationsGroupGroupIdGetResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGroupGroupIdGetResponse400
+    public function getApiApplicationsGroupGroupIdGetResponse400(): \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdGetResponse400
     {
         return $this->apiApplicationsGroupGroupIdGetResponse400;
     }

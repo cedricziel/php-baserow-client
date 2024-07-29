@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class MoveBuilderPageElement extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class MoveBuilderPageElement extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $element_id;
 
     /**
@@ -24,7 +24,7 @@ class MoveBuilderPageElement extends \cedricziel\phpbaserowclient\Generated\Runt
      * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
      *             }
      */
-    public function __construct(int $elementId, ?\cedricziel\phpbaserowclient\Generated\Model\PatchedMoveElement $requestBody = null, array $headerParameters = [])
+    public function __construct(int $elementId, ?\CedricZiel\Baserow\Generated\Model\PatchedMoveElement $requestBody = null, array $headerParameters = [])
     {
         $this->element_id = $elementId;
         $this->body = $requestBody;
@@ -43,13 +43,13 @@ class MoveBuilderPageElement extends \cedricziel\phpbaserowclient\Generated\Runt
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\PatchedMoveElement) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedMoveElement) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\PatchedMoveElement) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedMoveElement) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\PatchedMoveElement) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedMoveElement) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -82,8 +82,8 @@ class MoveBuilderPageElement extends \cedricziel\phpbaserowclient\Generated\Runt
     /**
      * @return null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\MoveBuilderPageElementBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\MoveBuilderPageElementNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\MoveBuilderPageElementBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\MoveBuilderPageElementNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
@@ -93,10 +93,10 @@ class MoveBuilderPageElement extends \cedricziel\phpbaserowclient\Generated\Runt
             return json_decode($body);
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\MoveBuilderPageElementBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdMovePatchResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\MoveBuilderPageElementBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdMovePatchResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\MoveBuilderPageElementNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdMovePatchResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\MoveBuilderPageElementNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdMovePatchResponse404', 'json'), $response);
         }
     }
 

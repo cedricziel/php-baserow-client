@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class DeleteWorkspaceUserNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdDeleteResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdDeleteResponse404
      */
     private $apiWorkspacesUsersWorkspaceUserIdDeleteResponse404;
     /**
@@ -21,14 +21,14 @@ class DeleteWorkspaceUserNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdDeleteResponse404 $apiWorkspacesUsersWorkspaceUserIdDeleteResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdDeleteResponse404 $apiWorkspacesUsersWorkspaceUserIdDeleteResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiWorkspacesUsersWorkspaceUserIdDeleteResponse404 = $apiWorkspacesUsersWorkspaceUserIdDeleteResponse404;
         $this->response = $response;
     }
 
-    public function getApiWorkspacesUsersWorkspaceUserIdDeleteResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdDeleteResponse404
+    public function getApiWorkspacesUsersWorkspaceUserIdDeleteResponse404(): \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdDeleteResponse404
     {
         return $this->apiWorkspacesUsersWorkspaceUserIdDeleteResponse404;
     }

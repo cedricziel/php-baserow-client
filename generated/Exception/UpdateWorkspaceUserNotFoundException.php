@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class UpdateWorkspaceUserNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdPatchResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdPatchResponse404
      */
     private $apiWorkspacesUsersWorkspaceUserIdPatchResponse404;
     /**
@@ -21,14 +21,14 @@ class UpdateWorkspaceUserNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdPatchResponse404 $apiWorkspacesUsersWorkspaceUserIdPatchResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdPatchResponse404 $apiWorkspacesUsersWorkspaceUserIdPatchResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiWorkspacesUsersWorkspaceUserIdPatchResponse404 = $apiWorkspacesUsersWorkspaceUserIdPatchResponse404;
         $this->response = $response;
     }
 
-    public function getApiWorkspacesUsersWorkspaceUserIdPatchResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdPatchResponse404
+    public function getApiWorkspacesUsersWorkspaceUserIdPatchResponse404(): \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdPatchResponse404
     {
         return $this->apiWorkspacesUsersWorkspaceUserIdPatchResponse404;
     }

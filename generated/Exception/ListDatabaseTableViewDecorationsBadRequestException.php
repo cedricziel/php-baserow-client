@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class ListDatabaseTableViewDecorationsBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdDecorationsGetResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDecorationsGetResponse400
      */
     private $apiDatabaseViewsViewIdDecorationsGetResponse400;
     /**
@@ -21,14 +21,14 @@ class ListDatabaseTableViewDecorationsBadRequestException extends BadRequestExce
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdDecorationsGetResponse400 $apiDatabaseViewsViewIdDecorationsGetResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDecorationsGetResponse400 $apiDatabaseViewsViewIdDecorationsGetResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiDatabaseViewsViewIdDecorationsGetResponse400 = $apiDatabaseViewsViewIdDecorationsGetResponse400;
         $this->response = $response;
     }
 
-    public function getApiDatabaseViewsViewIdDecorationsGetResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdDecorationsGetResponse400
+    public function getApiDatabaseViewsViewIdDecorationsGetResponse400(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDecorationsGetResponse400
     {
         return $this->apiDatabaseViewsViewIdDecorationsGetResponse400;
     }

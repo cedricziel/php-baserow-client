@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class RestoreSnapshotNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsSnapshotIdRestorePostResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiSnapshotsSnapshotIdRestorePostResponse404
      */
     private $apiSnapshotsSnapshotIdRestorePostResponse404;
     /**
@@ -21,14 +21,14 @@ class RestoreSnapshotNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsSnapshotIdRestorePostResponse404 $apiSnapshotsSnapshotIdRestorePostResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiSnapshotsSnapshotIdRestorePostResponse404 $apiSnapshotsSnapshotIdRestorePostResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiSnapshotsSnapshotIdRestorePostResponse404 = $apiSnapshotsSnapshotIdRestorePostResponse404;
         $this->response = $response;
     }
 
-    public function getApiSnapshotsSnapshotIdRestorePostResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsSnapshotIdRestorePostResponse404
+    public function getApiSnapshotsSnapshotIdRestorePostResponse404(): \CedricZiel\Baserow\Generated\Model\ApiSnapshotsSnapshotIdRestorePostResponse404
     {
         return $this->apiSnapshotsSnapshotIdRestorePostResponse404;
     }

@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class RestoreBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiTrashRestorePatchResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiTrashRestorePatchResponse400
      */
     private $apiTrashRestorePatchResponse400;
     /**
@@ -21,14 +21,14 @@ class RestoreBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiTrashRestorePatchResponse400 $apiTrashRestorePatchResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiTrashRestorePatchResponse400 $apiTrashRestorePatchResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiTrashRestorePatchResponse400 = $apiTrashRestorePatchResponse400;
         $this->response = $response;
     }
 
-    public function getApiTrashRestorePatchResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiTrashRestorePatchResponse400
+    public function getApiTrashRestorePatchResponse400(): \CedricZiel\Baserow\Generated\Model\ApiTrashRestorePatchResponse400
     {
         return $this->apiTrashRestorePatchResponse400;
     }

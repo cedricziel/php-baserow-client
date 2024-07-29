@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class CreateJob extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class CreateJob extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
 
     /**
      * Creates a new job. This job runs asynchronously in the background and execute the task specific to the provided typeparameters. The `get_job` can be used to get the current state of the job.
@@ -64,8 +64,8 @@ class CreateJob extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\Ba
     /**
      * @return null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\CreateJobBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\CreateJobNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\CreateJobBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\CreateJobNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
@@ -75,10 +75,10 @@ class CreateJob extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\Ba
             return json_decode($body);
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\CreateJobBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiJobsPostResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\CreateJobBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiJobsPostResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\CreateJobNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiJobsPostResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\CreateJobNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiJobsPostResponse404', 'json'), $response);
         }
     }
 

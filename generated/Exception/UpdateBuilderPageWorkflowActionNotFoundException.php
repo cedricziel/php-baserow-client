@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class UpdateBuilderPageWorkflowActionNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdPatchResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdPatchResponse404
      */
     private $apiBuilderWorkflowActionWorkflowActionIdPatchResponse404;
     /**
@@ -21,14 +21,14 @@ class UpdateBuilderPageWorkflowActionNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdPatchResponse404 $apiBuilderWorkflowActionWorkflowActionIdPatchResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdPatchResponse404 $apiBuilderWorkflowActionWorkflowActionIdPatchResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiBuilderWorkflowActionWorkflowActionIdPatchResponse404 = $apiBuilderWorkflowActionWorkflowActionIdPatchResponse404;
         $this->response = $response;
     }
 
-    public function getApiBuilderWorkflowActionWorkflowActionIdPatchResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdPatchResponse404
+    public function getApiBuilderWorkflowActionWorkflowActionIdPatchResponse404(): \CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdPatchResponse404
     {
         return $this->apiBuilderWorkflowActionWorkflowActionIdPatchResponse404;
     }

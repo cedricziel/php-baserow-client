@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class GroupOrderApplications extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class GroupOrderApplications extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $group_id;
 
     /**
@@ -29,7 +29,7 @@ class GroupOrderApplications extends \cedricziel\phpbaserowclient\Generated\Runt
      * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
      *             }
      */
-    public function __construct(int $groupId, \cedricziel\phpbaserowclient\Generated\Model\OrderApplications $requestBody, array $headerParameters = [])
+    public function __construct(int $groupId, \CedricZiel\Baserow\Generated\Model\OrderApplications $requestBody, array $headerParameters = [])
     {
         $this->group_id = $groupId;
         $this->body = $requestBody;
@@ -48,13 +48,13 @@ class GroupOrderApplications extends \cedricziel\phpbaserowclient\Generated\Runt
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\OrderApplications) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\OrderApplications) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\OrderApplications) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\OrderApplications) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\OrderApplications) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\OrderApplications) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -88,8 +88,8 @@ class GroupOrderApplications extends \cedricziel\phpbaserowclient\Generated\Runt
     /**
      * @return null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\GroupOrderApplicationsBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\GroupOrderApplicationsNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\GroupOrderApplicationsBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\GroupOrderApplicationsNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
@@ -99,10 +99,10 @@ class GroupOrderApplications extends \cedricziel\phpbaserowclient\Generated\Runt
             return null;
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\GroupOrderApplicationsBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGroupGroupIdOrderPostResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\GroupOrderApplicationsBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdOrderPostResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\GroupOrderApplicationsNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGroupGroupIdOrderPostResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\GroupOrderApplicationsNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdOrderPostResponse404', 'json'), $response);
         }
     }
 

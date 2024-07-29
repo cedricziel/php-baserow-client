@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class ListAllApplicationsBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGetResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiApplicationsGetResponse400
      */
     private $apiApplicationsGetResponse400;
     /**
@@ -21,14 +21,14 @@ class ListAllApplicationsBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGetResponse400 $apiApplicationsGetResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiApplicationsGetResponse400 $apiApplicationsGetResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiApplicationsGetResponse400 = $apiApplicationsGetResponse400;
         $this->response = $response;
     }
 
-    public function getApiApplicationsGetResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGetResponse400
+    public function getApiApplicationsGetResponse400(): \CedricZiel\Baserow\Generated\Model\ApiApplicationsGetResponse400
     {
         return $this->apiApplicationsGetResponse400;
     }

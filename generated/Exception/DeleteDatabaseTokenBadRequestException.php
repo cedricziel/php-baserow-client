@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class DeleteDatabaseTokenBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensTokenIdDeleteResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdDeleteResponse400
      */
     private $apiDatabaseTokensTokenIdDeleteResponse400;
     /**
@@ -21,14 +21,14 @@ class DeleteDatabaseTokenBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensTokenIdDeleteResponse400 $apiDatabaseTokensTokenIdDeleteResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdDeleteResponse400 $apiDatabaseTokensTokenIdDeleteResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiDatabaseTokensTokenIdDeleteResponse400 = $apiDatabaseTokensTokenIdDeleteResponse400;
         $this->response = $response;
     }
 
-    public function getApiDatabaseTokensTokenIdDeleteResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensTokenIdDeleteResponse400
+    public function getApiDatabaseTokensTokenIdDeleteResponse400(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdDeleteResponse400
     {
         return $this->apiDatabaseTokensTokenIdDeleteResponse400;
     }

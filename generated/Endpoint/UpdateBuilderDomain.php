@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class UpdateBuilderDomain extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class UpdateBuilderDomain extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $domain_id;
 
     /**
@@ -24,7 +24,7 @@ class UpdateBuilderDomain extends \cedricziel\phpbaserowclient\Generated\Runtime
      * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
      *             }
      */
-    public function __construct(int $domainId, ?\cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateDomain $requestBody = null, array $headerParameters = [])
+    public function __construct(int $domainId, ?\CedricZiel\Baserow\Generated\Model\PatchedUpdateDomain $requestBody = null, array $headerParameters = [])
     {
         $this->domain_id = $domainId;
         $this->body = $requestBody;
@@ -43,13 +43,13 @@ class UpdateBuilderDomain extends \cedricziel\phpbaserowclient\Generated\Runtime
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateDomain) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedUpdateDomain) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateDomain) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedUpdateDomain) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateDomain) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedUpdateDomain) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -82,8 +82,8 @@ class UpdateBuilderDomain extends \cedricziel\phpbaserowclient\Generated\Runtime
     /**
      * @return null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\UpdateBuilderDomainBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\UpdateBuilderDomainNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\UpdateBuilderDomainBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\UpdateBuilderDomainNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
@@ -93,10 +93,10 @@ class UpdateBuilderDomain extends \cedricziel\phpbaserowclient\Generated\Runtime
             return json_decode($body);
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\UpdateBuilderDomainBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsDomainIdPatchResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\UpdateBuilderDomainBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdPatchResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\UpdateBuilderDomainNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsDomainIdPatchResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\UpdateBuilderDomainNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdPatchResponse404', 'json'), $response);
         }
     }
 

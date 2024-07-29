@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class PublicListDatabaseTableKanbanViewRowsBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse400
      */
     private $apiDatabaseViewsKanbanSlugPublicRowsGetResponse400;
     /**
@@ -21,14 +21,14 @@ class PublicListDatabaseTableKanbanViewRowsBadRequestException extends BadReques
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse400 $apiDatabaseViewsKanbanSlugPublicRowsGetResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse400 $apiDatabaseViewsKanbanSlugPublicRowsGetResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiDatabaseViewsKanbanSlugPublicRowsGetResponse400 = $apiDatabaseViewsKanbanSlugPublicRowsGetResponse400;
         $this->response = $response;
     }
 
-    public function getApiDatabaseViewsKanbanSlugPublicRowsGetResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse400
+    public function getApiDatabaseViewsKanbanSlugPublicRowsGetResponse400(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse400
     {
         return $this->apiDatabaseViewsKanbanSlugPublicRowsGetResponse400;
     }

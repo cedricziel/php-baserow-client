@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class UpdateWorkspaceGenerativeAiModelsSettingsBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse400
      */
     private $apiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse400;
     /**
@@ -21,14 +21,14 @@ class UpdateWorkspaceGenerativeAiModelsSettingsBadRequestException extends BadRe
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse400 $apiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse400 $apiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse400 = $apiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse400;
         $this->response = $response;
     }
 
-    public function getApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse400
+    public function getApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse400(): \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse400
     {
         return $this->apiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse400;
     }

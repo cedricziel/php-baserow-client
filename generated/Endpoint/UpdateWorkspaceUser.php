@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class UpdateWorkspaceUser extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class UpdateWorkspaceUser extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $workspace_user_id;
 
     /**
@@ -20,7 +20,7 @@ class UpdateWorkspaceUser extends \cedricziel\phpbaserowclient\Generated\Runtime
      *
      * @param int $workspaceUserId updates the workspace user related to the provided value
      */
-    public function __construct(int $workspaceUserId, ?\cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateWorkspaceUser $requestBody = null)
+    public function __construct(int $workspaceUserId, ?\CedricZiel\Baserow\Generated\Model\PatchedUpdateWorkspaceUser $requestBody = null)
     {
         $this->workspace_user_id = $workspaceUserId;
         $this->body = $requestBody;
@@ -38,13 +38,13 @@ class UpdateWorkspaceUser extends \cedricziel\phpbaserowclient\Generated\Runtime
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateWorkspaceUser) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedUpdateWorkspaceUser) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateWorkspaceUser) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedUpdateWorkspaceUser) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateWorkspaceUser) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedUpdateWorkspaceUser) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -64,23 +64,23 @@ class UpdateWorkspaceUser extends \cedricziel\phpbaserowclient\Generated\Runtime
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\WorkspaceUser|null
+     * @return \CedricZiel\Baserow\Generated\Model\WorkspaceUser|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\UpdateWorkspaceUserBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\UpdateWorkspaceUserNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\UpdateWorkspaceUserBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\UpdateWorkspaceUserNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\WorkspaceUser', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\WorkspaceUser', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\UpdateWorkspaceUserBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdPatchResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\UpdateWorkspaceUserBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdPatchResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\UpdateWorkspaceUserNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdPatchResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\UpdateWorkspaceUserNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdPatchResponse404', 'json'), $response);
         }
     }
 

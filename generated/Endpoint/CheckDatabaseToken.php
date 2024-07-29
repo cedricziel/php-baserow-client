@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class CheckDatabaseToken extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class CheckDatabaseToken extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
 
     public function getMethod(): string
     {
@@ -37,7 +37,7 @@ class CheckDatabaseToken extends \cedricziel\phpbaserowclient\Generated\Runtime\
     /**
      * @return null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\CheckDatabaseTokenForbiddenException
+     * @throws \CedricZiel\Baserow\Generated\Exception\CheckDatabaseTokenForbiddenException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
@@ -47,7 +47,7 @@ class CheckDatabaseToken extends \cedricziel\phpbaserowclient\Generated\Runtime\
             return null;
         }
         if (false === is_null($contentType) && (403 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\CheckDatabaseTokenForbiddenException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensCheckGetResponse403', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\CheckDatabaseTokenForbiddenException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensCheckGetResponse403', 'json'), $response);
         }
     }
 

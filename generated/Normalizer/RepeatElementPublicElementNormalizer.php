@@ -8,10 +8,10 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Normalizer;
+namespace CedricZiel\Baserow\Generated\Normalizer;
 
-use cedricziel\phpbaserowclient\Generated\Runtime\Normalizer\CheckArray;
-use cedricziel\phpbaserowclient\Generated\Runtime\Normalizer\ValidatorTrait;
+use CedricZiel\Baserow\Generated\Runtime\Normalizer\CheckArray;
+use CedricZiel\Baserow\Generated\Runtime\Normalizer\ValidatorTrait;
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
@@ -31,12 +31,12 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
         {
-            return \cedricziel\phpbaserowclient\Generated\Model\RepeatElementPublicElement::class === $type;
+            return \CedricZiel\Baserow\Generated\Model\RepeatElementPublicElement::class === $type;
         }
 
         public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
         {
-            return is_object($data) && \cedricziel\phpbaserowclient\Generated\Model\RepeatElementPublicElement::class === get_class($data);
+            return is_object($data) && \CedricZiel\Baserow\Generated\Model\RepeatElementPublicElement::class === get_class($data);
         }
 
         public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -47,7 +47,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \cedricziel\phpbaserowclient\Generated\Model\RepeatElementPublicElement();
+            $object = new \CedricZiel\Baserow\Generated\Model\RepeatElementPublicElement();
             if (null === $data || false === \is_array($data)) {
                 return $object;
             }
@@ -80,7 +80,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 unset($data['visibility']);
             }
             if (\array_key_exists('styles', $data)) {
-                $object->setStyles($this->denormalizer->denormalize($data['styles'], \cedricziel\phpbaserowclient\Generated\Model\ButtonConfigBlock::class, 'json', $context));
+                $object->setStyles($this->denormalizer->denormalize($data['styles'], \CedricZiel\Baserow\Generated\Model\ButtonConfigBlock::class, 'json', $context));
                 unset($data['styles']);
             }
             if (\array_key_exists('style_border_top_color', $data)) {
@@ -164,7 +164,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 unset($data['style_background_color']);
             }
             if (\array_key_exists('style_background_file', $data) && null !== $data['style_background_file']) {
-                $object->setStyleBackgroundFile($this->denormalizer->denormalize($data['style_background_file'], \cedricziel\phpbaserowclient\Generated\Model\RepeatElementPublicElementStyleBackgroundFile::class, 'json', $context));
+                $object->setStyleBackgroundFile($this->denormalizer->denormalize($data['style_background_file'], \CedricZiel\Baserow\Generated\Model\RepeatElementPublicElementStyleBackgroundFile::class, 'json', $context));
                 unset($data['style_background_file']);
             } elseif (\array_key_exists('style_background_file', $data) && null === $data['style_background_file']) {
                 $object->setStyleBackgroundFile(null);
@@ -329,7 +329,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function getSupportedTypes(?string $format = null): array
         {
-            return [\cedricziel\phpbaserowclient\Generated\Model\RepeatElementPublicElement::class => false];
+            return [\CedricZiel\Baserow\Generated\Model\RepeatElementPublicElement::class => false];
         }
     }
 } else {
@@ -342,12 +342,12 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function supportsDenormalization($data, $type, ?string $format = null, array $context = []): bool
         {
-            return \cedricziel\phpbaserowclient\Generated\Model\RepeatElementPublicElement::class === $type;
+            return \CedricZiel\Baserow\Generated\Model\RepeatElementPublicElement::class === $type;
         }
 
         public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
         {
-            return is_object($data) && \cedricziel\phpbaserowclient\Generated\Model\RepeatElementPublicElement::class === get_class($data);
+            return is_object($data) && \CedricZiel\Baserow\Generated\Model\RepeatElementPublicElement::class === get_class($data);
         }
 
         public function denormalize($data, $type, $format = null, array $context = [])
@@ -358,7 +358,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \cedricziel\phpbaserowclient\Generated\Model\RepeatElementPublicElement();
+            $object = new \CedricZiel\Baserow\Generated\Model\RepeatElementPublicElement();
             if (null === $data || false === \is_array($data)) {
                 return $object;
             }
@@ -391,7 +391,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 unset($data['visibility']);
             }
             if (\array_key_exists('styles', $data)) {
-                $object->setStyles($this->denormalizer->denormalize($data['styles'], \cedricziel\phpbaserowclient\Generated\Model\ButtonConfigBlock::class, 'json', $context));
+                $object->setStyles($this->denormalizer->denormalize($data['styles'], \CedricZiel\Baserow\Generated\Model\ButtonConfigBlock::class, 'json', $context));
                 unset($data['styles']);
             }
             if (\array_key_exists('style_border_top_color', $data)) {
@@ -475,7 +475,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 unset($data['style_background_color']);
             }
             if (\array_key_exists('style_background_file', $data) && null !== $data['style_background_file']) {
-                $object->setStyleBackgroundFile($this->denormalizer->denormalize($data['style_background_file'], \cedricziel\phpbaserowclient\Generated\Model\RepeatElementPublicElementStyleBackgroundFile::class, 'json', $context));
+                $object->setStyleBackgroundFile($this->denormalizer->denormalize($data['style_background_file'], \CedricZiel\Baserow\Generated\Model\RepeatElementPublicElementStyleBackgroundFile::class, 'json', $context));
                 unset($data['style_background_file']);
             } elseif (\array_key_exists('style_background_file', $data) && null === $data['style_background_file']) {
                 $object->setStyleBackgroundFile(null);
@@ -643,7 +643,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function getSupportedTypes(?string $format = null): array
         {
-            return [\cedricziel\phpbaserowclient\Generated\Model\RepeatElementPublicElement::class => false];
+            return [\CedricZiel\Baserow\Generated\Model\RepeatElementPublicElement::class => false];
         }
     }
 }

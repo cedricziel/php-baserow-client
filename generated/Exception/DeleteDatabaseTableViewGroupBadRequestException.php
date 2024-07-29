@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class DeleteDatabaseTableViewGroupBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse400
      */
     private $apiDatabaseViewsGroupByViewGroupByIdDeleteResponse400;
     /**
@@ -21,14 +21,14 @@ class DeleteDatabaseTableViewGroupBadRequestException extends BadRequestExceptio
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse400 $apiDatabaseViewsGroupByViewGroupByIdDeleteResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse400 $apiDatabaseViewsGroupByViewGroupByIdDeleteResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiDatabaseViewsGroupByViewGroupByIdDeleteResponse400 = $apiDatabaseViewsGroupByViewGroupByIdDeleteResponse400;
         $this->response = $response;
     }
 
-    public function getApiDatabaseViewsGroupByViewGroupByIdDeleteResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse400
+    public function getApiDatabaseViewsGroupByViewGroupByIdDeleteResponse400(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse400
     {
         return $this->apiDatabaseViewsGroupByViewGroupByIdDeleteResponse400;
     }

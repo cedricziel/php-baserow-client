@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class AdminAddUserToLicenseNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdUserIdPostResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiLicensesIdUserIdPostResponse404
      */
     private $apiLicensesIdUserIdPostResponse404;
     /**
@@ -21,14 +21,14 @@ class AdminAddUserToLicenseNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdUserIdPostResponse404 $apiLicensesIdUserIdPostResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiLicensesIdUserIdPostResponse404 $apiLicensesIdUserIdPostResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiLicensesIdUserIdPostResponse404 = $apiLicensesIdUserIdPostResponse404;
         $this->response = $response;
     }
 
-    public function getApiLicensesIdUserIdPostResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdUserIdPostResponse404
+    public function getApiLicensesIdUserIdPostResponse404(): \CedricZiel\Baserow\Generated\Model\ApiLicensesIdUserIdPostResponse404
     {
         return $this->apiLicensesIdUserIdPostResponse404;
     }

@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class DeleteBuilderPageWorkflowAction extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class DeleteBuilderPageWorkflowAction extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $workflow_action_id;
 
     /**
@@ -64,8 +64,8 @@ class DeleteBuilderPageWorkflowAction extends \cedricziel\phpbaserowclient\Gener
     /**
      * @return null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\DeleteBuilderPageWorkflowActionBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\DeleteBuilderPageWorkflowActionNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\DeleteBuilderPageWorkflowActionBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\DeleteBuilderPageWorkflowActionNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
@@ -75,10 +75,10 @@ class DeleteBuilderPageWorkflowAction extends \cedricziel\phpbaserowclient\Gener
             return null;
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\DeleteBuilderPageWorkflowActionBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\DeleteBuilderPageWorkflowActionBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\DeleteBuilderPageWorkflowActionNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\DeleteBuilderPageWorkflowActionNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse404', 'json'), $response);
         }
     }
 

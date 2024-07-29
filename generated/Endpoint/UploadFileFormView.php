@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class UploadFileFormView extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class UploadFileFormView extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $slug;
 
     /**
@@ -46,27 +46,27 @@ class UploadFileFormView extends \cedricziel\phpbaserowclient\Generated\Runtime\
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\UserFile|null
+     * @return \CedricZiel\Baserow\Generated\Model\UserFile|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\UploadFileFormViewUnauthorizedException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\UploadFileFormViewBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\UploadFileFormViewNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\UploadFileFormViewUnauthorizedException
+     * @throws \CedricZiel\Baserow\Generated\Exception\UploadFileFormViewBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\UploadFileFormViewNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\UserFile', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\UserFile', 'json');
         }
         if (false === is_null($contentType) && (401 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\UploadFileFormViewUnauthorizedException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse401', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\UploadFileFormViewUnauthorizedException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse401', 'json'), $response);
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\UploadFileFormViewBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\UploadFileFormViewBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\UploadFileFormViewNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\UploadFileFormViewNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse404', 'json'), $response);
         }
     }
 

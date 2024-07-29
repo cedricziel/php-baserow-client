@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class AdminListUsers extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class AdminListUsers extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
 
     /**
      * Returns all users with detailed information on each user, if the requesting user is staff.
@@ -67,23 +67,23 @@ class AdminListUsers extends \cedricziel\phpbaserowclient\Generated\Runtime\Clie
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerUserAdminResponse|null
+     * @return \CedricZiel\Baserow\Generated\Model\PaginationSerializerUserAdminResponse|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\AdminListUsersBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\AdminListUsersUnauthorizedException
+     * @throws \CedricZiel\Baserow\Generated\Exception\AdminListUsersBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\AdminListUsersUnauthorizedException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerUserAdminResponse', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\PaginationSerializerUserAdminResponse', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\AdminListUsersBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiAdminUsersGetResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\AdminListUsersBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiAdminUsersGetResponse400', 'json'), $response);
         }
         if (401 === $status) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\AdminListUsersUnauthorizedException($response);
+            throw new \CedricZiel\Baserow\Generated\Exception\AdminListUsersUnauthorizedException($response);
         }
     }
 

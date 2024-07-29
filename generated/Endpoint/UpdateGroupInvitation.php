@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class UpdateGroupInvitation extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class UpdateGroupInvitation extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $group_invitation_id;
 
     /**
@@ -24,7 +24,7 @@ class UpdateGroupInvitation extends \cedricziel\phpbaserowclient\Generated\Runti
      *
      * @param int $groupInvitationId updates the group invitation related to the provided value
      */
-    public function __construct(int $groupInvitationId, ?\cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateWorkspaceInvitation $requestBody = null)
+    public function __construct(int $groupInvitationId, ?\CedricZiel\Baserow\Generated\Model\PatchedUpdateWorkspaceInvitation $requestBody = null)
     {
         $this->group_invitation_id = $groupInvitationId;
         $this->body = $requestBody;
@@ -42,13 +42,13 @@ class UpdateGroupInvitation extends \cedricziel\phpbaserowclient\Generated\Runti
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateWorkspaceInvitation) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedUpdateWorkspaceInvitation) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateWorkspaceInvitation) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedUpdateWorkspaceInvitation) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateWorkspaceInvitation) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedUpdateWorkspaceInvitation) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -68,23 +68,23 @@ class UpdateGroupInvitation extends \cedricziel\phpbaserowclient\Generated\Runti
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\WorkspaceInvitation|null
+     * @return \CedricZiel\Baserow\Generated\Model\WorkspaceInvitation|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\UpdateGroupInvitationBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\UpdateGroupInvitationNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\UpdateGroupInvitationBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\UpdateGroupInvitationNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\WorkspaceInvitation', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\WorkspaceInvitation', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\UpdateGroupInvitationBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdPatchResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\UpdateGroupInvitationBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdPatchResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\UpdateGroupInvitationNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdPatchResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\UpdateGroupInvitationNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdPatchResponse404', 'json'), $response);
         }
     }
 

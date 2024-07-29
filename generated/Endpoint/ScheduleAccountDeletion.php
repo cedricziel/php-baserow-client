@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class ScheduleAccountDeletion extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class ScheduleAccountDeletion extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
 
     public function getMethod(): string
     {
@@ -37,7 +37,7 @@ class ScheduleAccountDeletion extends \cedricziel\phpbaserowclient\Generated\Run
     /**
      * @return null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\ScheduleAccountDeletionBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\ScheduleAccountDeletionBadRequestException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
@@ -47,7 +47,7 @@ class ScheduleAccountDeletion extends \cedricziel\phpbaserowclient\Generated\Run
             return null;
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\ScheduleAccountDeletionBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiUserScheduleAccountDeletionPostResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\ScheduleAccountDeletionBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiUserScheduleAccountDeletionPostResponse400', 'json'), $response);
         }
     }
 

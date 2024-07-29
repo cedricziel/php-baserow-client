@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class BatchAssignRoleBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiRoleWorkspaceIdBatchPostResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdBatchPostResponse400
      */
     private $apiRoleWorkspaceIdBatchPostResponse400;
     /**
@@ -21,14 +21,14 @@ class BatchAssignRoleBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiRoleWorkspaceIdBatchPostResponse400 $apiRoleWorkspaceIdBatchPostResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdBatchPostResponse400 $apiRoleWorkspaceIdBatchPostResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiRoleWorkspaceIdBatchPostResponse400 = $apiRoleWorkspaceIdBatchPostResponse400;
         $this->response = $response;
     }
 
-    public function getApiRoleWorkspaceIdBatchPostResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiRoleWorkspaceIdBatchPostResponse400
+    public function getApiRoleWorkspaceIdBatchPostResponse400(): \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdBatchPostResponse400
     {
         return $this->apiRoleWorkspaceIdBatchPostResponse400;
     }

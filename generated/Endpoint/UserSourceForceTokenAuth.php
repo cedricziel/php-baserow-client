@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class UserSourceForceTokenAuth extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class UserSourceForceTokenAuth extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $user_source_id;
 
     /**
@@ -46,19 +46,19 @@ class UserSourceForceTokenAuth extends \cedricziel\phpbaserowclient\Generated\Ru
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdForceTokenAuthPostResponse200|null
+     * @return \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdForceTokenAuthPostResponse200|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\UserSourceForceTokenAuthUnauthorizedException
+     * @throws \CedricZiel\Baserow\Generated\Exception\UserSourceForceTokenAuthUnauthorizedException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdForceTokenAuthPostResponse200', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdForceTokenAuthPostResponse200', 'json');
         }
         if (false === is_null($contentType) && (401 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\UserSourceForceTokenAuthUnauthorizedException($response);
+            throw new \CedricZiel\Baserow\Generated\Exception\UserSourceForceTokenAuthUnauthorizedException($response);
         }
     }
 

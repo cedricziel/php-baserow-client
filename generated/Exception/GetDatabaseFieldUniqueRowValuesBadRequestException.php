@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class GetDatabaseFieldUniqueRowValuesBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse400
      */
     private $apiDatabaseFieldsFieldIdUniqueRowValuesGetResponse400;
     /**
@@ -21,14 +21,14 @@ class GetDatabaseFieldUniqueRowValuesBadRequestException extends BadRequestExcep
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse400 $apiDatabaseFieldsFieldIdUniqueRowValuesGetResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse400 $apiDatabaseFieldsFieldIdUniqueRowValuesGetResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiDatabaseFieldsFieldIdUniqueRowValuesGetResponse400 = $apiDatabaseFieldsFieldIdUniqueRowValuesGetResponse400;
         $this->response = $response;
     }
 
-    public function getApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse400
+    public function getApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse400(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse400
     {
         return $this->apiDatabaseFieldsFieldIdUniqueRowValuesGetResponse400;
     }

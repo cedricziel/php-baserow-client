@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class MoveApplicationUserSource extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class MoveApplicationUserSource extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $user_source_id;
 
     /**
@@ -24,7 +24,7 @@ class MoveApplicationUserSource extends \cedricziel\phpbaserowclient\Generated\R
      * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
      *             }
      */
-    public function __construct(int $userSourceId, ?\cedricziel\phpbaserowclient\Generated\Model\PatchedMoveUserSource $requestBody = null, array $headerParameters = [])
+    public function __construct(int $userSourceId, ?\CedricZiel\Baserow\Generated\Model\PatchedMoveUserSource $requestBody = null, array $headerParameters = [])
     {
         $this->user_source_id = $userSourceId;
         $this->body = $requestBody;
@@ -43,13 +43,13 @@ class MoveApplicationUserSource extends \cedricziel\phpbaserowclient\Generated\R
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\PatchedMoveUserSource) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedMoveUserSource) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\PatchedMoveUserSource) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedMoveUserSource) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\PatchedMoveUserSource) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedMoveUserSource) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -82,8 +82,8 @@ class MoveApplicationUserSource extends \cedricziel\phpbaserowclient\Generated\R
     /**
      * @return null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\MoveApplicationUserSourceBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\MoveApplicationUserSourceNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\MoveApplicationUserSourceBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\MoveApplicationUserSourceNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
@@ -93,10 +93,10 @@ class MoveApplicationUserSource extends \cedricziel\phpbaserowclient\Generated\R
             return json_decode($body);
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\MoveApplicationUserSourceBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdMovePatchResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\MoveApplicationUserSourceBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdMovePatchResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\MoveApplicationUserSourceNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdMovePatchResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\MoveApplicationUserSourceNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdMovePatchResponse404', 'json'), $response);
         }
     }
 

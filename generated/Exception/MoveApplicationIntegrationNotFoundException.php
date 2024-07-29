@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class MoveApplicationIntegrationNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdMovePatchResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdMovePatchResponse404
      */
     private $apiIntegrationIntegrationIdMovePatchResponse404;
     /**
@@ -21,14 +21,14 @@ class MoveApplicationIntegrationNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdMovePatchResponse404 $apiIntegrationIntegrationIdMovePatchResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdMovePatchResponse404 $apiIntegrationIntegrationIdMovePatchResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiIntegrationIntegrationIdMovePatchResponse404 = $apiIntegrationIntegrationIdMovePatchResponse404;
         $this->response = $response;
     }
 
-    public function getApiIntegrationIntegrationIdMovePatchResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdMovePatchResponse404
+    public function getApiIntegrationIntegrationIdMovePatchResponse404(): \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdMovePatchResponse404
     {
         return $this->apiIntegrationIntegrationIdMovePatchResponse404;
     }

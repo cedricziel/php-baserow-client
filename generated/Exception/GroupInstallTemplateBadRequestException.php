@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class GroupInstallTemplateBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdPostResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdPostResponse400
      */
     private $apiTemplatesInstallGroupIdTemplateIdPostResponse400;
     /**
@@ -21,14 +21,14 @@ class GroupInstallTemplateBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdPostResponse400 $apiTemplatesInstallGroupIdTemplateIdPostResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdPostResponse400 $apiTemplatesInstallGroupIdTemplateIdPostResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiTemplatesInstallGroupIdTemplateIdPostResponse400 = $apiTemplatesInstallGroupIdTemplateIdPostResponse400;
         $this->response = $response;
     }
 
-    public function getApiTemplatesInstallGroupIdTemplateIdPostResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdPostResponse400
+    public function getApiTemplatesInstallGroupIdTemplateIdPostResponse400(): \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdPostResponse400
     {
         return $this->apiTemplatesInstallGroupIdTemplateIdPostResponse400;
     }

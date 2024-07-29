@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class AuthProviderLoginUrlBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiSsoSamlLoginUrlGetResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiSsoSamlLoginUrlGetResponse400
      */
     private $apiSsoSamlLoginUrlGetResponse400;
     /**
@@ -21,14 +21,14 @@ class AuthProviderLoginUrlBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiSsoSamlLoginUrlGetResponse400 $apiSsoSamlLoginUrlGetResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiSsoSamlLoginUrlGetResponse400 $apiSsoSamlLoginUrlGetResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiSsoSamlLoginUrlGetResponse400 = $apiSsoSamlLoginUrlGetResponse400;
         $this->response = $response;
     }
 
-    public function getApiSsoSamlLoginUrlGetResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiSsoSamlLoginUrlGetResponse400
+    public function getApiSsoSamlLoginUrlGetResponse400(): \CedricZiel\Baserow\Generated\Model\ApiSsoSamlLoginUrlGetResponse400
     {
         return $this->apiSsoSamlLoginUrlGetResponse400;
     }

@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class MoveDatabaseTableRow extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class MoveDatabaseTableRow extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $row_id;
     protected $table_id;
 
@@ -86,27 +86,27 @@ class MoveDatabaseTableRow extends \cedricziel\phpbaserowclient\Generated\Runtim
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponseSerializerWithUserFieldNames|null
+     * @return \CedricZiel\Baserow\Generated\Model\ExampleRowResponseSerializerWithUserFieldNames|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\MoveDatabaseTableRowBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\MoveDatabaseTableRowUnauthorizedException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\MoveDatabaseTableRowNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\MoveDatabaseTableRowBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\MoveDatabaseTableRowUnauthorizedException
+     * @throws \CedricZiel\Baserow\Generated\Exception\MoveDatabaseTableRowNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponseSerializerWithUserFieldNames', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ExampleRowResponseSerializerWithUserFieldNames', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\MoveDatabaseTableRowBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdMovePatchResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\MoveDatabaseTableRowBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdMovePatchResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (401 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\MoveDatabaseTableRowUnauthorizedException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdMovePatchResponse401', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\MoveDatabaseTableRowUnauthorizedException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdMovePatchResponse401', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\MoveDatabaseTableRowNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdMovePatchResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\MoveDatabaseTableRowNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdMovePatchResponse404', 'json'), $response);
         }
     }
 

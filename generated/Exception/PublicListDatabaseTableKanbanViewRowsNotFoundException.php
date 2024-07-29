@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class PublicListDatabaseTableKanbanViewRowsNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse404
      */
     private $apiDatabaseViewsKanbanSlugPublicRowsGetResponse404;
     /**
@@ -21,14 +21,14 @@ class PublicListDatabaseTableKanbanViewRowsNotFoundException extends NotFoundExc
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse404 $apiDatabaseViewsKanbanSlugPublicRowsGetResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse404 $apiDatabaseViewsKanbanSlugPublicRowsGetResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiDatabaseViewsKanbanSlugPublicRowsGetResponse404 = $apiDatabaseViewsKanbanSlugPublicRowsGetResponse404;
         $this->response = $response;
     }
 
-    public function getApiDatabaseViewsKanbanSlugPublicRowsGetResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse404
+    public function getApiDatabaseViewsKanbanSlugPublicRowsGetResponse404(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse404
     {
         return $this->apiDatabaseViewsKanbanSlugPublicRowsGetResponse404;
     }

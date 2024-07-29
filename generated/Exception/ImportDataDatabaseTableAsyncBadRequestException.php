@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class ImportDataDatabaseTableAsyncBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdImportAsyncPostResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdImportAsyncPostResponse400
      */
     private $apiDatabaseTablesTableIdImportAsyncPostResponse400;
     /**
@@ -21,14 +21,14 @@ class ImportDataDatabaseTableAsyncBadRequestException extends BadRequestExceptio
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdImportAsyncPostResponse400 $apiDatabaseTablesTableIdImportAsyncPostResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdImportAsyncPostResponse400 $apiDatabaseTablesTableIdImportAsyncPostResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiDatabaseTablesTableIdImportAsyncPostResponse400 = $apiDatabaseTablesTableIdImportAsyncPostResponse400;
         $this->response = $response;
     }
 
-    public function getApiDatabaseTablesTableIdImportAsyncPostResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdImportAsyncPostResponse400
+    public function getApiDatabaseTablesTableIdImportAsyncPostResponse400(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdImportAsyncPostResponse400
     {
         return $this->apiDatabaseTablesTableIdImportAsyncPostResponse400;
     }

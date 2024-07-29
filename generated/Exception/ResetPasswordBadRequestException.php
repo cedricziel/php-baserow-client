@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class ResetPasswordBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiUserResetPasswordPostResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiUserResetPasswordPostResponse400
      */
     private $apiUserResetPasswordPostResponse400;
     /**
@@ -21,14 +21,14 @@ class ResetPasswordBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiUserResetPasswordPostResponse400 $apiUserResetPasswordPostResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiUserResetPasswordPostResponse400 $apiUserResetPasswordPostResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiUserResetPasswordPostResponse400 = $apiUserResetPasswordPostResponse400;
         $this->response = $response;
     }
 
-    public function getApiUserResetPasswordPostResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiUserResetPasswordPostResponse400
+    public function getApiUserResetPasswordPostResponse400(): \CedricZiel\Baserow\Generated\Model\ApiUserResetPasswordPostResponse400
     {
         return $this->apiUserResetPasswordPostResponse400;
     }

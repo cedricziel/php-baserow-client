@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class FilterDatabaseTableGridViewRows extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class FilterDatabaseTableGridViewRows extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $view_id;
 
     /**
@@ -20,7 +20,7 @@ class FilterDatabaseTableGridViewRows extends \cedricziel\phpbaserowclient\Gener
      *
      * @param int $viewId returns only rows that belong to the related view's table
      */
-    public function __construct(int $viewId, \cedricziel\phpbaserowclient\Generated\Model\GridViewFilter $requestBody)
+    public function __construct(int $viewId, \CedricZiel\Baserow\Generated\Model\GridViewFilter $requestBody)
     {
         $this->view_id = $viewId;
         $this->body = $requestBody;
@@ -38,13 +38,13 @@ class FilterDatabaseTableGridViewRows extends \cedricziel\phpbaserowclient\Gener
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\GridViewFilter) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\GridViewFilter) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\GridViewFilter) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\GridViewFilter) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\GridViewFilter) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\GridViewFilter) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -64,23 +64,23 @@ class FilterDatabaseTableGridViewRows extends \cedricziel\phpbaserowclient\Gener
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponse[]|null
+     * @return \CedricZiel\Baserow\Generated\Model\ExampleRowResponse[]|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\FilterDatabaseTableGridViewRowsBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\FilterDatabaseTableGridViewRowsNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\FilterDatabaseTableGridViewRowsBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\FilterDatabaseTableGridViewRowsNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponse[]', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ExampleRowResponse[]', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\FilterDatabaseTableGridViewRowsBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdPostResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\FilterDatabaseTableGridViewRowsBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdPostResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\FilterDatabaseTableGridViewRowsNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdPostResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\FilterDatabaseTableGridViewRowsNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdPostResponse404', 'json'), $response);
         }
     }
 

@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class LeaveWorkspaceNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdLeavePostResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdLeavePostResponse404
      */
     private $apiWorkspacesWorkspaceIdLeavePostResponse404;
     /**
@@ -21,14 +21,14 @@ class LeaveWorkspaceNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdLeavePostResponse404 $apiWorkspacesWorkspaceIdLeavePostResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdLeavePostResponse404 $apiWorkspacesWorkspaceIdLeavePostResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiWorkspacesWorkspaceIdLeavePostResponse404 = $apiWorkspacesWorkspaceIdLeavePostResponse404;
         $this->response = $response;
     }
 
-    public function getApiWorkspacesWorkspaceIdLeavePostResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdLeavePostResponse404
+    public function getApiWorkspacesWorkspaceIdLeavePostResponse404(): \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdLeavePostResponse404
     {
         return $this->apiWorkspacesWorkspaceIdLeavePostResponse404;
     }

@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class UpdateBuilderPageDataSourceNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDataSourceDataSourceIdPatchResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdPatchResponse404
      */
     private $apiBuilderDataSourceDataSourceIdPatchResponse404;
     /**
@@ -21,14 +21,14 @@ class UpdateBuilderPageDataSourceNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDataSourceDataSourceIdPatchResponse404 $apiBuilderDataSourceDataSourceIdPatchResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdPatchResponse404 $apiBuilderDataSourceDataSourceIdPatchResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiBuilderDataSourceDataSourceIdPatchResponse404 = $apiBuilderDataSourceDataSourceIdPatchResponse404;
         $this->response = $response;
     }
 
-    public function getApiBuilderDataSourceDataSourceIdPatchResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDataSourceDataSourceIdPatchResponse404
+    public function getApiBuilderDataSourceDataSourceIdPatchResponse404(): \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdPatchResponse404
     {
         return $this->apiBuilderDataSourceDataSourceIdPatchResponse404;
     }

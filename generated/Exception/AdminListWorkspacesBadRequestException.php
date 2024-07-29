@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class AdminListWorkspacesBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiAdminWorkspacesGetResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiAdminWorkspacesGetResponse400
      */
     private $apiAdminWorkspacesGetResponse400;
     /**
@@ -21,14 +21,14 @@ class AdminListWorkspacesBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiAdminWorkspacesGetResponse400 $apiAdminWorkspacesGetResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiAdminWorkspacesGetResponse400 $apiAdminWorkspacesGetResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiAdminWorkspacesGetResponse400 = $apiAdminWorkspacesGetResponse400;
         $this->response = $response;
     }
 
-    public function getApiAdminWorkspacesGetResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiAdminWorkspacesGetResponse400
+    public function getApiAdminWorkspacesGetResponse400(): \CedricZiel\Baserow\Generated\Model\ApiAdminWorkspacesGetResponse400
     {
         return $this->apiAdminWorkspacesGetResponse400;
     }

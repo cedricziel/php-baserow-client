@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class DatabaseTablePublicViewLinkRowFieldLookup extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class DatabaseTablePublicViewLinkRowFieldLookup extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $field_id;
     protected $slug;
 
@@ -67,23 +67,23 @@ class DatabaseTablePublicViewLinkRowFieldLookup extends \cedricziel\phpbaserowcl
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerLinkRowValue|null
+     * @return \CedricZiel\Baserow\Generated\Model\PaginationSerializerLinkRowValue|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\DatabaseTablePublicViewLinkRowFieldLookupUnauthorizedException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\DatabaseTablePublicViewLinkRowFieldLookupNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\DatabaseTablePublicViewLinkRowFieldLookupUnauthorizedException
+     * @throws \CedricZiel\Baserow\Generated\Exception\DatabaseTablePublicViewLinkRowFieldLookupNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerLinkRowValue', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\PaginationSerializerLinkRowValue', 'json');
         }
         if (false === is_null($contentType) && (401 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\DatabaseTablePublicViewLinkRowFieldLookupUnauthorizedException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse401', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\DatabaseTablePublicViewLinkRowFieldLookupUnauthorizedException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse401', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\DatabaseTablePublicViewLinkRowFieldLookupNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\DatabaseTablePublicViewLinkRowFieldLookupNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse404', 'json'), $response);
         }
     }
 

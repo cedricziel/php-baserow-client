@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class DeleteBuilderPageElementBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdDeleteResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdDeleteResponse400
      */
     private $apiBuilderElementElementIdDeleteResponse400;
     /**
@@ -21,14 +21,14 @@ class DeleteBuilderPageElementBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdDeleteResponse400 $apiBuilderElementElementIdDeleteResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdDeleteResponse400 $apiBuilderElementElementIdDeleteResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiBuilderElementElementIdDeleteResponse400 = $apiBuilderElementElementIdDeleteResponse400;
         $this->response = $response;
     }
 
-    public function getApiBuilderElementElementIdDeleteResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdDeleteResponse400
+    public function getApiBuilderElementElementIdDeleteResponse400(): \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdDeleteResponse400
     {
         return $this->apiBuilderElementElementIdDeleteResponse400;
     }

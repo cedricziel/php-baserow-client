@@ -8,7 +8,7 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Authentication;
+namespace CedricZiel\Baserow\Generated\Authentication;
 
 class JWTAuthentication implements \Jane\Component\OpenApiRuntime\Client\AuthenticationPlugin
 {

@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class UpdateRowCommentNotificationModeBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdRowIdNotificationModePutResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdNotificationModePutResponse400
      */
     private $apiRowCommentsTableIdRowIdNotificationModePutResponse400;
     /**
@@ -21,14 +21,14 @@ class UpdateRowCommentNotificationModeBadRequestException extends BadRequestExce
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdRowIdNotificationModePutResponse400 $apiRowCommentsTableIdRowIdNotificationModePutResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdNotificationModePutResponse400 $apiRowCommentsTableIdRowIdNotificationModePutResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiRowCommentsTableIdRowIdNotificationModePutResponse400 = $apiRowCommentsTableIdRowIdNotificationModePutResponse400;
         $this->response = $response;
     }
 
-    public function getApiRowCommentsTableIdRowIdNotificationModePutResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdRowIdNotificationModePutResponse400
+    public function getApiRowCommentsTableIdRowIdNotificationModePutResponse400(): \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdNotificationModePutResponse400
     {
         return $this->apiRowCommentsTableIdRowIdNotificationModePutResponse400;
     }

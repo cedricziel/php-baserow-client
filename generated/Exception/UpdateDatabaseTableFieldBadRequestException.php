@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class UpdateDatabaseTableFieldBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdPatchResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdPatchResponse400
      */
     private $apiDatabaseFieldsFieldIdPatchResponse400;
     /**
@@ -21,14 +21,14 @@ class UpdateDatabaseTableFieldBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdPatchResponse400 $apiDatabaseFieldsFieldIdPatchResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdPatchResponse400 $apiDatabaseFieldsFieldIdPatchResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiDatabaseFieldsFieldIdPatchResponse400 = $apiDatabaseFieldsFieldIdPatchResponse400;
         $this->response = $response;
     }
 
-    public function getApiDatabaseFieldsFieldIdPatchResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdPatchResponse400
+    public function getApiDatabaseFieldsFieldIdPatchResponse400(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdPatchResponse400
     {
         return $this->apiDatabaseFieldsFieldIdPatchResponse400;
     }

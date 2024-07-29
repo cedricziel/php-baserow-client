@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class VerifyEmailUnauthorizedException extends UnauthorizedException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiUserVerifyEmailPostResponse401
+     * @var \CedricZiel\Baserow\Generated\Model\ApiUserVerifyEmailPostResponse401
      */
     private $apiUserVerifyEmailPostResponse401;
     /**
@@ -21,14 +21,14 @@ class VerifyEmailUnauthorizedException extends UnauthorizedException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiUserVerifyEmailPostResponse401 $apiUserVerifyEmailPostResponse401, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiUserVerifyEmailPostResponse401 $apiUserVerifyEmailPostResponse401, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Unauthorized');
         $this->apiUserVerifyEmailPostResponse401 = $apiUserVerifyEmailPostResponse401;
         $this->response = $response;
     }
 
-    public function getApiUserVerifyEmailPostResponse401(): \cedricziel\phpbaserowclient\Generated\Model\ApiUserVerifyEmailPostResponse401
+    public function getApiUserVerifyEmailPostResponse401(): \CedricZiel\Baserow\Generated\Model\ApiUserVerifyEmailPostResponse401
     {
         return $this->apiUserVerifyEmailPostResponse401;
     }

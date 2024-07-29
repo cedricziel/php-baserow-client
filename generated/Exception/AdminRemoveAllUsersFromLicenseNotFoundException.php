@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class AdminRemoveAllUsersFromLicenseNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdRemoveAllUsersPostResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiLicensesIdRemoveAllUsersPostResponse404
      */
     private $apiLicensesIdRemoveAllUsersPostResponse404;
     /**
@@ -21,14 +21,14 @@ class AdminRemoveAllUsersFromLicenseNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdRemoveAllUsersPostResponse404 $apiLicensesIdRemoveAllUsersPostResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiLicensesIdRemoveAllUsersPostResponse404 $apiLicensesIdRemoveAllUsersPostResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiLicensesIdRemoveAllUsersPostResponse404 = $apiLicensesIdRemoveAllUsersPostResponse404;
         $this->response = $response;
     }
 
-    public function getApiLicensesIdRemoveAllUsersPostResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdRemoveAllUsersPostResponse404
+    public function getApiLicensesIdRemoveAllUsersPostResponse404(): \CedricZiel\Baserow\Generated\Model\ApiLicensesIdRemoveAllUsersPostResponse404
     {
         return $this->apiLicensesIdRemoveAllUsersPostResponse404;
     }

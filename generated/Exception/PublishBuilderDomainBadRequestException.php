@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class PublishBuilderDomainBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsDomainIdPublishAsyncPostResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdPublishAsyncPostResponse400
      */
     private $apiBuilderDomainsDomainIdPublishAsyncPostResponse400;
     /**
@@ -21,14 +21,14 @@ class PublishBuilderDomainBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsDomainIdPublishAsyncPostResponse400 $apiBuilderDomainsDomainIdPublishAsyncPostResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdPublishAsyncPostResponse400 $apiBuilderDomainsDomainIdPublishAsyncPostResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiBuilderDomainsDomainIdPublishAsyncPostResponse400 = $apiBuilderDomainsDomainIdPublishAsyncPostResponse400;
         $this->response = $response;
     }
 
-    public function getApiBuilderDomainsDomainIdPublishAsyncPostResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsDomainIdPublishAsyncPostResponse400
+    public function getApiBuilderDomainsDomainIdPublishAsyncPostResponse400(): \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdPublishAsyncPostResponse400
     {
         return $this->apiBuilderDomainsDomainIdPublishAsyncPostResponse400;
     }

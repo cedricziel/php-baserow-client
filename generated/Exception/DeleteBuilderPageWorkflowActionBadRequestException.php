@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class DeleteBuilderPageWorkflowActionBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse400
      */
     private $apiBuilderWorkflowActionWorkflowActionIdDeleteResponse400;
     /**
@@ -21,14 +21,14 @@ class DeleteBuilderPageWorkflowActionBadRequestException extends BadRequestExcep
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse400 $apiBuilderWorkflowActionWorkflowActionIdDeleteResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse400 $apiBuilderWorkflowActionWorkflowActionIdDeleteResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiBuilderWorkflowActionWorkflowActionIdDeleteResponse400 = $apiBuilderWorkflowActionWorkflowActionIdDeleteResponse400;
         $this->response = $response;
     }
 
-    public function getApiBuilderWorkflowActionWorkflowActionIdDeleteResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse400
+    public function getApiBuilderWorkflowActionWorkflowActionIdDeleteResponse400(): \CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse400
     {
         return $this->apiBuilderWorkflowActionWorkflowActionIdDeleteResponse400;
     }

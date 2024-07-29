@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class UploadFileFormViewUnauthorizedException extends UnauthorizedException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse401
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse401
      */
     private $apiDatabaseViewsFormSlugUploadFilePostResponse401;
     /**
@@ -21,14 +21,14 @@ class UploadFileFormViewUnauthorizedException extends UnauthorizedException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse401 $apiDatabaseViewsFormSlugUploadFilePostResponse401, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse401 $apiDatabaseViewsFormSlugUploadFilePostResponse401, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Unauthorized');
         $this->apiDatabaseViewsFormSlugUploadFilePostResponse401 = $apiDatabaseViewsFormSlugUploadFilePostResponse401;
         $this->response = $response;
     }
 
-    public function getApiDatabaseViewsFormSlugUploadFilePostResponse401(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse401
+    public function getApiDatabaseViewsFormSlugUploadFilePostResponse401(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse401
     {
         return $this->apiDatabaseViewsFormSlugUploadFilePostResponse401;
     }

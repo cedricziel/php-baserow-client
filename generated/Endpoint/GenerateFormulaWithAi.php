@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class GenerateFormulaWithAi extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class GenerateFormulaWithAi extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $table_id;
 
     /**
@@ -21,7 +21,7 @@ class GenerateFormulaWithAi extends \cedricziel\phpbaserowclient\Generated\Runti
      *
      * @param int $tableId the table to generate the formula for
      */
-    public function __construct(int $tableId, \cedricziel\phpbaserowclient\Generated\Model\GenerateFormulaWithAIRequest $requestBody)
+    public function __construct(int $tableId, \CedricZiel\Baserow\Generated\Model\GenerateFormulaWithAIRequest $requestBody)
     {
         $this->table_id = $tableId;
         $this->body = $requestBody;
@@ -39,13 +39,13 @@ class GenerateFormulaWithAi extends \cedricziel\phpbaserowclient\Generated\Runti
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\GenerateFormulaWithAIRequest) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\GenerateFormulaWithAIRequest) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\GenerateFormulaWithAIRequest) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\GenerateFormulaWithAIRequest) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\GenerateFormulaWithAIRequest) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\GenerateFormulaWithAIRequest) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -65,23 +65,23 @@ class GenerateFormulaWithAi extends \cedricziel\phpbaserowclient\Generated\Runti
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\GenerateFormulaWithAIResponse|null
+     * @return \CedricZiel\Baserow\Generated\Model\GenerateFormulaWithAIResponse|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\GenerateFormulaWithAiBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\GenerateFormulaWithAiNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\GenerateFormulaWithAiBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\GenerateFormulaWithAiNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\GenerateFormulaWithAIResponse', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\GenerateFormulaWithAIResponse', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\GenerateFormulaWithAiBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\GenerateFormulaWithAiBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\GenerateFormulaWithAiNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\GenerateFormulaWithAiNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse404', 'json'), $response);
         }
     }
 

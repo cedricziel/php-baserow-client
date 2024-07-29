@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class LeaveGroupNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsGroupIdLeavePostResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdLeavePostResponse404
      */
     private $apiGroupsGroupIdLeavePostResponse404;
     /**
@@ -21,14 +21,14 @@ class LeaveGroupNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiGroupsGroupIdLeavePostResponse404 $apiGroupsGroupIdLeavePostResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdLeavePostResponse404 $apiGroupsGroupIdLeavePostResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiGroupsGroupIdLeavePostResponse404 = $apiGroupsGroupIdLeavePostResponse404;
         $this->response = $response;
     }
 
-    public function getApiGroupsGroupIdLeavePostResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsGroupIdLeavePostResponse404
+    public function getApiGroupsGroupIdLeavePostResponse404(): \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdLeavePostResponse404
     {
         return $this->apiGroupsGroupIdLeavePostResponse404;
     }

@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class GetGroupInvitationBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdGetResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdGetResponse400
      */
     private $apiGroupsInvitationsGroupInvitationIdGetResponse400;
     /**
@@ -21,14 +21,14 @@ class GetGroupInvitationBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdGetResponse400 $apiGroupsInvitationsGroupInvitationIdGetResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdGetResponse400 $apiGroupsInvitationsGroupInvitationIdGetResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiGroupsInvitationsGroupInvitationIdGetResponse400 = $apiGroupsInvitationsGroupInvitationIdGetResponse400;
         $this->response = $response;
     }
 
-    public function getApiGroupsInvitationsGroupInvitationIdGetResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdGetResponse400
+    public function getApiGroupsInvitationsGroupInvitationIdGetResponse400(): \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdGetResponse400
     {
         return $this->apiGroupsInvitationsGroupInvitationIdGetResponse400;
     }

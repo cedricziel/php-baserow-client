@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class AdminEditUserBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiAdminUsersUserIdPatchResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiAdminUsersUserIdPatchResponse400
      */
     private $apiAdminUsersUserIdPatchResponse400;
     /**
@@ -21,14 +21,14 @@ class AdminEditUserBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiAdminUsersUserIdPatchResponse400 $apiAdminUsersUserIdPatchResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiAdminUsersUserIdPatchResponse400 $apiAdminUsersUserIdPatchResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiAdminUsersUserIdPatchResponse400 = $apiAdminUsersUserIdPatchResponse400;
         $this->response = $response;
     }
 
-    public function getApiAdminUsersUserIdPatchResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiAdminUsersUserIdPatchResponse400
+    public function getApiAdminUsersUserIdPatchResponse400(): \CedricZiel\Baserow\Generated\Model\ApiAdminUsersUserIdPatchResponse400
     {
         return $this->apiAdminUsersUserIdPatchResponse400;
     }

@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class DeleteTeamNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdDeleteResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdDeleteResponse404
      */
     private $apiTeamsTeamIdDeleteResponse404;
     /**
@@ -21,14 +21,14 @@ class DeleteTeamNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdDeleteResponse404 $apiTeamsTeamIdDeleteResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdDeleteResponse404 $apiTeamsTeamIdDeleteResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiTeamsTeamIdDeleteResponse404 = $apiTeamsTeamIdDeleteResponse404;
         $this->response = $response;
     }
 
-    public function getApiTeamsTeamIdDeleteResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdDeleteResponse404
+    public function getApiTeamsTeamIdDeleteResponse404(): \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdDeleteResponse404
     {
         return $this->apiTeamsTeamIdDeleteResponse404;
     }

@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class ListDatabaseTableRowNamesNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsNamesGetResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse404
      */
     private $apiDatabaseRowsNamesGetResponse404;
     /**
@@ -21,14 +21,14 @@ class ListDatabaseTableRowNamesNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsNamesGetResponse404 $apiDatabaseRowsNamesGetResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse404 $apiDatabaseRowsNamesGetResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiDatabaseRowsNamesGetResponse404 = $apiDatabaseRowsNamesGetResponse404;
         $this->response = $response;
     }
 
-    public function getApiDatabaseRowsNamesGetResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsNamesGetResponse404
+    public function getApiDatabaseRowsNamesGetResponse404(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse404
     {
         return $this->apiDatabaseRowsNamesGetResponse404;
     }

@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class UpdateDatabaseToken extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class UpdateDatabaseToken extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $token_id;
 
     /**
@@ -20,7 +20,7 @@ class UpdateDatabaseToken extends \cedricziel\phpbaserowclient\Generated\Runtime
      *
      * @param int $tokenId updates the database token related to the provided value
      */
-    public function __construct(int $tokenId, ?\cedricziel\phpbaserowclient\Generated\Model\PatchedTokenUpdate $requestBody = null)
+    public function __construct(int $tokenId, ?\CedricZiel\Baserow\Generated\Model\PatchedTokenUpdate $requestBody = null)
     {
         $this->token_id = $tokenId;
         $this->body = $requestBody;
@@ -38,13 +38,13 @@ class UpdateDatabaseToken extends \cedricziel\phpbaserowclient\Generated\Runtime
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\PatchedTokenUpdate) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedTokenUpdate) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\PatchedTokenUpdate) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedTokenUpdate) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\PatchedTokenUpdate) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedTokenUpdate) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -64,23 +64,23 @@ class UpdateDatabaseToken extends \cedricziel\phpbaserowclient\Generated\Runtime
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\Token|null
+     * @return \CedricZiel\Baserow\Generated\Model\Token|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\UpdateDatabaseTokenBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\UpdateDatabaseTokenNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\UpdateDatabaseTokenBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\UpdateDatabaseTokenNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\Token', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\Token', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\UpdateDatabaseTokenBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensTokenIdPatchResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\UpdateDatabaseTokenBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdPatchResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\UpdateDatabaseTokenNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensTokenIdPatchResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\UpdateDatabaseTokenNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdPatchResponse404', 'json'), $response);
         }
     }
 

@@ -8,16 +8,16 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class VerifyEmail extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class VerifyEmail extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
 
     /**
      * Passing the correct verification token will confirm that the user's email address belongs to the user. This endpoint also optionally returns user information, access token and the refresh token for automatically signing user in the system if the request is performed by unauthenticated user.
      */
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\VerifyEmailAddress $requestBody)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\VerifyEmailAddress $requestBody)
     {
         $this->body = $requestBody;
     }
@@ -34,13 +34,13 @@ class VerifyEmail extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\VerifyEmailAddress) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\VerifyEmailAddress) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\VerifyEmailAddress) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\VerifyEmailAddress) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\VerifyEmailAddress) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\VerifyEmailAddress) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -60,23 +60,23 @@ class VerifyEmail extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\ApiUserVerifyEmailPostResponse200|null
+     * @return \CedricZiel\Baserow\Generated\Model\ApiUserVerifyEmailPostResponse200|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\VerifyEmailBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\VerifyEmailUnauthorizedException
+     * @throws \CedricZiel\Baserow\Generated\Exception\VerifyEmailBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\VerifyEmailUnauthorizedException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiUserVerifyEmailPostResponse200', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiUserVerifyEmailPostResponse200', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\VerifyEmailBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiUserVerifyEmailPostResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\VerifyEmailBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiUserVerifyEmailPostResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (401 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\VerifyEmailUnauthorizedException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiUserVerifyEmailPostResponse401', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\VerifyEmailUnauthorizedException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiUserVerifyEmailPostResponse401', 'json'), $response);
         }
     }
 

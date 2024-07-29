@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class AdminDeleteUserBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiAdminUsersUserIdDeleteResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiAdminUsersUserIdDeleteResponse400
      */
     private $apiAdminUsersUserIdDeleteResponse400;
     /**
@@ -21,14 +21,14 @@ class AdminDeleteUserBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiAdminUsersUserIdDeleteResponse400 $apiAdminUsersUserIdDeleteResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiAdminUsersUserIdDeleteResponse400 $apiAdminUsersUserIdDeleteResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiAdminUsersUserIdDeleteResponse400 = $apiAdminUsersUserIdDeleteResponse400;
         $this->response = $response;
     }
 
-    public function getApiAdminUsersUserIdDeleteResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiAdminUsersUserIdDeleteResponse400
+    public function getApiAdminUsersUserIdDeleteResponse400(): \CedricZiel\Baserow\Generated\Model\ApiAdminUsersUserIdDeleteResponse400
     {
         return $this->apiAdminUsersUserIdDeleteResponse400;
     }

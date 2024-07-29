@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class CreateBuilderPageBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdPagesPostResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdPagesPostResponse400
      */
     private $apiBuilderBuilderIdPagesPostResponse400;
     /**
@@ -21,14 +21,14 @@ class CreateBuilderPageBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdPagesPostResponse400 $apiBuilderBuilderIdPagesPostResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdPagesPostResponse400 $apiBuilderBuilderIdPagesPostResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiBuilderBuilderIdPagesPostResponse400 = $apiBuilderBuilderIdPagesPostResponse400;
         $this->response = $response;
     }
 
-    public function getApiBuilderBuilderIdPagesPostResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdPagesPostResponse400
+    public function getApiBuilderBuilderIdPagesPostResponse400(): \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdPagesPostResponse400
     {
         return $this->apiBuilderBuilderIdPagesPostResponse400;
     }

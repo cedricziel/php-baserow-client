@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class UpdateDatabaseTokenBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensTokenIdPatchResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdPatchResponse400
      */
     private $apiDatabaseTokensTokenIdPatchResponse400;
     /**
@@ -21,14 +21,14 @@ class UpdateDatabaseTokenBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensTokenIdPatchResponse400 $apiDatabaseTokensTokenIdPatchResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdPatchResponse400 $apiDatabaseTokensTokenIdPatchResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiDatabaseTokensTokenIdPatchResponse400 = $apiDatabaseTokensTokenIdPatchResponse400;
         $this->response = $response;
     }
 
-    public function getApiDatabaseTokensTokenIdPatchResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensTokenIdPatchResponse400
+    public function getApiDatabaseTokensTokenIdPatchResponse400(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdPatchResponse400
     {
         return $this->apiDatabaseTokensTokenIdPatchResponse400;
     }

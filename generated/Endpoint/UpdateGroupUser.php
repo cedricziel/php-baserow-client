@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class UpdateGroupUser extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class UpdateGroupUser extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $group_user_id;
 
     /**
@@ -22,7 +22,7 @@ class UpdateGroupUser extends \cedricziel\phpbaserowclient\Generated\Runtime\Cli
      *
      * @param int $groupUserId updates the group user related to the provided value
      */
-    public function __construct(int $groupUserId, ?\cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateWorkspaceUser $requestBody = null)
+    public function __construct(int $groupUserId, ?\CedricZiel\Baserow\Generated\Model\PatchedUpdateWorkspaceUser $requestBody = null)
     {
         $this->group_user_id = $groupUserId;
         $this->body = $requestBody;
@@ -40,13 +40,13 @@ class UpdateGroupUser extends \cedricziel\phpbaserowclient\Generated\Runtime\Cli
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateWorkspaceUser) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedUpdateWorkspaceUser) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateWorkspaceUser) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedUpdateWorkspaceUser) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateWorkspaceUser) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedUpdateWorkspaceUser) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -66,23 +66,23 @@ class UpdateGroupUser extends \cedricziel\phpbaserowclient\Generated\Runtime\Cli
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\WorkspaceUser|null
+     * @return \CedricZiel\Baserow\Generated\Model\WorkspaceUser|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\UpdateGroupUserBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\UpdateGroupUserNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\UpdateGroupUserBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\UpdateGroupUserNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\WorkspaceUser', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\WorkspaceUser', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\UpdateGroupUserBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupUserIdPatchResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\UpdateGroupUserBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdPatchResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\UpdateGroupUserNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupUserIdPatchResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\UpdateGroupUserNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdPatchResponse404', 'json'), $response);
         }
     }
 

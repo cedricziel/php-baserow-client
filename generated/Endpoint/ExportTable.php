@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class ExportTable extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class ExportTable extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $table_id;
 
     /**
@@ -65,23 +65,23 @@ class ExportTable extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\ExportJob|null
+     * @return \CedricZiel\Baserow\Generated\Model\ExportJob|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\ExportTableBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\ExportTableNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\ExportTableBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\ExportTableNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ExportJob', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ExportJob', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\ExportTableBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseExportTableTableIdPostResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\ExportTableBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseExportTableTableIdPostResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\ExportTableNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseExportTableTableIdPostResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\ExportTableNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseExportTableTableIdPostResponse404', 'json'), $response);
         }
     }
 

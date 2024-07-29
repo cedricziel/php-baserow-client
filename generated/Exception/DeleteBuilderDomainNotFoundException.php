@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class DeleteBuilderDomainNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsDomainIdDeleteResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdDeleteResponse404
      */
     private $apiBuilderDomainsDomainIdDeleteResponse404;
     /**
@@ -21,14 +21,14 @@ class DeleteBuilderDomainNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsDomainIdDeleteResponse404 $apiBuilderDomainsDomainIdDeleteResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdDeleteResponse404 $apiBuilderDomainsDomainIdDeleteResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiBuilderDomainsDomainIdDeleteResponse404 = $apiBuilderDomainsDomainIdDeleteResponse404;
         $this->response = $response;
     }
 
-    public function getApiBuilderDomainsDomainIdDeleteResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsDomainIdDeleteResponse404
+    public function getApiBuilderDomainsDomainIdDeleteResponse404(): \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdDeleteResponse404
     {
         return $this->apiBuilderDomainsDomainIdDeleteResponse404;
     }

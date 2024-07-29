@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class UpdateGroupUserBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupUserIdPatchResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdPatchResponse400
      */
     private $apiGroupsUsersGroupUserIdPatchResponse400;
     /**
@@ -21,14 +21,14 @@ class UpdateGroupUserBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupUserIdPatchResponse400 $apiGroupsUsersGroupUserIdPatchResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdPatchResponse400 $apiGroupsUsersGroupUserIdPatchResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiGroupsUsersGroupUserIdPatchResponse400 = $apiGroupsUsersGroupUserIdPatchResponse400;
         $this->response = $response;
     }
 
-    public function getApiGroupsUsersGroupUserIdPatchResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupUserIdPatchResponse400
+    public function getApiGroupsUsersGroupUserIdPatchResponse400(): \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdPatchResponse400
     {
         return $this->apiGroupsUsersGroupUserIdPatchResponse400;
     }

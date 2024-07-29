@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class UpdateDatabaseTableViewFilterNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterViewFilterIdPatchResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdPatchResponse404
      */
     private $apiDatabaseViewsFilterViewFilterIdPatchResponse404;
     /**
@@ -21,14 +21,14 @@ class UpdateDatabaseTableViewFilterNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterViewFilterIdPatchResponse404 $apiDatabaseViewsFilterViewFilterIdPatchResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdPatchResponse404 $apiDatabaseViewsFilterViewFilterIdPatchResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiDatabaseViewsFilterViewFilterIdPatchResponse404 = $apiDatabaseViewsFilterViewFilterIdPatchResponse404;
         $this->response = $response;
     }
 
-    public function getApiDatabaseViewsFilterViewFilterIdPatchResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterViewFilterIdPatchResponse404
+    public function getApiDatabaseViewsFilterViewFilterIdPatchResponse404(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdPatchResponse404
     {
         return $this->apiDatabaseViewsFilterViewFilterIdPatchResponse404;
     }

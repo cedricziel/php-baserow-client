@@ -8,10 +8,10 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Normalizer;
+namespace CedricZiel\Baserow\Generated\Normalizer;
 
-use cedricziel\phpbaserowclient\Generated\Runtime\Normalizer\CheckArray;
-use cedricziel\phpbaserowclient\Generated\Runtime\Normalizer\ValidatorTrait;
+use CedricZiel\Baserow\Generated\Runtime\Normalizer\CheckArray;
+use CedricZiel\Baserow\Generated\Runtime\Normalizer\ValidatorTrait;
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
@@ -31,12 +31,12 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
         {
-            return \cedricziel\phpbaserowclient\Generated\Model\FormViewView::class === $type;
+            return \CedricZiel\Baserow\Generated\Model\FormViewView::class === $type;
         }
 
         public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
         {
-            return is_object($data) && \cedricziel\phpbaserowclient\Generated\Model\FormViewView::class === get_class($data);
+            return is_object($data) && \CedricZiel\Baserow\Generated\Model\FormViewView::class === get_class($data);
         }
 
         public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -47,7 +47,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \cedricziel\phpbaserowclient\Generated\Model\FormViewView();
+            $object = new \CedricZiel\Baserow\Generated\Model\FormViewView();
             if (null === $data || false === \is_array($data)) {
                 return $object;
             }
@@ -72,7 +72,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 unset($data['type']);
             }
             if (\array_key_exists('table', $data)) {
-                $object->setTable($this->denormalizer->denormalize($data['table'], \cedricziel\phpbaserowclient\Generated\Model\Table::class, 'json', $context));
+                $object->setTable($this->denormalizer->denormalize($data['table'], \CedricZiel\Baserow\Generated\Model\Table::class, 'json', $context));
                 unset($data['table']);
             }
             if (\array_key_exists('filter_type', $data)) {
@@ -82,7 +82,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (\array_key_exists('filters', $data)) {
                 $values = [];
                 foreach ($data['filters'] as $value) {
-                    $values[] = $this->denormalizer->denormalize($value, \cedricziel\phpbaserowclient\Generated\Model\ViewFilter::class, 'json', $context);
+                    $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\ViewFilter::class, 'json', $context);
                 }
                 $object->setFilters($values);
                 unset($data['filters']);
@@ -90,7 +90,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (\array_key_exists('filter_groups', $data)) {
                 $values_1 = [];
                 foreach ($data['filter_groups'] as $value_1) {
-                    $values_1[] = $this->denormalizer->denormalize($value_1, \cedricziel\phpbaserowclient\Generated\Model\ViewFilterGroup::class, 'json', $context);
+                    $values_1[] = $this->denormalizer->denormalize($value_1, \CedricZiel\Baserow\Generated\Model\ViewFilterGroup::class, 'json', $context);
                 }
                 $object->setFilterGroups($values_1);
                 unset($data['filter_groups']);
@@ -98,7 +98,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (\array_key_exists('sortings', $data)) {
                 $values_2 = [];
                 foreach ($data['sortings'] as $value_2) {
-                    $values_2[] = $this->denormalizer->denormalize($value_2, \cedricziel\phpbaserowclient\Generated\Model\ViewSort::class, 'json', $context);
+                    $values_2[] = $this->denormalizer->denormalize($value_2, \CedricZiel\Baserow\Generated\Model\ViewSort::class, 'json', $context);
                 }
                 $object->setSortings($values_2);
                 unset($data['sortings']);
@@ -106,7 +106,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (\array_key_exists('group_bys', $data)) {
                 $values_3 = [];
                 foreach ($data['group_bys'] as $value_3) {
-                    $values_3[] = $this->denormalizer->denormalize($value_3, \cedricziel\phpbaserowclient\Generated\Model\ViewGroupBy::class, 'json', $context);
+                    $values_3[] = $this->denormalizer->denormalize($value_3, \CedricZiel\Baserow\Generated\Model\ViewGroupBy::class, 'json', $context);
                 }
                 $object->setGroupBys($values_3);
                 unset($data['group_bys']);
@@ -114,7 +114,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (\array_key_exists('decorations', $data)) {
                 $values_4 = [];
                 foreach ($data['decorations'] as $value_4) {
-                    $values_4[] = $this->denormalizer->denormalize($value_4, \cedricziel\phpbaserowclient\Generated\Model\ViewDecoration::class, 'json', $context);
+                    $values_4[] = $this->denormalizer->denormalize($value_4, \CedricZiel\Baserow\Generated\Model\ViewDecoration::class, 'json', $context);
                 }
                 $object->setDecorations($values_4);
                 unset($data['decorations']);
@@ -152,13 +152,13 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 unset($data['mode']);
             }
             if (\array_key_exists('cover_image', $data) && null !== $data['cover_image']) {
-                $object->setCoverImage($this->denormalizer->denormalize($data['cover_image'], \cedricziel\phpbaserowclient\Generated\Model\FormViewViewCoverImage::class, 'json', $context));
+                $object->setCoverImage($this->denormalizer->denormalize($data['cover_image'], \CedricZiel\Baserow\Generated\Model\FormViewViewCoverImage::class, 'json', $context));
                 unset($data['cover_image']);
             } elseif (\array_key_exists('cover_image', $data) && null === $data['cover_image']) {
                 $object->setCoverImage(null);
             }
             if (\array_key_exists('logo_image', $data) && null !== $data['logo_image']) {
-                $object->setLogoImage($this->denormalizer->denormalize($data['logo_image'], \cedricziel\phpbaserowclient\Generated\Model\FormViewViewLogoImage::class, 'json', $context));
+                $object->setLogoImage($this->denormalizer->denormalize($data['logo_image'], \CedricZiel\Baserow\Generated\Model\FormViewViewLogoImage::class, 'json', $context));
                 unset($data['logo_image']);
             } elseif (\array_key_exists('logo_image', $data) && null === $data['logo_image']) {
                 $object->setLogoImage(null);
@@ -295,7 +295,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function getSupportedTypes(?string $format = null): array
         {
-            return [\cedricziel\phpbaserowclient\Generated\Model\FormViewView::class => false];
+            return [\CedricZiel\Baserow\Generated\Model\FormViewView::class => false];
         }
     }
 } else {
@@ -308,12 +308,12 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function supportsDenormalization($data, $type, ?string $format = null, array $context = []): bool
         {
-            return \cedricziel\phpbaserowclient\Generated\Model\FormViewView::class === $type;
+            return \CedricZiel\Baserow\Generated\Model\FormViewView::class === $type;
         }
 
         public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
         {
-            return is_object($data) && \cedricziel\phpbaserowclient\Generated\Model\FormViewView::class === get_class($data);
+            return is_object($data) && \CedricZiel\Baserow\Generated\Model\FormViewView::class === get_class($data);
         }
 
         public function denormalize($data, $type, $format = null, array $context = [])
@@ -324,7 +324,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \cedricziel\phpbaserowclient\Generated\Model\FormViewView();
+            $object = new \CedricZiel\Baserow\Generated\Model\FormViewView();
             if (null === $data || false === \is_array($data)) {
                 return $object;
             }
@@ -349,7 +349,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 unset($data['type']);
             }
             if (\array_key_exists('table', $data)) {
-                $object->setTable($this->denormalizer->denormalize($data['table'], \cedricziel\phpbaserowclient\Generated\Model\Table::class, 'json', $context));
+                $object->setTable($this->denormalizer->denormalize($data['table'], \CedricZiel\Baserow\Generated\Model\Table::class, 'json', $context));
                 unset($data['table']);
             }
             if (\array_key_exists('filter_type', $data)) {
@@ -359,7 +359,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (\array_key_exists('filters', $data)) {
                 $values = [];
                 foreach ($data['filters'] as $value) {
-                    $values[] = $this->denormalizer->denormalize($value, \cedricziel\phpbaserowclient\Generated\Model\ViewFilter::class, 'json', $context);
+                    $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\ViewFilter::class, 'json', $context);
                 }
                 $object->setFilters($values);
                 unset($data['filters']);
@@ -367,7 +367,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (\array_key_exists('filter_groups', $data)) {
                 $values_1 = [];
                 foreach ($data['filter_groups'] as $value_1) {
-                    $values_1[] = $this->denormalizer->denormalize($value_1, \cedricziel\phpbaserowclient\Generated\Model\ViewFilterGroup::class, 'json', $context);
+                    $values_1[] = $this->denormalizer->denormalize($value_1, \CedricZiel\Baserow\Generated\Model\ViewFilterGroup::class, 'json', $context);
                 }
                 $object->setFilterGroups($values_1);
                 unset($data['filter_groups']);
@@ -375,7 +375,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (\array_key_exists('sortings', $data)) {
                 $values_2 = [];
                 foreach ($data['sortings'] as $value_2) {
-                    $values_2[] = $this->denormalizer->denormalize($value_2, \cedricziel\phpbaserowclient\Generated\Model\ViewSort::class, 'json', $context);
+                    $values_2[] = $this->denormalizer->denormalize($value_2, \CedricZiel\Baserow\Generated\Model\ViewSort::class, 'json', $context);
                 }
                 $object->setSortings($values_2);
                 unset($data['sortings']);
@@ -383,7 +383,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (\array_key_exists('group_bys', $data)) {
                 $values_3 = [];
                 foreach ($data['group_bys'] as $value_3) {
-                    $values_3[] = $this->denormalizer->denormalize($value_3, \cedricziel\phpbaserowclient\Generated\Model\ViewGroupBy::class, 'json', $context);
+                    $values_3[] = $this->denormalizer->denormalize($value_3, \CedricZiel\Baserow\Generated\Model\ViewGroupBy::class, 'json', $context);
                 }
                 $object->setGroupBys($values_3);
                 unset($data['group_bys']);
@@ -391,7 +391,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (\array_key_exists('decorations', $data)) {
                 $values_4 = [];
                 foreach ($data['decorations'] as $value_4) {
-                    $values_4[] = $this->denormalizer->denormalize($value_4, \cedricziel\phpbaserowclient\Generated\Model\ViewDecoration::class, 'json', $context);
+                    $values_4[] = $this->denormalizer->denormalize($value_4, \CedricZiel\Baserow\Generated\Model\ViewDecoration::class, 'json', $context);
                 }
                 $object->setDecorations($values_4);
                 unset($data['decorations']);
@@ -429,13 +429,13 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 unset($data['mode']);
             }
             if (\array_key_exists('cover_image', $data) && null !== $data['cover_image']) {
-                $object->setCoverImage($this->denormalizer->denormalize($data['cover_image'], \cedricziel\phpbaserowclient\Generated\Model\FormViewViewCoverImage::class, 'json', $context));
+                $object->setCoverImage($this->denormalizer->denormalize($data['cover_image'], \CedricZiel\Baserow\Generated\Model\FormViewViewCoverImage::class, 'json', $context));
                 unset($data['cover_image']);
             } elseif (\array_key_exists('cover_image', $data) && null === $data['cover_image']) {
                 $object->setCoverImage(null);
             }
             if (\array_key_exists('logo_image', $data) && null !== $data['logo_image']) {
-                $object->setLogoImage($this->denormalizer->denormalize($data['logo_image'], \cedricziel\phpbaserowclient\Generated\Model\FormViewViewLogoImage::class, 'json', $context));
+                $object->setLogoImage($this->denormalizer->denormalize($data['logo_image'], \CedricZiel\Baserow\Generated\Model\FormViewViewLogoImage::class, 'json', $context));
                 unset($data['logo_image']);
             } elseif (\array_key_exists('logo_image', $data) && null === $data['logo_image']) {
                 $object->setLogoImage(null);
@@ -575,7 +575,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function getSupportedTypes(?string $format = null): array
         {
-            return [\cedricziel\phpbaserowclient\Generated\Model\FormViewView::class => false];
+            return [\CedricZiel\Baserow\Generated\Model\FormViewView::class => false];
         }
     }
 }

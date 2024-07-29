@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class ListWorkspaceUsersBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse400
      */
     private $apiWorkspacesUsersWorkspaceWorkspaceIdGetResponse400;
     /**
@@ -21,14 +21,14 @@ class ListWorkspaceUsersBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse400 $apiWorkspacesUsersWorkspaceWorkspaceIdGetResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse400 $apiWorkspacesUsersWorkspaceWorkspaceIdGetResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiWorkspacesUsersWorkspaceWorkspaceIdGetResponse400 = $apiWorkspacesUsersWorkspaceWorkspaceIdGetResponse400;
         $this->response = $response;
     }
 
-    public function getApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse400
+    public function getApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse400(): \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse400
     {
         return $this->apiWorkspacesUsersWorkspaceWorkspaceIdGetResponse400;
     }

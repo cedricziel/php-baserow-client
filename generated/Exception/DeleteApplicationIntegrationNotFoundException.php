@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class DeleteApplicationIntegrationNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdDeleteResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdDeleteResponse404
      */
     private $apiIntegrationIntegrationIdDeleteResponse404;
     /**
@@ -21,14 +21,14 @@ class DeleteApplicationIntegrationNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdDeleteResponse404 $apiIntegrationIntegrationIdDeleteResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdDeleteResponse404 $apiIntegrationIntegrationIdDeleteResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiIntegrationIntegrationIdDeleteResponse404 = $apiIntegrationIntegrationIdDeleteResponse404;
         $this->response = $response;
     }
 
-    public function getApiIntegrationIntegrationIdDeleteResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdDeleteResponse404
+    public function getApiIntegrationIntegrationIdDeleteResponse404(): \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdDeleteResponse404
     {
         return $this->apiIntegrationIntegrationIdDeleteResponse404;
     }

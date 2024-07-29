@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class GetDatabaseTableGridViewFieldAggregationsNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse404
      */
     private $apiDatabaseViewsGridViewIdAggregationsGetResponse404;
     /**
@@ -21,14 +21,14 @@ class GetDatabaseTableGridViewFieldAggregationsNotFoundException extends NotFoun
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse404 $apiDatabaseViewsGridViewIdAggregationsGetResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse404 $apiDatabaseViewsGridViewIdAggregationsGetResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiDatabaseViewsGridViewIdAggregationsGetResponse404 = $apiDatabaseViewsGridViewIdAggregationsGetResponse404;
         $this->response = $response;
     }
 
-    public function getApiDatabaseViewsGridViewIdAggregationsGetResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse404
+    public function getApiDatabaseViewsGridViewIdAggregationsGetResponse404(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse404
     {
         return $this->apiDatabaseViewsGridViewIdAggregationsGetResponse404;
     }

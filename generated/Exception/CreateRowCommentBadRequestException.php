@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class CreateRowCommentBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdRowIdPostResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdPostResponse400
      */
     private $apiRowCommentsTableIdRowIdPostResponse400;
     /**
@@ -21,14 +21,14 @@ class CreateRowCommentBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdRowIdPostResponse400 $apiRowCommentsTableIdRowIdPostResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdPostResponse400 $apiRowCommentsTableIdRowIdPostResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiRowCommentsTableIdRowIdPostResponse400 = $apiRowCommentsTableIdRowIdPostResponse400;
         $this->response = $response;
     }
 
-    public function getApiRowCommentsTableIdRowIdPostResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdRowIdPostResponse400
+    public function getApiRowCommentsTableIdRowIdPostResponse400(): \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdPostResponse400
     {
         return $this->apiRowCommentsTableIdRowIdPostResponse400;
     }

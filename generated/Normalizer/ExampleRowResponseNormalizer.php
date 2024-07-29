@@ -8,10 +8,10 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Normalizer;
+namespace CedricZiel\Baserow\Generated\Normalizer;
 
-use cedricziel\phpbaserowclient\Generated\Runtime\Normalizer\CheckArray;
-use cedricziel\phpbaserowclient\Generated\Runtime\Normalizer\ValidatorTrait;
+use CedricZiel\Baserow\Generated\Runtime\Normalizer\CheckArray;
+use CedricZiel\Baserow\Generated\Runtime\Normalizer\ValidatorTrait;
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
@@ -31,12 +31,12 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
         {
-            return \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponse::class === $type;
+            return \CedricZiel\Baserow\Generated\Model\ExampleRowResponse::class === $type;
         }
 
         public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
         {
-            return is_object($data) && \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponse::class === get_class($data);
+            return is_object($data) && \CedricZiel\Baserow\Generated\Model\ExampleRowResponse::class === get_class($data);
         }
 
         public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -47,7 +47,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponse();
+            $object = new \CedricZiel\Baserow\Generated\Model\ExampleRowResponse();
             if (\array_key_exists('field_13', $data) && \is_int($data['field_13'])) {
                 $data['field_13'] = (float) $data['field_13'];
             }
@@ -111,7 +111,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 unset($data['field_9']);
             }
             if (\array_key_exists('field_10', $data)) {
-                $object->setField10($this->denormalizer->denormalize($data['field_10'], \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponseField10::class, 'json', $context));
+                $object->setField10($this->denormalizer->denormalize($data['field_10'], \CedricZiel\Baserow\Generated\Model\ExampleRowResponseField10::class, 'json', $context));
                 unset($data['field_10']);
             }
             if (\array_key_exists('field_11', $data)) {
@@ -119,7 +119,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 unset($data['field_11']);
             }
             if (\array_key_exists('field_12', $data)) {
-                $object->setField12($this->denormalizer->denormalize($data['field_12'], \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponseField12::class, 'json', $context));
+                $object->setField12($this->denormalizer->denormalize($data['field_12'], \CedricZiel\Baserow\Generated\Model\ExampleRowResponseField12::class, 'json', $context));
                 unset($data['field_12']);
             }
             if (\array_key_exists('field_13', $data) && null !== $data['field_13']) {
@@ -131,7 +131,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (\array_key_exists('field_14', $data)) {
                 $values = [];
                 foreach ($data['field_14'] as $value) {
-                    $values[] = $this->denormalizer->denormalize($value, \cedricziel\phpbaserowclient\Generated\Model\LinkRowValue::class, 'json', $context);
+                    $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\LinkRowValue::class, 'json', $context);
                 }
                 $object->setField14($values);
                 unset($data['field_14']);
@@ -139,13 +139,13 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (\array_key_exists('field_15', $data)) {
                 $values_1 = [];
                 foreach ($data['field_15'] as $value_1) {
-                    $values_1[] = $this->denormalizer->denormalize($value_1, \cedricziel\phpbaserowclient\Generated\Model\FileFieldResponse::class, 'json', $context);
+                    $values_1[] = $this->denormalizer->denormalize($value_1, \CedricZiel\Baserow\Generated\Model\FileFieldResponse::class, 'json', $context);
                 }
                 $object->setField15($values_1);
                 unset($data['field_15']);
             }
             if (\array_key_exists('field_16', $data) && null !== $data['field_16']) {
-                $object->setField16($this->denormalizer->denormalize($data['field_16'], \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponseField16::class, 'json', $context));
+                $object->setField16($this->denormalizer->denormalize($data['field_16'], \CedricZiel\Baserow\Generated\Model\ExampleRowResponseField16::class, 'json', $context));
                 unset($data['field_16']);
             } elseif (\array_key_exists('field_16', $data) && null === $data['field_16']) {
                 $object->setField16(null);
@@ -153,7 +153,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (\array_key_exists('field_17', $data) && null !== $data['field_17']) {
                 $values_2 = [];
                 foreach ($data['field_17'] as $value_2) {
-                    $values_2[] = $this->denormalizer->denormalize($value_2, \cedricziel\phpbaserowclient\Generated\Model\SelectOption::class, 'json', $context);
+                    $values_2[] = $this->denormalizer->denormalize($value_2, \CedricZiel\Baserow\Generated\Model\SelectOption::class, 'json', $context);
                 }
                 $object->setField17($values_2);
                 unset($data['field_17']);
@@ -193,7 +193,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (\array_key_exists('field_23', $data)) {
                 $values_3 = [];
                 foreach ($data['field_23'] as $value_3) {
-                    $values_3[] = $this->denormalizer->denormalize($value_3, \cedricziel\phpbaserowclient\Generated\Model\Collaborator::class, 'json', $context);
+                    $values_3[] = $this->denormalizer->denormalize($value_3, \CedricZiel\Baserow\Generated\Model\Collaborator::class, 'json', $context);
                 }
                 $object->setField23($values_3);
                 unset($data['field_23']);
@@ -340,7 +340,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function getSupportedTypes(?string $format = null): array
         {
-            return [\cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponse::class => false];
+            return [\CedricZiel\Baserow\Generated\Model\ExampleRowResponse::class => false];
         }
     }
 } else {
@@ -353,12 +353,12 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function supportsDenormalization($data, $type, ?string $format = null, array $context = []): bool
         {
-            return \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponse::class === $type;
+            return \CedricZiel\Baserow\Generated\Model\ExampleRowResponse::class === $type;
         }
 
         public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
         {
-            return is_object($data) && \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponse::class === get_class($data);
+            return is_object($data) && \CedricZiel\Baserow\Generated\Model\ExampleRowResponse::class === get_class($data);
         }
 
         public function denormalize($data, $type, $format = null, array $context = [])
@@ -369,7 +369,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponse();
+            $object = new \CedricZiel\Baserow\Generated\Model\ExampleRowResponse();
             if (\array_key_exists('field_13', $data) && \is_int($data['field_13'])) {
                 $data['field_13'] = (float) $data['field_13'];
             }
@@ -433,7 +433,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 unset($data['field_9']);
             }
             if (\array_key_exists('field_10', $data)) {
-                $object->setField10($this->denormalizer->denormalize($data['field_10'], \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponseField10::class, 'json', $context));
+                $object->setField10($this->denormalizer->denormalize($data['field_10'], \CedricZiel\Baserow\Generated\Model\ExampleRowResponseField10::class, 'json', $context));
                 unset($data['field_10']);
             }
             if (\array_key_exists('field_11', $data)) {
@@ -441,7 +441,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 unset($data['field_11']);
             }
             if (\array_key_exists('field_12', $data)) {
-                $object->setField12($this->denormalizer->denormalize($data['field_12'], \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponseField12::class, 'json', $context));
+                $object->setField12($this->denormalizer->denormalize($data['field_12'], \CedricZiel\Baserow\Generated\Model\ExampleRowResponseField12::class, 'json', $context));
                 unset($data['field_12']);
             }
             if (\array_key_exists('field_13', $data) && null !== $data['field_13']) {
@@ -453,7 +453,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (\array_key_exists('field_14', $data)) {
                 $values = [];
                 foreach ($data['field_14'] as $value) {
-                    $values[] = $this->denormalizer->denormalize($value, \cedricziel\phpbaserowclient\Generated\Model\LinkRowValue::class, 'json', $context);
+                    $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\LinkRowValue::class, 'json', $context);
                 }
                 $object->setField14($values);
                 unset($data['field_14']);
@@ -461,13 +461,13 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (\array_key_exists('field_15', $data)) {
                 $values_1 = [];
                 foreach ($data['field_15'] as $value_1) {
-                    $values_1[] = $this->denormalizer->denormalize($value_1, \cedricziel\phpbaserowclient\Generated\Model\FileFieldResponse::class, 'json', $context);
+                    $values_1[] = $this->denormalizer->denormalize($value_1, \CedricZiel\Baserow\Generated\Model\FileFieldResponse::class, 'json', $context);
                 }
                 $object->setField15($values_1);
                 unset($data['field_15']);
             }
             if (\array_key_exists('field_16', $data) && null !== $data['field_16']) {
-                $object->setField16($this->denormalizer->denormalize($data['field_16'], \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponseField16::class, 'json', $context));
+                $object->setField16($this->denormalizer->denormalize($data['field_16'], \CedricZiel\Baserow\Generated\Model\ExampleRowResponseField16::class, 'json', $context));
                 unset($data['field_16']);
             } elseif (\array_key_exists('field_16', $data) && null === $data['field_16']) {
                 $object->setField16(null);
@@ -475,7 +475,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (\array_key_exists('field_17', $data) && null !== $data['field_17']) {
                 $values_2 = [];
                 foreach ($data['field_17'] as $value_2) {
-                    $values_2[] = $this->denormalizer->denormalize($value_2, \cedricziel\phpbaserowclient\Generated\Model\SelectOption::class, 'json', $context);
+                    $values_2[] = $this->denormalizer->denormalize($value_2, \CedricZiel\Baserow\Generated\Model\SelectOption::class, 'json', $context);
                 }
                 $object->setField17($values_2);
                 unset($data['field_17']);
@@ -515,7 +515,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (\array_key_exists('field_23', $data)) {
                 $values_3 = [];
                 foreach ($data['field_23'] as $value_3) {
-                    $values_3[] = $this->denormalizer->denormalize($value_3, \cedricziel\phpbaserowclient\Generated\Model\Collaborator::class, 'json', $context);
+                    $values_3[] = $this->denormalizer->denormalize($value_3, \CedricZiel\Baserow\Generated\Model\Collaborator::class, 'json', $context);
                 }
                 $object->setField23($values_3);
                 unset($data['field_23']);
@@ -665,7 +665,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function getSupportedTypes(?string $format = null): array
         {
-            return [\cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponse::class => false];
+            return [\CedricZiel\Baserow\Generated\Model\ExampleRowResponse::class => false];
         }
     }
 }

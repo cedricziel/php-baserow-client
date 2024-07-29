@@ -8,10 +8,10 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Normalizer;
+namespace CedricZiel\Baserow\Generated\Normalizer;
 
-use cedricziel\phpbaserowclient\Generated\Runtime\Normalizer\CheckArray;
-use cedricziel\phpbaserowclient\Generated\Runtime\Normalizer\ValidatorTrait;
+use CedricZiel\Baserow\Generated\Runtime\Normalizer\CheckArray;
+use CedricZiel\Baserow\Generated\Runtime\Normalizer\ValidatorTrait;
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
@@ -31,12 +31,12 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
         {
-            return \cedricziel\phpbaserowclient\Generated\Model\FormulaFieldUpdateField::class === $type;
+            return \CedricZiel\Baserow\Generated\Model\FormulaFieldUpdateField::class === $type;
         }
 
         public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
         {
-            return is_object($data) && \cedricziel\phpbaserowclient\Generated\Model\FormulaFieldUpdateField::class === get_class($data);
+            return is_object($data) && \CedricZiel\Baserow\Generated\Model\FormulaFieldUpdateField::class === get_class($data);
         }
 
         public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -47,7 +47,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \cedricziel\phpbaserowclient\Generated\Model\FormulaFieldUpdateField();
+            $object = new \CedricZiel\Baserow\Generated\Model\FormulaFieldUpdateField();
             if (null === $data || false === \is_array($data)) {
                 return $object;
             }
@@ -189,7 +189,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function getSupportedTypes(?string $format = null): array
         {
-            return [\cedricziel\phpbaserowclient\Generated\Model\FormulaFieldUpdateField::class => false];
+            return [\CedricZiel\Baserow\Generated\Model\FormulaFieldUpdateField::class => false];
         }
     }
 } else {
@@ -202,12 +202,12 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function supportsDenormalization($data, $type, ?string $format = null, array $context = []): bool
         {
-            return \cedricziel\phpbaserowclient\Generated\Model\FormulaFieldUpdateField::class === $type;
+            return \CedricZiel\Baserow\Generated\Model\FormulaFieldUpdateField::class === $type;
         }
 
         public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
         {
-            return is_object($data) && \cedricziel\phpbaserowclient\Generated\Model\FormulaFieldUpdateField::class === get_class($data);
+            return is_object($data) && \CedricZiel\Baserow\Generated\Model\FormulaFieldUpdateField::class === get_class($data);
         }
 
         public function denormalize($data, $type, $format = null, array $context = [])
@@ -218,7 +218,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \cedricziel\phpbaserowclient\Generated\Model\FormulaFieldUpdateField();
+            $object = new \CedricZiel\Baserow\Generated\Model\FormulaFieldUpdateField();
             if (null === $data || false === \is_array($data)) {
                 return $object;
             }
@@ -363,7 +363,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function getSupportedTypes(?string $format = null): array
         {
-            return [\cedricziel\phpbaserowclient\Generated\Model\FormulaFieldUpdateField::class => false];
+            return [\CedricZiel\Baserow\Generated\Model\FormulaFieldUpdateField::class => false];
         }
     }
 }

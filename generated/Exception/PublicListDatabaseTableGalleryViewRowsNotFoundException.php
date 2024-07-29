@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class PublicListDatabaseTableGalleryViewRowsNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse404
      */
     private $apiDatabaseViewsGallerySlugPublicRowsGetResponse404;
     /**
@@ -21,14 +21,14 @@ class PublicListDatabaseTableGalleryViewRowsNotFoundException extends NotFoundEx
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse404 $apiDatabaseViewsGallerySlugPublicRowsGetResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse404 $apiDatabaseViewsGallerySlugPublicRowsGetResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiDatabaseViewsGallerySlugPublicRowsGetResponse404 = $apiDatabaseViewsGallerySlugPublicRowsGetResponse404;
         $this->response = $response;
     }
 
-    public function getApiDatabaseViewsGallerySlugPublicRowsGetResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse404
+    public function getApiDatabaseViewsGallerySlugPublicRowsGetResponse404(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse404
     {
         return $this->apiDatabaseViewsGallerySlugPublicRowsGetResponse404;
     }

@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class UpdateAuthProviderNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuthProviderAuthProviderIdPatchResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderAuthProviderIdPatchResponse404
      */
     private $apiAdminAuthProviderAuthProviderIdPatchResponse404;
     /**
@@ -21,14 +21,14 @@ class UpdateAuthProviderNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuthProviderAuthProviderIdPatchResponse404 $apiAdminAuthProviderAuthProviderIdPatchResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderAuthProviderIdPatchResponse404 $apiAdminAuthProviderAuthProviderIdPatchResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiAdminAuthProviderAuthProviderIdPatchResponse404 = $apiAdminAuthProviderAuthProviderIdPatchResponse404;
         $this->response = $response;
     }
 
-    public function getApiAdminAuthProviderAuthProviderIdPatchResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuthProviderAuthProviderIdPatchResponse404
+    public function getApiAdminAuthProviderAuthProviderIdPatchResponse404(): \CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderAuthProviderIdPatchResponse404
     {
         return $this->apiAdminAuthProviderAuthProviderIdPatchResponse404;
     }

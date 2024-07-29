@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class GroupInstallTemplateAsyncNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse404
      */
     private $apiTemplatesInstallGroupIdTemplateIdAsyncPostResponse404;
     /**
@@ -21,14 +21,14 @@ class GroupInstallTemplateAsyncNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse404 $apiTemplatesInstallGroupIdTemplateIdAsyncPostResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse404 $apiTemplatesInstallGroupIdTemplateIdAsyncPostResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiTemplatesInstallGroupIdTemplateIdAsyncPostResponse404 = $apiTemplatesInstallGroupIdTemplateIdAsyncPostResponse404;
         $this->response = $response;
     }
 
-    public function getApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse404
+    public function getApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse404(): \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse404
     {
         return $this->apiTemplatesInstallGroupIdTemplateIdAsyncPostResponse404;
     }

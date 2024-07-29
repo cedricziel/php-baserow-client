@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class GroupPermissionsNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsGroupIdPermissionsGetResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdPermissionsGetResponse404
      */
     private $apiGroupsGroupIdPermissionsGetResponse404;
     /**
@@ -21,14 +21,14 @@ class GroupPermissionsNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiGroupsGroupIdPermissionsGetResponse404 $apiGroupsGroupIdPermissionsGetResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdPermissionsGetResponse404 $apiGroupsGroupIdPermissionsGetResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiGroupsGroupIdPermissionsGetResponse404 = $apiGroupsGroupIdPermissionsGetResponse404;
         $this->response = $response;
     }
 
-    public function getApiGroupsGroupIdPermissionsGetResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsGroupIdPermissionsGetResponse404
+    public function getApiGroupsGroupIdPermissionsGetResponse404(): \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdPermissionsGetResponse404
     {
         return $this->apiGroupsGroupIdPermissionsGetResponse404;
     }

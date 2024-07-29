@@ -8,7 +8,7 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated;
+namespace CedricZiel\Baserow\Generated;
 
 class Client extends Runtime\Client\Client
 {
@@ -78,7 +78,7 @@ class Client extends Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \cedricziel\phpbaserowclient\Generated\Model\AuditLogActionType[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \CedricZiel\Baserow\Generated\Model\AuditLogActionType[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\AuditLogActionTypesBadRequestException
      * @throws Exception\AuditLogActionTypesUnauthorizedException
@@ -799,7 +799,7 @@ class Client extends Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \cedricziel\phpbaserowclient\Generated\Model\AuditLogActionType[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \CedricZiel\Baserow\Generated\Model\AuditLogActionType[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\AuditLogActionTypes2BadRequestException
      * @throws Exception\AuditLogActionTypes2UnauthorizedException
@@ -2293,7 +2293,7 @@ class Client extends Runtime\Client\Client
      * @param int    $databaseId returns only tables that are related to the provided value
      * @param string $fetch      Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \cedricziel\phpbaserowclient\Generated\Model\Table[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \CedricZiel\Baserow\Generated\Model\Table[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\ListDatabaseTablesBadRequestException
      * @throws Exception\ListDatabaseTablesNotFoundException
@@ -2373,7 +2373,7 @@ class Client extends Runtime\Client\Client
     /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \cedricziel\phpbaserowclient\Generated\Model\Token[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \CedricZiel\Baserow\Generated\Model\Token[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function listDatabaseTokens(string $fetch = self::FETCH_OBJECT)
     {
@@ -2727,7 +2727,7 @@ class Client extends Runtime\Client\Client
      * @param int    $viewId returns only filters of the view related to the provided value
      * @param string $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \cedricziel\phpbaserowclient\Generated\Model\ViewFilter[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \CedricZiel\Baserow\Generated\Model\ViewFilter[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\ListDatabaseTableViewFiltersBadRequestException
      * @throws Exception\ListDatabaseTableViewFiltersNotFoundException
@@ -2765,7 +2765,7 @@ class Client extends Runtime\Client\Client
      * @param int    $viewId returns only groupings of the view related to the provided value
      * @param string $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \cedricziel\phpbaserowclient\Generated\Model\ViewGroupBy[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \CedricZiel\Baserow\Generated\Model\ViewGroupBy[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\ListDatabaseTableViewGroupingsBadRequestException
      * @throws Exception\ListDatabaseTableViewGroupingsNotFoundException
@@ -2825,7 +2825,7 @@ class Client extends Runtime\Client\Client
      * @param int    $viewId returns only sortings of the view related to the provided value
      * @param string $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \cedricziel\phpbaserowclient\Generated\Model\ViewSort[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \CedricZiel\Baserow\Generated\Model\ViewSort[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\ListDatabaseTableViewSortingsBadRequestException
      * @throws Exception\ListDatabaseTableViewSortingsNotFoundException
@@ -3384,7 +3384,7 @@ class Client extends Runtime\Client\Client
      * @param int    $viewId returns only rows that belong to the related view's table
      * @param string $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponse[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \CedricZiel\Baserow\Generated\Model\ExampleRowResponse[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\FilterDatabaseTableGridViewRowsBadRequestException
      * @throws Exception\FilterDatabaseTableGridViewRowsNotFoundException
@@ -3789,7 +3789,7 @@ class Client extends Runtime\Client\Client
      * @param int    $tableId returns only webhooks of the table related to this value
      * @param string $fetch   Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \cedricziel\phpbaserowclient\Generated\Model\TableWebhook[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \CedricZiel\Baserow\Generated\Model\TableWebhook[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\ListDatabaseTableWebhooksBadRequestException
      * @throws Exception\ListDatabaseTableWebhooksNotFoundException
@@ -3848,7 +3848,7 @@ class Client extends Runtime\Client\Client
     /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \cedricziel\phpbaserowclient\Generated\Model\WorkspaceUserWorkspace[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \CedricZiel\Baserow\Generated\Model\WorkspaceUserWorkspace[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function listGroups(string $fetch = self::FETCH_OBJECT)
     {
@@ -3959,7 +3959,7 @@ class Client extends Runtime\Client\Client
      * @param int    $groupId the group id we want the permission object for
      * @param string $fetch   Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \cedricziel\phpbaserowclient\Generated\Model\PermissionObject[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \CedricZiel\Baserow\Generated\Model\PermissionObject[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\GroupPermissionsNotFoundException
      */
@@ -4078,7 +4078,7 @@ class Client extends Runtime\Client\Client
      * @param int    $groupId returns only invitations that are in the group related to the provided value
      * @param string $fetch   Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \cedricziel\phpbaserowclient\Generated\Model\WorkspaceInvitation[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \CedricZiel\Baserow\Generated\Model\WorkspaceInvitation[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\ListGroupInvitationsBadRequestException
      * @throws Exception\ListGroupInvitationsNotFoundException
@@ -4200,7 +4200,7 @@ class Client extends Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \cedricziel\phpbaserowclient\Generated\Model\ListWorkspaceUsersWithMemberData[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \CedricZiel\Baserow\Generated\Model\ListWorkspaceUsersWithMemberData[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\ListGroupUsersBadRequestException
      * @throws Exception\ListGroupUsersNotFoundException
@@ -4326,7 +4326,7 @@ class Client extends Runtime\Client\Client
     /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \cedricziel\phpbaserowclient\Generated\Model\License[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \CedricZiel\Baserow\Generated\Model\License[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function adminLicenses(string $fetch = self::FETCH_OBJECT)
     {
@@ -4432,7 +4432,7 @@ class Client extends Runtime\Client\Client
      * @param int    $id    the internal identifier of the license, this is `id` and not `license_id`
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \cedricziel\phpbaserowclient\Generated\Model\LicenseUser[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \CedricZiel\Baserow\Generated\Model\LicenseUser[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\AdminFillRemainingSeatsOfLicenseBadRequestException
      * @throws Exception\AdminFillRemainingSeatsOfLicenseNotFoundException
@@ -4567,7 +4567,7 @@ class Client extends Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \cedricziel\phpbaserowclient\Generated\Model\OpenApiRoleAssignment[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \CedricZiel\Baserow\Generated\Model\OpenApiRoleAssignment[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\GroupListRoleAssignmentsBadRequestException
      * @throws Exception\GroupListRoleAssignmentsNotFoundException
@@ -4607,7 +4607,7 @@ class Client extends Runtime\Client\Client
      * @param int    $groupId the group in which the role assignment takes place
      * @param string $fetch   Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \cedricziel\phpbaserowclient\Generated\Model\OpenApiRoleAssignment[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \CedricZiel\Baserow\Generated\Model\OpenApiRoleAssignment[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\GroupBatchAssignRoleBadRequestException
      * @throws Exception\GroupBatchAssignRoleNotFoundException
@@ -4629,7 +4629,7 @@ class Client extends Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \cedricziel\phpbaserowclient\Generated\Model\OpenApiRoleAssignment[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \CedricZiel\Baserow\Generated\Model\OpenApiRoleAssignment[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\ListRoleAssignmentsBadRequestException
      * @throws Exception\ListRoleAssignmentsNotFoundException
@@ -4661,7 +4661,7 @@ class Client extends Runtime\Client\Client
      * @param int    $workspaceId the workspace in which the role assignment takes place
      * @param string $fetch       Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \cedricziel\phpbaserowclient\Generated\Model\OpenApiRoleAssignment[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \CedricZiel\Baserow\Generated\Model\OpenApiRoleAssignment[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\BatchAssignRoleBadRequestException
      * @throws Exception\BatchAssignRoleNotFoundException
@@ -4846,7 +4846,7 @@ class Client extends Runtime\Client\Client
      * @param int    $applicationId application ID for which to list snapshots
      * @param string $fetch         Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \cedricziel\phpbaserowclient\Generated\Model\Snapshot[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \CedricZiel\Baserow\Generated\Model\Snapshot[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\ListSnapshotsBadRequestException
      * @throws Exception\ListSnapshotsNotFoundException
@@ -5027,7 +5027,7 @@ class Client extends Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \cedricziel\phpbaserowclient\Generated\Model\TeamSubjectResponse[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \CedricZiel\Baserow\Generated\Model\TeamSubjectResponse[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\ListTeamSubjectsBadRequestException
      */
@@ -5109,7 +5109,7 @@ class Client extends Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \cedricziel\phpbaserowclient\Generated\Model\TeamResponse[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \CedricZiel\Baserow\Generated\Model\TeamResponse[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\GroupListTeamsNotFoundException
      */
@@ -5154,7 +5154,7 @@ class Client extends Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \cedricziel\phpbaserowclient\Generated\Model\TeamResponse[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \CedricZiel\Baserow\Generated\Model\TeamResponse[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\WorkspaceListTeamsNotFoundException
      */
@@ -5186,7 +5186,7 @@ class Client extends Runtime\Client\Client
     /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \cedricziel\phpbaserowclient\Generated\Model\TemplateCategories[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \CedricZiel\Baserow\Generated\Model\TemplateCategories[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function listTemplates(string $fetch = self::FETCH_OBJECT)
     {
@@ -5764,7 +5764,7 @@ class Client extends Runtime\Client\Client
     /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \cedricziel\phpbaserowclient\Generated\Model\WorkspaceUserWorkspace[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \CedricZiel\Baserow\Generated\Model\WorkspaceUserWorkspace[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function listWorkspaces(string $fetch = self::FETCH_OBJECT)
     {
@@ -5855,7 +5855,7 @@ class Client extends Runtime\Client\Client
      * @param int    $workspaceId the workspace id we want the permission object for
      * @param string $fetch       Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \cedricziel\phpbaserowclient\Generated\Model\PermissionObject[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \CedricZiel\Baserow\Generated\Model\PermissionObject[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\WorkspacePermissionsNotFoundException
      */
@@ -6009,7 +6009,7 @@ class Client extends Runtime\Client\Client
      * @param int    $workspaceId returns only invitations that are in the workspace related to the provided value
      * @param string $fetch       Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \cedricziel\phpbaserowclient\Generated\Model\WorkspaceInvitation[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \CedricZiel\Baserow\Generated\Model\WorkspaceInvitation[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\ListWorkspaceInvitationsBadRequestException
      * @throws Exception\ListWorkspaceInvitationsNotFoundException
@@ -6097,7 +6097,7 @@ class Client extends Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \cedricziel\phpbaserowclient\Generated\Model\ListWorkspaceUsersWithMemberData[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \CedricZiel\Baserow\Generated\Model\ListWorkspaceUsersWithMemberData[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\ListWorkspaceUsersBadRequestException
      * @throws Exception\ListWorkspaceUsersNotFoundException

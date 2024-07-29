@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class GetRowCommentsNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdRowIdGetResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdGetResponse404
      */
     private $apiRowCommentsTableIdRowIdGetResponse404;
     /**
@@ -21,14 +21,14 @@ class GetRowCommentsNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdRowIdGetResponse404 $apiRowCommentsTableIdRowIdGetResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdGetResponse404 $apiRowCommentsTableIdRowIdGetResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiRowCommentsTableIdRowIdGetResponse404 = $apiRowCommentsTableIdRowIdGetResponse404;
         $this->response = $response;
     }
 
-    public function getApiRowCommentsTableIdRowIdGetResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdRowIdGetResponse404
+    public function getApiRowCommentsTableIdRowIdGetResponse404(): \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdGetResponse404
     {
         return $this->apiRowCommentsTableIdRowIdGetResponse404;
     }

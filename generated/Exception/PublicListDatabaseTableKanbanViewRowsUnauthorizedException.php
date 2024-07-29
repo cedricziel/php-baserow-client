@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class PublicListDatabaseTableKanbanViewRowsUnauthorizedException extends UnauthorizedException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse401
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse401
      */
     private $apiDatabaseViewsKanbanSlugPublicRowsGetResponse401;
     /**
@@ -21,14 +21,14 @@ class PublicListDatabaseTableKanbanViewRowsUnauthorizedException extends Unautho
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse401 $apiDatabaseViewsKanbanSlugPublicRowsGetResponse401, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse401 $apiDatabaseViewsKanbanSlugPublicRowsGetResponse401, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Unauthorized');
         $this->apiDatabaseViewsKanbanSlugPublicRowsGetResponse401 = $apiDatabaseViewsKanbanSlugPublicRowsGetResponse401;
         $this->response = $response;
     }
 
-    public function getApiDatabaseViewsKanbanSlugPublicRowsGetResponse401(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse401
+    public function getApiDatabaseViewsKanbanSlugPublicRowsGetResponse401(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse401
     {
         return $this->apiDatabaseViewsKanbanSlugPublicRowsGetResponse401;
     }

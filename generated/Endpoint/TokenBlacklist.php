@@ -8,16 +8,16 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class TokenBlacklist extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class TokenBlacklist extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
 
     /**
      * Blacklists the provided token. This can be used the sign the user off.
      */
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\TokenBlacklist $requestBody)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\TokenBlacklist $requestBody)
     {
         $this->body = $requestBody;
     }
@@ -34,13 +34,13 @@ class TokenBlacklist extends \cedricziel\phpbaserowclient\Generated\Runtime\Clie
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\TokenBlacklist) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\TokenBlacklist) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\TokenBlacklist) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\TokenBlacklist) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\TokenBlacklist) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\TokenBlacklist) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -62,7 +62,7 @@ class TokenBlacklist extends \cedricziel\phpbaserowclient\Generated\Runtime\Clie
     /**
      * @return null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\TokenBlacklistUnauthorizedException
+     * @throws \CedricZiel\Baserow\Generated\Exception\TokenBlacklistUnauthorizedException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
@@ -72,7 +72,7 @@ class TokenBlacklist extends \cedricziel\phpbaserowclient\Generated\Runtime\Clie
             return null;
         }
         if (false === is_null($contentType) && (401 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\TokenBlacklistUnauthorizedException($response);
+            throw new \CedricZiel\Baserow\Generated\Exception\TokenBlacklistUnauthorizedException($response);
         }
     }
 

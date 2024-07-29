@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class OrderDatabaseTableViewsBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsTableTableIdOrderPostResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdOrderPostResponse400
      */
     private $apiDatabaseViewsTableTableIdOrderPostResponse400;
     /**
@@ -21,14 +21,14 @@ class OrderDatabaseTableViewsBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsTableTableIdOrderPostResponse400 $apiDatabaseViewsTableTableIdOrderPostResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdOrderPostResponse400 $apiDatabaseViewsTableTableIdOrderPostResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiDatabaseViewsTableTableIdOrderPostResponse400 = $apiDatabaseViewsTableTableIdOrderPostResponse400;
         $this->response = $response;
     }
 
-    public function getApiDatabaseViewsTableTableIdOrderPostResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsTableTableIdOrderPostResponse400
+    public function getApiDatabaseViewsTableTableIdOrderPostResponse400(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdOrderPostResponse400
     {
         return $this->apiDatabaseViewsTableTableIdOrderPostResponse400;
     }

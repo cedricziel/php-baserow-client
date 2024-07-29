@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class AuthProviderLoginUrl extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class AuthProviderLoginUrl extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
 
     /**
      * Return the correct redirect_url to initiate the SSO SAML login. It needs an email address if multiple SAML providers are configured otherwise the only configured SAML provider signup URL will be returned.
@@ -69,7 +69,7 @@ class AuthProviderLoginUrl extends \cedricziel\phpbaserowclient\Generated\Runtim
     /**
      * @return null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\AuthProviderLoginUrlBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\AuthProviderLoginUrlBadRequestException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
@@ -79,7 +79,7 @@ class AuthProviderLoginUrl extends \cedricziel\phpbaserowclient\Generated\Runtim
             return json_decode($body);
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\AuthProviderLoginUrlBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiSsoSamlLoginUrlGetResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\AuthProviderLoginUrlBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiSsoSamlLoginUrlGetResponse400', 'json'), $response);
         }
     }
 

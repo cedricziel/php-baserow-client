@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class DeleteSnapshotBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsSnapshotIdDeleteResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiSnapshotsSnapshotIdDeleteResponse400
      */
     private $apiSnapshotsSnapshotIdDeleteResponse400;
     /**
@@ -21,14 +21,14 @@ class DeleteSnapshotBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsSnapshotIdDeleteResponse400 $apiSnapshotsSnapshotIdDeleteResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiSnapshotsSnapshotIdDeleteResponse400 $apiSnapshotsSnapshotIdDeleteResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiSnapshotsSnapshotIdDeleteResponse400 = $apiSnapshotsSnapshotIdDeleteResponse400;
         $this->response = $response;
     }
 
-    public function getApiSnapshotsSnapshotIdDeleteResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsSnapshotIdDeleteResponse400
+    public function getApiSnapshotsSnapshotIdDeleteResponse400(): \CedricZiel\Baserow\Generated\Model\ApiSnapshotsSnapshotIdDeleteResponse400
     {
         return $this->apiSnapshotsSnapshotIdDeleteResponse400;
     }

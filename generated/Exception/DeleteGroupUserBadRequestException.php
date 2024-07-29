@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class DeleteGroupUserBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse400
      */
     private $apiGroupsUsersGroupUserIdDeleteResponse400;
     /**
@@ -21,14 +21,14 @@ class DeleteGroupUserBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse400 $apiGroupsUsersGroupUserIdDeleteResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse400 $apiGroupsUsersGroupUserIdDeleteResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiGroupsUsersGroupUserIdDeleteResponse400 = $apiGroupsUsersGroupUserIdDeleteResponse400;
         $this->response = $response;
     }
 
-    public function getApiGroupsUsersGroupUserIdDeleteResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse400
+    public function getApiGroupsUsersGroupUserIdDeleteResponse400(): \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse400
     {
         return $this->apiGroupsUsersGroupUserIdDeleteResponse400;
     }

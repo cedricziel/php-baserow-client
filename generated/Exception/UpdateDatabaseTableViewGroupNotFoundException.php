@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class UpdateDatabaseTableViewGroupNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdPatchResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdPatchResponse404
      */
     private $apiDatabaseViewsGroupByViewGroupByIdPatchResponse404;
     /**
@@ -21,14 +21,14 @@ class UpdateDatabaseTableViewGroupNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdPatchResponse404 $apiDatabaseViewsGroupByViewGroupByIdPatchResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdPatchResponse404 $apiDatabaseViewsGroupByViewGroupByIdPatchResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiDatabaseViewsGroupByViewGroupByIdPatchResponse404 = $apiDatabaseViewsGroupByViewGroupByIdPatchResponse404;
         $this->response = $response;
     }
 
-    public function getApiDatabaseViewsGroupByViewGroupByIdPatchResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdPatchResponse404
+    public function getApiDatabaseViewsGroupByViewGroupByIdPatchResponse404(): \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdPatchResponse404
     {
         return $this->apiDatabaseViewsGroupByViewGroupByIdPatchResponse404;
     }

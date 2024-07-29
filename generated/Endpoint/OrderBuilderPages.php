@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class OrderBuilderPages extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class OrderBuilderPages extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $builder_id;
 
     /**
@@ -24,7 +24,7 @@ class OrderBuilderPages extends \cedricziel\phpbaserowclient\Generated\Runtime\C
      * @var string $ClientSessionId An optional header that marks the action performed by this request as having occurred in a particular client session. Then using the undo/redo endpoints with the same ClientSessionId header this action can be undone/redone.
      *             }
      */
-    public function __construct(int $builderId, \cedricziel\phpbaserowclient\Generated\Model\OrderPages $requestBody, array $headerParameters = [])
+    public function __construct(int $builderId, \CedricZiel\Baserow\Generated\Model\OrderPages $requestBody, array $headerParameters = [])
     {
         $this->builder_id = $builderId;
         $this->body = $requestBody;
@@ -43,13 +43,13 @@ class OrderBuilderPages extends \cedricziel\phpbaserowclient\Generated\Runtime\C
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\OrderPages) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\OrderPages) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\OrderPages) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\OrderPages) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\OrderPages) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\OrderPages) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -82,8 +82,8 @@ class OrderBuilderPages extends \cedricziel\phpbaserowclient\Generated\Runtime\C
     /**
      * @return null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\OrderBuilderPagesBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\OrderBuilderPagesNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\OrderBuilderPagesBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\OrderBuilderPagesNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
@@ -93,10 +93,10 @@ class OrderBuilderPages extends \cedricziel\phpbaserowclient\Generated\Runtime\C
             return null;
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\OrderBuilderPagesBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdPagesOrderPostResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\OrderBuilderPagesBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdPagesOrderPostResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\OrderBuilderPagesNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdPagesOrderPostResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\OrderBuilderPagesNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdPagesOrderPostResponse404', 'json'), $response);
         }
     }
 

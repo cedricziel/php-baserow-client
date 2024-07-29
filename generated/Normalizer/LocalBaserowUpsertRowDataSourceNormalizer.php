@@ -8,10 +8,10 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Normalizer;
+namespace CedricZiel\Baserow\Generated\Normalizer;
 
-use cedricziel\phpbaserowclient\Generated\Runtime\Normalizer\CheckArray;
-use cedricziel\phpbaserowclient\Generated\Runtime\Normalizer\ValidatorTrait;
+use CedricZiel\Baserow\Generated\Runtime\Normalizer\CheckArray;
+use CedricZiel\Baserow\Generated\Runtime\Normalizer\ValidatorTrait;
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
@@ -31,12 +31,12 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
         {
-            return \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpsertRowDataSource::class === $type;
+            return \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowDataSource::class === $type;
         }
 
         public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
         {
-            return is_object($data) && \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpsertRowDataSource::class === get_class($data);
+            return is_object($data) && \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowDataSource::class === get_class($data);
         }
 
         public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -47,7 +47,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpsertRowDataSource();
+            $object = new \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowDataSource();
             if (\array_key_exists('order', $data) && \is_int($data['order'])) {
                 $data['order'] = (float) $data['order'];
             }
@@ -117,7 +117,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (\array_key_exists('field_mappings', $data)) {
                 $values_3 = [];
                 foreach ($data['field_mappings'] as $value_3) {
-                    $values_3[] = $this->denormalizer->denormalize($value_3, \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowTableServiceFieldMapping::class, 'json', $context);
+                    $values_3[] = $this->denormalizer->denormalize($value_3, \CedricZiel\Baserow\Generated\Model\LocalBaserowTableServiceFieldMapping::class, 'json', $context);
                 }
                 $object->setFieldMappings($values_3);
                 unset($data['field_mappings']);
@@ -161,7 +161,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function getSupportedTypes(?string $format = null): array
         {
-            return [\cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpsertRowDataSource::class => false];
+            return [\CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowDataSource::class => false];
         }
     }
 } else {
@@ -174,12 +174,12 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function supportsDenormalization($data, $type, ?string $format = null, array $context = []): bool
         {
-            return \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpsertRowDataSource::class === $type;
+            return \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowDataSource::class === $type;
         }
 
         public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
         {
-            return is_object($data) && \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpsertRowDataSource::class === get_class($data);
+            return is_object($data) && \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowDataSource::class === get_class($data);
         }
 
         public function denormalize($data, $type, $format = null, array $context = [])
@@ -190,7 +190,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpsertRowDataSource();
+            $object = new \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowDataSource();
             if (\array_key_exists('order', $data) && \is_int($data['order'])) {
                 $data['order'] = (float) $data['order'];
             }
@@ -260,7 +260,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (\array_key_exists('field_mappings', $data)) {
                 $values_3 = [];
                 foreach ($data['field_mappings'] as $value_3) {
-                    $values_3[] = $this->denormalizer->denormalize($value_3, \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowTableServiceFieldMapping::class, 'json', $context);
+                    $values_3[] = $this->denormalizer->denormalize($value_3, \CedricZiel\Baserow\Generated\Model\LocalBaserowTableServiceFieldMapping::class, 'json', $context);
                 }
                 $object->setFieldMappings($values_3);
                 unset($data['field_mappings']);
@@ -307,7 +307,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function getSupportedTypes(?string $format = null): array
         {
-            return [\cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpsertRowDataSource::class => false];
+            return [\CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowDataSource::class => false];
         }
     }
 }

@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class ChangePasswordBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiUserChangePasswordPostResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiUserChangePasswordPostResponse400
      */
     private $apiUserChangePasswordPostResponse400;
     /**
@@ -21,14 +21,14 @@ class ChangePasswordBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiUserChangePasswordPostResponse400 $apiUserChangePasswordPostResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiUserChangePasswordPostResponse400 $apiUserChangePasswordPostResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiUserChangePasswordPostResponse400 = $apiUserChangePasswordPostResponse400;
         $this->response = $response;
     }
 
-    public function getApiUserChangePasswordPostResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiUserChangePasswordPostResponse400
+    public function getApiUserChangePasswordPostResponse400(): \CedricZiel\Baserow\Generated\Model\ApiUserChangePasswordPostResponse400
     {
         return $this->apiUserChangePasswordPostResponse400;
     }

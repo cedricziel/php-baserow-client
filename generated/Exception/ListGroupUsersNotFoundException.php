@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class ListGroupUsersNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupGroupIdGetResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupGroupIdGetResponse404
      */
     private $apiGroupsUsersGroupGroupIdGetResponse404;
     /**
@@ -21,14 +21,14 @@ class ListGroupUsersNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupGroupIdGetResponse404 $apiGroupsUsersGroupGroupIdGetResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupGroupIdGetResponse404 $apiGroupsUsersGroupGroupIdGetResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiGroupsUsersGroupGroupIdGetResponse404 = $apiGroupsUsersGroupGroupIdGetResponse404;
         $this->response = $response;
     }
 
-    public function getApiGroupsUsersGroupGroupIdGetResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupGroupIdGetResponse404
+    public function getApiGroupsUsersGroupGroupIdGetResponse404(): \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupGroupIdGetResponse404
     {
         return $this->apiGroupsUsersGroupGroupIdGetResponse404;
     }

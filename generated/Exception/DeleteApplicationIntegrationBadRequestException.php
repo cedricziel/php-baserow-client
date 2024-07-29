@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class DeleteApplicationIntegrationBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdDeleteResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdDeleteResponse400
      */
     private $apiIntegrationIntegrationIdDeleteResponse400;
     /**
@@ -21,14 +21,14 @@ class DeleteApplicationIntegrationBadRequestException extends BadRequestExceptio
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdDeleteResponse400 $apiIntegrationIntegrationIdDeleteResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdDeleteResponse400 $apiIntegrationIntegrationIdDeleteResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiIntegrationIntegrationIdDeleteResponse400 = $apiIntegrationIntegrationIdDeleteResponse400;
         $this->response = $response;
     }
 
-    public function getApiIntegrationIntegrationIdDeleteResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdDeleteResponse400
+    public function getApiIntegrationIntegrationIdDeleteResponse400(): \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdDeleteResponse400
     {
         return $this->apiIntegrationIntegrationIdDeleteResponse400;
     }

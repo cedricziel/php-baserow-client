@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class WorkspaceEmptyContentsBadRequestException extends BadRequestException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiTrashWorkspaceWorkspaceIdDeleteResponse400
+     * @var \CedricZiel\Baserow\Generated\Model\ApiTrashWorkspaceWorkspaceIdDeleteResponse400
      */
     private $apiTrashWorkspaceWorkspaceIdDeleteResponse400;
     /**
@@ -21,14 +21,14 @@ class WorkspaceEmptyContentsBadRequestException extends BadRequestException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiTrashWorkspaceWorkspaceIdDeleteResponse400 $apiTrashWorkspaceWorkspaceIdDeleteResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiTrashWorkspaceWorkspaceIdDeleteResponse400 $apiTrashWorkspaceWorkspaceIdDeleteResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Bad Request');
         $this->apiTrashWorkspaceWorkspaceIdDeleteResponse400 = $apiTrashWorkspaceWorkspaceIdDeleteResponse400;
         $this->response = $response;
     }
 
-    public function getApiTrashWorkspaceWorkspaceIdDeleteResponse400(): \cedricziel\phpbaserowclient\Generated\Model\ApiTrashWorkspaceWorkspaceIdDeleteResponse400
+    public function getApiTrashWorkspaceWorkspaceIdDeleteResponse400(): \CedricZiel\Baserow\Generated\Model\ApiTrashWorkspaceWorkspaceIdDeleteResponse400
     {
         return $this->apiTrashWorkspaceWorkspaceIdDeleteResponse400;
     }

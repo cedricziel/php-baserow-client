@@ -8,12 +8,12 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Exception;
+namespace CedricZiel\Baserow\Generated\Exception;
 
 class GetGroupInvitationByTokenNotFoundException extends NotFoundException
 {
     /**
-     * @var \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsTokenTokenGetResponse404
+     * @var \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsTokenTokenGetResponse404
      */
     private $apiGroupsInvitationsTokenTokenGetResponse404;
     /**
@@ -21,14 +21,14 @@ class GetGroupInvitationByTokenNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsTokenTokenGetResponse404 $apiGroupsInvitationsTokenTokenGetResponse404, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsTokenTokenGetResponse404 $apiGroupsInvitationsTokenTokenGetResponse404, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Not Found');
         $this->apiGroupsInvitationsTokenTokenGetResponse404 = $apiGroupsInvitationsTokenTokenGetResponse404;
         $this->response = $response;
     }
 
-    public function getApiGroupsInvitationsTokenTokenGetResponse404(): \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsTokenTokenGetResponse404
+    public function getApiGroupsInvitationsTokenTokenGetResponse404(): \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsTokenTokenGetResponse404
     {
         return $this->apiGroupsInvitationsTokenTokenGetResponse404;
     }

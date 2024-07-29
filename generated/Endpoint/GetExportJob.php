@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class GetExportJob extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class GetExportJob extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $job_id;
 
     /**
@@ -46,19 +46,19 @@ class GetExportJob extends \cedricziel\phpbaserowclient\Generated\Runtime\Client
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\ExportJob|null
+     * @return \CedricZiel\Baserow\Generated\Model\ExportJob|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\GetExportJobNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\GetExportJobNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ExportJob', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ExportJob', 'json');
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\GetExportJobNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseExportJobIdGetResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\GetExportJobNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseExportJobIdGetResponse404', 'json'), $response);
         }
     }
 

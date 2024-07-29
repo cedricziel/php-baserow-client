@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class CreateBuilderPageWorkflowAction extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class CreateBuilderPageWorkflowAction extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $page_id;
 
     /**
@@ -83,8 +83,8 @@ class CreateBuilderPageWorkflowAction extends \cedricziel\phpbaserowclient\Gener
     /**
      * @return null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\CreateBuilderPageWorkflowActionBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\CreateBuilderPageWorkflowActionNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\CreateBuilderPageWorkflowActionBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\CreateBuilderPageWorkflowActionNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
@@ -94,10 +94,10 @@ class CreateBuilderPageWorkflowAction extends \cedricziel\phpbaserowclient\Gener
             return json_decode($body);
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\CreateBuilderPageWorkflowActionBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdWorkflowActionsPostResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\CreateBuilderPageWorkflowActionBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdWorkflowActionsPostResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\CreateBuilderPageWorkflowActionNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdWorkflowActionsPostResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\CreateBuilderPageWorkflowActionNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdWorkflowActionsPostResponse404', 'json'), $response);
         }
     }
 

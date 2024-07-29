@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace cedricziel\phpbaserowclient\Generated\Endpoint;
+namespace CedricZiel\Baserow\Generated\Endpoint;
 
-class PremiumViewAttributesUpdate extends \cedricziel\phpbaserowclient\Generated\Runtime\Client\BaseEndpoint implements \cedricziel\phpbaserowclient\Generated\Runtime\Client\Endpoint
+class PremiumViewAttributesUpdate extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoint implements \CedricZiel\Baserow\Generated\Runtime\Client\Endpoint
 {
-    use \cedricziel\phpbaserowclient\Generated\Runtime\Client\EndpointTrait;
+    use \CedricZiel\Baserow\Generated\Runtime\Client\EndpointTrait;
     protected $view_id;
 
     /**
@@ -20,7 +20,7 @@ class PremiumViewAttributesUpdate extends \cedricziel\phpbaserowclient\Generated
      *
      * @param int $viewId sets show_logo of this view
      */
-    public function __construct(int $viewId, ?\cedricziel\phpbaserowclient\Generated\Model\PatchedUpdatePremiumViewAttributes $requestBody = null)
+    public function __construct(int $viewId, ?\CedricZiel\Baserow\Generated\Model\PatchedUpdatePremiumViewAttributes $requestBody = null)
     {
         $this->view_id = $viewId;
         $this->body = $requestBody;
@@ -38,13 +38,13 @@ class PremiumViewAttributesUpdate extends \cedricziel\phpbaserowclient\Generated
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdatePremiumViewAttributes) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedUpdatePremiumViewAttributes) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdatePremiumViewAttributes) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedUpdatePremiumViewAttributes) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdatePremiumViewAttributes) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedUpdatePremiumViewAttributes) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -64,23 +64,23 @@ class PremiumViewAttributesUpdate extends \cedricziel\phpbaserowclient\Generated
     }
 
     /**
-     * @return \cedricziel\phpbaserowclient\Generated\Model\View|null
+     * @return \CedricZiel\Baserow\Generated\Model\View|null
      *
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\PremiumViewAttributesUpdateBadRequestException
-     * @throws \cedricziel\phpbaserowclient\Generated\Exception\PremiumViewAttributesUpdateNotFoundException
+     * @throws \CedricZiel\Baserow\Generated\Exception\PremiumViewAttributesUpdateBadRequestException
+     * @throws \CedricZiel\Baserow\Generated\Exception\PremiumViewAttributesUpdateNotFoundException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\View', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\View', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\PremiumViewAttributesUpdateBadRequestException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewViewIdPremiumPatchResponse400', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\PremiumViewAttributesUpdateBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewViewIdPremiumPatchResponse400', 'json'), $response);
         }
         if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \cedricziel\phpbaserowclient\Generated\Exception\PremiumViewAttributesUpdateNotFoundException($serializer->deserialize($body, 'cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewViewIdPremiumPatchResponse404', 'json'), $response);
+            throw new \CedricZiel\Baserow\Generated\Exception\PremiumViewAttributesUpdateNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewViewIdPremiumPatchResponse404', 'json'), $response);
         }
     }
 
