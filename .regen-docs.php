@@ -1,7 +1,5 @@
 <?php
 
-use CedricZiel\Baserow\Generated\Client;
-
 require_once __DIR__.'/vendor/autoload.php';
 
 function underscoreToCamelCase($string, $capitalizeFirstCharacter = false)
