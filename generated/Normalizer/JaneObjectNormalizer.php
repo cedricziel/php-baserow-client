@@ -8,10 +8,10 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace myvendor\mynamespace\Generated\Normalizer;
+namespace cedricziel\phpbaserowclient\Generated\Normalizer;
 
-use myvendor\mynamespace\Generated\Runtime\Normalizer\CheckArray;
-use myvendor\mynamespace\Generated\Runtime\Normalizer\ValidatorTrait;
+use cedricziel\phpbaserowclient\Generated\Runtime\Normalizer\CheckArray;
+use cedricziel\phpbaserowclient\Generated\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
@@ -28,11 +28,2321 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
         use CheckArray;
         use ValidatorTrait;
         protected $normalizers = [
-            \myvendor\mynamespace\Generated\Model\Pet::class => PetNormalizer::class,
+            \cedricziel\phpbaserowclient\Generated\Model\AIFieldCreateField::class => AIFieldCreateFieldNormalizer::class,
 
-            \myvendor\mynamespace\Generated\Model\Error::class => ErrorNormalizer::class,
+            \cedricziel\phpbaserowclient\Generated\Model\AIFieldField::class => AIFieldFieldNormalizer::class,
 
-            \Jane\Component\JsonSchemaRuntime\Reference::class => \myvendor\mynamespace\Generated\Runtime\Normalizer\ReferenceNormalizer::class,
+            \cedricziel\phpbaserowclient\Generated\Model\AIFieldFieldSerializerWithRelatedFields::class => AIFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AIFieldUpdateField::class => AIFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\Account::class => AccountNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ActionScopes::class => ActionScopesNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AdminDashboard::class => AdminDashboardNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AdminDashboardPerDay::class => AdminDashboardPerDayNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AirtableImportJobCreateJob::class => AirtableImportJobCreateJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AirtableImportJobJob::class => AirtableImportJobJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AuditLog::class => AuditLogNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AuditLogActionType::class => AuditLogActionTypeNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AuditLogExportJobCreateJob::class => AuditLogExportJobCreateJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AuditLogExportJobJob::class => AuditLogExportJobJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AuditLogUser::class => AuditLogUserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AuditLogWorkspace::class => AuditLogWorkspaceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AuthFormElementCreateElement::class => AuthFormElementCreateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AuthFormElementCreateElementStyleBackgroundFile::class => AuthFormElementCreateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AuthFormElementElement::class => AuthFormElementElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AuthFormElementElementStyleBackgroundFile::class => AuthFormElementElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AuthFormElementPublicElement::class => AuthFormElementPublicElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AuthFormElementPublicElementStyleBackgroundFile::class => AuthFormElementPublicElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AuthFormElementUpdateElement::class => AuthFormElementUpdateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AuthFormElementUpdateElementStyleBackgroundFile::class => AuthFormElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AutonumberFieldCreateField::class => AutonumberFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AutonumberFieldField::class => AutonumberFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AutonumberFieldFieldSerializerWithRelatedFields::class => AutonumberFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AutonumberFieldUpdateField::class => AutonumberFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\BaseExporterOptions::class => BaseExporterOptionsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\BaserowImpersonateAuthToken::class => BaserowImpersonateAuthTokenNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\BatchCreateRoleAssignment::class => BatchCreateRoleAssignmentNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\BatchDeleteRows::class => BatchDeleteRowsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\BooleanFieldCreateField::class => BooleanFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\BooleanFieldField::class => BooleanFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\BooleanFieldFieldSerializerWithRelatedFields::class => BooleanFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\BooleanFieldUpdateField::class => BooleanFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\BuilderApplication::class => BuilderApplicationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\BuilderApplicationGroup::class => BuilderApplicationGroupNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\BuilderApplicationWorkspace::class => BuilderApplicationWorkspaceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\BuilderApplicationTheme::class => BuilderApplicationThemeNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\BuilderApplicationFaviconFile::class => BuilderApplicationFaviconFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\BuilderBaseApplicationCreatePolymorphic::class => BuilderBaseApplicationCreatePolymorphicNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\BuilderBaseApplicationCreatePolymorphicFaviconFile::class => BuilderBaseApplicationCreatePolymorphicFaviconFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\BuilderBaseApplicationUpdatePolymorphic::class => BuilderBaseApplicationUpdatePolymorphicNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\BuilderBaseApplicationUpdatePolymorphicFaviconFile::class => BuilderBaseApplicationUpdatePolymorphicFaviconFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\BuilderWorkflowAction::class => BuilderWorkflowActionNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ButtonConfigBlock::class => ButtonConfigBlockNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ButtonConfigBlockButton::class => ButtonConfigBlockButtonNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ButtonElementCreateElement::class => ButtonElementCreateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ButtonElementCreateElementStyleBackgroundFile::class => ButtonElementCreateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ButtonElementElement::class => ButtonElementElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ButtonElementElementStyleBackgroundFile::class => ButtonElementElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ButtonElementPublicElement::class => ButtonElementPublicElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ButtonElementPublicElementStyleBackgroundFile::class => ButtonElementPublicElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ButtonElementUpdateElement::class => ButtonElementUpdateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ButtonElementUpdateElementStyleBackgroundFile::class => ButtonElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ButtonLinkConfigBlock::class => ButtonLinkConfigBlockNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ButtonLinkConfigBlockButton::class => ButtonLinkConfigBlockButtonNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ButtonLinkConfigBlockLink::class => ButtonLinkConfigBlockLinkNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ButtonThemeConfigBlock::class => ButtonThemeConfigBlockNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CalendarViewCreateView::class => CalendarViewCreateViewNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CalendarViewExampleResponse::class => CalendarViewExampleResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CalendarViewExampleResponseStack::class => CalendarViewExampleResponseStackNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CalendarViewFieldOptions::class => CalendarViewFieldOptionsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CalendarViewView::class => CalendarViewViewNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ChangePasswordBodyValidation::class => ChangePasswordBodyValidationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CheckboxElementCreateElement::class => CheckboxElementCreateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CheckboxElementCreateElementStyleBackgroundFile::class => CheckboxElementCreateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CheckboxElementElement::class => CheckboxElementElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CheckboxElementElementStyleBackgroundFile::class => CheckboxElementElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CheckboxElementPublicElement::class => CheckboxElementPublicElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CheckboxElementPublicElementStyleBackgroundFile::class => CheckboxElementPublicElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CheckboxElementUpdateElement::class => CheckboxElementUpdateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CheckboxElementUpdateElementStyleBackgroundFile::class => CheckboxElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ChoiceElementCreateElement::class => ChoiceElementCreateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ChoiceElementCreateElementStyleBackgroundFile::class => ChoiceElementCreateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ChoiceElementElement::class => ChoiceElementElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ChoiceElementElementStyleBackgroundFile::class => ChoiceElementElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ChoiceElementPublicElement::class => ChoiceElementPublicElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ChoiceElementPublicElementStyleBackgroundFile::class => ChoiceElementPublicElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ChoiceElementUpdateElement::class => ChoiceElementUpdateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ChoiceElementUpdateElementStyleBackgroundFile::class => ChoiceElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ChoiceOption::class => ChoiceOptionNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\Collaborator::class => CollaboratorNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CollectionField::class => CollectionFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ColumnElementCreateElement::class => ColumnElementCreateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ColumnElementCreateElementStyleBackgroundFile::class => ColumnElementCreateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ColumnElementElement::class => ColumnElementElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ColumnElementElementStyleBackgroundFile::class => ColumnElementElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ColumnElementPublicElement::class => ColumnElementPublicElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ColumnElementPublicElementStyleBackgroundFile::class => ColumnElementPublicElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ColumnElementUpdateElement::class => ColumnElementUpdateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ColumnElementUpdateElementStyleBackgroundFile::class => ColumnElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CombinedThemeConfigBlocks::class => CombinedThemeConfigBlocksNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CombinedThemeConfigBlocksPageBackgroundFile::class => CombinedThemeConfigBlocksPageBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ConditionalColorValueProviderConfColor::class => ConditionalColorValueProviderConfColorNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ConditionalColorValueProviderConfColorFilter::class => ConditionalColorValueProviderConfColorFilterNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ConditionalColorValueProviderConfColorFilterGroup::class => ConditionalColorValueProviderConfColorFilterGroupNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ConditionalColorValueProviderConfColors::class => ConditionalColorValueProviderConfColorsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CountFieldCreateField::class => CountFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CountFieldField::class => CountFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CountFieldFieldSerializerWithRelatedFields::class => CountFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CountFieldUpdateField::class => CountFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CreatePage::class => CreatePageNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CreateRoleAssignment::class => CreateRoleAssignmentNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CreateSnapshotJobCreateJob::class => CreateSnapshotJobCreateJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CreateSnapshotJobJob::class => CreateSnapshotJobJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CreateViewFilter::class => CreateViewFilterNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CreateViewFilterGroup::class => CreateViewFilterGroupNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CreateViewGroupBy::class => CreateViewGroupByNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CreateViewSort::class => CreateViewSortNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CreateWorkspaceInvitation::class => CreateWorkspaceInvitationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CreatedByFieldCreateField::class => CreatedByFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CreatedByFieldField::class => CreatedByFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CreatedByFieldFieldSerializerWithRelatedFields::class => CreatedByFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CreatedByFieldUpdateField::class => CreatedByFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CreatedOnFieldCreateField::class => CreatedOnFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CreatedOnFieldField::class => CreatedOnFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CreatedOnFieldFieldSerializerWithRelatedFields::class => CreatedOnFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CreatedOnFieldUpdateField::class => CreatedOnFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CsvExporterOptions::class => CsvExporterOptionsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CustomDomainCreateDomain::class => CustomDomainCreateDomainNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CustomDomainDomain::class => CustomDomainDomainNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\Dashboard::class => DashboardNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DatabaseApplication::class => DatabaseApplicationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DatabaseApplicationGroup::class => DatabaseApplicationGroupNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DatabaseApplicationWorkspace::class => DatabaseApplicationWorkspaceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DatabaseBaseApplicationCreatePolymorphic::class => DatabaseBaseApplicationCreatePolymorphicNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DatabaseBaseApplicationUpdatePolymorphic::class => DatabaseBaseApplicationUpdatePolymorphicNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DateFieldCreateField::class => DateFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DateFieldField::class => DateFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DateFieldFieldSerializerWithRelatedFields::class => DateFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DateFieldUpdateField::class => DateFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DuplicateApplicationJobCreateJob::class => DuplicateApplicationJobCreateJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DuplicateApplicationJobJob::class => DuplicateApplicationJobJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DuplicateElement::class => DuplicateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DuplicateFieldJobCreateJob::class => DuplicateFieldJobCreateJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DuplicateFieldJobJob::class => DuplicateFieldJobJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DuplicateFieldJobJobOriginalField::class => DuplicateFieldJobJobOriginalFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DuplicateFieldJobJobDuplicatedField::class => DuplicateFieldJobJobDuplicatedFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DuplicatePageJobCreateJob::class => DuplicatePageJobCreateJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DuplicatePageJobJob::class => DuplicatePageJobJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DuplicatePageJobJobOriginalPage::class => DuplicatePageJobJobOriginalPageNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DuplicatePageJobJobDuplicatedPage::class => DuplicatePageJobJobDuplicatedPageNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DuplicateTableJobCreateJob::class => DuplicateTableJobCreateJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DuplicateTableJobJob::class => DuplicateTableJobJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DuplicateTableJobJobOriginalTable::class => DuplicateTableJobJobOriginalTableNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DuplicateTableJobJobDuplicatedTable::class => DuplicateTableJobJobDuplicatedTableNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DurationFieldCreateField::class => DurationFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DurationFieldField::class => DurationFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DurationFieldFieldSerializerWithRelatedFields::class => DurationFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DurationFieldUpdateField::class => DurationFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\Element::class => ElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ElementStyleBackgroundFile::class => ElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\EmailFieldCreateField::class => EmailFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\EmailFieldField::class => EmailFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\EmailFieldFieldSerializerWithRelatedFields::class => EmailFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\EmailFieldUpdateField::class => EmailFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\EmailTesterRequest::class => EmailTesterRequestNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\EmailTesterResponse::class => EmailTesterResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ExampleBatchRowsRequest::class => ExampleBatchRowsRequestNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ExampleBatchRowsResponse::class => ExampleBatchRowsResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ExampleBatchUpdateRowRequestSerializerWithUserFieldNames::class => ExampleBatchUpdateRowRequestSerializerWithUserFieldNamesNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ExampleRowRequest::class => ExampleRowRequestNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ExampleRowRequestSerializerWithUserFieldNames::class => ExampleRowRequestSerializerWithUserFieldNamesNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponse::class => ExampleRowResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponseField10::class => ExampleRowResponseField10Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponseField12::class => ExampleRowResponseField12Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponseField16::class => ExampleRowResponseField16Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponseSerializerWithUserFieldNames::class => ExampleRowResponseSerializerWithUserFieldNamesNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponseSerializerWithUserFieldNamesField10::class => ExampleRowResponseSerializerWithUserFieldNamesField10Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponseSerializerWithUserFieldNamesField12::class => ExampleRowResponseSerializerWithUserFieldNamesField12Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponseSerializerWithUserFieldNamesField16::class => ExampleRowResponseSerializerWithUserFieldNamesField16Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ExportJob::class => ExportJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FacebookAuthProviderModelAuthProvider::class => FacebookAuthProviderModelAuthProviderNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\Field::class => FieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FieldSerializerWithRelatedFields::class => FieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FileFieldCreateField::class => FileFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FileFieldField::class => FileFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FileFieldFieldSerializerWithRelatedFields::class => FileFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FileFieldResponse::class => FileFieldResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FileFieldUpdateField::class => FileFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FileImportJobCreateJob::class => FileImportJobCreateJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FileImportJobJob::class => FileImportJobJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FileImportJobJobReport::class => FileImportJobJobReportNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormContainerElementCreateElement::class => FormContainerElementCreateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormContainerElementCreateElementStyleBackgroundFile::class => FormContainerElementCreateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormContainerElementElement::class => FormContainerElementElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormContainerElementElementStyleBackgroundFile::class => FormContainerElementElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormContainerElementPublicElement::class => FormContainerElementPublicElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormContainerElementPublicElementStyleBackgroundFile::class => FormContainerElementPublicElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormContainerElementUpdateElement::class => FormContainerElementUpdateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormContainerElementUpdateElementStyleBackgroundFile::class => FormContainerElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormViewCreateView::class => FormViewCreateViewNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormViewCreateViewCoverImage::class => FormViewCreateViewCoverImageNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormViewCreateViewLogoImage::class => FormViewCreateViewLogoImageNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormViewFieldOptions::class => FormViewFieldOptionsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormViewFieldOptionsCondition::class => FormViewFieldOptionsConditionNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormViewFieldOptionsConditionGroup::class => FormViewFieldOptionsConditionGroupNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormViewSubmitted::class => FormViewSubmittedNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormViewView::class => FormViewViewNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormViewViewCoverImage::class => FormViewViewCoverImageNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormViewViewLogoImage::class => FormViewViewLogoImageNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormulaFieldCreateField::class => FormulaFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormulaFieldField::class => FormulaFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormulaFieldFieldSerializerWithRelatedFields::class => FormulaFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormulaFieldUpdateField::class => FormulaFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FullHealthCheck::class => FullHealthCheckNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GalleryViewCreateView::class => GalleryViewCreateViewNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GalleryViewFieldOptions::class => GalleryViewFieldOptionsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GalleryViewView::class => GalleryViewViewNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GenerateFormulaWithAIRequest::class => GenerateFormulaWithAIRequestNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GenerateFormulaWithAIResponse::class => GenerateFormulaWithAIResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GeneratedConditionalColorCreateViewDecoration::class => GeneratedConditionalColorCreateViewDecorationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GeneratedConditionalColorCreateViewDecorationValueProviderConf::class => GeneratedConditionalColorCreateViewDecorationValueProviderConfNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GeneratedConditionalColorUpdateViewDecoration::class => GeneratedConditionalColorUpdateViewDecorationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GeneratedConditionalColorUpdateViewDecorationValueProviderConf::class => GeneratedConditionalColorUpdateViewDecorationValueProviderConfNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GeneratedConditionalColorViewDecoration::class => GeneratedConditionalColorViewDecorationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GeneratedConditionalColorViewDecorationValueProviderConf::class => GeneratedConditionalColorViewDecorationValueProviderConfNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GeneratedSingleSelectColorCreateViewDecoration::class => GeneratedSingleSelectColorCreateViewDecorationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GeneratedSingleSelectColorCreateViewDecorationValueProviderConf::class => GeneratedSingleSelectColorCreateViewDecorationValueProviderConfNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GeneratedSingleSelectColorUpdateViewDecoration::class => GeneratedSingleSelectColorUpdateViewDecorationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GeneratedSingleSelectColorUpdateViewDecorationValueProviderConf::class => GeneratedSingleSelectColorUpdateViewDecorationValueProviderConfNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GeneratedSingleSelectColorViewDecoration::class => GeneratedSingleSelectColorViewDecorationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GeneratedSingleSelectColorViewDecorationValueProviderConf::class => GeneratedSingleSelectColorViewDecorationValueProviderConfNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GenerativeAISettings::class => GenerativeAISettingsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GitHubAuthProviderModelAuthProvider::class => GitHubAuthProviderModelAuthProviderNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GitLabAuthProviderModelAuthProvider::class => GitLabAuthProviderModelAuthProviderNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GoogleAuthProviderModelAuthProvider::class => GoogleAuthProviderModelAuthProviderNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GridViewCreateView::class => GridViewCreateViewNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GridViewFieldOptions::class => GridViewFieldOptionsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GridViewFilter::class => GridViewFilterNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GridViewView::class => GridViewViewNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\HeadingElementCreateElement::class => HeadingElementCreateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\HeadingElementCreateElementStyleBackgroundFile::class => HeadingElementCreateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\HeadingElementElement::class => HeadingElementElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\HeadingElementElementStyleBackgroundFile::class => HeadingElementElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\HeadingElementPublicElement::class => HeadingElementPublicElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\HeadingElementPublicElementStyleBackgroundFile::class => HeadingElementPublicElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\HeadingElementUpdateElement::class => HeadingElementUpdateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\HeadingElementUpdateElementStyleBackgroundFile::class => HeadingElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\IFrameElementCreateElement::class => IFrameElementCreateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\IFrameElementCreateElementStyleBackgroundFile::class => IFrameElementCreateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\IFrameElementElement::class => IFrameElementElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\IFrameElementElementStyleBackgroundFile::class => IFrameElementElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\IFrameElementPublicElement::class => IFrameElementPublicElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\IFrameElementPublicElementStyleBackgroundFile::class => IFrameElementPublicElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\IFrameElementUpdateElement::class => IFrameElementUpdateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\IFrameElementUpdateElementStyleBackgroundFile::class => IFrameElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ImageConfigBlock::class => ImageConfigBlockNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ImageConfigBlockImage::class => ImageConfigBlockImageNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ImageElementCreateElement::class => ImageElementCreateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ImageElementCreateElementStyleBackgroundFile::class => ImageElementCreateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ImageElementCreateElementImageFile::class => ImageElementCreateElementImageFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ImageElementElement::class => ImageElementElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ImageElementElementStyleBackgroundFile::class => ImageElementElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ImageElementPublicElement::class => ImageElementPublicElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ImageElementPublicElementStyleBackgroundFile::class => ImageElementPublicElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ImageElementUpdateElement::class => ImageElementUpdateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ImageElementUpdateElementStyleBackgroundFile::class => ImageElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ImageElementUpdateElementImageFile::class => ImageElementUpdateElementImageFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ImageThemeConfigBlock::class => ImageThemeConfigBlockNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\InputTextElementCreateElement::class => InputTextElementCreateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\InputTextElementCreateElementStyleBackgroundFile::class => InputTextElementCreateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\InputTextElementElement::class => InputTextElementElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\InputTextElementElementStyleBackgroundFile::class => InputTextElementElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\InputTextElementPublicElement::class => InputTextElementPublicElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\InputTextElementPublicElementStyleBackgroundFile::class => InputTextElementPublicElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\InputTextElementUpdateElement::class => InputTextElementUpdateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\InputTextElementUpdateElementStyleBackgroundFile::class => InputTextElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\InstallTemplateJobCreateJob::class => InstallTemplateJobCreateJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\InstallTemplateJobJob::class => InstallTemplateJobJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\InstallTemplateJobJobWorkspace::class => InstallTemplateJobJobWorkspaceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\InstallTemplateJobJobTemplate::class => InstallTemplateJobJobTemplateNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\InstallTemplateJobJobGroup::class => InstallTemplateJobJobGroupNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\InstanceId::class => InstanceIdNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\Job::class => JobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\KanbanViewCreateView::class => KanbanViewCreateViewNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\KanbanViewExampleResponse::class => KanbanViewExampleResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\KanbanViewExampleResponseStack::class => KanbanViewExampleResponseStackNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\KanbanViewFieldOptions::class => KanbanViewFieldOptionsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\KanbanViewView::class => KanbanViewViewNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LastModifiedByFieldCreateField::class => LastModifiedByFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LastModifiedByFieldField::class => LastModifiedByFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LastModifiedByFieldFieldSerializerWithRelatedFields::class => LastModifiedByFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LastModifiedByFieldUpdateField::class => LastModifiedByFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LastModifiedFieldCreateField::class => LastModifiedFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LastModifiedFieldField::class => LastModifiedFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LastModifiedFieldFieldSerializerWithRelatedFields::class => LastModifiedFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LastModifiedFieldUpdateField::class => LastModifiedFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\License::class => LicenseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LicenseUser::class => LicenseUserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LicenseUserLookup::class => LicenseUserLookupNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LicenseWithUsers::class => LicenseWithUsersNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LinkElementCreateElement::class => LinkElementCreateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LinkElementCreateElementStyleBackgroundFile::class => LinkElementCreateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LinkElementElement::class => LinkElementElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LinkElementElementStyleBackgroundFile::class => LinkElementElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LinkElementPublicElement::class => LinkElementPublicElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LinkElementPublicElementStyleBackgroundFile::class => LinkElementPublicElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LinkElementUpdateElement::class => LinkElementUpdateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LinkElementUpdateElementStyleBackgroundFile::class => LinkElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LinkRowFieldCreateField::class => LinkRowFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LinkRowFieldField::class => LinkRowFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LinkRowFieldFieldSerializerWithRelatedFields::class => LinkRowFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LinkRowFieldUpdateField::class => LinkRowFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LinkRowValue::class => LinkRowValueNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LinkThemeConfigBlock::class => LinkThemeConfigBlockNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ListWorkspaceUsersWithMemberData::class => ListWorkspaceUsersWithMemberDataNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowContextData::class => LocalBaserowContextDataNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowCreateRowWorkflowActionBuilderWorkflowAction::class => LocalBaserowCreateRowWorkflowActionBuilderWorkflowActionNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowCreateRowWorkflowActionCreateBuilderWorkflowAction::class => LocalBaserowCreateRowWorkflowActionCreateBuilderWorkflowActionNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowCreateRowWorkflowActionUpdateBuilderWorkflowActions::class => LocalBaserowCreateRowWorkflowActionUpdateBuilderWorkflowActionsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowField::class => LocalBaserowFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowGetRow::class => LocalBaserowGetRowNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowGetRowCreateDataSource::class => LocalBaserowGetRowCreateDataSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowGetRowDataSource::class => LocalBaserowGetRowDataSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowGetRowPublicDataSource::class => LocalBaserowGetRowPublicDataSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowGetRowService::class => LocalBaserowGetRowServiceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowGetRowUpdateDataSource::class => LocalBaserowGetRowUpdateDataSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationCreateIntegration::class => LocalBaserowIntegrationCreateIntegrationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationCreateIntegrationContextData::class => LocalBaserowIntegrationCreateIntegrationContextDataNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationCreateIntegrationAuthorizedUser::class => LocalBaserowIntegrationCreateIntegrationAuthorizedUserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationIntegration::class => LocalBaserowIntegrationIntegrationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationIntegrationContextData::class => LocalBaserowIntegrationIntegrationContextDataNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationIntegrationAuthorizedUser::class => LocalBaserowIntegrationIntegrationAuthorizedUserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationUpdateIntegration::class => LocalBaserowIntegrationUpdateIntegrationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationUpdateIntegrationContextData::class => LocalBaserowIntegrationUpdateIntegrationContextDataNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationUpdateIntegrationAuthorizedUser::class => LocalBaserowIntegrationUpdateIntegrationAuthorizedUserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowListRows::class => LocalBaserowListRowsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowListRowsCreateDataSource::class => LocalBaserowListRowsCreateDataSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowListRowsDataSource::class => LocalBaserowListRowsDataSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowListRowsPublicDataSource::class => LocalBaserowListRowsPublicDataSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowListRowsService::class => LocalBaserowListRowsServiceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowListRowsUpdateDataSource::class => LocalBaserowListRowsUpdateDataSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowPasswordAppAuthProviderAppAuthProvider::class => LocalBaserowPasswordAppAuthProviderAppAuthProviderNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowPasswordAppAuthProviderBaseAppAuthProvider::class => LocalBaserowPasswordAppAuthProviderBaseAppAuthProviderNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowTableServiceFieldMapping::class => LocalBaserowTableServiceFieldMappingNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowTableServiceFilter::class => LocalBaserowTableServiceFilterNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowTableServiceSort::class => LocalBaserowTableServiceSortNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpdateRowWorkflowActionBuilderWorkflowAction::class => LocalBaserowUpdateRowWorkflowActionBuilderWorkflowActionNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpdateRowWorkflowActionCreateBuilderWorkflowAction::class => LocalBaserowUpdateRowWorkflowActionCreateBuilderWorkflowActionNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpdateRowWorkflowActionUpdateBuilderWorkflowActions::class => LocalBaserowUpdateRowWorkflowActionUpdateBuilderWorkflowActionsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpsertRow::class => LocalBaserowUpsertRowNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpsertRowCreateDataSource::class => LocalBaserowUpsertRowCreateDataSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpsertRowDataSource::class => LocalBaserowUpsertRowDataSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpsertRowPublicDataSource::class => LocalBaserowUpsertRowPublicDataSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpsertRowService::class => LocalBaserowUpsertRowServiceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpsertRowUpdateDataSource::class => LocalBaserowUpsertRowUpdateDataSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUserSourceBasePublicUserSource::class => LocalBaserowUserSourceBasePublicUserSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUserSourceCreateUserSource::class => LocalBaserowUserSourceCreateUserSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUserSourceUpdateUserSource::class => LocalBaserowUserSourceUpdateUserSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUserSourceUserSource::class => LocalBaserowUserSourceUserSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUserSourceUserSourceRoles::class => LocalBaserowUserSourceUserSourceRolesNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowView::class => LocalBaserowViewNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LogoutWorkflowActionBuilderWorkflowAction::class => LogoutWorkflowActionBuilderWorkflowActionNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LogoutWorkflowActionCreateBuilderWorkflowAction::class => LogoutWorkflowActionCreateBuilderWorkflowActionNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LogoutWorkflowActionUpdateBuilderWorkflowActions::class => LogoutWorkflowActionUpdateBuilderWorkflowActionsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LongTextFieldCreateField::class => LongTextFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LongTextFieldField::class => LongTextFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LongTextFieldFieldSerializerWithRelatedFields::class => LongTextFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LongTextFieldUpdateField::class => LongTextFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LookupFieldCreateField::class => LookupFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LookupFieldField::class => LookupFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LookupFieldFieldSerializerWithRelatedFields::class => LookupFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LookupFieldUpdateField::class => LookupFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\MultipleCollaboratorsFieldCreateField::class => MultipleCollaboratorsFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\MultipleCollaboratorsFieldField::class => MultipleCollaboratorsFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\MultipleCollaboratorsFieldFieldSerializerWithRelatedFields::class => MultipleCollaboratorsFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\MultipleCollaboratorsFieldUpdateField::class => MultipleCollaboratorsFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\MultipleSelectFieldCreateField::class => MultipleSelectFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\MultipleSelectFieldField::class => MultipleSelectFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\MultipleSelectFieldFieldSerializerWithRelatedFields::class => MultipleSelectFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\MultipleSelectFieldUpdateField::class => MultipleSelectFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\NotificationRecipient::class => NotificationRecipientNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\NotificationRecipientSender::class => NotificationRecipientSenderNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\NotificationWorkflowActionBuilderWorkflowAction::class => NotificationWorkflowActionBuilderWorkflowActionNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\NotificationWorkflowActionCreateBuilderWorkflowAction::class => NotificationWorkflowActionCreateBuilderWorkflowActionNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\NotificationWorkflowActionUpdateBuilderWorkflowActions::class => NotificationWorkflowActionUpdateBuilderWorkflowActionsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\NumberFieldCreateField::class => NumberFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\NumberFieldField::class => NumberFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\NumberFieldFieldSerializerWithRelatedFields::class => NumberFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\NumberFieldUpdateField::class => NumberFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\OllamaSettings::class => OllamaSettingsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\OpenAISettings::class => OpenAISettingsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\OpenApiRoleAssignment::class => OpenApiRoleAssignmentNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\OpenApiRoleAssignmentSubject::class => OpenApiRoleAssignmentSubjectNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\OpenApiSubjectField::class => OpenApiSubjectFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\OpenIdConnectAuthProviderModelAuthProvider::class => OpenIdConnectAuthProviderModelAuthProviderNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\OpenPageWorkflowActionBuilderWorkflowAction::class => OpenPageWorkflowActionBuilderWorkflowActionNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\OpenPageWorkflowActionCreateBuilderWorkflowAction::class => OpenPageWorkflowActionCreateBuilderWorkflowActionNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\OpenPageWorkflowActionUpdateBuilderWorkflowActions::class => OpenPageWorkflowActionUpdateBuilderWorkflowActionsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\OrderApplications::class => OrderApplicationsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\OrderDomains::class => OrderDomainsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\OrderPages::class => OrderPagesNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\OrderTables::class => OrderTablesNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\OrderViews::class => OrderViewsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\OrderWorkflowActions::class => OrderWorkflowActionsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\OrderWorkspaces::class => OrderWorkspacesNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\Page::class => PageNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PageParameterValue::class => PageParameterValueNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerAuditLog::class => PaginationSerializerAuditLogNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerAuditLogUser::class => PaginationSerializerAuditLogUserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerAuditLogWorkspace::class => PaginationSerializerAuditLogWorkspaceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerExampleRowResponseSerializerWithUserFieldNames::class => PaginationSerializerExampleRowResponseSerializerWithUserFieldNamesNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerLicenseUserLookup::class => PaginationSerializerLicenseUserLookupNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerLinkRowValue::class => PaginationSerializerLinkRowValueNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerNotificationRecipient::class => PaginationSerializerNotificationRecipientNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerRowComment::class => PaginationSerializerRowCommentNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerRowHistory::class => PaginationSerializerRowHistoryNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerTrashContents::class => PaginationSerializerTrashContentsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerUserAdminResponse::class => PaginationSerializerUserAdminResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerWithGalleryViewFieldOptionsExampleRowResponse::class => PaginationSerializerWithGalleryViewFieldOptionsExampleRowResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerWithGridViewFieldOptionsExampleRowResponse::class => PaginationSerializerWithGridViewFieldOptionsExampleRowResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerWorkspacesAdminResponse::class => PaginationSerializerWorkspacesAdminResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PasswordAuthProviderModelAuthProvider::class => PasswordAuthProviderModelAuthProviderNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PasswordFieldCreateField::class => PasswordFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PasswordFieldField::class => PasswordFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PasswordFieldFieldSerializerWithRelatedFields::class => PasswordFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PasswordFieldUpdateField::class => PasswordFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedAccount::class => PatchedAccountNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedCombinedThemeConfigBlocks::class => PatchedCombinedThemeConfigBlocksNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedCombinedThemeConfigBlocksPageBackgroundFile::class => PatchedCombinedThemeConfigBlocksPageBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedExampleBatchUpdateRowsRequest::class => PatchedExampleBatchUpdateRowsRequestNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedExampleUpdateRowRequestSerializerWithUserFieldNames::class => PatchedExampleUpdateRowRequestSerializerWithUserFieldNamesNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedGenerativeAISettings::class => PatchedGenerativeAISettingsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedMoveDataSource::class => PatchedMoveDataSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedMoveElement::class => PatchedMoveElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedMoveIntegration::class => PatchedMoveIntegrationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedMoveUserSource::class => PatchedMoveUserSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedSettings::class => PatchedSettingsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedSettingsCoBrandingLogo::class => PatchedSettingsCoBrandingLogoNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedTableUpdate::class => PatchedTableUpdateNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedTableWebhookUpdateRequest::class => PatchedTableWebhookUpdateRequestNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedTokenUpdate::class => PatchedTokenUpdateNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedTokenUpdatePermissions::class => PatchedTokenUpdatePermissionsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedTrashEntryRequest::class => PatchedTrashEntryRequestNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedUndoRedoRequest::class => PatchedUndoRedoRequestNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedUndoRedoRequestScopes::class => PatchedUndoRedoRequestScopesNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateDomain::class => PatchedUpdateDomainNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdatePage::class => PatchedUpdatePageNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdatePremiumViewAttributes::class => PatchedUpdatePremiumViewAttributesNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateViewFilter::class => PatchedUpdateViewFilterNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateViewFilterGroup::class => PatchedUpdateViewFilterGroupNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateViewGroupBy::class => PatchedUpdateViewGroupByNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateViewSort::class => PatchedUpdateViewSortNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateWorkspaceInvitation::class => PatchedUpdateWorkspaceInvitationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateWorkspaceUser::class => PatchedUpdateWorkspaceUserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedUserAdminUpdate::class => PatchedUserAdminUpdateNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedWorkspace::class => PatchedWorkspaceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PathParam::class => PathParamNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PermissionObject::class => PermissionObjectNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PhoneNumberFieldCreateField::class => PhoneNumberFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PhoneNumberFieldField::class => PhoneNumberFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PhoneNumberFieldFieldSerializerWithRelatedFields::class => PhoneNumberFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PhoneNumberFieldUpdateField::class => PhoneNumberFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicBuilder::class => PublicBuilderNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicBuilderTheme::class => PublicBuilderThemeNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicField::class => PublicFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicFormView::class => PublicFormViewNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicFormViewCoverImage::class => PublicFormViewCoverImageNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicFormViewLogoImage::class => PublicFormViewLogoImageNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicFormViewField::class => PublicFormViewFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicFormViewFieldOptions::class => PublicFormViewFieldOptionsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicFormViewFieldOptionsField::class => PublicFormViewFieldOptionsFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicNone::class => PublicNoneNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicPage::class => PublicPageNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicPaginationSerializerWithGalleryViewFieldOptionsExampleRowResponse::class => PublicPaginationSerializerWithGalleryViewFieldOptionsExampleRowResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicPaginationSerializerWithGridViewFieldOptionsExampleRowResponse::class => PublicPaginationSerializerWithGridViewFieldOptionsExampleRowResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicView::class => PublicViewNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicViewAuthRequest::class => PublicViewAuthRequestNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicViewAuthResponse::class => PublicViewAuthResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicViewGroupBy::class => PublicViewGroupByNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicViewInfo::class => PublicViewInfoNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicViewInfoView::class => PublicViewInfoViewNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicViewSort::class => PublicViewSortNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicViewTable::class => PublicViewTableNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublishDomainJobCreateJob::class => PublishDomainJobCreateJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublishDomainJobJob::class => PublishDomainJobJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RatingFieldCreateField::class => RatingFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RatingFieldField::class => RatingFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RatingFieldFieldSerializerWithRelatedFields::class => RatingFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RatingFieldUpdateField::class => RatingFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RefreshDataSourceWorkflowActionBuilderWorkflowAction::class => RefreshDataSourceWorkflowActionBuilderWorkflowActionNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RefreshDataSourceWorkflowActionCreateBuilderWorkflowAction::class => RefreshDataSourceWorkflowActionCreateBuilderWorkflowActionNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RefreshDataSourceWorkflowActionUpdateBuilderWorkflowActions::class => RefreshDataSourceWorkflowActionUpdateBuilderWorkflowActionsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\Register::class => RegisterNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RegisterLicense::class => RegisterLicenseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RelatedFields::class => RelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RepeatElementCreateElement::class => RepeatElementCreateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RepeatElementCreateElementStyleBackgroundFile::class => RepeatElementCreateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RepeatElementElement::class => RepeatElementElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RepeatElementElementStyleBackgroundFile::class => RepeatElementElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RepeatElementPublicElement::class => RepeatElementPublicElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RepeatElementPublicElementStyleBackgroundFile::class => RepeatElementPublicElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RepeatElementUpdateElement::class => RepeatElementUpdateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RepeatElementUpdateElementStyleBackgroundFile::class => RepeatElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\Report::class => ReportNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ResetPasswordBodyValidation::class => ResetPasswordBodyValidationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RestoreSnapshotJobCreateJob::class => RestoreSnapshotJobCreateJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RestoreSnapshotJobJob::class => RestoreSnapshotJobJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RollupFieldCreateField::class => RollupFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RollupFieldField::class => RollupFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RollupFieldFieldSerializerWithRelatedFields::class => RollupFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RollupFieldUpdateField::class => RollupFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RowComment::class => RowCommentNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RowCommentCreate::class => RowCommentCreateNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RowCommentsNotificationMode::class => RowCommentsNotificationModeNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RowHistory::class => RowHistoryNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RowHistoryUser::class => RowHistoryUserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RowMetadata::class => RowMetadataNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SAMLResponse::class => SAMLResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SamlAuthProviderModelAuthProvider::class => SamlAuthProviderModelAuthProviderNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SelectColorValueProviderConf::class => SelectColorValueProviderConfNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SelectOption::class => SelectOptionNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SendResetPasswordEmailBodyValidation::class => SendResetPasswordEmailBodyValidationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\Sender::class => SenderNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\Settings::class => SettingsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SettingsCoBrandingLogo::class => SettingsCoBrandingLogoNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleAuditLogExportJobRequest::class => SingleAuditLogExportJobRequestNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleAuditLogExportJobResponse::class => SingleAuditLogExportJobResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicateApplicationJobType::class => SingleDuplicateApplicationJobTypeNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicateFieldJobType::class => SingleDuplicateFieldJobTypeNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicateFieldJobTypeOriginalField::class => SingleDuplicateFieldJobTypeOriginalFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicateFieldJobTypeDuplicatedField::class => SingleDuplicateFieldJobTypeDuplicatedFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicatePageJobType::class => SingleDuplicatePageJobTypeNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicatePageJobTypeOriginalPage::class => SingleDuplicatePageJobTypeOriginalPageNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicatePageJobTypeDuplicatedPage::class => SingleDuplicatePageJobTypeDuplicatedPageNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicateTableJobType::class => SingleDuplicateTableJobTypeNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicateTableJobTypeOriginalTable::class => SingleDuplicateTableJobTypeOriginalTableNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicateTableJobTypeDuplicatedTable::class => SingleDuplicateTableJobTypeDuplicatedTableNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleFileImportJobSerializerClass::class => SingleFileImportJobSerializerClassNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleFileImportJobSerializerClassReport::class => SingleFileImportJobSerializerClassReportNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleInstallTemplateJobType::class => SingleInstallTemplateJobTypeNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleInstallTemplateJobTypeWorkspace::class => SingleInstallTemplateJobTypeWorkspaceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleInstallTemplateJobTypeTemplate::class => SingleInstallTemplateJobTypeTemplateNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleInstallTemplateJobTypeGroup::class => SingleInstallTemplateJobTypeGroupNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleSelectFieldCreateField::class => SingleSelectFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleSelectFieldField::class => SingleSelectFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleSelectFieldFieldSerializerWithRelatedFields::class => SingleSelectFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleSelectFieldUpdateField::class => SingleSelectFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\Snapshot::class => SnapshotNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SnapshotCreatedBy::class => SnapshotCreatedByNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SubDomainCreateDomain::class => SubDomainCreateDomainNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SubDomainDomain::class => SubDomainDomainNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SubjectUser::class => SubjectUserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\Table::class => TableNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TableCreate::class => TableCreateNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TableElementCreateElement::class => TableElementCreateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TableElementCreateElementStyleBackgroundFile::class => TableElementCreateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TableElementElement::class => TableElementElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TableElementElementStyleBackgroundFile::class => TableElementElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TableElementPublicElement::class => TableElementPublicElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TableElementPublicElementStyleBackgroundFile::class => TableElementPublicElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TableElementUpdateElement::class => TableElementUpdateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TableElementUpdateElementStyleBackgroundFile::class => TableElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TableImport::class => TableImportNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TableSerializerWithFields::class => TableSerializerWithFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TableWebhook::class => TableWebhookNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TableWebhookCall::class => TableWebhookCallNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TableWebhookCreateRequest::class => TableWebhookCreateRequestNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TableWebhookTestCallRequest::class => TableWebhookTestCallRequestNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TableWebhookTestCallResponse::class => TableWebhookTestCallResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\Team::class => TeamNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TeamResponse::class => TeamResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TeamSampleSubject::class => TeamSampleSubjectNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TeamSubject::class => TeamSubjectNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TeamSubjectResponse::class => TeamSubjectResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\Template::class => TemplateNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TemplateCategories::class => TemplateCategoriesNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TextElementCreateElement::class => TextElementCreateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TextElementCreateElementStyleBackgroundFile::class => TextElementCreateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TextElementElement::class => TextElementElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TextElementElementStyleBackgroundFile::class => TextElementElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TextElementPublicElement::class => TextElementPublicElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TextElementPublicElementStyleBackgroundFile::class => TextElementPublicElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TextElementUpdateElement::class => TextElementUpdateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TextElementUpdateElementStyleBackgroundFile::class => TextElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TextFieldCreateField::class => TextFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TextFieldField::class => TextFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TextFieldFieldSerializerWithRelatedFields::class => TextFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TextFieldUpdateField::class => TextFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\Token::class => TokenNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TokenPermissions::class => TokenPermissionsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TokenBlacklist::class => TokenBlacklistNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TokenCreate::class => TokenCreateNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TokenObtainPair::class => TokenObtainPairNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TokenObtainPairWithUser::class => TokenObtainPairWithUserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TokenRefreshWithUser::class => TokenRefreshWithUserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TokenVerifyWithUser::class => TokenVerifyWithUserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TrashContents::class => TrashContentsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TrashStructure::class => TrashStructureNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TrashStructureApplication::class => TrashStructureApplicationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TrashStructureGroup::class => TrashStructureGroupNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TypeFormulaRequest::class => TypeFormulaRequestNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TypeFormulaResult::class => TypeFormulaResultNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TypographyConfigBlock::class => TypographyConfigBlockNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TypographyConfigBlockTypography::class => TypographyConfigBlockTypographyNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TypographyThemeConfigBlock::class => TypographyThemeConfigBlockNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\URLFieldCreateField::class => URLFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\URLFieldField::class => URLFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\URLFieldFieldSerializerWithRelatedFields::class => URLFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\URLFieldUpdateField::class => URLFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\UUIDFieldCreateField::class => UUIDFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\UUIDFieldField::class => UUIDFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\UUIDFieldFieldSerializerWithRelatedFields::class => UUIDFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\UUIDFieldUpdateField::class => UUIDFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\UndoRedoAction::class => UndoRedoActionNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\UndoRedoResponse::class => UndoRedoResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\UniqueRowValues::class => UniqueRowValuesNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\User::class => UserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\UserAdminCreate::class => UserAdminCreateNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\UserAdminGroups::class => UserAdminGroupsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\UserAdminResponse::class => UserAdminResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\UserFile::class => UserFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\UserFileUploadViaURLRequest::class => UserFileUploadViaURLRequestNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\UserSourceUser::class => UserSourceUserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\UserWorkspaceInvitation::class => UserWorkspaceInvitationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\UsersPerUserSource::class => UsersPerUserSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\VerifyEmailAddress::class => VerifyEmailAddressNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\View::class => ViewNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ViewDecoration::class => ViewDecorationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ViewFilter::class => ViewFilterNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ViewFilterGroup::class => ViewFilterGroupNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ViewGroupBy::class => ViewGroupByNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ViewSort::class => ViewSortNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\Workspace::class => WorkspaceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\WorkspaceAdminUsers::class => WorkspaceAdminUsersNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\WorkspaceInvitation::class => WorkspaceInvitationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\WorkspaceUser::class => WorkspaceUserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\WorkspaceUserEnterpriseTeam::class => WorkspaceUserEnterpriseTeamNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\WorkspaceUserWorkspace::class => WorkspaceUserWorkspaceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\WorkspacesAdminResponse::class => WorkspacesAdminResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CalendarViewUpdate::class => CalendarViewUpdateNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormViewUpdate::class => FormViewUpdateNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormViewUpdateCoverImage::class => FormViewUpdateCoverImageNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormViewUpdateLogoImage::class => FormViewUpdateLogoImageNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GalleryViewUpdate::class => GalleryViewUpdateNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GridViewUpdate::class => GridViewUpdateNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\KanbanViewUpdate::class => KanbanViewUpdateNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiHealthEmailPostResponse400::class => ApiHealthEmailPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuditLogGetResponse400::class => ApiAdminAuditLogGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuditLogActionTypesGetResponse400::class => ApiAdminAuditLogActionTypesGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuditLogExportPostResponse400::class => ApiAdminAuditLogExportPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuditLogExportPostResponse404::class => ApiAdminAuditLogExportPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuditLogUsersGetResponse400::class => ApiAdminAuditLogUsersGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuditLogWorkspacesGetResponse400::class => ApiAdminAuditLogWorkspacesGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuthProviderPostResponse400::class => ApiAdminAuthProviderPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuthProviderAuthProviderIdDeleteResponse404::class => ApiAdminAuthProviderAuthProviderIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuthProviderAuthProviderIdGetResponse404::class => ApiAdminAuthProviderAuthProviderIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuthProviderAuthProviderIdPatchResponse400::class => ApiAdminAuthProviderAuthProviderIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuthProviderAuthProviderIdPatchResponse404::class => ApiAdminAuthProviderAuthProviderIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminGroupsGetResponse400::class => ApiAdminGroupsGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminGroupsGroupIdDeleteResponse400::class => ApiAdminGroupsGroupIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminUsersGetResponse400::class => ApiAdminUsersGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminUsersPostResponse400::class => ApiAdminUsersPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminUsersUserIdDeleteResponse400::class => ApiAdminUsersUserIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminUsersUserIdPatchResponse400::class => ApiAdminUsersUserIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminUsersImpersonatePostResponse200::class => ApiAdminUsersImpersonatePostResponse200Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminUsersImpersonatePostResponse200User::class => ApiAdminUsersImpersonatePostResponse200UserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminWorkspacesGetResponse400::class => ApiAdminWorkspacesGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminWorkspacesWorkspaceIdDeleteResponse400::class => ApiAdminWorkspacesWorkspaceIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdIntegrationsGetResponse404::class => ApiApplicationApplicationIdIntegrationsGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdIntegrationsPostResponse400::class => ApiApplicationApplicationIdIntegrationsPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdIntegrationsPostResponse404::class => ApiApplicationApplicationIdIntegrationsPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdListUserSourceUsersGetResponse404::class => ApiApplicationApplicationIdListUserSourceUsersGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdUserSourcesGetResponse404::class => ApiApplicationApplicationIdUserSourcesGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdUserSourcesPostResponse400::class => ApiApplicationApplicationIdUserSourcesPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdUserSourcesPostResponse404::class => ApiApplicationApplicationIdUserSourcesPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdUserSourcesRolesGetResponse404::class => ApiApplicationApplicationIdUserSourcesRolesGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGetResponse400::class => ApiApplicationsGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdDeleteResponse400::class => ApiApplicationsApplicationIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdDeleteResponse404::class => ApiApplicationsApplicationIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdGetResponse400::class => ApiApplicationsApplicationIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdGetResponse404::class => ApiApplicationsApplicationIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdPatchResponse400::class => ApiApplicationsApplicationIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdPatchResponse404::class => ApiApplicationsApplicationIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdDuplicateAsyncPostResponse400::class => ApiApplicationsApplicationIdDuplicateAsyncPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdDuplicateAsyncPostResponse404::class => ApiApplicationsApplicationIdDuplicateAsyncPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGroupGroupIdGetResponse400::class => ApiApplicationsGroupGroupIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGroupGroupIdGetResponse404::class => ApiApplicationsGroupGroupIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGroupGroupIdPostResponse400::class => ApiApplicationsGroupGroupIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGroupGroupIdPostResponse404::class => ApiApplicationsGroupGroupIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGroupGroupIdOrderPostResponse400::class => ApiApplicationsGroupGroupIdOrderPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGroupGroupIdOrderPostResponse404::class => ApiApplicationsGroupGroupIdOrderPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdGetResponse400::class => ApiApplicationsWorkspaceWorkspaceIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdGetResponse404::class => ApiApplicationsWorkspaceWorkspaceIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdPostResponse400::class => ApiApplicationsWorkspaceWorkspaceIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdPostResponse404::class => ApiApplicationsWorkspaceWorkspaceIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdOrderPostResponse400::class => ApiApplicationsWorkspaceWorkspaceIdOrderPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdOrderPostResponse404::class => ApiApplicationsWorkspaceWorkspaceIdOrderPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAuditLogGetResponse400::class => ApiAuditLogGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAuditLogActionTypesGetResponse400::class => ApiAuditLogActionTypesGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAuditLogExportPostResponse400::class => ApiAuditLogExportPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAuditLogExportPostResponse404::class => ApiAuditLogExportPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAuditLogUsersGetResponse400::class => ApiAuditLogUsersGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAuditLogWorkspacesGetResponse400::class => ApiAuditLogWorkspacesGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdDomainsGetResponse400::class => ApiBuilderBuilderIdDomainsGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdDomainsGetResponse404::class => ApiBuilderBuilderIdDomainsGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdDomainsPostResponse400::class => ApiBuilderBuilderIdDomainsPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdDomainsPostResponse404::class => ApiBuilderBuilderIdDomainsPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdDomainsOrderPostResponse400::class => ApiBuilderBuilderIdDomainsOrderPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdDomainsOrderPostResponse404::class => ApiBuilderBuilderIdDomainsOrderPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdPagesPostResponse400::class => ApiBuilderBuilderIdPagesPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdPagesPostResponse404::class => ApiBuilderBuilderIdPagesPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdPagesOrderPostResponse400::class => ApiBuilderBuilderIdPagesOrderPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdPagesOrderPostResponse404::class => ApiBuilderBuilderIdPagesOrderPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdThemePatchResponse400::class => ApiBuilderBuilderIdThemePatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdThemePatchResponse404::class => ApiBuilderBuilderIdThemePatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDataSourceDataSourceIdDeleteResponse400::class => ApiBuilderDataSourceDataSourceIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDataSourceDataSourceIdDeleteResponse404::class => ApiBuilderDataSourceDataSourceIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDataSourceDataSourceIdPatchResponse400::class => ApiBuilderDataSourceDataSourceIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDataSourceDataSourceIdPatchResponse404::class => ApiBuilderDataSourceDataSourceIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDataSourceDataSourceIdDispatchPostResponse404::class => ApiBuilderDataSourceDataSourceIdDispatchPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDataSourceDataSourceIdMovePatchResponse400::class => ApiBuilderDataSourceDataSourceIdMovePatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDataSourceDataSourceIdMovePatchResponse404::class => ApiBuilderDataSourceDataSourceIdMovePatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsDomainIdDeleteResponse400::class => ApiBuilderDomainsDomainIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsDomainIdDeleteResponse404::class => ApiBuilderDomainsDomainIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsDomainIdPatchResponse400::class => ApiBuilderDomainsDomainIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsDomainIdPatchResponse404::class => ApiBuilderDomainsDomainIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsDomainIdPublishAsyncPostResponse400::class => ApiBuilderDomainsDomainIdPublishAsyncPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsDomainIdPublishAsyncPostResponse404::class => ApiBuilderDomainsDomainIdPublishAsyncPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsPublishedByIdBuilderIdGetResponse404::class => ApiBuilderDomainsPublishedByIdBuilderIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsPublishedByNameDomainNameGetResponse404::class => ApiBuilderDomainsPublishedByNameDomainNameGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsPublishedPagePageIdDataSourcesGetResponse404::class => ApiBuilderDomainsPublishedPagePageIdDataSourcesGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsPublishedPagePageIdElementsGetResponse404::class => ApiBuilderDomainsPublishedPagePageIdElementsGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsPublishedPagePageIdWorkflowActionsGetResponse404::class => ApiBuilderDomainsPublishedPagePageIdWorkflowActionsGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdDeleteResponse400::class => ApiBuilderElementElementIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdDeleteResponse404::class => ApiBuilderElementElementIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdPatchResponse400::class => ApiBuilderElementElementIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdPatchResponse404::class => ApiBuilderElementElementIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdDuplicatePostResponse400::class => ApiBuilderElementElementIdDuplicatePostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdDuplicatePostResponse404::class => ApiBuilderElementElementIdDuplicatePostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdMovePatchResponse400::class => ApiBuilderElementElementIdMovePatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdMovePatchResponse404::class => ApiBuilderElementElementIdMovePatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdDataSourcesGetResponse404::class => ApiBuilderPagePageIdDataSourcesGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdDataSourcesPostResponse400::class => ApiBuilderPagePageIdDataSourcesPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdDataSourcesPostResponse404::class => ApiBuilderPagePageIdDataSourcesPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdDispatchDataSourcesPostResponse404::class => ApiBuilderPagePageIdDispatchDataSourcesPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdElementsGetResponse404::class => ApiBuilderPagePageIdElementsGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdElementsPostResponse400::class => ApiBuilderPagePageIdElementsPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdElementsPostResponse404::class => ApiBuilderPagePageIdElementsPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdWorkflowActionsGetResponse404::class => ApiBuilderPagePageIdWorkflowActionsGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdWorkflowActionsPostResponse400::class => ApiBuilderPagePageIdWorkflowActionsPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdWorkflowActionsPostResponse404::class => ApiBuilderPagePageIdWorkflowActionsPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdWorkflowActionsOrderPostResponse400::class => ApiBuilderPagePageIdWorkflowActionsOrderPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdWorkflowActionsOrderPostResponse404::class => ApiBuilderPagePageIdWorkflowActionsOrderPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagesPageIdDeleteResponse400::class => ApiBuilderPagesPageIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagesPageIdDeleteResponse404::class => ApiBuilderPagesPageIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagesPageIdPatchResponse400::class => ApiBuilderPagesPageIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagesPageIdPatchResponse404::class => ApiBuilderPagesPageIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagesPageIdDuplicateAsyncPostResponse400::class => ApiBuilderPagesPageIdDuplicateAsyncPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagesPageIdDuplicateAsyncPostResponse404::class => ApiBuilderPagesPageIdDuplicateAsyncPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse400::class => ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse404::class => ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdPatchResponse400::class => ApiBuilderWorkflowActionWorkflowActionIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdPatchResponse404::class => ApiBuilderWorkflowActionWorkflowActionIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDispatchPostResponse400::class => ApiBuilderWorkflowActionWorkflowActionIdDispatchPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseExportJobIdGetResponse404::class => ApiDatabaseExportJobIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseExportTableTableIdPostResponse400::class => ApiDatabaseExportTableTableIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseExportTableTableIdPostResponse404::class => ApiDatabaseExportTableTableIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdDeleteResponse400::class => ApiDatabaseFieldsFieldIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdDeleteResponse404::class => ApiDatabaseFieldsFieldIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdGetResponse400::class => ApiDatabaseFieldsFieldIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdGetResponse404::class => ApiDatabaseFieldsFieldIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdPatchResponse400::class => ApiDatabaseFieldsFieldIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdPatchResponse404::class => ApiDatabaseFieldsFieldIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse400::class => ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse404::class => ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse400::class => ApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse404::class => ApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse400::class => ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse404::class => ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdGetResponse400::class => ApiDatabaseFieldsTableTableIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdGetResponse401::class => ApiDatabaseFieldsTableTableIdGetResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdGetResponse404::class => ApiDatabaseFieldsTableTableIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdPostResponse400::class => ApiDatabaseFieldsTableTableIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdPostResponse401::class => ApiDatabaseFieldsTableTableIdPostResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdPostResponse404::class => ApiDatabaseFieldsTableTableIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse400::class => ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse404::class => ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFormulaTableIdTypePostResponse400::class => ApiDatabaseFormulaTableIdTypePostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFormulaTableIdTypePostResponse404::class => ApiDatabaseFormulaTableIdTypePostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsNamesGetResponse200::class => ApiDatabaseRowsNamesGetResponse200Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsNamesGetResponse200TableId::class => ApiDatabaseRowsNamesGetResponse200TableIdNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsNamesGetResponse400::class => ApiDatabaseRowsNamesGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsNamesGetResponse401::class => ApiDatabaseRowsNamesGetResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsNamesGetResponse404::class => ApiDatabaseRowsNamesGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdGetResponse400::class => ApiDatabaseRowsTableTableIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdGetResponse401::class => ApiDatabaseRowsTableTableIdGetResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdGetResponse404::class => ApiDatabaseRowsTableTableIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdPostResponse400::class => ApiDatabaseRowsTableTableIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdPostResponse401::class => ApiDatabaseRowsTableTableIdPostResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdPostResponse404::class => ApiDatabaseRowsTableTableIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdDeleteResponse400::class => ApiDatabaseRowsTableTableIdRowIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdDeleteResponse404::class => ApiDatabaseRowsTableTableIdRowIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdGetResponse400::class => ApiDatabaseRowsTableTableIdRowIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdGetResponse401::class => ApiDatabaseRowsTableTableIdRowIdGetResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdGetResponse404::class => ApiDatabaseRowsTableTableIdRowIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdPatchResponse400::class => ApiDatabaseRowsTableTableIdRowIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdPatchResponse401::class => ApiDatabaseRowsTableTableIdRowIdPatchResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdPatchResponse404::class => ApiDatabaseRowsTableTableIdRowIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdAdjacentGetResponse400::class => ApiDatabaseRowsTableTableIdRowIdAdjacentGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdAdjacentGetResponse404::class => ApiDatabaseRowsTableTableIdRowIdAdjacentGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdHistoryGetResponse400::class => ApiDatabaseRowsTableTableIdRowIdHistoryGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdHistoryGetResponse404::class => ApiDatabaseRowsTableTableIdRowIdHistoryGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdMovePatchResponse400::class => ApiDatabaseRowsTableTableIdRowIdMovePatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdMovePatchResponse401::class => ApiDatabaseRowsTableTableIdRowIdMovePatchResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdMovePatchResponse404::class => ApiDatabaseRowsTableTableIdRowIdMovePatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse400::class => ApiDatabaseRowsTableTableIdBatchPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse401::class => ApiDatabaseRowsTableTableIdBatchPatchResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse404::class => ApiDatabaseRowsTableTableIdBatchPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchPostResponse400::class => ApiDatabaseRowsTableTableIdBatchPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchPostResponse401::class => ApiDatabaseRowsTableTableIdBatchPostResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchPostResponse404::class => ApiDatabaseRowsTableTableIdBatchPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchDeletePostResponse400::class => ApiDatabaseRowsTableTableIdBatchDeletePostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchDeletePostResponse404::class => ApiDatabaseRowsTableTableIdBatchDeletePostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdDeleteResponse400::class => ApiDatabaseTablesTableIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdDeleteResponse404::class => ApiDatabaseTablesTableIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdGetResponse400::class => ApiDatabaseTablesTableIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdGetResponse404::class => ApiDatabaseTablesTableIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdPatchResponse400::class => ApiDatabaseTablesTableIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdPatchResponse404::class => ApiDatabaseTablesTableIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdDuplicateAsyncPostResponse400::class => ApiDatabaseTablesTableIdDuplicateAsyncPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdDuplicateAsyncPostResponse404::class => ApiDatabaseTablesTableIdDuplicateAsyncPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdImportAsyncPostResponse400::class => ApiDatabaseTablesTableIdImportAsyncPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdImportAsyncPostResponse404::class => ApiDatabaseTablesTableIdImportAsyncPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdGetResponse400::class => ApiDatabaseTablesDatabaseDatabaseIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdGetResponse404::class => ApiDatabaseTablesDatabaseDatabaseIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdPostResponse400::class => ApiDatabaseTablesDatabaseDatabaseIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdPostResponse404::class => ApiDatabaseTablesDatabaseDatabaseIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdAsyncPostResponse400::class => ApiDatabaseTablesDatabaseDatabaseIdAsyncPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdAsyncPostResponse404::class => ApiDatabaseTablesDatabaseDatabaseIdAsyncPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdOrderPostResponse400::class => ApiDatabaseTablesDatabaseDatabaseIdOrderPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdOrderPostResponse404::class => ApiDatabaseTablesDatabaseDatabaseIdOrderPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensPostResponse400::class => ApiDatabaseTokensPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensTokenIdDeleteResponse400::class => ApiDatabaseTokensTokenIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensTokenIdDeleteResponse404::class => ApiDatabaseTokensTokenIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensTokenIdGetResponse400::class => ApiDatabaseTokensTokenIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensTokenIdGetResponse404::class => ApiDatabaseTokensTokenIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensTokenIdPatchResponse400::class => ApiDatabaseTokensTokenIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensTokenIdPatchResponse404::class => ApiDatabaseTokensTokenIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensCheckGetResponse403::class => ApiDatabaseTokensCheckGetResponse403Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewViewIdPremiumPatchResponse400::class => ApiDatabaseViewViewIdPremiumPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewViewIdPremiumPatchResponse404::class => ApiDatabaseViewViewIdPremiumPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse401::class => ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse404::class => ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSlugPublicAuthPostResponse404::class => ApiDatabaseViewsSlugPublicAuthPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSlugPublicInfoGetResponse400::class => ApiDatabaseViewsSlugPublicInfoGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSlugPublicInfoGetResponse401::class => ApiDatabaseViewsSlugPublicInfoGetResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSlugPublicInfoGetResponse404::class => ApiDatabaseViewsSlugPublicInfoGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdDeleteResponse400::class => ApiDatabaseViewsViewIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdDeleteResponse404::class => ApiDatabaseViewsViewIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdGetResponse400::class => ApiDatabaseViewsViewIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdGetResponse404::class => ApiDatabaseViewsViewIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdPatchResponse400::class => ApiDatabaseViewsViewIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdPatchResponse404::class => ApiDatabaseViewsViewIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdDecorationsGetResponse400::class => ApiDatabaseViewsViewIdDecorationsGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdDecorationsGetResponse404::class => ApiDatabaseViewsViewIdDecorationsGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdDecorationsPostResponse400::class => ApiDatabaseViewsViewIdDecorationsPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdDecorationsPostResponse404::class => ApiDatabaseViewsViewIdDecorationsPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdDuplicatePostResponse400::class => ApiDatabaseViewsViewIdDuplicatePostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdDuplicatePostResponse404::class => ApiDatabaseViewsViewIdDuplicatePostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsGetResponse400::class => ApiDatabaseViewsViewIdFieldOptionsGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsGetResponse404::class => ApiDatabaseViewsViewIdFieldOptionsGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsPatchResponse400::class => ApiDatabaseViewsViewIdFieldOptionsPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsPatchResponse404::class => ApiDatabaseViewsViewIdFieldOptionsPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFilterGroupsPostResponse400::class => ApiDatabaseViewsViewIdFilterGroupsPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFilterGroupsPostResponse404::class => ApiDatabaseViewsViewIdFilterGroupsPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFiltersGetResponse400::class => ApiDatabaseViewsViewIdFiltersGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFiltersGetResponse404::class => ApiDatabaseViewsViewIdFiltersGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFiltersPostResponse400::class => ApiDatabaseViewsViewIdFiltersPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFiltersPostResponse404::class => ApiDatabaseViewsViewIdFiltersPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdGroupBysGetResponse400::class => ApiDatabaseViewsViewIdGroupBysGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdGroupBysGetResponse404::class => ApiDatabaseViewsViewIdGroupBysGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdGroupBysPostResponse400::class => ApiDatabaseViewsViewIdGroupBysPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdGroupBysPostResponse404::class => ApiDatabaseViewsViewIdGroupBysPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdRotateSlugPostResponse400::class => ApiDatabaseViewsViewIdRotateSlugPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdRotateSlugPostResponse404::class => ApiDatabaseViewsViewIdRotateSlugPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdSortingsGetResponse400::class => ApiDatabaseViewsViewIdSortingsGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdSortingsGetResponse404::class => ApiDatabaseViewsViewIdSortingsGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdSortingsPostResponse400::class => ApiDatabaseViewsViewIdSortingsPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdSortingsPostResponse404::class => ApiDatabaseViewsViewIdSortingsPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse401::class => ApiDatabaseViewsCalendarSlugPublicRowsGetResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse400::class => ApiDatabaseViewsCalendarSlugPublicRowsGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse404::class => ApiDatabaseViewsCalendarSlugPublicRowsGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsCalendarViewIdGetResponse400::class => ApiDatabaseViewsCalendarViewIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsCalendarViewIdGetResponse404::class => ApiDatabaseViewsCalendarViewIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdDeleteResponse400::class => ApiDatabaseViewsDecorationViewDecorationIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdDeleteResponse404::class => ApiDatabaseViewsDecorationViewDecorationIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdGetResponse400::class => ApiDatabaseViewsDecorationViewDecorationIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdGetResponse404::class => ApiDatabaseViewsDecorationViewDecorationIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdPatchResponse400::class => ApiDatabaseViewsDecorationViewDecorationIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdPatchResponse404::class => ApiDatabaseViewsDecorationViewDecorationIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdDeleteResponse400::class => ApiDatabaseViewsFilterGroupFilterGroupIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdDeleteResponse404::class => ApiDatabaseViewsFilterGroupFilterGroupIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse400::class => ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse404::class => ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdPatchResponse400::class => ApiDatabaseViewsFilterGroupFilterGroupIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdPatchResponse404::class => ApiDatabaseViewsFilterGroupFilterGroupIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterViewFilterIdDeleteResponse400::class => ApiDatabaseViewsFilterViewFilterIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterViewFilterIdDeleteResponse404::class => ApiDatabaseViewsFilterViewFilterIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterViewFilterIdGetResponse400::class => ApiDatabaseViewsFilterViewFilterIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterViewFilterIdGetResponse404::class => ApiDatabaseViewsFilterViewFilterIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterViewFilterIdPatchResponse400::class => ApiDatabaseViewsFilterViewFilterIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterViewFilterIdPatchResponse404::class => ApiDatabaseViewsFilterViewFilterIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugSubmitGetResponse401::class => ApiDatabaseViewsFormSlugSubmitGetResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugSubmitGetResponse404::class => ApiDatabaseViewsFormSlugSubmitGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugSubmitPostResponse401::class => ApiDatabaseViewsFormSlugSubmitPostResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugSubmitPostResponse404::class => ApiDatabaseViewsFormSlugSubmitPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse401::class => ApiDatabaseViewsFormSlugUploadFilePostResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse400::class => ApiDatabaseViewsFormSlugUploadFilePostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse404::class => ApiDatabaseViewsFormSlugUploadFilePostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse400::class => ApiDatabaseViewsGallerySlugPublicRowsGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse401::class => ApiDatabaseViewsGallerySlugPublicRowsGetResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse404::class => ApiDatabaseViewsGallerySlugPublicRowsGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGalleryViewIdGetResponse400::class => ApiDatabaseViewsGalleryViewIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGalleryViewIdGetResponse404::class => ApiDatabaseViewsGalleryViewIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse200::class => ApiDatabaseViewsGridSlugPublicAggregationsGetResponse200Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse400::class => ApiDatabaseViewsGridSlugPublicAggregationsGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse401::class => ApiDatabaseViewsGridSlugPublicAggregationsGetResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse404::class => ApiDatabaseViewsGridSlugPublicAggregationsGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse400::class => ApiDatabaseViewsGridSlugPublicRowsGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse401::class => ApiDatabaseViewsGridSlugPublicRowsGetResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse404::class => ApiDatabaseViewsGridSlugPublicRowsGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdGetResponse400::class => ApiDatabaseViewsGridViewIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdGetResponse404::class => ApiDatabaseViewsGridViewIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdPostResponse400::class => ApiDatabaseViewsGridViewIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdPostResponse404::class => ApiDatabaseViewsGridViewIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse200::class => ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse200Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse400::class => ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse404::class => ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse200::class => ApiDatabaseViewsGridViewIdAggregationsGetResponse200Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse400::class => ApiDatabaseViewsGridViewIdAggregationsGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse404::class => ApiDatabaseViewsGridViewIdAggregationsGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse400::class => ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse404::class => ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdGetResponse400::class => ApiDatabaseViewsGroupByViewGroupByIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdGetResponse404::class => ApiDatabaseViewsGroupByViewGroupByIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdPatchResponse400::class => ApiDatabaseViewsGroupByViewGroupByIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdPatchResponse404::class => ApiDatabaseViewsGroupByViewGroupByIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse401::class => ApiDatabaseViewsKanbanSlugPublicRowsGetResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse400::class => ApiDatabaseViewsKanbanSlugPublicRowsGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse404::class => ApiDatabaseViewsKanbanSlugPublicRowsGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsKanbanViewIdGetResponse400::class => ApiDatabaseViewsKanbanViewIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsKanbanViewIdGetResponse404::class => ApiDatabaseViewsKanbanViewIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSortViewSortIdDeleteResponse400::class => ApiDatabaseViewsSortViewSortIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSortViewSortIdDeleteResponse404::class => ApiDatabaseViewsSortViewSortIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSortViewSortIdGetResponse400::class => ApiDatabaseViewsSortViewSortIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSortViewSortIdGetResponse404::class => ApiDatabaseViewsSortViewSortIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSortViewSortIdPatchResponse400::class => ApiDatabaseViewsSortViewSortIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSortViewSortIdPatchResponse404::class => ApiDatabaseViewsSortViewSortIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsTableTableIdGetResponse400::class => ApiDatabaseViewsTableTableIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsTableTableIdGetResponse404::class => ApiDatabaseViewsTableTableIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsTableTableIdPostResponse400::class => ApiDatabaseViewsTableTableIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsTableTableIdPostResponse404::class => ApiDatabaseViewsTableTableIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsTableTableIdOrderPostResponse400::class => ApiDatabaseViewsTableTableIdOrderPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsTableTableIdOrderPostResponse404::class => ApiDatabaseViewsTableTableIdOrderPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksWebhookIdDeleteResponse400::class => ApiDatabaseWebhooksWebhookIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksWebhookIdDeleteResponse404::class => ApiDatabaseWebhooksWebhookIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksWebhookIdGetResponse400::class => ApiDatabaseWebhooksWebhookIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksWebhookIdGetResponse404::class => ApiDatabaseWebhooksWebhookIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksWebhookIdPatchResponse400::class => ApiDatabaseWebhooksWebhookIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksWebhookIdPatchResponse404::class => ApiDatabaseWebhooksWebhookIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksTableTableIdGetResponse400::class => ApiDatabaseWebhooksTableTableIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksTableTableIdGetResponse404::class => ApiDatabaseWebhooksTableTableIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksTableTableIdPostResponse400::class => ApiDatabaseWebhooksTableTableIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksTableTableIdPostResponse404::class => ApiDatabaseWebhooksTableTableIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksTableTableIdTestCallPostResponse400::class => ApiDatabaseWebhooksTableTableIdTestCallPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksTableTableIdTestCallPostResponse404::class => ApiDatabaseWebhooksTableTableIdTestCallPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiFilesSignedDataGetResponse403::class => ApiFilesSignedDataGetResponse403Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsGroupIdDeleteResponse400::class => ApiGroupsGroupIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsGroupIdDeleteResponse404::class => ApiGroupsGroupIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsGroupIdPatchResponse400::class => ApiGroupsGroupIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsGroupIdPatchResponse404::class => ApiGroupsGroupIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsGroupIdLeavePostResponse400::class => ApiGroupsGroupIdLeavePostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsGroupIdLeavePostResponse404::class => ApiGroupsGroupIdLeavePostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsGroupIdPermissionsGetResponse404::class => ApiGroupsGroupIdPermissionsGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdDeleteResponse400::class => ApiGroupsInvitationsGroupInvitationIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdDeleteResponse404::class => ApiGroupsInvitationsGroupInvitationIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdGetResponse400::class => ApiGroupsInvitationsGroupInvitationIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdGetResponse404::class => ApiGroupsInvitationsGroupInvitationIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdPatchResponse400::class => ApiGroupsInvitationsGroupInvitationIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdPatchResponse404::class => ApiGroupsInvitationsGroupInvitationIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdAcceptPostResponse400::class => ApiGroupsInvitationsGroupInvitationIdAcceptPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdAcceptPostResponse404::class => ApiGroupsInvitationsGroupInvitationIdAcceptPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdRejectPostResponse400::class => ApiGroupsInvitationsGroupInvitationIdRejectPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdRejectPostResponse404::class => ApiGroupsInvitationsGroupInvitationIdRejectPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupGroupIdGetResponse400::class => ApiGroupsInvitationsGroupGroupIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupGroupIdGetResponse404::class => ApiGroupsInvitationsGroupGroupIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupGroupIdPostResponse400::class => ApiGroupsInvitationsGroupGroupIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupGroupIdPostResponse404::class => ApiGroupsInvitationsGroupGroupIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsTokenTokenGetResponse400::class => ApiGroupsInvitationsTokenTokenGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsTokenTokenGetResponse404::class => ApiGroupsInvitationsTokenTokenGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse400::class => ApiGroupsUsersGroupUserIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse404::class => ApiGroupsUsersGroupUserIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupUserIdPatchResponse400::class => ApiGroupsUsersGroupUserIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupUserIdPatchResponse404::class => ApiGroupsUsersGroupUserIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupGroupIdGetResponse400::class => ApiGroupsUsersGroupGroupIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupGroupIdGetResponse404::class => ApiGroupsUsersGroupGroupIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdDeleteResponse400::class => ApiIntegrationIntegrationIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdDeleteResponse404::class => ApiIntegrationIntegrationIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdPatchResponse400::class => ApiIntegrationIntegrationIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdPatchResponse404::class => ApiIntegrationIntegrationIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdMovePatchResponse400::class => ApiIntegrationIntegrationIdMovePatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdMovePatchResponse404::class => ApiIntegrationIntegrationIdMovePatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiJobsPostResponse400::class => ApiJobsPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiJobsPostResponse404::class => ApiJobsPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiJobsJobIdGetResponse404::class => ApiJobsJobIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesPostResponse400::class => ApiLicensesPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdDeleteResponse404::class => ApiLicensesIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdGetResponse404::class => ApiLicensesIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdUserIdDeleteResponse400::class => ApiLicensesIdUserIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdUserIdDeleteResponse404::class => ApiLicensesIdUserIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdUserIdPostResponse400::class => ApiLicensesIdUserIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdUserIdPostResponse404::class => ApiLicensesIdUserIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdCheckGetResponse404::class => ApiLicensesIdCheckGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdFillSeatsPostResponse400::class => ApiLicensesIdFillSeatsPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdFillSeatsPostResponse404::class => ApiLicensesIdFillSeatsPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdLookupUsersGetResponse404::class => ApiLicensesIdLookupUsersGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdRemoveAllUsersPostResponse400::class => ApiLicensesIdRemoveAllUsersPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdRemoveAllUsersPostResponse404::class => ApiLicensesIdRemoveAllUsersPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse400::class => ApiNotificationsWorkspaceIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse404::class => ApiNotificationsWorkspaceIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdGetResponse400::class => ApiNotificationsWorkspaceIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdGetResponse404::class => ApiNotificationsWorkspaceIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdNotificationIdPatchResponse400::class => ApiNotificationsWorkspaceIdNotificationIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdNotificationIdPatchResponse404::class => ApiNotificationsWorkspaceIdNotificationIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdMarkAllAsReadPostResponse400::class => ApiNotificationsWorkspaceIdMarkAllAsReadPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdMarkAllAsReadPostResponse404::class => ApiNotificationsWorkspaceIdMarkAllAsReadPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRoleGroupIdGetResponse400::class => ApiRoleGroupIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRoleGroupIdGetResponse404::class => ApiRoleGroupIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRoleGroupIdPostResponse400::class => ApiRoleGroupIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRoleGroupIdPostResponse404::class => ApiRoleGroupIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRoleGroupIdBatchPostResponse400::class => ApiRoleGroupIdBatchPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRoleGroupIdBatchPostResponse404::class => ApiRoleGroupIdBatchPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRoleWorkspaceIdGetResponse400::class => ApiRoleWorkspaceIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRoleWorkspaceIdGetResponse404::class => ApiRoleWorkspaceIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRoleWorkspaceIdPostResponse400::class => ApiRoleWorkspaceIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRoleWorkspaceIdPostResponse404::class => ApiRoleWorkspaceIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRoleWorkspaceIdBatchPostResponse400::class => ApiRoleWorkspaceIdBatchPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRoleWorkspaceIdBatchPostResponse404::class => ApiRoleWorkspaceIdBatchPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdRowIdGetResponse400::class => ApiRowCommentsTableIdRowIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdRowIdGetResponse404::class => ApiRowCommentsTableIdRowIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdRowIdPostResponse400::class => ApiRowCommentsTableIdRowIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdRowIdPostResponse404::class => ApiRowCommentsTableIdRowIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdRowIdNotificationModePutResponse400::class => ApiRowCommentsTableIdRowIdNotificationModePutResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdRowIdNotificationModePutResponse404::class => ApiRowCommentsTableIdRowIdNotificationModePutResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse400::class => ApiRowCommentsTableIdCommentCommentIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse401::class => ApiRowCommentsTableIdCommentCommentIdDeleteResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse404::class => ApiRowCommentsTableIdCommentCommentIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdCommentCommentIdPatchResponse400::class => ApiRowCommentsTableIdCommentCommentIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdCommentCommentIdPatchResponse401::class => ApiRowCommentsTableIdCommentCommentIdPatchResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdCommentCommentIdPatchResponse404::class => ApiRowCommentsTableIdCommentCommentIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsSnapshotIdDeleteResponse400::class => ApiSnapshotsSnapshotIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsSnapshotIdDeleteResponse404::class => ApiSnapshotsSnapshotIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsSnapshotIdRestorePostResponse400::class => ApiSnapshotsSnapshotIdRestorePostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsSnapshotIdRestorePostResponse404::class => ApiSnapshotsSnapshotIdRestorePostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsApplicationApplicationIdGetResponse400::class => ApiSnapshotsApplicationApplicationIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsApplicationApplicationIdGetResponse404::class => ApiSnapshotsApplicationApplicationIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsApplicationApplicationIdPostResponse400::class => ApiSnapshotsApplicationApplicationIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsApplicationApplicationIdPostResponse404::class => ApiSnapshotsApplicationApplicationIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiSsoSamlLoginUrlGetResponse400::class => ApiSsoSamlLoginUrlGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdDeleteResponse400::class => ApiTeamsTeamIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdDeleteResponse404::class => ApiTeamsTeamIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdGetResponse404::class => ApiTeamsTeamIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdPutResponse400::class => ApiTeamsTeamIdPutResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdPutResponse404::class => ApiTeamsTeamIdPutResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdSubjectsGetResponse400::class => ApiTeamsTeamIdSubjectsGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdSubjectsPostResponse400::class => ApiTeamsTeamIdSubjectsPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdSubjectsPostResponse404::class => ApiTeamsTeamIdSubjectsPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdSubjectsSubjectIdDeleteResponse400::class => ApiTeamsTeamIdSubjectsSubjectIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdSubjectsSubjectIdDeleteResponse404::class => ApiTeamsTeamIdSubjectsSubjectIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdSubjectsSubjectIdGetResponse404::class => ApiTeamsTeamIdSubjectsSubjectIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsGroupGroupIdGetResponse404::class => ApiTeamsGroupGroupIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsGroupGroupIdPostResponse400::class => ApiTeamsGroupGroupIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsGroupGroupIdPostResponse404::class => ApiTeamsGroupGroupIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsWorkspaceWorkspaceIdGetResponse404::class => ApiTeamsWorkspaceWorkspaceIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsWorkspaceWorkspaceIdPostResponse400::class => ApiTeamsWorkspaceWorkspaceIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsWorkspaceWorkspaceIdPostResponse404::class => ApiTeamsWorkspaceWorkspaceIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdPostResponse400::class => ApiTemplatesInstallGroupIdTemplateIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdPostResponse404::class => ApiTemplatesInstallGroupIdTemplateIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse400::class => ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse404::class => ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdPostResponse400::class => ApiTemplatesInstallWorkspaceIdTemplateIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdPostResponse404::class => ApiTemplatesInstallWorkspaceIdTemplateIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse400::class => ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse404::class => ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTrashGroupGroupIdDeleteResponse400::class => ApiTrashGroupGroupIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTrashGroupGroupIdGetResponse400::class => ApiTrashGroupGroupIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTrashRestorePatchResponse400::class => ApiTrashRestorePatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTrashWorkspaceWorkspaceIdDeleteResponse400::class => ApiTrashWorkspaceWorkspaceIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTrashWorkspaceWorkspaceIdGetResponse400::class => ApiTrashWorkspaceWorkspaceIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserPostResponse200::class => ApiUserPostResponse200Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserPostResponse200User::class => ApiUserPostResponse200UserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserPostResponse400::class => ApiUserPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserPostResponse404::class => ApiUserPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserFilesUploadFilePostResponse400::class => ApiUserFilesUploadFilePostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserFilesUploadViaUrlPostResponse400::class => ApiUserFilesUploadViaUrlPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceAuthRefreshPostResponse200::class => ApiUserSourceAuthRefreshPostResponse200Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdDeleteResponse400::class => ApiUserSourceUserSourceIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdDeleteResponse404::class => ApiUserSourceUserSourceIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdPatchResponse400::class => ApiUserSourceUserSourceIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdPatchResponse404::class => ApiUserSourceUserSourceIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdForceTokenAuthPostResponse200::class => ApiUserSourceUserSourceIdForceTokenAuthPostResponse200Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdMovePatchResponse400::class => ApiUserSourceUserSourceIdMovePatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdMovePatchResponse404::class => ApiUserSourceUserSourceIdMovePatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdTokenAuthPostResponse200::class => ApiUserSourceUserSourceIdTokenAuthPostResponse200Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserAccountPatchResponse400::class => ApiUserAccountPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserChangePasswordPostResponse400::class => ApiUserChangePasswordPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserResetPasswordPostResponse400::class => ApiUserResetPasswordPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserScheduleAccountDeletionPostResponse400::class => ApiUserScheduleAccountDeletionPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserSendResetPasswordEmailPostResponse400::class => ApiUserSendResetPasswordEmailPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenAuthPostResponse200::class => ApiUserTokenAuthPostResponse200Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenAuthPostResponse200User::class => ApiUserTokenAuthPostResponse200UserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenAuthPostResponse401::class => ApiUserTokenAuthPostResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenRefreshPostResponse200::class => ApiUserTokenRefreshPostResponse200Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenRefreshPostResponse200User::class => ApiUserTokenRefreshPostResponse200UserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenRefreshPostResponse401::class => ApiUserTokenRefreshPostResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenVerifyPostResponse200::class => ApiUserTokenVerifyPostResponse200Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenVerifyPostResponse200User::class => ApiUserTokenVerifyPostResponse200UserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenVerifyPostResponse401::class => ApiUserTokenVerifyPostResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserVerifyEmailPostResponse200::class => ApiUserVerifyEmailPostResponse200Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserVerifyEmailPostResponse200User::class => ApiUserVerifyEmailPostResponse200UserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserVerifyEmailPostResponse400::class => ApiUserVerifyEmailPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserVerifyEmailPostResponse401::class => ApiUserVerifyEmailPostResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdDeleteResponse400::class => ApiWorkspacesWorkspaceIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdDeleteResponse404::class => ApiWorkspacesWorkspaceIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdPatchResponse400::class => ApiWorkspacesWorkspaceIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdPatchResponse404::class => ApiWorkspacesWorkspaceIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdLeavePostResponse400::class => ApiWorkspacesWorkspaceIdLeavePostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdLeavePostResponse404::class => ApiWorkspacesWorkspaceIdLeavePostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdPermissionsGetResponse404::class => ApiWorkspacesWorkspaceIdPermissionsGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse400::class => ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse404::class => ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse400::class => ApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse404::class => ApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdGetResponse400::class => ApiWorkspacesInvitationsWorkspaceInvitationIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdGetResponse404::class => ApiWorkspacesInvitationsWorkspaceInvitationIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdPatchResponse400::class => ApiWorkspacesInvitationsWorkspaceInvitationIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdPatchResponse404::class => ApiWorkspacesInvitationsWorkspaceInvitationIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdAcceptPostResponse400::class => ApiWorkspacesInvitationsWorkspaceInvitationIdAcceptPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdAcceptPostResponse404::class => ApiWorkspacesInvitationsWorkspaceInvitationIdAcceptPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdRejectPostResponse400::class => ApiWorkspacesInvitationsWorkspaceInvitationIdRejectPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdRejectPostResponse404::class => ApiWorkspacesInvitationsWorkspaceInvitationIdRejectPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsTokenTokenGetResponse400::class => ApiWorkspacesInvitationsTokenTokenGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsTokenTokenGetResponse404::class => ApiWorkspacesInvitationsTokenTokenGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse400::class => ApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse404::class => ApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdPostResponse400::class => ApiWorkspacesInvitationsWorkspaceWorkspaceIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdPostResponse404::class => ApiWorkspacesInvitationsWorkspaceWorkspaceIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdDeleteResponse400::class => ApiWorkspacesUsersWorkspaceUserIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdDeleteResponse404::class => ApiWorkspacesUsersWorkspaceUserIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdPatchResponse400::class => ApiWorkspacesUsersWorkspaceUserIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdPatchResponse404::class => ApiWorkspacesUsersWorkspaceUserIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse400::class => ApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse404::class => ApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse404Normalizer::class,
+
+            \Jane\Component\JsonSchemaRuntime\Reference::class => \cedricziel\phpbaserowclient\Generated\Runtime\Normalizer\ReferenceNormalizer::class,
         ];
         protected $normalizersCache = [];
 
@@ -79,7 +2389,1166 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function getSupportedTypes(?string $format = null): array
         {
-            return [\myvendor\mynamespace\Generated\Model\Pet::class => false, \myvendor\mynamespace\Generated\Model\Error::class => false, \Jane\Component\JsonSchemaRuntime\Reference::class => false];
+            return [
+                \cedricziel\phpbaserowclient\Generated\Model\AIFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AIFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AIFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AIFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\Account::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ActionScopes::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AdminDashboard::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AdminDashboardPerDay::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AirtableImportJobCreateJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AirtableImportJobJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AuditLog::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AuditLogActionType::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AuditLogExportJobCreateJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AuditLogExportJobJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AuditLogUser::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AuditLogWorkspace::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AuthFormElementCreateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AuthFormElementCreateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AuthFormElementElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AuthFormElementElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AuthFormElementPublicElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AuthFormElementPublicElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AuthFormElementUpdateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AuthFormElementUpdateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AutonumberFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AutonumberFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AutonumberFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AutonumberFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\BaseExporterOptions::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\BaserowImpersonateAuthToken::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\BatchCreateRoleAssignment::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\BatchDeleteRows::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\BooleanFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\BooleanFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\BooleanFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\BooleanFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\BuilderApplication::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\BuilderApplicationGroup::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\BuilderApplicationWorkspace::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\BuilderApplicationTheme::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\BuilderApplicationFaviconFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\BuilderBaseApplicationCreatePolymorphic::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\BuilderBaseApplicationCreatePolymorphicFaviconFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\BuilderBaseApplicationUpdatePolymorphic::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\BuilderBaseApplicationUpdatePolymorphicFaviconFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\BuilderWorkflowAction::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ButtonConfigBlock::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ButtonConfigBlockButton::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ButtonElementCreateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ButtonElementCreateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ButtonElementElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ButtonElementElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ButtonElementPublicElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ButtonElementPublicElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ButtonElementUpdateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ButtonElementUpdateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ButtonLinkConfigBlock::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ButtonLinkConfigBlockButton::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ButtonLinkConfigBlockLink::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ButtonThemeConfigBlock::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CalendarViewCreateView::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CalendarViewExampleResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CalendarViewExampleResponseStack::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CalendarViewFieldOptions::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CalendarViewView::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ChangePasswordBodyValidation::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CheckboxElementCreateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CheckboxElementCreateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CheckboxElementElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CheckboxElementElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CheckboxElementPublicElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CheckboxElementPublicElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CheckboxElementUpdateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CheckboxElementUpdateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ChoiceElementCreateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ChoiceElementCreateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ChoiceElementElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ChoiceElementElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ChoiceElementPublicElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ChoiceElementPublicElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ChoiceElementUpdateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ChoiceElementUpdateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ChoiceOption::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\Collaborator::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CollectionField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ColumnElementCreateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ColumnElementCreateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ColumnElementElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ColumnElementElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ColumnElementPublicElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ColumnElementPublicElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ColumnElementUpdateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ColumnElementUpdateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CombinedThemeConfigBlocks::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CombinedThemeConfigBlocksPageBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ConditionalColorValueProviderConfColor::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ConditionalColorValueProviderConfColorFilter::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ConditionalColorValueProviderConfColorFilterGroup::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ConditionalColorValueProviderConfColors::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CountFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CountFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CountFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CountFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CreatePage::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CreateRoleAssignment::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CreateSnapshotJobCreateJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CreateSnapshotJobJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CreateViewFilter::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CreateViewFilterGroup::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CreateViewGroupBy::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CreateViewSort::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CreateWorkspaceInvitation::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CreatedByFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CreatedByFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CreatedByFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CreatedByFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CreatedOnFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CreatedOnFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CreatedOnFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CreatedOnFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CsvExporterOptions::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CustomDomainCreateDomain::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CustomDomainDomain::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\Dashboard::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DatabaseApplication::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DatabaseApplicationGroup::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DatabaseApplicationWorkspace::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DatabaseBaseApplicationCreatePolymorphic::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DatabaseBaseApplicationUpdatePolymorphic::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DateFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DateFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DateFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DateFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DuplicateApplicationJobCreateJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DuplicateApplicationJobJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DuplicateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DuplicateFieldJobCreateJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DuplicateFieldJobJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DuplicateFieldJobJobOriginalField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DuplicateFieldJobJobDuplicatedField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DuplicatePageJobCreateJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DuplicatePageJobJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DuplicatePageJobJobOriginalPage::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DuplicatePageJobJobDuplicatedPage::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DuplicateTableJobCreateJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DuplicateTableJobJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DuplicateTableJobJobOriginalTable::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DuplicateTableJobJobDuplicatedTable::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DurationFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DurationFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DurationFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DurationFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\Element::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\EmailFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\EmailFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\EmailFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\EmailFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\EmailTesterRequest::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\EmailTesterResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ExampleBatchRowsRequest::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ExampleBatchRowsResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ExampleBatchUpdateRowRequestSerializerWithUserFieldNames::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ExampleRowRequest::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ExampleRowRequestSerializerWithUserFieldNames::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponseField10::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponseField12::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponseField16::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponseSerializerWithUserFieldNames::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponseSerializerWithUserFieldNamesField10::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponseSerializerWithUserFieldNamesField12::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponseSerializerWithUserFieldNamesField16::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ExportJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FacebookAuthProviderModelAuthProvider::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\Field::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FileFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FileFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FileFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FileFieldResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FileFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FileImportJobCreateJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FileImportJobJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FileImportJobJobReport::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormContainerElementCreateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormContainerElementCreateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormContainerElementElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormContainerElementElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormContainerElementPublicElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormContainerElementPublicElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormContainerElementUpdateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormContainerElementUpdateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormViewCreateView::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormViewCreateViewCoverImage::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormViewCreateViewLogoImage::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormViewFieldOptions::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormViewFieldOptionsCondition::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormViewFieldOptionsConditionGroup::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormViewSubmitted::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormViewView::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormViewViewCoverImage::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormViewViewLogoImage::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormulaFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormulaFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormulaFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormulaFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FullHealthCheck::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GalleryViewCreateView::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GalleryViewFieldOptions::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GalleryViewView::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GenerateFormulaWithAIRequest::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GenerateFormulaWithAIResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GeneratedConditionalColorCreateViewDecoration::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GeneratedConditionalColorCreateViewDecorationValueProviderConf::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GeneratedConditionalColorUpdateViewDecoration::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GeneratedConditionalColorUpdateViewDecorationValueProviderConf::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GeneratedConditionalColorViewDecoration::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GeneratedConditionalColorViewDecorationValueProviderConf::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GeneratedSingleSelectColorCreateViewDecoration::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GeneratedSingleSelectColorCreateViewDecorationValueProviderConf::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GeneratedSingleSelectColorUpdateViewDecoration::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GeneratedSingleSelectColorUpdateViewDecorationValueProviderConf::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GeneratedSingleSelectColorViewDecoration::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GeneratedSingleSelectColorViewDecorationValueProviderConf::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GenerativeAISettings::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GitHubAuthProviderModelAuthProvider::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GitLabAuthProviderModelAuthProvider::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GoogleAuthProviderModelAuthProvider::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GridViewCreateView::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GridViewFieldOptions::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GridViewFilter::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GridViewView::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\HeadingElementCreateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\HeadingElementCreateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\HeadingElementElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\HeadingElementElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\HeadingElementPublicElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\HeadingElementPublicElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\HeadingElementUpdateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\HeadingElementUpdateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\IFrameElementCreateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\IFrameElementCreateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\IFrameElementElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\IFrameElementElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\IFrameElementPublicElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\IFrameElementPublicElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\IFrameElementUpdateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\IFrameElementUpdateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ImageConfigBlock::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ImageConfigBlockImage::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ImageElementCreateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ImageElementCreateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ImageElementCreateElementImageFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ImageElementElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ImageElementElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ImageElementPublicElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ImageElementPublicElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ImageElementUpdateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ImageElementUpdateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ImageElementUpdateElementImageFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ImageThemeConfigBlock::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\InputTextElementCreateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\InputTextElementCreateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\InputTextElementElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\InputTextElementElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\InputTextElementPublicElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\InputTextElementPublicElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\InputTextElementUpdateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\InputTextElementUpdateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\InstallTemplateJobCreateJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\InstallTemplateJobJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\InstallTemplateJobJobWorkspace::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\InstallTemplateJobJobTemplate::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\InstallTemplateJobJobGroup::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\InstanceId::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\Job::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\KanbanViewCreateView::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\KanbanViewExampleResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\KanbanViewExampleResponseStack::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\KanbanViewFieldOptions::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\KanbanViewView::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LastModifiedByFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LastModifiedByFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LastModifiedByFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LastModifiedByFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LastModifiedFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LastModifiedFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LastModifiedFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LastModifiedFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\License::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LicenseUser::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LicenseUserLookup::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LicenseWithUsers::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LinkElementCreateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LinkElementCreateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LinkElementElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LinkElementElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LinkElementPublicElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LinkElementPublicElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LinkElementUpdateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LinkElementUpdateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LinkRowFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LinkRowFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LinkRowFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LinkRowFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LinkRowValue::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LinkThemeConfigBlock::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ListWorkspaceUsersWithMemberData::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowContextData::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowCreateRowWorkflowActionBuilderWorkflowAction::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowCreateRowWorkflowActionCreateBuilderWorkflowAction::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowCreateRowWorkflowActionUpdateBuilderWorkflowActions::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowGetRow::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowGetRowCreateDataSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowGetRowDataSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowGetRowPublicDataSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowGetRowService::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowGetRowUpdateDataSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationCreateIntegration::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationCreateIntegrationContextData::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationCreateIntegrationAuthorizedUser::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationIntegration::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationIntegrationContextData::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationIntegrationAuthorizedUser::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationUpdateIntegration::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationUpdateIntegrationContextData::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationUpdateIntegrationAuthorizedUser::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowListRows::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowListRowsCreateDataSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowListRowsDataSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowListRowsPublicDataSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowListRowsService::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowListRowsUpdateDataSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowPasswordAppAuthProviderAppAuthProvider::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowPasswordAppAuthProviderBaseAppAuthProvider::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowTableServiceFieldMapping::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowTableServiceFilter::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowTableServiceSort::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpdateRowWorkflowActionBuilderWorkflowAction::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpdateRowWorkflowActionCreateBuilderWorkflowAction::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpdateRowWorkflowActionUpdateBuilderWorkflowActions::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpsertRow::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpsertRowCreateDataSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpsertRowDataSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpsertRowPublicDataSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpsertRowService::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpsertRowUpdateDataSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUserSourceBasePublicUserSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUserSourceCreateUserSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUserSourceUpdateUserSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUserSourceUserSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUserSourceUserSourceRoles::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowView::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LogoutWorkflowActionBuilderWorkflowAction::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LogoutWorkflowActionCreateBuilderWorkflowAction::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LogoutWorkflowActionUpdateBuilderWorkflowActions::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LongTextFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LongTextFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LongTextFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LongTextFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LookupFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LookupFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LookupFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LookupFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\MultipleCollaboratorsFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\MultipleCollaboratorsFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\MultipleCollaboratorsFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\MultipleCollaboratorsFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\MultipleSelectFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\MultipleSelectFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\MultipleSelectFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\MultipleSelectFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\NotificationRecipient::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\NotificationRecipientSender::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\NotificationWorkflowActionBuilderWorkflowAction::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\NotificationWorkflowActionCreateBuilderWorkflowAction::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\NotificationWorkflowActionUpdateBuilderWorkflowActions::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\NumberFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\NumberFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\NumberFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\NumberFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\OllamaSettings::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\OpenAISettings::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\OpenApiRoleAssignment::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\OpenApiRoleAssignmentSubject::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\OpenApiSubjectField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\OpenIdConnectAuthProviderModelAuthProvider::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\OpenPageWorkflowActionBuilderWorkflowAction::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\OpenPageWorkflowActionCreateBuilderWorkflowAction::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\OpenPageWorkflowActionUpdateBuilderWorkflowActions::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\OrderApplications::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\OrderDomains::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\OrderPages::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\OrderTables::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\OrderViews::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\OrderWorkflowActions::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\OrderWorkspaces::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\Page::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PageParameterValue::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerAuditLog::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerAuditLogUser::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerAuditLogWorkspace::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerExampleRowResponseSerializerWithUserFieldNames::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerLicenseUserLookup::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerLinkRowValue::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerNotificationRecipient::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerRowComment::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerRowHistory::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerTrashContents::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerUserAdminResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerWithGalleryViewFieldOptionsExampleRowResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerWithGridViewFieldOptionsExampleRowResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerWorkspacesAdminResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PasswordAuthProviderModelAuthProvider::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PasswordFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PasswordFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PasswordFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PasswordFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedAccount::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedCombinedThemeConfigBlocks::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedCombinedThemeConfigBlocksPageBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedExampleBatchUpdateRowsRequest::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedExampleUpdateRowRequestSerializerWithUserFieldNames::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedGenerativeAISettings::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedMoveDataSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedMoveElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedMoveIntegration::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedMoveUserSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedSettings::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedSettingsCoBrandingLogo::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedTableUpdate::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedTableWebhookUpdateRequest::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedTokenUpdate::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedTokenUpdatePermissions::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedTrashEntryRequest::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedUndoRedoRequest::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedUndoRedoRequestScopes::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateDomain::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdatePage::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdatePremiumViewAttributes::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateViewFilter::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateViewFilterGroup::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateViewGroupBy::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateViewSort::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateWorkspaceInvitation::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateWorkspaceUser::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedUserAdminUpdate::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedWorkspace::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PathParam::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PermissionObject::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PhoneNumberFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PhoneNumberFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PhoneNumberFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PhoneNumberFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicBuilder::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicBuilderTheme::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicFormView::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicFormViewCoverImage::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicFormViewLogoImage::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicFormViewField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicFormViewFieldOptions::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicFormViewFieldOptionsField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicNone::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicPage::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicPaginationSerializerWithGalleryViewFieldOptionsExampleRowResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicPaginationSerializerWithGridViewFieldOptionsExampleRowResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicView::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicViewAuthRequest::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicViewAuthResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicViewGroupBy::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicViewInfo::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicViewInfoView::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicViewSort::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicViewTable::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublishDomainJobCreateJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublishDomainJobJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RatingFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RatingFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RatingFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RatingFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RefreshDataSourceWorkflowActionBuilderWorkflowAction::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RefreshDataSourceWorkflowActionCreateBuilderWorkflowAction::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RefreshDataSourceWorkflowActionUpdateBuilderWorkflowActions::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\Register::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RegisterLicense::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RepeatElementCreateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RepeatElementCreateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RepeatElementElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RepeatElementElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RepeatElementPublicElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RepeatElementPublicElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RepeatElementUpdateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RepeatElementUpdateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\Report::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ResetPasswordBodyValidation::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RestoreSnapshotJobCreateJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RestoreSnapshotJobJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RollupFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RollupFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RollupFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RollupFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RowComment::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RowCommentCreate::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RowCommentsNotificationMode::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RowHistory::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RowHistoryUser::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RowMetadata::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SAMLResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SamlAuthProviderModelAuthProvider::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SelectColorValueProviderConf::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SelectOption::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SendResetPasswordEmailBodyValidation::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\Sender::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\Settings::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SettingsCoBrandingLogo::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleAuditLogExportJobRequest::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleAuditLogExportJobResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicateApplicationJobType::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicateFieldJobType::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicateFieldJobTypeOriginalField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicateFieldJobTypeDuplicatedField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicatePageJobType::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicatePageJobTypeOriginalPage::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicatePageJobTypeDuplicatedPage::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicateTableJobType::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicateTableJobTypeOriginalTable::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicateTableJobTypeDuplicatedTable::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleFileImportJobSerializerClass::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleFileImportJobSerializerClassReport::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleInstallTemplateJobType::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleInstallTemplateJobTypeWorkspace::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleInstallTemplateJobTypeTemplate::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleInstallTemplateJobTypeGroup::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleSelectFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleSelectFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleSelectFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleSelectFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\Snapshot::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SnapshotCreatedBy::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SubDomainCreateDomain::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SubDomainDomain::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SubjectUser::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\Table::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TableCreate::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TableElementCreateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TableElementCreateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TableElementElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TableElementElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TableElementPublicElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TableElementPublicElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TableElementUpdateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TableElementUpdateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TableImport::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TableSerializerWithFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TableWebhook::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TableWebhookCall::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TableWebhookCreateRequest::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TableWebhookTestCallRequest::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TableWebhookTestCallResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\Team::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TeamResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TeamSampleSubject::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TeamSubject::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TeamSubjectResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\Template::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TemplateCategories::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TextElementCreateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TextElementCreateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TextElementElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TextElementElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TextElementPublicElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TextElementPublicElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TextElementUpdateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TextElementUpdateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TextFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TextFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TextFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TextFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\Token::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TokenPermissions::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TokenBlacklist::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TokenCreate::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TokenObtainPair::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TokenObtainPairWithUser::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TokenRefreshWithUser::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TokenVerifyWithUser::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TrashContents::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TrashStructure::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TrashStructureApplication::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TrashStructureGroup::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TypeFormulaRequest::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TypeFormulaResult::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TypographyConfigBlock::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TypographyConfigBlockTypography::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TypographyThemeConfigBlock::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\URLFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\URLFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\URLFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\URLFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\UUIDFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\UUIDFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\UUIDFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\UUIDFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\UndoRedoAction::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\UndoRedoResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\UniqueRowValues::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\User::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\UserAdminCreate::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\UserAdminGroups::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\UserAdminResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\UserFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\UserFileUploadViaURLRequest::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\UserSourceUser::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\UserWorkspaceInvitation::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\UsersPerUserSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\VerifyEmailAddress::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\View::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ViewDecoration::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ViewFilter::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ViewFilterGroup::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ViewGroupBy::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ViewSort::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\Workspace::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\WorkspaceAdminUsers::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\WorkspaceInvitation::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\WorkspaceUser::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\WorkspaceUserEnterpriseTeam::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\WorkspaceUserWorkspace::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\WorkspacesAdminResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CalendarViewUpdate::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormViewUpdate::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormViewUpdateCoverImage::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormViewUpdateLogoImage::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GalleryViewUpdate::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GridViewUpdate::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\KanbanViewUpdate::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiHealthEmailPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuditLogGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuditLogActionTypesGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuditLogExportPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuditLogExportPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuditLogUsersGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuditLogWorkspacesGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuthProviderPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuthProviderAuthProviderIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuthProviderAuthProviderIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuthProviderAuthProviderIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuthProviderAuthProviderIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminGroupsGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminGroupsGroupIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminUsersGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminUsersPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminUsersUserIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminUsersUserIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminUsersImpersonatePostResponse200::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminUsersImpersonatePostResponse200User::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminWorkspacesGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminWorkspacesWorkspaceIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdIntegrationsGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdIntegrationsPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdIntegrationsPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdListUserSourceUsersGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdUserSourcesGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdUserSourcesPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdUserSourcesPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdUserSourcesRolesGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdDuplicateAsyncPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdDuplicateAsyncPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGroupGroupIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGroupGroupIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGroupGroupIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGroupGroupIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGroupGroupIdOrderPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGroupGroupIdOrderPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdOrderPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdOrderPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAuditLogGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAuditLogActionTypesGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAuditLogExportPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAuditLogExportPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAuditLogUsersGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAuditLogWorkspacesGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdDomainsGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdDomainsGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdDomainsPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdDomainsPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdDomainsOrderPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdDomainsOrderPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdPagesPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdPagesPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdPagesOrderPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdPagesOrderPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdThemePatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdThemePatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDataSourceDataSourceIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDataSourceDataSourceIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDataSourceDataSourceIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDataSourceDataSourceIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDataSourceDataSourceIdDispatchPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDataSourceDataSourceIdMovePatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDataSourceDataSourceIdMovePatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsDomainIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsDomainIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsDomainIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsDomainIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsDomainIdPublishAsyncPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsDomainIdPublishAsyncPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsPublishedByIdBuilderIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsPublishedByNameDomainNameGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsPublishedPagePageIdDataSourcesGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsPublishedPagePageIdElementsGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsPublishedPagePageIdWorkflowActionsGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdDuplicatePostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdDuplicatePostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdMovePatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdMovePatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdDataSourcesGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdDataSourcesPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdDataSourcesPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdDispatchDataSourcesPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdElementsGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdElementsPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdElementsPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdWorkflowActionsGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdWorkflowActionsPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdWorkflowActionsPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdWorkflowActionsOrderPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdWorkflowActionsOrderPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagesPageIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagesPageIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagesPageIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagesPageIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagesPageIdDuplicateAsyncPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagesPageIdDuplicateAsyncPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDispatchPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseExportJobIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseExportTableTableIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseExportTableTableIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdGetResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdPostResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFormulaTableIdTypePostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFormulaTableIdTypePostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsNamesGetResponse200::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsNamesGetResponse200TableId::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsNamesGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsNamesGetResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsNamesGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdGetResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdPostResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdGetResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdPatchResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdAdjacentGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdAdjacentGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdHistoryGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdHistoryGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdMovePatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdMovePatchResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdMovePatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchPostResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchDeletePostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchDeletePostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdDuplicateAsyncPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdDuplicateAsyncPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdImportAsyncPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdImportAsyncPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdAsyncPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdAsyncPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdOrderPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdOrderPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensTokenIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensTokenIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensTokenIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensTokenIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensTokenIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensTokenIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensCheckGetResponse403::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewViewIdPremiumPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewViewIdPremiumPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSlugPublicAuthPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSlugPublicInfoGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSlugPublicInfoGetResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSlugPublicInfoGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdDecorationsGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdDecorationsGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdDecorationsPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdDecorationsPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdDuplicatePostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdDuplicatePostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFilterGroupsPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFilterGroupsPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFiltersGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFiltersGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFiltersPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFiltersPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdGroupBysGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdGroupBysGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdGroupBysPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdGroupBysPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdRotateSlugPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdRotateSlugPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdSortingsGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdSortingsGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdSortingsPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdSortingsPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsCalendarViewIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsCalendarViewIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterViewFilterIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterViewFilterIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterViewFilterIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterViewFilterIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterViewFilterIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterViewFilterIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugSubmitGetResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugSubmitGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugSubmitPostResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugSubmitPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGalleryViewIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGalleryViewIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse200::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse200::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse200::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsKanbanViewIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsKanbanViewIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSortViewSortIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSortViewSortIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSortViewSortIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSortViewSortIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSortViewSortIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSortViewSortIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsTableTableIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsTableTableIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsTableTableIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsTableTableIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsTableTableIdOrderPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsTableTableIdOrderPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksWebhookIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksWebhookIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksWebhookIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksWebhookIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksWebhookIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksWebhookIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksTableTableIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksTableTableIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksTableTableIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksTableTableIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksTableTableIdTestCallPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksTableTableIdTestCallPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiFilesSignedDataGetResponse403::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsGroupIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsGroupIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsGroupIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsGroupIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsGroupIdLeavePostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsGroupIdLeavePostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsGroupIdPermissionsGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdAcceptPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdAcceptPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdRejectPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdRejectPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupGroupIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupGroupIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupGroupIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupGroupIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsTokenTokenGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsTokenTokenGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupUserIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupUserIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupGroupIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupGroupIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdMovePatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdMovePatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiJobsPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiJobsPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiJobsJobIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdUserIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdUserIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdUserIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdUserIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdCheckGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdFillSeatsPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdFillSeatsPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdLookupUsersGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdRemoveAllUsersPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdRemoveAllUsersPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdNotificationIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdNotificationIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdMarkAllAsReadPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdMarkAllAsReadPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRoleGroupIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRoleGroupIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRoleGroupIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRoleGroupIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRoleGroupIdBatchPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRoleGroupIdBatchPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRoleWorkspaceIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRoleWorkspaceIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRoleWorkspaceIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRoleWorkspaceIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRoleWorkspaceIdBatchPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRoleWorkspaceIdBatchPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdRowIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdRowIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdRowIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdRowIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdRowIdNotificationModePutResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdRowIdNotificationModePutResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdCommentCommentIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdCommentCommentIdPatchResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdCommentCommentIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsSnapshotIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsSnapshotIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsSnapshotIdRestorePostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsSnapshotIdRestorePostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsApplicationApplicationIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsApplicationApplicationIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsApplicationApplicationIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsApplicationApplicationIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiSsoSamlLoginUrlGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdPutResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdPutResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdSubjectsGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdSubjectsPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdSubjectsPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdSubjectsSubjectIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdSubjectsSubjectIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdSubjectsSubjectIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsGroupGroupIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsGroupGroupIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsGroupGroupIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsWorkspaceWorkspaceIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsWorkspaceWorkspaceIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsWorkspaceWorkspaceIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTrashGroupGroupIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTrashGroupGroupIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTrashRestorePatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTrashWorkspaceWorkspaceIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTrashWorkspaceWorkspaceIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserPostResponse200::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserPostResponse200User::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserFilesUploadFilePostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserFilesUploadViaUrlPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceAuthRefreshPostResponse200::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdForceTokenAuthPostResponse200::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdMovePatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdMovePatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdTokenAuthPostResponse200::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserAccountPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserChangePasswordPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserResetPasswordPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserScheduleAccountDeletionPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserSendResetPasswordEmailPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenAuthPostResponse200::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenAuthPostResponse200User::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenAuthPostResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenRefreshPostResponse200::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenRefreshPostResponse200User::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenRefreshPostResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenVerifyPostResponse200::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenVerifyPostResponse200User::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenVerifyPostResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserVerifyEmailPostResponse200::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserVerifyEmailPostResponse200User::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserVerifyEmailPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserVerifyEmailPostResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdLeavePostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdLeavePostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdPermissionsGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdAcceptPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdAcceptPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdRejectPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdRejectPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsTokenTokenGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsTokenTokenGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse404::class => false,
+                \Jane\Component\JsonSchemaRuntime\Reference::class => false,
+            ];
         }
     }
 } else {
@@ -90,11 +3559,2321 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
         use CheckArray;
         use ValidatorTrait;
         protected $normalizers = [
-            \myvendor\mynamespace\Generated\Model\Pet::class => PetNormalizer::class,
+            \cedricziel\phpbaserowclient\Generated\Model\AIFieldCreateField::class => AIFieldCreateFieldNormalizer::class,
 
-            \myvendor\mynamespace\Generated\Model\Error::class => ErrorNormalizer::class,
+            \cedricziel\phpbaserowclient\Generated\Model\AIFieldField::class => AIFieldFieldNormalizer::class,
 
-            \Jane\Component\JsonSchemaRuntime\Reference::class => \myvendor\mynamespace\Generated\Runtime\Normalizer\ReferenceNormalizer::class,
+            \cedricziel\phpbaserowclient\Generated\Model\AIFieldFieldSerializerWithRelatedFields::class => AIFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AIFieldUpdateField::class => AIFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\Account::class => AccountNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ActionScopes::class => ActionScopesNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AdminDashboard::class => AdminDashboardNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AdminDashboardPerDay::class => AdminDashboardPerDayNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AirtableImportJobCreateJob::class => AirtableImportJobCreateJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AirtableImportJobJob::class => AirtableImportJobJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AuditLog::class => AuditLogNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AuditLogActionType::class => AuditLogActionTypeNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AuditLogExportJobCreateJob::class => AuditLogExportJobCreateJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AuditLogExportJobJob::class => AuditLogExportJobJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AuditLogUser::class => AuditLogUserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AuditLogWorkspace::class => AuditLogWorkspaceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AuthFormElementCreateElement::class => AuthFormElementCreateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AuthFormElementCreateElementStyleBackgroundFile::class => AuthFormElementCreateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AuthFormElementElement::class => AuthFormElementElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AuthFormElementElementStyleBackgroundFile::class => AuthFormElementElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AuthFormElementPublicElement::class => AuthFormElementPublicElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AuthFormElementPublicElementStyleBackgroundFile::class => AuthFormElementPublicElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AuthFormElementUpdateElement::class => AuthFormElementUpdateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AuthFormElementUpdateElementStyleBackgroundFile::class => AuthFormElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AutonumberFieldCreateField::class => AutonumberFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AutonumberFieldField::class => AutonumberFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AutonumberFieldFieldSerializerWithRelatedFields::class => AutonumberFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\AutonumberFieldUpdateField::class => AutonumberFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\BaseExporterOptions::class => BaseExporterOptionsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\BaserowImpersonateAuthToken::class => BaserowImpersonateAuthTokenNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\BatchCreateRoleAssignment::class => BatchCreateRoleAssignmentNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\BatchDeleteRows::class => BatchDeleteRowsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\BooleanFieldCreateField::class => BooleanFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\BooleanFieldField::class => BooleanFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\BooleanFieldFieldSerializerWithRelatedFields::class => BooleanFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\BooleanFieldUpdateField::class => BooleanFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\BuilderApplication::class => BuilderApplicationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\BuilderApplicationGroup::class => BuilderApplicationGroupNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\BuilderApplicationWorkspace::class => BuilderApplicationWorkspaceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\BuilderApplicationTheme::class => BuilderApplicationThemeNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\BuilderApplicationFaviconFile::class => BuilderApplicationFaviconFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\BuilderBaseApplicationCreatePolymorphic::class => BuilderBaseApplicationCreatePolymorphicNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\BuilderBaseApplicationCreatePolymorphicFaviconFile::class => BuilderBaseApplicationCreatePolymorphicFaviconFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\BuilderBaseApplicationUpdatePolymorphic::class => BuilderBaseApplicationUpdatePolymorphicNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\BuilderBaseApplicationUpdatePolymorphicFaviconFile::class => BuilderBaseApplicationUpdatePolymorphicFaviconFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\BuilderWorkflowAction::class => BuilderWorkflowActionNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ButtonConfigBlock::class => ButtonConfigBlockNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ButtonConfigBlockButton::class => ButtonConfigBlockButtonNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ButtonElementCreateElement::class => ButtonElementCreateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ButtonElementCreateElementStyleBackgroundFile::class => ButtonElementCreateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ButtonElementElement::class => ButtonElementElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ButtonElementElementStyleBackgroundFile::class => ButtonElementElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ButtonElementPublicElement::class => ButtonElementPublicElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ButtonElementPublicElementStyleBackgroundFile::class => ButtonElementPublicElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ButtonElementUpdateElement::class => ButtonElementUpdateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ButtonElementUpdateElementStyleBackgroundFile::class => ButtonElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ButtonLinkConfigBlock::class => ButtonLinkConfigBlockNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ButtonLinkConfigBlockButton::class => ButtonLinkConfigBlockButtonNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ButtonLinkConfigBlockLink::class => ButtonLinkConfigBlockLinkNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ButtonThemeConfigBlock::class => ButtonThemeConfigBlockNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CalendarViewCreateView::class => CalendarViewCreateViewNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CalendarViewExampleResponse::class => CalendarViewExampleResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CalendarViewExampleResponseStack::class => CalendarViewExampleResponseStackNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CalendarViewFieldOptions::class => CalendarViewFieldOptionsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CalendarViewView::class => CalendarViewViewNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ChangePasswordBodyValidation::class => ChangePasswordBodyValidationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CheckboxElementCreateElement::class => CheckboxElementCreateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CheckboxElementCreateElementStyleBackgroundFile::class => CheckboxElementCreateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CheckboxElementElement::class => CheckboxElementElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CheckboxElementElementStyleBackgroundFile::class => CheckboxElementElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CheckboxElementPublicElement::class => CheckboxElementPublicElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CheckboxElementPublicElementStyleBackgroundFile::class => CheckboxElementPublicElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CheckboxElementUpdateElement::class => CheckboxElementUpdateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CheckboxElementUpdateElementStyleBackgroundFile::class => CheckboxElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ChoiceElementCreateElement::class => ChoiceElementCreateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ChoiceElementCreateElementStyleBackgroundFile::class => ChoiceElementCreateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ChoiceElementElement::class => ChoiceElementElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ChoiceElementElementStyleBackgroundFile::class => ChoiceElementElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ChoiceElementPublicElement::class => ChoiceElementPublicElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ChoiceElementPublicElementStyleBackgroundFile::class => ChoiceElementPublicElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ChoiceElementUpdateElement::class => ChoiceElementUpdateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ChoiceElementUpdateElementStyleBackgroundFile::class => ChoiceElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ChoiceOption::class => ChoiceOptionNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\Collaborator::class => CollaboratorNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CollectionField::class => CollectionFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ColumnElementCreateElement::class => ColumnElementCreateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ColumnElementCreateElementStyleBackgroundFile::class => ColumnElementCreateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ColumnElementElement::class => ColumnElementElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ColumnElementElementStyleBackgroundFile::class => ColumnElementElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ColumnElementPublicElement::class => ColumnElementPublicElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ColumnElementPublicElementStyleBackgroundFile::class => ColumnElementPublicElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ColumnElementUpdateElement::class => ColumnElementUpdateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ColumnElementUpdateElementStyleBackgroundFile::class => ColumnElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CombinedThemeConfigBlocks::class => CombinedThemeConfigBlocksNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CombinedThemeConfigBlocksPageBackgroundFile::class => CombinedThemeConfigBlocksPageBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ConditionalColorValueProviderConfColor::class => ConditionalColorValueProviderConfColorNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ConditionalColorValueProviderConfColorFilter::class => ConditionalColorValueProviderConfColorFilterNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ConditionalColorValueProviderConfColorFilterGroup::class => ConditionalColorValueProviderConfColorFilterGroupNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ConditionalColorValueProviderConfColors::class => ConditionalColorValueProviderConfColorsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CountFieldCreateField::class => CountFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CountFieldField::class => CountFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CountFieldFieldSerializerWithRelatedFields::class => CountFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CountFieldUpdateField::class => CountFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CreatePage::class => CreatePageNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CreateRoleAssignment::class => CreateRoleAssignmentNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CreateSnapshotJobCreateJob::class => CreateSnapshotJobCreateJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CreateSnapshotJobJob::class => CreateSnapshotJobJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CreateViewFilter::class => CreateViewFilterNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CreateViewFilterGroup::class => CreateViewFilterGroupNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CreateViewGroupBy::class => CreateViewGroupByNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CreateViewSort::class => CreateViewSortNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CreateWorkspaceInvitation::class => CreateWorkspaceInvitationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CreatedByFieldCreateField::class => CreatedByFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CreatedByFieldField::class => CreatedByFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CreatedByFieldFieldSerializerWithRelatedFields::class => CreatedByFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CreatedByFieldUpdateField::class => CreatedByFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CreatedOnFieldCreateField::class => CreatedOnFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CreatedOnFieldField::class => CreatedOnFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CreatedOnFieldFieldSerializerWithRelatedFields::class => CreatedOnFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CreatedOnFieldUpdateField::class => CreatedOnFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CsvExporterOptions::class => CsvExporterOptionsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CustomDomainCreateDomain::class => CustomDomainCreateDomainNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CustomDomainDomain::class => CustomDomainDomainNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\Dashboard::class => DashboardNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DatabaseApplication::class => DatabaseApplicationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DatabaseApplicationGroup::class => DatabaseApplicationGroupNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DatabaseApplicationWorkspace::class => DatabaseApplicationWorkspaceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DatabaseBaseApplicationCreatePolymorphic::class => DatabaseBaseApplicationCreatePolymorphicNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DatabaseBaseApplicationUpdatePolymorphic::class => DatabaseBaseApplicationUpdatePolymorphicNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DateFieldCreateField::class => DateFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DateFieldField::class => DateFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DateFieldFieldSerializerWithRelatedFields::class => DateFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DateFieldUpdateField::class => DateFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DuplicateApplicationJobCreateJob::class => DuplicateApplicationJobCreateJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DuplicateApplicationJobJob::class => DuplicateApplicationJobJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DuplicateElement::class => DuplicateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DuplicateFieldJobCreateJob::class => DuplicateFieldJobCreateJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DuplicateFieldJobJob::class => DuplicateFieldJobJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DuplicateFieldJobJobOriginalField::class => DuplicateFieldJobJobOriginalFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DuplicateFieldJobJobDuplicatedField::class => DuplicateFieldJobJobDuplicatedFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DuplicatePageJobCreateJob::class => DuplicatePageJobCreateJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DuplicatePageJobJob::class => DuplicatePageJobJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DuplicatePageJobJobOriginalPage::class => DuplicatePageJobJobOriginalPageNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DuplicatePageJobJobDuplicatedPage::class => DuplicatePageJobJobDuplicatedPageNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DuplicateTableJobCreateJob::class => DuplicateTableJobCreateJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DuplicateTableJobJob::class => DuplicateTableJobJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DuplicateTableJobJobOriginalTable::class => DuplicateTableJobJobOriginalTableNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DuplicateTableJobJobDuplicatedTable::class => DuplicateTableJobJobDuplicatedTableNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DurationFieldCreateField::class => DurationFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DurationFieldField::class => DurationFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DurationFieldFieldSerializerWithRelatedFields::class => DurationFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\DurationFieldUpdateField::class => DurationFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\Element::class => ElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ElementStyleBackgroundFile::class => ElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\EmailFieldCreateField::class => EmailFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\EmailFieldField::class => EmailFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\EmailFieldFieldSerializerWithRelatedFields::class => EmailFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\EmailFieldUpdateField::class => EmailFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\EmailTesterRequest::class => EmailTesterRequestNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\EmailTesterResponse::class => EmailTesterResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ExampleBatchRowsRequest::class => ExampleBatchRowsRequestNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ExampleBatchRowsResponse::class => ExampleBatchRowsResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ExampleBatchUpdateRowRequestSerializerWithUserFieldNames::class => ExampleBatchUpdateRowRequestSerializerWithUserFieldNamesNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ExampleRowRequest::class => ExampleRowRequestNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ExampleRowRequestSerializerWithUserFieldNames::class => ExampleRowRequestSerializerWithUserFieldNamesNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponse::class => ExampleRowResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponseField10::class => ExampleRowResponseField10Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponseField12::class => ExampleRowResponseField12Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponseField16::class => ExampleRowResponseField16Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponseSerializerWithUserFieldNames::class => ExampleRowResponseSerializerWithUserFieldNamesNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponseSerializerWithUserFieldNamesField10::class => ExampleRowResponseSerializerWithUserFieldNamesField10Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponseSerializerWithUserFieldNamesField12::class => ExampleRowResponseSerializerWithUserFieldNamesField12Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponseSerializerWithUserFieldNamesField16::class => ExampleRowResponseSerializerWithUserFieldNamesField16Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ExportJob::class => ExportJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FacebookAuthProviderModelAuthProvider::class => FacebookAuthProviderModelAuthProviderNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\Field::class => FieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FieldSerializerWithRelatedFields::class => FieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FileFieldCreateField::class => FileFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FileFieldField::class => FileFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FileFieldFieldSerializerWithRelatedFields::class => FileFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FileFieldResponse::class => FileFieldResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FileFieldUpdateField::class => FileFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FileImportJobCreateJob::class => FileImportJobCreateJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FileImportJobJob::class => FileImportJobJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FileImportJobJobReport::class => FileImportJobJobReportNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormContainerElementCreateElement::class => FormContainerElementCreateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormContainerElementCreateElementStyleBackgroundFile::class => FormContainerElementCreateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormContainerElementElement::class => FormContainerElementElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormContainerElementElementStyleBackgroundFile::class => FormContainerElementElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormContainerElementPublicElement::class => FormContainerElementPublicElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormContainerElementPublicElementStyleBackgroundFile::class => FormContainerElementPublicElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormContainerElementUpdateElement::class => FormContainerElementUpdateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormContainerElementUpdateElementStyleBackgroundFile::class => FormContainerElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormViewCreateView::class => FormViewCreateViewNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormViewCreateViewCoverImage::class => FormViewCreateViewCoverImageNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormViewCreateViewLogoImage::class => FormViewCreateViewLogoImageNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormViewFieldOptions::class => FormViewFieldOptionsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormViewFieldOptionsCondition::class => FormViewFieldOptionsConditionNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormViewFieldOptionsConditionGroup::class => FormViewFieldOptionsConditionGroupNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormViewSubmitted::class => FormViewSubmittedNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormViewView::class => FormViewViewNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormViewViewCoverImage::class => FormViewViewCoverImageNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormViewViewLogoImage::class => FormViewViewLogoImageNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormulaFieldCreateField::class => FormulaFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormulaFieldField::class => FormulaFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormulaFieldFieldSerializerWithRelatedFields::class => FormulaFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormulaFieldUpdateField::class => FormulaFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FullHealthCheck::class => FullHealthCheckNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GalleryViewCreateView::class => GalleryViewCreateViewNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GalleryViewFieldOptions::class => GalleryViewFieldOptionsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GalleryViewView::class => GalleryViewViewNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GenerateFormulaWithAIRequest::class => GenerateFormulaWithAIRequestNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GenerateFormulaWithAIResponse::class => GenerateFormulaWithAIResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GeneratedConditionalColorCreateViewDecoration::class => GeneratedConditionalColorCreateViewDecorationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GeneratedConditionalColorCreateViewDecorationValueProviderConf::class => GeneratedConditionalColorCreateViewDecorationValueProviderConfNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GeneratedConditionalColorUpdateViewDecoration::class => GeneratedConditionalColorUpdateViewDecorationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GeneratedConditionalColorUpdateViewDecorationValueProviderConf::class => GeneratedConditionalColorUpdateViewDecorationValueProviderConfNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GeneratedConditionalColorViewDecoration::class => GeneratedConditionalColorViewDecorationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GeneratedConditionalColorViewDecorationValueProviderConf::class => GeneratedConditionalColorViewDecorationValueProviderConfNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GeneratedSingleSelectColorCreateViewDecoration::class => GeneratedSingleSelectColorCreateViewDecorationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GeneratedSingleSelectColorCreateViewDecorationValueProviderConf::class => GeneratedSingleSelectColorCreateViewDecorationValueProviderConfNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GeneratedSingleSelectColorUpdateViewDecoration::class => GeneratedSingleSelectColorUpdateViewDecorationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GeneratedSingleSelectColorUpdateViewDecorationValueProviderConf::class => GeneratedSingleSelectColorUpdateViewDecorationValueProviderConfNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GeneratedSingleSelectColorViewDecoration::class => GeneratedSingleSelectColorViewDecorationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GeneratedSingleSelectColorViewDecorationValueProviderConf::class => GeneratedSingleSelectColorViewDecorationValueProviderConfNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GenerativeAISettings::class => GenerativeAISettingsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GitHubAuthProviderModelAuthProvider::class => GitHubAuthProviderModelAuthProviderNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GitLabAuthProviderModelAuthProvider::class => GitLabAuthProviderModelAuthProviderNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GoogleAuthProviderModelAuthProvider::class => GoogleAuthProviderModelAuthProviderNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GridViewCreateView::class => GridViewCreateViewNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GridViewFieldOptions::class => GridViewFieldOptionsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GridViewFilter::class => GridViewFilterNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GridViewView::class => GridViewViewNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\HeadingElementCreateElement::class => HeadingElementCreateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\HeadingElementCreateElementStyleBackgroundFile::class => HeadingElementCreateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\HeadingElementElement::class => HeadingElementElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\HeadingElementElementStyleBackgroundFile::class => HeadingElementElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\HeadingElementPublicElement::class => HeadingElementPublicElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\HeadingElementPublicElementStyleBackgroundFile::class => HeadingElementPublicElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\HeadingElementUpdateElement::class => HeadingElementUpdateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\HeadingElementUpdateElementStyleBackgroundFile::class => HeadingElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\IFrameElementCreateElement::class => IFrameElementCreateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\IFrameElementCreateElementStyleBackgroundFile::class => IFrameElementCreateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\IFrameElementElement::class => IFrameElementElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\IFrameElementElementStyleBackgroundFile::class => IFrameElementElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\IFrameElementPublicElement::class => IFrameElementPublicElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\IFrameElementPublicElementStyleBackgroundFile::class => IFrameElementPublicElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\IFrameElementUpdateElement::class => IFrameElementUpdateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\IFrameElementUpdateElementStyleBackgroundFile::class => IFrameElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ImageConfigBlock::class => ImageConfigBlockNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ImageConfigBlockImage::class => ImageConfigBlockImageNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ImageElementCreateElement::class => ImageElementCreateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ImageElementCreateElementStyleBackgroundFile::class => ImageElementCreateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ImageElementCreateElementImageFile::class => ImageElementCreateElementImageFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ImageElementElement::class => ImageElementElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ImageElementElementStyleBackgroundFile::class => ImageElementElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ImageElementPublicElement::class => ImageElementPublicElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ImageElementPublicElementStyleBackgroundFile::class => ImageElementPublicElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ImageElementUpdateElement::class => ImageElementUpdateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ImageElementUpdateElementStyleBackgroundFile::class => ImageElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ImageElementUpdateElementImageFile::class => ImageElementUpdateElementImageFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ImageThemeConfigBlock::class => ImageThemeConfigBlockNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\InputTextElementCreateElement::class => InputTextElementCreateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\InputTextElementCreateElementStyleBackgroundFile::class => InputTextElementCreateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\InputTextElementElement::class => InputTextElementElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\InputTextElementElementStyleBackgroundFile::class => InputTextElementElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\InputTextElementPublicElement::class => InputTextElementPublicElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\InputTextElementPublicElementStyleBackgroundFile::class => InputTextElementPublicElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\InputTextElementUpdateElement::class => InputTextElementUpdateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\InputTextElementUpdateElementStyleBackgroundFile::class => InputTextElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\InstallTemplateJobCreateJob::class => InstallTemplateJobCreateJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\InstallTemplateJobJob::class => InstallTemplateJobJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\InstallTemplateJobJobWorkspace::class => InstallTemplateJobJobWorkspaceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\InstallTemplateJobJobTemplate::class => InstallTemplateJobJobTemplateNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\InstallTemplateJobJobGroup::class => InstallTemplateJobJobGroupNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\InstanceId::class => InstanceIdNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\Job::class => JobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\KanbanViewCreateView::class => KanbanViewCreateViewNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\KanbanViewExampleResponse::class => KanbanViewExampleResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\KanbanViewExampleResponseStack::class => KanbanViewExampleResponseStackNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\KanbanViewFieldOptions::class => KanbanViewFieldOptionsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\KanbanViewView::class => KanbanViewViewNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LastModifiedByFieldCreateField::class => LastModifiedByFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LastModifiedByFieldField::class => LastModifiedByFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LastModifiedByFieldFieldSerializerWithRelatedFields::class => LastModifiedByFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LastModifiedByFieldUpdateField::class => LastModifiedByFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LastModifiedFieldCreateField::class => LastModifiedFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LastModifiedFieldField::class => LastModifiedFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LastModifiedFieldFieldSerializerWithRelatedFields::class => LastModifiedFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LastModifiedFieldUpdateField::class => LastModifiedFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\License::class => LicenseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LicenseUser::class => LicenseUserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LicenseUserLookup::class => LicenseUserLookupNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LicenseWithUsers::class => LicenseWithUsersNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LinkElementCreateElement::class => LinkElementCreateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LinkElementCreateElementStyleBackgroundFile::class => LinkElementCreateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LinkElementElement::class => LinkElementElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LinkElementElementStyleBackgroundFile::class => LinkElementElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LinkElementPublicElement::class => LinkElementPublicElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LinkElementPublicElementStyleBackgroundFile::class => LinkElementPublicElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LinkElementUpdateElement::class => LinkElementUpdateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LinkElementUpdateElementStyleBackgroundFile::class => LinkElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LinkRowFieldCreateField::class => LinkRowFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LinkRowFieldField::class => LinkRowFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LinkRowFieldFieldSerializerWithRelatedFields::class => LinkRowFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LinkRowFieldUpdateField::class => LinkRowFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LinkRowValue::class => LinkRowValueNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LinkThemeConfigBlock::class => LinkThemeConfigBlockNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ListWorkspaceUsersWithMemberData::class => ListWorkspaceUsersWithMemberDataNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowContextData::class => LocalBaserowContextDataNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowCreateRowWorkflowActionBuilderWorkflowAction::class => LocalBaserowCreateRowWorkflowActionBuilderWorkflowActionNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowCreateRowWorkflowActionCreateBuilderWorkflowAction::class => LocalBaserowCreateRowWorkflowActionCreateBuilderWorkflowActionNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowCreateRowWorkflowActionUpdateBuilderWorkflowActions::class => LocalBaserowCreateRowWorkflowActionUpdateBuilderWorkflowActionsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowField::class => LocalBaserowFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowGetRow::class => LocalBaserowGetRowNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowGetRowCreateDataSource::class => LocalBaserowGetRowCreateDataSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowGetRowDataSource::class => LocalBaserowGetRowDataSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowGetRowPublicDataSource::class => LocalBaserowGetRowPublicDataSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowGetRowService::class => LocalBaserowGetRowServiceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowGetRowUpdateDataSource::class => LocalBaserowGetRowUpdateDataSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationCreateIntegration::class => LocalBaserowIntegrationCreateIntegrationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationCreateIntegrationContextData::class => LocalBaserowIntegrationCreateIntegrationContextDataNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationCreateIntegrationAuthorizedUser::class => LocalBaserowIntegrationCreateIntegrationAuthorizedUserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationIntegration::class => LocalBaserowIntegrationIntegrationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationIntegrationContextData::class => LocalBaserowIntegrationIntegrationContextDataNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationIntegrationAuthorizedUser::class => LocalBaserowIntegrationIntegrationAuthorizedUserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationUpdateIntegration::class => LocalBaserowIntegrationUpdateIntegrationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationUpdateIntegrationContextData::class => LocalBaserowIntegrationUpdateIntegrationContextDataNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationUpdateIntegrationAuthorizedUser::class => LocalBaserowIntegrationUpdateIntegrationAuthorizedUserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowListRows::class => LocalBaserowListRowsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowListRowsCreateDataSource::class => LocalBaserowListRowsCreateDataSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowListRowsDataSource::class => LocalBaserowListRowsDataSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowListRowsPublicDataSource::class => LocalBaserowListRowsPublicDataSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowListRowsService::class => LocalBaserowListRowsServiceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowListRowsUpdateDataSource::class => LocalBaserowListRowsUpdateDataSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowPasswordAppAuthProviderAppAuthProvider::class => LocalBaserowPasswordAppAuthProviderAppAuthProviderNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowPasswordAppAuthProviderBaseAppAuthProvider::class => LocalBaserowPasswordAppAuthProviderBaseAppAuthProviderNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowTableServiceFieldMapping::class => LocalBaserowTableServiceFieldMappingNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowTableServiceFilter::class => LocalBaserowTableServiceFilterNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowTableServiceSort::class => LocalBaserowTableServiceSortNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpdateRowWorkflowActionBuilderWorkflowAction::class => LocalBaserowUpdateRowWorkflowActionBuilderWorkflowActionNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpdateRowWorkflowActionCreateBuilderWorkflowAction::class => LocalBaserowUpdateRowWorkflowActionCreateBuilderWorkflowActionNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpdateRowWorkflowActionUpdateBuilderWorkflowActions::class => LocalBaserowUpdateRowWorkflowActionUpdateBuilderWorkflowActionsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpsertRow::class => LocalBaserowUpsertRowNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpsertRowCreateDataSource::class => LocalBaserowUpsertRowCreateDataSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpsertRowDataSource::class => LocalBaserowUpsertRowDataSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpsertRowPublicDataSource::class => LocalBaserowUpsertRowPublicDataSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpsertRowService::class => LocalBaserowUpsertRowServiceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpsertRowUpdateDataSource::class => LocalBaserowUpsertRowUpdateDataSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUserSourceBasePublicUserSource::class => LocalBaserowUserSourceBasePublicUserSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUserSourceCreateUserSource::class => LocalBaserowUserSourceCreateUserSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUserSourceUpdateUserSource::class => LocalBaserowUserSourceUpdateUserSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUserSourceUserSource::class => LocalBaserowUserSourceUserSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUserSourceUserSourceRoles::class => LocalBaserowUserSourceUserSourceRolesNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowView::class => LocalBaserowViewNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LogoutWorkflowActionBuilderWorkflowAction::class => LogoutWorkflowActionBuilderWorkflowActionNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LogoutWorkflowActionCreateBuilderWorkflowAction::class => LogoutWorkflowActionCreateBuilderWorkflowActionNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LogoutWorkflowActionUpdateBuilderWorkflowActions::class => LogoutWorkflowActionUpdateBuilderWorkflowActionsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LongTextFieldCreateField::class => LongTextFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LongTextFieldField::class => LongTextFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LongTextFieldFieldSerializerWithRelatedFields::class => LongTextFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LongTextFieldUpdateField::class => LongTextFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LookupFieldCreateField::class => LookupFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LookupFieldField::class => LookupFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LookupFieldFieldSerializerWithRelatedFields::class => LookupFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\LookupFieldUpdateField::class => LookupFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\MultipleCollaboratorsFieldCreateField::class => MultipleCollaboratorsFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\MultipleCollaboratorsFieldField::class => MultipleCollaboratorsFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\MultipleCollaboratorsFieldFieldSerializerWithRelatedFields::class => MultipleCollaboratorsFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\MultipleCollaboratorsFieldUpdateField::class => MultipleCollaboratorsFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\MultipleSelectFieldCreateField::class => MultipleSelectFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\MultipleSelectFieldField::class => MultipleSelectFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\MultipleSelectFieldFieldSerializerWithRelatedFields::class => MultipleSelectFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\MultipleSelectFieldUpdateField::class => MultipleSelectFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\NotificationRecipient::class => NotificationRecipientNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\NotificationRecipientSender::class => NotificationRecipientSenderNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\NotificationWorkflowActionBuilderWorkflowAction::class => NotificationWorkflowActionBuilderWorkflowActionNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\NotificationWorkflowActionCreateBuilderWorkflowAction::class => NotificationWorkflowActionCreateBuilderWorkflowActionNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\NotificationWorkflowActionUpdateBuilderWorkflowActions::class => NotificationWorkflowActionUpdateBuilderWorkflowActionsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\NumberFieldCreateField::class => NumberFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\NumberFieldField::class => NumberFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\NumberFieldFieldSerializerWithRelatedFields::class => NumberFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\NumberFieldUpdateField::class => NumberFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\OllamaSettings::class => OllamaSettingsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\OpenAISettings::class => OpenAISettingsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\OpenApiRoleAssignment::class => OpenApiRoleAssignmentNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\OpenApiRoleAssignmentSubject::class => OpenApiRoleAssignmentSubjectNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\OpenApiSubjectField::class => OpenApiSubjectFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\OpenIdConnectAuthProviderModelAuthProvider::class => OpenIdConnectAuthProviderModelAuthProviderNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\OpenPageWorkflowActionBuilderWorkflowAction::class => OpenPageWorkflowActionBuilderWorkflowActionNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\OpenPageWorkflowActionCreateBuilderWorkflowAction::class => OpenPageWorkflowActionCreateBuilderWorkflowActionNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\OpenPageWorkflowActionUpdateBuilderWorkflowActions::class => OpenPageWorkflowActionUpdateBuilderWorkflowActionsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\OrderApplications::class => OrderApplicationsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\OrderDomains::class => OrderDomainsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\OrderPages::class => OrderPagesNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\OrderTables::class => OrderTablesNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\OrderViews::class => OrderViewsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\OrderWorkflowActions::class => OrderWorkflowActionsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\OrderWorkspaces::class => OrderWorkspacesNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\Page::class => PageNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PageParameterValue::class => PageParameterValueNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerAuditLog::class => PaginationSerializerAuditLogNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerAuditLogUser::class => PaginationSerializerAuditLogUserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerAuditLogWorkspace::class => PaginationSerializerAuditLogWorkspaceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerExampleRowResponseSerializerWithUserFieldNames::class => PaginationSerializerExampleRowResponseSerializerWithUserFieldNamesNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerLicenseUserLookup::class => PaginationSerializerLicenseUserLookupNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerLinkRowValue::class => PaginationSerializerLinkRowValueNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerNotificationRecipient::class => PaginationSerializerNotificationRecipientNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerRowComment::class => PaginationSerializerRowCommentNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerRowHistory::class => PaginationSerializerRowHistoryNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerTrashContents::class => PaginationSerializerTrashContentsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerUserAdminResponse::class => PaginationSerializerUserAdminResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerWithGalleryViewFieldOptionsExampleRowResponse::class => PaginationSerializerWithGalleryViewFieldOptionsExampleRowResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerWithGridViewFieldOptionsExampleRowResponse::class => PaginationSerializerWithGridViewFieldOptionsExampleRowResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerWorkspacesAdminResponse::class => PaginationSerializerWorkspacesAdminResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PasswordAuthProviderModelAuthProvider::class => PasswordAuthProviderModelAuthProviderNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PasswordFieldCreateField::class => PasswordFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PasswordFieldField::class => PasswordFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PasswordFieldFieldSerializerWithRelatedFields::class => PasswordFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PasswordFieldUpdateField::class => PasswordFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedAccount::class => PatchedAccountNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedCombinedThemeConfigBlocks::class => PatchedCombinedThemeConfigBlocksNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedCombinedThemeConfigBlocksPageBackgroundFile::class => PatchedCombinedThemeConfigBlocksPageBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedExampleBatchUpdateRowsRequest::class => PatchedExampleBatchUpdateRowsRequestNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedExampleUpdateRowRequestSerializerWithUserFieldNames::class => PatchedExampleUpdateRowRequestSerializerWithUserFieldNamesNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedGenerativeAISettings::class => PatchedGenerativeAISettingsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedMoveDataSource::class => PatchedMoveDataSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedMoveElement::class => PatchedMoveElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedMoveIntegration::class => PatchedMoveIntegrationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedMoveUserSource::class => PatchedMoveUserSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedSettings::class => PatchedSettingsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedSettingsCoBrandingLogo::class => PatchedSettingsCoBrandingLogoNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedTableUpdate::class => PatchedTableUpdateNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedTableWebhookUpdateRequest::class => PatchedTableWebhookUpdateRequestNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedTokenUpdate::class => PatchedTokenUpdateNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedTokenUpdatePermissions::class => PatchedTokenUpdatePermissionsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedTrashEntryRequest::class => PatchedTrashEntryRequestNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedUndoRedoRequest::class => PatchedUndoRedoRequestNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedUndoRedoRequestScopes::class => PatchedUndoRedoRequestScopesNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateDomain::class => PatchedUpdateDomainNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdatePage::class => PatchedUpdatePageNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdatePremiumViewAttributes::class => PatchedUpdatePremiumViewAttributesNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateViewFilter::class => PatchedUpdateViewFilterNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateViewFilterGroup::class => PatchedUpdateViewFilterGroupNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateViewGroupBy::class => PatchedUpdateViewGroupByNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateViewSort::class => PatchedUpdateViewSortNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateWorkspaceInvitation::class => PatchedUpdateWorkspaceInvitationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateWorkspaceUser::class => PatchedUpdateWorkspaceUserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedUserAdminUpdate::class => PatchedUserAdminUpdateNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PatchedWorkspace::class => PatchedWorkspaceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PathParam::class => PathParamNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PermissionObject::class => PermissionObjectNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PhoneNumberFieldCreateField::class => PhoneNumberFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PhoneNumberFieldField::class => PhoneNumberFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PhoneNumberFieldFieldSerializerWithRelatedFields::class => PhoneNumberFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PhoneNumberFieldUpdateField::class => PhoneNumberFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicBuilder::class => PublicBuilderNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicBuilderTheme::class => PublicBuilderThemeNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicField::class => PublicFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicFormView::class => PublicFormViewNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicFormViewCoverImage::class => PublicFormViewCoverImageNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicFormViewLogoImage::class => PublicFormViewLogoImageNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicFormViewField::class => PublicFormViewFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicFormViewFieldOptions::class => PublicFormViewFieldOptionsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicFormViewFieldOptionsField::class => PublicFormViewFieldOptionsFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicNone::class => PublicNoneNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicPage::class => PublicPageNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicPaginationSerializerWithGalleryViewFieldOptionsExampleRowResponse::class => PublicPaginationSerializerWithGalleryViewFieldOptionsExampleRowResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicPaginationSerializerWithGridViewFieldOptionsExampleRowResponse::class => PublicPaginationSerializerWithGridViewFieldOptionsExampleRowResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicView::class => PublicViewNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicViewAuthRequest::class => PublicViewAuthRequestNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicViewAuthResponse::class => PublicViewAuthResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicViewGroupBy::class => PublicViewGroupByNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicViewInfo::class => PublicViewInfoNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicViewInfoView::class => PublicViewInfoViewNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicViewSort::class => PublicViewSortNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublicViewTable::class => PublicViewTableNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublishDomainJobCreateJob::class => PublishDomainJobCreateJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\PublishDomainJobJob::class => PublishDomainJobJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RatingFieldCreateField::class => RatingFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RatingFieldField::class => RatingFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RatingFieldFieldSerializerWithRelatedFields::class => RatingFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RatingFieldUpdateField::class => RatingFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RefreshDataSourceWorkflowActionBuilderWorkflowAction::class => RefreshDataSourceWorkflowActionBuilderWorkflowActionNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RefreshDataSourceWorkflowActionCreateBuilderWorkflowAction::class => RefreshDataSourceWorkflowActionCreateBuilderWorkflowActionNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RefreshDataSourceWorkflowActionUpdateBuilderWorkflowActions::class => RefreshDataSourceWorkflowActionUpdateBuilderWorkflowActionsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\Register::class => RegisterNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RegisterLicense::class => RegisterLicenseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RelatedFields::class => RelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RepeatElementCreateElement::class => RepeatElementCreateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RepeatElementCreateElementStyleBackgroundFile::class => RepeatElementCreateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RepeatElementElement::class => RepeatElementElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RepeatElementElementStyleBackgroundFile::class => RepeatElementElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RepeatElementPublicElement::class => RepeatElementPublicElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RepeatElementPublicElementStyleBackgroundFile::class => RepeatElementPublicElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RepeatElementUpdateElement::class => RepeatElementUpdateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RepeatElementUpdateElementStyleBackgroundFile::class => RepeatElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\Report::class => ReportNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ResetPasswordBodyValidation::class => ResetPasswordBodyValidationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RestoreSnapshotJobCreateJob::class => RestoreSnapshotJobCreateJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RestoreSnapshotJobJob::class => RestoreSnapshotJobJobNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RollupFieldCreateField::class => RollupFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RollupFieldField::class => RollupFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RollupFieldFieldSerializerWithRelatedFields::class => RollupFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RollupFieldUpdateField::class => RollupFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RowComment::class => RowCommentNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RowCommentCreate::class => RowCommentCreateNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RowCommentsNotificationMode::class => RowCommentsNotificationModeNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RowHistory::class => RowHistoryNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RowHistoryUser::class => RowHistoryUserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\RowMetadata::class => RowMetadataNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SAMLResponse::class => SAMLResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SamlAuthProviderModelAuthProvider::class => SamlAuthProviderModelAuthProviderNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SelectColorValueProviderConf::class => SelectColorValueProviderConfNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SelectOption::class => SelectOptionNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SendResetPasswordEmailBodyValidation::class => SendResetPasswordEmailBodyValidationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\Sender::class => SenderNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\Settings::class => SettingsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SettingsCoBrandingLogo::class => SettingsCoBrandingLogoNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleAuditLogExportJobRequest::class => SingleAuditLogExportJobRequestNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleAuditLogExportJobResponse::class => SingleAuditLogExportJobResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicateApplicationJobType::class => SingleDuplicateApplicationJobTypeNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicateFieldJobType::class => SingleDuplicateFieldJobTypeNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicateFieldJobTypeOriginalField::class => SingleDuplicateFieldJobTypeOriginalFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicateFieldJobTypeDuplicatedField::class => SingleDuplicateFieldJobTypeDuplicatedFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicatePageJobType::class => SingleDuplicatePageJobTypeNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicatePageJobTypeOriginalPage::class => SingleDuplicatePageJobTypeOriginalPageNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicatePageJobTypeDuplicatedPage::class => SingleDuplicatePageJobTypeDuplicatedPageNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicateTableJobType::class => SingleDuplicateTableJobTypeNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicateTableJobTypeOriginalTable::class => SingleDuplicateTableJobTypeOriginalTableNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicateTableJobTypeDuplicatedTable::class => SingleDuplicateTableJobTypeDuplicatedTableNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleFileImportJobSerializerClass::class => SingleFileImportJobSerializerClassNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleFileImportJobSerializerClassReport::class => SingleFileImportJobSerializerClassReportNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleInstallTemplateJobType::class => SingleInstallTemplateJobTypeNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleInstallTemplateJobTypeWorkspace::class => SingleInstallTemplateJobTypeWorkspaceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleInstallTemplateJobTypeTemplate::class => SingleInstallTemplateJobTypeTemplateNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleInstallTemplateJobTypeGroup::class => SingleInstallTemplateJobTypeGroupNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleSelectFieldCreateField::class => SingleSelectFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleSelectFieldField::class => SingleSelectFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleSelectFieldFieldSerializerWithRelatedFields::class => SingleSelectFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SingleSelectFieldUpdateField::class => SingleSelectFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\Snapshot::class => SnapshotNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SnapshotCreatedBy::class => SnapshotCreatedByNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SubDomainCreateDomain::class => SubDomainCreateDomainNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SubDomainDomain::class => SubDomainDomainNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\SubjectUser::class => SubjectUserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\Table::class => TableNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TableCreate::class => TableCreateNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TableElementCreateElement::class => TableElementCreateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TableElementCreateElementStyleBackgroundFile::class => TableElementCreateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TableElementElement::class => TableElementElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TableElementElementStyleBackgroundFile::class => TableElementElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TableElementPublicElement::class => TableElementPublicElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TableElementPublicElementStyleBackgroundFile::class => TableElementPublicElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TableElementUpdateElement::class => TableElementUpdateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TableElementUpdateElementStyleBackgroundFile::class => TableElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TableImport::class => TableImportNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TableSerializerWithFields::class => TableSerializerWithFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TableWebhook::class => TableWebhookNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TableWebhookCall::class => TableWebhookCallNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TableWebhookCreateRequest::class => TableWebhookCreateRequestNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TableWebhookTestCallRequest::class => TableWebhookTestCallRequestNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TableWebhookTestCallResponse::class => TableWebhookTestCallResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\Team::class => TeamNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TeamResponse::class => TeamResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TeamSampleSubject::class => TeamSampleSubjectNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TeamSubject::class => TeamSubjectNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TeamSubjectResponse::class => TeamSubjectResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\Template::class => TemplateNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TemplateCategories::class => TemplateCategoriesNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TextElementCreateElement::class => TextElementCreateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TextElementCreateElementStyleBackgroundFile::class => TextElementCreateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TextElementElement::class => TextElementElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TextElementElementStyleBackgroundFile::class => TextElementElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TextElementPublicElement::class => TextElementPublicElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TextElementPublicElementStyleBackgroundFile::class => TextElementPublicElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TextElementUpdateElement::class => TextElementUpdateElementNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TextElementUpdateElementStyleBackgroundFile::class => TextElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TextFieldCreateField::class => TextFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TextFieldField::class => TextFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TextFieldFieldSerializerWithRelatedFields::class => TextFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TextFieldUpdateField::class => TextFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\Token::class => TokenNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TokenPermissions::class => TokenPermissionsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TokenBlacklist::class => TokenBlacklistNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TokenCreate::class => TokenCreateNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TokenObtainPair::class => TokenObtainPairNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TokenObtainPairWithUser::class => TokenObtainPairWithUserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TokenRefreshWithUser::class => TokenRefreshWithUserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TokenVerifyWithUser::class => TokenVerifyWithUserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TrashContents::class => TrashContentsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TrashStructure::class => TrashStructureNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TrashStructureApplication::class => TrashStructureApplicationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TrashStructureGroup::class => TrashStructureGroupNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TypeFormulaRequest::class => TypeFormulaRequestNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TypeFormulaResult::class => TypeFormulaResultNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TypographyConfigBlock::class => TypographyConfigBlockNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TypographyConfigBlockTypography::class => TypographyConfigBlockTypographyNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\TypographyThemeConfigBlock::class => TypographyThemeConfigBlockNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\URLFieldCreateField::class => URLFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\URLFieldField::class => URLFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\URLFieldFieldSerializerWithRelatedFields::class => URLFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\URLFieldUpdateField::class => URLFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\UUIDFieldCreateField::class => UUIDFieldCreateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\UUIDFieldField::class => UUIDFieldFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\UUIDFieldFieldSerializerWithRelatedFields::class => UUIDFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\UUIDFieldUpdateField::class => UUIDFieldUpdateFieldNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\UndoRedoAction::class => UndoRedoActionNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\UndoRedoResponse::class => UndoRedoResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\UniqueRowValues::class => UniqueRowValuesNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\User::class => UserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\UserAdminCreate::class => UserAdminCreateNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\UserAdminGroups::class => UserAdminGroupsNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\UserAdminResponse::class => UserAdminResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\UserFile::class => UserFileNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\UserFileUploadViaURLRequest::class => UserFileUploadViaURLRequestNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\UserSourceUser::class => UserSourceUserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\UserWorkspaceInvitation::class => UserWorkspaceInvitationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\UsersPerUserSource::class => UsersPerUserSourceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\VerifyEmailAddress::class => VerifyEmailAddressNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\View::class => ViewNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ViewDecoration::class => ViewDecorationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ViewFilter::class => ViewFilterNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ViewFilterGroup::class => ViewFilterGroupNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ViewGroupBy::class => ViewGroupByNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ViewSort::class => ViewSortNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\Workspace::class => WorkspaceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\WorkspaceAdminUsers::class => WorkspaceAdminUsersNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\WorkspaceInvitation::class => WorkspaceInvitationNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\WorkspaceUser::class => WorkspaceUserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\WorkspaceUserEnterpriseTeam::class => WorkspaceUserEnterpriseTeamNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\WorkspaceUserWorkspace::class => WorkspaceUserWorkspaceNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\WorkspacesAdminResponse::class => WorkspacesAdminResponseNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\CalendarViewUpdate::class => CalendarViewUpdateNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormViewUpdate::class => FormViewUpdateNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormViewUpdateCoverImage::class => FormViewUpdateCoverImageNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\FormViewUpdateLogoImage::class => FormViewUpdateLogoImageNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GalleryViewUpdate::class => GalleryViewUpdateNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\GridViewUpdate::class => GridViewUpdateNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\KanbanViewUpdate::class => KanbanViewUpdateNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiHealthEmailPostResponse400::class => ApiHealthEmailPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuditLogGetResponse400::class => ApiAdminAuditLogGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuditLogActionTypesGetResponse400::class => ApiAdminAuditLogActionTypesGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuditLogExportPostResponse400::class => ApiAdminAuditLogExportPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuditLogExportPostResponse404::class => ApiAdminAuditLogExportPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuditLogUsersGetResponse400::class => ApiAdminAuditLogUsersGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuditLogWorkspacesGetResponse400::class => ApiAdminAuditLogWorkspacesGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuthProviderPostResponse400::class => ApiAdminAuthProviderPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuthProviderAuthProviderIdDeleteResponse404::class => ApiAdminAuthProviderAuthProviderIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuthProviderAuthProviderIdGetResponse404::class => ApiAdminAuthProviderAuthProviderIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuthProviderAuthProviderIdPatchResponse400::class => ApiAdminAuthProviderAuthProviderIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuthProviderAuthProviderIdPatchResponse404::class => ApiAdminAuthProviderAuthProviderIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminGroupsGetResponse400::class => ApiAdminGroupsGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminGroupsGroupIdDeleteResponse400::class => ApiAdminGroupsGroupIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminUsersGetResponse400::class => ApiAdminUsersGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminUsersPostResponse400::class => ApiAdminUsersPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminUsersUserIdDeleteResponse400::class => ApiAdminUsersUserIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminUsersUserIdPatchResponse400::class => ApiAdminUsersUserIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminUsersImpersonatePostResponse200::class => ApiAdminUsersImpersonatePostResponse200Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminUsersImpersonatePostResponse200User::class => ApiAdminUsersImpersonatePostResponse200UserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminWorkspacesGetResponse400::class => ApiAdminWorkspacesGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAdminWorkspacesWorkspaceIdDeleteResponse400::class => ApiAdminWorkspacesWorkspaceIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdIntegrationsGetResponse404::class => ApiApplicationApplicationIdIntegrationsGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdIntegrationsPostResponse400::class => ApiApplicationApplicationIdIntegrationsPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdIntegrationsPostResponse404::class => ApiApplicationApplicationIdIntegrationsPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdListUserSourceUsersGetResponse404::class => ApiApplicationApplicationIdListUserSourceUsersGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdUserSourcesGetResponse404::class => ApiApplicationApplicationIdUserSourcesGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdUserSourcesPostResponse400::class => ApiApplicationApplicationIdUserSourcesPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdUserSourcesPostResponse404::class => ApiApplicationApplicationIdUserSourcesPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdUserSourcesRolesGetResponse404::class => ApiApplicationApplicationIdUserSourcesRolesGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGetResponse400::class => ApiApplicationsGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdDeleteResponse400::class => ApiApplicationsApplicationIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdDeleteResponse404::class => ApiApplicationsApplicationIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdGetResponse400::class => ApiApplicationsApplicationIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdGetResponse404::class => ApiApplicationsApplicationIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdPatchResponse400::class => ApiApplicationsApplicationIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdPatchResponse404::class => ApiApplicationsApplicationIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdDuplicateAsyncPostResponse400::class => ApiApplicationsApplicationIdDuplicateAsyncPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdDuplicateAsyncPostResponse404::class => ApiApplicationsApplicationIdDuplicateAsyncPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGroupGroupIdGetResponse400::class => ApiApplicationsGroupGroupIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGroupGroupIdGetResponse404::class => ApiApplicationsGroupGroupIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGroupGroupIdPostResponse400::class => ApiApplicationsGroupGroupIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGroupGroupIdPostResponse404::class => ApiApplicationsGroupGroupIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGroupGroupIdOrderPostResponse400::class => ApiApplicationsGroupGroupIdOrderPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGroupGroupIdOrderPostResponse404::class => ApiApplicationsGroupGroupIdOrderPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdGetResponse400::class => ApiApplicationsWorkspaceWorkspaceIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdGetResponse404::class => ApiApplicationsWorkspaceWorkspaceIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdPostResponse400::class => ApiApplicationsWorkspaceWorkspaceIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdPostResponse404::class => ApiApplicationsWorkspaceWorkspaceIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdOrderPostResponse400::class => ApiApplicationsWorkspaceWorkspaceIdOrderPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdOrderPostResponse404::class => ApiApplicationsWorkspaceWorkspaceIdOrderPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAuditLogGetResponse400::class => ApiAuditLogGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAuditLogActionTypesGetResponse400::class => ApiAuditLogActionTypesGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAuditLogExportPostResponse400::class => ApiAuditLogExportPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAuditLogExportPostResponse404::class => ApiAuditLogExportPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAuditLogUsersGetResponse400::class => ApiAuditLogUsersGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiAuditLogWorkspacesGetResponse400::class => ApiAuditLogWorkspacesGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdDomainsGetResponse400::class => ApiBuilderBuilderIdDomainsGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdDomainsGetResponse404::class => ApiBuilderBuilderIdDomainsGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdDomainsPostResponse400::class => ApiBuilderBuilderIdDomainsPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdDomainsPostResponse404::class => ApiBuilderBuilderIdDomainsPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdDomainsOrderPostResponse400::class => ApiBuilderBuilderIdDomainsOrderPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdDomainsOrderPostResponse404::class => ApiBuilderBuilderIdDomainsOrderPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdPagesPostResponse400::class => ApiBuilderBuilderIdPagesPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdPagesPostResponse404::class => ApiBuilderBuilderIdPagesPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdPagesOrderPostResponse400::class => ApiBuilderBuilderIdPagesOrderPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdPagesOrderPostResponse404::class => ApiBuilderBuilderIdPagesOrderPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdThemePatchResponse400::class => ApiBuilderBuilderIdThemePatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdThemePatchResponse404::class => ApiBuilderBuilderIdThemePatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDataSourceDataSourceIdDeleteResponse400::class => ApiBuilderDataSourceDataSourceIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDataSourceDataSourceIdDeleteResponse404::class => ApiBuilderDataSourceDataSourceIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDataSourceDataSourceIdPatchResponse400::class => ApiBuilderDataSourceDataSourceIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDataSourceDataSourceIdPatchResponse404::class => ApiBuilderDataSourceDataSourceIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDataSourceDataSourceIdDispatchPostResponse404::class => ApiBuilderDataSourceDataSourceIdDispatchPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDataSourceDataSourceIdMovePatchResponse400::class => ApiBuilderDataSourceDataSourceIdMovePatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDataSourceDataSourceIdMovePatchResponse404::class => ApiBuilderDataSourceDataSourceIdMovePatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsDomainIdDeleteResponse400::class => ApiBuilderDomainsDomainIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsDomainIdDeleteResponse404::class => ApiBuilderDomainsDomainIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsDomainIdPatchResponse400::class => ApiBuilderDomainsDomainIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsDomainIdPatchResponse404::class => ApiBuilderDomainsDomainIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsDomainIdPublishAsyncPostResponse400::class => ApiBuilderDomainsDomainIdPublishAsyncPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsDomainIdPublishAsyncPostResponse404::class => ApiBuilderDomainsDomainIdPublishAsyncPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsPublishedByIdBuilderIdGetResponse404::class => ApiBuilderDomainsPublishedByIdBuilderIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsPublishedByNameDomainNameGetResponse404::class => ApiBuilderDomainsPublishedByNameDomainNameGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsPublishedPagePageIdDataSourcesGetResponse404::class => ApiBuilderDomainsPublishedPagePageIdDataSourcesGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsPublishedPagePageIdElementsGetResponse404::class => ApiBuilderDomainsPublishedPagePageIdElementsGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsPublishedPagePageIdWorkflowActionsGetResponse404::class => ApiBuilderDomainsPublishedPagePageIdWorkflowActionsGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdDeleteResponse400::class => ApiBuilderElementElementIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdDeleteResponse404::class => ApiBuilderElementElementIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdPatchResponse400::class => ApiBuilderElementElementIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdPatchResponse404::class => ApiBuilderElementElementIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdDuplicatePostResponse400::class => ApiBuilderElementElementIdDuplicatePostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdDuplicatePostResponse404::class => ApiBuilderElementElementIdDuplicatePostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdMovePatchResponse400::class => ApiBuilderElementElementIdMovePatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdMovePatchResponse404::class => ApiBuilderElementElementIdMovePatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdDataSourcesGetResponse404::class => ApiBuilderPagePageIdDataSourcesGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdDataSourcesPostResponse400::class => ApiBuilderPagePageIdDataSourcesPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdDataSourcesPostResponse404::class => ApiBuilderPagePageIdDataSourcesPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdDispatchDataSourcesPostResponse404::class => ApiBuilderPagePageIdDispatchDataSourcesPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdElementsGetResponse404::class => ApiBuilderPagePageIdElementsGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdElementsPostResponse400::class => ApiBuilderPagePageIdElementsPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdElementsPostResponse404::class => ApiBuilderPagePageIdElementsPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdWorkflowActionsGetResponse404::class => ApiBuilderPagePageIdWorkflowActionsGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdWorkflowActionsPostResponse400::class => ApiBuilderPagePageIdWorkflowActionsPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdWorkflowActionsPostResponse404::class => ApiBuilderPagePageIdWorkflowActionsPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdWorkflowActionsOrderPostResponse400::class => ApiBuilderPagePageIdWorkflowActionsOrderPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdWorkflowActionsOrderPostResponse404::class => ApiBuilderPagePageIdWorkflowActionsOrderPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagesPageIdDeleteResponse400::class => ApiBuilderPagesPageIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagesPageIdDeleteResponse404::class => ApiBuilderPagesPageIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagesPageIdPatchResponse400::class => ApiBuilderPagesPageIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagesPageIdPatchResponse404::class => ApiBuilderPagesPageIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagesPageIdDuplicateAsyncPostResponse400::class => ApiBuilderPagesPageIdDuplicateAsyncPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagesPageIdDuplicateAsyncPostResponse404::class => ApiBuilderPagesPageIdDuplicateAsyncPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse400::class => ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse404::class => ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdPatchResponse400::class => ApiBuilderWorkflowActionWorkflowActionIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdPatchResponse404::class => ApiBuilderWorkflowActionWorkflowActionIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDispatchPostResponse400::class => ApiBuilderWorkflowActionWorkflowActionIdDispatchPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseExportJobIdGetResponse404::class => ApiDatabaseExportJobIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseExportTableTableIdPostResponse400::class => ApiDatabaseExportTableTableIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseExportTableTableIdPostResponse404::class => ApiDatabaseExportTableTableIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdDeleteResponse400::class => ApiDatabaseFieldsFieldIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdDeleteResponse404::class => ApiDatabaseFieldsFieldIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdGetResponse400::class => ApiDatabaseFieldsFieldIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdGetResponse404::class => ApiDatabaseFieldsFieldIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdPatchResponse400::class => ApiDatabaseFieldsFieldIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdPatchResponse404::class => ApiDatabaseFieldsFieldIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse400::class => ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse404::class => ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse400::class => ApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse404::class => ApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse400::class => ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse404::class => ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdGetResponse400::class => ApiDatabaseFieldsTableTableIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdGetResponse401::class => ApiDatabaseFieldsTableTableIdGetResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdGetResponse404::class => ApiDatabaseFieldsTableTableIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdPostResponse400::class => ApiDatabaseFieldsTableTableIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdPostResponse401::class => ApiDatabaseFieldsTableTableIdPostResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdPostResponse404::class => ApiDatabaseFieldsTableTableIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse400::class => ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse404::class => ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFormulaTableIdTypePostResponse400::class => ApiDatabaseFormulaTableIdTypePostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFormulaTableIdTypePostResponse404::class => ApiDatabaseFormulaTableIdTypePostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsNamesGetResponse200::class => ApiDatabaseRowsNamesGetResponse200Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsNamesGetResponse200TableId::class => ApiDatabaseRowsNamesGetResponse200TableIdNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsNamesGetResponse400::class => ApiDatabaseRowsNamesGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsNamesGetResponse401::class => ApiDatabaseRowsNamesGetResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsNamesGetResponse404::class => ApiDatabaseRowsNamesGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdGetResponse400::class => ApiDatabaseRowsTableTableIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdGetResponse401::class => ApiDatabaseRowsTableTableIdGetResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdGetResponse404::class => ApiDatabaseRowsTableTableIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdPostResponse400::class => ApiDatabaseRowsTableTableIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdPostResponse401::class => ApiDatabaseRowsTableTableIdPostResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdPostResponse404::class => ApiDatabaseRowsTableTableIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdDeleteResponse400::class => ApiDatabaseRowsTableTableIdRowIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdDeleteResponse404::class => ApiDatabaseRowsTableTableIdRowIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdGetResponse400::class => ApiDatabaseRowsTableTableIdRowIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdGetResponse401::class => ApiDatabaseRowsTableTableIdRowIdGetResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdGetResponse404::class => ApiDatabaseRowsTableTableIdRowIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdPatchResponse400::class => ApiDatabaseRowsTableTableIdRowIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdPatchResponse401::class => ApiDatabaseRowsTableTableIdRowIdPatchResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdPatchResponse404::class => ApiDatabaseRowsTableTableIdRowIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdAdjacentGetResponse400::class => ApiDatabaseRowsTableTableIdRowIdAdjacentGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdAdjacentGetResponse404::class => ApiDatabaseRowsTableTableIdRowIdAdjacentGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdHistoryGetResponse400::class => ApiDatabaseRowsTableTableIdRowIdHistoryGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdHistoryGetResponse404::class => ApiDatabaseRowsTableTableIdRowIdHistoryGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdMovePatchResponse400::class => ApiDatabaseRowsTableTableIdRowIdMovePatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdMovePatchResponse401::class => ApiDatabaseRowsTableTableIdRowIdMovePatchResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdMovePatchResponse404::class => ApiDatabaseRowsTableTableIdRowIdMovePatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse400::class => ApiDatabaseRowsTableTableIdBatchPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse401::class => ApiDatabaseRowsTableTableIdBatchPatchResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse404::class => ApiDatabaseRowsTableTableIdBatchPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchPostResponse400::class => ApiDatabaseRowsTableTableIdBatchPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchPostResponse401::class => ApiDatabaseRowsTableTableIdBatchPostResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchPostResponse404::class => ApiDatabaseRowsTableTableIdBatchPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchDeletePostResponse400::class => ApiDatabaseRowsTableTableIdBatchDeletePostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchDeletePostResponse404::class => ApiDatabaseRowsTableTableIdBatchDeletePostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdDeleteResponse400::class => ApiDatabaseTablesTableIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdDeleteResponse404::class => ApiDatabaseTablesTableIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdGetResponse400::class => ApiDatabaseTablesTableIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdGetResponse404::class => ApiDatabaseTablesTableIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdPatchResponse400::class => ApiDatabaseTablesTableIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdPatchResponse404::class => ApiDatabaseTablesTableIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdDuplicateAsyncPostResponse400::class => ApiDatabaseTablesTableIdDuplicateAsyncPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdDuplicateAsyncPostResponse404::class => ApiDatabaseTablesTableIdDuplicateAsyncPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdImportAsyncPostResponse400::class => ApiDatabaseTablesTableIdImportAsyncPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdImportAsyncPostResponse404::class => ApiDatabaseTablesTableIdImportAsyncPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdGetResponse400::class => ApiDatabaseTablesDatabaseDatabaseIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdGetResponse404::class => ApiDatabaseTablesDatabaseDatabaseIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdPostResponse400::class => ApiDatabaseTablesDatabaseDatabaseIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdPostResponse404::class => ApiDatabaseTablesDatabaseDatabaseIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdAsyncPostResponse400::class => ApiDatabaseTablesDatabaseDatabaseIdAsyncPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdAsyncPostResponse404::class => ApiDatabaseTablesDatabaseDatabaseIdAsyncPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdOrderPostResponse400::class => ApiDatabaseTablesDatabaseDatabaseIdOrderPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdOrderPostResponse404::class => ApiDatabaseTablesDatabaseDatabaseIdOrderPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensPostResponse400::class => ApiDatabaseTokensPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensTokenIdDeleteResponse400::class => ApiDatabaseTokensTokenIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensTokenIdDeleteResponse404::class => ApiDatabaseTokensTokenIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensTokenIdGetResponse400::class => ApiDatabaseTokensTokenIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensTokenIdGetResponse404::class => ApiDatabaseTokensTokenIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensTokenIdPatchResponse400::class => ApiDatabaseTokensTokenIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensTokenIdPatchResponse404::class => ApiDatabaseTokensTokenIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensCheckGetResponse403::class => ApiDatabaseTokensCheckGetResponse403Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewViewIdPremiumPatchResponse400::class => ApiDatabaseViewViewIdPremiumPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewViewIdPremiumPatchResponse404::class => ApiDatabaseViewViewIdPremiumPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse401::class => ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse404::class => ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSlugPublicAuthPostResponse404::class => ApiDatabaseViewsSlugPublicAuthPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSlugPublicInfoGetResponse400::class => ApiDatabaseViewsSlugPublicInfoGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSlugPublicInfoGetResponse401::class => ApiDatabaseViewsSlugPublicInfoGetResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSlugPublicInfoGetResponse404::class => ApiDatabaseViewsSlugPublicInfoGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdDeleteResponse400::class => ApiDatabaseViewsViewIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdDeleteResponse404::class => ApiDatabaseViewsViewIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdGetResponse400::class => ApiDatabaseViewsViewIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdGetResponse404::class => ApiDatabaseViewsViewIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdPatchResponse400::class => ApiDatabaseViewsViewIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdPatchResponse404::class => ApiDatabaseViewsViewIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdDecorationsGetResponse400::class => ApiDatabaseViewsViewIdDecorationsGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdDecorationsGetResponse404::class => ApiDatabaseViewsViewIdDecorationsGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdDecorationsPostResponse400::class => ApiDatabaseViewsViewIdDecorationsPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdDecorationsPostResponse404::class => ApiDatabaseViewsViewIdDecorationsPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdDuplicatePostResponse400::class => ApiDatabaseViewsViewIdDuplicatePostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdDuplicatePostResponse404::class => ApiDatabaseViewsViewIdDuplicatePostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsGetResponse400::class => ApiDatabaseViewsViewIdFieldOptionsGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsGetResponse404::class => ApiDatabaseViewsViewIdFieldOptionsGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsPatchResponse400::class => ApiDatabaseViewsViewIdFieldOptionsPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsPatchResponse404::class => ApiDatabaseViewsViewIdFieldOptionsPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFilterGroupsPostResponse400::class => ApiDatabaseViewsViewIdFilterGroupsPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFilterGroupsPostResponse404::class => ApiDatabaseViewsViewIdFilterGroupsPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFiltersGetResponse400::class => ApiDatabaseViewsViewIdFiltersGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFiltersGetResponse404::class => ApiDatabaseViewsViewIdFiltersGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFiltersPostResponse400::class => ApiDatabaseViewsViewIdFiltersPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFiltersPostResponse404::class => ApiDatabaseViewsViewIdFiltersPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdGroupBysGetResponse400::class => ApiDatabaseViewsViewIdGroupBysGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdGroupBysGetResponse404::class => ApiDatabaseViewsViewIdGroupBysGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdGroupBysPostResponse400::class => ApiDatabaseViewsViewIdGroupBysPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdGroupBysPostResponse404::class => ApiDatabaseViewsViewIdGroupBysPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdRotateSlugPostResponse400::class => ApiDatabaseViewsViewIdRotateSlugPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdRotateSlugPostResponse404::class => ApiDatabaseViewsViewIdRotateSlugPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdSortingsGetResponse400::class => ApiDatabaseViewsViewIdSortingsGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdSortingsGetResponse404::class => ApiDatabaseViewsViewIdSortingsGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdSortingsPostResponse400::class => ApiDatabaseViewsViewIdSortingsPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdSortingsPostResponse404::class => ApiDatabaseViewsViewIdSortingsPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse401::class => ApiDatabaseViewsCalendarSlugPublicRowsGetResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse400::class => ApiDatabaseViewsCalendarSlugPublicRowsGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse404::class => ApiDatabaseViewsCalendarSlugPublicRowsGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsCalendarViewIdGetResponse400::class => ApiDatabaseViewsCalendarViewIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsCalendarViewIdGetResponse404::class => ApiDatabaseViewsCalendarViewIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdDeleteResponse400::class => ApiDatabaseViewsDecorationViewDecorationIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdDeleteResponse404::class => ApiDatabaseViewsDecorationViewDecorationIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdGetResponse400::class => ApiDatabaseViewsDecorationViewDecorationIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdGetResponse404::class => ApiDatabaseViewsDecorationViewDecorationIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdPatchResponse400::class => ApiDatabaseViewsDecorationViewDecorationIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdPatchResponse404::class => ApiDatabaseViewsDecorationViewDecorationIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdDeleteResponse400::class => ApiDatabaseViewsFilterGroupFilterGroupIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdDeleteResponse404::class => ApiDatabaseViewsFilterGroupFilterGroupIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse400::class => ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse404::class => ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdPatchResponse400::class => ApiDatabaseViewsFilterGroupFilterGroupIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdPatchResponse404::class => ApiDatabaseViewsFilterGroupFilterGroupIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterViewFilterIdDeleteResponse400::class => ApiDatabaseViewsFilterViewFilterIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterViewFilterIdDeleteResponse404::class => ApiDatabaseViewsFilterViewFilterIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterViewFilterIdGetResponse400::class => ApiDatabaseViewsFilterViewFilterIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterViewFilterIdGetResponse404::class => ApiDatabaseViewsFilterViewFilterIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterViewFilterIdPatchResponse400::class => ApiDatabaseViewsFilterViewFilterIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterViewFilterIdPatchResponse404::class => ApiDatabaseViewsFilterViewFilterIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugSubmitGetResponse401::class => ApiDatabaseViewsFormSlugSubmitGetResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugSubmitGetResponse404::class => ApiDatabaseViewsFormSlugSubmitGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugSubmitPostResponse401::class => ApiDatabaseViewsFormSlugSubmitPostResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugSubmitPostResponse404::class => ApiDatabaseViewsFormSlugSubmitPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse401::class => ApiDatabaseViewsFormSlugUploadFilePostResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse400::class => ApiDatabaseViewsFormSlugUploadFilePostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse404::class => ApiDatabaseViewsFormSlugUploadFilePostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse400::class => ApiDatabaseViewsGallerySlugPublicRowsGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse401::class => ApiDatabaseViewsGallerySlugPublicRowsGetResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse404::class => ApiDatabaseViewsGallerySlugPublicRowsGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGalleryViewIdGetResponse400::class => ApiDatabaseViewsGalleryViewIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGalleryViewIdGetResponse404::class => ApiDatabaseViewsGalleryViewIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse200::class => ApiDatabaseViewsGridSlugPublicAggregationsGetResponse200Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse400::class => ApiDatabaseViewsGridSlugPublicAggregationsGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse401::class => ApiDatabaseViewsGridSlugPublicAggregationsGetResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse404::class => ApiDatabaseViewsGridSlugPublicAggregationsGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse400::class => ApiDatabaseViewsGridSlugPublicRowsGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse401::class => ApiDatabaseViewsGridSlugPublicRowsGetResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse404::class => ApiDatabaseViewsGridSlugPublicRowsGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdGetResponse400::class => ApiDatabaseViewsGridViewIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdGetResponse404::class => ApiDatabaseViewsGridViewIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdPostResponse400::class => ApiDatabaseViewsGridViewIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdPostResponse404::class => ApiDatabaseViewsGridViewIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse200::class => ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse200Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse400::class => ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse404::class => ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse200::class => ApiDatabaseViewsGridViewIdAggregationsGetResponse200Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse400::class => ApiDatabaseViewsGridViewIdAggregationsGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse404::class => ApiDatabaseViewsGridViewIdAggregationsGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse400::class => ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse404::class => ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdGetResponse400::class => ApiDatabaseViewsGroupByViewGroupByIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdGetResponse404::class => ApiDatabaseViewsGroupByViewGroupByIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdPatchResponse400::class => ApiDatabaseViewsGroupByViewGroupByIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdPatchResponse404::class => ApiDatabaseViewsGroupByViewGroupByIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse401::class => ApiDatabaseViewsKanbanSlugPublicRowsGetResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse400::class => ApiDatabaseViewsKanbanSlugPublicRowsGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse404::class => ApiDatabaseViewsKanbanSlugPublicRowsGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsKanbanViewIdGetResponse400::class => ApiDatabaseViewsKanbanViewIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsKanbanViewIdGetResponse404::class => ApiDatabaseViewsKanbanViewIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSortViewSortIdDeleteResponse400::class => ApiDatabaseViewsSortViewSortIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSortViewSortIdDeleteResponse404::class => ApiDatabaseViewsSortViewSortIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSortViewSortIdGetResponse400::class => ApiDatabaseViewsSortViewSortIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSortViewSortIdGetResponse404::class => ApiDatabaseViewsSortViewSortIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSortViewSortIdPatchResponse400::class => ApiDatabaseViewsSortViewSortIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSortViewSortIdPatchResponse404::class => ApiDatabaseViewsSortViewSortIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsTableTableIdGetResponse400::class => ApiDatabaseViewsTableTableIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsTableTableIdGetResponse404::class => ApiDatabaseViewsTableTableIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsTableTableIdPostResponse400::class => ApiDatabaseViewsTableTableIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsTableTableIdPostResponse404::class => ApiDatabaseViewsTableTableIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsTableTableIdOrderPostResponse400::class => ApiDatabaseViewsTableTableIdOrderPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsTableTableIdOrderPostResponse404::class => ApiDatabaseViewsTableTableIdOrderPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksWebhookIdDeleteResponse400::class => ApiDatabaseWebhooksWebhookIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksWebhookIdDeleteResponse404::class => ApiDatabaseWebhooksWebhookIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksWebhookIdGetResponse400::class => ApiDatabaseWebhooksWebhookIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksWebhookIdGetResponse404::class => ApiDatabaseWebhooksWebhookIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksWebhookIdPatchResponse400::class => ApiDatabaseWebhooksWebhookIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksWebhookIdPatchResponse404::class => ApiDatabaseWebhooksWebhookIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksTableTableIdGetResponse400::class => ApiDatabaseWebhooksTableTableIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksTableTableIdGetResponse404::class => ApiDatabaseWebhooksTableTableIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksTableTableIdPostResponse400::class => ApiDatabaseWebhooksTableTableIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksTableTableIdPostResponse404::class => ApiDatabaseWebhooksTableTableIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksTableTableIdTestCallPostResponse400::class => ApiDatabaseWebhooksTableTableIdTestCallPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksTableTableIdTestCallPostResponse404::class => ApiDatabaseWebhooksTableTableIdTestCallPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiFilesSignedDataGetResponse403::class => ApiFilesSignedDataGetResponse403Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsGroupIdDeleteResponse400::class => ApiGroupsGroupIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsGroupIdDeleteResponse404::class => ApiGroupsGroupIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsGroupIdPatchResponse400::class => ApiGroupsGroupIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsGroupIdPatchResponse404::class => ApiGroupsGroupIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsGroupIdLeavePostResponse400::class => ApiGroupsGroupIdLeavePostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsGroupIdLeavePostResponse404::class => ApiGroupsGroupIdLeavePostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsGroupIdPermissionsGetResponse404::class => ApiGroupsGroupIdPermissionsGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdDeleteResponse400::class => ApiGroupsInvitationsGroupInvitationIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdDeleteResponse404::class => ApiGroupsInvitationsGroupInvitationIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdGetResponse400::class => ApiGroupsInvitationsGroupInvitationIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdGetResponse404::class => ApiGroupsInvitationsGroupInvitationIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdPatchResponse400::class => ApiGroupsInvitationsGroupInvitationIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdPatchResponse404::class => ApiGroupsInvitationsGroupInvitationIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdAcceptPostResponse400::class => ApiGroupsInvitationsGroupInvitationIdAcceptPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdAcceptPostResponse404::class => ApiGroupsInvitationsGroupInvitationIdAcceptPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdRejectPostResponse400::class => ApiGroupsInvitationsGroupInvitationIdRejectPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdRejectPostResponse404::class => ApiGroupsInvitationsGroupInvitationIdRejectPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupGroupIdGetResponse400::class => ApiGroupsInvitationsGroupGroupIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupGroupIdGetResponse404::class => ApiGroupsInvitationsGroupGroupIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupGroupIdPostResponse400::class => ApiGroupsInvitationsGroupGroupIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupGroupIdPostResponse404::class => ApiGroupsInvitationsGroupGroupIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsTokenTokenGetResponse400::class => ApiGroupsInvitationsTokenTokenGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsTokenTokenGetResponse404::class => ApiGroupsInvitationsTokenTokenGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse400::class => ApiGroupsUsersGroupUserIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse404::class => ApiGroupsUsersGroupUserIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupUserIdPatchResponse400::class => ApiGroupsUsersGroupUserIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupUserIdPatchResponse404::class => ApiGroupsUsersGroupUserIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupGroupIdGetResponse400::class => ApiGroupsUsersGroupGroupIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupGroupIdGetResponse404::class => ApiGroupsUsersGroupGroupIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdDeleteResponse400::class => ApiIntegrationIntegrationIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdDeleteResponse404::class => ApiIntegrationIntegrationIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdPatchResponse400::class => ApiIntegrationIntegrationIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdPatchResponse404::class => ApiIntegrationIntegrationIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdMovePatchResponse400::class => ApiIntegrationIntegrationIdMovePatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdMovePatchResponse404::class => ApiIntegrationIntegrationIdMovePatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiJobsPostResponse400::class => ApiJobsPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiJobsPostResponse404::class => ApiJobsPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiJobsJobIdGetResponse404::class => ApiJobsJobIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesPostResponse400::class => ApiLicensesPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdDeleteResponse404::class => ApiLicensesIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdGetResponse404::class => ApiLicensesIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdUserIdDeleteResponse400::class => ApiLicensesIdUserIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdUserIdDeleteResponse404::class => ApiLicensesIdUserIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdUserIdPostResponse400::class => ApiLicensesIdUserIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdUserIdPostResponse404::class => ApiLicensesIdUserIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdCheckGetResponse404::class => ApiLicensesIdCheckGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdFillSeatsPostResponse400::class => ApiLicensesIdFillSeatsPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdFillSeatsPostResponse404::class => ApiLicensesIdFillSeatsPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdLookupUsersGetResponse404::class => ApiLicensesIdLookupUsersGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdRemoveAllUsersPostResponse400::class => ApiLicensesIdRemoveAllUsersPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdRemoveAllUsersPostResponse404::class => ApiLicensesIdRemoveAllUsersPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse400::class => ApiNotificationsWorkspaceIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse404::class => ApiNotificationsWorkspaceIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdGetResponse400::class => ApiNotificationsWorkspaceIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdGetResponse404::class => ApiNotificationsWorkspaceIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdNotificationIdPatchResponse400::class => ApiNotificationsWorkspaceIdNotificationIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdNotificationIdPatchResponse404::class => ApiNotificationsWorkspaceIdNotificationIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdMarkAllAsReadPostResponse400::class => ApiNotificationsWorkspaceIdMarkAllAsReadPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdMarkAllAsReadPostResponse404::class => ApiNotificationsWorkspaceIdMarkAllAsReadPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRoleGroupIdGetResponse400::class => ApiRoleGroupIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRoleGroupIdGetResponse404::class => ApiRoleGroupIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRoleGroupIdPostResponse400::class => ApiRoleGroupIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRoleGroupIdPostResponse404::class => ApiRoleGroupIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRoleGroupIdBatchPostResponse400::class => ApiRoleGroupIdBatchPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRoleGroupIdBatchPostResponse404::class => ApiRoleGroupIdBatchPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRoleWorkspaceIdGetResponse400::class => ApiRoleWorkspaceIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRoleWorkspaceIdGetResponse404::class => ApiRoleWorkspaceIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRoleWorkspaceIdPostResponse400::class => ApiRoleWorkspaceIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRoleWorkspaceIdPostResponse404::class => ApiRoleWorkspaceIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRoleWorkspaceIdBatchPostResponse400::class => ApiRoleWorkspaceIdBatchPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRoleWorkspaceIdBatchPostResponse404::class => ApiRoleWorkspaceIdBatchPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdRowIdGetResponse400::class => ApiRowCommentsTableIdRowIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdRowIdGetResponse404::class => ApiRowCommentsTableIdRowIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdRowIdPostResponse400::class => ApiRowCommentsTableIdRowIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdRowIdPostResponse404::class => ApiRowCommentsTableIdRowIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdRowIdNotificationModePutResponse400::class => ApiRowCommentsTableIdRowIdNotificationModePutResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdRowIdNotificationModePutResponse404::class => ApiRowCommentsTableIdRowIdNotificationModePutResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse400::class => ApiRowCommentsTableIdCommentCommentIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse401::class => ApiRowCommentsTableIdCommentCommentIdDeleteResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse404::class => ApiRowCommentsTableIdCommentCommentIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdCommentCommentIdPatchResponse400::class => ApiRowCommentsTableIdCommentCommentIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdCommentCommentIdPatchResponse401::class => ApiRowCommentsTableIdCommentCommentIdPatchResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdCommentCommentIdPatchResponse404::class => ApiRowCommentsTableIdCommentCommentIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsSnapshotIdDeleteResponse400::class => ApiSnapshotsSnapshotIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsSnapshotIdDeleteResponse404::class => ApiSnapshotsSnapshotIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsSnapshotIdRestorePostResponse400::class => ApiSnapshotsSnapshotIdRestorePostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsSnapshotIdRestorePostResponse404::class => ApiSnapshotsSnapshotIdRestorePostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsApplicationApplicationIdGetResponse400::class => ApiSnapshotsApplicationApplicationIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsApplicationApplicationIdGetResponse404::class => ApiSnapshotsApplicationApplicationIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsApplicationApplicationIdPostResponse400::class => ApiSnapshotsApplicationApplicationIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsApplicationApplicationIdPostResponse404::class => ApiSnapshotsApplicationApplicationIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiSsoSamlLoginUrlGetResponse400::class => ApiSsoSamlLoginUrlGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdDeleteResponse400::class => ApiTeamsTeamIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdDeleteResponse404::class => ApiTeamsTeamIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdGetResponse404::class => ApiTeamsTeamIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdPutResponse400::class => ApiTeamsTeamIdPutResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdPutResponse404::class => ApiTeamsTeamIdPutResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdSubjectsGetResponse400::class => ApiTeamsTeamIdSubjectsGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdSubjectsPostResponse400::class => ApiTeamsTeamIdSubjectsPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdSubjectsPostResponse404::class => ApiTeamsTeamIdSubjectsPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdSubjectsSubjectIdDeleteResponse400::class => ApiTeamsTeamIdSubjectsSubjectIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdSubjectsSubjectIdDeleteResponse404::class => ApiTeamsTeamIdSubjectsSubjectIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdSubjectsSubjectIdGetResponse404::class => ApiTeamsTeamIdSubjectsSubjectIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsGroupGroupIdGetResponse404::class => ApiTeamsGroupGroupIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsGroupGroupIdPostResponse400::class => ApiTeamsGroupGroupIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsGroupGroupIdPostResponse404::class => ApiTeamsGroupGroupIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsWorkspaceWorkspaceIdGetResponse404::class => ApiTeamsWorkspaceWorkspaceIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsWorkspaceWorkspaceIdPostResponse400::class => ApiTeamsWorkspaceWorkspaceIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsWorkspaceWorkspaceIdPostResponse404::class => ApiTeamsWorkspaceWorkspaceIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdPostResponse400::class => ApiTemplatesInstallGroupIdTemplateIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdPostResponse404::class => ApiTemplatesInstallGroupIdTemplateIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse400::class => ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse404::class => ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdPostResponse400::class => ApiTemplatesInstallWorkspaceIdTemplateIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdPostResponse404::class => ApiTemplatesInstallWorkspaceIdTemplateIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse400::class => ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse404::class => ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTrashGroupGroupIdDeleteResponse400::class => ApiTrashGroupGroupIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTrashGroupGroupIdGetResponse400::class => ApiTrashGroupGroupIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTrashRestorePatchResponse400::class => ApiTrashRestorePatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTrashWorkspaceWorkspaceIdDeleteResponse400::class => ApiTrashWorkspaceWorkspaceIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiTrashWorkspaceWorkspaceIdGetResponse400::class => ApiTrashWorkspaceWorkspaceIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserPostResponse200::class => ApiUserPostResponse200Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserPostResponse200User::class => ApiUserPostResponse200UserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserPostResponse400::class => ApiUserPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserPostResponse404::class => ApiUserPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserFilesUploadFilePostResponse400::class => ApiUserFilesUploadFilePostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserFilesUploadViaUrlPostResponse400::class => ApiUserFilesUploadViaUrlPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceAuthRefreshPostResponse200::class => ApiUserSourceAuthRefreshPostResponse200Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdDeleteResponse400::class => ApiUserSourceUserSourceIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdDeleteResponse404::class => ApiUserSourceUserSourceIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdPatchResponse400::class => ApiUserSourceUserSourceIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdPatchResponse404::class => ApiUserSourceUserSourceIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdForceTokenAuthPostResponse200::class => ApiUserSourceUserSourceIdForceTokenAuthPostResponse200Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdMovePatchResponse400::class => ApiUserSourceUserSourceIdMovePatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdMovePatchResponse404::class => ApiUserSourceUserSourceIdMovePatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdTokenAuthPostResponse200::class => ApiUserSourceUserSourceIdTokenAuthPostResponse200Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserAccountPatchResponse400::class => ApiUserAccountPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserChangePasswordPostResponse400::class => ApiUserChangePasswordPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserResetPasswordPostResponse400::class => ApiUserResetPasswordPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserScheduleAccountDeletionPostResponse400::class => ApiUserScheduleAccountDeletionPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserSendResetPasswordEmailPostResponse400::class => ApiUserSendResetPasswordEmailPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenAuthPostResponse200::class => ApiUserTokenAuthPostResponse200Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenAuthPostResponse200User::class => ApiUserTokenAuthPostResponse200UserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenAuthPostResponse401::class => ApiUserTokenAuthPostResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenRefreshPostResponse200::class => ApiUserTokenRefreshPostResponse200Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenRefreshPostResponse200User::class => ApiUserTokenRefreshPostResponse200UserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenRefreshPostResponse401::class => ApiUserTokenRefreshPostResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenVerifyPostResponse200::class => ApiUserTokenVerifyPostResponse200Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenVerifyPostResponse200User::class => ApiUserTokenVerifyPostResponse200UserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenVerifyPostResponse401::class => ApiUserTokenVerifyPostResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserVerifyEmailPostResponse200::class => ApiUserVerifyEmailPostResponse200Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserVerifyEmailPostResponse200User::class => ApiUserVerifyEmailPostResponse200UserNormalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserVerifyEmailPostResponse400::class => ApiUserVerifyEmailPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiUserVerifyEmailPostResponse401::class => ApiUserVerifyEmailPostResponse401Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdDeleteResponse400::class => ApiWorkspacesWorkspaceIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdDeleteResponse404::class => ApiWorkspacesWorkspaceIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdPatchResponse400::class => ApiWorkspacesWorkspaceIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdPatchResponse404::class => ApiWorkspacesWorkspaceIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdLeavePostResponse400::class => ApiWorkspacesWorkspaceIdLeavePostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdLeavePostResponse404::class => ApiWorkspacesWorkspaceIdLeavePostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdPermissionsGetResponse404::class => ApiWorkspacesWorkspaceIdPermissionsGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse400::class => ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse404::class => ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse400::class => ApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse404::class => ApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdGetResponse400::class => ApiWorkspacesInvitationsWorkspaceInvitationIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdGetResponse404::class => ApiWorkspacesInvitationsWorkspaceInvitationIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdPatchResponse400::class => ApiWorkspacesInvitationsWorkspaceInvitationIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdPatchResponse404::class => ApiWorkspacesInvitationsWorkspaceInvitationIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdAcceptPostResponse400::class => ApiWorkspacesInvitationsWorkspaceInvitationIdAcceptPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdAcceptPostResponse404::class => ApiWorkspacesInvitationsWorkspaceInvitationIdAcceptPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdRejectPostResponse400::class => ApiWorkspacesInvitationsWorkspaceInvitationIdRejectPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdRejectPostResponse404::class => ApiWorkspacesInvitationsWorkspaceInvitationIdRejectPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsTokenTokenGetResponse400::class => ApiWorkspacesInvitationsTokenTokenGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsTokenTokenGetResponse404::class => ApiWorkspacesInvitationsTokenTokenGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse400::class => ApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse404::class => ApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdPostResponse400::class => ApiWorkspacesInvitationsWorkspaceWorkspaceIdPostResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdPostResponse404::class => ApiWorkspacesInvitationsWorkspaceWorkspaceIdPostResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdDeleteResponse400::class => ApiWorkspacesUsersWorkspaceUserIdDeleteResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdDeleteResponse404::class => ApiWorkspacesUsersWorkspaceUserIdDeleteResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdPatchResponse400::class => ApiWorkspacesUsersWorkspaceUserIdPatchResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdPatchResponse404::class => ApiWorkspacesUsersWorkspaceUserIdPatchResponse404Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse400::class => ApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse400Normalizer::class,
+
+            \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse404::class => ApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse404Normalizer::class,
+
+            \Jane\Component\JsonSchemaRuntime\Reference::class => \cedricziel\phpbaserowclient\Generated\Runtime\Normalizer\ReferenceNormalizer::class,
         ];
         protected $normalizersCache = [];
 
@@ -144,7 +5923,1166 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function getSupportedTypes(?string $format = null): array
         {
-            return [\myvendor\mynamespace\Generated\Model\Pet::class => false, \myvendor\mynamespace\Generated\Model\Error::class => false, \Jane\Component\JsonSchemaRuntime\Reference::class => false];
+            return [
+                \cedricziel\phpbaserowclient\Generated\Model\AIFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AIFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AIFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AIFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\Account::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ActionScopes::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AdminDashboard::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AdminDashboardPerDay::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AirtableImportJobCreateJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AirtableImportJobJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AuditLog::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AuditLogActionType::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AuditLogExportJobCreateJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AuditLogExportJobJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AuditLogUser::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AuditLogWorkspace::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AuthFormElementCreateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AuthFormElementCreateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AuthFormElementElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AuthFormElementElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AuthFormElementPublicElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AuthFormElementPublicElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AuthFormElementUpdateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AuthFormElementUpdateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AutonumberFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AutonumberFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AutonumberFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\AutonumberFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\BaseExporterOptions::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\BaserowImpersonateAuthToken::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\BatchCreateRoleAssignment::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\BatchDeleteRows::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\BooleanFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\BooleanFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\BooleanFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\BooleanFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\BuilderApplication::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\BuilderApplicationGroup::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\BuilderApplicationWorkspace::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\BuilderApplicationTheme::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\BuilderApplicationFaviconFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\BuilderBaseApplicationCreatePolymorphic::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\BuilderBaseApplicationCreatePolymorphicFaviconFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\BuilderBaseApplicationUpdatePolymorphic::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\BuilderBaseApplicationUpdatePolymorphicFaviconFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\BuilderWorkflowAction::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ButtonConfigBlock::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ButtonConfigBlockButton::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ButtonElementCreateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ButtonElementCreateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ButtonElementElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ButtonElementElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ButtonElementPublicElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ButtonElementPublicElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ButtonElementUpdateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ButtonElementUpdateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ButtonLinkConfigBlock::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ButtonLinkConfigBlockButton::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ButtonLinkConfigBlockLink::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ButtonThemeConfigBlock::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CalendarViewCreateView::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CalendarViewExampleResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CalendarViewExampleResponseStack::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CalendarViewFieldOptions::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CalendarViewView::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ChangePasswordBodyValidation::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CheckboxElementCreateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CheckboxElementCreateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CheckboxElementElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CheckboxElementElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CheckboxElementPublicElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CheckboxElementPublicElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CheckboxElementUpdateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CheckboxElementUpdateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ChoiceElementCreateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ChoiceElementCreateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ChoiceElementElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ChoiceElementElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ChoiceElementPublicElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ChoiceElementPublicElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ChoiceElementUpdateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ChoiceElementUpdateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ChoiceOption::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\Collaborator::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CollectionField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ColumnElementCreateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ColumnElementCreateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ColumnElementElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ColumnElementElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ColumnElementPublicElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ColumnElementPublicElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ColumnElementUpdateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ColumnElementUpdateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CombinedThemeConfigBlocks::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CombinedThemeConfigBlocksPageBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ConditionalColorValueProviderConfColor::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ConditionalColorValueProviderConfColorFilter::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ConditionalColorValueProviderConfColorFilterGroup::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ConditionalColorValueProviderConfColors::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CountFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CountFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CountFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CountFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CreatePage::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CreateRoleAssignment::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CreateSnapshotJobCreateJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CreateSnapshotJobJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CreateViewFilter::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CreateViewFilterGroup::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CreateViewGroupBy::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CreateViewSort::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CreateWorkspaceInvitation::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CreatedByFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CreatedByFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CreatedByFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CreatedByFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CreatedOnFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CreatedOnFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CreatedOnFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CreatedOnFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CsvExporterOptions::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CustomDomainCreateDomain::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CustomDomainDomain::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\Dashboard::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DatabaseApplication::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DatabaseApplicationGroup::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DatabaseApplicationWorkspace::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DatabaseBaseApplicationCreatePolymorphic::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DatabaseBaseApplicationUpdatePolymorphic::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DateFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DateFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DateFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DateFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DuplicateApplicationJobCreateJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DuplicateApplicationJobJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DuplicateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DuplicateFieldJobCreateJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DuplicateFieldJobJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DuplicateFieldJobJobOriginalField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DuplicateFieldJobJobDuplicatedField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DuplicatePageJobCreateJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DuplicatePageJobJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DuplicatePageJobJobOriginalPage::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DuplicatePageJobJobDuplicatedPage::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DuplicateTableJobCreateJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DuplicateTableJobJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DuplicateTableJobJobOriginalTable::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DuplicateTableJobJobDuplicatedTable::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DurationFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DurationFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DurationFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\DurationFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\Element::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\EmailFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\EmailFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\EmailFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\EmailFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\EmailTesterRequest::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\EmailTesterResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ExampleBatchRowsRequest::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ExampleBatchRowsResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ExampleBatchUpdateRowRequestSerializerWithUserFieldNames::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ExampleRowRequest::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ExampleRowRequestSerializerWithUserFieldNames::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponseField10::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponseField12::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponseField16::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponseSerializerWithUserFieldNames::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponseSerializerWithUserFieldNamesField10::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponseSerializerWithUserFieldNamesField12::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ExampleRowResponseSerializerWithUserFieldNamesField16::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ExportJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FacebookAuthProviderModelAuthProvider::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\Field::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FileFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FileFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FileFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FileFieldResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FileFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FileImportJobCreateJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FileImportJobJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FileImportJobJobReport::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormContainerElementCreateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormContainerElementCreateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormContainerElementElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormContainerElementElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormContainerElementPublicElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormContainerElementPublicElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormContainerElementUpdateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormContainerElementUpdateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormViewCreateView::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormViewCreateViewCoverImage::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormViewCreateViewLogoImage::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormViewFieldOptions::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormViewFieldOptionsCondition::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormViewFieldOptionsConditionGroup::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormViewSubmitted::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormViewView::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormViewViewCoverImage::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormViewViewLogoImage::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormulaFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormulaFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormulaFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormulaFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FullHealthCheck::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GalleryViewCreateView::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GalleryViewFieldOptions::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GalleryViewView::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GenerateFormulaWithAIRequest::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GenerateFormulaWithAIResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GeneratedConditionalColorCreateViewDecoration::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GeneratedConditionalColorCreateViewDecorationValueProviderConf::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GeneratedConditionalColorUpdateViewDecoration::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GeneratedConditionalColorUpdateViewDecorationValueProviderConf::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GeneratedConditionalColorViewDecoration::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GeneratedConditionalColorViewDecorationValueProviderConf::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GeneratedSingleSelectColorCreateViewDecoration::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GeneratedSingleSelectColorCreateViewDecorationValueProviderConf::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GeneratedSingleSelectColorUpdateViewDecoration::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GeneratedSingleSelectColorUpdateViewDecorationValueProviderConf::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GeneratedSingleSelectColorViewDecoration::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GeneratedSingleSelectColorViewDecorationValueProviderConf::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GenerativeAISettings::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GitHubAuthProviderModelAuthProvider::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GitLabAuthProviderModelAuthProvider::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GoogleAuthProviderModelAuthProvider::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GridViewCreateView::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GridViewFieldOptions::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GridViewFilter::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GridViewView::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\HeadingElementCreateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\HeadingElementCreateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\HeadingElementElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\HeadingElementElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\HeadingElementPublicElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\HeadingElementPublicElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\HeadingElementUpdateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\HeadingElementUpdateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\IFrameElementCreateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\IFrameElementCreateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\IFrameElementElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\IFrameElementElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\IFrameElementPublicElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\IFrameElementPublicElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\IFrameElementUpdateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\IFrameElementUpdateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ImageConfigBlock::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ImageConfigBlockImage::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ImageElementCreateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ImageElementCreateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ImageElementCreateElementImageFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ImageElementElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ImageElementElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ImageElementPublicElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ImageElementPublicElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ImageElementUpdateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ImageElementUpdateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ImageElementUpdateElementImageFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ImageThemeConfigBlock::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\InputTextElementCreateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\InputTextElementCreateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\InputTextElementElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\InputTextElementElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\InputTextElementPublicElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\InputTextElementPublicElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\InputTextElementUpdateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\InputTextElementUpdateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\InstallTemplateJobCreateJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\InstallTemplateJobJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\InstallTemplateJobJobWorkspace::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\InstallTemplateJobJobTemplate::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\InstallTemplateJobJobGroup::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\InstanceId::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\Job::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\KanbanViewCreateView::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\KanbanViewExampleResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\KanbanViewExampleResponseStack::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\KanbanViewFieldOptions::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\KanbanViewView::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LastModifiedByFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LastModifiedByFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LastModifiedByFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LastModifiedByFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LastModifiedFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LastModifiedFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LastModifiedFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LastModifiedFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\License::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LicenseUser::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LicenseUserLookup::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LicenseWithUsers::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LinkElementCreateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LinkElementCreateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LinkElementElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LinkElementElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LinkElementPublicElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LinkElementPublicElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LinkElementUpdateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LinkElementUpdateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LinkRowFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LinkRowFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LinkRowFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LinkRowFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LinkRowValue::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LinkThemeConfigBlock::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ListWorkspaceUsersWithMemberData::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowContextData::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowCreateRowWorkflowActionBuilderWorkflowAction::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowCreateRowWorkflowActionCreateBuilderWorkflowAction::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowCreateRowWorkflowActionUpdateBuilderWorkflowActions::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowGetRow::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowGetRowCreateDataSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowGetRowDataSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowGetRowPublicDataSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowGetRowService::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowGetRowUpdateDataSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationCreateIntegration::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationCreateIntegrationContextData::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationCreateIntegrationAuthorizedUser::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationIntegration::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationIntegrationContextData::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationIntegrationAuthorizedUser::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationUpdateIntegration::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationUpdateIntegrationContextData::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowIntegrationUpdateIntegrationAuthorizedUser::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowListRows::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowListRowsCreateDataSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowListRowsDataSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowListRowsPublicDataSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowListRowsService::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowListRowsUpdateDataSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowPasswordAppAuthProviderAppAuthProvider::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowPasswordAppAuthProviderBaseAppAuthProvider::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowTableServiceFieldMapping::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowTableServiceFilter::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowTableServiceSort::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpdateRowWorkflowActionBuilderWorkflowAction::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpdateRowWorkflowActionCreateBuilderWorkflowAction::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpdateRowWorkflowActionUpdateBuilderWorkflowActions::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpsertRow::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpsertRowCreateDataSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpsertRowDataSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpsertRowPublicDataSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpsertRowService::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUpsertRowUpdateDataSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUserSourceBasePublicUserSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUserSourceCreateUserSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUserSourceUpdateUserSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUserSourceUserSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowUserSourceUserSourceRoles::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LocalBaserowView::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LogoutWorkflowActionBuilderWorkflowAction::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LogoutWorkflowActionCreateBuilderWorkflowAction::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LogoutWorkflowActionUpdateBuilderWorkflowActions::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LongTextFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LongTextFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LongTextFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LongTextFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LookupFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LookupFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LookupFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\LookupFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\MultipleCollaboratorsFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\MultipleCollaboratorsFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\MultipleCollaboratorsFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\MultipleCollaboratorsFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\MultipleSelectFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\MultipleSelectFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\MultipleSelectFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\MultipleSelectFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\NotificationRecipient::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\NotificationRecipientSender::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\NotificationWorkflowActionBuilderWorkflowAction::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\NotificationWorkflowActionCreateBuilderWorkflowAction::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\NotificationWorkflowActionUpdateBuilderWorkflowActions::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\NumberFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\NumberFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\NumberFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\NumberFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\OllamaSettings::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\OpenAISettings::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\OpenApiRoleAssignment::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\OpenApiRoleAssignmentSubject::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\OpenApiSubjectField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\OpenIdConnectAuthProviderModelAuthProvider::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\OpenPageWorkflowActionBuilderWorkflowAction::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\OpenPageWorkflowActionCreateBuilderWorkflowAction::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\OpenPageWorkflowActionUpdateBuilderWorkflowActions::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\OrderApplications::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\OrderDomains::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\OrderPages::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\OrderTables::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\OrderViews::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\OrderWorkflowActions::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\OrderWorkspaces::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\Page::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PageParameterValue::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerAuditLog::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerAuditLogUser::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerAuditLogWorkspace::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerExampleRowResponseSerializerWithUserFieldNames::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerLicenseUserLookup::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerLinkRowValue::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerNotificationRecipient::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerRowComment::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerRowHistory::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerTrashContents::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerUserAdminResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerWithGalleryViewFieldOptionsExampleRowResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerWithGridViewFieldOptionsExampleRowResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PaginationSerializerWorkspacesAdminResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PasswordAuthProviderModelAuthProvider::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PasswordFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PasswordFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PasswordFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PasswordFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedAccount::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedCombinedThemeConfigBlocks::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedCombinedThemeConfigBlocksPageBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedExampleBatchUpdateRowsRequest::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedExampleUpdateRowRequestSerializerWithUserFieldNames::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedGenerativeAISettings::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedMoveDataSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedMoveElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedMoveIntegration::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedMoveUserSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedSettings::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedSettingsCoBrandingLogo::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedTableUpdate::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedTableWebhookUpdateRequest::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedTokenUpdate::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedTokenUpdatePermissions::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedTrashEntryRequest::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedUndoRedoRequest::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedUndoRedoRequestScopes::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateDomain::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdatePage::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdatePremiumViewAttributes::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateViewFilter::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateViewFilterGroup::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateViewGroupBy::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateViewSort::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateWorkspaceInvitation::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedUpdateWorkspaceUser::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedUserAdminUpdate::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PatchedWorkspace::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PathParam::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PermissionObject::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PhoneNumberFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PhoneNumberFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PhoneNumberFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PhoneNumberFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicBuilder::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicBuilderTheme::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicFormView::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicFormViewCoverImage::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicFormViewLogoImage::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicFormViewField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicFormViewFieldOptions::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicFormViewFieldOptionsField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicNone::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicPage::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicPaginationSerializerWithGalleryViewFieldOptionsExampleRowResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicPaginationSerializerWithGridViewFieldOptionsExampleRowResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicView::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicViewAuthRequest::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicViewAuthResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicViewGroupBy::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicViewInfo::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicViewInfoView::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicViewSort::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublicViewTable::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublishDomainJobCreateJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\PublishDomainJobJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RatingFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RatingFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RatingFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RatingFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RefreshDataSourceWorkflowActionBuilderWorkflowAction::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RefreshDataSourceWorkflowActionCreateBuilderWorkflowAction::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RefreshDataSourceWorkflowActionUpdateBuilderWorkflowActions::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\Register::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RegisterLicense::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RepeatElementCreateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RepeatElementCreateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RepeatElementElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RepeatElementElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RepeatElementPublicElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RepeatElementPublicElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RepeatElementUpdateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RepeatElementUpdateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\Report::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ResetPasswordBodyValidation::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RestoreSnapshotJobCreateJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RestoreSnapshotJobJob::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RollupFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RollupFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RollupFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RollupFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RowComment::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RowCommentCreate::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RowCommentsNotificationMode::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RowHistory::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RowHistoryUser::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\RowMetadata::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SAMLResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SamlAuthProviderModelAuthProvider::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SelectColorValueProviderConf::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SelectOption::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SendResetPasswordEmailBodyValidation::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\Sender::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\Settings::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SettingsCoBrandingLogo::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleAuditLogExportJobRequest::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleAuditLogExportJobResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicateApplicationJobType::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicateFieldJobType::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicateFieldJobTypeOriginalField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicateFieldJobTypeDuplicatedField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicatePageJobType::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicatePageJobTypeOriginalPage::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicatePageJobTypeDuplicatedPage::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicateTableJobType::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicateTableJobTypeOriginalTable::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleDuplicateTableJobTypeDuplicatedTable::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleFileImportJobSerializerClass::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleFileImportJobSerializerClassReport::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleInstallTemplateJobType::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleInstallTemplateJobTypeWorkspace::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleInstallTemplateJobTypeTemplate::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleInstallTemplateJobTypeGroup::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleSelectFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleSelectFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleSelectFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SingleSelectFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\Snapshot::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SnapshotCreatedBy::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SubDomainCreateDomain::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SubDomainDomain::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\SubjectUser::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\Table::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TableCreate::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TableElementCreateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TableElementCreateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TableElementElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TableElementElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TableElementPublicElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TableElementPublicElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TableElementUpdateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TableElementUpdateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TableImport::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TableSerializerWithFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TableWebhook::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TableWebhookCall::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TableWebhookCreateRequest::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TableWebhookTestCallRequest::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TableWebhookTestCallResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\Team::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TeamResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TeamSampleSubject::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TeamSubject::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TeamSubjectResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\Template::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TemplateCategories::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TextElementCreateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TextElementCreateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TextElementElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TextElementElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TextElementPublicElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TextElementPublicElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TextElementUpdateElement::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TextElementUpdateElementStyleBackgroundFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TextFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TextFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TextFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TextFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\Token::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TokenPermissions::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TokenBlacklist::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TokenCreate::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TokenObtainPair::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TokenObtainPairWithUser::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TokenRefreshWithUser::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TokenVerifyWithUser::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TrashContents::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TrashStructure::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TrashStructureApplication::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TrashStructureGroup::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TypeFormulaRequest::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TypeFormulaResult::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TypographyConfigBlock::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TypographyConfigBlockTypography::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\TypographyThemeConfigBlock::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\URLFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\URLFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\URLFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\URLFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\UUIDFieldCreateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\UUIDFieldField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\UUIDFieldFieldSerializerWithRelatedFields::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\UUIDFieldUpdateField::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\UndoRedoAction::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\UndoRedoResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\UniqueRowValues::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\User::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\UserAdminCreate::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\UserAdminGroups::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\UserAdminResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\UserFile::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\UserFileUploadViaURLRequest::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\UserSourceUser::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\UserWorkspaceInvitation::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\UsersPerUserSource::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\VerifyEmailAddress::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\View::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ViewDecoration::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ViewFilter::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ViewFilterGroup::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ViewGroupBy::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ViewSort::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\Workspace::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\WorkspaceAdminUsers::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\WorkspaceInvitation::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\WorkspaceUser::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\WorkspaceUserEnterpriseTeam::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\WorkspaceUserWorkspace::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\WorkspacesAdminResponse::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\CalendarViewUpdate::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormViewUpdate::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormViewUpdateCoverImage::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\FormViewUpdateLogoImage::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GalleryViewUpdate::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\GridViewUpdate::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\KanbanViewUpdate::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiHealthEmailPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuditLogGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuditLogActionTypesGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuditLogExportPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuditLogExportPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuditLogUsersGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuditLogWorkspacesGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuthProviderPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuthProviderAuthProviderIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuthProviderAuthProviderIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuthProviderAuthProviderIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminAuthProviderAuthProviderIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminGroupsGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminGroupsGroupIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminUsersGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminUsersPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminUsersUserIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminUsersUserIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminUsersImpersonatePostResponse200::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminUsersImpersonatePostResponse200User::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminWorkspacesGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAdminWorkspacesWorkspaceIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdIntegrationsGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdIntegrationsPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdIntegrationsPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdListUserSourceUsersGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdUserSourcesGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdUserSourcesPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdUserSourcesPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationApplicationIdUserSourcesRolesGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdDuplicateAsyncPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsApplicationIdDuplicateAsyncPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGroupGroupIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGroupGroupIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGroupGroupIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGroupGroupIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGroupGroupIdOrderPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsGroupGroupIdOrderPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdOrderPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdOrderPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAuditLogGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAuditLogActionTypesGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAuditLogExportPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAuditLogExportPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAuditLogUsersGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiAuditLogWorkspacesGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdDomainsGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdDomainsGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdDomainsPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdDomainsPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdDomainsOrderPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdDomainsOrderPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdPagesPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdPagesPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdPagesOrderPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdPagesOrderPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdThemePatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderBuilderIdThemePatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDataSourceDataSourceIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDataSourceDataSourceIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDataSourceDataSourceIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDataSourceDataSourceIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDataSourceDataSourceIdDispatchPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDataSourceDataSourceIdMovePatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDataSourceDataSourceIdMovePatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsDomainIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsDomainIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsDomainIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsDomainIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsDomainIdPublishAsyncPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsDomainIdPublishAsyncPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsPublishedByIdBuilderIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsPublishedByNameDomainNameGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsPublishedPagePageIdDataSourcesGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsPublishedPagePageIdElementsGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderDomainsPublishedPagePageIdWorkflowActionsGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdDuplicatePostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdDuplicatePostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdMovePatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderElementElementIdMovePatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdDataSourcesGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdDataSourcesPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdDataSourcesPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdDispatchDataSourcesPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdElementsGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdElementsPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdElementsPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdWorkflowActionsGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdWorkflowActionsPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdWorkflowActionsPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdWorkflowActionsOrderPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagePageIdWorkflowActionsOrderPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagesPageIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagesPageIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagesPageIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagesPageIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagesPageIdDuplicateAsyncPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderPagesPageIdDuplicateAsyncPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDispatchPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseExportJobIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseExportTableTableIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseExportTableTableIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdGetResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdPostResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFormulaTableIdTypePostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseFormulaTableIdTypePostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsNamesGetResponse200::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsNamesGetResponse200TableId::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsNamesGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsNamesGetResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsNamesGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdGetResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdPostResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdGetResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdPatchResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdAdjacentGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdAdjacentGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdHistoryGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdHistoryGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdMovePatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdMovePatchResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdRowIdMovePatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchPostResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchDeletePostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseRowsTableTableIdBatchDeletePostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdDuplicateAsyncPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdDuplicateAsyncPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdImportAsyncPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesTableIdImportAsyncPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdAsyncPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdAsyncPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdOrderPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdOrderPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensTokenIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensTokenIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensTokenIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensTokenIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensTokenIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensTokenIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseTokensCheckGetResponse403::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewViewIdPremiumPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewViewIdPremiumPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSlugPublicAuthPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSlugPublicInfoGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSlugPublicInfoGetResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSlugPublicInfoGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdDecorationsGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdDecorationsGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdDecorationsPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdDecorationsPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdDuplicatePostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdDuplicatePostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFilterGroupsPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFilterGroupsPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFiltersGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFiltersGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFiltersPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdFiltersPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdGroupBysGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdGroupBysGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdGroupBysPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdGroupBysPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdRotateSlugPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdRotateSlugPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdSortingsGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdSortingsGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdSortingsPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsViewIdSortingsPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsCalendarViewIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsCalendarViewIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterViewFilterIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterViewFilterIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterViewFilterIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterViewFilterIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterViewFilterIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFilterViewFilterIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugSubmitGetResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugSubmitGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugSubmitPostResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugSubmitPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGalleryViewIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGalleryViewIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse200::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse200::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse200::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsKanbanViewIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsKanbanViewIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSortViewSortIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSortViewSortIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSortViewSortIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSortViewSortIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSortViewSortIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsSortViewSortIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsTableTableIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsTableTableIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsTableTableIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsTableTableIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsTableTableIdOrderPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseViewsTableTableIdOrderPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksWebhookIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksWebhookIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksWebhookIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksWebhookIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksWebhookIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksWebhookIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksTableTableIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksTableTableIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksTableTableIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksTableTableIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksTableTableIdTestCallPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiDatabaseWebhooksTableTableIdTestCallPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiFilesSignedDataGetResponse403::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsGroupIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsGroupIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsGroupIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsGroupIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsGroupIdLeavePostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsGroupIdLeavePostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsGroupIdPermissionsGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdAcceptPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdAcceptPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdRejectPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupInvitationIdRejectPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupGroupIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupGroupIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupGroupIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsGroupGroupIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsTokenTokenGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsInvitationsTokenTokenGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupUserIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupUserIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupGroupIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiGroupsUsersGroupGroupIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdMovePatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiIntegrationIntegrationIdMovePatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiJobsPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiJobsPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiJobsJobIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdUserIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdUserIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdUserIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdUserIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdCheckGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdFillSeatsPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdFillSeatsPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdLookupUsersGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdRemoveAllUsersPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiLicensesIdRemoveAllUsersPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdNotificationIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdNotificationIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdMarkAllAsReadPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiNotificationsWorkspaceIdMarkAllAsReadPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRoleGroupIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRoleGroupIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRoleGroupIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRoleGroupIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRoleGroupIdBatchPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRoleGroupIdBatchPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRoleWorkspaceIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRoleWorkspaceIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRoleWorkspaceIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRoleWorkspaceIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRoleWorkspaceIdBatchPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRoleWorkspaceIdBatchPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdRowIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdRowIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdRowIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdRowIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdRowIdNotificationModePutResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdRowIdNotificationModePutResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdCommentCommentIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdCommentCommentIdPatchResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiRowCommentsTableIdCommentCommentIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsSnapshotIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsSnapshotIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsSnapshotIdRestorePostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsSnapshotIdRestorePostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsApplicationApplicationIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsApplicationApplicationIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsApplicationApplicationIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiSnapshotsApplicationApplicationIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiSsoSamlLoginUrlGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdPutResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdPutResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdSubjectsGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdSubjectsPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdSubjectsPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdSubjectsSubjectIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdSubjectsSubjectIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsTeamIdSubjectsSubjectIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsGroupGroupIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsGroupGroupIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsGroupGroupIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsWorkspaceWorkspaceIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsWorkspaceWorkspaceIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTeamsWorkspaceWorkspaceIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTrashGroupGroupIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTrashGroupGroupIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTrashRestorePatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTrashWorkspaceWorkspaceIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiTrashWorkspaceWorkspaceIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserPostResponse200::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserPostResponse200User::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserFilesUploadFilePostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserFilesUploadViaUrlPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceAuthRefreshPostResponse200::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdForceTokenAuthPostResponse200::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdMovePatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdMovePatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserSourceUserSourceIdTokenAuthPostResponse200::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserAccountPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserChangePasswordPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserResetPasswordPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserScheduleAccountDeletionPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserSendResetPasswordEmailPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenAuthPostResponse200::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenAuthPostResponse200User::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenAuthPostResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenRefreshPostResponse200::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenRefreshPostResponse200User::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenRefreshPostResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenVerifyPostResponse200::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenVerifyPostResponse200User::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserTokenVerifyPostResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserVerifyEmailPostResponse200::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserVerifyEmailPostResponse200User::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserVerifyEmailPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiUserVerifyEmailPostResponse401::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdLeavePostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdLeavePostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdPermissionsGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdAcceptPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdAcceptPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdRejectPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdRejectPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsTokenTokenGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsTokenTokenGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdPostResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdPostResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdDeleteResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdDeleteResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdPatchResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdPatchResponse404::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse400::class => false,
+                \cedricziel\phpbaserowclient\Generated\Model\ApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse404::class => false,
+                \Jane\Component\JsonSchemaRuntime\Reference::class => false,
+            ];
         }
     }
 }
