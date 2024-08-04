@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/cedricziel/php-baserow-client/compare/v1.0.1...v1.0.2) (2024-08-04)
+
+
+### Bug Fixes
+
+* render summary in docs ([d204b79](https://github.com/cedricziel/php-baserow-client/commit/d204b79546ffc187593b2b8edfd93c96eb43cc9f))
+
 ## [1.0.1](https://github.com/cedricziel/php-baserow-client/compare/v1.0.0...v1.0.1) (2024-07-29)
 
 
