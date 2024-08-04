@@ -15,7 +15,7 @@ class DatabaseTokenAuthentication implements \Jane\Component\OpenApiRuntime\Clie
 
     public function authentication(\Psr\Http\Message\RequestInterface $request): \Psr\Http\Message\RequestInterface
     {
-        $header = sprintf('Bearer %s', $this->{'token'});
+        $header = sprintf('Token %s', $this->{'token'});
         $request = $request->withHeader('Authorization', $header);
 
         return $request;
