@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/cedricziel/php-baserow-client/compare/v1.0.2...v1.0.3) (2024-08-04)
+
+
+### Bug Fixes
+
+* fix database token header prefix name ([#12](https://github.com/cedricziel/php-baserow-client/issues/12)) ([c7c364c](https://github.com/cedricziel/php-baserow-client/commit/c7c364c955e18ed0b49e60abf44ed3b53f0f0ab1))
+
 ## [1.0.2](https://github.com/cedricziel/php-baserow-client/compare/v1.0.1...v1.0.2) (2024-08-04)
 
 
