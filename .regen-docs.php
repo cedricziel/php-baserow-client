@@ -24,6 +24,8 @@ foreach ($json['paths'] as $pathName => $path) {
 
         $doc .= '### '.$method['operationId'].' - '."$httpMethod $pathName\n";
         $doc .= "\n";
+        $doc .= $method['summary'] ?? '';
+        $doc .= "\n";
         $doc .= $method['description'] ?? '';
         $doc .= "\n\n";
         $doc .= '```php'."\n";
