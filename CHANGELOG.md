@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0](https://github.com/cedricziel/php-baserow-client/compare/v1.0.4...v1.1.0) (2024-08-05)
+
+
+### Features
+
+* create more ergonomic factory ([d29de8a](https://github.com/cedricziel/php-baserow-client/commit/d29de8af3a6ade0d66280828667eafc742971b9e))
+* create more ergonomic factory ([#16](https://github.com/cedricziel/php-baserow-client/issues/16)) ([d29de8a](https://github.com/cedricziel/php-baserow-client/commit/d29de8af3a6ade0d66280828667eafc742971b9e))
+
 ## [1.0.4](https://github.com/cedricziel/php-baserow-client/compare/v1.0.3...v1.0.4) (2024-08-05)
 
 
