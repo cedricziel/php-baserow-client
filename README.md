@@ -9,7 +9,7 @@ composer require cedricziel/baserow
 ## Docs
 
 ```php
-use CedricZiel\Baserow\Generated\Client;
+use CedricZiel\Baserow\Client;
 
 $token = 'my-token';
 $authRegistry = new AuthenticationRegistry([
@@ -36,7 +36,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -54,7 +54,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -74,7 +74,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -94,7 +94,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -114,7 +114,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -134,7 +134,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -154,7 +154,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -172,7 +172,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -190,7 +190,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -208,7 +208,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -226,7 +226,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -244,7 +244,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -264,7 +264,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -288,7 +288,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -312,7 +312,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -332,7 +332,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -352,7 +352,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -372,7 +372,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -392,7 +392,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -412,7 +412,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -432,7 +432,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -452,7 +452,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -470,7 +470,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -488,7 +488,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -506,7 +506,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -524,7 +524,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -542,7 +542,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -560,7 +560,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -578,7 +578,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -596,7 +596,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -614,7 +614,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -632,7 +632,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -650,7 +650,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -672,7 +672,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -694,7 +694,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -716,7 +716,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -734,7 +734,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -752,7 +752,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -770,7 +770,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -790,7 +790,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -810,7 +810,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -830,7 +830,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -850,7 +850,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -870,7 +870,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -888,7 +888,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -906,7 +906,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -924,7 +924,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -942,7 +942,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -960,7 +960,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -978,7 +978,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -996,7 +996,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1014,7 +1014,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1032,7 +1032,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1050,7 +1050,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1068,7 +1068,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1086,7 +1086,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1104,7 +1104,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1122,7 +1122,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1140,7 +1140,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1158,7 +1158,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1176,7 +1176,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1194,7 +1194,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1212,7 +1212,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1230,7 +1230,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1248,7 +1248,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1266,7 +1266,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1284,7 +1284,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1302,7 +1302,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1320,7 +1320,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1338,7 +1338,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1356,7 +1356,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1374,7 +1374,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1392,7 +1392,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1410,7 +1410,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1428,7 +1428,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1446,7 +1446,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1464,7 +1464,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1482,7 +1482,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1500,7 +1500,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1518,7 +1518,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1536,7 +1536,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1554,7 +1554,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1572,7 +1572,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1590,7 +1590,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1608,7 +1608,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1626,7 +1626,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1644,7 +1644,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1662,7 +1662,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1681,7 +1681,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1699,7 +1699,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1717,7 +1717,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1735,7 +1735,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1754,7 +1754,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1772,7 +1772,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1790,7 +1790,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1808,7 +1808,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1826,7 +1826,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1844,7 +1844,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1862,7 +1862,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1880,7 +1880,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1898,7 +1898,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1916,7 +1916,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1934,7 +1934,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1954,7 +1954,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1974,7 +1974,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -1994,7 +1994,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2012,7 +2012,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2030,7 +2030,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2048,7 +2048,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2066,7 +2066,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2084,7 +2084,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2102,7 +2102,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2122,7 +2122,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2140,7 +2140,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2158,7 +2158,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2176,7 +2176,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2194,7 +2194,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2212,7 +2212,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2230,7 +2230,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2248,7 +2248,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2266,7 +2266,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2284,7 +2284,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2302,7 +2302,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2320,7 +2320,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2338,7 +2338,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2356,7 +2356,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2374,7 +2374,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2392,7 +2392,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2410,7 +2410,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2428,7 +2428,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2448,7 +2448,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2466,7 +2466,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2484,7 +2484,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2502,7 +2502,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2520,7 +2520,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2538,7 +2538,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2556,7 +2556,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2574,7 +2574,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2592,7 +2592,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2610,7 +2610,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2628,7 +2628,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2648,7 +2648,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2668,7 +2668,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2686,7 +2686,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2704,7 +2704,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2722,7 +2722,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2740,7 +2740,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2758,7 +2758,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2776,7 +2776,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2794,7 +2794,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2812,7 +2812,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2830,7 +2830,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2848,7 +2848,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2866,7 +2866,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2884,7 +2884,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2904,7 +2904,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2922,7 +2922,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2940,7 +2940,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2960,7 +2960,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2980,7 +2980,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -2998,7 +2998,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3016,7 +3016,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3034,7 +3034,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3052,7 +3052,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3070,7 +3070,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3088,7 +3088,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3108,7 +3108,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3128,7 +3128,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3146,7 +3146,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3164,7 +3164,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3182,7 +3182,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3200,7 +3200,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3218,7 +3218,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3236,7 +3236,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3254,7 +3254,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3272,7 +3272,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3290,7 +3290,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3308,7 +3308,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3326,7 +3326,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3344,7 +3344,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3364,7 +3364,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3386,7 +3386,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3408,7 +3408,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3430,7 +3430,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3452,7 +3452,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3474,7 +3474,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3497,7 +3497,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3519,7 +3519,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3541,7 +3541,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3563,7 +3563,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3585,7 +3585,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3607,7 +3607,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3629,7 +3629,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3651,7 +3651,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3673,7 +3673,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3695,7 +3695,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3715,7 +3715,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3735,7 +3735,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3755,7 +3755,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3773,7 +3773,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3791,7 +3791,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3809,7 +3809,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3827,7 +3827,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3845,7 +3845,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3863,7 +3863,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3881,7 +3881,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3899,7 +3899,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3917,7 +3917,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3935,7 +3935,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3953,7 +3953,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3971,7 +3971,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -3989,7 +3989,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4007,7 +4007,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4025,7 +4025,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4043,7 +4043,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4061,7 +4061,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4079,7 +4079,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4097,7 +4097,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4115,7 +4115,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4137,7 +4137,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4159,7 +4159,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4181,7 +4181,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4199,7 +4199,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4217,7 +4217,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4235,7 +4235,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4255,7 +4255,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4275,7 +4275,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4295,7 +4295,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4315,7 +4315,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4335,7 +4335,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4353,7 +4353,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4371,7 +4371,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4389,7 +4389,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4407,7 +4407,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4425,7 +4425,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4443,7 +4443,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4461,7 +4461,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4479,7 +4479,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4497,7 +4497,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4515,7 +4515,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4533,7 +4533,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4551,7 +4551,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4569,7 +4569,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4587,7 +4587,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4605,7 +4605,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4623,7 +4623,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4641,7 +4641,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4659,7 +4659,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4677,7 +4677,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4699,7 +4699,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4721,7 +4721,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4739,7 +4739,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4757,7 +4757,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4775,7 +4775,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4797,7 +4797,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4819,7 +4819,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4837,7 +4837,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4855,7 +4855,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4873,7 +4873,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4895,7 +4895,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4917,7 +4917,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4935,7 +4935,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4953,7 +4953,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4971,7 +4971,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -4989,7 +4989,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5007,7 +5007,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5025,7 +5025,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5043,7 +5043,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5061,7 +5061,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5079,7 +5079,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5097,7 +5097,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5115,7 +5115,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5133,7 +5133,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5151,7 +5151,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5169,7 +5169,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5187,7 +5187,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5205,7 +5205,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5223,7 +5223,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5241,7 +5241,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5259,7 +5259,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5277,7 +5277,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5295,7 +5295,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5313,7 +5313,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5331,7 +5331,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5349,7 +5349,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5367,7 +5367,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5385,7 +5385,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5403,7 +5403,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5421,7 +5421,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5439,7 +5439,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5457,7 +5457,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5475,7 +5475,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5493,7 +5493,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5512,7 +5512,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5530,7 +5530,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5548,7 +5548,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5566,7 +5566,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5584,7 +5584,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5602,7 +5602,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5620,7 +5620,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5638,7 +5638,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5656,7 +5656,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5674,7 +5674,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5692,7 +5692,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5710,7 +5710,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5728,7 +5728,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5746,7 +5746,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5764,7 +5764,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
@@ -5782,7 +5782,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = \CedricZiel\Baserow\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);

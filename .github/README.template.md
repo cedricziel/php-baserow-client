@@ -9,7 +9,7 @@ composer require cedricziel/baserow
 ## Docs
 
 ```php
-use CedricZiel\Baserow\Generated\Client;
+use CedricZiel\Baserow\Client;
 
 $token = 'my-token';
 $authRegistry = new AuthenticationRegistry([

@@ -30,17 +30,17 @@ foreach ($json['paths'] as $pathName => $path) {
         $doc .= "\n\n";
         $doc .= '```php'."\n";
         $doc .= <<<EOF
-\$token = 'my-token';
-\$authRegistry = new AuthenticationRegistry([
-    new DatabaseTokenAuthentication(\$token),
-]);
+            \$token = 'my-token';
+            \$authRegistry = new AuthenticationRegistry([
+                new DatabaseTokenAuthentication(\$token),
+            ]);
 
-\$client = \CedricZiel\Baserow\Generated\Client::create(null, [
-    new AddHostPlugin(new Uri('https://baserow.example.com')),
-    \$authRegistry,
-]);
+            \$client = \CedricZiel\Baserow\Client::create(null, [
+                new AddHostPlugin(new Uri('https://baserow.example.com')),
+                \$authRegistry,
+            ]);
 
-EOF;
+            EOF;
         $doc .= '$client->'."{$methodName}();\n";
         $doc .= '```'."\n";
         $doc .= "\n";
