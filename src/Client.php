@@ -6,6 +6,7 @@ use CedricZiel\Baserow\Authentication\DatabaseTokenAuthentication;
 use CedricZiel\Baserow\Generated\Authentication\JWTAuthentication;
 use CedricZiel\Baserow\Generated\Client as GeneratedClient;
 use Http\Client\Common\Plugin\AddHostPlugin;
+use Http\Client\Common\PluginClient;
 use Jane\Component\OpenApiRuntime\Client\Plugin\AuthenticationRegistry;
 use Nyholm\Psr7\Uri;
 
@@ -39,6 +40,10 @@ class Client extends GeneratedClient
         $plugins[] = new AuthenticationRegistry($authPlugins);
 
         $plugins = array_merge($plugins, $additionalPlugins);
+
+        if ($httpClient) {
+            $httpClient = new PluginClient($httpClient, $plugins);
+        }
 
         return parent::create($httpClient, $plugins, $additionalNormalizers);
     }
