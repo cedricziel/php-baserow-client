@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__.'/../vendor/autoload.php';
 
 use CedricZiel\Baserow\Authentication\DatabaseTokenAuthentication;
 use Http\Client\Common\Plugin\AddHostPlugin;
@@ -12,7 +12,7 @@ $authRegistry = new AuthenticationRegistry([
     new DatabaseTokenAuthentication($token),
 ]);
 
-$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+$client = CedricZiel\Baserow\Generated\Client::create(null, [
     new AddHostPlugin(new Uri('https://baserow.example.com')),
     $authRegistry,
 ]);
