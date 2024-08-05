@@ -6,17 +6,18 @@ use CedricZiel\Baserow\Authentication\DatabaseTokenAuthentication;
 use CedricZiel\Baserow\Generated\Authentication\JWTAuthentication;
 use CedricZiel\Baserow\Generated\Client as GeneratedClient;
 use Http\Client\Common\Plugin\AddHostPlugin;
+use Jane\Component\OpenApiRuntime\Client\Plugin\AuthenticationRegistry;
 use Nyholm\Psr7\Uri;
 
 class Client extends GeneratedClient
 {
     public static function createForUrl(
-        string $url,
+        string $url = '',
         ?string $accessToken = null,
         ?string $jwtToken = null,
         $httpClient = null,
-        array $additionalPlugins = [],
-        array $additionalNormalizers = [],
+        ?array $additionalPlugins = [],
+        ?array $additionalNormalizers = [],
     ): Client {
         $plugins = [
             new AddHostPlugin(new Uri($url)),
@@ -26,13 +27,16 @@ class Client extends GeneratedClient
             throw new \InvalidArgumentException('Either a database token or a JWT token must be provided.');
         }
 
+        $authPlugins = [];
         if ($accessToken) {
-            $plugins[] = new DatabaseTokenAuthentication($accessToken);
+            $authPlugins[] = new DatabaseTokenAuthentication($accessToken);
         }
 
         if ($jwtToken) {
-            $plugins[] = new JWTAuthentication($jwtToken);
+            $authPlugins[] = new JWTAuthentication($jwtToken);
         }
+
+        $plugins[] = new AuthenticationRegistry($authPlugins);
 
         $plugins = array_merge($plugins, $additionalPlugins);
 

@@ -12,14 +12,7 @@ composer require cedricziel/baserow
 use CedricZiel\Baserow\Client;
 
 $token = 'my-token';
-$authRegistry = new AuthenticationRegistry([
-    new DatabaseTokenAuthentication($token),
-]);
-
-$client = Client::create(null, [
-    new AddHostPlugin(new Uri('https://baserow.example.com')),
-    $authRegistry,
-]);
+$client = Client::createForUrl('https://baserow.example.com', accessToken: $token);
 
 // list all rows in table id 42
 $client->listDatabaseTableRows(42);

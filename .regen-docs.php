@@ -31,14 +31,7 @@ foreach ($json['paths'] as $pathName => $path) {
         $doc .= '```php'."\n";
         $doc .= <<<EOF
             \$token = 'my-token';
-            \$authRegistry = new AuthenticationRegistry([
-                new DatabaseTokenAuthentication(\$token),
-            ]);
-
-            \$client = \CedricZiel\Baserow\Client::create(null, [
-                new AddHostPlugin(new Uri('https://baserow.example.com')),
-                \$authRegistry,
-            ]);
+            \$client = Client::createForUrl('https://baserow.example.com', accessToken: \$token);
 
             EOF;
         $doc .= '$client->'."{$methodName}();\n";
