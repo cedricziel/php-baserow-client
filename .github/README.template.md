@@ -9,16 +9,16 @@ composer require cedricziel/baserow
 ## Docs
 
 ```php
-use CedricZiel\Baserow\Generated\Client;
+use CedricZiel\Baserow\Client;
 
-$baserow = Client::create(null, [
-    // optional, default is baserow.io
-    new AddHostPlugin(new Uri('https://my-baserow.example.com')),
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
 
-    // use ONE of DatabaseTokenAuthentication
-    new DatabaseTokenAuthentication('YOUR_TOKEN'),
-    //  OR JWTAuthentication
-    new JWTAuthentication('JWT Token'),
+$client = Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
 ]);
 
 // list all rows in table id 42
