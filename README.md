@@ -11,14 +11,14 @@ composer require cedricziel/baserow
 ```php
 use CedricZiel\Baserow\Generated\Client;
 
-$baserow = Client::create(null, [
-    // optional, default is baserow.io
-    new AddHostPlugin(new Uri('https://my-baserow.example.com')),
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
 
-    // use ONE of DatabaseTokenAuthentication
-    new DatabaseTokenAuthentication('YOUR_TOKEN'),
-    //  OR JWTAuthentication
-    new JWTAuthentication('JWT Token'),
+$client = Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
 ]);
 
 // list all rows in table id 42
@@ -31,7 +31,15 @@ $client->listDatabaseTableRows(42);
 Sends a test email to the provided email address. Useful for testing Baserow's email configuration as errors are clearly returned.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->emailTester();
 ```
 
@@ -41,7 +49,15 @@ $client->emailTester();
 Runs a full health check testing as many services and systems as possible. These health checks can be expensive operations such as writing files to storage etc.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->fullHealthCheck();
 ```
 
@@ -53,7 +69,15 @@ Lists all audit log entries for the given workspace id.
 This is a **enterprise** feature.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->auditLogList();
 ```
 
@@ -65,7 +89,15 @@ List all distinct action types related to an audit log entry.
 This is a **enterprise** feature.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->auditLogActionTypes();
 ```
 
@@ -77,7 +109,15 @@ Creates a job to export the filtered audit log to a CSV file.
 This is a **enterprise** feature.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->asyncAuditLogExport();
 ```
 
@@ -89,7 +129,15 @@ List all users that have performed an action in the audit log.
 This is a **enterprise** feature.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->auditLogUsers();
 ```
 
@@ -101,7 +149,15 @@ List all distinct workspace names related to an audit log entry.
 This is a **enterprise** feature.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->auditLogWorkspaces();
 ```
 
@@ -111,7 +167,15 @@ $client->auditLogWorkspaces();
 List all the available authentication providers.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listAuthProviders();
 ```
 
@@ -121,7 +185,15 @@ $client->listAuthProviders();
 Creates a new authentication provider. This can be used to enable authentication with a third party service like Google or Facebook.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->createAuthProvider();
 ```
 
@@ -131,7 +203,15 @@ $client->createAuthProvider();
 Get an authentication provider.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->getAuthProvider();
 ```
 
@@ -141,7 +221,15 @@ $client->getAuthProvider();
 Updates a new authentication provider. This can be used to enable authentication with a third party service like Google or Facebook.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->updateAuthProvider();
 ```
 
@@ -151,7 +239,15 @@ $client->updateAuthProvider();
 Delete an authentication provider.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->deleteAuthProvider();
 ```
 
@@ -163,7 +259,15 @@ Returns the new and active users for the last 24 hours, 7 days and 30 days. The 
 This is a **premium** feature.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->adminDashboard();
 ```
 
@@ -179,7 +283,15 @@ $client->adminDashboard();
 This is a **premium** feature.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->adminListGroups();
 ```
 
@@ -195,7 +307,15 @@ $client->adminListGroups();
 This is a **premium** feature.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->adminDeleteGroup();
 ```
 
@@ -207,7 +327,15 @@ Returns all users with detailed information on each user, if the requesting user
 This is a **premium** feature.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->adminListUsers();
 ```
 
@@ -219,7 +347,15 @@ Creates and returns a new user if the requesting user is staff. This works even 
 This is a **premium** feature.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->adminCreateUser();
 ```
 
@@ -231,7 +367,15 @@ Updates specified user attributes and returns the updated user if the requesting
 This is a **premium** feature.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->adminEditUser();
 ```
 
@@ -243,7 +387,15 @@ Deletes the specified user, if the requesting user has admin permissions. You ca
 This is a **premium** feature.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->adminDeleteUser();
 ```
 
@@ -255,7 +407,15 @@ This endpoint allows staff to impersonate another user by requesting a JWT token
 This is a **premium** feature.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->adminImpersonateUser();
 ```
 
@@ -267,7 +427,15 @@ Returns all workspaces with detailed information on each workspace, if the reque
 This is a **premium** feature.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->adminListWorkspaces();
 ```
 
@@ -279,7 +447,15 @@ Deletes the specified workspace and the applications inside that workspace, if t
 This is a **premium** feature.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->adminDeleteWorkspace();
 ```
 
@@ -289,7 +465,15 @@ $client->adminDeleteWorkspace();
 Lists all the integrations of the application related to the provided parameter if the user has access to the related application's workspace. If the workspace is related to a template, then this endpoint will be publicly accessible.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listApplicationIntegrations();
 ```
 
@@ -299,7 +483,15 @@ $client->listApplicationIntegrations();
 Creates a new integration
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->createApplicationIntegration();
 ```
 
@@ -309,7 +501,15 @@ $client->createApplicationIntegration();
 List per user sources the first 5 users available.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listApplicationUserSourceUsers();
 ```
 
@@ -319,7 +519,15 @@ $client->listApplicationUserSourceUsers();
 Lists all the user_sources of the application related to the provided parameter if the user has access to the related application's workspace. If the workspace is related to a template, then this endpoint will be publicly accessible.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listApplicationUserSources();
 ```
 
@@ -329,7 +537,15 @@ $client->listApplicationUserSources();
 Creates a new user_source
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->createApplicationUserSource();
 ```
 
@@ -339,7 +555,15 @@ $client->createApplicationUserSource();
 Lists all the roles of the application related to the provided parameter if the user has access to the related application's workspace. If the workspace is related to a template, then this endpoint will be publicly accessible.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listApplicationUserSourceRoles();
 ```
 
@@ -349,7 +573,15 @@ $client->listApplicationUserSourceRoles();
 Lists all the applications that the authorized user has access to. The properties that belong to the application can differ per type. An application always belongs to a single workspace. All the applications of the workspaces that the user has access to are going to be listed here.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listAllApplications();
 ```
 
@@ -359,7 +591,15 @@ $client->listAllApplications();
 Returns the requested application if the authorized user is in the application's workspace. The properties that belong to the application can differ per type.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->workspaceGetApplication();
 ```
 
@@ -369,7 +609,15 @@ $client->workspaceGetApplication();
 Updates the existing application related to the provided `application_id` param if the authorized user is in the application's workspace. It is not possible to change the type, but properties like the name can be changed.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->updateApplication();
 ```
 
@@ -379,7 +627,15 @@ $client->updateApplication();
 Deletes an application if the authorized user is in the application's workspace. All the related children are also going to be deleted. For example in case of a database application all the underlying tables, fields, views and rows are going to be deleted.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->deleteApplication();
 ```
 
@@ -389,7 +645,15 @@ $client->deleteApplication();
 Duplicate an application if the authorized user is in the application's workspace. All the related children are also going to be duplicated. For example in case of a database application all the underlying tables, fields, views and rows are going to be duplicated.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->duplicateApplicationAsync();
 ```
 
@@ -403,7 +667,15 @@ $client->duplicateApplicationAsync();
  Lists all the applications of the group related to the provided `group_id` parameter if the authorized user is in that group. If the group is related to a template, then this endpoint will be publicly accessible. The properties that belong to the application can differ per type. An application always belongs to a single group.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->groupListApplications();
 ```
 
@@ -417,7 +689,15 @@ $client->groupListApplications();
  Creates a new application based on the provided type. The newly created application is going to be added to the group related to the provided `group_id` parameter. If the authorized user does not belong to the group an error will be returned.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->groupCreateApplication();
 ```
 
@@ -431,7 +711,15 @@ $client->groupCreateApplication();
  Changes the order of the provided application ids to the matching position that the id has in the list. If the authorized user does not belong to the group it will be ignored. The order of the not provided tables will be set to `0`.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->groupOrderApplications();
 ```
 
@@ -441,7 +729,15 @@ $client->groupOrderApplications();
 Lists all the applications of the workspace related to the provided `workspace_id` parameter if the authorized user is in that workspace. If theworkspace is related to a template, then this endpoint will be publicly accessible. The properties that belong to the application can differ per type. An application always belongs to a single workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->workspaceListApplications();
 ```
 
@@ -451,7 +747,15 @@ $client->workspaceListApplications();
 Creates a new application based on the provided type. The newly created application is going to be added to the workspace related to the provided `workspace_id` parameter. If the authorized user does not belong to the workspace an error will be returned.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->workspaceCreateApplication();
 ```
 
@@ -461,7 +765,15 @@ $client->workspaceCreateApplication();
 Changes the order of the provided application ids to the matching position that the id has in the list. If the authorized user does not belong to the workspace it will be ignored. The order of the not provided tables will be set to `0`.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->workspaceOrderApplications();
 ```
 
@@ -473,7 +785,15 @@ Lists all audit log entries for the given workspace id.
 This is a **enterprise** feature.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->auditLogList2();
 ```
 
@@ -485,7 +805,15 @@ List all distinct action types related to an audit log entry.
 This is a **enterprise** feature.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->auditLogActionTypes2();
 ```
 
@@ -497,7 +825,15 @@ Creates a job to export the filtered audit log to a CSV file.
 This is a **enterprise** feature.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->asyncAuditLogExport2();
 ```
 
@@ -509,7 +845,15 @@ List all users that have performed an action in the audit log.
 This is a **enterprise** feature.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->auditLogUsers2();
 ```
 
@@ -521,7 +865,15 @@ List all distinct workspace names related to an audit log entry.
 This is a **enterprise** feature.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->auditLogWorkspaces2();
 ```
 
@@ -531,7 +883,15 @@ $client->auditLogWorkspaces2();
 Lists the available login options for the configured authentication providers.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listAuthProvidersLoginOptions();
 ```
 
@@ -541,7 +901,15 @@ $client->listAuthProvidersLoginOptions();
 Gets all the domains of a builder
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->getBuilderDomains();
 ```
 
@@ -551,7 +919,15 @@ $client->getBuilderDomains();
 Creates a new domain for an application builder
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->createBuilderDomain();
 ```
 
@@ -561,7 +937,15 @@ $client->createBuilderDomain();
 Apply a new order to the domains of a builder
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->orderBuilderDomains();
 ```
 
@@ -571,7 +955,15 @@ $client->orderBuilderDomains();
 Creates a new page for an application builder
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->createBuilderPage();
 ```
 
@@ -581,7 +973,15 @@ $client->createBuilderPage();
 Apply a new order to the pages of a builder
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->orderBuilderPages();
 ```
 
@@ -591,7 +991,15 @@ $client->orderBuilderPages();
 Updates the theme properties for the provided id.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->updateBuilderTheme();
 ```
 
@@ -601,7 +1009,15 @@ $client->updateBuilderTheme();
 Updates an existing builder data_source.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->updateBuilderPageDataSource();
 ```
 
@@ -611,7 +1027,15 @@ $client->updateBuilderPageDataSource();
 Deletes the data_source related by the given id.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->deleteBuilderPageDataSource();
 ```
 
@@ -621,7 +1045,15 @@ $client->deleteBuilderPageDataSource();
 Dispatches the service of the related data_source and returns the result.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->dispatchBuilderPageDataSource();
 ```
 
@@ -631,7 +1063,15 @@ $client->dispatchBuilderPageDataSource();
 Moves the data_source in the page before another data_source or at the end of the page if no before data_source is given. The data_sources must belong to the same page.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->moveBuilderPageDataSource();
 ```
 
@@ -641,7 +1081,15 @@ $client->moveBuilderPageDataSource();
 Updates an existing domain of an application builder
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->updateBuilderDomain();
 ```
 
@@ -651,7 +1099,15 @@ $client->updateBuilderDomain();
 Deletes an existing domain of an application builder
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->deleteBuilderDomain();
 ```
 
@@ -661,7 +1117,15 @@ $client->deleteBuilderDomain();
 This endpoint starts an asynchronous job to publish the builder. The job clones the current version of the given builder and publish it for the given domain.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->publishBuilderDomain();
 ```
 
@@ -671,7 +1135,15 @@ $client->publishBuilderDomain();
 This endpoint can be used to check whether a domain exists for SSL certificate purposes. It's compatible with the Caddy on_demand TLS as described here: https://caddyserver.com/docs/json/apps/tls/automation/on_demand/ask/. It will respond with a 200 status code if it exists or a 404 if it doesn't exist.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->askPublicBuilderDomainExists();
 ```
 
@@ -681,7 +1153,15 @@ $client->askPublicBuilderDomainExists();
 Returns the public serialized version of the builder and its pages for the given builder id.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->getPublicBuilderById();
 ```
 
@@ -691,7 +1171,15 @@ $client->getPublicBuilderById();
 Returns the public serialized version of the builder for the given domain name and its pages .
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->getPublicBuilderByDomainName();
 ```
 
@@ -701,7 +1189,15 @@ $client->getPublicBuilderByDomainName();
 Lists all the data_sources of the page related to the provided parameter if the builder is public.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listPublicBuilderPageDataSources();
 ```
 
@@ -711,7 +1207,15 @@ $client->listPublicBuilderPageDataSources();
 Lists all the elements of the page related to the provided parameter. If the user is Anonymous, the page must belong to a published builder instance to being accessible.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listPublicBuilderPageElements();
 ```
 
@@ -721,7 +1225,15 @@ $client->listPublicBuilderPageElements();
 Lists all the workflow actions with their public accessible data. Some configuration might be omitted for security reasons such as passwords or PII.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listPublicBuilderPageWorkflowActions();
 ```
 
@@ -731,7 +1243,15 @@ $client->listPublicBuilderPageWorkflowActions();
 Updates an existing builder element.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->updateBuilderPageElement();
 ```
 
@@ -741,7 +1261,15 @@ $client->updateBuilderPageElement();
 Deletes the element related by the given id.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->deleteBuilderPageElement();
 ```
 
@@ -751,7 +1279,15 @@ $client->deleteBuilderPageElement();
 Duplicates an element and all of the elements children and the associated workflow actions as well.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->duplicateBuilderPageElement();
 ```
 
@@ -761,7 +1297,15 @@ $client->duplicateBuilderPageElement();
 Moves the element in the page before another element or at the end of the page if no before element is given. The elements must belong to the same page.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->moveBuilderPageElement();
 ```
 
@@ -771,7 +1315,15 @@ $client->moveBuilderPageElement();
 Lists all the data_sources of the page related to the provided parameter if the user has access to the related builder's workspace. If the workspace is related to a template, then this endpoint will be publicly accessible.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listBuilderPageDataSources();
 ```
 
@@ -781,7 +1333,15 @@ $client->listBuilderPageDataSources();
 Creates a new builder data_source
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->createBuilderPageDataSource();
 ```
 
@@ -791,7 +1351,15 @@ $client->createBuilderPageDataSource();
 Dispatches the service of the related page data_sources
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->dispatchBuilderPageDataSources();
 ```
 
@@ -801,7 +1369,15 @@ $client->dispatchBuilderPageDataSources();
 Lists all the elements of the page related to the provided parameter if the user has access to the related builder's workspace. If the workspace is related to a template, then this endpoint will be publicly accessible.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listBuilderPageElements();
 ```
 
@@ -811,7 +1387,15 @@ $client->listBuilderPageElements();
 Creates a new builder element
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->createBuilderPageElement();
 ```
 
@@ -821,7 +1405,15 @@ $client->createBuilderPageElement();
 Lists all the workflow actions of the page related to the provided parameter if the user has access to the related builder's workspace. If the workspace is related to a template, then this endpoint will be publicly accessible.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listBuilderPageWorkflowActions();
 ```
 
@@ -831,7 +1423,15 @@ $client->listBuilderPageWorkflowActions();
 Creates a new builder workflow action
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->createBuilderPageWorkflowAction();
 ```
 
@@ -841,7 +1441,15 @@ $client->createBuilderPageWorkflowAction();
 Apply a new order to the workflow actions of a page
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->orderBuilderWorkflowActions();
 ```
 
@@ -851,7 +1459,15 @@ $client->orderBuilderWorkflowActions();
 Updates an existing page of an application builder
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->updateBuilderPage();
 ```
 
@@ -861,7 +1477,15 @@ $client->updateBuilderPage();
 Deletes an existing page of an application builder
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->deleteBuilderPage();
 ```
 
@@ -871,7 +1495,15 @@ $client->deleteBuilderPage();
 Start a job to duplicate the page with the provided `page_id` parameter if the authorized user has access to the builder's workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->duplicateBuilderPageAsync();
 ```
 
@@ -881,7 +1513,15 @@ $client->duplicateBuilderPageAsync();
 Updates an existing builder workflow action.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->updateBuilderPageWorkflowAction();
 ```
 
@@ -891,7 +1531,15 @@ $client->updateBuilderPageWorkflowAction();
 Deletes the workflow action related by the given id.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->deleteBuilderPageWorkflowAction();
 ```
 
@@ -901,7 +1549,15 @@ $client->deleteBuilderPageWorkflowAction();
 Dispatches the service of the related workflow_action and returns the result.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->dispatchBuilderPageWorkflowAction();
 ```
 
@@ -911,7 +1567,15 @@ $client->dispatchBuilderPageWorkflowAction();
 Returns information such as export progress and state or the url of the exported file for the specified export job, only if the requesting user has access.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->getExportJob();
 ```
 
@@ -921,7 +1585,15 @@ $client->getExportJob();
 Creates and starts a new export job for a table given some exporter options. Returns an error if the requesting user does not have permissionsto view the table.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->exportTable();
 ```
 
@@ -931,7 +1603,15 @@ $client->exportTable();
 Returns the existing field if the authorized user has access to the related database's workspace. Depending on the type different properties could be returned.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->getDatabaseTableField();
 ```
 
@@ -941,7 +1621,15 @@ $client->getDatabaseTableField();
 Updates the existing field if the authorized user has access to the related database's workspace. The type can also be changed and depending on that type, different additional properties can optionally be set. If you change the field type it could happen that the data conversion fails, in that case the `ERROR_CANNOT_CHANGE_FIELD_TYPE` is returned, but this rarely happens. If a data value cannot be converted it is set to `null` so data might go lost.If updated the field causes other fields to change then the specificinstances of those fields will be included in the related fields response key.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->updateDatabaseTableField();
 ```
 
@@ -951,7 +1639,15 @@ $client->updateDatabaseTableField();
 Deletes the existing field if the authorized user has access to the related database's workspace. Note that all the related data to that field is also deleted. Primary fields cannot be deleted because their value represents the row. If deleting the field causes other fields to change then the specificinstances of those fields will be included in the related fields response key.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->deleteDatabaseTableField();
 ```
 
@@ -961,7 +1657,15 @@ $client->deleteDatabaseTableField();
 Duplicates the table with the provided `table_id` parameter if the authorized user has access to the database's workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->duplicateTableField();
 ```
 
@@ -972,7 +1676,15 @@ Endpoint that's used by the AI field to start an sync task that will update the 
 This is a **premium** feature.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->generateTableAiFieldValue();
 ```
 
@@ -982,7 +1694,15 @@ $client->generateTableAiFieldValue();
 Returns a list of all the unique row values for an existing field, sorted in order of frequency.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->getDatabaseFieldUniqueRowValues();
 ```
 
@@ -992,7 +1712,15 @@ $client->getDatabaseFieldUniqueRowValues();
 Lists all the fields of the table related to the provided parameter if the user has access to the related database's workspace. If the workspace is related to a template, then this endpoint will be publicly accessible. A table consists of fields and each field can have a different type. Each type can have different properties. A field is comparable with a regular table's column.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listDatabaseTableFields();
 ```
 
@@ -1002,7 +1730,15 @@ $client->listDatabaseTableFields();
 Creates a new field for the table related to the provided `table_id` parameter if the authorized user has access to the related database's workspace. Depending on the type, different properties can optionally be set.If creating the field causes other fields to change then the specificinstances of those fields will be included in the related fields response key.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->createDatabaseTableField();
 ```
 
@@ -1013,7 +1749,15 @@ This endpoint generates a Baserow formula for the table related to the provided 
 This is a **premium** feature.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->generateFormulaWithAi();
 ```
 
@@ -1023,7 +1767,15 @@ $client->generateFormulaWithAi();
 Calculates and returns the type of the specified formula value. Does not change the state of the field in any way.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->typeFormulaField();
 ```
 
@@ -1033,7 +1785,15 @@ $client->typeFormulaField();
 Returns the names of the given row of the given tables. The nameof a row is the primary field value for this row. The result can be usedfor example, when you want to display the name of a linked row from another table.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listDatabaseTableRowNames();
 ```
 
@@ -1043,7 +1803,15 @@ $client->listDatabaseTableRowNames();
 Lists all the rows of the table related to the provided parameter if the user has access to the related database's workspace. The response is paginated by a page/size style. It is also possible to provide an optional search query, only rows where the data matches the search query are going to be returned then. The properties of the returned rows depends on which fields the table has. For a complete overview of fields use the **list_database_table_fields** endpoint to list them all. In the example all field types are listed, but normally the number in field_{id} key is going to be the id of the field. Or if the GET parameter `user_field_names` is provided then the keys will be the name of the field. The value is what the user has provided and the format of it depends on the fields type.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listDatabaseTableRows();
 ```
 
@@ -1053,7 +1821,15 @@ $client->listDatabaseTableRows();
 Creates a new row in the table if the user has access to the related table's workspace. The accepted body fields are depending on the fields that the table has. For a complete overview of fields use the **list_database_table_fields** to list them all. None of the fields are required, if they are not provided the value is going to be `null` or `false` or some default value is that is set. If you want to add a value for the field with for example id `10`, the key must be named `field_10`. Or instead if the `user_field_names` GET param is provided the key must be the name of the field. Of course multiple fields can be provided in one request. In the examples below you will find all the different field types, the numbers/ids in the example are just there for example purposes, the field_ID must be replaced with the actual id of the field or the name of the field if `user_field_names` is provided.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->createDatabaseTableRow();
 ```
 
@@ -1063,7 +1839,15 @@ $client->createDatabaseTableRow();
 Fetches an existing row from the table if the user has access to the related table's workspace. The properties of the returned row depend on which fields the table has. For a complete overview of fields use the **list_database_table_fields** endpoint to list them all. In the example all field types are listed, but normally the number in field_{id} key is going to be the id of the field of the field. Or if the GET parameter `user_field_names` is provided then the keys will be the name of the field. The value is what the user has provided and the format of it depends on the fields type.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->getDatabaseTableRow();
 ```
 
@@ -1073,7 +1857,15 @@ $client->getDatabaseTableRow();
 Updates an existing row in the table if the user has access to the related table's workspace. The accepted body fields are depending on the fields that the table has. For a complete overview of fields use the **list_database_table_fields** endpoint to list them all. None of the fields are required, if they are not provided the value is not going to be updated. When you want to update a value for the field with id `10`, the key must be named `field_10`. Or if the GET parameter `user_field_names` is provided the key of the field to update must be the name of the field. Multiple different fields to update can be provided in one request. In the examples below you will find all the different field types, the numbers/ids in the example are just there for example purposes, the field_ID must be replaced with the actual id of the field or the name of the field if `user_field_names` is provided.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->updateDatabaseTableRow();
 ```
 
@@ -1083,7 +1875,15 @@ $client->updateDatabaseTableRow();
 Deletes an existing row in the table if the user has access to the table's workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->deleteDatabaseTableRow();
 ```
 
@@ -1093,7 +1893,15 @@ $client->deleteDatabaseTableRow();
 Fetches the adjacent row to a given row_id in the table with the given table_id. If the previous flag is set it will return the previous row, otherwise it will return the next row. You can specifya view_id and it will apply the filters and sorts of the provided view.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->getAdjacentDatabaseTableRow();
 ```
 
@@ -1103,7 +1911,15 @@ $client->getAdjacentDatabaseTableRow();
 Fetches the row change history of a given row_id in the table with the given table_id. The row change history is paginated and can be limited with the limit and offset query parameters.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->getDatabaseTableRowHistory();
 ```
 
@@ -1113,7 +1929,15 @@ $client->getDatabaseTableRowHistory();
 Moves the row related to given `row_id` parameter to another position. It is only possible to move the row before another existing row or to the end. If the `before_id` is provided then the row related to the `row_id` parameter is moved before that row. If the `before_id` parameter is not provided, then the row will be moved to the end.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->moveDatabaseTableRow();
 ```
 
@@ -1125,7 +1949,15 @@ Creates new rows in the table if the user has access to the related table's work
  **WARNING:** This endpoint doesn't yet work with row created webhooks.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->batchCreateDatabaseTableRows();
 ```
 
@@ -1137,7 +1969,15 @@ Updates existing rows in the table if the user has access to the related table's
  **WARNING:** This endpoint doesn't yet work with row updated webhooks.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->batchUpdateDatabaseTableRows();
 ```
 
@@ -1149,7 +1989,15 @@ Deletes existing rows in the table if the user has access to the table's workspa
  **WARNING:**  This endpoint doesn't yet work with row deleted webhooks.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->batchDeleteDatabaseTableRows();
 ```
 
@@ -1159,7 +2007,15 @@ $client->batchDeleteDatabaseTableRows();
 Returns the requested table if the authorized user has access to the related database's workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->getDatabaseTable();
 ```
 
@@ -1169,7 +2025,15 @@ $client->getDatabaseTable();
 Updates the existing table if the authorized user has access to the related database's workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->updateDatabaseTable();
 ```
 
@@ -1179,7 +2043,15 @@ $client->updateDatabaseTable();
 Deletes the existing table if the authorized user has access to the related database's workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->deleteDatabaseTable();
 ```
 
@@ -1189,7 +2061,15 @@ $client->deleteDatabaseTable();
 Start a job to duplicate the table with the provided `table_id` parameter if the authorized user has access to the database's workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->duplicateDatabaseTableAsync();
 ```
 
@@ -1199,7 +2079,15 @@ $client->duplicateDatabaseTableAsync();
 Import data in the specified table if the authorized user has access to the related database's workspace. This endpoint is asynchronous and return the created job to track the progress of the task.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->importDataDatabaseTableAsync();
 ```
 
@@ -1209,7 +2097,15 @@ $client->importDataDatabaseTableAsync();
 Lists all the tables that are in the database related to the `database_id` parameter if the user has access to the database's workspace. A table is exactly as the name suggests. It can hold multiple fields, each having their own type and multiple rows. They can be added via the **create_database_table_field** and **create_database_table_row** endpoints.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listDatabaseTables();
 ```
 
@@ -1221,7 +2117,15 @@ Creates synchronously a new table for the database related to the provided `data
 As an alternative you can use the `create_async_database_table` for better performances and importing bigger files.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->createDatabaseTable();
 ```
 
@@ -1231,7 +2135,15 @@ $client->createDatabaseTable();
 Creates a job that creates a new table for the database related to the provided `database_id` parameter if the authorized user has access to the database's workspace. This endpoint is asynchronous and return the created job to track the progress of the task.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->createDatabaseTableAsync();
 ```
 
@@ -1241,7 +2153,15 @@ $client->createDatabaseTableAsync();
 Changes the order of the provided table ids to the matching position that the id has in the list. If the authorized user does not belong to the workspace it will be ignored. The order of the not provided tables will be set to `0`.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->orderDatabaseTables();
 ```
 
@@ -1251,7 +2171,15 @@ $client->orderDatabaseTables();
 Lists all the database tokens that belong to the authorized user. A token can be used to create, read, update and delete rows in the tables of the token's workspace. It only works on the tables if the token has the correct permissions. The **Database table rows** endpoints can be used for these operations.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listDatabaseTokens();
 ```
 
@@ -1261,7 +2189,15 @@ $client->listDatabaseTokens();
 Creates a new database token for a given workspace and for the authorized user.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->createDatabaseToken();
 ```
 
@@ -1271,7 +2207,15 @@ $client->createDatabaseToken();
 Returns the requested database token if it is owned by the authorized user andif the user has access to the related workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->getDatabaseToken();
 ```
 
@@ -1281,7 +2225,15 @@ $client->getDatabaseToken();
 Updates the existing database token if it is owned by the authorized user and ifthe user has access to the related workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->updateDatabaseToken();
 ```
 
@@ -1291,7 +2243,15 @@ $client->updateDatabaseToken();
 Deletes the existing database token if it is owned by the authorized user and ifthe user has access to the related workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->deleteDatabaseToken();
 ```
 
@@ -1301,7 +2261,15 @@ $client->deleteDatabaseToken();
 This endpoint check be used to check if the provided personal API token is valid. If returns a `200` response if so and a `403` is not. This can be used by integrations like Zapier or n8n to test if a token is valid.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->checkDatabaseToken();
 ```
 
@@ -1311,7 +2279,15 @@ $client->checkDatabaseToken();
 Sets view attributes only available for premium users.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->premiumViewAttributesUpdate();
 ```
 
@@ -1321,7 +2297,15 @@ $client->premiumViewAttributesUpdate();
 If the view is publicly shared or if an authenticated user has access to the related workspace, then this endpoint can be used to do a value lookup of the link row fields that are included in the view. Normally it is not possible for a not authenticated visitor to fetch the rows of a table. This endpoint makes it possible to fetch the id and primary field value of the related table of a link row included in the view.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->databaseTablePublicViewLinkRowFieldLookup();
 ```
 
@@ -1331,7 +2315,15 @@ $client->databaseTablePublicViewLinkRowFieldLookup();
 Returns a valid never-expiring JWT token for this public shared view if the password provided matches with the one saved by the view's owner.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->publicViewTokenAuth();
 ```
 
@@ -1341,7 +2333,15 @@ $client->publicViewTokenAuth();
 Returns the required public information to display a single shared view.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->getPublicViewInfo();
 ```
 
@@ -1351,7 +2351,15 @@ $client->getPublicViewInfo();
 Returns the existing view. Depending on the type different propertiescould be returned.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->getDatabaseTableView();
 ```
 
@@ -1361,7 +2369,15 @@ $client->getDatabaseTableView();
 Updates the existing view. The type cannot be changed. It depends on the existing type which properties can be changed.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->updateDatabaseTableView();
 ```
 
@@ -1371,7 +2387,15 @@ $client->updateDatabaseTableView();
 Deletes the existing view. Note that all the related settings of the view are going to be deleted also. The data stays intact after deleting the view because this is related to the table and not the view.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->deleteDatabaseTableView();
 ```
 
@@ -1381,7 +2405,15 @@ $client->deleteDatabaseTableView();
 Lists all decorations of the view related to the provided `view_id` if the user has access to the related database's workspace. A view can have multiple decorations. View decorators can be used to decorate rows. This can, for example, be used to change the border or background color of a row if it matches certain conditions.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listDatabaseTableViewDecorations();
 ```
 
@@ -1391,7 +2423,15 @@ $client->listDatabaseTableViewDecorations();
 Creates a new decoration for the view related to the provided `view_id` parameter if the authorized user has access to the related database's workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->createDatabaseTableViewDecoration();
 ```
 
@@ -1403,7 +2443,15 @@ Duplicates an existing view if the user has access to it. When a view is duplica
 - If the original view is publicly shared, the new view will not be shared anymore
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->duplicateDatabaseTableView();
 ```
 
@@ -1413,7 +2461,15 @@ $client->duplicateDatabaseTableView();
 Responds with the fields options of the provided view if the authenticated user has access to the related workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->getDatabaseTableViewFieldOptions();
 ```
 
@@ -1423,7 +2479,15 @@ $client->getDatabaseTableViewFieldOptions();
 Updates the field options of a view. The field options differ per field type  This could for example be used to update the field width of a `grid` view if the user changes it.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->updateDatabaseTableViewFieldOptions();
 ```
 
@@ -1433,7 +2497,15 @@ $client->updateDatabaseTableViewFieldOptions();
 Creates a new filter group for the view related to the provided `view_id` parameter.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->createDatabaseTableViewFilterGroup();
 ```
 
@@ -1443,7 +2515,15 @@ $client->createDatabaseTableViewFilterGroup();
 Lists all filters of the view related to the provided `view_id`. A view can have multiple filters. When all the rows are requested for the view only those that apply to the filters are returned.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listDatabaseTableViewFilters();
 ```
 
@@ -1453,7 +2533,15 @@ $client->listDatabaseTableViewFilters();
 Creates a new filter for the view related to the provided `view_id` parameter. When the rows of a view are requested, for example via the `list_database_table_grid_view_rows` endpoint, then only the rows that apply to all the filters are going to be returned. A filter compares the value of a field to the value of a filter. It depends on the type how values are going to be compared.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->createDatabaseTableViewFilter();
 ```
 
@@ -1463,7 +2551,15 @@ $client->createDatabaseTableViewFilter();
 Lists all groupings of the view related to the provided `view_id` if the user has access to the related database's workspace. A view can have multiple groupings.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listDatabaseTableViewGroupings();
 ```
 
@@ -1473,7 +2569,15 @@ $client->listDatabaseTableViewGroupings();
 Creates a new group by for the view related to the provided `view_id` parameter if the authorized user has access to the related database's workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->createDatabaseTableViewGroup();
 ```
 
@@ -1483,7 +2587,15 @@ $client->createDatabaseTableViewGroup();
 Rotates the unique slug of the view by replacing it with a new value. This would mean that the publicly shared URL of the view will change. Anyone with the old URL won't be able to access the viewanymore. Only view types which are sharable can have their slugs rotated.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->rotateDatabaseViewSlug();
 ```
 
@@ -1493,7 +2605,15 @@ $client->rotateDatabaseViewSlug();
 Lists all sortings of the view related to the provided `view_id` if the user has access to the related database's workspace. A view can have multiple sortings. When all the rows are requested they will be in the desired order.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listDatabaseTableViewSortings();
 ```
 
@@ -1503,7 +2623,15 @@ $client->listDatabaseTableViewSortings();
 Creates a new sort for the view related to the provided `view_id` parameter if the authorized user has access to the related database's workspace. When the rows of a view are requested, for example via the `list_database_table_grid_view_rows` endpoint, they will be returned in the respected order defined by all the sortings.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->createDatabaseTableViewSort();
 ```
 
@@ -1515,7 +2643,15 @@ Responds with serialized rows grouped by the view's date field options related t
 This is a **premium** feature.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->publicListDatabaseTableCalendarViewRows();
 ```
 
@@ -1527,7 +2663,15 @@ Responds with serialized rows grouped by date regarding view's date fieldif the 
 This is a **premium** feature.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listDatabaseTableCalendarViewRows();
 ```
 
@@ -1537,7 +2681,15 @@ $client->listDatabaseTableCalendarViewRows();
 Returns the existing view decoration if the current user has access to the related database's workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->getDatabaseTableViewDecoration();
 ```
 
@@ -1547,7 +2699,15 @@ $client->getDatabaseTableViewDecoration();
 Updates the existing decoration if the authorized user has access to the related database's workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->updateDatabaseTableViewDecoration();
 ```
 
@@ -1557,7 +2717,15 @@ $client->updateDatabaseTableViewDecoration();
 Deletes the existing decoration if the authorized user has access to the related database's workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->deleteDatabaseTableViewDecoration();
 ```
 
@@ -1567,7 +2735,15 @@ $client->deleteDatabaseTableViewDecoration();
 Returns the existing view filter group with the given `view_filter_group_id`.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->getDatabaseTableViewFilterGroup();
 ```
 
@@ -1577,7 +2753,15 @@ $client->getDatabaseTableViewFilterGroup();
 Updates the existing filter group with the given `view_filter_group_id`.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->updateDatabaseTableViewFilterGroup();
 ```
 
@@ -1587,7 +2771,15 @@ $client->updateDatabaseTableViewFilterGroup();
 Deletes the existing filter group with the given `view_filter_group_id`.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->deleteDatabaseTableViewFilterGroup();
 ```
 
@@ -1597,7 +2789,15 @@ $client->deleteDatabaseTableViewFilterGroup();
 Returns the existing view filter.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->getDatabaseTableViewFilter();
 ```
 
@@ -1607,7 +2807,15 @@ $client->getDatabaseTableViewFilter();
 Updates the existing filter.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->updateDatabaseTableViewFilter();
 ```
 
@@ -1617,7 +2825,15 @@ $client->updateDatabaseTableViewFilter();
 Deletes the existing filter if the authorized user has access to the related database's workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->deleteDatabaseTableViewFilter();
 ```
 
@@ -1627,7 +2843,15 @@ $client->deleteDatabaseTableViewFilter();
 Returns the metadata related to the form view if the form is publicly shared or if the user has access to the related workspace. This data can be used to construct a form with the right fields.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->getMetaDatabaseTableFormView();
 ```
 
@@ -1637,7 +2861,15 @@ $client->getMetaDatabaseTableFormView();
 Submits the form if the form is publicly shared or if the user has access to the related workspace. The provided data will be validated based on the fields that are in the form and the rules per field. If valid, a new row will be created in the table.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->submitDatabaseTableFormView();
 ```
 
@@ -1647,7 +2879,15 @@ $client->submitDatabaseTableFormView();
 Uploads a file anonymously to Baserow by uploading the file contents directly. A `file` multipart is expected containing the file contents.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->uploadFileFormView();
 ```
 
@@ -1659,7 +2899,15 @@ Lists the requested rows of the view's table related to the provided `slug` if t
 
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->publicListDatabaseTableGalleryViewRows();
 ```
 
@@ -1669,7 +2917,15 @@ $client->publicListDatabaseTableGalleryViewRows();
 Lists the requested rows of the view's table related to the provided `view_id` if the authorized user has access to the database's workspace. The response is paginated by a limit/offset style.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listDatabaseTableGalleryViewRows();
 ```
 
@@ -1679,7 +2935,15 @@ $client->listDatabaseTableGalleryViewRows();
 Returns all field aggregations values previously defined for this grid view. If filters exist for this view, the aggregations are computed only on filtered rows.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->getDatabaseTablePublicGridViewFieldAggregations();
 ```
 
@@ -1691,7 +2955,15 @@ Lists the requested rows of the view's table related to the provided `slug` if t
 
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->publicListDatabaseTableGridViewRows();
 ```
 
@@ -1703,7 +2975,15 @@ Lists the requested rows of the view's table related to the provided `view_id` i
 The filters and sortings are automatically applied. To get a full overview of the applied filters and sortings you can use the `list_database_table_view_filters` and `list_database_table_view_sortings` endpoints.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listDatabaseTableGridViewRows();
 ```
 
@@ -1713,7 +2993,15 @@ $client->listDatabaseTableGridViewRows();
 Lists only the rows and fields that match the request. Only the rows with the ids that are in the `row_ids` list are going to be returned. Same goes for the fields, only the fields with the ids in the `field_ids` are going to be returned. This endpoint could be used to refresh data after changes something. For example in the web frontend after changing a field type, the data of the related cells will be refreshed using this endpoint. In the example all field types are listed, but normally  the number in field_{id} key is going to be the id of the field. The value is what the user has provided and the format of it depends on the fields type.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->filterDatabaseTableGridViewRows();
 ```
 
@@ -1723,7 +3011,15 @@ $client->filterDatabaseTableGridViewRows();
 Computes the aggregation of all the values for a specified field from the selected grid view. You must select the aggregation type by setting the `type` GET parameter. If filters are configured for the selected view, the aggregation is calculated only on filtered rows. You need to have read permissions on the view to request an aggregation.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->getDatabaseTableGridViewFieldAggregation();
 ```
 
@@ -1733,7 +3029,15 @@ $client->getDatabaseTableGridViewFieldAggregation();
 Returns all field aggregations values previously defined for this grid view. If filters exist for this view, the aggregations are computed only on filtered rows.You need to have read permissions on the view to request aggregations.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->getDatabaseTableGridViewFieldAggregations();
 ```
 
@@ -1743,7 +3047,15 @@ $client->getDatabaseTableGridViewFieldAggregations();
 Returns the existing view group by if the authorized user has access to the related database's workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->getDatabaseTableViewGroup();
 ```
 
@@ -1753,7 +3065,15 @@ $client->getDatabaseTableViewGroup();
 Updates the existing group by if the authorized user has access to the related database's workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->updateDatabaseTableViewGroup();
 ```
 
@@ -1763,7 +3083,15 @@ $client->updateDatabaseTableViewGroup();
 Deletes the existing group by if the authorized user has access to the related database's workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->deleteDatabaseTableViewGroup();
 ```
 
@@ -1775,7 +3103,15 @@ Responds with serialized rows grouped by the view's single select field options 
 This is a **premium** feature.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->publicListDatabaseTableKanbanViewRows();
 ```
 
@@ -1787,7 +3123,15 @@ Responds with serialized rows grouped by the view's single select field options 
 This is a **premium** feature.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listDatabaseTableKanbanViewRows();
 ```
 
@@ -1797,7 +3141,15 @@ $client->listDatabaseTableKanbanViewRows();
 Returns the existing view sort if the authorized user has access to the related database's workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->getDatabaseTableViewSort();
 ```
 
@@ -1807,7 +3159,15 @@ $client->getDatabaseTableViewSort();
 Updates the existing sort if the authorized user has access to the related database's workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->updateDatabaseTableViewSort();
 ```
 
@@ -1817,7 +3177,15 @@ $client->updateDatabaseTableViewSort();
 Deletes the existing sort if the authorized user has access to the related database's workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->deleteDatabaseTableViewSort();
 ```
 
@@ -1827,7 +3195,15 @@ $client->deleteDatabaseTableViewSort();
 Lists all views of the table related to the provided `table_id`. If the workspace is related to a template, then this endpoint will be publicly accessible. A table can have multiple views. Each view can display the data in a different way. For example the `grid` view shows the in a spreadsheet like way. That type has custom endpoints for data retrieval and manipulation. In the future other views types like a calendar or Kanban are going to be added. Each type can have different properties.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listDatabaseTableViews();
 ```
 
@@ -1837,7 +3213,15 @@ $client->listDatabaseTableViews();
 Creates a new view for the table related to the provided `table_id` parameter. Depending on the type, different properties can optionally be set.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->createDatabaseTableView();
 ```
 
@@ -1847,7 +3231,15 @@ $client->createDatabaseTableView();
 Changes the order of the provided view ids to the matching position that the id has in the list. The order of the not provided views will be set to `0`.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->orderDatabaseTableViews();
 ```
 
@@ -1857,7 +3249,15 @@ $client->orderDatabaseTableViews();
 Returns the existing webhook if the authorized user has access to the related database workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->getDatabaseTableWebhook();
 ```
 
@@ -1867,7 +3267,15 @@ $client->getDatabaseTableWebhook();
 Updates the existing view if the authorized user has access to the related database workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->updateDatabaseTableWebhook();
 ```
 
@@ -1877,7 +3285,15 @@ $client->updateDatabaseTableWebhook();
 Deletes the existing webhook if the authorized user has access to the related database's workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->deleteDatabaseTableWebhook();
 ```
 
@@ -1887,7 +3303,15 @@ $client->deleteDatabaseTableWebhook();
 Lists all webhooks of the table related to the provided `table_id` if the user has access to the related database workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listDatabaseTableWebhooks();
 ```
 
@@ -1897,7 +3321,15 @@ $client->listDatabaseTableWebhooks();
 Creates a new webhook for the table related to the provided `table_id` parameter if the authorized user has access to the related database workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->createDatabaseTableWebhook();
 ```
 
@@ -1907,7 +3339,15 @@ $client->createDatabaseTableWebhook();
 This endpoint triggers a test call based on the provided data if the user has access to the workspace related to the table. The test call will be made immediately and a copy of the request, response and status will be included in the response.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->testCallDatabaseTableWebhook();
 ```
 
@@ -1919,7 +3359,15 @@ Downloads a file using the backend and the secure file serve feature. The signed
 This is a **enterprise** feature.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->secureFileServeDownload();
 ```
 
@@ -1933,7 +3381,15 @@ $client->secureFileServeDownload();
  Lists all the groups of the authorized user. A group can contain multiple applications like a database. Multiple users can have access to a group. For example each company could have their own group containing databases related to that company. The order of the groups are custom for each user. The order is configurable via the **order_groups** endpoint.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listGroups();
 ```
 
@@ -1947,7 +3403,15 @@ $client->listGroups();
  Creates a new group where only the authorized user has access to. No initial data like database applications are added, they have to be created via other endpoints.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->createGroup();
 ```
 
@@ -1961,7 +3425,15 @@ $client->createGroup();
  Updates the existing group related to the provided `group_id` parameter if the authorized user belongs to the group. It is not yet possible to add additional users to a group.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->updateGroup();
 ```
 
@@ -1975,7 +3447,15 @@ $client->updateGroup();
  Deletes an existing group if the authorized user belongs to the group. All the applications, databases, tables etc that were in the group are going to be deleted also.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->deleteGroup();
 ```
 
@@ -1989,7 +3469,15 @@ $client->deleteGroup();
  Makes the authenticated user leave the group related to the provided `group_id` if the user is in that group. If the user is the last admin in the group, they will not be able to leave it. There must always be one admin in the group, otherwise it will be left without control. If that is the case, they must either delete the group or give another member admin permissions first.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->leaveGroup();
 ```
 
@@ -2004,7 +3492,15 @@ $client->leaveGroup();
  See `core.handler.CoreHandler.get_permissions()` for more details.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->groupPermissions();
 ```
 
@@ -2018,7 +3514,15 @@ $client->groupPermissions();
  Returns the requested group invitation if the authorized user has admin right to the related group
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->getGroupInvitation();
 ```
 
@@ -2032,7 +3536,15 @@ $client->getGroupInvitation();
  Updates the existing group invitation related to the provided `group_invitation_id` param if the authorized user has admin rights to the related group.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->updateGroupInvitation();
 ```
 
@@ -2046,7 +3558,15 @@ $client->updateGroupInvitation();
  Deletes a group invitation if the authorized user has admin rights to the related group.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->deleteGroupInvitation();
 ```
 
@@ -2060,7 +3580,15 @@ $client->deleteGroupInvitation();
  Accepts a group invitation with the given id if the email address of the user matches that of the invitation.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->acceptGroupInvitation();
 ```
 
@@ -2074,7 +3602,15 @@ $client->acceptGroupInvitation();
  Rejects a group invitation with the given id if the email address of the user matches that of the invitation.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->rejectGroupInvitation();
 ```
 
@@ -2088,7 +3624,15 @@ $client->rejectGroupInvitation();
  Lists all the group invitations of the group related to the provided `group_id` parameter if the authorized user has admin rights to that group.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listGroupInvitations();
 ```
 
@@ -2102,7 +3646,15 @@ $client->listGroupInvitations();
  Creates a new group invitations for an email address if the authorized user has admin rights to the related group. An email containing a sign up link will be send to the user.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->createGroupInvitation();
 ```
 
@@ -2116,7 +3668,15 @@ $client->createGroupInvitation();
  Responds with the serialized group invitation if an invitation with the provided token is found.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->getGroupInvitationByToken();
 ```
 
@@ -2130,7 +3690,15 @@ $client->getGroupInvitationByToken();
  Changes the order of the provided group ids to the matching position that the id has in the list. If the authorized user does not belong to the group it will be ignored. The order will be custom for each user.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->orderGroups();
 ```
 
@@ -2142,7 +3710,15 @@ $client->orderGroups();
  Updates the existing group user related to the provided `group_user_id` param if the authorized user has admin rights to the related group.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->updateGroupUser();
 ```
 
@@ -2154,7 +3730,15 @@ $client->updateGroupUser();
  Deletes a group user if the authorized user has admin rights to the related group.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->deleteGroupUser();
 ```
 
@@ -2166,7 +3750,15 @@ $client->deleteGroupUser();
  Lists all the users that are in a group if the authorized user has admin permissions to the related group. To add a user to a group an invitation must be sent first.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listGroupUsers();
 ```
 
@@ -2176,7 +3768,15 @@ $client->listGroupUsers();
 Updates an existing integration.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->updateApplicationIntegration();
 ```
 
@@ -2186,7 +3786,15 @@ $client->updateApplicationIntegration();
 Deletes the integration related by the given id.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->deleteApplicationIntegration();
 ```
 
@@ -2196,7 +3804,15 @@ $client->deleteApplicationIntegration();
 Moves the integration in the application before another integration or at the end of the application if no before integration is given. The integrations must belong to the same application.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->moveApplicationIntegration();
 ```
 
@@ -2206,7 +3822,15 @@ $client->moveApplicationIntegration();
 List all existing jobs. Jobs are task executed asynchronously in the background. You can use the `get_job` endpoint to read the currentprogress of a the job.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listJob();
 ```
 
@@ -2216,7 +3840,15 @@ $client->listJob();
 Creates a new job. This job runs asynchronously in the background and execute the task specific to the provided typeparameters. The `get_job` can be used to get the current state of the job.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->createJob();
 ```
 
@@ -2226,7 +3858,15 @@ $client->createJob();
 Returns the information related to the provided job id. This endpoint can for example be polled to get the state and progress of the job in real time.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->getJob();
 ```
 
@@ -2236,7 +3876,15 @@ $client->getJob();
 Lists all the valid licenses that are registered to this instance. A premium license can be used to unlock the premium features for a fixed amount of users. An enterprise license can similarly be used to unlock enterpise features. More information about self hosted licenses can be found on our pricing page https://baserow.io/pricing.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->adminLicenses();
 ```
 
@@ -2246,7 +3894,15 @@ $client->adminLicenses();
 Registers a new license. After registering you can assign users to the license that will be able to use the license's features while the license is active. If an existing license with the same `license_id` already exists and the provided license has been issued later than that one, the existing one will be upgraded.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->adminRegisterLicense();
 ```
 
@@ -2256,7 +3912,15 @@ $client->adminRegisterLicense();
 Responds with detailed information about the license related to the provided parameter.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->adminGetLicense();
 ```
 
@@ -2266,7 +3930,15 @@ $client->adminGetLicense();
 Removes the existing license related to the provided parameter. If the license is active, then all the users that are using the license will lose access to the features granted by that license.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->adminRemoveLicense();
 ```
 
@@ -2276,7 +3948,15 @@ $client->adminRemoveLicense();
 Adds the user related to the provided parameter and to the license related to the parameter. This only happens if there are enough seats left on the license and if the user is not already on the license.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->adminAddUserToLicense();
 ```
 
@@ -2286,7 +3966,15 @@ $client->adminAddUserToLicense();
 Removes the user related to the provided parameter and to the license related to the parameter. This only happens if the user is on the license, otherwise nothing will happen.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->adminRemoveUserFromLicense();
 ```
 
@@ -2296,7 +3984,15 @@ $client->adminRemoveUserFromLicense();
 This endpoint checks with the authority if the license needs to be updated. It also checks if the license is operating within its limits and might take action on that. It could also happen that the license has been deleted because there is an instance id mismatch or because it's invalid. In that case a `204` status code is returned.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->adminLicenseCheck();
 ```
 
@@ -2306,7 +4002,15 @@ $client->adminLicenseCheck();
 Fills the remaining empty seats of the license with the first users that are found.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->adminFillRemainingSeatsOfLicense();
 ```
 
@@ -2316,7 +4020,15 @@ $client->adminFillRemainingSeatsOfLicense();
 This endpoint can be used to lookup users that can be added to a  license. Users that are already in the license are not returned here. Optionally a `search` query parameter can be provided to filter the results.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->adminLicenseLookupUsers();
 ```
 
@@ -2326,7 +4038,15 @@ $client->adminLicenseLookupUsers();
 Removes all the users that are on the license. This will empty all the seats.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->adminRemoveAllUsersFromLicense();
 ```
 
@@ -2336,7 +4056,15 @@ $client->adminRemoveAllUsersFromLicense();
 Lists the notifications for the given workspace and the current user. The response is paginated and the limit and offset parameters can be controlled using the query parameters.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listWorkspaceNotifications();
 ```
 
@@ -2346,7 +4074,15 @@ $client->listWorkspaceNotifications();
 Clear all the notifications for the given workspace and user.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->clearWorkspaceNotifications();
 ```
 
@@ -2356,7 +4092,15 @@ $client->clearWorkspaceNotifications();
 Marks a notification as read.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->markNotificationAsRead();
 ```
 
@@ -2366,7 +4110,15 @@ $client->markNotificationAsRead();
 Mark as read all the notifications for the given workspace and user.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->markAllWorkspaceNotificationsAsRead();
 ```
 
@@ -2380,7 +4132,15 @@ $client->markAllWorkspaceNotificationsAsRead();
  You can list the role assignments within a group, optionally filtered down to a specific scope inside of that group. If the scope isn't specified,the group will be considered the scope.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->groupListRoleAssignments();
 ```
 
@@ -2394,7 +4154,15 @@ $client->groupListRoleAssignments();
  You can assign a role to a subject into the given group for the given scope with this endpoint. If you want to remove the role you can omit the role property.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->groupAssignRole();
 ```
 
@@ -2408,7 +4176,15 @@ $client->groupAssignRole();
  You can assign a role to a multiple subjects into the given group for the given scope with this endpoint. If you want to remove the role you can omit the role property.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->groupBatchAssignRole();
 ```
 
@@ -2418,7 +4194,15 @@ $client->groupBatchAssignRole();
 You can list the role assignments within a workspace, optionally filtered downto a specific scope inside of that workspace. If the scope isn't specified,the workspace will be considered the scope.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listRoleAssignments();
 ```
 
@@ -2428,7 +4212,15 @@ $client->listRoleAssignments();
 You can assign a role to a subject into the given workspace for the given scope with this endpoint. If you want to remove the role you can omit the role property.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->assignRole();
 ```
 
@@ -2438,7 +4230,15 @@ $client->assignRole();
 You can assign a role to a multiple subjects into the given workspace for the given scopes with this endpoint. If you want to remove the role you can omit the role property.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->batchAssignRole();
 ```
 
@@ -2450,7 +4250,15 @@ Returns all row comments for the specified table and row.
 This is a **premium** feature.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->getRowComments();
 ```
 
@@ -2462,7 +4270,15 @@ Creates a comment on the specified row.
 This is a **premium** feature.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->createRowComment();
 ```
 
@@ -2474,7 +4290,15 @@ Updates the user's notification preferences for comments made on a specified tab
 This is a **premium** feature.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->updateRowCommentNotificationMode();
 ```
 
@@ -2486,7 +4310,15 @@ Update a row comment.
 This is a **premium** feature.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->updateRowComment();
 ```
 
@@ -2498,7 +4330,15 @@ Delete a row comment.
 This is a **premium** feature.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->deleteRowComment();
 ```
 
@@ -2508,7 +4348,15 @@ $client->deleteRowComment();
 Responds with all the admin configured settings.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->getSettings();
 ```
 
@@ -2518,7 +4366,15 @@ $client->getSettings();
 Responds with the self hosted instance id. Only a user with staff permissions can request it.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->getInstanceId();
 ```
 
@@ -2528,7 +4384,15 @@ $client->getInstanceId();
 Updates the admin configured settings if the user has admin permissions.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->updateSettings();
 ```
 
@@ -2538,7 +4402,15 @@ $client->updateSettings();
 Deletes a snapshot. Deleting a snapshot doesn't affect the application that the snapshot is made from and doesn't affect any applications that were created by restoring it. Snapshot deletion is permanent and can't be undone.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->deleteSnapshot();
 ```
 
@@ -2548,7 +4420,15 @@ $client->deleteSnapshot();
 Restores a snapshot. When an application snapshot is restored, a new application will be created in the same workspace that the original application was placed in with the name of the snapshot and data that were in the original application at the time the snapshot was taken. The original application that the snapshot was taken from is unaffected. Snapshots can be restored multiple times and a number suffix is added to the new application name in the case of a collision.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->restoreSnapshot();
 ```
 
@@ -2558,7 +4438,15 @@ $client->restoreSnapshot();
 Lists snapshots that were created for a given application.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listSnapshots();
 ```
 
@@ -2568,7 +4456,15 @@ $client->listSnapshots();
 Creates a new application snapshot. Snapshots represent a state of an application at a specific point in time and can be restored later, making it easy to create backups of entire applications.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->createSnapshot();
 ```
 
@@ -2578,7 +4474,15 @@ $client->createSnapshot();
 Processes callback from OAuth2 provider and logs the user in if successful.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->oauthProviderLoginCallback();
 ```
 
@@ -2588,7 +4492,15 @@ $client->oauthProviderLoginCallback();
 Redirects to the OAuth2 provider's authentication URL based on the provided auth provider's id.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->oauthProviderLoginRedirect();
 ```
 
@@ -2598,7 +4510,15 @@ $client->oauthProviderLoginRedirect();
 Complete the SAML authentication flow by validating the SAML response. Sign in the user if already exists in Baserow or create a new one otherwise. Once authenticated, the user will be redirected to the original URL they were trying to access. If the response is invalid, the user will be redirected to an error page with a specific error message.It accepts the language code and the workspace invitation token as query parameters if provided.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->authProviderSamlAcsUrl();
 ```
 
@@ -2608,7 +4528,15 @@ $client->authProviderSamlAcsUrl();
 This is the endpoint that is called when the user wants to initiate a SSO SAML login from Baserow (the service provider). The user will be redirected to the SAML identity provider (IdP) where the user can authenticate. Once logged in in the IdP, the user will be redirected back to the assertion consumer service endpoint (ACS) where the SAML response will be validated and a new JWT session token will be provided to work with Baserow APIs.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->authProviderSamlSpLogin();
 ```
 
@@ -2618,7 +4546,15 @@ $client->authProviderSamlSpLogin();
 Return the correct redirect_url to initiate the SSO SAML login. It needs an email address if multiple SAML providers are configured otherwise the only configured SAML provider signup URL will be returned.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->authProviderLoginUrl();
 ```
 
@@ -2628,7 +4564,15 @@ $client->authProviderLoginUrl();
 Returns the information related to the provided team id.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->getTeam();
 ```
 
@@ -2638,7 +4582,15 @@ $client->getTeam();
 Updates an existing team with a new name.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->updateTeam();
 ```
 
@@ -2648,7 +4600,15 @@ $client->updateTeam();
 Deletes a team if the authorized user is in the team's workspace. All the related children (e.g. subjects) are also going to be deleted.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->deleteTeam();
 ```
 
@@ -2658,7 +4618,15 @@ $client->deleteTeam();
 Lists all team subjects in a given team.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listTeamSubjects();
 ```
 
@@ -2668,7 +4636,15 @@ $client->listTeamSubjects();
 Creates a new team subject.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->createSubject();
 ```
 
@@ -2678,7 +4654,15 @@ $client->createSubject();
 Returns the information related to the provided subject id
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->getSubject();
 ```
 
@@ -2688,7 +4672,15 @@ $client->getSubject();
 Deletes a subject if the authorized user is in the team's workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->deleteSubject();
 ```
 
@@ -2702,7 +4694,15 @@ $client->deleteSubject();
  Lists all teams in a given group.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->groupListTeams();
 ```
 
@@ -2716,7 +4716,15 @@ $client->groupListTeams();
  Creates a new team in a given group.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->groupCreateTeam();
 ```
 
@@ -2726,7 +4734,15 @@ $client->groupCreateTeam();
 Lists all teams in a given workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->workspaceListTeams();
 ```
 
@@ -2736,7 +4752,15 @@ $client->workspaceListTeams();
 Creates a new team.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->workspaceCreateTeam();
 ```
 
@@ -2746,7 +4770,15 @@ $client->workspaceCreateTeam();
 Lists all the template categories and the related templates that are in that category. The template's `workspace_id` can be used for previewing purposes because that workspace contains the applications that are in the template. All the `get` and `list` endpoints related to that workspace are publicly accessible.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listTemplates();
 ```
 
@@ -2760,7 +4792,15 @@ $client->listTemplates();
  Installs the applications of the given template into the given group if the user has access to that group. The response contains those newly created applications.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->groupInstallTemplate();
 ```
 
@@ -2774,7 +4814,15 @@ $client->groupInstallTemplate();
  Start an async job to install the applications of the given template into the given group if the user has access to that group. The response contains those newly created applications.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->groupInstallTemplateAsync();
 ```
 
@@ -2784,7 +4832,15 @@ $client->groupInstallTemplateAsync();
 (Deprecated) Installs the applications of the given template into the given workspace if the user has access to that workspace. The response contains those newly created applications.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->installTemplate();
 ```
 
@@ -2794,7 +4850,15 @@ $client->installTemplate();
 Start an async job to install the applications of the given template into the given workspace if the user has access to that workspace. The response contains those newly created applications.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->installTemplateAsync();
 ```
 
@@ -2804,7 +4868,15 @@ $client->installTemplateAsync();
 Responds with the workspaces and applications available for the requesting user to inspect the trash contents of.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->getTrashStructure();
 ```
 
@@ -2818,7 +4890,15 @@ $client->getTrashStructure();
  Responds with trash contents for a group optionally filtered to a specific application.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->groupGetContents();
 ```
 
@@ -2832,7 +4912,15 @@ $client->groupGetContents();
  Empties the specified group and/or application of trash, including the group and application themselves if they are trashed also.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->groupEmptyContents();
 ```
 
@@ -2842,7 +4930,15 @@ $client->groupEmptyContents();
 Restores the specified trashed item back into baserow.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->restore();
 ```
 
@@ -2852,7 +4948,15 @@ $client->restore();
 Responds with trash contents for a workspace optionally filtered to a specific application.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->workspaceGetContents();
 ```
 
@@ -2862,7 +4966,15 @@ $client->workspaceGetContents();
 Empties the specified workspace and/or application of trash, including the workspace and application themselves if they are trashed also.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->workspaceEmptyContents();
 ```
 
@@ -2872,7 +4984,15 @@ $client->workspaceEmptyContents();
 Creates a new user based on the provided values. If desired an authentication JWT can be generated right away. After creating an account the initial workspace containing a database is created.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->createUser();
 ```
 
@@ -2882,7 +5002,15 @@ $client->createUser();
 Uploads a file to Baserow by uploading the file contents directly. A `file` multipart is expected containing the file contents.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->uploadFile();
 ```
 
@@ -2892,7 +5020,15 @@ $client->uploadFile();
 Uploads a file to Baserow by downloading it from the provided URL.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->uploadViaUrl();
 ```
 
@@ -2902,7 +5038,15 @@ $client->uploadViaUrl();
 Generate a new access_token that can be used to continue operating on Baserow with a user source user starting from a valid refresh token.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->userSourceTokenRefresh();
 ```
 
@@ -2912,7 +5056,15 @@ $client->userSourceTokenRefresh();
 Blacklists the provided user source token. This can be used the sign the user off.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->userSourceTokenBlacklist();
 ```
 
@@ -2922,7 +5074,15 @@ $client->userSourceTokenBlacklist();
 Updates an existing user_source.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->updateApplicationUserSource();
 ```
 
@@ -2932,7 +5092,15 @@ $client->updateApplicationUserSource();
 Deletes the user_source related by the given id.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->deleteApplicationUserSource();
 ```
 
@@ -2942,7 +5110,15 @@ $client->deleteApplicationUserSource();
 Force authenticates an existing user based on their ID. If successful, an access token and a refresh token will be returned.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->userSourceForceTokenAuth();
 ```
 
@@ -2952,7 +5128,15 @@ $client->userSourceForceTokenAuth();
 Moves the user_source in the application before another user_source or at the end of the application if no before user_source is given. The user_sources must belong to the same application.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->moveApplicationUserSource();
 ```
 
@@ -2962,7 +5146,15 @@ $client->moveApplicationUserSource();
 Authenticates an existing user against a user source based on their credentials. If successful, an access token and a refresh token will be returned.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->userSourceTokenAuth();
 ```
 
@@ -2972,7 +5164,15 @@ $client->userSourceTokenAuth();
 Updates the account information of the authenticated user.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->updateAccount();
 ```
 
@@ -2982,7 +5182,15 @@ $client->updateAccount();
 Changes the password of an authenticated user, but only if the old password matches.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->changePassword();
 ```
 
@@ -2992,7 +5200,15 @@ $client->changePassword();
 Lists all the relevant user information that for example could be shown on a dashboard. It will contain all the pending workspace invitations for that user.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->dashboard();
 ```
 
@@ -3002,7 +5218,15 @@ $client->dashboard();
 Redoes the latest redoable action performed by the user making the request. a ClientSessionId header must be provided and only actions which were performed the same user with the same ClientSessionId value set on the api request that performed the action will be redone.Additionally the ClientSessionId header must be between 1 and 256 characters long and must only contain alphanumeric or the - characters.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->redo();
 ```
 
@@ -3012,7 +5236,15 @@ $client->redo();
 Changes the password of a user if the reset token is valid. The **send_password_reset_email** endpoint sends an email to the user containing the token. That token can be used to change the password here without providing the old password.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->resetPassword();
 ```
 
@@ -3022,7 +5254,15 @@ $client->resetPassword();
 Schedules the account deletion of the authenticated user. The user will be permanently deleted after the grace delay defined by the instance administrator.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->scheduleAccountDeletion();
 ```
 
@@ -3032,7 +5272,15 @@ $client->scheduleAccountDeletion();
 Sends an email containing the password reset link to the email address of the user. This will only be done if a user is found with the given email address. The endpoint will not fail if the email address is not found. The link is going to the valid for 48 hours.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->sendPasswordResetEmail();
 ```
 
@@ -3042,7 +5290,15 @@ $client->sendPasswordResetEmail();
 Sends an email to the user with an email verification link if the user's email is not verified yet.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->sendVerifyEmail();
 ```
 
@@ -3052,7 +5308,15 @@ $client->sendVerifyEmail();
 Authenticates an existing user based on their email and their password. If successful, an access token and a refresh token will be returned.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->tokenAuth();
 ```
 
@@ -3062,7 +5326,15 @@ $client->tokenAuth();
 Blacklists the provided token. This can be used the sign the user off.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->tokenBlacklist();
 ```
 
@@ -3072,7 +5344,15 @@ $client->tokenBlacklist();
 Generate a new access_token that can be used to continue operating on Baserow starting from a valid refresh token.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->tokenRefresh();
 ```
 
@@ -3082,7 +5362,15 @@ $client->tokenRefresh();
 Verifies if the refresh token is valid and can be used to generate a new access_token.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->tokenVerify();
 ```
 
@@ -3092,7 +5380,15 @@ $client->tokenVerify();
 undoes the latest undoable action performed by the user making the request. a ClientSessionId header must be provided and only actions which were performed the same user with the same ClientSessionId value set on the api request that performed the action will be undone.Additionally the ClientSessionId header must be between 1 and 256 characters long and must only contain alphanumeric or the - characters.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->undo();
 ```
 
@@ -3102,7 +5398,15 @@ $client->undo();
 Passing the correct verification token will confirm that the user's email address belongs to the user. This endpoint also optionally returns user information, access token and the refresh token for automatically signing user in the system if the request is performed by unauthenticated user.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->verifyEmail();
 ```
 
@@ -3112,7 +5416,15 @@ $client->verifyEmail();
 Lists all the workspaces of the authorized user. A workspace can contain multiple applications like a database. Multiple users can have access to a workspace. For example each company could have their own workspace containing databases related to that company. The order of the workspaces are custom for each user. The order is configurable via the **order_workspaces** endpoint.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listWorkspaces();
 ```
 
@@ -3122,7 +5434,15 @@ $client->listWorkspaces();
 Creates a new workspace where only the authorized user has access to. No initial data like database applications are added, they have to be created via other endpoints.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->createWorkspace();
 ```
 
@@ -3132,7 +5452,15 @@ $client->createWorkspace();
 Updates the existing workspace related to the provided `workspace_id` parameter if the authorized user belongs to the workspace. It is not yet possible to add additional users to a workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->updateWorkspace();
 ```
 
@@ -3142,7 +5470,15 @@ $client->updateWorkspace();
 Deletes an existing workspace if the authorized user belongs to the workspace. All the applications, databases, tables etc that were in the workspace are going to be deleted also.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->deleteWorkspace();
 ```
 
@@ -3152,7 +5488,15 @@ $client->deleteWorkspace();
 Makes the authenticated user leave the workspace related to the provided `workspace_id` if the user is in that workspace. If the user is the last admin in the workspace, they will not be able to leave it. There must always be one admin in the workspace, otherwise it will be left without control. If that is the case, they must either delete the workspace or give another member admin permissions first.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->leaveWorkspace();
 ```
 
@@ -3163,7 +5507,15 @@ Returns a the permission data necessary to determine the permissions of a specif
 See `core.handler.CoreHandler.get_permissions()` for more details.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->workspacePermissions();
 ```
 
@@ -3173,7 +5525,15 @@ $client->workspacePermissions();
 Returns the generative AI models settings for the given workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->getWorkspaceGenerativeAiModelsSettings();
 ```
 
@@ -3183,7 +5543,15 @@ $client->getWorkspaceGenerativeAiModelsSettings();
 Updates the generative AI models settings for the given workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->updateWorkspaceGenerativeAiModelsSettings();
 ```
 
@@ -3193,7 +5561,15 @@ $client->updateWorkspaceGenerativeAiModelsSettings();
 Creates an initial workspace. This is typically called after the user signs up and skips the onboarding in the frontend. It contains some example data.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->createInitialWorkspace();
 ```
 
@@ -3203,7 +5579,15 @@ $client->createInitialWorkspace();
 Returns the requested workspace invitation if the authorized user has admin right to the related workspace
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->getWorkspaceInvitation();
 ```
 
@@ -3213,7 +5597,15 @@ $client->getWorkspaceInvitation();
 Updates the existing workspace invitation related to the provided `workspace_invitation_id` param if the authorized user has admin rights to the related workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->updateWorkspaceInvitation();
 ```
 
@@ -3223,7 +5615,15 @@ $client->updateWorkspaceInvitation();
 Deletes a workspace invitation if the authorized user has admin rights to the related workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->deleteWorkspaceInvitation();
 ```
 
@@ -3233,7 +5633,15 @@ $client->deleteWorkspaceInvitation();
 Accepts a workspace invitation with the given id if the email address of the user matches that of the invitation.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->acceptWorkspaceInvitation();
 ```
 
@@ -3243,7 +5651,15 @@ $client->acceptWorkspaceInvitation();
 Rejects a workspace invitation with the given id if the email address of the user matches that of the invitation.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->rejectWorkspaceInvitation();
 ```
 
@@ -3253,7 +5669,15 @@ $client->rejectWorkspaceInvitation();
 Responds with the serialized workspace invitation if an invitation with the provided token is found.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->getWorkspaceInvitationByToken();
 ```
 
@@ -3263,7 +5687,15 @@ $client->getWorkspaceInvitationByToken();
 Lists all the workspace invitations of the workspace related to the provided `workspace_id` parameter if the authorized user has admin rights to that workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listWorkspaceInvitations();
 ```
 
@@ -3273,7 +5705,15 @@ $client->listWorkspaceInvitations();
 Creates a new workspace invitations for an email address if the authorized user has admin rights to the related workspace. An email containing a sign up link will be send to the user.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->createWorkspaceInvitation();
 ```
 
@@ -3283,7 +5723,15 @@ $client->createWorkspaceInvitation();
 Changes the order of the provided workspace ids to the matching position that the id has in the list. If the authorized user does not belong to the workspace it will be ignored. The order will be custom for each user.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->orderWorkspaces();
 ```
 
@@ -3293,7 +5741,15 @@ $client->orderWorkspaces();
 Updates the existing workspace user related to the provided `workspace_user_id` param if the authorized user has admin rights to the related workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->updateWorkspaceUser();
 ```
 
@@ -3303,7 +5759,15 @@ $client->updateWorkspaceUser();
 Deletes a workspace user if the authorized user has admin rights to the related workspace.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->deleteWorkspaceUser();
 ```
 
@@ -3313,7 +5777,15 @@ $client->deleteWorkspaceUser();
 Lists all the users that are in a workspace if the authorized user has admin permissions to the related workspace. To add a user to a workspace an invitation must be sent first.
 
 ```php
-$client = \CedricZiel\Baserow\Client::create();
+$token = 'my-token';
+$authRegistry = new AuthenticationRegistry([
+    new DatabaseTokenAuthentication($token),
+]);
+
+$client = \CedricZiel\Baserow\Generated\Client::create(null, [
+    new AddHostPlugin(new Uri('https://baserow.example.com')),
+    $authRegistry,
+]);
 $client->listWorkspaceUsers();
 ```
 
