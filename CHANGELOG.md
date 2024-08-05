@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/cedricziel/php-baserow-client/compare/v1.0.3...v1.0.4) (2024-08-05)
+
+
+### Bug Fixes
+
+* docs for auth ([#14](https://github.com/cedricziel/php-baserow-client/issues/14)) ([0b20cc1](https://github.com/cedricziel/php-baserow-client/commit/0b20cc1ffc12bae3c8143c6e1e02266a752ca46f))
+
 ## [1.0.3](https://github.com/cedricziel/php-baserow-client/compare/v1.0.2...v1.0.3) (2024-08-04)
 
 
