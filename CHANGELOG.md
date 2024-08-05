@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/cedricziel/php-baserow-client/compare/v1.1.0...v1.1.1) (2024-08-05)
+
+
+### Bug Fixes
+
+* apply plugins when providing a custom client ([#18](https://github.com/cedricziel/php-baserow-client/issues/18)) ([541830f](https://github.com/cedricziel/php-baserow-client/commit/541830f78f90021359aea6498f3569cadb6d3c3d))
+
 ## [1.1.0](https://github.com/cedricziel/php-baserow-client/compare/v1.0.4...v1.1.0) (2024-08-05)
 
 
