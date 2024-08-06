@@ -2131,7 +2131,7 @@ class Client extends Runtime\Client\Client
      * @throws Exception\BatchUpdateDatabaseTableRowsUnauthorizedException
      * @throws Exception\BatchUpdateDatabaseTableRowsNotFoundException
      */
-    public function batchUpdateDatabaseTableRows(int $tableId, ?Model\PatchedExampleBatchUpdateRowsRequest $requestBody = null, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function batchUpdateDatabaseTableRows(int $tableId, ?Model\PatchRowsRequest $requestBody = null, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
         return $this->executeEndpoint(new Endpoint\BatchUpdateDatabaseTableRows($tableId, $requestBody, $queryParameters, $headerParameters), $fetch);
     }

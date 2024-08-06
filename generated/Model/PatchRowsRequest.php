@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace CedricZiel\Baserow\Generated\Model;
 
-class PatchedExampleBatchUpdateRowsRequest extends \ArrayObject
+class PatchRowsRequest extends \ArrayObject
 {
     /**
      * @var array
@@ -22,12 +22,12 @@ class PatchedExampleBatchUpdateRowsRequest extends \ArrayObject
         return array_key_exists($property, $this->initialized);
     }
     /**
-     * @var list<ExampleBatchUpdateRowRequestSerializerWithUserFieldNames>
+     * @var list<BatchUpdateRow>
      */
     protected $items;
 
     /**
-     * @return list<ExampleBatchUpdateRowRequestSerializerWithUserFieldNames>
+     * @return list<BatchUpdateRow>
      */
     public function getItems(): array
     {
@@ -35,7 +35,7 @@ class PatchedExampleBatchUpdateRowsRequest extends \ArrayObject
     }
 
     /**
-     * @param list<ExampleBatchUpdateRowRequestSerializerWithUserFieldNames> $items
+     * @param list<BatchUpdateRow> $items
      */
     public function setItems(array $items): self
     {

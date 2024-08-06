@@ -352,7 +352,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
             \CedricZiel\Baserow\Generated\Model\ExampleBatchRowsResponse::class => ExampleBatchRowsResponseNormalizer::class,
 
-            \CedricZiel\Baserow\Generated\Model\ExampleBatchUpdateRowRequestSerializerWithUserFieldNames::class => ExampleBatchUpdateRowRequestSerializerWithUserFieldNamesNormalizer::class,
+            \CedricZiel\Baserow\Generated\Model\BatchUpdateRow::class => BatchUpdateRowNormalizer::class,
 
             \CedricZiel\Baserow\Generated\Model\ExampleRowRequest::class => ExampleRowRequestNormalizer::class,
 
@@ -868,7 +868,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
             \CedricZiel\Baserow\Generated\Model\PatchedCombinedThemeConfigBlocksPageBackgroundFile::class => PatchedCombinedThemeConfigBlocksPageBackgroundFileNormalizer::class,
 
-            \CedricZiel\Baserow\Generated\Model\PatchedExampleBatchUpdateRowsRequest::class => PatchedExampleBatchUpdateRowsRequestNormalizer::class,
+            \CedricZiel\Baserow\Generated\Model\PatchRowsRequest::class => PatchRowsRequestNormalizer::class,
 
             \CedricZiel\Baserow\Generated\Model\PatchRowRequest::class => PatchRowRequestNormalizer::class,
 
@@ -2546,7 +2546,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 \CedricZiel\Baserow\Generated\Model\EmailTesterResponse::class => false,
                 \CedricZiel\Baserow\Generated\Model\ExampleBatchRowsRequest::class => false,
                 \CedricZiel\Baserow\Generated\Model\ExampleBatchRowsResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\ExampleBatchUpdateRowRequestSerializerWithUserFieldNames::class => false,
+                \CedricZiel\Baserow\Generated\Model\BatchUpdateRow::class => false,
                 \CedricZiel\Baserow\Generated\Model\ExampleRowRequest::class => false,
                 \CedricZiel\Baserow\Generated\Model\ExampleRowRequestSerializerWithUserFieldNames::class => false,
                 \CedricZiel\Baserow\Generated\Model\ExampleRowResponse::class => false,
@@ -2804,7 +2804,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 \CedricZiel\Baserow\Generated\Model\PatchedAccount::class => false,
                 \CedricZiel\Baserow\Generated\Model\PatchedCombinedThemeConfigBlocks::class => false,
                 \CedricZiel\Baserow\Generated\Model\PatchedCombinedThemeConfigBlocksPageBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedExampleBatchUpdateRowsRequest::class => false,
+                \CedricZiel\Baserow\Generated\Model\PatchRowsRequest::class => false,
                 \CedricZiel\Baserow\Generated\Model\PatchRowRequest::class => false,
                 \CedricZiel\Baserow\Generated\Model\PatchedGenerativeAISettings::class => false,
                 \CedricZiel\Baserow\Generated\Model\PatchedMoveDataSource::class => false,
@@ -3874,7 +3874,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
             \CedricZiel\Baserow\Generated\Model\ExampleBatchRowsResponse::class => ExampleBatchRowsResponseNormalizer::class,
 
-            \CedricZiel\Baserow\Generated\Model\ExampleBatchUpdateRowRequestSerializerWithUserFieldNames::class => ExampleBatchUpdateRowRequestSerializerWithUserFieldNamesNormalizer::class,
+            \CedricZiel\Baserow\Generated\Model\BatchUpdateRow::class => BatchUpdateRowNormalizer::class,
 
             \CedricZiel\Baserow\Generated\Model\ExampleRowRequest::class => ExampleRowRequestNormalizer::class,
 
@@ -4390,7 +4390,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
             \CedricZiel\Baserow\Generated\Model\PatchedCombinedThemeConfigBlocksPageBackgroundFile::class => PatchedCombinedThemeConfigBlocksPageBackgroundFileNormalizer::class,
 
-            \CedricZiel\Baserow\Generated\Model\PatchedExampleBatchUpdateRowsRequest::class => PatchedExampleBatchUpdateRowsRequestNormalizer::class,
+            \CedricZiel\Baserow\Generated\Model\PatchRowsRequest::class => PatchRowsRequestNormalizer::class,
 
             \CedricZiel\Baserow\Generated\Model\PatchRowRequest::class => PatchRowRequestNormalizer::class,
 
@@ -6071,7 +6071,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 \CedricZiel\Baserow\Generated\Model\EmailTesterResponse::class => false,
                 \CedricZiel\Baserow\Generated\Model\ExampleBatchRowsRequest::class => false,
                 \CedricZiel\Baserow\Generated\Model\ExampleBatchRowsResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\ExampleBatchUpdateRowRequestSerializerWithUserFieldNames::class => false,
+                \CedricZiel\Baserow\Generated\Model\BatchUpdateRow::class => false,
                 \CedricZiel\Baserow\Generated\Model\ExampleRowRequest::class => false,
                 \CedricZiel\Baserow\Generated\Model\ExampleRowRequestSerializerWithUserFieldNames::class => false,
                 \CedricZiel\Baserow\Generated\Model\ExampleRowResponse::class => false,
@@ -6329,7 +6329,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 \CedricZiel\Baserow\Generated\Model\PatchedAccount::class => false,
                 \CedricZiel\Baserow\Generated\Model\PatchedCombinedThemeConfigBlocks::class => false,
                 \CedricZiel\Baserow\Generated\Model\PatchedCombinedThemeConfigBlocksPageBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedExampleBatchUpdateRowsRequest::class => false,
+                \CedricZiel\Baserow\Generated\Model\PatchRowsRequest::class => false,
                 \CedricZiel\Baserow\Generated\Model\PatchRowRequest::class => false,
                 \CedricZiel\Baserow\Generated\Model\PatchedGenerativeAISettings::class => false,
                 \CedricZiel\Baserow\Generated\Model\PatchedMoveDataSource::class => false,

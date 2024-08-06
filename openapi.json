@@ -11328,17 +11328,17 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/PatchedExampleBatchUpdateRowsRequest"
+                                "$ref": "#/components/schemas/PatchRowsRequest"
                             }
                         },
                         "application/x-www-form-urlencoded": {
                             "schema": {
-                                "$ref": "#/components/schemas/PatchedExampleBatchUpdateRowsRequest"
+                                "$ref": "#/components/schemas/PatchRowsRequest"
                             }
                         },
                         "multipart/form-data": {
                             "schema": {
-                                "$ref": "#/components/schemas/PatchedExampleBatchUpdateRowsRequest"
+                                "$ref": "#/components/schemas/PatchRowsRequest"
                             }
                         }
                     }
@@ -42843,13 +42843,16 @@
                     "items"
                 ]
             },
-            "ExampleBatchUpdateRowRequestSerializerWithUserFieldNames": {
+            "BatchUpdateRow": {
                 "type": "object",
                 "properties": {
                     "id": {
                         "type": "integer",
                         "description": "The unique identifier of the row in the table."
-                    },
+                    }
+                },
+                "additionalProperties": true,
+                "example" : {
                     "field_1": {
                         "type": "string",
                         "nullable": true,
@@ -58680,13 +58683,13 @@
                     }
                 ]
             },
-            "PatchedExampleBatchUpdateRowsRequest": {
+            "PatchRowsRequest": {
                 "type": "object",
                 "properties": {
                     "items": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/components/schemas/ExampleBatchUpdateRowRequestSerializerWithUserFieldNames"
+                            "$ref": "#/components/schemas/BatchUpdateRow"
                         },
                         "maxItems": 200,
                         "minItems": 1
