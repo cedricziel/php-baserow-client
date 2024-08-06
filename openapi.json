@@ -9996,17 +9996,17 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/ExampleRowRequestSerializerWithUserFieldNames"
+                                "$ref": "#/components/schemas/CreateRowRequest"
                             }
                         },
                         "application/x-www-form-urlencoded": {
                             "schema": {
-                                "$ref": "#/components/schemas/ExampleRowRequestSerializerWithUserFieldNames"
+                                "$ref": "#/components/schemas/CreateRowRequest"
                             }
                         },
                         "multipart/form-data": {
                             "schema": {
-                                "$ref": "#/components/schemas/ExampleRowRequestSerializerWithUserFieldNames"
+                                "$ref": "#/components/schemas/CreateRowRequest"
                             }
                         }
                     }
@@ -11141,17 +11141,17 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/ExampleBatchRowsRequest"
+                                "$ref": "#/components/schemas/BatchCreateRowRequest"
                             }
                         },
                         "application/x-www-form-urlencoded": {
                             "schema": {
-                                "$ref": "#/components/schemas/ExampleBatchRowsRequest"
+                                "$ref": "#/components/schemas/BatchCreateRowRequest"
                             }
                         },
                         "multipart/form-data": {
                             "schema": {
-                                "$ref": "#/components/schemas/ExampleBatchRowsRequest"
+                                "$ref": "#/components/schemas/BatchCreateRowRequest"
                             }
                         }
                     },
@@ -42811,13 +42811,13 @@
                 "type": "string",
                 "description": "* `rows.created` - rows.created\n* `row.created` - row.created\n* `rows.updated` - rows.updated\n* `row.updated` - row.updated\n* `rows.deleted` - rows.deleted\n* `row.deleted` - row.deleted"
             },
-            "ExampleBatchRowsRequest": {
+            "BatchCreateRowRequest": {
                 "type": "object",
                 "properties": {
                     "items": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/components/schemas/ExampleRowRequestSerializerWithUserFieldNames"
+                            "$ref": "#/components/schemas/CreateRowRequest"
                         },
                         "maxItems": 200,
                         "minItems": 1
@@ -43063,9 +43063,11 @@
                     }
                 }
             },
-            "ExampleRowRequestSerializerWithUserFieldNames": {
+            "CreateRowRequest": {
                 "type": "object",
-                "properties": {
+                "additionalProperties": true,
+                "properties": {},
+                "example": {
                     "field_1": {
                         "type": "string",
                         "nullable": true,

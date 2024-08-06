@@ -348,7 +348,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
             \CedricZiel\Baserow\Generated\Model\EmailTesterResponse::class => EmailTesterResponseNormalizer::class,
 
-            \CedricZiel\Baserow\Generated\Model\ExampleBatchRowsRequest::class => ExampleBatchRowsRequestNormalizer::class,
+            \CedricZiel\Baserow\Generated\Model\BatchCreateRowRequest::class => BatchCreateRowRequestNormalizer::class,
 
             \CedricZiel\Baserow\Generated\Model\ExampleBatchRowsResponse::class => ExampleBatchRowsResponseNormalizer::class,
 
@@ -356,7 +356,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
             \CedricZiel\Baserow\Generated\Model\ExampleRowRequest::class => ExampleRowRequestNormalizer::class,
 
-            \CedricZiel\Baserow\Generated\Model\ExampleRowRequestSerializerWithUserFieldNames::class => ExampleRowRequestSerializerWithUserFieldNamesNormalizer::class,
+            \CedricZiel\Baserow\Generated\Model\CreateRowRequest::class => CreateRowRequestNormalizer::class,
 
             \CedricZiel\Baserow\Generated\Model\ExampleRowResponse::class => ExampleRowResponseNormalizer::class,
 
@@ -2544,11 +2544,11 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 \CedricZiel\Baserow\Generated\Model\EmailFieldUpdateField::class => false,
                 \CedricZiel\Baserow\Generated\Model\EmailTesterRequest::class => false,
                 \CedricZiel\Baserow\Generated\Model\EmailTesterResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\ExampleBatchRowsRequest::class => false,
+                \CedricZiel\Baserow\Generated\Model\BatchCreateRowRequest::class => false,
                 \CedricZiel\Baserow\Generated\Model\ExampleBatchRowsResponse::class => false,
                 \CedricZiel\Baserow\Generated\Model\BatchUpdateRow::class => false,
                 \CedricZiel\Baserow\Generated\Model\ExampleRowRequest::class => false,
-                \CedricZiel\Baserow\Generated\Model\ExampleRowRequestSerializerWithUserFieldNames::class => false,
+                \CedricZiel\Baserow\Generated\Model\CreateRowRequest::class => false,
                 \CedricZiel\Baserow\Generated\Model\ExampleRowResponse::class => false,
                 \CedricZiel\Baserow\Generated\Model\ExampleRowResponseField10::class => false,
                 \CedricZiel\Baserow\Generated\Model\ExampleRowResponseField12::class => false,
@@ -3870,7 +3870,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
             \CedricZiel\Baserow\Generated\Model\EmailTesterResponse::class => EmailTesterResponseNormalizer::class,
 
-            \CedricZiel\Baserow\Generated\Model\ExampleBatchRowsRequest::class => ExampleBatchRowsRequestNormalizer::class,
+            \CedricZiel\Baserow\Generated\Model\BatchCreateRowRequest::class => BatchCreateRowRequestNormalizer::class,
 
             \CedricZiel\Baserow\Generated\Model\ExampleBatchRowsResponse::class => ExampleBatchRowsResponseNormalizer::class,
 
@@ -3878,7 +3878,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
             \CedricZiel\Baserow\Generated\Model\ExampleRowRequest::class => ExampleRowRequestNormalizer::class,
 
-            \CedricZiel\Baserow\Generated\Model\ExampleRowRequestSerializerWithUserFieldNames::class => ExampleRowRequestSerializerWithUserFieldNamesNormalizer::class,
+            \CedricZiel\Baserow\Generated\Model\CreateRowRequest::class => CreateRowRequestNormalizer::class,
 
             \CedricZiel\Baserow\Generated\Model\ExampleRowResponse::class => ExampleRowResponseNormalizer::class,
 
@@ -6069,11 +6069,11 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 \CedricZiel\Baserow\Generated\Model\EmailFieldUpdateField::class => false,
                 \CedricZiel\Baserow\Generated\Model\EmailTesterRequest::class => false,
                 \CedricZiel\Baserow\Generated\Model\EmailTesterResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\ExampleBatchRowsRequest::class => false,
+                \CedricZiel\Baserow\Generated\Model\BatchCreateRowRequest::class => false,
                 \CedricZiel\Baserow\Generated\Model\ExampleBatchRowsResponse::class => false,
                 \CedricZiel\Baserow\Generated\Model\BatchUpdateRow::class => false,
                 \CedricZiel\Baserow\Generated\Model\ExampleRowRequest::class => false,
-                \CedricZiel\Baserow\Generated\Model\ExampleRowRequestSerializerWithUserFieldNames::class => false,
+                \CedricZiel\Baserow\Generated\Model\CreateRowRequest::class => false,
                 \CedricZiel\Baserow\Generated\Model\ExampleRowResponse::class => false,
                 \CedricZiel\Baserow\Generated\Model\ExampleRowResponseField10::class => false,
                 \CedricZiel\Baserow\Generated\Model\ExampleRowResponseField12::class => false,
