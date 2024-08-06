@@ -22,12 +22,12 @@ class ExampleBatchRowsResponse extends \ArrayObject
         return array_key_exists($property, $this->initialized);
     }
     /**
-     * @var list<ExampleRowResponseSerializerWithUserFieldNames>
+     * @var list<RowResponse>
      */
     protected $items;
 
     /**
-     * @return list<ExampleRowResponseSerializerWithUserFieldNames>
+     * @return list<RowResponse>
      */
     public function getItems(): array
     {
@@ -35,7 +35,7 @@ class ExampleBatchRowsResponse extends \ArrayObject
     }
 
     /**
-     * @param list<ExampleRowResponseSerializerWithUserFieldNames> $items
+     * @param list<RowResponse> $items
      */
     public function setItems(array $items): self
     {

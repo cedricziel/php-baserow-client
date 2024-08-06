@@ -22,7 +22,7 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
-    class ExampleRowResponseSerializerWithUserFieldNamesField12Normalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+    class PatchRowsRequestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
     {
         use DenormalizerAwareTrait;
         use NormalizerAwareTrait;
@@ -31,12 +31,12 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
         {
-            return \CedricZiel\Baserow\Generated\Model\ExampleRowResponseSerializerWithUserFieldNamesField12::class === $type;
+            return \CedricZiel\Baserow\Generated\Model\PatchRowsRequest::class === $type;
         }
 
         public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
         {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\ExampleRowResponseSerializerWithUserFieldNamesField12::class === get_class($data);
+            return is_object($data) && \CedricZiel\Baserow\Generated\Model\PatchRowsRequest::class === get_class($data);
         }
 
         public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -47,21 +47,21 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \CedricZiel\Baserow\Generated\Model\ExampleRowResponseSerializerWithUserFieldNamesField12();
+            $object = new \CedricZiel\Baserow\Generated\Model\PatchRowsRequest();
             if (null === $data || false === \is_array($data)) {
                 return $object;
             }
-            if (\array_key_exists('id', $data)) {
-                $object->setId($data['id']);
-                unset($data['id']);
+            if (\array_key_exists('items', $data)) {
+                $values = [];
+                foreach ($data['items'] as $value) {
+                    $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\BatchUpdateRow::class, 'json', $context);
+                }
+                $object->setItems($values);
+                unset($data['items']);
             }
-            if (\array_key_exists('name', $data)) {
-                $object->setName($data['name']);
-                unset($data['name']);
-            }
-            foreach ($data as $key => $value) {
+            foreach ($data as $key => $value_1) {
                 if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value;
+                    $object[$key] = $value_1;
                 }
             }
 
@@ -71,10 +71,16 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
         public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
         {
             $data = [];
-            $data['id'] = $object->getId();
-            foreach ($object as $key => $value) {
+            if ($object->isInitialized('items') && null !== $object->getItems()) {
+                $values = [];
+                foreach ($object->getItems() as $value) {
+                    $values[] = $this->normalizer->normalize($value, 'json', $context);
+                }
+                $data['items'] = $values;
+            }
+            foreach ($object as $key => $value_1) {
                 if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value;
+                    $data[$key] = $value_1;
                 }
             }
 
@@ -83,11 +89,11 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function getSupportedTypes(?string $format = null): array
         {
-            return [\CedricZiel\Baserow\Generated\Model\ExampleRowResponseSerializerWithUserFieldNamesField12::class => false];
+            return [\CedricZiel\Baserow\Generated\Model\PatchRowsRequest::class => false];
         }
     }
 } else {
-    class ExampleRowResponseSerializerWithUserFieldNamesField12Normalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+    class PatchRowsRequestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
     {
         use DenormalizerAwareTrait;
         use NormalizerAwareTrait;
@@ -96,12 +102,12 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function supportsDenormalization($data, $type, ?string $format = null, array $context = []): bool
         {
-            return \CedricZiel\Baserow\Generated\Model\ExampleRowResponseSerializerWithUserFieldNamesField12::class === $type;
+            return \CedricZiel\Baserow\Generated\Model\PatchRowsRequest::class === $type;
         }
 
         public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
         {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\ExampleRowResponseSerializerWithUserFieldNamesField12::class === get_class($data);
+            return is_object($data) && \CedricZiel\Baserow\Generated\Model\PatchRowsRequest::class === get_class($data);
         }
 
         public function denormalize($data, $type, $format = null, array $context = [])
@@ -112,21 +118,21 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \CedricZiel\Baserow\Generated\Model\ExampleRowResponseSerializerWithUserFieldNamesField12();
+            $object = new \CedricZiel\Baserow\Generated\Model\PatchRowsRequest();
             if (null === $data || false === \is_array($data)) {
                 return $object;
             }
-            if (\array_key_exists('id', $data)) {
-                $object->setId($data['id']);
-                unset($data['id']);
+            if (\array_key_exists('items', $data)) {
+                $values = [];
+                foreach ($data['items'] as $value) {
+                    $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\BatchUpdateRow::class, 'json', $context);
+                }
+                $object->setItems($values);
+                unset($data['items']);
             }
-            if (\array_key_exists('name', $data)) {
-                $object->setName($data['name']);
-                unset($data['name']);
-            }
-            foreach ($data as $key => $value) {
+            foreach ($data as $key => $value_1) {
                 if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value;
+                    $object[$key] = $value_1;
                 }
             }
 
@@ -139,10 +145,16 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
         public function normalize($object, $format = null, array $context = [])
         {
             $data = [];
-            $data['id'] = $object->getId();
-            foreach ($object as $key => $value) {
+            if ($object->isInitialized('items') && null !== $object->getItems()) {
+                $values = [];
+                foreach ($object->getItems() as $value) {
+                    $values[] = $this->normalizer->normalize($value, 'json', $context);
+                }
+                $data['items'] = $values;
+            }
+            foreach ($object as $key => $value_1) {
                 if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value;
+                    $data[$key] = $value_1;
                 }
             }
 
@@ -151,7 +163,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function getSupportedTypes(?string $format = null): array
         {
-            return [\CedricZiel\Baserow\Generated\Model\ExampleRowResponseSerializerWithUserFieldNamesField12::class => false];
+            return [\CedricZiel\Baserow\Generated\Model\PatchRowsRequest::class => false];
         }
     }
 }

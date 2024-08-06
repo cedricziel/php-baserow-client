@@ -31,7 +31,7 @@ class BatchUpdateDatabaseTableRows extends \CedricZiel\Baserow\Generated\Runtime
      * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
      *             }
      */
-    public function __construct(int $tableId, ?\CedricZiel\Baserow\Generated\Model\PatchedExampleBatchUpdateRowsRequest $requestBody = null, array $queryParameters = [], array $headerParameters = [])
+    public function __construct(int $tableId, ?\CedricZiel\Baserow\Generated\Model\PatchRowsRequest $requestBody = null, array $queryParameters = [], array $headerParameters = [])
     {
         $this->table_id = $tableId;
         $this->body = $requestBody;
@@ -51,13 +51,13 @@ class BatchUpdateDatabaseTableRows extends \CedricZiel\Baserow\Generated\Runtime
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedExampleBatchUpdateRowsRequest) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchRowsRequest) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedExampleBatchUpdateRowsRequest) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchRowsRequest) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedExampleBatchUpdateRowsRequest) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchRowsRequest) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {

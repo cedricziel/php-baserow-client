@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace CedricZiel\Baserow\Generated\Model;
 
-class PaginationSerializerExampleRowResponseSerializerWithUserFieldNames extends \ArrayObject
+class PaginationRowResponse extends \ArrayObject
 {
     /**
      * @var array
@@ -40,7 +40,7 @@ class PaginationSerializerExampleRowResponseSerializerWithUserFieldNames extends
      */
     protected $previous;
     /**
-     * @var list<ExampleRowResponseSerializerWithUserFieldNames>
+     * @var list<RowResponse>
      */
     protected $results;
 
@@ -102,7 +102,7 @@ class PaginationSerializerExampleRowResponseSerializerWithUserFieldNames extends
     }
 
     /**
-     * @return list<ExampleRowResponseSerializerWithUserFieldNames>
+     * @return list<RowResponse>
      */
     public function getResults(): array
     {
@@ -110,7 +110,7 @@ class PaginationSerializerExampleRowResponseSerializerWithUserFieldNames extends
     }
 
     /**
-     * @param list<ExampleRowResponseSerializerWithUserFieldNames> $results
+     * @param list<RowResponse> $results
      */
     public function setResults(array $results): self
     {

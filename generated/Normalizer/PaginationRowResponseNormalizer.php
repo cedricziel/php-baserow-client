@@ -22,7 +22,7 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
-    class PaginationSerializerExampleRowResponseSerializerWithUserFieldNamesNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+    class PaginationRowResponseNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
     {
         use DenormalizerAwareTrait;
         use NormalizerAwareTrait;
@@ -31,12 +31,12 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
         {
-            return \CedricZiel\Baserow\Generated\Model\PaginationSerializerExampleRowResponseSerializerWithUserFieldNames::class === $type;
+            return \CedricZiel\Baserow\Generated\Model\PaginationRowResponse::class === $type;
         }
 
         public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
         {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\PaginationSerializerExampleRowResponseSerializerWithUserFieldNames::class === get_class($data);
+            return is_object($data) && \CedricZiel\Baserow\Generated\Model\PaginationRowResponse::class === get_class($data);
         }
 
         public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -47,7 +47,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \CedricZiel\Baserow\Generated\Model\PaginationSerializerExampleRowResponseSerializerWithUserFieldNames();
+            $object = new \CedricZiel\Baserow\Generated\Model\PaginationRowResponse();
             if (null === $data || false === \is_array($data)) {
                 return $object;
             }
@@ -70,7 +70,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (\array_key_exists('results', $data)) {
                 $values = [];
                 foreach ($data['results'] as $value) {
-                    $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\ExampleRowResponseSerializerWithUserFieldNames::class, 'json', $context);
+                    $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\RowResponse::class, 'json', $context);
                 }
                 $object->setResults($values);
                 unset($data['results']);
@@ -106,11 +106,11 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function getSupportedTypes(?string $format = null): array
         {
-            return [\CedricZiel\Baserow\Generated\Model\PaginationSerializerExampleRowResponseSerializerWithUserFieldNames::class => false];
+            return [\CedricZiel\Baserow\Generated\Model\PaginationRowResponse::class => false];
         }
     }
 } else {
-    class PaginationSerializerExampleRowResponseSerializerWithUserFieldNamesNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+    class PaginationRowResponseNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
     {
         use DenormalizerAwareTrait;
         use NormalizerAwareTrait;
@@ -119,12 +119,12 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function supportsDenormalization($data, $type, ?string $format = null, array $context = []): bool
         {
-            return \CedricZiel\Baserow\Generated\Model\PaginationSerializerExampleRowResponseSerializerWithUserFieldNames::class === $type;
+            return \CedricZiel\Baserow\Generated\Model\PaginationRowResponse::class === $type;
         }
 
         public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
         {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\PaginationSerializerExampleRowResponseSerializerWithUserFieldNames::class === get_class($data);
+            return is_object($data) && \CedricZiel\Baserow\Generated\Model\PaginationRowResponse::class === get_class($data);
         }
 
         public function denormalize($data, $type, $format = null, array $context = [])
@@ -135,7 +135,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \CedricZiel\Baserow\Generated\Model\PaginationSerializerExampleRowResponseSerializerWithUserFieldNames();
+            $object = new \CedricZiel\Baserow\Generated\Model\PaginationRowResponse();
             if (null === $data || false === \is_array($data)) {
                 return $object;
             }
@@ -158,7 +158,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (\array_key_exists('results', $data)) {
                 $values = [];
                 foreach ($data['results'] as $value) {
-                    $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\ExampleRowResponseSerializerWithUserFieldNames::class, 'json', $context);
+                    $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\RowResponse::class, 'json', $context);
                 }
                 $object->setResults($values);
                 unset($data['results']);
@@ -197,7 +197,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function getSupportedTypes(?string $format = null): array
         {
-            return [\CedricZiel\Baserow\Generated\Model\PaginationSerializerExampleRowResponseSerializerWithUserFieldNames::class => false];
+            return [\CedricZiel\Baserow\Generated\Model\PaginationRowResponse::class => false];
         }
     }
 }

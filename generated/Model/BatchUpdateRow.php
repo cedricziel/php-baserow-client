@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace CedricZiel\Baserow\Generated\Model;
 
-class ExampleRowResponseSerializerWithUserFieldNamesField10 extends \ArrayObject
+class BatchUpdateRow extends \ArrayObject
 {
     /**
      * @var array
@@ -22,36 +22,27 @@ class ExampleRowResponseSerializerWithUserFieldNamesField10 extends \ArrayObject
         return array_key_exists($property, $this->initialized);
     }
     /**
+     * The unique identifier of the row in the table.
+     *
      * @var int
      */
     protected $id;
-    /**
-     * @var string
-     */
-    protected $name;
 
+    /**
+     * The unique identifier of the row in the table.
+     */
     public function getId(): int
     {
         return $this->id;
     }
 
+    /**
+     * The unique identifier of the row in the table.
+     */
     public function setId(int $id): self
     {
         $this->initialized['id'] = true;
         $this->id = $id;
-
-        return $this;
-    }
-
-    public function getName(): string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): self
-    {
-        $this->initialized['name'] = true;
-        $this->name = $name;
 
         return $this;
     }

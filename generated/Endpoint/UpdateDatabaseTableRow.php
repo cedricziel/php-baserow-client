@@ -32,7 +32,7 @@ class UpdateDatabaseTableRow extends \CedricZiel\Baserow\Generated\Runtime\Clien
      * @var string $ClientUndoRedoActionGroupId An optional header that marks the action performed by this request as having occurred in a particular action group.Then calling the undo/redo endpoint with the same ClientSessionId header, all the actions belonging to the same action group can be undone/redone together in a single API call.
      *             }
      */
-    public function __construct(int $rowId, int $tableId, ?\CedricZiel\Baserow\Generated\Model\PatchedExampleUpdateRowRequestSerializerWithUserFieldNames $requestBody = null, array $queryParameters = [], array $headerParameters = [])
+    public function __construct(int $rowId, int $tableId, ?\CedricZiel\Baserow\Generated\Model\PatchRowRequest $requestBody = null, array $queryParameters = [], array $headerParameters = [])
     {
         $this->row_id = $rowId;
         $this->table_id = $tableId;
@@ -53,13 +53,13 @@ class UpdateDatabaseTableRow extends \CedricZiel\Baserow\Generated\Runtime\Clien
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedExampleUpdateRowRequestSerializerWithUserFieldNames) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchRowRequest) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedExampleUpdateRowRequestSerializerWithUserFieldNames) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchRowRequest) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
         }
-        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchedExampleUpdateRowRequestSerializerWithUserFieldNames) {
+        if ($this->body instanceof \CedricZiel\Baserow\Generated\Model\PatchRowRequest) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -102,7 +102,7 @@ class UpdateDatabaseTableRow extends \CedricZiel\Baserow\Generated\Runtime\Clien
     }
 
     /**
-     * @return \CedricZiel\Baserow\Generated\Model\ExampleRowResponseSerializerWithUserFieldNames|null
+     * @return \CedricZiel\Baserow\Generated\Model\RowResponse|null
      *
      * @throws \CedricZiel\Baserow\Generated\Exception\UpdateDatabaseTableRowBadRequestException
      * @throws \CedricZiel\Baserow\Generated\Exception\UpdateDatabaseTableRowUnauthorizedException
@@ -113,7 +113,7 @@ class UpdateDatabaseTableRow extends \CedricZiel\Baserow\Generated\Runtime\Clien
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ExampleRowResponseSerializerWithUserFieldNames', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\RowResponse', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\UpdateDatabaseTableRowBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdPatchResponse400', 'json'), $response);

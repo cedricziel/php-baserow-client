@@ -54,7 +54,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (\array_key_exists('items', $data)) {
                 $values = [];
                 foreach ($data['items'] as $value) {
-                    $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\ExampleRowResponseSerializerWithUserFieldNames::class, 'json', $context);
+                    $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\RowResponse::class, 'json', $context);
                 }
                 $object->setItems($values);
                 unset($data['items']);
@@ -123,7 +123,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (\array_key_exists('items', $data)) {
                 $values = [];
                 foreach ($data['items'] as $value) {
-                    $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\ExampleRowResponseSerializerWithUserFieldNames::class, 'json', $context);
+                    $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\RowResponse::class, 'json', $context);
                 }
                 $object->setItems($values);
                 unset($data['items']);

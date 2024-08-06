@@ -9823,7 +9823,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/PaginationSerializerExampleRowResponseSerializerWithUserFieldNames"
+                                    "$ref": "#/components/schemas/PaginationRowResponse"
                                 }
                             }
                         },
@@ -10024,7 +10024,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ExampleRowResponseSerializerWithUserFieldNames"
+                                    "$ref": "#/components/schemas/RowResponse"
                                 }
                             }
                         },
@@ -10183,7 +10183,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ExampleRowResponseSerializerWithUserFieldNames"
+                                    "$ref": "#/components/schemas/RowResponse"
                                 }
                             }
                         },
@@ -10348,17 +10348,17 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/PatchedExampleUpdateRowRequestSerializerWithUserFieldNames"
+                                "$ref": "#/components/schemas/PatchRowRequest"
                             }
                         },
                         "application/x-www-form-urlencoded": {
                             "schema": {
-                                "$ref": "#/components/schemas/PatchedExampleUpdateRowRequestSerializerWithUserFieldNames"
+                                "$ref": "#/components/schemas/PatchRowRequest"
                             }
                         },
                         "multipart/form-data": {
                             "schema": {
-                                "$ref": "#/components/schemas/PatchedExampleUpdateRowRequestSerializerWithUserFieldNames"
+                                "$ref": "#/components/schemas/PatchRowRequest"
                             }
                         }
                     }
@@ -10376,7 +10376,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ExampleRowResponseSerializerWithUserFieldNames"
+                                    "$ref": "#/components/schemas/RowResponse"
                                 }
                             }
                         },
@@ -10689,7 +10689,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ExampleRowResponseSerializerWithUserFieldNames"
+                                    "$ref": "#/components/schemas/RowResponse"
                                 }
                             }
                         },
@@ -10976,7 +10976,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ExampleRowResponseSerializerWithUserFieldNames"
+                                    "$ref": "#/components/schemas/RowResponse"
                                 }
                             }
                         },
@@ -11328,17 +11328,17 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/PatchedExampleBatchUpdateRowsRequest"
+                                "$ref": "#/components/schemas/PatchRowsRequest"
                             }
                         },
                         "application/x-www-form-urlencoded": {
                             "schema": {
-                                "$ref": "#/components/schemas/PatchedExampleBatchUpdateRowsRequest"
+                                "$ref": "#/components/schemas/PatchRowsRequest"
                             }
                         },
                         "multipart/form-data": {
                             "schema": {
-                                "$ref": "#/components/schemas/PatchedExampleBatchUpdateRowsRequest"
+                                "$ref": "#/components/schemas/PatchRowsRequest"
                             }
                         }
                     }
@@ -42833,7 +42833,7 @@
                     "items": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/components/schemas/ExampleRowResponseSerializerWithUserFieldNames"
+                            "$ref": "#/components/schemas/RowResponse"
                         },
                         "maxItems": 200,
                         "minItems": 1
@@ -42843,13 +42843,16 @@
                     "items"
                 ]
             },
-            "ExampleBatchUpdateRowRequestSerializerWithUserFieldNames": {
+            "BatchUpdateRow": {
                 "type": "object",
                 "properties": {
                     "id": {
                         "type": "integer",
                         "description": "The unique identifier of the row in the table."
-                    },
+                    }
+                },
+                "additionalProperties": true,
+                "example" : {
                     "field_1": {
                         "type": "string",
                         "nullable": true,
@@ -43343,7 +43346,7 @@
                     "id"
                 ]
             },
-            "ExampleRowResponseSerializerWithUserFieldNames": {
+            "RowResponse": {
                 "type": "object",
                 "properties": {
                     "id": {
@@ -43355,7 +43358,13 @@
                         "format": "decimal",
                         "pattern": "^-?\\d{0,20}(?:\\.\\d{0,20})?$",
                         "description": "Indicates the position of the row, lowest first and highest last."
-                    },
+                    }
+                },
+                "required": [
+                    "id"
+                ],
+                "additionalProperties": true,
+                "example": {
                     "field_1": {
                         "type": "string",
                         "nullable": true,
@@ -43516,10 +43525,7 @@
                         "nullable": true,
                         "description": "This field represents the `ai` field. The number in field_27 is in a normal request or response the id of the field. If the GET parameter `user_field_names` is provided then the key will instead be the actual name of the field. Holds a text value that is generated by a generative AI model using a dynamic prompt."
                     }
-                },
-                "required": [
-                    "id"
-                ]
+                }
             },
             "Export": {
                 "oneOf": [
@@ -57704,7 +57710,7 @@
                     "results"
                 ]
             },
-            "PaginationSerializerExampleRowResponseSerializerWithUserFieldNames": {
+            "PaginationRowResponse": {
                 "type": "object",
                 "properties": {
                     "count": {
@@ -57726,7 +57732,7 @@
                     "results": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/components/schemas/ExampleRowResponseSerializerWithUserFieldNames"
+                            "$ref": "#/components/schemas/RowResponse"
                         }
                     }
                 },
@@ -58677,22 +58683,24 @@
                     }
                 ]
             },
-            "PatchedExampleBatchUpdateRowsRequest": {
+            "PatchRowsRequest": {
                 "type": "object",
                 "properties": {
                     "items": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/components/schemas/ExampleBatchUpdateRowRequestSerializerWithUserFieldNames"
+                            "$ref": "#/components/schemas/BatchUpdateRow"
                         },
                         "maxItems": 200,
                         "minItems": 1
                     }
                 }
             },
-            "PatchedExampleUpdateRowRequestSerializerWithUserFieldNames": {
+            "PatchRowRequest": {
                 "type": "object",
-                "properties": {
+                "additionalProperties": true,
+                "properties": {},
+                "example": {
                     "field_1": {
                         "type": "string",
                         "nullable": true,

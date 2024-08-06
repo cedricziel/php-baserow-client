@@ -1913,7 +1913,7 @@ class Client extends Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return Model\PaginationSerializerExampleRowResponseSerializerWithUserFieldNames|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\PaginationRowResponse|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\ListDatabaseTableRowsBadRequestException
      * @throws Exception\ListDatabaseTableRowsUnauthorizedException
@@ -1942,7 +1942,7 @@ class Client extends Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return Model\ExampleRowResponseSerializerWithUserFieldNames|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\RowResponse|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\CreateDatabaseTableRowBadRequestException
      * @throws Exception\CreateDatabaseTableRowUnauthorizedException
@@ -1988,7 +1988,7 @@ class Client extends Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return Model\ExampleRowResponseSerializerWithUserFieldNames|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\RowResponse|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\GetDatabaseTableRowBadRequestException
      * @throws Exception\GetDatabaseTableRowUnauthorizedException
@@ -2017,13 +2017,13 @@ class Client extends Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return Model\ExampleRowResponseSerializerWithUserFieldNames|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\RowResponse|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\UpdateDatabaseTableRowBadRequestException
      * @throws Exception\UpdateDatabaseTableRowUnauthorizedException
      * @throws Exception\UpdateDatabaseTableRowNotFoundException
      */
-    public function updateDatabaseTableRow(int $rowId, int $tableId, ?Model\PatchedExampleUpdateRowRequestSerializerWithUserFieldNames $requestBody = null, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function updateDatabaseTableRow(int $rowId, int $tableId, ?Model\PatchRowRequest $requestBody = null, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
         return $this->executeEndpoint(new Endpoint\UpdateDatabaseTableRow($rowId, $tableId, $requestBody, $queryParameters, $headerParameters), $fetch);
     }
@@ -2044,7 +2044,7 @@ class Client extends Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return Model\ExampleRowResponseSerializerWithUserFieldNames|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\RowResponse|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\GetAdjacentDatabaseTableRowBadRequestException
      * @throws Exception\GetAdjacentDatabaseTableRowNotFoundException
@@ -2096,7 +2096,7 @@ class Client extends Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return Model\ExampleRowResponseSerializerWithUserFieldNames|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\RowResponse|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\MoveDatabaseTableRowBadRequestException
      * @throws Exception\MoveDatabaseTableRowUnauthorizedException
@@ -2131,7 +2131,7 @@ class Client extends Runtime\Client\Client
      * @throws Exception\BatchUpdateDatabaseTableRowsUnauthorizedException
      * @throws Exception\BatchUpdateDatabaseTableRowsNotFoundException
      */
-    public function batchUpdateDatabaseTableRows(int $tableId, ?Model\PatchedExampleBatchUpdateRowsRequest $requestBody = null, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function batchUpdateDatabaseTableRows(int $tableId, ?Model\PatchRowsRequest $requestBody = null, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
         return $this->executeEndpoint(new Endpoint\BatchUpdateDatabaseTableRows($tableId, $requestBody, $queryParameters, $headerParameters), $fetch);
     }
