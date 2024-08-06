@@ -1948,7 +1948,7 @@ class Client extends Runtime\Client\Client
      * @throws Exception\CreateDatabaseTableRowUnauthorizedException
      * @throws Exception\CreateDatabaseTableRowNotFoundException
      */
-    public function createDatabaseTableRow(int $tableId, ?Model\ExampleRowRequestSerializerWithUserFieldNames $requestBody = null, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function createDatabaseTableRow(int $tableId, ?Model\CreateRowRequest $requestBody = null, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
         return $this->executeEndpoint(new Endpoint\CreateDatabaseTableRow($tableId, $requestBody, $queryParameters, $headerParameters), $fetch);
     }
@@ -2161,7 +2161,7 @@ class Client extends Runtime\Client\Client
      * @throws Exception\BatchCreateDatabaseTableRowsUnauthorizedException
      * @throws Exception\BatchCreateDatabaseTableRowsNotFoundException
      */
-    public function batchCreateDatabaseTableRows(int $tableId, Model\ExampleBatchRowsRequest $requestBody, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function batchCreateDatabaseTableRows(int $tableId, Model\BatchCreateRowRequest $requestBody, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
         return $this->executeEndpoint(new Endpoint\BatchCreateDatabaseTableRows($tableId, $requestBody, $queryParameters, $headerParameters), $fetch);
     }

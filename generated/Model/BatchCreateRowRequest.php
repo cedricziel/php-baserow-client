@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace CedricZiel\Baserow\Generated\Model;
 
-class ExampleBatchRowsRequest extends \ArrayObject
+class BatchCreateRowRequest extends \ArrayObject
 {
     /**
      * @var array
@@ -22,12 +22,12 @@ class ExampleBatchRowsRequest extends \ArrayObject
         return array_key_exists($property, $this->initialized);
     }
     /**
-     * @var list<ExampleRowRequestSerializerWithUserFieldNames>
+     * @var list<CreateRowRequest>
      */
     protected $items;
 
     /**
-     * @return list<ExampleRowRequestSerializerWithUserFieldNames>
+     * @return list<CreateRowRequest>
      */
     public function getItems(): array
     {
@@ -35,7 +35,7 @@ class ExampleBatchRowsRequest extends \ArrayObject
     }
 
     /**
-     * @param list<ExampleRowRequestSerializerWithUserFieldNames> $items
+     * @param list<CreateRowRequest> $items
      */
     public function setItems(array $items): self
     {

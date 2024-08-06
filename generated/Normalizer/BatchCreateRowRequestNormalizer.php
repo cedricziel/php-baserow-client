@@ -22,7 +22,7 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
-    class ExampleBatchRowsRequestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+    class BatchCreateRowRequestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
     {
         use DenormalizerAwareTrait;
         use NormalizerAwareTrait;
@@ -31,12 +31,12 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
         {
-            return \CedricZiel\Baserow\Generated\Model\ExampleBatchRowsRequest::class === $type;
+            return \CedricZiel\Baserow\Generated\Model\BatchCreateRowRequest::class === $type;
         }
 
         public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
         {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\ExampleBatchRowsRequest::class === get_class($data);
+            return is_object($data) && \CedricZiel\Baserow\Generated\Model\BatchCreateRowRequest::class === get_class($data);
         }
 
         public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -47,14 +47,14 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \CedricZiel\Baserow\Generated\Model\ExampleBatchRowsRequest();
+            $object = new \CedricZiel\Baserow\Generated\Model\BatchCreateRowRequest();
             if (null === $data || false === \is_array($data)) {
                 return $object;
             }
             if (\array_key_exists('items', $data)) {
                 $values = [];
                 foreach ($data['items'] as $value) {
-                    $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\ExampleRowRequestSerializerWithUserFieldNames::class, 'json', $context);
+                    $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\CreateRowRequest::class, 'json', $context);
                 }
                 $object->setItems($values);
                 unset($data['items']);
@@ -87,11 +87,11 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function getSupportedTypes(?string $format = null): array
         {
-            return [\CedricZiel\Baserow\Generated\Model\ExampleBatchRowsRequest::class => false];
+            return [\CedricZiel\Baserow\Generated\Model\BatchCreateRowRequest::class => false];
         }
     }
 } else {
-    class ExampleBatchRowsRequestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+    class BatchCreateRowRequestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
     {
         use DenormalizerAwareTrait;
         use NormalizerAwareTrait;
@@ -100,12 +100,12 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function supportsDenormalization($data, $type, ?string $format = null, array $context = []): bool
         {
-            return \CedricZiel\Baserow\Generated\Model\ExampleBatchRowsRequest::class === $type;
+            return \CedricZiel\Baserow\Generated\Model\BatchCreateRowRequest::class === $type;
         }
 
         public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
         {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\ExampleBatchRowsRequest::class === get_class($data);
+            return is_object($data) && \CedricZiel\Baserow\Generated\Model\BatchCreateRowRequest::class === get_class($data);
         }
 
         public function denormalize($data, $type, $format = null, array $context = [])
@@ -116,14 +116,14 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \CedricZiel\Baserow\Generated\Model\ExampleBatchRowsRequest();
+            $object = new \CedricZiel\Baserow\Generated\Model\BatchCreateRowRequest();
             if (null === $data || false === \is_array($data)) {
                 return $object;
             }
             if (\array_key_exists('items', $data)) {
                 $values = [];
                 foreach ($data['items'] as $value) {
-                    $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\ExampleRowRequestSerializerWithUserFieldNames::class, 'json', $context);
+                    $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\CreateRowRequest::class, 'json', $context);
                 }
                 $object->setItems($values);
                 unset($data['items']);
@@ -159,7 +159,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function getSupportedTypes(?string $format = null): array
         {
-            return [\CedricZiel\Baserow\Generated\Model\ExampleBatchRowsRequest::class => false];
+            return [\CedricZiel\Baserow\Generated\Model\BatchCreateRowRequest::class => false];
         }
     }
 }
