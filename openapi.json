@@ -10348,17 +10348,17 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/PatchedExampleUpdateRowRequestSerializerWithUserFieldNames"
+                                "$ref": "#/components/schemas/PatchRowRequest"
                             }
                         },
                         "application/x-www-form-urlencoded": {
                             "schema": {
-                                "$ref": "#/components/schemas/PatchedExampleUpdateRowRequestSerializerWithUserFieldNames"
+                                "$ref": "#/components/schemas/PatchRowRequest"
                             }
                         },
                         "multipart/form-data": {
                             "schema": {
-                                "$ref": "#/components/schemas/PatchedExampleUpdateRowRequestSerializerWithUserFieldNames"
+                                "$ref": "#/components/schemas/PatchRowRequest"
                             }
                         }
                     }
@@ -58693,9 +58693,11 @@
                     }
                 }
             },
-            "PatchedExampleUpdateRowRequestSerializerWithUserFieldNames": {
+            "PatchRowRequest": {
                 "type": "object",
-                "properties": {
+                "additionalProperties": true,
+                "properties": {},
+                "example": {
                     "field_1": {
                         "type": "string",
                         "nullable": true,

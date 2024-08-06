@@ -2023,7 +2023,7 @@ class Client extends Runtime\Client\Client
      * @throws Exception\UpdateDatabaseTableRowUnauthorizedException
      * @throws Exception\UpdateDatabaseTableRowNotFoundException
      */
-    public function updateDatabaseTableRow(int $rowId, int $tableId, ?Model\PatchedExampleUpdateRowRequestSerializerWithUserFieldNames $requestBody = null, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function updateDatabaseTableRow(int $rowId, int $tableId, ?Model\PatchRowRequest $requestBody = null, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
         return $this->executeEndpoint(new Endpoint\UpdateDatabaseTableRow($rowId, $tableId, $requestBody, $queryParameters, $headerParameters), $fetch);
     }

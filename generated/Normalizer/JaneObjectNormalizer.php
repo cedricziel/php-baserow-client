@@ -870,7 +870,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
             \CedricZiel\Baserow\Generated\Model\PatchedExampleBatchUpdateRowsRequest::class => PatchedExampleBatchUpdateRowsRequestNormalizer::class,
 
-            \CedricZiel\Baserow\Generated\Model\PatchedExampleUpdateRowRequestSerializerWithUserFieldNames::class => PatchedExampleUpdateRowRequestSerializerWithUserFieldNamesNormalizer::class,
+            \CedricZiel\Baserow\Generated\Model\PatchRowRequest::class => PatchRowRequestNormalizer::class,
 
             \CedricZiel\Baserow\Generated\Model\PatchedGenerativeAISettings::class => PatchedGenerativeAISettingsNormalizer::class,
 
@@ -2805,7 +2805,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 \CedricZiel\Baserow\Generated\Model\PatchedCombinedThemeConfigBlocks::class => false,
                 \CedricZiel\Baserow\Generated\Model\PatchedCombinedThemeConfigBlocksPageBackgroundFile::class => false,
                 \CedricZiel\Baserow\Generated\Model\PatchedExampleBatchUpdateRowsRequest::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedExampleUpdateRowRequestSerializerWithUserFieldNames::class => false,
+                \CedricZiel\Baserow\Generated\Model\PatchRowRequest::class => false,
                 \CedricZiel\Baserow\Generated\Model\PatchedGenerativeAISettings::class => false,
                 \CedricZiel\Baserow\Generated\Model\PatchedMoveDataSource::class => false,
                 \CedricZiel\Baserow\Generated\Model\PatchedMoveElement::class => false,
@@ -4392,7 +4392,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
             \CedricZiel\Baserow\Generated\Model\PatchedExampleBatchUpdateRowsRequest::class => PatchedExampleBatchUpdateRowsRequestNormalizer::class,
 
-            \CedricZiel\Baserow\Generated\Model\PatchedExampleUpdateRowRequestSerializerWithUserFieldNames::class => PatchedExampleUpdateRowRequestSerializerWithUserFieldNamesNormalizer::class,
+            \CedricZiel\Baserow\Generated\Model\PatchRowRequest::class => PatchRowRequestNormalizer::class,
 
             \CedricZiel\Baserow\Generated\Model\PatchedGenerativeAISettings::class => PatchedGenerativeAISettingsNormalizer::class,
 
@@ -6330,7 +6330,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 \CedricZiel\Baserow\Generated\Model\PatchedCombinedThemeConfigBlocks::class => false,
                 \CedricZiel\Baserow\Generated\Model\PatchedCombinedThemeConfigBlocksPageBackgroundFile::class => false,
                 \CedricZiel\Baserow\Generated\Model\PatchedExampleBatchUpdateRowsRequest::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedExampleUpdateRowRequestSerializerWithUserFieldNames::class => false,
+                \CedricZiel\Baserow\Generated\Model\PatchRowRequest::class => false,
                 \CedricZiel\Baserow\Generated\Model\PatchedGenerativeAISettings::class => false,
                 \CedricZiel\Baserow\Generated\Model\PatchedMoveDataSource::class => false,
                 \CedricZiel\Baserow\Generated\Model\PatchedMoveElement::class => false,
