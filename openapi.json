@@ -43066,7 +43066,7 @@
             "CreateRowRequest": {
                 "type": "object",
                 "additionalProperties": true,
-                "properties": {}
+                "properties": {},
                 "example": {
                     "field_1": {
                         "type": "string",
