@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.3](https://github.com/cedricziel/php-baserow-client/compare/v1.1.2...v1.1.3) (2024-08-06)
+
+
+### Bug Fixes
+
+* remove demo content from create rows example ([#22](https://github.com/cedricziel/php-baserow-client/issues/22)) ([960746c](https://github.com/cedricziel/php-baserow-client/commit/960746ce379ec1c477e3a25741e545e7b09a3892))
+
 ## [1.1.2](https://github.com/cedricziel/php-baserow-client/compare/v1.1.1...v1.1.2) (2024-08-06)
 
 
