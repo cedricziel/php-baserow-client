@@ -86,7 +86,7 @@ class MoveDatabaseTableRow extends \CedricZiel\Baserow\Generated\Runtime\Client\
     }
 
     /**
-     * @return \CedricZiel\Baserow\Generated\Model\ExampleRowResponseSerializerWithUserFieldNames|null
+     * @return \CedricZiel\Baserow\Generated\Model\RowResponse|null
      *
      * @throws \CedricZiel\Baserow\Generated\Exception\MoveDatabaseTableRowBadRequestException
      * @throws \CedricZiel\Baserow\Generated\Exception\MoveDatabaseTableRowUnauthorizedException
@@ -97,7 +97,7 @@ class MoveDatabaseTableRow extends \CedricZiel\Baserow\Generated\Runtime\Client\
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ExampleRowResponseSerializerWithUserFieldNames', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\RowResponse', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\MoveDatabaseTableRowBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdMovePatchResponse400', 'json'), $response);

@@ -101,7 +101,7 @@ class CreateDatabaseTableRow extends \CedricZiel\Baserow\Generated\Runtime\Clien
     }
 
     /**
-     * @return \CedricZiel\Baserow\Generated\Model\ExampleRowResponseSerializerWithUserFieldNames|null
+     * @return \CedricZiel\Baserow\Generated\Model\RowResponse|null
      *
      * @throws \CedricZiel\Baserow\Generated\Exception\CreateDatabaseTableRowBadRequestException
      * @throws \CedricZiel\Baserow\Generated\Exception\CreateDatabaseTableRowUnauthorizedException
@@ -112,7 +112,7 @@ class CreateDatabaseTableRow extends \CedricZiel\Baserow\Generated\Runtime\Clien
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ExampleRowResponseSerializerWithUserFieldNames', 'json');
+            return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\RowResponse', 'json');
         }
         if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\CreateDatabaseTableRowBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdPostResponse400', 'json'), $response);

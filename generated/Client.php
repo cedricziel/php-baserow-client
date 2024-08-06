@@ -1913,7 +1913,7 @@ class Client extends Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return Model\PaginationSerializerExampleRowResponseSerializerWithUserFieldNames|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\PaginationRowResponse|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\ListDatabaseTableRowsBadRequestException
      * @throws Exception\ListDatabaseTableRowsUnauthorizedException
@@ -1942,7 +1942,7 @@ class Client extends Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return Model\ExampleRowResponseSerializerWithUserFieldNames|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\RowResponse|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\CreateDatabaseTableRowBadRequestException
      * @throws Exception\CreateDatabaseTableRowUnauthorizedException
@@ -1988,7 +1988,7 @@ class Client extends Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return Model\ExampleRowResponseSerializerWithUserFieldNames|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\RowResponse|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\GetDatabaseTableRowBadRequestException
      * @throws Exception\GetDatabaseTableRowUnauthorizedException
@@ -2017,7 +2017,7 @@ class Client extends Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return Model\ExampleRowResponseSerializerWithUserFieldNames|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\RowResponse|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\UpdateDatabaseTableRowBadRequestException
      * @throws Exception\UpdateDatabaseTableRowUnauthorizedException
@@ -2044,7 +2044,7 @@ class Client extends Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return Model\ExampleRowResponseSerializerWithUserFieldNames|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\RowResponse|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\GetAdjacentDatabaseTableRowBadRequestException
      * @throws Exception\GetAdjacentDatabaseTableRowNotFoundException
@@ -2096,7 +2096,7 @@ class Client extends Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return Model\ExampleRowResponseSerializerWithUserFieldNames|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\RowResponse|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\MoveDatabaseTableRowBadRequestException
      * @throws Exception\MoveDatabaseTableRowUnauthorizedException

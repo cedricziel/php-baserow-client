@@ -366,13 +366,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
             \CedricZiel\Baserow\Generated\Model\ExampleRowResponseField16::class => ExampleRowResponseField16Normalizer::class,
 
-            \CedricZiel\Baserow\Generated\Model\ExampleRowResponseSerializerWithUserFieldNames::class => ExampleRowResponseSerializerWithUserFieldNamesNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ExampleRowResponseSerializerWithUserFieldNamesField10::class => ExampleRowResponseSerializerWithUserFieldNamesField10Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ExampleRowResponseSerializerWithUserFieldNamesField12::class => ExampleRowResponseSerializerWithUserFieldNamesField12Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ExampleRowResponseSerializerWithUserFieldNamesField16::class => ExampleRowResponseSerializerWithUserFieldNamesField16Normalizer::class,
+            \CedricZiel\Baserow\Generated\Model\RowResponse::class => RowResponseNormalizer::class,
 
             \CedricZiel\Baserow\Generated\Model\ExportJob::class => ExportJobNormalizer::class,
 
@@ -836,7 +830,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
             \CedricZiel\Baserow\Generated\Model\PaginationSerializerAuditLogWorkspace::class => PaginationSerializerAuditLogWorkspaceNormalizer::class,
 
-            \CedricZiel\Baserow\Generated\Model\PaginationSerializerExampleRowResponseSerializerWithUserFieldNames::class => PaginationSerializerExampleRowResponseSerializerWithUserFieldNamesNormalizer::class,
+            \CedricZiel\Baserow\Generated\Model\PaginationRowResponse::class => PaginationRowResponseNormalizer::class,
 
             \CedricZiel\Baserow\Generated\Model\PaginationSerializerLicenseUserLookup::class => PaginationSerializerLicenseUserLookupNormalizer::class,
 
@@ -2559,10 +2553,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 \CedricZiel\Baserow\Generated\Model\ExampleRowResponseField10::class => false,
                 \CedricZiel\Baserow\Generated\Model\ExampleRowResponseField12::class => false,
                 \CedricZiel\Baserow\Generated\Model\ExampleRowResponseField16::class => false,
-                \CedricZiel\Baserow\Generated\Model\ExampleRowResponseSerializerWithUserFieldNames::class => false,
-                \CedricZiel\Baserow\Generated\Model\ExampleRowResponseSerializerWithUserFieldNamesField10::class => false,
-                \CedricZiel\Baserow\Generated\Model\ExampleRowResponseSerializerWithUserFieldNamesField12::class => false,
-                \CedricZiel\Baserow\Generated\Model\ExampleRowResponseSerializerWithUserFieldNamesField16::class => false,
+                \CedricZiel\Baserow\Generated\Model\RowResponse::class => false,
                 \CedricZiel\Baserow\Generated\Model\ExportJob::class => false,
                 \CedricZiel\Baserow\Generated\Model\FacebookAuthProviderModelAuthProvider::class => false,
                 \CedricZiel\Baserow\Generated\Model\Field::class => false,
@@ -2794,7 +2785,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 \CedricZiel\Baserow\Generated\Model\PaginationSerializerAuditLog::class => false,
                 \CedricZiel\Baserow\Generated\Model\PaginationSerializerAuditLogUser::class => false,
                 \CedricZiel\Baserow\Generated\Model\PaginationSerializerAuditLogWorkspace::class => false,
-                \CedricZiel\Baserow\Generated\Model\PaginationSerializerExampleRowResponseSerializerWithUserFieldNames::class => false,
+                \CedricZiel\Baserow\Generated\Model\PaginationRowResponse::class => false,
                 \CedricZiel\Baserow\Generated\Model\PaginationSerializerLicenseUserLookup::class => false,
                 \CedricZiel\Baserow\Generated\Model\PaginationSerializerLinkRowValue::class => false,
                 \CedricZiel\Baserow\Generated\Model\PaginationSerializerNotificationRecipient::class => false,
@@ -3897,13 +3888,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
             \CedricZiel\Baserow\Generated\Model\ExampleRowResponseField16::class => ExampleRowResponseField16Normalizer::class,
 
-            \CedricZiel\Baserow\Generated\Model\ExampleRowResponseSerializerWithUserFieldNames::class => ExampleRowResponseSerializerWithUserFieldNamesNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ExampleRowResponseSerializerWithUserFieldNamesField10::class => ExampleRowResponseSerializerWithUserFieldNamesField10Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ExampleRowResponseSerializerWithUserFieldNamesField12::class => ExampleRowResponseSerializerWithUserFieldNamesField12Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ExampleRowResponseSerializerWithUserFieldNamesField16::class => ExampleRowResponseSerializerWithUserFieldNamesField16Normalizer::class,
+            \CedricZiel\Baserow\Generated\Model\RowResponse::class => RowResponseNormalizer::class,
 
             \CedricZiel\Baserow\Generated\Model\ExportJob::class => ExportJobNormalizer::class,
 
@@ -4367,7 +4352,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
             \CedricZiel\Baserow\Generated\Model\PaginationSerializerAuditLogWorkspace::class => PaginationSerializerAuditLogWorkspaceNormalizer::class,
 
-            \CedricZiel\Baserow\Generated\Model\PaginationSerializerExampleRowResponseSerializerWithUserFieldNames::class => PaginationSerializerExampleRowResponseSerializerWithUserFieldNamesNormalizer::class,
+            \CedricZiel\Baserow\Generated\Model\PaginationRowResponse::class => PaginationRowResponseNormalizer::class,
 
             \CedricZiel\Baserow\Generated\Model\PaginationSerializerLicenseUserLookup::class => PaginationSerializerLicenseUserLookupNormalizer::class,
 
@@ -6093,10 +6078,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 \CedricZiel\Baserow\Generated\Model\ExampleRowResponseField10::class => false,
                 \CedricZiel\Baserow\Generated\Model\ExampleRowResponseField12::class => false,
                 \CedricZiel\Baserow\Generated\Model\ExampleRowResponseField16::class => false,
-                \CedricZiel\Baserow\Generated\Model\ExampleRowResponseSerializerWithUserFieldNames::class => false,
-                \CedricZiel\Baserow\Generated\Model\ExampleRowResponseSerializerWithUserFieldNamesField10::class => false,
-                \CedricZiel\Baserow\Generated\Model\ExampleRowResponseSerializerWithUserFieldNamesField12::class => false,
-                \CedricZiel\Baserow\Generated\Model\ExampleRowResponseSerializerWithUserFieldNamesField16::class => false,
+                \CedricZiel\Baserow\Generated\Model\RowResponse::class => false,
                 \CedricZiel\Baserow\Generated\Model\ExportJob::class => false,
                 \CedricZiel\Baserow\Generated\Model\FacebookAuthProviderModelAuthProvider::class => false,
                 \CedricZiel\Baserow\Generated\Model\Field::class => false,
@@ -6328,7 +6310,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 \CedricZiel\Baserow\Generated\Model\PaginationSerializerAuditLog::class => false,
                 \CedricZiel\Baserow\Generated\Model\PaginationSerializerAuditLogUser::class => false,
                 \CedricZiel\Baserow\Generated\Model\PaginationSerializerAuditLogWorkspace::class => false,
-                \CedricZiel\Baserow\Generated\Model\PaginationSerializerExampleRowResponseSerializerWithUserFieldNames::class => false,
+                \CedricZiel\Baserow\Generated\Model\PaginationRowResponse::class => false,
                 \CedricZiel\Baserow\Generated\Model\PaginationSerializerLicenseUserLookup::class => false,
                 \CedricZiel\Baserow\Generated\Model\PaginationSerializerLinkRowValue::class => false,
                 \CedricZiel\Baserow\Generated\Model\PaginationSerializerNotificationRecipient::class => false,

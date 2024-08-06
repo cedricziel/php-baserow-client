@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace CedricZiel\Baserow\Generated\Model;
 
-class ExampleRowResponseSerializerWithUserFieldNamesField12 extends \ArrayObject
+class RowResponse extends \ArrayObject
 {
     /**
      * @var array
@@ -22,19 +22,29 @@ class ExampleRowResponseSerializerWithUserFieldNamesField12 extends \ArrayObject
         return array_key_exists($property, $this->initialized);
     }
     /**
+     * The unique identifier of the row in the table.
+     *
      * @var int
      */
     protected $id;
     /**
+     * Indicates the position of the row, lowest first and highest last.
+     *
      * @var string
      */
-    protected $name;
+    protected $order;
 
+    /**
+     * The unique identifier of the row in the table.
+     */
     public function getId(): int
     {
         return $this->id;
     }
 
+    /**
+     * The unique identifier of the row in the table.
+     */
     public function setId(int $id): self
     {
         $this->initialized['id'] = true;
@@ -43,15 +53,21 @@ class ExampleRowResponseSerializerWithUserFieldNamesField12 extends \ArrayObject
         return $this;
     }
 
-    public function getName(): string
+    /**
+     * Indicates the position of the row, lowest first and highest last.
+     */
+    public function getOrder(): string
     {
-        return $this->name;
+        return $this->order;
     }
 
-    public function setName(string $name): self
+    /**
+     * Indicates the position of the row, lowest first and highest last.
+     */
+    public function setOrder(string $order): self
     {
-        $this->initialized['name'] = true;
-        $this->name = $name;
+        $this->initialized['order'] = true;
+        $this->order = $order;
 
         return $this;
     }
