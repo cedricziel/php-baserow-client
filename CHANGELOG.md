@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/cedricziel/php-baserow-client/compare/v1.1.1...v1.1.2) (2024-08-06)
+
+
+### Bug Fixes
+
+* remove demo columns and allow additional properties ([#20](https://github.com/cedricziel/php-baserow-client/issues/20)) ([ebc39ea](https://github.com/cedricziel/php-baserow-client/commit/ebc39ea6062256c8b4eb5680f025ab45bf5e9b2d))
+
 ## [1.1.1](https://github.com/cedricziel/php-baserow-client/compare/v1.1.0...v1.1.1) (2024-08-05)
 
 
