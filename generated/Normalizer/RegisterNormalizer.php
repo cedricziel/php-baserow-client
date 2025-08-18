@@ -13,7 +13,6 @@ namespace CedricZiel\Baserow\Generated\Normalizer;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\CheckArray;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\ValidatorTrait;
 use Jane\Component\JsonSchemaRuntime\Reference;
-use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -21,219 +20,111 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
-    class RegisterNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class RegisterNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+{
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+    use CheckArray;
+    use ValidatorTrait;
+
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
-
-        public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\Register::class === $type;
-        }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\Register::class === get_class($data);
-        }
-
-        public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\Register();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('name', $data)) {
-                $object->setName($data['name']);
-                unset($data['name']);
-            }
-            if (\array_key_exists('email', $data)) {
-                $object->setEmail($data['email']);
-                unset($data['email']);
-            }
-            if (\array_key_exists('password', $data)) {
-                $object->setPassword($data['password']);
-                unset($data['password']);
-            }
-            if (\array_key_exists('language', $data)) {
-                $object->setLanguage($data['language']);
-                unset($data['language']);
-            }
-            if (\array_key_exists('authenticate', $data)) {
-                $object->setAuthenticate($data['authenticate']);
-                unset($data['authenticate']);
-            }
-            if (\array_key_exists('group_invitation_token', $data)) {
-                $object->setGroupInvitationToken($data['group_invitation_token']);
-                unset($data['group_invitation_token']);
-            }
-            if (\array_key_exists('workspace_invitation_token', $data)) {
-                $object->setWorkspaceInvitationToken($data['workspace_invitation_token']);
-                unset($data['workspace_invitation_token']);
-            }
-            if (\array_key_exists('template_id', $data)) {
-                $object->setTemplateId($data['template_id']);
-                unset($data['template_id']);
-            }
-            foreach ($data as $key => $value) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value;
-                }
-            }
-
-            return $object;
-        }
-
-        public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
-        {
-            $data = [];
-            $data['name'] = $object->getName();
-            $data['email'] = $object->getEmail();
-            $data['password'] = $object->getPassword();
-            if ($object->isInitialized('language') && null !== $object->getLanguage()) {
-                $data['language'] = $object->getLanguage();
-            }
-            if ($object->isInitialized('authenticate') && null !== $object->getAuthenticate()) {
-                $data['authenticate'] = $object->getAuthenticate();
-            }
-            if ($object->isInitialized('groupInvitationToken') && null !== $object->getGroupInvitationToken()) {
-                $data['group_invitation_token'] = $object->getGroupInvitationToken();
-            }
-            if ($object->isInitialized('workspaceInvitationToken') && null !== $object->getWorkspaceInvitationToken()) {
-                $data['workspace_invitation_token'] = $object->getWorkspaceInvitationToken();
-            }
-            if ($object->isInitialized('templateId') && null !== $object->getTemplateId()) {
-                $data['template_id'] = $object->getTemplateId();
-            }
-            foreach ($object as $key => $value) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value;
-                }
-            }
-
-            return $data;
-        }
-
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\Register::class => false];
-        }
+        return \CedricZiel\Baserow\Generated\Model\Register::class === $type;
     }
-} else {
-    class RegisterNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
+        return is_object($data) && \CedricZiel\Baserow\Generated\Model\Register::class === get_class($data);
+    }
 
-        public function supportsDenormalization($data, $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\Register::class === $type;
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
+    {
+        if (isset($data['$ref'])) {
+            return new Reference($data['$ref'], $context['document-origin']);
         }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\Register::class === get_class($data);
+        if (isset($data['$recursiveRef'])) {
+            return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-
-        public function denormalize($data, $type, $format = null, array $context = [])
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\Register();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('name', $data)) {
-                $object->setName($data['name']);
-                unset($data['name']);
-            }
-            if (\array_key_exists('email', $data)) {
-                $object->setEmail($data['email']);
-                unset($data['email']);
-            }
-            if (\array_key_exists('password', $data)) {
-                $object->setPassword($data['password']);
-                unset($data['password']);
-            }
-            if (\array_key_exists('language', $data)) {
-                $object->setLanguage($data['language']);
-                unset($data['language']);
-            }
-            if (\array_key_exists('authenticate', $data)) {
-                $object->setAuthenticate($data['authenticate']);
-                unset($data['authenticate']);
-            }
-            if (\array_key_exists('group_invitation_token', $data)) {
-                $object->setGroupInvitationToken($data['group_invitation_token']);
-                unset($data['group_invitation_token']);
-            }
-            if (\array_key_exists('workspace_invitation_token', $data)) {
-                $object->setWorkspaceInvitationToken($data['workspace_invitation_token']);
-                unset($data['workspace_invitation_token']);
-            }
-            if (\array_key_exists('template_id', $data)) {
-                $object->setTemplateId($data['template_id']);
-                unset($data['template_id']);
-            }
-            foreach ($data as $key => $value) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value;
-                }
-            }
-
+        $object = new \CedricZiel\Baserow\Generated\Model\Register();
+        if (\array_key_exists('authenticate', $data) && \is_int($data['authenticate'])) {
+            $data['authenticate'] = (bool) $data['authenticate'];
+        }
+        if (null === $data || false === \is_array($data)) {
             return $object;
         }
-
-        /**
-         * @return array|string|int|float|bool|\ArrayObject|null
-         */
-        public function normalize($object, $format = null, array $context = [])
-        {
-            $data = [];
-            $data['name'] = $object->getName();
-            $data['email'] = $object->getEmail();
-            $data['password'] = $object->getPassword();
-            if ($object->isInitialized('language') && null !== $object->getLanguage()) {
-                $data['language'] = $object->getLanguage();
+        if (\array_key_exists('name', $data)) {
+            $object->setName($data['name']);
+            unset($data['name']);
+        }
+        if (\array_key_exists('email', $data)) {
+            $object->setEmail($data['email']);
+            unset($data['email']);
+        }
+        if (\array_key_exists('password', $data)) {
+            $object->setPassword($data['password']);
+            unset($data['password']);
+        }
+        if (\array_key_exists('language', $data)) {
+            $object->setLanguage($data['language']);
+            unset($data['language']);
+        }
+        if (\array_key_exists('authenticate', $data)) {
+            $object->setAuthenticate($data['authenticate']);
+            unset($data['authenticate']);
+        }
+        if (\array_key_exists('group_invitation_token', $data)) {
+            $object->setGroupInvitationToken($data['group_invitation_token']);
+            unset($data['group_invitation_token']);
+        }
+        if (\array_key_exists('workspace_invitation_token', $data)) {
+            $object->setWorkspaceInvitationToken($data['workspace_invitation_token']);
+            unset($data['workspace_invitation_token']);
+        }
+        if (\array_key_exists('template_id', $data)) {
+            $object->setTemplateId($data['template_id']);
+            unset($data['template_id']);
+        }
+        foreach ($data as $key => $value) {
+            if (preg_match('/.*/', (string) $key)) {
+                $object[$key] = $value;
             }
-            if ($object->isInitialized('authenticate') && null !== $object->getAuthenticate()) {
-                $data['authenticate'] = $object->getAuthenticate();
-            }
-            if ($object->isInitialized('groupInvitationToken') && null !== $object->getGroupInvitationToken()) {
-                $data['group_invitation_token'] = $object->getGroupInvitationToken();
-            }
-            if ($object->isInitialized('workspaceInvitationToken') && null !== $object->getWorkspaceInvitationToken()) {
-                $data['workspace_invitation_token'] = $object->getWorkspaceInvitationToken();
-            }
-            if ($object->isInitialized('templateId') && null !== $object->getTemplateId()) {
-                $data['template_id'] = $object->getTemplateId();
-            }
-            foreach ($object as $key => $value) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value;
-                }
-            }
-
-            return $data;
         }
 
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\Register::class => false];
+        return $object;
+    }
+
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    {
+        $dataArray = [];
+        $dataArray['name'] = $data->getName();
+        $dataArray['email'] = $data->getEmail();
+        $dataArray['password'] = $data->getPassword();
+        if ($data->isInitialized('language') && null !== $data->getLanguage()) {
+            $dataArray['language'] = $data->getLanguage();
         }
+        if ($data->isInitialized('authenticate') && null !== $data->getAuthenticate()) {
+            $dataArray['authenticate'] = $data->getAuthenticate();
+        }
+        if ($data->isInitialized('groupInvitationToken') && null !== $data->getGroupInvitationToken()) {
+            $dataArray['group_invitation_token'] = $data->getGroupInvitationToken();
+        }
+        if ($data->isInitialized('workspaceInvitationToken') && null !== $data->getWorkspaceInvitationToken()) {
+            $dataArray['workspace_invitation_token'] = $data->getWorkspaceInvitationToken();
+        }
+        if ($data->isInitialized('templateId') && null !== $data->getTemplateId()) {
+            $dataArray['template_id'] = $data->getTemplateId();
+        }
+        foreach ($data as $key => $value) {
+            if (preg_match('/.*/', (string) $key)) {
+                $dataArray[$key] = $value;
+            }
+        }
+
+        return $dataArray;
+    }
+
+    public function getSupportedTypes(?string $format = null): array
+    {
+        return [\CedricZiel\Baserow\Generated\Model\Register::class => false];
     }
 }

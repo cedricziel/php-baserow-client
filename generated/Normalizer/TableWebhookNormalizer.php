@@ -13,7 +13,6 @@ namespace CedricZiel\Baserow\Generated\Normalizer;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\CheckArray;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\ValidatorTrait;
 use Jane\Component\JsonSchemaRuntime\Reference;
-use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -21,291 +20,153 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
-    class TableWebhookNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class TableWebhookNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+{
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+    use CheckArray;
+    use ValidatorTrait;
+
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
-
-        public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\TableWebhook::class === $type;
-        }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\TableWebhook::class === get_class($data);
-        }
-
-        public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\TableWebhook();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('id', $data)) {
-                $object->setId($data['id']);
-                unset($data['id']);
-            }
-            if (\array_key_exists('events', $data)) {
-                $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
-                foreach ($data['events'] as $key => $value) {
-                    $values[$key] = $value;
-                }
-                $object->setEvents($values);
-                unset($data['events']);
-            }
-            if (\array_key_exists('headers', $data)) {
-                $values_1 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
-                foreach ($data['headers'] as $key_1 => $value_1) {
-                    $values_1[$key_1] = $value_1;
-                }
-                $object->setHeaders($values_1);
-                unset($data['headers']);
-            }
-            if (\array_key_exists('calls', $data)) {
-                $values_2 = [];
-                foreach ($data['calls'] as $value_2) {
-                    $values_2[] = $this->denormalizer->denormalize($value_2, \CedricZiel\Baserow\Generated\Model\TableWebhookCall::class, 'json', $context);
-                }
-                $object->setCalls($values_2);
-                unset($data['calls']);
-            }
-            if (\array_key_exists('created_on', $data)) {
-                $object->setCreatedOn(\DateTime::createFromFormat('Y-m-d\TH:i:sP', $data['created_on']));
-                unset($data['created_on']);
-            }
-            if (\array_key_exists('updated_on', $data)) {
-                $object->setUpdatedOn(\DateTime::createFromFormat('Y-m-d\TH:i:sP', $data['updated_on']));
-                unset($data['updated_on']);
-            }
-            if (\array_key_exists('use_user_field_names', $data)) {
-                $object->setUseUserFieldNames($data['use_user_field_names']);
-                unset($data['use_user_field_names']);
-            }
-            if (\array_key_exists('url', $data)) {
-                $object->setUrl($data['url']);
-                unset($data['url']);
-            }
-            if (\array_key_exists('request_method', $data)) {
-                $object->setRequestMethod($data['request_method']);
-                unset($data['request_method']);
-            }
-            if (\array_key_exists('name', $data)) {
-                $object->setName($data['name']);
-                unset($data['name']);
-            }
-            if (\array_key_exists('include_all_events', $data)) {
-                $object->setIncludeAllEvents($data['include_all_events']);
-                unset($data['include_all_events']);
-            }
-            if (\array_key_exists('failed_triggers', $data)) {
-                $object->setFailedTriggers($data['failed_triggers']);
-                unset($data['failed_triggers']);
-            }
-            if (\array_key_exists('active', $data)) {
-                $object->setActive($data['active']);
-                unset($data['active']);
-            }
-            foreach ($data as $key_2 => $value_3) {
-                if (preg_match('/.*/', (string) $key_2)) {
-                    $object[$key_2] = $value_3;
-                }
-            }
-
-            return $object;
-        }
-
-        public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
-        {
-            $data = [];
-            $values = [];
-            foreach ($object->getCalls() as $value) {
-                $values[] = $this->normalizer->normalize($value, 'json', $context);
-            }
-            $data['calls'] = $values;
-            if ($object->isInitialized('useUserFieldNames') && null !== $object->getUseUserFieldNames()) {
-                $data['use_user_field_names'] = $object->getUseUserFieldNames();
-            }
-            $data['url'] = $object->getUrl();
-            if ($object->isInitialized('requestMethod') && null !== $object->getRequestMethod()) {
-                $data['request_method'] = $object->getRequestMethod();
-            }
-            $data['name'] = $object->getName();
-            if ($object->isInitialized('includeAllEvents') && null !== $object->getIncludeAllEvents()) {
-                $data['include_all_events'] = $object->getIncludeAllEvents();
-            }
-            if ($object->isInitialized('failedTriggers') && null !== $object->getFailedTriggers()) {
-                $data['failed_triggers'] = $object->getFailedTriggers();
-            }
-            if ($object->isInitialized('active') && null !== $object->getActive()) {
-                $data['active'] = $object->getActive();
-            }
-            foreach ($object as $key => $value_1) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value_1;
-                }
-            }
-
-            return $data;
-        }
-
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\TableWebhook::class => false];
-        }
+        return \CedricZiel\Baserow\Generated\Model\TableWebhook::class === $type;
     }
-} else {
-    class TableWebhookNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
+        return is_object($data) && \CedricZiel\Baserow\Generated\Model\TableWebhook::class === get_class($data);
+    }
 
-        public function supportsDenormalization($data, $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\TableWebhook::class === $type;
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
+    {
+        if (isset($data['$ref'])) {
+            return new Reference($data['$ref'], $context['document-origin']);
         }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\TableWebhook::class === get_class($data);
+        if (isset($data['$recursiveRef'])) {
+            return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-
-        public function denormalize($data, $type, $format = null, array $context = [])
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\TableWebhook();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('id', $data)) {
-                $object->setId($data['id']);
-                unset($data['id']);
-            }
-            if (\array_key_exists('events', $data)) {
-                $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
-                foreach ($data['events'] as $key => $value) {
-                    $values[$key] = $value;
-                }
-                $object->setEvents($values);
-                unset($data['events']);
-            }
-            if (\array_key_exists('headers', $data)) {
-                $values_1 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
-                foreach ($data['headers'] as $key_1 => $value_1) {
-                    $values_1[$key_1] = $value_1;
-                }
-                $object->setHeaders($values_1);
-                unset($data['headers']);
-            }
-            if (\array_key_exists('calls', $data)) {
-                $values_2 = [];
-                foreach ($data['calls'] as $value_2) {
-                    $values_2[] = $this->denormalizer->denormalize($value_2, \CedricZiel\Baserow\Generated\Model\TableWebhookCall::class, 'json', $context);
-                }
-                $object->setCalls($values_2);
-                unset($data['calls']);
-            }
-            if (\array_key_exists('created_on', $data)) {
-                $object->setCreatedOn(\DateTime::createFromFormat('Y-m-d\TH:i:sP', $data['created_on']));
-                unset($data['created_on']);
-            }
-            if (\array_key_exists('updated_on', $data)) {
-                $object->setUpdatedOn(\DateTime::createFromFormat('Y-m-d\TH:i:sP', $data['updated_on']));
-                unset($data['updated_on']);
-            }
-            if (\array_key_exists('use_user_field_names', $data)) {
-                $object->setUseUserFieldNames($data['use_user_field_names']);
-                unset($data['use_user_field_names']);
-            }
-            if (\array_key_exists('url', $data)) {
-                $object->setUrl($data['url']);
-                unset($data['url']);
-            }
-            if (\array_key_exists('request_method', $data)) {
-                $object->setRequestMethod($data['request_method']);
-                unset($data['request_method']);
-            }
-            if (\array_key_exists('name', $data)) {
-                $object->setName($data['name']);
-                unset($data['name']);
-            }
-            if (\array_key_exists('include_all_events', $data)) {
-                $object->setIncludeAllEvents($data['include_all_events']);
-                unset($data['include_all_events']);
-            }
-            if (\array_key_exists('failed_triggers', $data)) {
-                $object->setFailedTriggers($data['failed_triggers']);
-                unset($data['failed_triggers']);
-            }
-            if (\array_key_exists('active', $data)) {
-                $object->setActive($data['active']);
-                unset($data['active']);
-            }
-            foreach ($data as $key_2 => $value_3) {
-                if (preg_match('/.*/', (string) $key_2)) {
-                    $object[$key_2] = $value_3;
-                }
-            }
-
+        $object = new \CedricZiel\Baserow\Generated\Model\TableWebhook();
+        if (\array_key_exists('use_user_field_names', $data) && \is_int($data['use_user_field_names'])) {
+            $data['use_user_field_names'] = (bool) $data['use_user_field_names'];
+        }
+        if (\array_key_exists('include_all_events', $data) && \is_int($data['include_all_events'])) {
+            $data['include_all_events'] = (bool) $data['include_all_events'];
+        }
+        if (\array_key_exists('active', $data) && \is_int($data['active'])) {
+            $data['active'] = (bool) $data['active'];
+        }
+        if (null === $data || false === \is_array($data)) {
             return $object;
         }
-
-        /**
-         * @return array|string|int|float|bool|\ArrayObject|null
-         */
-        public function normalize($object, $format = null, array $context = [])
-        {
-            $data = [];
-            $values = [];
-            foreach ($object->getCalls() as $value) {
-                $values[] = $this->normalizer->normalize($value, 'json', $context);
+        if (\array_key_exists('id', $data)) {
+            $object->setId($data['id']);
+            unset($data['id']);
+        }
+        if (\array_key_exists('events', $data)) {
+            $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
+            foreach ($data['events'] as $key => $value) {
+                $values[$key] = $value;
             }
-            $data['calls'] = $values;
-            if ($object->isInitialized('useUserFieldNames') && null !== $object->getUseUserFieldNames()) {
-                $data['use_user_field_names'] = $object->getUseUserFieldNames();
+            $object->setEvents($values);
+            unset($data['events']);
+        }
+        if (\array_key_exists('headers', $data)) {
+            $values_1 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
+            foreach ($data['headers'] as $key_1 => $value_1) {
+                $values_1[$key_1] = $value_1;
             }
-            $data['url'] = $object->getUrl();
-            if ($object->isInitialized('requestMethod') && null !== $object->getRequestMethod()) {
-                $data['request_method'] = $object->getRequestMethod();
+            $object->setHeaders($values_1);
+            unset($data['headers']);
+        }
+        if (\array_key_exists('calls', $data)) {
+            $values_2 = [];
+            foreach ($data['calls'] as $value_2) {
+                $values_2[] = $this->denormalizer->denormalize($value_2, \CedricZiel\Baserow\Generated\Model\TableWebhookCall::class, 'json', $context);
             }
-            $data['name'] = $object->getName();
-            if ($object->isInitialized('includeAllEvents') && null !== $object->getIncludeAllEvents()) {
-                $data['include_all_events'] = $object->getIncludeAllEvents();
+            $object->setCalls($values_2);
+            unset($data['calls']);
+        }
+        if (\array_key_exists('created_on', $data)) {
+            $object->setCreatedOn(\DateTime::createFromFormat('Y-m-d\TH:i:sP', $data['created_on']));
+            unset($data['created_on']);
+        }
+        if (\array_key_exists('updated_on', $data)) {
+            $object->setUpdatedOn(\DateTime::createFromFormat('Y-m-d\TH:i:sP', $data['updated_on']));
+            unset($data['updated_on']);
+        }
+        if (\array_key_exists('use_user_field_names', $data)) {
+            $object->setUseUserFieldNames($data['use_user_field_names']);
+            unset($data['use_user_field_names']);
+        }
+        if (\array_key_exists('url', $data)) {
+            $object->setUrl($data['url']);
+            unset($data['url']);
+        }
+        if (\array_key_exists('request_method', $data)) {
+            $object->setRequestMethod($data['request_method']);
+            unset($data['request_method']);
+        }
+        if (\array_key_exists('name', $data)) {
+            $object->setName($data['name']);
+            unset($data['name']);
+        }
+        if (\array_key_exists('include_all_events', $data)) {
+            $object->setIncludeAllEvents($data['include_all_events']);
+            unset($data['include_all_events']);
+        }
+        if (\array_key_exists('failed_triggers', $data)) {
+            $object->setFailedTriggers($data['failed_triggers']);
+            unset($data['failed_triggers']);
+        }
+        if (\array_key_exists('active', $data)) {
+            $object->setActive($data['active']);
+            unset($data['active']);
+        }
+        foreach ($data as $key_2 => $value_3) {
+            if (preg_match('/.*/', (string) $key_2)) {
+                $object[$key_2] = $value_3;
             }
-            if ($object->isInitialized('failedTriggers') && null !== $object->getFailedTriggers()) {
-                $data['failed_triggers'] = $object->getFailedTriggers();
-            }
-            if ($object->isInitialized('active') && null !== $object->getActive()) {
-                $data['active'] = $object->getActive();
-            }
-            foreach ($object as $key => $value_1) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value_1;
-                }
-            }
-
-            return $data;
         }
 
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\TableWebhook::class => false];
+        return $object;
+    }
+
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    {
+        $dataArray = [];
+        $values = [];
+        foreach ($data->getCalls() as $value) {
+            $values[] = $this->normalizer->normalize($value, 'json', $context);
         }
+        $dataArray['calls'] = $values;
+        if ($data->isInitialized('useUserFieldNames') && null !== $data->getUseUserFieldNames()) {
+            $dataArray['use_user_field_names'] = $data->getUseUserFieldNames();
+        }
+        $dataArray['url'] = $data->getUrl();
+        if ($data->isInitialized('requestMethod') && null !== $data->getRequestMethod()) {
+            $dataArray['request_method'] = $data->getRequestMethod();
+        }
+        $dataArray['name'] = $data->getName();
+        if ($data->isInitialized('includeAllEvents') && null !== $data->getIncludeAllEvents()) {
+            $dataArray['include_all_events'] = $data->getIncludeAllEvents();
+        }
+        if ($data->isInitialized('failedTriggers') && null !== $data->getFailedTriggers()) {
+            $dataArray['failed_triggers'] = $data->getFailedTriggers();
+        }
+        if ($data->isInitialized('active') && null !== $data->getActive()) {
+            $dataArray['active'] = $data->getActive();
+        }
+        foreach ($data as $key => $value_1) {
+            if (preg_match('/.*/', (string) $key)) {
+                $dataArray[$key] = $value_1;
+            }
+        }
+
+        return $dataArray;
+    }
+
+    public function getSupportedTypes(?string $format = null): array
+    {
+        return [\CedricZiel\Baserow\Generated\Model\TableWebhook::class => false];
     }
 }
