@@ -13,7 +13,6 @@ namespace CedricZiel\Baserow\Generated\Normalizer;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\CheckArray;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\ValidatorTrait;
 use Jane\Component\JsonSchemaRuntime\Reference;
-use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -21,263 +20,130 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
-    class LocalBaserowListRowsUpdateDataSourceNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class LocalBaserowListRowsUpdateDataSourceNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+{
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+    use CheckArray;
+    use ValidatorTrait;
+
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
-
-        public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsUpdateDataSource::class === $type;
-        }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsUpdateDataSource::class === get_class($data);
-        }
-
-        public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsUpdateDataSource();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('integration_id', $data) && null !== $data['integration_id']) {
-                $object->setIntegrationId($data['integration_id']);
-                unset($data['integration_id']);
-            } elseif (\array_key_exists('integration_id', $data) && null === $data['integration_id']) {
-                $object->setIntegrationId(null);
-            }
-            if (\array_key_exists('name', $data)) {
-                $object->setName($data['name']);
-                unset($data['name']);
-            }
-            if (\array_key_exists('table_id', $data) && null !== $data['table_id']) {
-                $object->setTableId($data['table_id']);
-                unset($data['table_id']);
-            } elseif (\array_key_exists('table_id', $data) && null === $data['table_id']) {
-                $object->setTableId(null);
-            }
-            if (\array_key_exists('view_id', $data) && null !== $data['view_id']) {
-                $object->setViewId($data['view_id']);
-                unset($data['view_id']);
-            } elseif (\array_key_exists('view_id', $data) && null === $data['view_id']) {
-                $object->setViewId(null);
-            }
-            if (\array_key_exists('filter_type', $data)) {
-                $object->setFilterType($data['filter_type']);
-                unset($data['filter_type']);
-            }
-            if (\array_key_exists('search_query', $data)) {
-                $object->setSearchQuery($data['search_query']);
-                unset($data['search_query']);
-            }
-            if (\array_key_exists('sortings', $data)) {
-                $values = [];
-                foreach ($data['sortings'] as $value) {
-                    $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\LocalBaserowTableServiceSort::class, 'json', $context);
-                }
-                $object->setSortings($values);
-                unset($data['sortings']);
-            }
-            if (\array_key_exists('filters', $data)) {
-                $values_1 = [];
-                foreach ($data['filters'] as $value_1) {
-                    $values_1[] = $this->denormalizer->denormalize($value_1, \CedricZiel\Baserow\Generated\Model\LocalBaserowTableServiceFilter::class, 'json', $context);
-                }
-                $object->setFilters($values_1);
-                unset($data['filters']);
-            }
-            foreach ($data as $key => $value_2) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value_2;
-                }
-            }
-
-            return $object;
-        }
-
-        public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
-        {
-            $data = [];
-            if ($object->isInitialized('integrationId') && null !== $object->getIntegrationId()) {
-                $data['integration_id'] = $object->getIntegrationId();
-            }
-            if ($object->isInitialized('name') && null !== $object->getName()) {
-                $data['name'] = $object->getName();
-            }
-            if ($object->isInitialized('filterType') && null !== $object->getFilterType()) {
-                $data['filter_type'] = $object->getFilterType();
-            }
-            if ($object->isInitialized('searchQuery') && null !== $object->getSearchQuery()) {
-                $data['search_query'] = $object->getSearchQuery();
-            }
-            if ($object->isInitialized('sortings') && null !== $object->getSortings()) {
-                $values = [];
-                foreach ($object->getSortings() as $value) {
-                    $values[] = $this->normalizer->normalize($value, 'json', $context);
-                }
-                $data['sortings'] = $values;
-            }
-            if ($object->isInitialized('filters') && null !== $object->getFilters()) {
-                $values_1 = [];
-                foreach ($object->getFilters() as $value_1) {
-                    $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
-                }
-                $data['filters'] = $values_1;
-            }
-            foreach ($object as $key => $value_2) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value_2;
-                }
-            }
-
-            return $data;
-        }
-
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsUpdateDataSource::class => false];
-        }
+        return \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsUpdateDataSource::class === $type;
     }
-} else {
-    class LocalBaserowListRowsUpdateDataSourceNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
+        return is_object($data) && \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsUpdateDataSource::class === get_class($data);
+    }
 
-        public function supportsDenormalization($data, $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsUpdateDataSource::class === $type;
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
+    {
+        if (isset($data['$ref'])) {
+            return new Reference($data['$ref'], $context['document-origin']);
         }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsUpdateDataSource::class === get_class($data);
+        if (isset($data['$recursiveRef'])) {
+            return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-
-        public function denormalize($data, $type, $format = null, array $context = [])
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsUpdateDataSource();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('integration_id', $data) && null !== $data['integration_id']) {
-                $object->setIntegrationId($data['integration_id']);
-                unset($data['integration_id']);
-            } elseif (\array_key_exists('integration_id', $data) && null === $data['integration_id']) {
-                $object->setIntegrationId(null);
-            }
-            if (\array_key_exists('name', $data)) {
-                $object->setName($data['name']);
-                unset($data['name']);
-            }
-            if (\array_key_exists('table_id', $data) && null !== $data['table_id']) {
-                $object->setTableId($data['table_id']);
-                unset($data['table_id']);
-            } elseif (\array_key_exists('table_id', $data) && null === $data['table_id']) {
-                $object->setTableId(null);
-            }
-            if (\array_key_exists('view_id', $data) && null !== $data['view_id']) {
-                $object->setViewId($data['view_id']);
-                unset($data['view_id']);
-            } elseif (\array_key_exists('view_id', $data) && null === $data['view_id']) {
-                $object->setViewId(null);
-            }
-            if (\array_key_exists('filter_type', $data)) {
-                $object->setFilterType($data['filter_type']);
-                unset($data['filter_type']);
-            }
-            if (\array_key_exists('search_query', $data)) {
-                $object->setSearchQuery($data['search_query']);
-                unset($data['search_query']);
-            }
-            if (\array_key_exists('sortings', $data)) {
-                $values = [];
-                foreach ($data['sortings'] as $value) {
-                    $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\LocalBaserowTableServiceSort::class, 'json', $context);
-                }
-                $object->setSortings($values);
-                unset($data['sortings']);
-            }
-            if (\array_key_exists('filters', $data)) {
-                $values_1 = [];
-                foreach ($data['filters'] as $value_1) {
-                    $values_1[] = $this->denormalizer->denormalize($value_1, \CedricZiel\Baserow\Generated\Model\LocalBaserowTableServiceFilter::class, 'json', $context);
-                }
-                $object->setFilters($values_1);
-                unset($data['filters']);
-            }
-            foreach ($data as $key => $value_2) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value_2;
-                }
-            }
-
+        $object = new \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsUpdateDataSource();
+        if (null === $data || false === \is_array($data)) {
             return $object;
         }
-
-        /**
-         * @return array|string|int|float|bool|\ArrayObject|null
-         */
-        public function normalize($object, $format = null, array $context = [])
-        {
-            $data = [];
-            if ($object->isInitialized('integrationId') && null !== $object->getIntegrationId()) {
-                $data['integration_id'] = $object->getIntegrationId();
+        if (\array_key_exists('integration_id', $data) && null !== $data['integration_id']) {
+            $object->setIntegrationId($data['integration_id']);
+            unset($data['integration_id']);
+        } elseif (\array_key_exists('integration_id', $data) && null === $data['integration_id']) {
+            $object->setIntegrationId(null);
+        }
+        if (\array_key_exists('name', $data)) {
+            $object->setName($data['name']);
+            unset($data['name']);
+        }
+        if (\array_key_exists('table_id', $data) && null !== $data['table_id']) {
+            $object->setTableId($data['table_id']);
+            unset($data['table_id']);
+        } elseif (\array_key_exists('table_id', $data) && null === $data['table_id']) {
+            $object->setTableId(null);
+        }
+        if (\array_key_exists('view_id', $data) && null !== $data['view_id']) {
+            $object->setViewId($data['view_id']);
+            unset($data['view_id']);
+        } elseif (\array_key_exists('view_id', $data) && null === $data['view_id']) {
+            $object->setViewId(null);
+        }
+        if (\array_key_exists('filter_type', $data)) {
+            $object->setFilterType($data['filter_type']);
+            unset($data['filter_type']);
+        }
+        if (\array_key_exists('search_query', $data)) {
+            $object->setSearchQuery($data['search_query']);
+            unset($data['search_query']);
+        }
+        if (\array_key_exists('sortings', $data)) {
+            $values = [];
+            foreach ($data['sortings'] as $value) {
+                $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\LocalBaserowTableServiceSort::class, 'json', $context);
             }
-            if ($object->isInitialized('name') && null !== $object->getName()) {
-                $data['name'] = $object->getName();
+            $object->setSortings($values);
+            unset($data['sortings']);
+        }
+        if (\array_key_exists('filters', $data)) {
+            $values_1 = [];
+            foreach ($data['filters'] as $value_1) {
+                $values_1[] = $this->denormalizer->denormalize($value_1, \CedricZiel\Baserow\Generated\Model\LocalBaserowTableServiceFilter::class, 'json', $context);
             }
-            if ($object->isInitialized('filterType') && null !== $object->getFilterType()) {
-                $data['filter_type'] = $object->getFilterType();
+            $object->setFilters($values_1);
+            unset($data['filters']);
+        }
+        foreach ($data as $key => $value_2) {
+            if (preg_match('/.*/', (string) $key)) {
+                $object[$key] = $value_2;
             }
-            if ($object->isInitialized('searchQuery') && null !== $object->getSearchQuery()) {
-                $data['search_query'] = $object->getSearchQuery();
-            }
-            if ($object->isInitialized('sortings') && null !== $object->getSortings()) {
-                $values = [];
-                foreach ($object->getSortings() as $value) {
-                    $values[] = $this->normalizer->normalize($value, 'json', $context);
-                }
-                $data['sortings'] = $values;
-            }
-            if ($object->isInitialized('filters') && null !== $object->getFilters()) {
-                $values_1 = [];
-                foreach ($object->getFilters() as $value_1) {
-                    $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
-                }
-                $data['filters'] = $values_1;
-            }
-            foreach ($object as $key => $value_2) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value_2;
-                }
-            }
-
-            return $data;
         }
 
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsUpdateDataSource::class => false];
+        return $object;
+    }
+
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    {
+        $dataArray = [];
+        if ($data->isInitialized('integrationId') && null !== $data->getIntegrationId()) {
+            $dataArray['integration_id'] = $data->getIntegrationId();
         }
+        if ($data->isInitialized('name') && null !== $data->getName()) {
+            $dataArray['name'] = $data->getName();
+        }
+        if ($data->isInitialized('filterType') && null !== $data->getFilterType()) {
+            $dataArray['filter_type'] = $data->getFilterType();
+        }
+        if ($data->isInitialized('searchQuery') && null !== $data->getSearchQuery()) {
+            $dataArray['search_query'] = $data->getSearchQuery();
+        }
+        if ($data->isInitialized('sortings') && null !== $data->getSortings()) {
+            $values = [];
+            foreach ($data->getSortings() as $value) {
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
+            }
+            $dataArray['sortings'] = $values;
+        }
+        if ($data->isInitialized('filters') && null !== $data->getFilters()) {
+            $values_1 = [];
+            foreach ($data->getFilters() as $value_1) {
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
+            }
+            $dataArray['filters'] = $values_1;
+        }
+        foreach ($data as $key => $value_2) {
+            if (preg_match('/.*/', (string) $key)) {
+                $dataArray[$key] = $value_2;
+            }
+        }
+
+        return $dataArray;
+    }
+
+    public function getSupportedTypes(?string $format = null): array
+    {
+        return [\CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsUpdateDataSource::class => false];
     }
 }

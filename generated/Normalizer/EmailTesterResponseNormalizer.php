@@ -13,7 +13,6 @@ namespace CedricZiel\Baserow\Generated\Normalizer;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\CheckArray;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\ValidatorTrait;
 use Jane\Component\JsonSchemaRuntime\Reference;
-use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -21,183 +20,93 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
-    class EmailTesterResponseNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class EmailTesterResponseNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+{
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+    use CheckArray;
+    use ValidatorTrait;
+
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
-
-        public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\EmailTesterResponse::class === $type;
-        }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\EmailTesterResponse::class === get_class($data);
-        }
-
-        public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\EmailTesterResponse();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('succeeded', $data)) {
-                $object->setSucceeded($data['succeeded']);
-                unset($data['succeeded']);
-            }
-            if (\array_key_exists('error_stack', $data) && null !== $data['error_stack']) {
-                $object->setErrorStack($data['error_stack']);
-                unset($data['error_stack']);
-            } elseif (\array_key_exists('error_stack', $data) && null === $data['error_stack']) {
-                $object->setErrorStack(null);
-            }
-            if (\array_key_exists('error_type', $data) && null !== $data['error_type']) {
-                $object->setErrorType($data['error_type']);
-                unset($data['error_type']);
-            } elseif (\array_key_exists('error_type', $data) && null === $data['error_type']) {
-                $object->setErrorType(null);
-            }
-            if (\array_key_exists('error', $data) && null !== $data['error']) {
-                $object->setError($data['error']);
-                unset($data['error']);
-            } elseif (\array_key_exists('error', $data) && null === $data['error']) {
-                $object->setError(null);
-            }
-            foreach ($data as $key => $value) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value;
-                }
-            }
-
-            return $object;
-        }
-
-        public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
-        {
-            $data = [];
-            $data['succeeded'] = $object->getSucceeded();
-            if ($object->isInitialized('errorStack') && null !== $object->getErrorStack()) {
-                $data['error_stack'] = $object->getErrorStack();
-            }
-            if ($object->isInitialized('errorType') && null !== $object->getErrorType()) {
-                $data['error_type'] = $object->getErrorType();
-            }
-            if ($object->isInitialized('error') && null !== $object->getError()) {
-                $data['error'] = $object->getError();
-            }
-            foreach ($object as $key => $value) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value;
-                }
-            }
-
-            return $data;
-        }
-
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\EmailTesterResponse::class => false];
-        }
+        return \CedricZiel\Baserow\Generated\Model\EmailTesterResponse::class === $type;
     }
-} else {
-    class EmailTesterResponseNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
+        return is_object($data) && \CedricZiel\Baserow\Generated\Model\EmailTesterResponse::class === get_class($data);
+    }
 
-        public function supportsDenormalization($data, $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\EmailTesterResponse::class === $type;
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
+    {
+        if (isset($data['$ref'])) {
+            return new Reference($data['$ref'], $context['document-origin']);
         }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\EmailTesterResponse::class === get_class($data);
+        if (isset($data['$recursiveRef'])) {
+            return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-
-        public function denormalize($data, $type, $format = null, array $context = [])
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\EmailTesterResponse();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('succeeded', $data)) {
-                $object->setSucceeded($data['succeeded']);
-                unset($data['succeeded']);
-            }
-            if (\array_key_exists('error_stack', $data) && null !== $data['error_stack']) {
-                $object->setErrorStack($data['error_stack']);
-                unset($data['error_stack']);
-            } elseif (\array_key_exists('error_stack', $data) && null === $data['error_stack']) {
-                $object->setErrorStack(null);
-            }
-            if (\array_key_exists('error_type', $data) && null !== $data['error_type']) {
-                $object->setErrorType($data['error_type']);
-                unset($data['error_type']);
-            } elseif (\array_key_exists('error_type', $data) && null === $data['error_type']) {
-                $object->setErrorType(null);
-            }
-            if (\array_key_exists('error', $data) && null !== $data['error']) {
-                $object->setError($data['error']);
-                unset($data['error']);
-            } elseif (\array_key_exists('error', $data) && null === $data['error']) {
-                $object->setError(null);
-            }
-            foreach ($data as $key => $value) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value;
-                }
-            }
-
+        $object = new \CedricZiel\Baserow\Generated\Model\EmailTesterResponse();
+        if (\array_key_exists('succeeded', $data) && \is_int($data['succeeded'])) {
+            $data['succeeded'] = (bool) $data['succeeded'];
+        }
+        if (null === $data || false === \is_array($data)) {
             return $object;
         }
-
-        /**
-         * @return array|string|int|float|bool|\ArrayObject|null
-         */
-        public function normalize($object, $format = null, array $context = [])
-        {
-            $data = [];
-            $data['succeeded'] = $object->getSucceeded();
-            if ($object->isInitialized('errorStack') && null !== $object->getErrorStack()) {
-                $data['error_stack'] = $object->getErrorStack();
+        if (\array_key_exists('succeeded', $data)) {
+            $object->setSucceeded($data['succeeded']);
+            unset($data['succeeded']);
+        }
+        if (\array_key_exists('error_stack', $data) && null !== $data['error_stack']) {
+            $object->setErrorStack($data['error_stack']);
+            unset($data['error_stack']);
+        } elseif (\array_key_exists('error_stack', $data) && null === $data['error_stack']) {
+            $object->setErrorStack(null);
+        }
+        if (\array_key_exists('error_type', $data) && null !== $data['error_type']) {
+            $object->setErrorType($data['error_type']);
+            unset($data['error_type']);
+        } elseif (\array_key_exists('error_type', $data) && null === $data['error_type']) {
+            $object->setErrorType(null);
+        }
+        if (\array_key_exists('error', $data) && null !== $data['error']) {
+            $object->setError($data['error']);
+            unset($data['error']);
+        } elseif (\array_key_exists('error', $data) && null === $data['error']) {
+            $object->setError(null);
+        }
+        foreach ($data as $key => $value) {
+            if (preg_match('/.*/', (string) $key)) {
+                $object[$key] = $value;
             }
-            if ($object->isInitialized('errorType') && null !== $object->getErrorType()) {
-                $data['error_type'] = $object->getErrorType();
-            }
-            if ($object->isInitialized('error') && null !== $object->getError()) {
-                $data['error'] = $object->getError();
-            }
-            foreach ($object as $key => $value) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value;
-                }
-            }
-
-            return $data;
         }
 
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\EmailTesterResponse::class => false];
+        return $object;
+    }
+
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    {
+        $dataArray = [];
+        $dataArray['succeeded'] = $data->getSucceeded();
+        if ($data->isInitialized('errorStack') && null !== $data->getErrorStack()) {
+            $dataArray['error_stack'] = $data->getErrorStack();
         }
+        if ($data->isInitialized('errorType') && null !== $data->getErrorType()) {
+            $dataArray['error_type'] = $data->getErrorType();
+        }
+        if ($data->isInitialized('error') && null !== $data->getError()) {
+            $dataArray['error'] = $data->getError();
+        }
+        foreach ($data as $key => $value) {
+            if (preg_match('/.*/', (string) $key)) {
+                $dataArray[$key] = $value;
+            }
+        }
+
+        return $dataArray;
+    }
+
+    public function getSupportedTypes(?string $format = null): array
+    {
+        return [\CedricZiel\Baserow\Generated\Model\EmailTesterResponse::class => false];
     }
 }

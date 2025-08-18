@@ -13,7 +13,6 @@ namespace CedricZiel\Baserow\Generated\Normalizer;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\CheckArray;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\ValidatorTrait;
 use Jane\Component\JsonSchemaRuntime\Reference;
-use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -21,201 +20,99 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
-    class CalendarViewExampleResponseNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class CalendarViewExampleResponseNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+{
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+    use CheckArray;
+    use ValidatorTrait;
+
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
-
-        public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\CalendarViewExampleResponse::class === $type;
-        }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\CalendarViewExampleResponse::class === get_class($data);
-        }
-
-        public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\CalendarViewExampleResponse();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('rows', $data)) {
-                $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
-                foreach ($data['rows'] as $key => $value) {
-                    $values[$key] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\CalendarViewExampleResponseStack::class, 'json', $context);
-                }
-                $object->setRows($values);
-                unset($data['rows']);
-            }
-            if (\array_key_exists('field_options', $data)) {
-                $values_1 = [];
-                foreach ($data['field_options'] as $value_1) {
-                    $values_1[] = $this->denormalizer->denormalize($value_1, \CedricZiel\Baserow\Generated\Model\CalendarViewFieldOptions::class, 'json', $context);
-                }
-                $object->setFieldOptions($values_1);
-                unset($data['field_options']);
-            }
-            if (\array_key_exists('row_metadata', $data)) {
-                $values_2 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
-                foreach ($data['row_metadata'] as $key_1 => $value_2) {
-                    $values_2[$key_1] = $this->denormalizer->denormalize($value_2, \CedricZiel\Baserow\Generated\Model\RowMetadata::class, 'json', $context);
-                }
-                $object->setRowMetadata($values_2);
-                unset($data['row_metadata']);
-            }
-            foreach ($data as $key_2 => $value_3) {
-                if (preg_match('/.*/', (string) $key_2)) {
-                    $object[$key_2] = $value_3;
-                }
-            }
-
-            return $object;
-        }
-
-        public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
-        {
-            $data = [];
-            $values = [];
-            foreach ($object->getRows() as $key => $value) {
-                $values[$key] = $this->normalizer->normalize($value, 'json', $context);
-            }
-            $data['rows'] = $values;
-            $values_1 = [];
-            foreach ($object->getFieldOptions() as $value_1) {
-                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
-            }
-            $data['field_options'] = $values_1;
-            if ($object->isInitialized('rowMetadata') && null !== $object->getRowMetadata()) {
-                $values_2 = [];
-                foreach ($object->getRowMetadata() as $key_1 => $value_2) {
-                    $values_2[$key_1] = $this->normalizer->normalize($value_2, 'json', $context);
-                }
-                $data['row_metadata'] = $values_2;
-            }
-            foreach ($object as $key_2 => $value_3) {
-                if (preg_match('/.*/', (string) $key_2)) {
-                    $data[$key_2] = $value_3;
-                }
-            }
-
-            return $data;
-        }
-
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\CalendarViewExampleResponse::class => false];
-        }
+        return \CedricZiel\Baserow\Generated\Model\CalendarViewExampleResponse::class === $type;
     }
-} else {
-    class CalendarViewExampleResponseNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
+        return is_object($data) && \CedricZiel\Baserow\Generated\Model\CalendarViewExampleResponse::class === get_class($data);
+    }
 
-        public function supportsDenormalization($data, $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\CalendarViewExampleResponse::class === $type;
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
+    {
+        if (isset($data['$ref'])) {
+            return new Reference($data['$ref'], $context['document-origin']);
         }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\CalendarViewExampleResponse::class === get_class($data);
+        if (isset($data['$recursiveRef'])) {
+            return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-
-        public function denormalize($data, $type, $format = null, array $context = [])
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\CalendarViewExampleResponse();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('rows', $data)) {
-                $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
-                foreach ($data['rows'] as $key => $value) {
-                    $values[$key] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\CalendarViewExampleResponseStack::class, 'json', $context);
-                }
-                $object->setRows($values);
-                unset($data['rows']);
-            }
-            if (\array_key_exists('field_options', $data)) {
-                $values_1 = [];
-                foreach ($data['field_options'] as $value_1) {
-                    $values_1[] = $this->denormalizer->denormalize($value_1, \CedricZiel\Baserow\Generated\Model\CalendarViewFieldOptions::class, 'json', $context);
-                }
-                $object->setFieldOptions($values_1);
-                unset($data['field_options']);
-            }
-            if (\array_key_exists('row_metadata', $data)) {
-                $values_2 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
-                foreach ($data['row_metadata'] as $key_1 => $value_2) {
-                    $values_2[$key_1] = $this->denormalizer->denormalize($value_2, \CedricZiel\Baserow\Generated\Model\RowMetadata::class, 'json', $context);
-                }
-                $object->setRowMetadata($values_2);
-                unset($data['row_metadata']);
-            }
-            foreach ($data as $key_2 => $value_3) {
-                if (preg_match('/.*/', (string) $key_2)) {
-                    $object[$key_2] = $value_3;
-                }
-            }
-
+        $object = new \CedricZiel\Baserow\Generated\Model\CalendarViewExampleResponse();
+        if (null === $data || false === \is_array($data)) {
             return $object;
         }
-
-        /**
-         * @return array|string|int|float|bool|\ArrayObject|null
-         */
-        public function normalize($object, $format = null, array $context = [])
-        {
-            $data = [];
-            $values = [];
-            foreach ($object->getRows() as $key => $value) {
-                $values[$key] = $this->normalizer->normalize($value, 'json', $context);
+        if (\array_key_exists('rows', $data)) {
+            $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
+            foreach ($data['rows'] as $key => $value) {
+                $values[$key] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\CalendarViewExampleResponseStack::class, 'json', $context);
             }
-            $data['rows'] = $values;
+            $object->setRows($values);
+            unset($data['rows']);
+        }
+        if (\array_key_exists('field_options', $data)) {
             $values_1 = [];
-            foreach ($object->getFieldOptions() as $value_1) {
-                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
+            foreach ($data['field_options'] as $value_1) {
+                $values_1[] = $this->denormalizer->denormalize($value_1, \CedricZiel\Baserow\Generated\Model\CalendarViewFieldOptions::class, 'json', $context);
             }
-            $data['field_options'] = $values_1;
-            if ($object->isInitialized('rowMetadata') && null !== $object->getRowMetadata()) {
-                $values_2 = [];
-                foreach ($object->getRowMetadata() as $key_1 => $value_2) {
-                    $values_2[$key_1] = $this->normalizer->normalize($value_2, 'json', $context);
-                }
-                $data['row_metadata'] = $values_2;
+            $object->setFieldOptions($values_1);
+            unset($data['field_options']);
+        }
+        if (\array_key_exists('row_metadata', $data)) {
+            $values_2 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
+            foreach ($data['row_metadata'] as $key_1 => $value_2) {
+                $values_2[$key_1] = $this->denormalizer->denormalize($value_2, \CedricZiel\Baserow\Generated\Model\RowMetadata::class, 'json', $context);
             }
-            foreach ($object as $key_2 => $value_3) {
-                if (preg_match('/.*/', (string) $key_2)) {
-                    $data[$key_2] = $value_3;
-                }
+            $object->setRowMetadata($values_2);
+            unset($data['row_metadata']);
+        }
+        foreach ($data as $key_2 => $value_3) {
+            if (preg_match('/.*/', (string) $key_2)) {
+                $object[$key_2] = $value_3;
             }
-
-            return $data;
         }
 
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\CalendarViewExampleResponse::class => false];
+        return $object;
+    }
+
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    {
+        $dataArray = [];
+        $values = [];
+        foreach ($data->getRows() as $key => $value) {
+            $values[$key] = $this->normalizer->normalize($value, 'json', $context);
         }
+        $dataArray['rows'] = $values;
+        $values_1 = [];
+        foreach ($data->getFieldOptions() as $value_1) {
+            $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
+        }
+        $dataArray['field_options'] = $values_1;
+        if ($data->isInitialized('rowMetadata') && null !== $data->getRowMetadata()) {
+            $values_2 = [];
+            foreach ($data->getRowMetadata() as $key_1 => $value_2) {
+                $values_2[$key_1] = $this->normalizer->normalize($value_2, 'json', $context);
+            }
+            $dataArray['row_metadata'] = $values_2;
+        }
+        foreach ($data as $key_2 => $value_3) {
+            if (preg_match('/.*/', (string) $key_2)) {
+                $dataArray[$key_2] = $value_3;
+            }
+        }
+
+        return $dataArray;
+    }
+
+    public function getSupportedTypes(?string $format = null): array
+    {
+        return [\CedricZiel\Baserow\Generated\Model\CalendarViewExampleResponse::class => false];
     }
 }

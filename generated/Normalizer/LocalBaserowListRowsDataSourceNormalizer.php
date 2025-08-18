@@ -13,7 +13,6 @@ namespace CedricZiel\Baserow\Generated\Normalizer;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\CheckArray;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\ValidatorTrait;
 use Jane\Component\JsonSchemaRuntime\Reference;
-use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -21,337 +20,167 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
-    class LocalBaserowListRowsDataSourceNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class LocalBaserowListRowsDataSourceNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+{
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+    use CheckArray;
+    use ValidatorTrait;
+
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
-
-        public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsDataSource::class === $type;
-        }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsDataSource::class === get_class($data);
-        }
-
-        public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsDataSource();
-            if (\array_key_exists('order', $data) && \is_int($data['order'])) {
-                $data['order'] = (float) $data['order'];
-            }
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('id', $data)) {
-                $object->setId($data['id']);
-                unset($data['id']);
-            }
-            if (\array_key_exists('integration_id', $data) && null !== $data['integration_id']) {
-                $object->setIntegrationId($data['integration_id']);
-                unset($data['integration_id']);
-            } elseif (\array_key_exists('integration_id', $data) && null === $data['integration_id']) {
-                $object->setIntegrationId(null);
-            }
-            if (\array_key_exists('type', $data)) {
-                $object->setType($data['type']);
-                unset($data['type']);
-            }
-            if (\array_key_exists('schema', $data)) {
-                $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
-                foreach ($data['schema'] as $key => $value) {
-                    $values[$key] = $value;
-                }
-                $object->setSchema($values);
-                unset($data['schema']);
-            }
-            if (\array_key_exists('context_data', $data)) {
-                $values_1 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
-                foreach ($data['context_data'] as $key_1 => $value_1) {
-                    $values_1[$key_1] = $value_1;
-                }
-                $object->setContextData($values_1);
-                unset($data['context_data']);
-            }
-            if (\array_key_exists('context_data_schema', $data)) {
-                $values_2 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
-                foreach ($data['context_data_schema'] as $key_2 => $value_2) {
-                    $values_2[$key_2] = $value_2;
-                }
-                $object->setContextDataSchema($values_2);
-                unset($data['context_data_schema']);
-            }
-            if (\array_key_exists('name', $data)) {
-                $object->setName($data['name']);
-                unset($data['name']);
-            }
-            if (\array_key_exists('page_id', $data)) {
-                $object->setPageId($data['page_id']);
-                unset($data['page_id']);
-            }
-            if (\array_key_exists('order', $data)) {
-                $object->setOrder($data['order']);
-                unset($data['order']);
-            }
-            if (\array_key_exists('table_id', $data) && null !== $data['table_id']) {
-                $object->setTableId($data['table_id']);
-                unset($data['table_id']);
-            } elseif (\array_key_exists('table_id', $data) && null === $data['table_id']) {
-                $object->setTableId(null);
-            }
-            if (\array_key_exists('view_id', $data) && null !== $data['view_id']) {
-                $object->setViewId($data['view_id']);
-                unset($data['view_id']);
-            } elseif (\array_key_exists('view_id', $data) && null === $data['view_id']) {
-                $object->setViewId(null);
-            }
-            if (\array_key_exists('filter_type', $data)) {
-                $object->setFilterType($data['filter_type']);
-                unset($data['filter_type']);
-            }
-            if (\array_key_exists('search_query', $data)) {
-                $object->setSearchQuery($data['search_query']);
-                unset($data['search_query']);
-            }
-            if (\array_key_exists('sortings', $data)) {
-                $values_3 = [];
-                foreach ($data['sortings'] as $value_3) {
-                    $values_3[] = $this->denormalizer->denormalize($value_3, \CedricZiel\Baserow\Generated\Model\LocalBaserowTableServiceSort::class, 'json', $context);
-                }
-                $object->setSortings($values_3);
-                unset($data['sortings']);
-            }
-            if (\array_key_exists('filters', $data)) {
-                $values_4 = [];
-                foreach ($data['filters'] as $value_4) {
-                    $values_4[] = $this->denormalizer->denormalize($value_4, \CedricZiel\Baserow\Generated\Model\LocalBaserowTableServiceFilter::class, 'json', $context);
-                }
-                $object->setFilters($values_4);
-                unset($data['filters']);
-            }
-            foreach ($data as $key_3 => $value_5) {
-                if (preg_match('/.*/', (string) $key_3)) {
-                    $object[$key_3] = $value_5;
-                }
-            }
-
-            return $object;
-        }
-
-        public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
-        {
-            $data = [];
-            if ($object->isInitialized('filterType') && null !== $object->getFilterType()) {
-                $data['filter_type'] = $object->getFilterType();
-            }
-            if ($object->isInitialized('searchQuery') && null !== $object->getSearchQuery()) {
-                $data['search_query'] = $object->getSearchQuery();
-            }
-            if ($object->isInitialized('sortings') && null !== $object->getSortings()) {
-                $values = [];
-                foreach ($object->getSortings() as $value) {
-                    $values[] = $this->normalizer->normalize($value, 'json', $context);
-                }
-                $data['sortings'] = $values;
-            }
-            if ($object->isInitialized('filters') && null !== $object->getFilters()) {
-                $values_1 = [];
-                foreach ($object->getFilters() as $value_1) {
-                    $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
-                }
-                $data['filters'] = $values_1;
-            }
-            foreach ($object as $key => $value_2) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value_2;
-                }
-            }
-
-            return $data;
-        }
-
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsDataSource::class => false];
-        }
+        return \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsDataSource::class === $type;
     }
-} else {
-    class LocalBaserowListRowsDataSourceNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
+        return is_object($data) && \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsDataSource::class === get_class($data);
+    }
 
-        public function supportsDenormalization($data, $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsDataSource::class === $type;
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
+    {
+        if (isset($data['$ref'])) {
+            return new Reference($data['$ref'], $context['document-origin']);
         }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsDataSource::class === get_class($data);
+        if (isset($data['$recursiveRef'])) {
+            return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-
-        public function denormalize($data, $type, $format = null, array $context = [])
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsDataSource();
-            if (\array_key_exists('order', $data) && \is_int($data['order'])) {
-                $data['order'] = (float) $data['order'];
-            }
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('id', $data)) {
-                $object->setId($data['id']);
-                unset($data['id']);
-            }
-            if (\array_key_exists('integration_id', $data) && null !== $data['integration_id']) {
-                $object->setIntegrationId($data['integration_id']);
-                unset($data['integration_id']);
-            } elseif (\array_key_exists('integration_id', $data) && null === $data['integration_id']) {
-                $object->setIntegrationId(null);
-            }
-            if (\array_key_exists('type', $data)) {
-                $object->setType($data['type']);
-                unset($data['type']);
-            }
-            if (\array_key_exists('schema', $data)) {
-                $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
-                foreach ($data['schema'] as $key => $value) {
-                    $values[$key] = $value;
-                }
-                $object->setSchema($values);
-                unset($data['schema']);
-            }
-            if (\array_key_exists('context_data', $data)) {
-                $values_1 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
-                foreach ($data['context_data'] as $key_1 => $value_1) {
-                    $values_1[$key_1] = $value_1;
-                }
-                $object->setContextData($values_1);
-                unset($data['context_data']);
-            }
-            if (\array_key_exists('context_data_schema', $data)) {
-                $values_2 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
-                foreach ($data['context_data_schema'] as $key_2 => $value_2) {
-                    $values_2[$key_2] = $value_2;
-                }
-                $object->setContextDataSchema($values_2);
-                unset($data['context_data_schema']);
-            }
-            if (\array_key_exists('name', $data)) {
-                $object->setName($data['name']);
-                unset($data['name']);
-            }
-            if (\array_key_exists('page_id', $data)) {
-                $object->setPageId($data['page_id']);
-                unset($data['page_id']);
-            }
-            if (\array_key_exists('order', $data)) {
-                $object->setOrder($data['order']);
-                unset($data['order']);
-            }
-            if (\array_key_exists('table_id', $data) && null !== $data['table_id']) {
-                $object->setTableId($data['table_id']);
-                unset($data['table_id']);
-            } elseif (\array_key_exists('table_id', $data) && null === $data['table_id']) {
-                $object->setTableId(null);
-            }
-            if (\array_key_exists('view_id', $data) && null !== $data['view_id']) {
-                $object->setViewId($data['view_id']);
-                unset($data['view_id']);
-            } elseif (\array_key_exists('view_id', $data) && null === $data['view_id']) {
-                $object->setViewId(null);
-            }
-            if (\array_key_exists('filter_type', $data)) {
-                $object->setFilterType($data['filter_type']);
-                unset($data['filter_type']);
-            }
-            if (\array_key_exists('search_query', $data)) {
-                $object->setSearchQuery($data['search_query']);
-                unset($data['search_query']);
-            }
-            if (\array_key_exists('sortings', $data)) {
-                $values_3 = [];
-                foreach ($data['sortings'] as $value_3) {
-                    $values_3[] = $this->denormalizer->denormalize($value_3, \CedricZiel\Baserow\Generated\Model\LocalBaserowTableServiceSort::class, 'json', $context);
-                }
-                $object->setSortings($values_3);
-                unset($data['sortings']);
-            }
-            if (\array_key_exists('filters', $data)) {
-                $values_4 = [];
-                foreach ($data['filters'] as $value_4) {
-                    $values_4[] = $this->denormalizer->denormalize($value_4, \CedricZiel\Baserow\Generated\Model\LocalBaserowTableServiceFilter::class, 'json', $context);
-                }
-                $object->setFilters($values_4);
-                unset($data['filters']);
-            }
-            foreach ($data as $key_3 => $value_5) {
-                if (preg_match('/.*/', (string) $key_3)) {
-                    $object[$key_3] = $value_5;
-                }
-            }
-
+        $object = new \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsDataSource();
+        if (\array_key_exists('order', $data) && \is_int($data['order'])) {
+            $data['order'] = (float) $data['order'];
+        }
+        if (null === $data || false === \is_array($data)) {
             return $object;
         }
-
-        /**
-         * @return array|string|int|float|bool|\ArrayObject|null
-         */
-        public function normalize($object, $format = null, array $context = [])
-        {
-            $data = [];
-            if ($object->isInitialized('filterType') && null !== $object->getFilterType()) {
-                $data['filter_type'] = $object->getFilterType();
+        if (\array_key_exists('id', $data)) {
+            $object->setId($data['id']);
+            unset($data['id']);
+        }
+        if (\array_key_exists('integration_id', $data) && null !== $data['integration_id']) {
+            $object->setIntegrationId($data['integration_id']);
+            unset($data['integration_id']);
+        } elseif (\array_key_exists('integration_id', $data) && null === $data['integration_id']) {
+            $object->setIntegrationId(null);
+        }
+        if (\array_key_exists('type', $data)) {
+            $object->setType($data['type']);
+            unset($data['type']);
+        }
+        if (\array_key_exists('schema', $data)) {
+            $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
+            foreach ($data['schema'] as $key => $value) {
+                $values[$key] = $value;
             }
-            if ($object->isInitialized('searchQuery') && null !== $object->getSearchQuery()) {
-                $data['search_query'] = $object->getSearchQuery();
+            $object->setSchema($values);
+            unset($data['schema']);
+        }
+        if (\array_key_exists('context_data', $data)) {
+            $values_1 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
+            foreach ($data['context_data'] as $key_1 => $value_1) {
+                $values_1[$key_1] = $value_1;
             }
-            if ($object->isInitialized('sortings') && null !== $object->getSortings()) {
-                $values = [];
-                foreach ($object->getSortings() as $value) {
-                    $values[] = $this->normalizer->normalize($value, 'json', $context);
-                }
-                $data['sortings'] = $values;
+            $object->setContextData($values_1);
+            unset($data['context_data']);
+        }
+        if (\array_key_exists('context_data_schema', $data)) {
+            $values_2 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
+            foreach ($data['context_data_schema'] as $key_2 => $value_2) {
+                $values_2[$key_2] = $value_2;
             }
-            if ($object->isInitialized('filters') && null !== $object->getFilters()) {
-                $values_1 = [];
-                foreach ($object->getFilters() as $value_1) {
-                    $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
-                }
-                $data['filters'] = $values_1;
+            $object->setContextDataSchema($values_2);
+            unset($data['context_data_schema']);
+        }
+        if (\array_key_exists('name', $data)) {
+            $object->setName($data['name']);
+            unset($data['name']);
+        }
+        if (\array_key_exists('page_id', $data)) {
+            $object->setPageId($data['page_id']);
+            unset($data['page_id']);
+        }
+        if (\array_key_exists('order', $data)) {
+            $object->setOrder($data['order']);
+            unset($data['order']);
+        }
+        if (\array_key_exists('table_id', $data) && null !== $data['table_id']) {
+            $object->setTableId($data['table_id']);
+            unset($data['table_id']);
+        } elseif (\array_key_exists('table_id', $data) && null === $data['table_id']) {
+            $object->setTableId(null);
+        }
+        if (\array_key_exists('view_id', $data) && null !== $data['view_id']) {
+            $object->setViewId($data['view_id']);
+            unset($data['view_id']);
+        } elseif (\array_key_exists('view_id', $data) && null === $data['view_id']) {
+            $object->setViewId(null);
+        }
+        if (\array_key_exists('filter_type', $data)) {
+            $object->setFilterType($data['filter_type']);
+            unset($data['filter_type']);
+        }
+        if (\array_key_exists('search_query', $data)) {
+            $object->setSearchQuery($data['search_query']);
+            unset($data['search_query']);
+        }
+        if (\array_key_exists('sortings', $data)) {
+            $values_3 = [];
+            foreach ($data['sortings'] as $value_3) {
+                $values_3[] = $this->denormalizer->denormalize($value_3, \CedricZiel\Baserow\Generated\Model\LocalBaserowTableServiceSort::class, 'json', $context);
             }
-            foreach ($object as $key => $value_2) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value_2;
-                }
+            $object->setSortings($values_3);
+            unset($data['sortings']);
+        }
+        if (\array_key_exists('filters', $data)) {
+            $values_4 = [];
+            foreach ($data['filters'] as $value_4) {
+                $values_4[] = $this->denormalizer->denormalize($value_4, \CedricZiel\Baserow\Generated\Model\LocalBaserowTableServiceFilter::class, 'json', $context);
             }
-
-            return $data;
+            $object->setFilters($values_4);
+            unset($data['filters']);
+        }
+        foreach ($data as $key_3 => $value_5) {
+            if (preg_match('/.*/', (string) $key_3)) {
+                $object[$key_3] = $value_5;
+            }
         }
 
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsDataSource::class => false];
+        return $object;
+    }
+
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    {
+        $dataArray = [];
+        if ($data->isInitialized('filterType') && null !== $data->getFilterType()) {
+            $dataArray['filter_type'] = $data->getFilterType();
         }
+        if ($data->isInitialized('searchQuery') && null !== $data->getSearchQuery()) {
+            $dataArray['search_query'] = $data->getSearchQuery();
+        }
+        if ($data->isInitialized('sortings') && null !== $data->getSortings()) {
+            $values = [];
+            foreach ($data->getSortings() as $value) {
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
+            }
+            $dataArray['sortings'] = $values;
+        }
+        if ($data->isInitialized('filters') && null !== $data->getFilters()) {
+            $values_1 = [];
+            foreach ($data->getFilters() as $value_1) {
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
+            }
+            $dataArray['filters'] = $values_1;
+        }
+        foreach ($data as $key => $value_2) {
+            if (preg_match('/.*/', (string) $key)) {
+                $dataArray[$key] = $value_2;
+            }
+        }
+
+        return $dataArray;
+    }
+
+    public function getSupportedTypes(?string $format = null): array
+    {
+        return [\CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsDataSource::class => false];
     }
 }

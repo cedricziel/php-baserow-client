@@ -13,7 +13,6 @@ namespace CedricZiel\Baserow\Generated\Normalizer;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\CheckArray;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\ValidatorTrait;
 use Jane\Component\JsonSchemaRuntime\Reference;
-use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -21,227 +20,112 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
-    class TeamResponseNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class TeamResponseNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+{
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+    use CheckArray;
+    use ValidatorTrait;
+
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
-
-        public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\TeamResponse::class === $type;
-        }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\TeamResponse::class === get_class($data);
-        }
-
-        public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\TeamResponse();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('id', $data)) {
-                $object->setId($data['id']);
-                unset($data['id']);
-            }
-            if (\array_key_exists('name', $data)) {
-                $object->setName($data['name']);
-                unset($data['name']);
-            }
-            if (\array_key_exists('group', $data)) {
-                $object->setGroup($data['group']);
-                unset($data['group']);
-            }
-            if (\array_key_exists('workspace', $data)) {
-                $object->setWorkspace($data['workspace']);
-                unset($data['workspace']);
-            }
-            if (\array_key_exists('created_on', $data)) {
-                $object->setCreatedOn(\DateTime::createFromFormat('Y-m-d\TH:i:sP', $data['created_on']));
-                unset($data['created_on']);
-            }
-            if (\array_key_exists('updated_on', $data)) {
-                $object->setUpdatedOn(\DateTime::createFromFormat('Y-m-d\TH:i:sP', $data['updated_on']));
-                unset($data['updated_on']);
-            }
-            if (\array_key_exists('default_role', $data)) {
-                $object->setDefaultRole($data['default_role']);
-                unset($data['default_role']);
-            }
-            if (\array_key_exists('subject_count', $data)) {
-                $object->setSubjectCount($data['subject_count']);
-                unset($data['subject_count']);
-            }
-            if (\array_key_exists('subject_sample', $data)) {
-                $values = [];
-                foreach ($data['subject_sample'] as $value) {
-                    $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\TeamSampleSubject::class, 'json', $context);
-                }
-                $object->setSubjectSample($values);
-                unset($data['subject_sample']);
-            }
-            foreach ($data as $key => $value_1) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value_1;
-                }
-            }
-
-            return $object;
-        }
-
-        public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
-        {
-            $data = [];
-            $data['name'] = $object->getName();
-            $data['group'] = $object->getGroup();
-            $data['workspace'] = $object->getWorkspace();
-            if ($object->isInitialized('defaultRole') && null !== $object->getDefaultRole()) {
-                $data['default_role'] = $object->getDefaultRole();
-            }
-            $data['subject_count'] = $object->getSubjectCount();
-            if ($object->isInitialized('subjectSample') && null !== $object->getSubjectSample()) {
-                $values = [];
-                foreach ($object->getSubjectSample() as $value) {
-                    $values[] = $this->normalizer->normalize($value, 'json', $context);
-                }
-                $data['subject_sample'] = $values;
-            }
-            foreach ($object as $key => $value_1) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value_1;
-                }
-            }
-
-            return $data;
-        }
-
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\TeamResponse::class => false];
-        }
+        return \CedricZiel\Baserow\Generated\Model\TeamResponse::class === $type;
     }
-} else {
-    class TeamResponseNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
+        return is_object($data) && \CedricZiel\Baserow\Generated\Model\TeamResponse::class === get_class($data);
+    }
 
-        public function supportsDenormalization($data, $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\TeamResponse::class === $type;
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
+    {
+        if (isset($data['$ref'])) {
+            return new Reference($data['$ref'], $context['document-origin']);
         }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\TeamResponse::class === get_class($data);
+        if (isset($data['$recursiveRef'])) {
+            return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-
-        public function denormalize($data, $type, $format = null, array $context = [])
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\TeamResponse();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('id', $data)) {
-                $object->setId($data['id']);
-                unset($data['id']);
-            }
-            if (\array_key_exists('name', $data)) {
-                $object->setName($data['name']);
-                unset($data['name']);
-            }
-            if (\array_key_exists('group', $data)) {
-                $object->setGroup($data['group']);
-                unset($data['group']);
-            }
-            if (\array_key_exists('workspace', $data)) {
-                $object->setWorkspace($data['workspace']);
-                unset($data['workspace']);
-            }
-            if (\array_key_exists('created_on', $data)) {
-                $object->setCreatedOn(\DateTime::createFromFormat('Y-m-d\TH:i:sP', $data['created_on']));
-                unset($data['created_on']);
-            }
-            if (\array_key_exists('updated_on', $data)) {
-                $object->setUpdatedOn(\DateTime::createFromFormat('Y-m-d\TH:i:sP', $data['updated_on']));
-                unset($data['updated_on']);
-            }
-            if (\array_key_exists('default_role', $data)) {
-                $object->setDefaultRole($data['default_role']);
-                unset($data['default_role']);
-            }
-            if (\array_key_exists('subject_count', $data)) {
-                $object->setSubjectCount($data['subject_count']);
-                unset($data['subject_count']);
-            }
-            if (\array_key_exists('subject_sample', $data)) {
-                $values = [];
-                foreach ($data['subject_sample'] as $value) {
-                    $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\TeamSampleSubject::class, 'json', $context);
-                }
-                $object->setSubjectSample($values);
-                unset($data['subject_sample']);
-            }
-            foreach ($data as $key => $value_1) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value_1;
-                }
-            }
-
+        $object = new \CedricZiel\Baserow\Generated\Model\TeamResponse();
+        if (null === $data || false === \is_array($data)) {
             return $object;
         }
-
-        /**
-         * @return array|string|int|float|bool|\ArrayObject|null
-         */
-        public function normalize($object, $format = null, array $context = [])
-        {
-            $data = [];
-            $data['name'] = $object->getName();
-            $data['group'] = $object->getGroup();
-            $data['workspace'] = $object->getWorkspace();
-            if ($object->isInitialized('defaultRole') && null !== $object->getDefaultRole()) {
-                $data['default_role'] = $object->getDefaultRole();
+        if (\array_key_exists('id', $data)) {
+            $object->setId($data['id']);
+            unset($data['id']);
+        }
+        if (\array_key_exists('name', $data)) {
+            $object->setName($data['name']);
+            unset($data['name']);
+        }
+        if (\array_key_exists('group', $data)) {
+            $object->setGroup($data['group']);
+            unset($data['group']);
+        }
+        if (\array_key_exists('workspace', $data)) {
+            $object->setWorkspace($data['workspace']);
+            unset($data['workspace']);
+        }
+        if (\array_key_exists('created_on', $data)) {
+            $object->setCreatedOn(\DateTime::createFromFormat('Y-m-d\TH:i:sP', $data['created_on']));
+            unset($data['created_on']);
+        }
+        if (\array_key_exists('updated_on', $data)) {
+            $object->setUpdatedOn(\DateTime::createFromFormat('Y-m-d\TH:i:sP', $data['updated_on']));
+            unset($data['updated_on']);
+        }
+        if (\array_key_exists('default_role', $data)) {
+            $object->setDefaultRole($data['default_role']);
+            unset($data['default_role']);
+        }
+        if (\array_key_exists('subject_count', $data)) {
+            $object->setSubjectCount($data['subject_count']);
+            unset($data['subject_count']);
+        }
+        if (\array_key_exists('subject_sample', $data)) {
+            $values = [];
+            foreach ($data['subject_sample'] as $value) {
+                $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\TeamSampleSubject::class, 'json', $context);
             }
-            $data['subject_count'] = $object->getSubjectCount();
-            if ($object->isInitialized('subjectSample') && null !== $object->getSubjectSample()) {
-                $values = [];
-                foreach ($object->getSubjectSample() as $value) {
-                    $values[] = $this->normalizer->normalize($value, 'json', $context);
-                }
-                $data['subject_sample'] = $values;
+            $object->setSubjectSample($values);
+            unset($data['subject_sample']);
+        }
+        foreach ($data as $key => $value_1) {
+            if (preg_match('/.*/', (string) $key)) {
+                $object[$key] = $value_1;
             }
-            foreach ($object as $key => $value_1) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value_1;
-                }
-            }
-
-            return $data;
         }
 
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\TeamResponse::class => false];
+        return $object;
+    }
+
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    {
+        $dataArray = [];
+        $dataArray['name'] = $data->getName();
+        $dataArray['group'] = $data->getGroup();
+        $dataArray['workspace'] = $data->getWorkspace();
+        if ($data->isInitialized('defaultRole') && null !== $data->getDefaultRole()) {
+            $dataArray['default_role'] = $data->getDefaultRole();
         }
+        $dataArray['subject_count'] = $data->getSubjectCount();
+        if ($data->isInitialized('subjectSample') && null !== $data->getSubjectSample()) {
+            $values = [];
+            foreach ($data->getSubjectSample() as $value) {
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
+            }
+            $dataArray['subject_sample'] = $values;
+        }
+        foreach ($data as $key => $value_1) {
+            if (preg_match('/.*/', (string) $key)) {
+                $dataArray[$key] = $value_1;
+            }
+        }
+
+        return $dataArray;
+    }
+
+    public function getSupportedTypes(?string $format = null): array
+    {
+        return [\CedricZiel\Baserow\Generated\Model\TeamResponse::class => false];
     }
 }

@@ -13,7 +13,6 @@ namespace CedricZiel\Baserow\Generated\Normalizer;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\CheckArray;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\ValidatorTrait;
 use Jane\Component\JsonSchemaRuntime\Reference;
-use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -21,977 +20,487 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
-    class BuilderApplicationThemeNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class BuilderApplicationThemeNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+{
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+    use CheckArray;
+    use ValidatorTrait;
+
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
-
-        public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\BuilderApplicationTheme::class === $type;
-        }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\BuilderApplicationTheme::class === get_class($data);
-        }
-
-        public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\BuilderApplicationTheme();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('primary_color', $data)) {
-                $object->setPrimaryColor($data['primary_color']);
-                unset($data['primary_color']);
-            }
-            if (\array_key_exists('secondary_color', $data)) {
-                $object->setSecondaryColor($data['secondary_color']);
-                unset($data['secondary_color']);
-            }
-            if (\array_key_exists('border_color', $data)) {
-                $object->setBorderColor($data['border_color']);
-                unset($data['border_color']);
-            }
-            if (\array_key_exists('main_success_color', $data)) {
-                $object->setMainSuccessColor($data['main_success_color']);
-                unset($data['main_success_color']);
-            }
-            if (\array_key_exists('main_warning_color', $data)) {
-                $object->setMainWarningColor($data['main_warning_color']);
-                unset($data['main_warning_color']);
-            }
-            if (\array_key_exists('main_error_color', $data)) {
-                $object->setMainErrorColor($data['main_error_color']);
-                unset($data['main_error_color']);
-            }
-            if (\array_key_exists('body_font_family', $data)) {
-                $object->setBodyFontFamily($data['body_font_family']);
-                unset($data['body_font_family']);
-            }
-            if (\array_key_exists('body_font_size', $data)) {
-                $object->setBodyFontSize($data['body_font_size']);
-                unset($data['body_font_size']);
-            }
-            if (\array_key_exists('body_text_color', $data)) {
-                $object->setBodyTextColor($data['body_text_color']);
-                unset($data['body_text_color']);
-            }
-            if (\array_key_exists('body_text_alignment', $data)) {
-                $object->setBodyTextAlignment($data['body_text_alignment']);
-                unset($data['body_text_alignment']);
-            }
-            if (\array_key_exists('heading_1_font_family', $data)) {
-                $object->setHeading1FontFamily($data['heading_1_font_family']);
-                unset($data['heading_1_font_family']);
-            }
-            if (\array_key_exists('heading_1_font_size', $data)) {
-                $object->setHeading1FontSize($data['heading_1_font_size']);
-                unset($data['heading_1_font_size']);
-            }
-            if (\array_key_exists('heading_1_text_color', $data)) {
-                $object->setHeading1TextColor($data['heading_1_text_color']);
-                unset($data['heading_1_text_color']);
-            }
-            if (\array_key_exists('heading_1_text_alignment', $data)) {
-                $object->setHeading1TextAlignment($data['heading_1_text_alignment']);
-                unset($data['heading_1_text_alignment']);
-            }
-            if (\array_key_exists('heading_2_font_family', $data)) {
-                $object->setHeading2FontFamily($data['heading_2_font_family']);
-                unset($data['heading_2_font_family']);
-            }
-            if (\array_key_exists('heading_2_font_size', $data)) {
-                $object->setHeading2FontSize($data['heading_2_font_size']);
-                unset($data['heading_2_font_size']);
-            }
-            if (\array_key_exists('heading_2_text_color', $data)) {
-                $object->setHeading2TextColor($data['heading_2_text_color']);
-                unset($data['heading_2_text_color']);
-            }
-            if (\array_key_exists('heading_2_text_alignment', $data)) {
-                $object->setHeading2TextAlignment($data['heading_2_text_alignment']);
-                unset($data['heading_2_text_alignment']);
-            }
-            if (\array_key_exists('heading_3_font_family', $data)) {
-                $object->setHeading3FontFamily($data['heading_3_font_family']);
-                unset($data['heading_3_font_family']);
-            }
-            if (\array_key_exists('heading_3_font_size', $data)) {
-                $object->setHeading3FontSize($data['heading_3_font_size']);
-                unset($data['heading_3_font_size']);
-            }
-            if (\array_key_exists('heading_3_text_color', $data)) {
-                $object->setHeading3TextColor($data['heading_3_text_color']);
-                unset($data['heading_3_text_color']);
-            }
-            if (\array_key_exists('heading_3_text_alignment', $data)) {
-                $object->setHeading3TextAlignment($data['heading_3_text_alignment']);
-                unset($data['heading_3_text_alignment']);
-            }
-            if (\array_key_exists('heading_4_font_family', $data)) {
-                $object->setHeading4FontFamily($data['heading_4_font_family']);
-                unset($data['heading_4_font_family']);
-            }
-            if (\array_key_exists('heading_4_font_size', $data)) {
-                $object->setHeading4FontSize($data['heading_4_font_size']);
-                unset($data['heading_4_font_size']);
-            }
-            if (\array_key_exists('heading_4_text_color', $data)) {
-                $object->setHeading4TextColor($data['heading_4_text_color']);
-                unset($data['heading_4_text_color']);
-            }
-            if (\array_key_exists('heading_4_text_alignment', $data)) {
-                $object->setHeading4TextAlignment($data['heading_4_text_alignment']);
-                unset($data['heading_4_text_alignment']);
-            }
-            if (\array_key_exists('heading_5_font_family', $data)) {
-                $object->setHeading5FontFamily($data['heading_5_font_family']);
-                unset($data['heading_5_font_family']);
-            }
-            if (\array_key_exists('heading_5_font_size', $data)) {
-                $object->setHeading5FontSize($data['heading_5_font_size']);
-                unset($data['heading_5_font_size']);
-            }
-            if (\array_key_exists('heading_5_text_color', $data)) {
-                $object->setHeading5TextColor($data['heading_5_text_color']);
-                unset($data['heading_5_text_color']);
-            }
-            if (\array_key_exists('heading_5_text_alignment', $data)) {
-                $object->setHeading5TextAlignment($data['heading_5_text_alignment']);
-                unset($data['heading_5_text_alignment']);
-            }
-            if (\array_key_exists('heading_6_font_family', $data)) {
-                $object->setHeading6FontFamily($data['heading_6_font_family']);
-                unset($data['heading_6_font_family']);
-            }
-            if (\array_key_exists('heading_6_font_size', $data)) {
-                $object->setHeading6FontSize($data['heading_6_font_size']);
-                unset($data['heading_6_font_size']);
-            }
-            if (\array_key_exists('heading_6_text_color', $data)) {
-                $object->setHeading6TextColor($data['heading_6_text_color']);
-                unset($data['heading_6_text_color']);
-            }
-            if (\array_key_exists('heading_6_text_alignment', $data)) {
-                $object->setHeading6TextAlignment($data['heading_6_text_alignment']);
-                unset($data['heading_6_text_alignment']);
-            }
-            if (\array_key_exists('button_font_family', $data)) {
-                $object->setButtonFontFamily($data['button_font_family']);
-                unset($data['button_font_family']);
-            }
-            if (\array_key_exists('button_font_size', $data)) {
-                $object->setButtonFontSize($data['button_font_size']);
-                unset($data['button_font_size']);
-            }
-            if (\array_key_exists('button_alignment', $data)) {
-                $object->setButtonAlignment($data['button_alignment']);
-                unset($data['button_alignment']);
-            }
-            if (\array_key_exists('button_text_alignment', $data)) {
-                $object->setButtonTextAlignment($data['button_text_alignment']);
-                unset($data['button_text_alignment']);
-            }
-            if (\array_key_exists('button_width', $data)) {
-                $object->setButtonWidth($data['button_width']);
-                unset($data['button_width']);
-            }
-            if (\array_key_exists('button_background_color', $data)) {
-                $object->setButtonBackgroundColor($data['button_background_color']);
-                unset($data['button_background_color']);
-            }
-            if (\array_key_exists('button_text_color', $data)) {
-                $object->setButtonTextColor($data['button_text_color']);
-                unset($data['button_text_color']);
-            }
-            if (\array_key_exists('button_border_color', $data)) {
-                $object->setButtonBorderColor($data['button_border_color']);
-                unset($data['button_border_color']);
-            }
-            if (\array_key_exists('button_border_size', $data)) {
-                $object->setButtonBorderSize($data['button_border_size']);
-                unset($data['button_border_size']);
-            }
-            if (\array_key_exists('button_border_radius', $data)) {
-                $object->setButtonBorderRadius($data['button_border_radius']);
-                unset($data['button_border_radius']);
-            }
-            if (\array_key_exists('button_vertical_padding', $data)) {
-                $object->setButtonVerticalPadding($data['button_vertical_padding']);
-                unset($data['button_vertical_padding']);
-            }
-            if (\array_key_exists('button_horizontal_padding', $data)) {
-                $object->setButtonHorizontalPadding($data['button_horizontal_padding']);
-                unset($data['button_horizontal_padding']);
-            }
-            if (\array_key_exists('button_hover_background_color', $data)) {
-                $object->setButtonHoverBackgroundColor($data['button_hover_background_color']);
-                unset($data['button_hover_background_color']);
-            }
-            if (\array_key_exists('button_hover_text_color', $data)) {
-                $object->setButtonHoverTextColor($data['button_hover_text_color']);
-                unset($data['button_hover_text_color']);
-            }
-            if (\array_key_exists('button_hover_border_color', $data)) {
-                $object->setButtonHoverBorderColor($data['button_hover_border_color']);
-                unset($data['button_hover_border_color']);
-            }
-            if (\array_key_exists('link_font_family', $data)) {
-                $object->setLinkFontFamily($data['link_font_family']);
-                unset($data['link_font_family']);
-            }
-            if (\array_key_exists('link_font_size', $data)) {
-                $object->setLinkFontSize($data['link_font_size']);
-                unset($data['link_font_size']);
-            }
-            if (\array_key_exists('link_text_alignment', $data)) {
-                $object->setLinkTextAlignment($data['link_text_alignment']);
-                unset($data['link_text_alignment']);
-            }
-            if (\array_key_exists('link_text_color', $data)) {
-                $object->setLinkTextColor($data['link_text_color']);
-                unset($data['link_text_color']);
-            }
-            if (\array_key_exists('link_hover_text_color', $data)) {
-                $object->setLinkHoverTextColor($data['link_hover_text_color']);
-                unset($data['link_hover_text_color']);
-            }
-            if (\array_key_exists('image_max_height', $data)) {
-                $object->setImageMaxHeight($data['image_max_height']);
-                unset($data['image_max_height']);
-            }
-            if (\array_key_exists('image_alignment', $data)) {
-                $object->setImageAlignment($data['image_alignment']);
-                unset($data['image_alignment']);
-            }
-            if (\array_key_exists('image_max_width', $data)) {
-                $object->setImageMaxWidth($data['image_max_width']);
-                unset($data['image_max_width']);
-            }
-            if (\array_key_exists('image_constraint', $data)) {
-                $object->setImageConstraint($data['image_constraint']);
-                unset($data['image_constraint']);
-            }
-            if (\array_key_exists('page_background_file', $data) && null !== $data['page_background_file']) {
-                $object->setPageBackgroundFile($this->denormalizer->denormalize($data['page_background_file'], \CedricZiel\Baserow\Generated\Model\CombinedThemeConfigBlocksPageBackgroundFile::class, 'json', $context));
-                unset($data['page_background_file']);
-            } elseif (\array_key_exists('page_background_file', $data) && null === $data['page_background_file']) {
-                $object->setPageBackgroundFile(null);
-            }
-            if (\array_key_exists('page_background_color', $data)) {
-                $object->setPageBackgroundColor($data['page_background_color']);
-                unset($data['page_background_color']);
-            }
-            if (\array_key_exists('page_background_mode', $data)) {
-                $object->setPageBackgroundMode($data['page_background_mode']);
-                unset($data['page_background_mode']);
-            }
-            foreach ($data as $key => $value) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value;
-                }
-            }
-
-            return $object;
-        }
-
-        public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
-        {
-            $data = [];
-            if ($object->isInitialized('primaryColor') && null !== $object->getPrimaryColor()) {
-                $data['primary_color'] = $object->getPrimaryColor();
-            }
-            if ($object->isInitialized('secondaryColor') && null !== $object->getSecondaryColor()) {
-                $data['secondary_color'] = $object->getSecondaryColor();
-            }
-            if ($object->isInitialized('borderColor') && null !== $object->getBorderColor()) {
-                $data['border_color'] = $object->getBorderColor();
-            }
-            if ($object->isInitialized('mainSuccessColor') && null !== $object->getMainSuccessColor()) {
-                $data['main_success_color'] = $object->getMainSuccessColor();
-            }
-            if ($object->isInitialized('mainWarningColor') && null !== $object->getMainWarningColor()) {
-                $data['main_warning_color'] = $object->getMainWarningColor();
-            }
-            if ($object->isInitialized('mainErrorColor') && null !== $object->getMainErrorColor()) {
-                $data['main_error_color'] = $object->getMainErrorColor();
-            }
-            if ($object->isInitialized('bodyFontFamily') && null !== $object->getBodyFontFamily()) {
-                $data['body_font_family'] = $object->getBodyFontFamily();
-            }
-            if ($object->isInitialized('bodyFontSize') && null !== $object->getBodyFontSize()) {
-                $data['body_font_size'] = $object->getBodyFontSize();
-            }
-            if ($object->isInitialized('bodyTextColor') && null !== $object->getBodyTextColor()) {
-                $data['body_text_color'] = $object->getBodyTextColor();
-            }
-            if ($object->isInitialized('bodyTextAlignment') && null !== $object->getBodyTextAlignment()) {
-                $data['body_text_alignment'] = $object->getBodyTextAlignment();
-            }
-            if ($object->isInitialized('heading1FontFamily') && null !== $object->getHeading1FontFamily()) {
-                $data['heading_1_font_family'] = $object->getHeading1FontFamily();
-            }
-            if ($object->isInitialized('heading1FontSize') && null !== $object->getHeading1FontSize()) {
-                $data['heading_1_font_size'] = $object->getHeading1FontSize();
-            }
-            if ($object->isInitialized('heading1TextColor') && null !== $object->getHeading1TextColor()) {
-                $data['heading_1_text_color'] = $object->getHeading1TextColor();
-            }
-            if ($object->isInitialized('heading1TextAlignment') && null !== $object->getHeading1TextAlignment()) {
-                $data['heading_1_text_alignment'] = $object->getHeading1TextAlignment();
-            }
-            if ($object->isInitialized('heading2FontFamily') && null !== $object->getHeading2FontFamily()) {
-                $data['heading_2_font_family'] = $object->getHeading2FontFamily();
-            }
-            if ($object->isInitialized('heading2FontSize') && null !== $object->getHeading2FontSize()) {
-                $data['heading_2_font_size'] = $object->getHeading2FontSize();
-            }
-            if ($object->isInitialized('heading2TextColor') && null !== $object->getHeading2TextColor()) {
-                $data['heading_2_text_color'] = $object->getHeading2TextColor();
-            }
-            if ($object->isInitialized('heading2TextAlignment') && null !== $object->getHeading2TextAlignment()) {
-                $data['heading_2_text_alignment'] = $object->getHeading2TextAlignment();
-            }
-            if ($object->isInitialized('heading3FontFamily') && null !== $object->getHeading3FontFamily()) {
-                $data['heading_3_font_family'] = $object->getHeading3FontFamily();
-            }
-            if ($object->isInitialized('heading3FontSize') && null !== $object->getHeading3FontSize()) {
-                $data['heading_3_font_size'] = $object->getHeading3FontSize();
-            }
-            if ($object->isInitialized('heading3TextColor') && null !== $object->getHeading3TextColor()) {
-                $data['heading_3_text_color'] = $object->getHeading3TextColor();
-            }
-            if ($object->isInitialized('heading3TextAlignment') && null !== $object->getHeading3TextAlignment()) {
-                $data['heading_3_text_alignment'] = $object->getHeading3TextAlignment();
-            }
-            if ($object->isInitialized('heading4FontFamily') && null !== $object->getHeading4FontFamily()) {
-                $data['heading_4_font_family'] = $object->getHeading4FontFamily();
-            }
-            if ($object->isInitialized('heading4FontSize') && null !== $object->getHeading4FontSize()) {
-                $data['heading_4_font_size'] = $object->getHeading4FontSize();
-            }
-            if ($object->isInitialized('heading4TextColor') && null !== $object->getHeading4TextColor()) {
-                $data['heading_4_text_color'] = $object->getHeading4TextColor();
-            }
-            if ($object->isInitialized('heading4TextAlignment') && null !== $object->getHeading4TextAlignment()) {
-                $data['heading_4_text_alignment'] = $object->getHeading4TextAlignment();
-            }
-            if ($object->isInitialized('heading5FontFamily') && null !== $object->getHeading5FontFamily()) {
-                $data['heading_5_font_family'] = $object->getHeading5FontFamily();
-            }
-            if ($object->isInitialized('heading5FontSize') && null !== $object->getHeading5FontSize()) {
-                $data['heading_5_font_size'] = $object->getHeading5FontSize();
-            }
-            if ($object->isInitialized('heading5TextColor') && null !== $object->getHeading5TextColor()) {
-                $data['heading_5_text_color'] = $object->getHeading5TextColor();
-            }
-            if ($object->isInitialized('heading5TextAlignment') && null !== $object->getHeading5TextAlignment()) {
-                $data['heading_5_text_alignment'] = $object->getHeading5TextAlignment();
-            }
-            if ($object->isInitialized('heading6FontFamily') && null !== $object->getHeading6FontFamily()) {
-                $data['heading_6_font_family'] = $object->getHeading6FontFamily();
-            }
-            if ($object->isInitialized('heading6FontSize') && null !== $object->getHeading6FontSize()) {
-                $data['heading_6_font_size'] = $object->getHeading6FontSize();
-            }
-            if ($object->isInitialized('heading6TextColor') && null !== $object->getHeading6TextColor()) {
-                $data['heading_6_text_color'] = $object->getHeading6TextColor();
-            }
-            if ($object->isInitialized('heading6TextAlignment') && null !== $object->getHeading6TextAlignment()) {
-                $data['heading_6_text_alignment'] = $object->getHeading6TextAlignment();
-            }
-            if ($object->isInitialized('buttonFontFamily') && null !== $object->getButtonFontFamily()) {
-                $data['button_font_family'] = $object->getButtonFontFamily();
-            }
-            if ($object->isInitialized('buttonFontSize') && null !== $object->getButtonFontSize()) {
-                $data['button_font_size'] = $object->getButtonFontSize();
-            }
-            if ($object->isInitialized('buttonAlignment') && null !== $object->getButtonAlignment()) {
-                $data['button_alignment'] = $object->getButtonAlignment();
-            }
-            if ($object->isInitialized('buttonTextAlignment') && null !== $object->getButtonTextAlignment()) {
-                $data['button_text_alignment'] = $object->getButtonTextAlignment();
-            }
-            if ($object->isInitialized('buttonWidth') && null !== $object->getButtonWidth()) {
-                $data['button_width'] = $object->getButtonWidth();
-            }
-            if ($object->isInitialized('buttonBackgroundColor') && null !== $object->getButtonBackgroundColor()) {
-                $data['button_background_color'] = $object->getButtonBackgroundColor();
-            }
-            if ($object->isInitialized('buttonTextColor') && null !== $object->getButtonTextColor()) {
-                $data['button_text_color'] = $object->getButtonTextColor();
-            }
-            if ($object->isInitialized('buttonBorderColor') && null !== $object->getButtonBorderColor()) {
-                $data['button_border_color'] = $object->getButtonBorderColor();
-            }
-            if ($object->isInitialized('buttonBorderSize') && null !== $object->getButtonBorderSize()) {
-                $data['button_border_size'] = $object->getButtonBorderSize();
-            }
-            if ($object->isInitialized('buttonBorderRadius') && null !== $object->getButtonBorderRadius()) {
-                $data['button_border_radius'] = $object->getButtonBorderRadius();
-            }
-            if ($object->isInitialized('buttonVerticalPadding') && null !== $object->getButtonVerticalPadding()) {
-                $data['button_vertical_padding'] = $object->getButtonVerticalPadding();
-            }
-            if ($object->isInitialized('buttonHorizontalPadding') && null !== $object->getButtonHorizontalPadding()) {
-                $data['button_horizontal_padding'] = $object->getButtonHorizontalPadding();
-            }
-            if ($object->isInitialized('buttonHoverBackgroundColor') && null !== $object->getButtonHoverBackgroundColor()) {
-                $data['button_hover_background_color'] = $object->getButtonHoverBackgroundColor();
-            }
-            if ($object->isInitialized('buttonHoverTextColor') && null !== $object->getButtonHoverTextColor()) {
-                $data['button_hover_text_color'] = $object->getButtonHoverTextColor();
-            }
-            if ($object->isInitialized('buttonHoverBorderColor') && null !== $object->getButtonHoverBorderColor()) {
-                $data['button_hover_border_color'] = $object->getButtonHoverBorderColor();
-            }
-            if ($object->isInitialized('linkFontFamily') && null !== $object->getLinkFontFamily()) {
-                $data['link_font_family'] = $object->getLinkFontFamily();
-            }
-            if ($object->isInitialized('linkFontSize') && null !== $object->getLinkFontSize()) {
-                $data['link_font_size'] = $object->getLinkFontSize();
-            }
-            if ($object->isInitialized('linkTextAlignment') && null !== $object->getLinkTextAlignment()) {
-                $data['link_text_alignment'] = $object->getLinkTextAlignment();
-            }
-            if ($object->isInitialized('linkTextColor') && null !== $object->getLinkTextColor()) {
-                $data['link_text_color'] = $object->getLinkTextColor();
-            }
-            if ($object->isInitialized('linkHoverTextColor') && null !== $object->getLinkHoverTextColor()) {
-                $data['link_hover_text_color'] = $object->getLinkHoverTextColor();
-            }
-            if ($object->isInitialized('imageMaxHeight') && null !== $object->getImageMaxHeight()) {
-                $data['image_max_height'] = $object->getImageMaxHeight();
-            }
-            if ($object->isInitialized('imageAlignment') && null !== $object->getImageAlignment()) {
-                $data['image_alignment'] = $object->getImageAlignment();
-            }
-            if ($object->isInitialized('imageMaxWidth') && null !== $object->getImageMaxWidth()) {
-                $data['image_max_width'] = $object->getImageMaxWidth();
-            }
-            if ($object->isInitialized('imageConstraint') && null !== $object->getImageConstraint()) {
-                $data['image_constraint'] = $object->getImageConstraint();
-            }
-            if ($object->isInitialized('pageBackgroundFile') && null !== $object->getPageBackgroundFile()) {
-                $data['page_background_file'] = $this->normalizer->normalize($object->getPageBackgroundFile(), 'json', $context);
-            }
-            if ($object->isInitialized('pageBackgroundColor') && null !== $object->getPageBackgroundColor()) {
-                $data['page_background_color'] = $object->getPageBackgroundColor();
-            }
-            if ($object->isInitialized('pageBackgroundMode') && null !== $object->getPageBackgroundMode()) {
-                $data['page_background_mode'] = $object->getPageBackgroundMode();
-            }
-            foreach ($object as $key => $value) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value;
-                }
-            }
-
-            return $data;
-        }
-
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\BuilderApplicationTheme::class => false];
-        }
+        return \CedricZiel\Baserow\Generated\Model\BuilderApplicationTheme::class === $type;
     }
-} else {
-    class BuilderApplicationThemeNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
+        return is_object($data) && \CedricZiel\Baserow\Generated\Model\BuilderApplicationTheme::class === get_class($data);
+    }
 
-        public function supportsDenormalization($data, $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\BuilderApplicationTheme::class === $type;
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
+    {
+        if (isset($data['$ref'])) {
+            return new Reference($data['$ref'], $context['document-origin']);
         }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\BuilderApplicationTheme::class === get_class($data);
+        if (isset($data['$recursiveRef'])) {
+            return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-
-        public function denormalize($data, $type, $format = null, array $context = [])
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\BuilderApplicationTheme();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('primary_color', $data)) {
-                $object->setPrimaryColor($data['primary_color']);
-                unset($data['primary_color']);
-            }
-            if (\array_key_exists('secondary_color', $data)) {
-                $object->setSecondaryColor($data['secondary_color']);
-                unset($data['secondary_color']);
-            }
-            if (\array_key_exists('border_color', $data)) {
-                $object->setBorderColor($data['border_color']);
-                unset($data['border_color']);
-            }
-            if (\array_key_exists('main_success_color', $data)) {
-                $object->setMainSuccessColor($data['main_success_color']);
-                unset($data['main_success_color']);
-            }
-            if (\array_key_exists('main_warning_color', $data)) {
-                $object->setMainWarningColor($data['main_warning_color']);
-                unset($data['main_warning_color']);
-            }
-            if (\array_key_exists('main_error_color', $data)) {
-                $object->setMainErrorColor($data['main_error_color']);
-                unset($data['main_error_color']);
-            }
-            if (\array_key_exists('body_font_family', $data)) {
-                $object->setBodyFontFamily($data['body_font_family']);
-                unset($data['body_font_family']);
-            }
-            if (\array_key_exists('body_font_size', $data)) {
-                $object->setBodyFontSize($data['body_font_size']);
-                unset($data['body_font_size']);
-            }
-            if (\array_key_exists('body_text_color', $data)) {
-                $object->setBodyTextColor($data['body_text_color']);
-                unset($data['body_text_color']);
-            }
-            if (\array_key_exists('body_text_alignment', $data)) {
-                $object->setBodyTextAlignment($data['body_text_alignment']);
-                unset($data['body_text_alignment']);
-            }
-            if (\array_key_exists('heading_1_font_family', $data)) {
-                $object->setHeading1FontFamily($data['heading_1_font_family']);
-                unset($data['heading_1_font_family']);
-            }
-            if (\array_key_exists('heading_1_font_size', $data)) {
-                $object->setHeading1FontSize($data['heading_1_font_size']);
-                unset($data['heading_1_font_size']);
-            }
-            if (\array_key_exists('heading_1_text_color', $data)) {
-                $object->setHeading1TextColor($data['heading_1_text_color']);
-                unset($data['heading_1_text_color']);
-            }
-            if (\array_key_exists('heading_1_text_alignment', $data)) {
-                $object->setHeading1TextAlignment($data['heading_1_text_alignment']);
-                unset($data['heading_1_text_alignment']);
-            }
-            if (\array_key_exists('heading_2_font_family', $data)) {
-                $object->setHeading2FontFamily($data['heading_2_font_family']);
-                unset($data['heading_2_font_family']);
-            }
-            if (\array_key_exists('heading_2_font_size', $data)) {
-                $object->setHeading2FontSize($data['heading_2_font_size']);
-                unset($data['heading_2_font_size']);
-            }
-            if (\array_key_exists('heading_2_text_color', $data)) {
-                $object->setHeading2TextColor($data['heading_2_text_color']);
-                unset($data['heading_2_text_color']);
-            }
-            if (\array_key_exists('heading_2_text_alignment', $data)) {
-                $object->setHeading2TextAlignment($data['heading_2_text_alignment']);
-                unset($data['heading_2_text_alignment']);
-            }
-            if (\array_key_exists('heading_3_font_family', $data)) {
-                $object->setHeading3FontFamily($data['heading_3_font_family']);
-                unset($data['heading_3_font_family']);
-            }
-            if (\array_key_exists('heading_3_font_size', $data)) {
-                $object->setHeading3FontSize($data['heading_3_font_size']);
-                unset($data['heading_3_font_size']);
-            }
-            if (\array_key_exists('heading_3_text_color', $data)) {
-                $object->setHeading3TextColor($data['heading_3_text_color']);
-                unset($data['heading_3_text_color']);
-            }
-            if (\array_key_exists('heading_3_text_alignment', $data)) {
-                $object->setHeading3TextAlignment($data['heading_3_text_alignment']);
-                unset($data['heading_3_text_alignment']);
-            }
-            if (\array_key_exists('heading_4_font_family', $data)) {
-                $object->setHeading4FontFamily($data['heading_4_font_family']);
-                unset($data['heading_4_font_family']);
-            }
-            if (\array_key_exists('heading_4_font_size', $data)) {
-                $object->setHeading4FontSize($data['heading_4_font_size']);
-                unset($data['heading_4_font_size']);
-            }
-            if (\array_key_exists('heading_4_text_color', $data)) {
-                $object->setHeading4TextColor($data['heading_4_text_color']);
-                unset($data['heading_4_text_color']);
-            }
-            if (\array_key_exists('heading_4_text_alignment', $data)) {
-                $object->setHeading4TextAlignment($data['heading_4_text_alignment']);
-                unset($data['heading_4_text_alignment']);
-            }
-            if (\array_key_exists('heading_5_font_family', $data)) {
-                $object->setHeading5FontFamily($data['heading_5_font_family']);
-                unset($data['heading_5_font_family']);
-            }
-            if (\array_key_exists('heading_5_font_size', $data)) {
-                $object->setHeading5FontSize($data['heading_5_font_size']);
-                unset($data['heading_5_font_size']);
-            }
-            if (\array_key_exists('heading_5_text_color', $data)) {
-                $object->setHeading5TextColor($data['heading_5_text_color']);
-                unset($data['heading_5_text_color']);
-            }
-            if (\array_key_exists('heading_5_text_alignment', $data)) {
-                $object->setHeading5TextAlignment($data['heading_5_text_alignment']);
-                unset($data['heading_5_text_alignment']);
-            }
-            if (\array_key_exists('heading_6_font_family', $data)) {
-                $object->setHeading6FontFamily($data['heading_6_font_family']);
-                unset($data['heading_6_font_family']);
-            }
-            if (\array_key_exists('heading_6_font_size', $data)) {
-                $object->setHeading6FontSize($data['heading_6_font_size']);
-                unset($data['heading_6_font_size']);
-            }
-            if (\array_key_exists('heading_6_text_color', $data)) {
-                $object->setHeading6TextColor($data['heading_6_text_color']);
-                unset($data['heading_6_text_color']);
-            }
-            if (\array_key_exists('heading_6_text_alignment', $data)) {
-                $object->setHeading6TextAlignment($data['heading_6_text_alignment']);
-                unset($data['heading_6_text_alignment']);
-            }
-            if (\array_key_exists('button_font_family', $data)) {
-                $object->setButtonFontFamily($data['button_font_family']);
-                unset($data['button_font_family']);
-            }
-            if (\array_key_exists('button_font_size', $data)) {
-                $object->setButtonFontSize($data['button_font_size']);
-                unset($data['button_font_size']);
-            }
-            if (\array_key_exists('button_alignment', $data)) {
-                $object->setButtonAlignment($data['button_alignment']);
-                unset($data['button_alignment']);
-            }
-            if (\array_key_exists('button_text_alignment', $data)) {
-                $object->setButtonTextAlignment($data['button_text_alignment']);
-                unset($data['button_text_alignment']);
-            }
-            if (\array_key_exists('button_width', $data)) {
-                $object->setButtonWidth($data['button_width']);
-                unset($data['button_width']);
-            }
-            if (\array_key_exists('button_background_color', $data)) {
-                $object->setButtonBackgroundColor($data['button_background_color']);
-                unset($data['button_background_color']);
-            }
-            if (\array_key_exists('button_text_color', $data)) {
-                $object->setButtonTextColor($data['button_text_color']);
-                unset($data['button_text_color']);
-            }
-            if (\array_key_exists('button_border_color', $data)) {
-                $object->setButtonBorderColor($data['button_border_color']);
-                unset($data['button_border_color']);
-            }
-            if (\array_key_exists('button_border_size', $data)) {
-                $object->setButtonBorderSize($data['button_border_size']);
-                unset($data['button_border_size']);
-            }
-            if (\array_key_exists('button_border_radius', $data)) {
-                $object->setButtonBorderRadius($data['button_border_radius']);
-                unset($data['button_border_radius']);
-            }
-            if (\array_key_exists('button_vertical_padding', $data)) {
-                $object->setButtonVerticalPadding($data['button_vertical_padding']);
-                unset($data['button_vertical_padding']);
-            }
-            if (\array_key_exists('button_horizontal_padding', $data)) {
-                $object->setButtonHorizontalPadding($data['button_horizontal_padding']);
-                unset($data['button_horizontal_padding']);
-            }
-            if (\array_key_exists('button_hover_background_color', $data)) {
-                $object->setButtonHoverBackgroundColor($data['button_hover_background_color']);
-                unset($data['button_hover_background_color']);
-            }
-            if (\array_key_exists('button_hover_text_color', $data)) {
-                $object->setButtonHoverTextColor($data['button_hover_text_color']);
-                unset($data['button_hover_text_color']);
-            }
-            if (\array_key_exists('button_hover_border_color', $data)) {
-                $object->setButtonHoverBorderColor($data['button_hover_border_color']);
-                unset($data['button_hover_border_color']);
-            }
-            if (\array_key_exists('link_font_family', $data)) {
-                $object->setLinkFontFamily($data['link_font_family']);
-                unset($data['link_font_family']);
-            }
-            if (\array_key_exists('link_font_size', $data)) {
-                $object->setLinkFontSize($data['link_font_size']);
-                unset($data['link_font_size']);
-            }
-            if (\array_key_exists('link_text_alignment', $data)) {
-                $object->setLinkTextAlignment($data['link_text_alignment']);
-                unset($data['link_text_alignment']);
-            }
-            if (\array_key_exists('link_text_color', $data)) {
-                $object->setLinkTextColor($data['link_text_color']);
-                unset($data['link_text_color']);
-            }
-            if (\array_key_exists('link_hover_text_color', $data)) {
-                $object->setLinkHoverTextColor($data['link_hover_text_color']);
-                unset($data['link_hover_text_color']);
-            }
-            if (\array_key_exists('image_max_height', $data)) {
-                $object->setImageMaxHeight($data['image_max_height']);
-                unset($data['image_max_height']);
-            }
-            if (\array_key_exists('image_alignment', $data)) {
-                $object->setImageAlignment($data['image_alignment']);
-                unset($data['image_alignment']);
-            }
-            if (\array_key_exists('image_max_width', $data)) {
-                $object->setImageMaxWidth($data['image_max_width']);
-                unset($data['image_max_width']);
-            }
-            if (\array_key_exists('image_constraint', $data)) {
-                $object->setImageConstraint($data['image_constraint']);
-                unset($data['image_constraint']);
-            }
-            if (\array_key_exists('page_background_file', $data) && null !== $data['page_background_file']) {
-                $object->setPageBackgroundFile($this->denormalizer->denormalize($data['page_background_file'], \CedricZiel\Baserow\Generated\Model\CombinedThemeConfigBlocksPageBackgroundFile::class, 'json', $context));
-                unset($data['page_background_file']);
-            } elseif (\array_key_exists('page_background_file', $data) && null === $data['page_background_file']) {
-                $object->setPageBackgroundFile(null);
-            }
-            if (\array_key_exists('page_background_color', $data)) {
-                $object->setPageBackgroundColor($data['page_background_color']);
-                unset($data['page_background_color']);
-            }
-            if (\array_key_exists('page_background_mode', $data)) {
-                $object->setPageBackgroundMode($data['page_background_mode']);
-                unset($data['page_background_mode']);
-            }
-            foreach ($data as $key => $value) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value;
-                }
-            }
-
+        $object = new \CedricZiel\Baserow\Generated\Model\BuilderApplicationTheme();
+        if (null === $data || false === \is_array($data)) {
             return $object;
         }
-
-        /**
-         * @return array|string|int|float|bool|\ArrayObject|null
-         */
-        public function normalize($object, $format = null, array $context = [])
-        {
-            $data = [];
-            if ($object->isInitialized('primaryColor') && null !== $object->getPrimaryColor()) {
-                $data['primary_color'] = $object->getPrimaryColor();
+        if (\array_key_exists('primary_color', $data)) {
+            $object->setPrimaryColor($data['primary_color']);
+            unset($data['primary_color']);
+        }
+        if (\array_key_exists('secondary_color', $data)) {
+            $object->setSecondaryColor($data['secondary_color']);
+            unset($data['secondary_color']);
+        }
+        if (\array_key_exists('border_color', $data)) {
+            $object->setBorderColor($data['border_color']);
+            unset($data['border_color']);
+        }
+        if (\array_key_exists('main_success_color', $data)) {
+            $object->setMainSuccessColor($data['main_success_color']);
+            unset($data['main_success_color']);
+        }
+        if (\array_key_exists('main_warning_color', $data)) {
+            $object->setMainWarningColor($data['main_warning_color']);
+            unset($data['main_warning_color']);
+        }
+        if (\array_key_exists('main_error_color', $data)) {
+            $object->setMainErrorColor($data['main_error_color']);
+            unset($data['main_error_color']);
+        }
+        if (\array_key_exists('body_font_family', $data)) {
+            $object->setBodyFontFamily($data['body_font_family']);
+            unset($data['body_font_family']);
+        }
+        if (\array_key_exists('body_font_size', $data)) {
+            $object->setBodyFontSize($data['body_font_size']);
+            unset($data['body_font_size']);
+        }
+        if (\array_key_exists('body_text_color', $data)) {
+            $object->setBodyTextColor($data['body_text_color']);
+            unset($data['body_text_color']);
+        }
+        if (\array_key_exists('body_text_alignment', $data)) {
+            $object->setBodyTextAlignment($data['body_text_alignment']);
+            unset($data['body_text_alignment']);
+        }
+        if (\array_key_exists('heading_1_font_family', $data)) {
+            $object->setHeading1FontFamily($data['heading_1_font_family']);
+            unset($data['heading_1_font_family']);
+        }
+        if (\array_key_exists('heading_1_font_size', $data)) {
+            $object->setHeading1FontSize($data['heading_1_font_size']);
+            unset($data['heading_1_font_size']);
+        }
+        if (\array_key_exists('heading_1_text_color', $data)) {
+            $object->setHeading1TextColor($data['heading_1_text_color']);
+            unset($data['heading_1_text_color']);
+        }
+        if (\array_key_exists('heading_1_text_alignment', $data)) {
+            $object->setHeading1TextAlignment($data['heading_1_text_alignment']);
+            unset($data['heading_1_text_alignment']);
+        }
+        if (\array_key_exists('heading_2_font_family', $data)) {
+            $object->setHeading2FontFamily($data['heading_2_font_family']);
+            unset($data['heading_2_font_family']);
+        }
+        if (\array_key_exists('heading_2_font_size', $data)) {
+            $object->setHeading2FontSize($data['heading_2_font_size']);
+            unset($data['heading_2_font_size']);
+        }
+        if (\array_key_exists('heading_2_text_color', $data)) {
+            $object->setHeading2TextColor($data['heading_2_text_color']);
+            unset($data['heading_2_text_color']);
+        }
+        if (\array_key_exists('heading_2_text_alignment', $data)) {
+            $object->setHeading2TextAlignment($data['heading_2_text_alignment']);
+            unset($data['heading_2_text_alignment']);
+        }
+        if (\array_key_exists('heading_3_font_family', $data)) {
+            $object->setHeading3FontFamily($data['heading_3_font_family']);
+            unset($data['heading_3_font_family']);
+        }
+        if (\array_key_exists('heading_3_font_size', $data)) {
+            $object->setHeading3FontSize($data['heading_3_font_size']);
+            unset($data['heading_3_font_size']);
+        }
+        if (\array_key_exists('heading_3_text_color', $data)) {
+            $object->setHeading3TextColor($data['heading_3_text_color']);
+            unset($data['heading_3_text_color']);
+        }
+        if (\array_key_exists('heading_3_text_alignment', $data)) {
+            $object->setHeading3TextAlignment($data['heading_3_text_alignment']);
+            unset($data['heading_3_text_alignment']);
+        }
+        if (\array_key_exists('heading_4_font_family', $data)) {
+            $object->setHeading4FontFamily($data['heading_4_font_family']);
+            unset($data['heading_4_font_family']);
+        }
+        if (\array_key_exists('heading_4_font_size', $data)) {
+            $object->setHeading4FontSize($data['heading_4_font_size']);
+            unset($data['heading_4_font_size']);
+        }
+        if (\array_key_exists('heading_4_text_color', $data)) {
+            $object->setHeading4TextColor($data['heading_4_text_color']);
+            unset($data['heading_4_text_color']);
+        }
+        if (\array_key_exists('heading_4_text_alignment', $data)) {
+            $object->setHeading4TextAlignment($data['heading_4_text_alignment']);
+            unset($data['heading_4_text_alignment']);
+        }
+        if (\array_key_exists('heading_5_font_family', $data)) {
+            $object->setHeading5FontFamily($data['heading_5_font_family']);
+            unset($data['heading_5_font_family']);
+        }
+        if (\array_key_exists('heading_5_font_size', $data)) {
+            $object->setHeading5FontSize($data['heading_5_font_size']);
+            unset($data['heading_5_font_size']);
+        }
+        if (\array_key_exists('heading_5_text_color', $data)) {
+            $object->setHeading5TextColor($data['heading_5_text_color']);
+            unset($data['heading_5_text_color']);
+        }
+        if (\array_key_exists('heading_5_text_alignment', $data)) {
+            $object->setHeading5TextAlignment($data['heading_5_text_alignment']);
+            unset($data['heading_5_text_alignment']);
+        }
+        if (\array_key_exists('heading_6_font_family', $data)) {
+            $object->setHeading6FontFamily($data['heading_6_font_family']);
+            unset($data['heading_6_font_family']);
+        }
+        if (\array_key_exists('heading_6_font_size', $data)) {
+            $object->setHeading6FontSize($data['heading_6_font_size']);
+            unset($data['heading_6_font_size']);
+        }
+        if (\array_key_exists('heading_6_text_color', $data)) {
+            $object->setHeading6TextColor($data['heading_6_text_color']);
+            unset($data['heading_6_text_color']);
+        }
+        if (\array_key_exists('heading_6_text_alignment', $data)) {
+            $object->setHeading6TextAlignment($data['heading_6_text_alignment']);
+            unset($data['heading_6_text_alignment']);
+        }
+        if (\array_key_exists('button_font_family', $data)) {
+            $object->setButtonFontFamily($data['button_font_family']);
+            unset($data['button_font_family']);
+        }
+        if (\array_key_exists('button_font_size', $data)) {
+            $object->setButtonFontSize($data['button_font_size']);
+            unset($data['button_font_size']);
+        }
+        if (\array_key_exists('button_alignment', $data)) {
+            $object->setButtonAlignment($data['button_alignment']);
+            unset($data['button_alignment']);
+        }
+        if (\array_key_exists('button_text_alignment', $data)) {
+            $object->setButtonTextAlignment($data['button_text_alignment']);
+            unset($data['button_text_alignment']);
+        }
+        if (\array_key_exists('button_width', $data)) {
+            $object->setButtonWidth($data['button_width']);
+            unset($data['button_width']);
+        }
+        if (\array_key_exists('button_background_color', $data)) {
+            $object->setButtonBackgroundColor($data['button_background_color']);
+            unset($data['button_background_color']);
+        }
+        if (\array_key_exists('button_text_color', $data)) {
+            $object->setButtonTextColor($data['button_text_color']);
+            unset($data['button_text_color']);
+        }
+        if (\array_key_exists('button_border_color', $data)) {
+            $object->setButtonBorderColor($data['button_border_color']);
+            unset($data['button_border_color']);
+        }
+        if (\array_key_exists('button_border_size', $data)) {
+            $object->setButtonBorderSize($data['button_border_size']);
+            unset($data['button_border_size']);
+        }
+        if (\array_key_exists('button_border_radius', $data)) {
+            $object->setButtonBorderRadius($data['button_border_radius']);
+            unset($data['button_border_radius']);
+        }
+        if (\array_key_exists('button_vertical_padding', $data)) {
+            $object->setButtonVerticalPadding($data['button_vertical_padding']);
+            unset($data['button_vertical_padding']);
+        }
+        if (\array_key_exists('button_horizontal_padding', $data)) {
+            $object->setButtonHorizontalPadding($data['button_horizontal_padding']);
+            unset($data['button_horizontal_padding']);
+        }
+        if (\array_key_exists('button_hover_background_color', $data)) {
+            $object->setButtonHoverBackgroundColor($data['button_hover_background_color']);
+            unset($data['button_hover_background_color']);
+        }
+        if (\array_key_exists('button_hover_text_color', $data)) {
+            $object->setButtonHoverTextColor($data['button_hover_text_color']);
+            unset($data['button_hover_text_color']);
+        }
+        if (\array_key_exists('button_hover_border_color', $data)) {
+            $object->setButtonHoverBorderColor($data['button_hover_border_color']);
+            unset($data['button_hover_border_color']);
+        }
+        if (\array_key_exists('link_font_family', $data)) {
+            $object->setLinkFontFamily($data['link_font_family']);
+            unset($data['link_font_family']);
+        }
+        if (\array_key_exists('link_font_size', $data)) {
+            $object->setLinkFontSize($data['link_font_size']);
+            unset($data['link_font_size']);
+        }
+        if (\array_key_exists('link_text_alignment', $data)) {
+            $object->setLinkTextAlignment($data['link_text_alignment']);
+            unset($data['link_text_alignment']);
+        }
+        if (\array_key_exists('link_text_color', $data)) {
+            $object->setLinkTextColor($data['link_text_color']);
+            unset($data['link_text_color']);
+        }
+        if (\array_key_exists('link_hover_text_color', $data)) {
+            $object->setLinkHoverTextColor($data['link_hover_text_color']);
+            unset($data['link_hover_text_color']);
+        }
+        if (\array_key_exists('image_max_height', $data)) {
+            $object->setImageMaxHeight($data['image_max_height']);
+            unset($data['image_max_height']);
+        }
+        if (\array_key_exists('image_alignment', $data)) {
+            $object->setImageAlignment($data['image_alignment']);
+            unset($data['image_alignment']);
+        }
+        if (\array_key_exists('image_max_width', $data)) {
+            $object->setImageMaxWidth($data['image_max_width']);
+            unset($data['image_max_width']);
+        }
+        if (\array_key_exists('image_constraint', $data)) {
+            $object->setImageConstraint($data['image_constraint']);
+            unset($data['image_constraint']);
+        }
+        if (\array_key_exists('page_background_file', $data) && null !== $data['page_background_file']) {
+            $object->setPageBackgroundFile($this->denormalizer->denormalize($data['page_background_file'], \CedricZiel\Baserow\Generated\Model\CombinedThemeConfigBlocksPageBackgroundFile::class, 'json', $context));
+            unset($data['page_background_file']);
+        } elseif (\array_key_exists('page_background_file', $data) && null === $data['page_background_file']) {
+            $object->setPageBackgroundFile(null);
+        }
+        if (\array_key_exists('page_background_color', $data)) {
+            $object->setPageBackgroundColor($data['page_background_color']);
+            unset($data['page_background_color']);
+        }
+        if (\array_key_exists('page_background_mode', $data)) {
+            $object->setPageBackgroundMode($data['page_background_mode']);
+            unset($data['page_background_mode']);
+        }
+        foreach ($data as $key => $value) {
+            if (preg_match('/.*/', (string) $key)) {
+                $object[$key] = $value;
             }
-            if ($object->isInitialized('secondaryColor') && null !== $object->getSecondaryColor()) {
-                $data['secondary_color'] = $object->getSecondaryColor();
-            }
-            if ($object->isInitialized('borderColor') && null !== $object->getBorderColor()) {
-                $data['border_color'] = $object->getBorderColor();
-            }
-            if ($object->isInitialized('mainSuccessColor') && null !== $object->getMainSuccessColor()) {
-                $data['main_success_color'] = $object->getMainSuccessColor();
-            }
-            if ($object->isInitialized('mainWarningColor') && null !== $object->getMainWarningColor()) {
-                $data['main_warning_color'] = $object->getMainWarningColor();
-            }
-            if ($object->isInitialized('mainErrorColor') && null !== $object->getMainErrorColor()) {
-                $data['main_error_color'] = $object->getMainErrorColor();
-            }
-            if ($object->isInitialized('bodyFontFamily') && null !== $object->getBodyFontFamily()) {
-                $data['body_font_family'] = $object->getBodyFontFamily();
-            }
-            if ($object->isInitialized('bodyFontSize') && null !== $object->getBodyFontSize()) {
-                $data['body_font_size'] = $object->getBodyFontSize();
-            }
-            if ($object->isInitialized('bodyTextColor') && null !== $object->getBodyTextColor()) {
-                $data['body_text_color'] = $object->getBodyTextColor();
-            }
-            if ($object->isInitialized('bodyTextAlignment') && null !== $object->getBodyTextAlignment()) {
-                $data['body_text_alignment'] = $object->getBodyTextAlignment();
-            }
-            if ($object->isInitialized('heading1FontFamily') && null !== $object->getHeading1FontFamily()) {
-                $data['heading_1_font_family'] = $object->getHeading1FontFamily();
-            }
-            if ($object->isInitialized('heading1FontSize') && null !== $object->getHeading1FontSize()) {
-                $data['heading_1_font_size'] = $object->getHeading1FontSize();
-            }
-            if ($object->isInitialized('heading1TextColor') && null !== $object->getHeading1TextColor()) {
-                $data['heading_1_text_color'] = $object->getHeading1TextColor();
-            }
-            if ($object->isInitialized('heading1TextAlignment') && null !== $object->getHeading1TextAlignment()) {
-                $data['heading_1_text_alignment'] = $object->getHeading1TextAlignment();
-            }
-            if ($object->isInitialized('heading2FontFamily') && null !== $object->getHeading2FontFamily()) {
-                $data['heading_2_font_family'] = $object->getHeading2FontFamily();
-            }
-            if ($object->isInitialized('heading2FontSize') && null !== $object->getHeading2FontSize()) {
-                $data['heading_2_font_size'] = $object->getHeading2FontSize();
-            }
-            if ($object->isInitialized('heading2TextColor') && null !== $object->getHeading2TextColor()) {
-                $data['heading_2_text_color'] = $object->getHeading2TextColor();
-            }
-            if ($object->isInitialized('heading2TextAlignment') && null !== $object->getHeading2TextAlignment()) {
-                $data['heading_2_text_alignment'] = $object->getHeading2TextAlignment();
-            }
-            if ($object->isInitialized('heading3FontFamily') && null !== $object->getHeading3FontFamily()) {
-                $data['heading_3_font_family'] = $object->getHeading3FontFamily();
-            }
-            if ($object->isInitialized('heading3FontSize') && null !== $object->getHeading3FontSize()) {
-                $data['heading_3_font_size'] = $object->getHeading3FontSize();
-            }
-            if ($object->isInitialized('heading3TextColor') && null !== $object->getHeading3TextColor()) {
-                $data['heading_3_text_color'] = $object->getHeading3TextColor();
-            }
-            if ($object->isInitialized('heading3TextAlignment') && null !== $object->getHeading3TextAlignment()) {
-                $data['heading_3_text_alignment'] = $object->getHeading3TextAlignment();
-            }
-            if ($object->isInitialized('heading4FontFamily') && null !== $object->getHeading4FontFamily()) {
-                $data['heading_4_font_family'] = $object->getHeading4FontFamily();
-            }
-            if ($object->isInitialized('heading4FontSize') && null !== $object->getHeading4FontSize()) {
-                $data['heading_4_font_size'] = $object->getHeading4FontSize();
-            }
-            if ($object->isInitialized('heading4TextColor') && null !== $object->getHeading4TextColor()) {
-                $data['heading_4_text_color'] = $object->getHeading4TextColor();
-            }
-            if ($object->isInitialized('heading4TextAlignment') && null !== $object->getHeading4TextAlignment()) {
-                $data['heading_4_text_alignment'] = $object->getHeading4TextAlignment();
-            }
-            if ($object->isInitialized('heading5FontFamily') && null !== $object->getHeading5FontFamily()) {
-                $data['heading_5_font_family'] = $object->getHeading5FontFamily();
-            }
-            if ($object->isInitialized('heading5FontSize') && null !== $object->getHeading5FontSize()) {
-                $data['heading_5_font_size'] = $object->getHeading5FontSize();
-            }
-            if ($object->isInitialized('heading5TextColor') && null !== $object->getHeading5TextColor()) {
-                $data['heading_5_text_color'] = $object->getHeading5TextColor();
-            }
-            if ($object->isInitialized('heading5TextAlignment') && null !== $object->getHeading5TextAlignment()) {
-                $data['heading_5_text_alignment'] = $object->getHeading5TextAlignment();
-            }
-            if ($object->isInitialized('heading6FontFamily') && null !== $object->getHeading6FontFamily()) {
-                $data['heading_6_font_family'] = $object->getHeading6FontFamily();
-            }
-            if ($object->isInitialized('heading6FontSize') && null !== $object->getHeading6FontSize()) {
-                $data['heading_6_font_size'] = $object->getHeading6FontSize();
-            }
-            if ($object->isInitialized('heading6TextColor') && null !== $object->getHeading6TextColor()) {
-                $data['heading_6_text_color'] = $object->getHeading6TextColor();
-            }
-            if ($object->isInitialized('heading6TextAlignment') && null !== $object->getHeading6TextAlignment()) {
-                $data['heading_6_text_alignment'] = $object->getHeading6TextAlignment();
-            }
-            if ($object->isInitialized('buttonFontFamily') && null !== $object->getButtonFontFamily()) {
-                $data['button_font_family'] = $object->getButtonFontFamily();
-            }
-            if ($object->isInitialized('buttonFontSize') && null !== $object->getButtonFontSize()) {
-                $data['button_font_size'] = $object->getButtonFontSize();
-            }
-            if ($object->isInitialized('buttonAlignment') && null !== $object->getButtonAlignment()) {
-                $data['button_alignment'] = $object->getButtonAlignment();
-            }
-            if ($object->isInitialized('buttonTextAlignment') && null !== $object->getButtonTextAlignment()) {
-                $data['button_text_alignment'] = $object->getButtonTextAlignment();
-            }
-            if ($object->isInitialized('buttonWidth') && null !== $object->getButtonWidth()) {
-                $data['button_width'] = $object->getButtonWidth();
-            }
-            if ($object->isInitialized('buttonBackgroundColor') && null !== $object->getButtonBackgroundColor()) {
-                $data['button_background_color'] = $object->getButtonBackgroundColor();
-            }
-            if ($object->isInitialized('buttonTextColor') && null !== $object->getButtonTextColor()) {
-                $data['button_text_color'] = $object->getButtonTextColor();
-            }
-            if ($object->isInitialized('buttonBorderColor') && null !== $object->getButtonBorderColor()) {
-                $data['button_border_color'] = $object->getButtonBorderColor();
-            }
-            if ($object->isInitialized('buttonBorderSize') && null !== $object->getButtonBorderSize()) {
-                $data['button_border_size'] = $object->getButtonBorderSize();
-            }
-            if ($object->isInitialized('buttonBorderRadius') && null !== $object->getButtonBorderRadius()) {
-                $data['button_border_radius'] = $object->getButtonBorderRadius();
-            }
-            if ($object->isInitialized('buttonVerticalPadding') && null !== $object->getButtonVerticalPadding()) {
-                $data['button_vertical_padding'] = $object->getButtonVerticalPadding();
-            }
-            if ($object->isInitialized('buttonHorizontalPadding') && null !== $object->getButtonHorizontalPadding()) {
-                $data['button_horizontal_padding'] = $object->getButtonHorizontalPadding();
-            }
-            if ($object->isInitialized('buttonHoverBackgroundColor') && null !== $object->getButtonHoverBackgroundColor()) {
-                $data['button_hover_background_color'] = $object->getButtonHoverBackgroundColor();
-            }
-            if ($object->isInitialized('buttonHoverTextColor') && null !== $object->getButtonHoverTextColor()) {
-                $data['button_hover_text_color'] = $object->getButtonHoverTextColor();
-            }
-            if ($object->isInitialized('buttonHoverBorderColor') && null !== $object->getButtonHoverBorderColor()) {
-                $data['button_hover_border_color'] = $object->getButtonHoverBorderColor();
-            }
-            if ($object->isInitialized('linkFontFamily') && null !== $object->getLinkFontFamily()) {
-                $data['link_font_family'] = $object->getLinkFontFamily();
-            }
-            if ($object->isInitialized('linkFontSize') && null !== $object->getLinkFontSize()) {
-                $data['link_font_size'] = $object->getLinkFontSize();
-            }
-            if ($object->isInitialized('linkTextAlignment') && null !== $object->getLinkTextAlignment()) {
-                $data['link_text_alignment'] = $object->getLinkTextAlignment();
-            }
-            if ($object->isInitialized('linkTextColor') && null !== $object->getLinkTextColor()) {
-                $data['link_text_color'] = $object->getLinkTextColor();
-            }
-            if ($object->isInitialized('linkHoverTextColor') && null !== $object->getLinkHoverTextColor()) {
-                $data['link_hover_text_color'] = $object->getLinkHoverTextColor();
-            }
-            if ($object->isInitialized('imageMaxHeight') && null !== $object->getImageMaxHeight()) {
-                $data['image_max_height'] = $object->getImageMaxHeight();
-            }
-            if ($object->isInitialized('imageAlignment') && null !== $object->getImageAlignment()) {
-                $data['image_alignment'] = $object->getImageAlignment();
-            }
-            if ($object->isInitialized('imageMaxWidth') && null !== $object->getImageMaxWidth()) {
-                $data['image_max_width'] = $object->getImageMaxWidth();
-            }
-            if ($object->isInitialized('imageConstraint') && null !== $object->getImageConstraint()) {
-                $data['image_constraint'] = $object->getImageConstraint();
-            }
-            if ($object->isInitialized('pageBackgroundFile') && null !== $object->getPageBackgroundFile()) {
-                $data['page_background_file'] = $this->normalizer->normalize($object->getPageBackgroundFile(), 'json', $context);
-            }
-            if ($object->isInitialized('pageBackgroundColor') && null !== $object->getPageBackgroundColor()) {
-                $data['page_background_color'] = $object->getPageBackgroundColor();
-            }
-            if ($object->isInitialized('pageBackgroundMode') && null !== $object->getPageBackgroundMode()) {
-                $data['page_background_mode'] = $object->getPageBackgroundMode();
-            }
-            foreach ($object as $key => $value) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value;
-                }
-            }
-
-            return $data;
         }
 
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\BuilderApplicationTheme::class => false];
+        return $object;
+    }
+
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    {
+        $dataArray = [];
+        if ($data->isInitialized('primaryColor') && null !== $data->getPrimaryColor()) {
+            $dataArray['primary_color'] = $data->getPrimaryColor();
         }
+        if ($data->isInitialized('secondaryColor') && null !== $data->getSecondaryColor()) {
+            $dataArray['secondary_color'] = $data->getSecondaryColor();
+        }
+        if ($data->isInitialized('borderColor') && null !== $data->getBorderColor()) {
+            $dataArray['border_color'] = $data->getBorderColor();
+        }
+        if ($data->isInitialized('mainSuccessColor') && null !== $data->getMainSuccessColor()) {
+            $dataArray['main_success_color'] = $data->getMainSuccessColor();
+        }
+        if ($data->isInitialized('mainWarningColor') && null !== $data->getMainWarningColor()) {
+            $dataArray['main_warning_color'] = $data->getMainWarningColor();
+        }
+        if ($data->isInitialized('mainErrorColor') && null !== $data->getMainErrorColor()) {
+            $dataArray['main_error_color'] = $data->getMainErrorColor();
+        }
+        if ($data->isInitialized('bodyFontFamily') && null !== $data->getBodyFontFamily()) {
+            $dataArray['body_font_family'] = $data->getBodyFontFamily();
+        }
+        if ($data->isInitialized('bodyFontSize') && null !== $data->getBodyFontSize()) {
+            $dataArray['body_font_size'] = $data->getBodyFontSize();
+        }
+        if ($data->isInitialized('bodyTextColor') && null !== $data->getBodyTextColor()) {
+            $dataArray['body_text_color'] = $data->getBodyTextColor();
+        }
+        if ($data->isInitialized('bodyTextAlignment') && null !== $data->getBodyTextAlignment()) {
+            $dataArray['body_text_alignment'] = $data->getBodyTextAlignment();
+        }
+        if ($data->isInitialized('heading1FontFamily') && null !== $data->getHeading1FontFamily()) {
+            $dataArray['heading_1_font_family'] = $data->getHeading1FontFamily();
+        }
+        if ($data->isInitialized('heading1FontSize') && null !== $data->getHeading1FontSize()) {
+            $dataArray['heading_1_font_size'] = $data->getHeading1FontSize();
+        }
+        if ($data->isInitialized('heading1TextColor') && null !== $data->getHeading1TextColor()) {
+            $dataArray['heading_1_text_color'] = $data->getHeading1TextColor();
+        }
+        if ($data->isInitialized('heading1TextAlignment') && null !== $data->getHeading1TextAlignment()) {
+            $dataArray['heading_1_text_alignment'] = $data->getHeading1TextAlignment();
+        }
+        if ($data->isInitialized('heading2FontFamily') && null !== $data->getHeading2FontFamily()) {
+            $dataArray['heading_2_font_family'] = $data->getHeading2FontFamily();
+        }
+        if ($data->isInitialized('heading2FontSize') && null !== $data->getHeading2FontSize()) {
+            $dataArray['heading_2_font_size'] = $data->getHeading2FontSize();
+        }
+        if ($data->isInitialized('heading2TextColor') && null !== $data->getHeading2TextColor()) {
+            $dataArray['heading_2_text_color'] = $data->getHeading2TextColor();
+        }
+        if ($data->isInitialized('heading2TextAlignment') && null !== $data->getHeading2TextAlignment()) {
+            $dataArray['heading_2_text_alignment'] = $data->getHeading2TextAlignment();
+        }
+        if ($data->isInitialized('heading3FontFamily') && null !== $data->getHeading3FontFamily()) {
+            $dataArray['heading_3_font_family'] = $data->getHeading3FontFamily();
+        }
+        if ($data->isInitialized('heading3FontSize') && null !== $data->getHeading3FontSize()) {
+            $dataArray['heading_3_font_size'] = $data->getHeading3FontSize();
+        }
+        if ($data->isInitialized('heading3TextColor') && null !== $data->getHeading3TextColor()) {
+            $dataArray['heading_3_text_color'] = $data->getHeading3TextColor();
+        }
+        if ($data->isInitialized('heading3TextAlignment') && null !== $data->getHeading3TextAlignment()) {
+            $dataArray['heading_3_text_alignment'] = $data->getHeading3TextAlignment();
+        }
+        if ($data->isInitialized('heading4FontFamily') && null !== $data->getHeading4FontFamily()) {
+            $dataArray['heading_4_font_family'] = $data->getHeading4FontFamily();
+        }
+        if ($data->isInitialized('heading4FontSize') && null !== $data->getHeading4FontSize()) {
+            $dataArray['heading_4_font_size'] = $data->getHeading4FontSize();
+        }
+        if ($data->isInitialized('heading4TextColor') && null !== $data->getHeading4TextColor()) {
+            $dataArray['heading_4_text_color'] = $data->getHeading4TextColor();
+        }
+        if ($data->isInitialized('heading4TextAlignment') && null !== $data->getHeading4TextAlignment()) {
+            $dataArray['heading_4_text_alignment'] = $data->getHeading4TextAlignment();
+        }
+        if ($data->isInitialized('heading5FontFamily') && null !== $data->getHeading5FontFamily()) {
+            $dataArray['heading_5_font_family'] = $data->getHeading5FontFamily();
+        }
+        if ($data->isInitialized('heading5FontSize') && null !== $data->getHeading5FontSize()) {
+            $dataArray['heading_5_font_size'] = $data->getHeading5FontSize();
+        }
+        if ($data->isInitialized('heading5TextColor') && null !== $data->getHeading5TextColor()) {
+            $dataArray['heading_5_text_color'] = $data->getHeading5TextColor();
+        }
+        if ($data->isInitialized('heading5TextAlignment') && null !== $data->getHeading5TextAlignment()) {
+            $dataArray['heading_5_text_alignment'] = $data->getHeading5TextAlignment();
+        }
+        if ($data->isInitialized('heading6FontFamily') && null !== $data->getHeading6FontFamily()) {
+            $dataArray['heading_6_font_family'] = $data->getHeading6FontFamily();
+        }
+        if ($data->isInitialized('heading6FontSize') && null !== $data->getHeading6FontSize()) {
+            $dataArray['heading_6_font_size'] = $data->getHeading6FontSize();
+        }
+        if ($data->isInitialized('heading6TextColor') && null !== $data->getHeading6TextColor()) {
+            $dataArray['heading_6_text_color'] = $data->getHeading6TextColor();
+        }
+        if ($data->isInitialized('heading6TextAlignment') && null !== $data->getHeading6TextAlignment()) {
+            $dataArray['heading_6_text_alignment'] = $data->getHeading6TextAlignment();
+        }
+        if ($data->isInitialized('buttonFontFamily') && null !== $data->getButtonFontFamily()) {
+            $dataArray['button_font_family'] = $data->getButtonFontFamily();
+        }
+        if ($data->isInitialized('buttonFontSize') && null !== $data->getButtonFontSize()) {
+            $dataArray['button_font_size'] = $data->getButtonFontSize();
+        }
+        if ($data->isInitialized('buttonAlignment') && null !== $data->getButtonAlignment()) {
+            $dataArray['button_alignment'] = $data->getButtonAlignment();
+        }
+        if ($data->isInitialized('buttonTextAlignment') && null !== $data->getButtonTextAlignment()) {
+            $dataArray['button_text_alignment'] = $data->getButtonTextAlignment();
+        }
+        if ($data->isInitialized('buttonWidth') && null !== $data->getButtonWidth()) {
+            $dataArray['button_width'] = $data->getButtonWidth();
+        }
+        if ($data->isInitialized('buttonBackgroundColor') && null !== $data->getButtonBackgroundColor()) {
+            $dataArray['button_background_color'] = $data->getButtonBackgroundColor();
+        }
+        if ($data->isInitialized('buttonTextColor') && null !== $data->getButtonTextColor()) {
+            $dataArray['button_text_color'] = $data->getButtonTextColor();
+        }
+        if ($data->isInitialized('buttonBorderColor') && null !== $data->getButtonBorderColor()) {
+            $dataArray['button_border_color'] = $data->getButtonBorderColor();
+        }
+        if ($data->isInitialized('buttonBorderSize') && null !== $data->getButtonBorderSize()) {
+            $dataArray['button_border_size'] = $data->getButtonBorderSize();
+        }
+        if ($data->isInitialized('buttonBorderRadius') && null !== $data->getButtonBorderRadius()) {
+            $dataArray['button_border_radius'] = $data->getButtonBorderRadius();
+        }
+        if ($data->isInitialized('buttonVerticalPadding') && null !== $data->getButtonVerticalPadding()) {
+            $dataArray['button_vertical_padding'] = $data->getButtonVerticalPadding();
+        }
+        if ($data->isInitialized('buttonHorizontalPadding') && null !== $data->getButtonHorizontalPadding()) {
+            $dataArray['button_horizontal_padding'] = $data->getButtonHorizontalPadding();
+        }
+        if ($data->isInitialized('buttonHoverBackgroundColor') && null !== $data->getButtonHoverBackgroundColor()) {
+            $dataArray['button_hover_background_color'] = $data->getButtonHoverBackgroundColor();
+        }
+        if ($data->isInitialized('buttonHoverTextColor') && null !== $data->getButtonHoverTextColor()) {
+            $dataArray['button_hover_text_color'] = $data->getButtonHoverTextColor();
+        }
+        if ($data->isInitialized('buttonHoverBorderColor') && null !== $data->getButtonHoverBorderColor()) {
+            $dataArray['button_hover_border_color'] = $data->getButtonHoverBorderColor();
+        }
+        if ($data->isInitialized('linkFontFamily') && null !== $data->getLinkFontFamily()) {
+            $dataArray['link_font_family'] = $data->getLinkFontFamily();
+        }
+        if ($data->isInitialized('linkFontSize') && null !== $data->getLinkFontSize()) {
+            $dataArray['link_font_size'] = $data->getLinkFontSize();
+        }
+        if ($data->isInitialized('linkTextAlignment') && null !== $data->getLinkTextAlignment()) {
+            $dataArray['link_text_alignment'] = $data->getLinkTextAlignment();
+        }
+        if ($data->isInitialized('linkTextColor') && null !== $data->getLinkTextColor()) {
+            $dataArray['link_text_color'] = $data->getLinkTextColor();
+        }
+        if ($data->isInitialized('linkHoverTextColor') && null !== $data->getLinkHoverTextColor()) {
+            $dataArray['link_hover_text_color'] = $data->getLinkHoverTextColor();
+        }
+        if ($data->isInitialized('imageMaxHeight') && null !== $data->getImageMaxHeight()) {
+            $dataArray['image_max_height'] = $data->getImageMaxHeight();
+        }
+        if ($data->isInitialized('imageAlignment') && null !== $data->getImageAlignment()) {
+            $dataArray['image_alignment'] = $data->getImageAlignment();
+        }
+        if ($data->isInitialized('imageMaxWidth') && null !== $data->getImageMaxWidth()) {
+            $dataArray['image_max_width'] = $data->getImageMaxWidth();
+        }
+        if ($data->isInitialized('imageConstraint') && null !== $data->getImageConstraint()) {
+            $dataArray['image_constraint'] = $data->getImageConstraint();
+        }
+        if ($data->isInitialized('pageBackgroundFile') && null !== $data->getPageBackgroundFile()) {
+            $dataArray['page_background_file'] = $this->normalizer->normalize($data->getPageBackgroundFile(), 'json', $context);
+        }
+        if ($data->isInitialized('pageBackgroundColor') && null !== $data->getPageBackgroundColor()) {
+            $dataArray['page_background_color'] = $data->getPageBackgroundColor();
+        }
+        if ($data->isInitialized('pageBackgroundMode') && null !== $data->getPageBackgroundMode()) {
+            $dataArray['page_background_mode'] = $data->getPageBackgroundMode();
+        }
+        foreach ($data as $key => $value) {
+            if (preg_match('/.*/', (string) $key)) {
+                $dataArray[$key] = $value;
+            }
+        }
+
+        return $dataArray;
+    }
+
+    public function getSupportedTypes(?string $format = null): array
+    {
+        return [\CedricZiel\Baserow\Generated\Model\BuilderApplicationTheme::class => false];
     }
 }

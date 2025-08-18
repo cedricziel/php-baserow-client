@@ -13,7 +13,6 @@ namespace CedricZiel\Baserow\Generated\Normalizer;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\CheckArray;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\ValidatorTrait;
 use Jane\Component\JsonSchemaRuntime\Reference;
-use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -21,245 +20,121 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
-    class TableWebhookCallNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class TableWebhookCallNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+{
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+    use CheckArray;
+    use ValidatorTrait;
+
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
-
-        public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\TableWebhookCall::class === $type;
-        }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\TableWebhookCall::class === get_class($data);
-        }
-
-        public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\TableWebhookCall();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('id', $data)) {
-                $object->setId($data['id']);
-                unset($data['id']);
-            }
-            if (\array_key_exists('event_id', $data)) {
-                $object->setEventId($data['event_id']);
-                unset($data['event_id']);
-            }
-            if (\array_key_exists('event_type', $data)) {
-                $object->setEventType($data['event_type']);
-                unset($data['event_type']);
-            }
-            if (\array_key_exists('called_time', $data) && null !== $data['called_time']) {
-                $object->setCalledTime(\DateTime::createFromFormat('Y-m-d\TH:i:sP', $data['called_time']));
-                unset($data['called_time']);
-            } elseif (\array_key_exists('called_time', $data) && null === $data['called_time']) {
-                $object->setCalledTime(null);
-            }
-            if (\array_key_exists('called_url', $data)) {
-                $object->setCalledUrl($data['called_url']);
-                unset($data['called_url']);
-            }
-            if (\array_key_exists('request', $data) && null !== $data['request']) {
-                $object->setRequest($data['request']);
-                unset($data['request']);
-            } elseif (\array_key_exists('request', $data) && null === $data['request']) {
-                $object->setRequest(null);
-            }
-            if (\array_key_exists('response', $data) && null !== $data['response']) {
-                $object->setResponse($data['response']);
-                unset($data['response']);
-            } elseif (\array_key_exists('response', $data) && null === $data['response']) {
-                $object->setResponse(null);
-            }
-            if (\array_key_exists('response_status', $data) && null !== $data['response_status']) {
-                $object->setResponseStatus($data['response_status']);
-                unset($data['response_status']);
-            } elseif (\array_key_exists('response_status', $data) && null === $data['response_status']) {
-                $object->setResponseStatus(null);
-            }
-            if (\array_key_exists('error', $data) && null !== $data['error']) {
-                $object->setError($data['error']);
-                unset($data['error']);
-            } elseif (\array_key_exists('error', $data) && null === $data['error']) {
-                $object->setError(null);
-            }
-            foreach ($data as $key => $value) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value;
-                }
-            }
-
-            return $object;
-        }
-
-        public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
-        {
-            $data = [];
-            $data['event_type'] = $object->getEventType();
-            if ($object->isInitialized('calledTime') && null !== $object->getCalledTime()) {
-                $data['called_time'] = $object->getCalledTime()->format('Y-m-d\TH:i:sP');
-            }
-            $data['called_url'] = $object->getCalledUrl();
-            if ($object->isInitialized('request') && null !== $object->getRequest()) {
-                $data['request'] = $object->getRequest();
-            }
-            if ($object->isInitialized('response') && null !== $object->getResponse()) {
-                $data['response'] = $object->getResponse();
-            }
-            if ($object->isInitialized('responseStatus') && null !== $object->getResponseStatus()) {
-                $data['response_status'] = $object->getResponseStatus();
-            }
-            if ($object->isInitialized('error') && null !== $object->getError()) {
-                $data['error'] = $object->getError();
-            }
-            foreach ($object as $key => $value) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value;
-                }
-            }
-
-            return $data;
-        }
-
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\TableWebhookCall::class => false];
-        }
+        return \CedricZiel\Baserow\Generated\Model\TableWebhookCall::class === $type;
     }
-} else {
-    class TableWebhookCallNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
+        return is_object($data) && \CedricZiel\Baserow\Generated\Model\TableWebhookCall::class === get_class($data);
+    }
 
-        public function supportsDenormalization($data, $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\TableWebhookCall::class === $type;
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
+    {
+        if (isset($data['$ref'])) {
+            return new Reference($data['$ref'], $context['document-origin']);
         }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\TableWebhookCall::class === get_class($data);
+        if (isset($data['$recursiveRef'])) {
+            return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-
-        public function denormalize($data, $type, $format = null, array $context = [])
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\TableWebhookCall();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('id', $data)) {
-                $object->setId($data['id']);
-                unset($data['id']);
-            }
-            if (\array_key_exists('event_id', $data)) {
-                $object->setEventId($data['event_id']);
-                unset($data['event_id']);
-            }
-            if (\array_key_exists('event_type', $data)) {
-                $object->setEventType($data['event_type']);
-                unset($data['event_type']);
-            }
-            if (\array_key_exists('called_time', $data) && null !== $data['called_time']) {
-                $object->setCalledTime(\DateTime::createFromFormat('Y-m-d\TH:i:sP', $data['called_time']));
-                unset($data['called_time']);
-            } elseif (\array_key_exists('called_time', $data) && null === $data['called_time']) {
-                $object->setCalledTime(null);
-            }
-            if (\array_key_exists('called_url', $data)) {
-                $object->setCalledUrl($data['called_url']);
-                unset($data['called_url']);
-            }
-            if (\array_key_exists('request', $data) && null !== $data['request']) {
-                $object->setRequest($data['request']);
-                unset($data['request']);
-            } elseif (\array_key_exists('request', $data) && null === $data['request']) {
-                $object->setRequest(null);
-            }
-            if (\array_key_exists('response', $data) && null !== $data['response']) {
-                $object->setResponse($data['response']);
-                unset($data['response']);
-            } elseif (\array_key_exists('response', $data) && null === $data['response']) {
-                $object->setResponse(null);
-            }
-            if (\array_key_exists('response_status', $data) && null !== $data['response_status']) {
-                $object->setResponseStatus($data['response_status']);
-                unset($data['response_status']);
-            } elseif (\array_key_exists('response_status', $data) && null === $data['response_status']) {
-                $object->setResponseStatus(null);
-            }
-            if (\array_key_exists('error', $data) && null !== $data['error']) {
-                $object->setError($data['error']);
-                unset($data['error']);
-            } elseif (\array_key_exists('error', $data) && null === $data['error']) {
-                $object->setError(null);
-            }
-            foreach ($data as $key => $value) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value;
-                }
-            }
-
+        $object = new \CedricZiel\Baserow\Generated\Model\TableWebhookCall();
+        if (null === $data || false === \is_array($data)) {
             return $object;
         }
-
-        /**
-         * @return array|string|int|float|bool|\ArrayObject|null
-         */
-        public function normalize($object, $format = null, array $context = [])
-        {
-            $data = [];
-            $data['event_type'] = $object->getEventType();
-            if ($object->isInitialized('calledTime') && null !== $object->getCalledTime()) {
-                $data['called_time'] = $object->getCalledTime()->format('Y-m-d\TH:i:sP');
+        if (\array_key_exists('id', $data)) {
+            $object->setId($data['id']);
+            unset($data['id']);
+        }
+        if (\array_key_exists('event_id', $data)) {
+            $object->setEventId($data['event_id']);
+            unset($data['event_id']);
+        }
+        if (\array_key_exists('event_type', $data)) {
+            $object->setEventType($data['event_type']);
+            unset($data['event_type']);
+        }
+        if (\array_key_exists('called_time', $data) && null !== $data['called_time']) {
+            $object->setCalledTime(\DateTime::createFromFormat('Y-m-d\TH:i:sP', $data['called_time']));
+            unset($data['called_time']);
+        } elseif (\array_key_exists('called_time', $data) && null === $data['called_time']) {
+            $object->setCalledTime(null);
+        }
+        if (\array_key_exists('called_url', $data)) {
+            $object->setCalledUrl($data['called_url']);
+            unset($data['called_url']);
+        }
+        if (\array_key_exists('request', $data) && null !== $data['request']) {
+            $object->setRequest($data['request']);
+            unset($data['request']);
+        } elseif (\array_key_exists('request', $data) && null === $data['request']) {
+            $object->setRequest(null);
+        }
+        if (\array_key_exists('response', $data) && null !== $data['response']) {
+            $object->setResponse($data['response']);
+            unset($data['response']);
+        } elseif (\array_key_exists('response', $data) && null === $data['response']) {
+            $object->setResponse(null);
+        }
+        if (\array_key_exists('response_status', $data) && null !== $data['response_status']) {
+            $object->setResponseStatus($data['response_status']);
+            unset($data['response_status']);
+        } elseif (\array_key_exists('response_status', $data) && null === $data['response_status']) {
+            $object->setResponseStatus(null);
+        }
+        if (\array_key_exists('error', $data) && null !== $data['error']) {
+            $object->setError($data['error']);
+            unset($data['error']);
+        } elseif (\array_key_exists('error', $data) && null === $data['error']) {
+            $object->setError(null);
+        }
+        foreach ($data as $key => $value) {
+            if (preg_match('/.*/', (string) $key)) {
+                $object[$key] = $value;
             }
-            $data['called_url'] = $object->getCalledUrl();
-            if ($object->isInitialized('request') && null !== $object->getRequest()) {
-                $data['request'] = $object->getRequest();
-            }
-            if ($object->isInitialized('response') && null !== $object->getResponse()) {
-                $data['response'] = $object->getResponse();
-            }
-            if ($object->isInitialized('responseStatus') && null !== $object->getResponseStatus()) {
-                $data['response_status'] = $object->getResponseStatus();
-            }
-            if ($object->isInitialized('error') && null !== $object->getError()) {
-                $data['error'] = $object->getError();
-            }
-            foreach ($object as $key => $value) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value;
-                }
-            }
-
-            return $data;
         }
 
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\TableWebhookCall::class => false];
+        return $object;
+    }
+
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    {
+        $dataArray = [];
+        $dataArray['event_type'] = $data->getEventType();
+        if ($data->isInitialized('calledTime') && null !== $data->getCalledTime()) {
+            $dataArray['called_time'] = $data->getCalledTime()->format('Y-m-d\TH:i:sP');
         }
+        $dataArray['called_url'] = $data->getCalledUrl();
+        if ($data->isInitialized('request') && null !== $data->getRequest()) {
+            $dataArray['request'] = $data->getRequest();
+        }
+        if ($data->isInitialized('response') && null !== $data->getResponse()) {
+            $dataArray['response'] = $data->getResponse();
+        }
+        if ($data->isInitialized('responseStatus') && null !== $data->getResponseStatus()) {
+            $dataArray['response_status'] = $data->getResponseStatus();
+        }
+        if ($data->isInitialized('error') && null !== $data->getError()) {
+            $dataArray['error'] = $data->getError();
+        }
+        foreach ($data as $key => $value) {
+            if (preg_match('/.*/', (string) $key)) {
+                $dataArray[$key] = $value;
+            }
+        }
+
+        return $dataArray;
+    }
+
+    public function getSupportedTypes(?string $format = null): array
+    {
+        return [\CedricZiel\Baserow\Generated\Model\TableWebhookCall::class => false];
     }
 }
