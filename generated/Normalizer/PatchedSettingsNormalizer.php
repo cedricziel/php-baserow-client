@@ -13,7 +13,6 @@ namespace CedricZiel\Baserow\Generated\Normalizer;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\CheckArray;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\ValidatorTrait;
 use Jane\Component\JsonSchemaRuntime\Reference;
-use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -21,295 +20,173 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
-    class PatchedSettingsNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class PatchedSettingsNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+{
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+    use CheckArray;
+    use ValidatorTrait;
+
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
-
-        public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\PatchedSettings::class === $type;
-        }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\PatchedSettings::class === get_class($data);
-        }
-
-        public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\PatchedSettings();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('allow_new_signups', $data)) {
-                $object->setAllowNewSignups($data['allow_new_signups']);
-                unset($data['allow_new_signups']);
-            }
-            if (\array_key_exists('allow_signups_via_workspace_invitations', $data)) {
-                $object->setAllowSignupsViaWorkspaceInvitations($data['allow_signups_via_workspace_invitations']);
-                unset($data['allow_signups_via_workspace_invitations']);
-            }
-            if (\array_key_exists('allow_signups_via_group_invitations', $data)) {
-                $object->setAllowSignupsViaGroupInvitations($data['allow_signups_via_group_invitations']);
-                unset($data['allow_signups_via_group_invitations']);
-            }
-            if (\array_key_exists('allow_reset_password', $data)) {
-                $object->setAllowResetPassword($data['allow_reset_password']);
-                unset($data['allow_reset_password']);
-            }
-            if (\array_key_exists('allow_global_workspace_creation', $data)) {
-                $object->setAllowGlobalWorkspaceCreation($data['allow_global_workspace_creation']);
-                unset($data['allow_global_workspace_creation']);
-            }
-            if (\array_key_exists('allow_global_group_creation', $data)) {
-                $object->setAllowGlobalGroupCreation($data['allow_global_group_creation']);
-                unset($data['allow_global_group_creation']);
-            }
-            if (\array_key_exists('account_deletion_grace_delay', $data)) {
-                $object->setAccountDeletionGraceDelay($data['account_deletion_grace_delay']);
-                unset($data['account_deletion_grace_delay']);
-            }
-            if (\array_key_exists('show_admin_signup_page', $data)) {
-                $object->setShowAdminSignupPage($data['show_admin_signup_page']);
-                unset($data['show_admin_signup_page']);
-            }
-            if (\array_key_exists('track_workspace_usage', $data)) {
-                $object->setTrackWorkspaceUsage($data['track_workspace_usage']);
-                unset($data['track_workspace_usage']);
-            }
-            if (\array_key_exists('show_baserow_help_request', $data)) {
-                $object->setShowBaserowHelpRequest($data['show_baserow_help_request']);
-                unset($data['show_baserow_help_request']);
-            }
-            if (\array_key_exists('co_branding_logo', $data) && null !== $data['co_branding_logo']) {
-                $object->setCoBrandingLogo($this->denormalizer->denormalize($data['co_branding_logo'], \CedricZiel\Baserow\Generated\Model\PatchedSettingsCoBrandingLogo::class, 'json', $context));
-                unset($data['co_branding_logo']);
-            } elseif (\array_key_exists('co_branding_logo', $data) && null === $data['co_branding_logo']) {
-                $object->setCoBrandingLogo(null);
-            }
-            if (\array_key_exists('email_verification', $data) && null !== $data['email_verification']) {
-                $object->setEmailVerification($data['email_verification']);
-                unset($data['email_verification']);
-            } elseif (\array_key_exists('email_verification', $data) && null === $data['email_verification']) {
-                $object->setEmailVerification(null);
-            }
-            foreach ($data as $key => $value) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value;
-                }
-            }
-
-            return $object;
-        }
-
-        public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
-        {
-            $data = [];
-            if ($object->isInitialized('allowNewSignups') && null !== $object->getAllowNewSignups()) {
-                $data['allow_new_signups'] = $object->getAllowNewSignups();
-            }
-            if ($object->isInitialized('allowSignupsViaWorkspaceInvitations') && null !== $object->getAllowSignupsViaWorkspaceInvitations()) {
-                $data['allow_signups_via_workspace_invitations'] = $object->getAllowSignupsViaWorkspaceInvitations();
-            }
-            if ($object->isInitialized('allowSignupsViaGroupInvitations') && null !== $object->getAllowSignupsViaGroupInvitations()) {
-                $data['allow_signups_via_group_invitations'] = $object->getAllowSignupsViaGroupInvitations();
-            }
-            if ($object->isInitialized('allowResetPassword') && null !== $object->getAllowResetPassword()) {
-                $data['allow_reset_password'] = $object->getAllowResetPassword();
-            }
-            if ($object->isInitialized('allowGlobalWorkspaceCreation') && null !== $object->getAllowGlobalWorkspaceCreation()) {
-                $data['allow_global_workspace_creation'] = $object->getAllowGlobalWorkspaceCreation();
-            }
-            if ($object->isInitialized('allowGlobalGroupCreation') && null !== $object->getAllowGlobalGroupCreation()) {
-                $data['allow_global_group_creation'] = $object->getAllowGlobalGroupCreation();
-            }
-            if ($object->isInitialized('accountDeletionGraceDelay') && null !== $object->getAccountDeletionGraceDelay()) {
-                $data['account_deletion_grace_delay'] = $object->getAccountDeletionGraceDelay();
-            }
-            if ($object->isInitialized('showAdminSignupPage') && null !== $object->getShowAdminSignupPage()) {
-                $data['show_admin_signup_page'] = $object->getShowAdminSignupPage();
-            }
-            if ($object->isInitialized('trackWorkspaceUsage') && null !== $object->getTrackWorkspaceUsage()) {
-                $data['track_workspace_usage'] = $object->getTrackWorkspaceUsage();
-            }
-            if ($object->isInitialized('showBaserowHelpRequest') && null !== $object->getShowBaserowHelpRequest()) {
-                $data['show_baserow_help_request'] = $object->getShowBaserowHelpRequest();
-            }
-            if ($object->isInitialized('coBrandingLogo') && null !== $object->getCoBrandingLogo()) {
-                $data['co_branding_logo'] = $this->normalizer->normalize($object->getCoBrandingLogo(), 'json', $context);
-            }
-            if ($object->isInitialized('emailVerification') && null !== $object->getEmailVerification()) {
-                $data['email_verification'] = $object->getEmailVerification();
-            }
-            foreach ($object as $key => $value) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value;
-                }
-            }
-
-            return $data;
-        }
-
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\PatchedSettings::class => false];
-        }
+        return \CedricZiel\Baserow\Generated\Model\PatchedSettings::class === $type;
     }
-} else {
-    class PatchedSettingsNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
+        return is_object($data) && \CedricZiel\Baserow\Generated\Model\PatchedSettings::class === get_class($data);
+    }
 
-        public function supportsDenormalization($data, $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\PatchedSettings::class === $type;
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
+    {
+        if (isset($data['$ref'])) {
+            return new Reference($data['$ref'], $context['document-origin']);
         }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\PatchedSettings::class === get_class($data);
+        if (isset($data['$recursiveRef'])) {
+            return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-
-        public function denormalize($data, $type, $format = null, array $context = [])
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\PatchedSettings();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('allow_new_signups', $data)) {
-                $object->setAllowNewSignups($data['allow_new_signups']);
-                unset($data['allow_new_signups']);
-            }
-            if (\array_key_exists('allow_signups_via_workspace_invitations', $data)) {
-                $object->setAllowSignupsViaWorkspaceInvitations($data['allow_signups_via_workspace_invitations']);
-                unset($data['allow_signups_via_workspace_invitations']);
-            }
-            if (\array_key_exists('allow_signups_via_group_invitations', $data)) {
-                $object->setAllowSignupsViaGroupInvitations($data['allow_signups_via_group_invitations']);
-                unset($data['allow_signups_via_group_invitations']);
-            }
-            if (\array_key_exists('allow_reset_password', $data)) {
-                $object->setAllowResetPassword($data['allow_reset_password']);
-                unset($data['allow_reset_password']);
-            }
-            if (\array_key_exists('allow_global_workspace_creation', $data)) {
-                $object->setAllowGlobalWorkspaceCreation($data['allow_global_workspace_creation']);
-                unset($data['allow_global_workspace_creation']);
-            }
-            if (\array_key_exists('allow_global_group_creation', $data)) {
-                $object->setAllowGlobalGroupCreation($data['allow_global_group_creation']);
-                unset($data['allow_global_group_creation']);
-            }
-            if (\array_key_exists('account_deletion_grace_delay', $data)) {
-                $object->setAccountDeletionGraceDelay($data['account_deletion_grace_delay']);
-                unset($data['account_deletion_grace_delay']);
-            }
-            if (\array_key_exists('show_admin_signup_page', $data)) {
-                $object->setShowAdminSignupPage($data['show_admin_signup_page']);
-                unset($data['show_admin_signup_page']);
-            }
-            if (\array_key_exists('track_workspace_usage', $data)) {
-                $object->setTrackWorkspaceUsage($data['track_workspace_usage']);
-                unset($data['track_workspace_usage']);
-            }
-            if (\array_key_exists('show_baserow_help_request', $data)) {
-                $object->setShowBaserowHelpRequest($data['show_baserow_help_request']);
-                unset($data['show_baserow_help_request']);
-            }
-            if (\array_key_exists('co_branding_logo', $data) && null !== $data['co_branding_logo']) {
-                $object->setCoBrandingLogo($this->denormalizer->denormalize($data['co_branding_logo'], \CedricZiel\Baserow\Generated\Model\PatchedSettingsCoBrandingLogo::class, 'json', $context));
-                unset($data['co_branding_logo']);
-            } elseif (\array_key_exists('co_branding_logo', $data) && null === $data['co_branding_logo']) {
-                $object->setCoBrandingLogo(null);
-            }
-            if (\array_key_exists('email_verification', $data) && null !== $data['email_verification']) {
-                $object->setEmailVerification($data['email_verification']);
-                unset($data['email_verification']);
-            } elseif (\array_key_exists('email_verification', $data) && null === $data['email_verification']) {
-                $object->setEmailVerification(null);
-            }
-            foreach ($data as $key => $value) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value;
-                }
-            }
-
+        $object = new \CedricZiel\Baserow\Generated\Model\PatchedSettings();
+        if (\array_key_exists('allow_new_signups', $data) && \is_int($data['allow_new_signups'])) {
+            $data['allow_new_signups'] = (bool) $data['allow_new_signups'];
+        }
+        if (\array_key_exists('allow_signups_via_workspace_invitations', $data) && \is_int($data['allow_signups_via_workspace_invitations'])) {
+            $data['allow_signups_via_workspace_invitations'] = (bool) $data['allow_signups_via_workspace_invitations'];
+        }
+        if (\array_key_exists('allow_signups_via_group_invitations', $data) && \is_int($data['allow_signups_via_group_invitations'])) {
+            $data['allow_signups_via_group_invitations'] = (bool) $data['allow_signups_via_group_invitations'];
+        }
+        if (\array_key_exists('allow_reset_password', $data) && \is_int($data['allow_reset_password'])) {
+            $data['allow_reset_password'] = (bool) $data['allow_reset_password'];
+        }
+        if (\array_key_exists('allow_global_workspace_creation', $data) && \is_int($data['allow_global_workspace_creation'])) {
+            $data['allow_global_workspace_creation'] = (bool) $data['allow_global_workspace_creation'];
+        }
+        if (\array_key_exists('allow_global_group_creation', $data) && \is_int($data['allow_global_group_creation'])) {
+            $data['allow_global_group_creation'] = (bool) $data['allow_global_group_creation'];
+        }
+        if (\array_key_exists('show_admin_signup_page', $data) && \is_int($data['show_admin_signup_page'])) {
+            $data['show_admin_signup_page'] = (bool) $data['show_admin_signup_page'];
+        }
+        if (\array_key_exists('track_workspace_usage', $data) && \is_int($data['track_workspace_usage'])) {
+            $data['track_workspace_usage'] = (bool) $data['track_workspace_usage'];
+        }
+        if (\array_key_exists('show_baserow_help_request', $data) && \is_int($data['show_baserow_help_request'])) {
+            $data['show_baserow_help_request'] = (bool) $data['show_baserow_help_request'];
+        }
+        if (null === $data || false === \is_array($data)) {
             return $object;
         }
-
-        /**
-         * @return array|string|int|float|bool|\ArrayObject|null
-         */
-        public function normalize($object, $format = null, array $context = [])
-        {
-            $data = [];
-            if ($object->isInitialized('allowNewSignups') && null !== $object->getAllowNewSignups()) {
-                $data['allow_new_signups'] = $object->getAllowNewSignups();
+        if (\array_key_exists('allow_new_signups', $data)) {
+            $object->setAllowNewSignups($data['allow_new_signups']);
+            unset($data['allow_new_signups']);
+        }
+        if (\array_key_exists('allow_signups_via_workspace_invitations', $data)) {
+            $object->setAllowSignupsViaWorkspaceInvitations($data['allow_signups_via_workspace_invitations']);
+            unset($data['allow_signups_via_workspace_invitations']);
+        }
+        if (\array_key_exists('allow_signups_via_group_invitations', $data)) {
+            $object->setAllowSignupsViaGroupInvitations($data['allow_signups_via_group_invitations']);
+            unset($data['allow_signups_via_group_invitations']);
+        }
+        if (\array_key_exists('allow_reset_password', $data)) {
+            $object->setAllowResetPassword($data['allow_reset_password']);
+            unset($data['allow_reset_password']);
+        }
+        if (\array_key_exists('allow_global_workspace_creation', $data)) {
+            $object->setAllowGlobalWorkspaceCreation($data['allow_global_workspace_creation']);
+            unset($data['allow_global_workspace_creation']);
+        }
+        if (\array_key_exists('allow_global_group_creation', $data)) {
+            $object->setAllowGlobalGroupCreation($data['allow_global_group_creation']);
+            unset($data['allow_global_group_creation']);
+        }
+        if (\array_key_exists('account_deletion_grace_delay', $data)) {
+            $object->setAccountDeletionGraceDelay($data['account_deletion_grace_delay']);
+            unset($data['account_deletion_grace_delay']);
+        }
+        if (\array_key_exists('show_admin_signup_page', $data)) {
+            $object->setShowAdminSignupPage($data['show_admin_signup_page']);
+            unset($data['show_admin_signup_page']);
+        }
+        if (\array_key_exists('track_workspace_usage', $data)) {
+            $object->setTrackWorkspaceUsage($data['track_workspace_usage']);
+            unset($data['track_workspace_usage']);
+        }
+        if (\array_key_exists('show_baserow_help_request', $data)) {
+            $object->setShowBaserowHelpRequest($data['show_baserow_help_request']);
+            unset($data['show_baserow_help_request']);
+        }
+        if (\array_key_exists('co_branding_logo', $data) && null !== $data['co_branding_logo']) {
+            $object->setCoBrandingLogo($this->denormalizer->denormalize($data['co_branding_logo'], \CedricZiel\Baserow\Generated\Model\PatchedSettingsCoBrandingLogo::class, 'json', $context));
+            unset($data['co_branding_logo']);
+        } elseif (\array_key_exists('co_branding_logo', $data) && null === $data['co_branding_logo']) {
+            $object->setCoBrandingLogo(null);
+        }
+        if (\array_key_exists('email_verification', $data) && null !== $data['email_verification']) {
+            $object->setEmailVerification($data['email_verification']);
+            unset($data['email_verification']);
+        } elseif (\array_key_exists('email_verification', $data) && null === $data['email_verification']) {
+            $object->setEmailVerification(null);
+        }
+        foreach ($data as $key => $value) {
+            if (preg_match('/.*/', (string) $key)) {
+                $object[$key] = $value;
             }
-            if ($object->isInitialized('allowSignupsViaWorkspaceInvitations') && null !== $object->getAllowSignupsViaWorkspaceInvitations()) {
-                $data['allow_signups_via_workspace_invitations'] = $object->getAllowSignupsViaWorkspaceInvitations();
-            }
-            if ($object->isInitialized('allowSignupsViaGroupInvitations') && null !== $object->getAllowSignupsViaGroupInvitations()) {
-                $data['allow_signups_via_group_invitations'] = $object->getAllowSignupsViaGroupInvitations();
-            }
-            if ($object->isInitialized('allowResetPassword') && null !== $object->getAllowResetPassword()) {
-                $data['allow_reset_password'] = $object->getAllowResetPassword();
-            }
-            if ($object->isInitialized('allowGlobalWorkspaceCreation') && null !== $object->getAllowGlobalWorkspaceCreation()) {
-                $data['allow_global_workspace_creation'] = $object->getAllowGlobalWorkspaceCreation();
-            }
-            if ($object->isInitialized('allowGlobalGroupCreation') && null !== $object->getAllowGlobalGroupCreation()) {
-                $data['allow_global_group_creation'] = $object->getAllowGlobalGroupCreation();
-            }
-            if ($object->isInitialized('accountDeletionGraceDelay') && null !== $object->getAccountDeletionGraceDelay()) {
-                $data['account_deletion_grace_delay'] = $object->getAccountDeletionGraceDelay();
-            }
-            if ($object->isInitialized('showAdminSignupPage') && null !== $object->getShowAdminSignupPage()) {
-                $data['show_admin_signup_page'] = $object->getShowAdminSignupPage();
-            }
-            if ($object->isInitialized('trackWorkspaceUsage') && null !== $object->getTrackWorkspaceUsage()) {
-                $data['track_workspace_usage'] = $object->getTrackWorkspaceUsage();
-            }
-            if ($object->isInitialized('showBaserowHelpRequest') && null !== $object->getShowBaserowHelpRequest()) {
-                $data['show_baserow_help_request'] = $object->getShowBaserowHelpRequest();
-            }
-            if ($object->isInitialized('coBrandingLogo') && null !== $object->getCoBrandingLogo()) {
-                $data['co_branding_logo'] = $this->normalizer->normalize($object->getCoBrandingLogo(), 'json', $context);
-            }
-            if ($object->isInitialized('emailVerification') && null !== $object->getEmailVerification()) {
-                $data['email_verification'] = $object->getEmailVerification();
-            }
-            foreach ($object as $key => $value) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value;
-                }
-            }
-
-            return $data;
         }
 
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\PatchedSettings::class => false];
+        return $object;
+    }
+
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    {
+        $dataArray = [];
+        if ($data->isInitialized('allowNewSignups') && null !== $data->getAllowNewSignups()) {
+            $dataArray['allow_new_signups'] = $data->getAllowNewSignups();
         }
+        if ($data->isInitialized('allowSignupsViaWorkspaceInvitations') && null !== $data->getAllowSignupsViaWorkspaceInvitations()) {
+            $dataArray['allow_signups_via_workspace_invitations'] = $data->getAllowSignupsViaWorkspaceInvitations();
+        }
+        if ($data->isInitialized('allowSignupsViaGroupInvitations') && null !== $data->getAllowSignupsViaGroupInvitations()) {
+            $dataArray['allow_signups_via_group_invitations'] = $data->getAllowSignupsViaGroupInvitations();
+        }
+        if ($data->isInitialized('allowResetPassword') && null !== $data->getAllowResetPassword()) {
+            $dataArray['allow_reset_password'] = $data->getAllowResetPassword();
+        }
+        if ($data->isInitialized('allowGlobalWorkspaceCreation') && null !== $data->getAllowGlobalWorkspaceCreation()) {
+            $dataArray['allow_global_workspace_creation'] = $data->getAllowGlobalWorkspaceCreation();
+        }
+        if ($data->isInitialized('allowGlobalGroupCreation') && null !== $data->getAllowGlobalGroupCreation()) {
+            $dataArray['allow_global_group_creation'] = $data->getAllowGlobalGroupCreation();
+        }
+        if ($data->isInitialized('accountDeletionGraceDelay') && null !== $data->getAccountDeletionGraceDelay()) {
+            $dataArray['account_deletion_grace_delay'] = $data->getAccountDeletionGraceDelay();
+        }
+        if ($data->isInitialized('showAdminSignupPage') && null !== $data->getShowAdminSignupPage()) {
+            $dataArray['show_admin_signup_page'] = $data->getShowAdminSignupPage();
+        }
+        if ($data->isInitialized('trackWorkspaceUsage') && null !== $data->getTrackWorkspaceUsage()) {
+            $dataArray['track_workspace_usage'] = $data->getTrackWorkspaceUsage();
+        }
+        if ($data->isInitialized('showBaserowHelpRequest') && null !== $data->getShowBaserowHelpRequest()) {
+            $dataArray['show_baserow_help_request'] = $data->getShowBaserowHelpRequest();
+        }
+        if ($data->isInitialized('coBrandingLogo') && null !== $data->getCoBrandingLogo()) {
+            $dataArray['co_branding_logo'] = $this->normalizer->normalize($data->getCoBrandingLogo(), 'json', $context);
+        }
+        if ($data->isInitialized('emailVerification') && null !== $data->getEmailVerification()) {
+            $dataArray['email_verification'] = $data->getEmailVerification();
+        }
+        foreach ($data as $key => $value) {
+            if (preg_match('/.*/', (string) $key)) {
+                $dataArray[$key] = $value;
+            }
+        }
+
+        return $dataArray;
+    }
+
+    public function getSupportedTypes(?string $format = null): array
+    {
+        return [\CedricZiel\Baserow\Generated\Model\PatchedSettings::class => false];
     }
 }
