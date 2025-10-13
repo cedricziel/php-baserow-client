@@ -13,7 +13,6 @@ namespace CedricZiel\Baserow\Generated\Normalizer;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\CheckArray;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\ValidatorTrait;
 use Jane\Component\JsonSchemaRuntime\Reference;
-use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -21,213 +20,105 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
-    class PublicPaginationSerializerWithGridViewFieldOptionsExampleRowResponseNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class PublicPaginationSerializerWithGridViewFieldOptionsExampleRowResponseNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+{
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+    use CheckArray;
+    use ValidatorTrait;
+
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
-
-        public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\PublicPaginationSerializerWithGridViewFieldOptionsExampleRowResponse::class === $type;
-        }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\PublicPaginationSerializerWithGridViewFieldOptionsExampleRowResponse::class === get_class($data);
-        }
-
-        public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\PublicPaginationSerializerWithGridViewFieldOptionsExampleRowResponse();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('field_options', $data)) {
-                $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
-                foreach ($data['field_options'] as $key => $value) {
-                    $values[$key] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\GridViewFieldOptions::class, 'json', $context);
-                }
-                $object->setFieldOptions($values);
-                unset($data['field_options']);
-            }
-            if (\array_key_exists('count', $data)) {
-                $object->setCount($data['count']);
-                unset($data['count']);
-            }
-            if (\array_key_exists('next', $data) && null !== $data['next']) {
-                $object->setNext($data['next']);
-                unset($data['next']);
-            } elseif (\array_key_exists('next', $data) && null === $data['next']) {
-                $object->setNext(null);
-            }
-            if (\array_key_exists('previous', $data) && null !== $data['previous']) {
-                $object->setPrevious($data['previous']);
-                unset($data['previous']);
-            } elseif (\array_key_exists('previous', $data) && null === $data['previous']) {
-                $object->setPrevious(null);
-            }
-            if (\array_key_exists('results', $data)) {
-                $values_1 = [];
-                foreach ($data['results'] as $value_1) {
-                    $values_1[] = $this->denormalizer->denormalize($value_1, \CedricZiel\Baserow\Generated\Model\ExampleRowResponse::class, 'json', $context);
-                }
-                $object->setResults($values_1);
-                unset($data['results']);
-            }
-            foreach ($data as $key_1 => $value_2) {
-                if (preg_match('/.*/', (string) $key_1)) {
-                    $object[$key_1] = $value_2;
-                }
-            }
-
-            return $object;
-        }
-
-        public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
-        {
-            $data = [];
-            if ($object->isInitialized('fieldOptions') && null !== $object->getFieldOptions()) {
-                $values = [];
-                foreach ($object->getFieldOptions() as $key => $value) {
-                    $values[$key] = $this->normalizer->normalize($value, 'json', $context);
-                }
-                $data['field_options'] = $values;
-            }
-            $data['count'] = $object->getCount();
-            $data['next'] = $object->getNext();
-            $data['previous'] = $object->getPrevious();
-            $values_1 = [];
-            foreach ($object->getResults() as $value_1) {
-                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
-            }
-            $data['results'] = $values_1;
-            foreach ($object as $key_1 => $value_2) {
-                if (preg_match('/.*/', (string) $key_1)) {
-                    $data[$key_1] = $value_2;
-                }
-            }
-
-            return $data;
-        }
-
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\PublicPaginationSerializerWithGridViewFieldOptionsExampleRowResponse::class => false];
-        }
+        return \CedricZiel\Baserow\Generated\Model\PublicPaginationSerializerWithGridViewFieldOptionsExampleRowResponse::class === $type;
     }
-} else {
-    class PublicPaginationSerializerWithGridViewFieldOptionsExampleRowResponseNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
+        return is_object($data) && \CedricZiel\Baserow\Generated\Model\PublicPaginationSerializerWithGridViewFieldOptionsExampleRowResponse::class === get_class($data);
+    }
 
-        public function supportsDenormalization($data, $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\PublicPaginationSerializerWithGridViewFieldOptionsExampleRowResponse::class === $type;
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
+    {
+        if (isset($data['$ref'])) {
+            return new Reference($data['$ref'], $context['document-origin']);
         }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\PublicPaginationSerializerWithGridViewFieldOptionsExampleRowResponse::class === get_class($data);
+        if (isset($data['$recursiveRef'])) {
+            return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-
-        public function denormalize($data, $type, $format = null, array $context = [])
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\PublicPaginationSerializerWithGridViewFieldOptionsExampleRowResponse();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('field_options', $data)) {
-                $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
-                foreach ($data['field_options'] as $key => $value) {
-                    $values[$key] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\GridViewFieldOptions::class, 'json', $context);
-                }
-                $object->setFieldOptions($values);
-                unset($data['field_options']);
-            }
-            if (\array_key_exists('count', $data)) {
-                $object->setCount($data['count']);
-                unset($data['count']);
-            }
-            if (\array_key_exists('next', $data) && null !== $data['next']) {
-                $object->setNext($data['next']);
-                unset($data['next']);
-            } elseif (\array_key_exists('next', $data) && null === $data['next']) {
-                $object->setNext(null);
-            }
-            if (\array_key_exists('previous', $data) && null !== $data['previous']) {
-                $object->setPrevious($data['previous']);
-                unset($data['previous']);
-            } elseif (\array_key_exists('previous', $data) && null === $data['previous']) {
-                $object->setPrevious(null);
-            }
-            if (\array_key_exists('results', $data)) {
-                $values_1 = [];
-                foreach ($data['results'] as $value_1) {
-                    $values_1[] = $this->denormalizer->denormalize($value_1, \CedricZiel\Baserow\Generated\Model\ExampleRowResponse::class, 'json', $context);
-                }
-                $object->setResults($values_1);
-                unset($data['results']);
-            }
-            foreach ($data as $key_1 => $value_2) {
-                if (preg_match('/.*/', (string) $key_1)) {
-                    $object[$key_1] = $value_2;
-                }
-            }
-
+        $object = new \CedricZiel\Baserow\Generated\Model\PublicPaginationSerializerWithGridViewFieldOptionsExampleRowResponse();
+        if (null === $data || false === \is_array($data)) {
             return $object;
         }
-
-        /**
-         * @return array|string|int|float|bool|\ArrayObject|null
-         */
-        public function normalize($object, $format = null, array $context = [])
-        {
-            $data = [];
-            if ($object->isInitialized('fieldOptions') && null !== $object->getFieldOptions()) {
-                $values = [];
-                foreach ($object->getFieldOptions() as $key => $value) {
-                    $values[$key] = $this->normalizer->normalize($value, 'json', $context);
-                }
-                $data['field_options'] = $values;
+        if (\array_key_exists('field_options', $data)) {
+            $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
+            foreach ($data['field_options'] as $key => $value) {
+                $values[$key] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\GridViewFieldOptions::class, 'json', $context);
             }
-            $data['count'] = $object->getCount();
-            $data['next'] = $object->getNext();
-            $data['previous'] = $object->getPrevious();
+            $object->setFieldOptions($values);
+            unset($data['field_options']);
+        }
+        if (\array_key_exists('count', $data)) {
+            $object->setCount($data['count']);
+            unset($data['count']);
+        }
+        if (\array_key_exists('next', $data) && null !== $data['next']) {
+            $object->setNext($data['next']);
+            unset($data['next']);
+        } elseif (\array_key_exists('next', $data) && null === $data['next']) {
+            $object->setNext(null);
+        }
+        if (\array_key_exists('previous', $data) && null !== $data['previous']) {
+            $object->setPrevious($data['previous']);
+            unset($data['previous']);
+        } elseif (\array_key_exists('previous', $data) && null === $data['previous']) {
+            $object->setPrevious(null);
+        }
+        if (\array_key_exists('results', $data)) {
             $values_1 = [];
-            foreach ($object->getResults() as $value_1) {
-                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
+            foreach ($data['results'] as $value_1) {
+                $values_1[] = $this->denormalizer->denormalize($value_1, \CedricZiel\Baserow\Generated\Model\ExampleRowResponse::class, 'json', $context);
             }
-            $data['results'] = $values_1;
-            foreach ($object as $key_1 => $value_2) {
-                if (preg_match('/.*/', (string) $key_1)) {
-                    $data[$key_1] = $value_2;
-                }
+            $object->setResults($values_1);
+            unset($data['results']);
+        }
+        foreach ($data as $key_1 => $value_2) {
+            if (preg_match('/.*/', (string) $key_1)) {
+                $object[$key_1] = $value_2;
             }
-
-            return $data;
         }
 
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\PublicPaginationSerializerWithGridViewFieldOptionsExampleRowResponse::class => false];
+        return $object;
+    }
+
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    {
+        $dataArray = [];
+        if ($data->isInitialized('fieldOptions') && null !== $data->getFieldOptions()) {
+            $values = [];
+            foreach ($data->getFieldOptions() as $key => $value) {
+                $values[$key] = $this->normalizer->normalize($value, 'json', $context);
+            }
+            $dataArray['field_options'] = $values;
         }
+        $dataArray['count'] = $data->getCount();
+        $dataArray['next'] = $data->getNext();
+        $dataArray['previous'] = $data->getPrevious();
+        $values_1 = [];
+        foreach ($data->getResults() as $value_1) {
+            $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
+        }
+        $dataArray['results'] = $values_1;
+        foreach ($data as $key_1 => $value_2) {
+            if (preg_match('/.*/', (string) $key_1)) {
+                $dataArray[$key_1] = $value_2;
+            }
+        }
+
+        return $dataArray;
+    }
+
+    public function getSupportedTypes(?string $format = null): array
+    {
+        return [\CedricZiel\Baserow\Generated\Model\PublicPaginationSerializerWithGridViewFieldOptionsExampleRowResponse::class => false];
     }
 }
