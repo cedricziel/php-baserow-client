@@ -13,7 +13,6 @@ namespace CedricZiel\Baserow\Generated\Normalizer;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\CheckArray;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\ValidatorTrait;
 use Jane\Component\JsonSchemaRuntime\Reference;
-use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -21,209 +20,103 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
-    class ConditionalColorValueProviderConfColorNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class ConditionalColorValueProviderConfColorNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+{
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+    use CheckArray;
+    use ValidatorTrait;
+
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
-
-        public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColor::class === $type;
-        }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColor::class === get_class($data);
-        }
-
-        public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColor();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('id', $data)) {
-                $object->setId($data['id']);
-                unset($data['id']);
-            }
-            if (\array_key_exists('color', $data)) {
-                $object->setColor($data['color']);
-                unset($data['color']);
-            }
-            if (\array_key_exists('filters', $data)) {
-                $values = [];
-                foreach ($data['filters'] as $value) {
-                    $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColorFilter::class, 'json', $context);
-                }
-                $object->setFilters($values);
-                unset($data['filters']);
-            }
-            if (\array_key_exists('filter_groups', $data)) {
-                $values_1 = [];
-                foreach ($data['filter_groups'] as $value_1) {
-                    $values_1[] = $this->denormalizer->denormalize($value_1, \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColorFilterGroup::class, 'json', $context);
-                }
-                $object->setFilterGroups($values_1);
-                unset($data['filter_groups']);
-            }
-            if (\array_key_exists('operator', $data)) {
-                $object->setOperator($data['operator']);
-                unset($data['operator']);
-            }
-            foreach ($data as $key => $value_2) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value_2;
-                }
-            }
-
-            return $object;
-        }
-
-        public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
-        {
-            $data = [];
-            $data['id'] = $object->getId();
-            $data['color'] = $object->getColor();
-            $values = [];
-            foreach ($object->getFilters() as $value) {
-                $values[] = $this->normalizer->normalize($value, 'json', $context);
-            }
-            $data['filters'] = $values;
-            if ($object->isInitialized('filterGroups') && null !== $object->getFilterGroups()) {
-                $values_1 = [];
-                foreach ($object->getFilterGroups() as $value_1) {
-                    $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
-                }
-                $data['filter_groups'] = $values_1;
-            }
-            if ($object->isInitialized('operator') && null !== $object->getOperator()) {
-                $data['operator'] = $object->getOperator();
-            }
-            foreach ($object as $key => $value_2) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value_2;
-                }
-            }
-
-            return $data;
-        }
-
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColor::class => false];
-        }
+        return \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColor::class === $type;
     }
-} else {
-    class ConditionalColorValueProviderConfColorNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
+        return is_object($data) && \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColor::class === get_class($data);
+    }
 
-        public function supportsDenormalization($data, $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColor::class === $type;
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
+    {
+        if (isset($data['$ref'])) {
+            return new Reference($data['$ref'], $context['document-origin']);
         }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColor::class === get_class($data);
+        if (isset($data['$recursiveRef'])) {
+            return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-
-        public function denormalize($data, $type, $format = null, array $context = [])
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColor();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('id', $data)) {
-                $object->setId($data['id']);
-                unset($data['id']);
-            }
-            if (\array_key_exists('color', $data)) {
-                $object->setColor($data['color']);
-                unset($data['color']);
-            }
-            if (\array_key_exists('filters', $data)) {
-                $values = [];
-                foreach ($data['filters'] as $value) {
-                    $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColorFilter::class, 'json', $context);
-                }
-                $object->setFilters($values);
-                unset($data['filters']);
-            }
-            if (\array_key_exists('filter_groups', $data)) {
-                $values_1 = [];
-                foreach ($data['filter_groups'] as $value_1) {
-                    $values_1[] = $this->denormalizer->denormalize($value_1, \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColorFilterGroup::class, 'json', $context);
-                }
-                $object->setFilterGroups($values_1);
-                unset($data['filter_groups']);
-            }
-            if (\array_key_exists('operator', $data)) {
-                $object->setOperator($data['operator']);
-                unset($data['operator']);
-            }
-            foreach ($data as $key => $value_2) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value_2;
-                }
-            }
-
+        $object = new \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColor();
+        if (null === $data || false === \is_array($data)) {
             return $object;
         }
-
-        /**
-         * @return array|string|int|float|bool|\ArrayObject|null
-         */
-        public function normalize($object, $format = null, array $context = [])
-        {
-            $data = [];
-            $data['id'] = $object->getId();
-            $data['color'] = $object->getColor();
+        if (\array_key_exists('id', $data)) {
+            $object->setId($data['id']);
+            unset($data['id']);
+        }
+        if (\array_key_exists('color', $data)) {
+            $object->setColor($data['color']);
+            unset($data['color']);
+        }
+        if (\array_key_exists('filters', $data)) {
             $values = [];
-            foreach ($object->getFilters() as $value) {
-                $values[] = $this->normalizer->normalize($value, 'json', $context);
+            foreach ($data['filters'] as $value) {
+                $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColorFilter::class, 'json', $context);
             }
-            $data['filters'] = $values;
-            if ($object->isInitialized('filterGroups') && null !== $object->getFilterGroups()) {
-                $values_1 = [];
-                foreach ($object->getFilterGroups() as $value_1) {
-                    $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
-                }
-                $data['filter_groups'] = $values_1;
+            $object->setFilters($values);
+            unset($data['filters']);
+        }
+        if (\array_key_exists('filter_groups', $data)) {
+            $values_1 = [];
+            foreach ($data['filter_groups'] as $value_1) {
+                $values_1[] = $this->denormalizer->denormalize($value_1, \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColorFilterGroup::class, 'json', $context);
             }
-            if ($object->isInitialized('operator') && null !== $object->getOperator()) {
-                $data['operator'] = $object->getOperator();
+            $object->setFilterGroups($values_1);
+            unset($data['filter_groups']);
+        }
+        if (\array_key_exists('operator', $data)) {
+            $object->setOperator($data['operator']);
+            unset($data['operator']);
+        }
+        foreach ($data as $key => $value_2) {
+            if (preg_match('/.*/', (string) $key)) {
+                $object[$key] = $value_2;
             }
-            foreach ($object as $key => $value_2) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value_2;
-                }
-            }
-
-            return $data;
         }
 
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColor::class => false];
+        return $object;
+    }
+
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    {
+        $dataArray = [];
+        $dataArray['id'] = $data->getId();
+        $dataArray['color'] = $data->getColor();
+        $values = [];
+        foreach ($data->getFilters() as $value) {
+            $values[] = $this->normalizer->normalize($value, 'json', $context);
         }
+        $dataArray['filters'] = $values;
+        if ($data->isInitialized('filterGroups') && null !== $data->getFilterGroups()) {
+            $values_1 = [];
+            foreach ($data->getFilterGroups() as $value_1) {
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
+            }
+            $dataArray['filter_groups'] = $values_1;
+        }
+        if ($data->isInitialized('operator') && null !== $data->getOperator()) {
+            $dataArray['operator'] = $data->getOperator();
+        }
+        foreach ($data as $key => $value_2) {
+            if (preg_match('/.*/', (string) $key)) {
+                $dataArray[$key] = $value_2;
+            }
+        }
+
+        return $dataArray;
+    }
+
+    public function getSupportedTypes(?string $format = null): array
+    {
+        return [\CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColor::class => false];
     }
 }

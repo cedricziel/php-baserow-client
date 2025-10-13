@@ -13,7 +13,6 @@ namespace CedricZiel\Baserow\Generated\Normalizer;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\CheckArray;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\ValidatorTrait;
 use Jane\Component\JsonSchemaRuntime\Reference;
-use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -21,309 +20,159 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
-    class PublicFormViewFieldOptionsNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class PublicFormViewFieldOptionsNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+{
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+    use CheckArray;
+    use ValidatorTrait;
+
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
-
-        public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\PublicFormViewFieldOptions::class === $type;
-        }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\PublicFormViewFieldOptions::class === get_class($data);
-        }
-
-        public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\PublicFormViewFieldOptions();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('name', $data)) {
-                $object->setName($data['name']);
-                unset($data['name']);
-            }
-            if (\array_key_exists('description', $data)) {
-                $object->setDescription($data['description']);
-                unset($data['description']);
-            }
-            if (\array_key_exists('required', $data)) {
-                $object->setRequired($data['required']);
-                unset($data['required']);
-            }
-            if (\array_key_exists('order', $data)) {
-                $object->setOrder($data['order']);
-                unset($data['order']);
-            }
-            if (\array_key_exists('field', $data)) {
-                $object->setField($this->denormalizer->denormalize($data['field'], \CedricZiel\Baserow\Generated\Model\PublicFormViewFieldOptionsField::class, 'json', $context));
-                unset($data['field']);
-            }
-            if (\array_key_exists('show_when_matching_conditions', $data)) {
-                $object->setShowWhenMatchingConditions($data['show_when_matching_conditions']);
-                unset($data['show_when_matching_conditions']);
-            }
-            if (\array_key_exists('condition_type', $data)) {
-                $object->setConditionType($data['condition_type']);
-                unset($data['condition_type']);
-            }
-            if (\array_key_exists('conditions', $data)) {
-                $values = [];
-                foreach ($data['conditions'] as $value) {
-                    $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\FormViewFieldOptionsCondition::class, 'json', $context);
-                }
-                $object->setConditions($values);
-                unset($data['conditions']);
-            }
-            if (\array_key_exists('condition_groups', $data)) {
-                $values_1 = [];
-                foreach ($data['condition_groups'] as $value_1) {
-                    $values_1[] = $this->denormalizer->denormalize($value_1, \CedricZiel\Baserow\Generated\Model\FormViewFieldOptionsConditionGroup::class, 'json', $context);
-                }
-                $object->setConditionGroups($values_1);
-                unset($data['condition_groups']);
-            }
-            if (\array_key_exists('groups', $data)) {
-                $values_2 = [];
-                foreach ($data['groups'] as $value_2) {
-                    $values_2[] = $this->denormalizer->denormalize($value_2, \CedricZiel\Baserow\Generated\Model\FormViewFieldOptionsConditionGroup::class, 'json', $context);
-                }
-                $object->setGroups($values_2);
-                unset($data['groups']);
-            }
-            if (\array_key_exists('field_component', $data)) {
-                $object->setFieldComponent($data['field_component']);
-                unset($data['field_component']);
-            }
-            foreach ($data as $key => $value_3) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value_3;
-                }
-            }
-
-            return $object;
-        }
-
-        public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
-        {
-            $data = [];
-            if ($object->isInitialized('description') && null !== $object->getDescription()) {
-                $data['description'] = $object->getDescription();
-            }
-            if ($object->isInitialized('required') && null !== $object->getRequired()) {
-                $data['required'] = $object->getRequired();
-            }
-            if ($object->isInitialized('order') && null !== $object->getOrder()) {
-                $data['order'] = $object->getOrder();
-            }
-            if ($object->isInitialized('showWhenMatchingConditions') && null !== $object->getShowWhenMatchingConditions()) {
-                $data['show_when_matching_conditions'] = $object->getShowWhenMatchingConditions();
-            }
-            if ($object->isInitialized('conditionType') && null !== $object->getConditionType()) {
-                $data['condition_type'] = $object->getConditionType();
-            }
-            if ($object->isInitialized('conditions') && null !== $object->getConditions()) {
-                $values = [];
-                foreach ($object->getConditions() as $value) {
-                    $values[] = $this->normalizer->normalize($value, 'json', $context);
-                }
-                $data['conditions'] = $values;
-            }
-            if ($object->isInitialized('conditionGroups') && null !== $object->getConditionGroups()) {
-                $values_1 = [];
-                foreach ($object->getConditionGroups() as $value_1) {
-                    $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
-                }
-                $data['condition_groups'] = $values_1;
-            }
-            if ($object->isInitialized('groups') && null !== $object->getGroups()) {
-                $values_2 = [];
-                foreach ($object->getGroups() as $value_2) {
-                    $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
-                }
-                $data['groups'] = $values_2;
-            }
-            if ($object->isInitialized('fieldComponent') && null !== $object->getFieldComponent()) {
-                $data['field_component'] = $object->getFieldComponent();
-            }
-            foreach ($object as $key => $value_3) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value_3;
-                }
-            }
-
-            return $data;
-        }
-
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\PublicFormViewFieldOptions::class => false];
-        }
+        return \CedricZiel\Baserow\Generated\Model\PublicFormViewFieldOptions::class === $type;
     }
-} else {
-    class PublicFormViewFieldOptionsNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
+        return is_object($data) && \CedricZiel\Baserow\Generated\Model\PublicFormViewFieldOptions::class === get_class($data);
+    }
 
-        public function supportsDenormalization($data, $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\PublicFormViewFieldOptions::class === $type;
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
+    {
+        if (isset($data['$ref'])) {
+            return new Reference($data['$ref'], $context['document-origin']);
         }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\PublicFormViewFieldOptions::class === get_class($data);
+        if (isset($data['$recursiveRef'])) {
+            return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-
-        public function denormalize($data, $type, $format = null, array $context = [])
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\PublicFormViewFieldOptions();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('name', $data)) {
-                $object->setName($data['name']);
-                unset($data['name']);
-            }
-            if (\array_key_exists('description', $data)) {
-                $object->setDescription($data['description']);
-                unset($data['description']);
-            }
-            if (\array_key_exists('required', $data)) {
-                $object->setRequired($data['required']);
-                unset($data['required']);
-            }
-            if (\array_key_exists('order', $data)) {
-                $object->setOrder($data['order']);
-                unset($data['order']);
-            }
-            if (\array_key_exists('field', $data)) {
-                $object->setField($this->denormalizer->denormalize($data['field'], \CedricZiel\Baserow\Generated\Model\PublicFormViewFieldOptionsField::class, 'json', $context));
-                unset($data['field']);
-            }
-            if (\array_key_exists('show_when_matching_conditions', $data)) {
-                $object->setShowWhenMatchingConditions($data['show_when_matching_conditions']);
-                unset($data['show_when_matching_conditions']);
-            }
-            if (\array_key_exists('condition_type', $data)) {
-                $object->setConditionType($data['condition_type']);
-                unset($data['condition_type']);
-            }
-            if (\array_key_exists('conditions', $data)) {
-                $values = [];
-                foreach ($data['conditions'] as $value) {
-                    $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\FormViewFieldOptionsCondition::class, 'json', $context);
-                }
-                $object->setConditions($values);
-                unset($data['conditions']);
-            }
-            if (\array_key_exists('condition_groups', $data)) {
-                $values_1 = [];
-                foreach ($data['condition_groups'] as $value_1) {
-                    $values_1[] = $this->denormalizer->denormalize($value_1, \CedricZiel\Baserow\Generated\Model\FormViewFieldOptionsConditionGroup::class, 'json', $context);
-                }
-                $object->setConditionGroups($values_1);
-                unset($data['condition_groups']);
-            }
-            if (\array_key_exists('groups', $data)) {
-                $values_2 = [];
-                foreach ($data['groups'] as $value_2) {
-                    $values_2[] = $this->denormalizer->denormalize($value_2, \CedricZiel\Baserow\Generated\Model\FormViewFieldOptionsConditionGroup::class, 'json', $context);
-                }
-                $object->setGroups($values_2);
-                unset($data['groups']);
-            }
-            if (\array_key_exists('field_component', $data)) {
-                $object->setFieldComponent($data['field_component']);
-                unset($data['field_component']);
-            }
-            foreach ($data as $key => $value_3) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value_3;
-                }
-            }
-
+        $object = new \CedricZiel\Baserow\Generated\Model\PublicFormViewFieldOptions();
+        if (\array_key_exists('required', $data) && \is_int($data['required'])) {
+            $data['required'] = (bool) $data['required'];
+        }
+        if (\array_key_exists('show_when_matching_conditions', $data) && \is_int($data['show_when_matching_conditions'])) {
+            $data['show_when_matching_conditions'] = (bool) $data['show_when_matching_conditions'];
+        }
+        if (null === $data || false === \is_array($data)) {
             return $object;
         }
-
-        /**
-         * @return array|string|int|float|bool|\ArrayObject|null
-         */
-        public function normalize($object, $format = null, array $context = [])
-        {
-            $data = [];
-            if ($object->isInitialized('description') && null !== $object->getDescription()) {
-                $data['description'] = $object->getDescription();
+        if (\array_key_exists('name', $data)) {
+            $object->setName($data['name']);
+            unset($data['name']);
+        }
+        if (\array_key_exists('description', $data)) {
+            $object->setDescription($data['description']);
+            unset($data['description']);
+        }
+        if (\array_key_exists('required', $data)) {
+            $object->setRequired($data['required']);
+            unset($data['required']);
+        }
+        if (\array_key_exists('order', $data)) {
+            $object->setOrder($data['order']);
+            unset($data['order']);
+        }
+        if (\array_key_exists('field', $data)) {
+            $object->setField($this->denormalizer->denormalize($data['field'], \CedricZiel\Baserow\Generated\Model\PublicFormViewFieldOptionsField::class, 'json', $context));
+            unset($data['field']);
+        }
+        if (\array_key_exists('show_when_matching_conditions', $data)) {
+            $object->setShowWhenMatchingConditions($data['show_when_matching_conditions']);
+            unset($data['show_when_matching_conditions']);
+        }
+        if (\array_key_exists('condition_type', $data)) {
+            $object->setConditionType($data['condition_type']);
+            unset($data['condition_type']);
+        }
+        if (\array_key_exists('conditions', $data)) {
+            $values = [];
+            foreach ($data['conditions'] as $value) {
+                $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\FormViewFieldOptionsCondition::class, 'json', $context);
             }
-            if ($object->isInitialized('required') && null !== $object->getRequired()) {
-                $data['required'] = $object->getRequired();
+            $object->setConditions($values);
+            unset($data['conditions']);
+        }
+        if (\array_key_exists('condition_groups', $data)) {
+            $values_1 = [];
+            foreach ($data['condition_groups'] as $value_1) {
+                $values_1[] = $this->denormalizer->denormalize($value_1, \CedricZiel\Baserow\Generated\Model\FormViewFieldOptionsConditionGroup::class, 'json', $context);
             }
-            if ($object->isInitialized('order') && null !== $object->getOrder()) {
-                $data['order'] = $object->getOrder();
+            $object->setConditionGroups($values_1);
+            unset($data['condition_groups']);
+        }
+        if (\array_key_exists('groups', $data)) {
+            $values_2 = [];
+            foreach ($data['groups'] as $value_2) {
+                $values_2[] = $this->denormalizer->denormalize($value_2, \CedricZiel\Baserow\Generated\Model\FormViewFieldOptionsConditionGroup::class, 'json', $context);
             }
-            if ($object->isInitialized('showWhenMatchingConditions') && null !== $object->getShowWhenMatchingConditions()) {
-                $data['show_when_matching_conditions'] = $object->getShowWhenMatchingConditions();
+            $object->setGroups($values_2);
+            unset($data['groups']);
+        }
+        if (\array_key_exists('field_component', $data)) {
+            $object->setFieldComponent($data['field_component']);
+            unset($data['field_component']);
+        }
+        foreach ($data as $key => $value_3) {
+            if (preg_match('/.*/', (string) $key)) {
+                $object[$key] = $value_3;
             }
-            if ($object->isInitialized('conditionType') && null !== $object->getConditionType()) {
-                $data['condition_type'] = $object->getConditionType();
-            }
-            if ($object->isInitialized('conditions') && null !== $object->getConditions()) {
-                $values = [];
-                foreach ($object->getConditions() as $value) {
-                    $values[] = $this->normalizer->normalize($value, 'json', $context);
-                }
-                $data['conditions'] = $values;
-            }
-            if ($object->isInitialized('conditionGroups') && null !== $object->getConditionGroups()) {
-                $values_1 = [];
-                foreach ($object->getConditionGroups() as $value_1) {
-                    $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
-                }
-                $data['condition_groups'] = $values_1;
-            }
-            if ($object->isInitialized('groups') && null !== $object->getGroups()) {
-                $values_2 = [];
-                foreach ($object->getGroups() as $value_2) {
-                    $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
-                }
-                $data['groups'] = $values_2;
-            }
-            if ($object->isInitialized('fieldComponent') && null !== $object->getFieldComponent()) {
-                $data['field_component'] = $object->getFieldComponent();
-            }
-            foreach ($object as $key => $value_3) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value_3;
-                }
-            }
-
-            return $data;
         }
 
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\PublicFormViewFieldOptions::class => false];
+        return $object;
+    }
+
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    {
+        $dataArray = [];
+        if ($data->isInitialized('description') && null !== $data->getDescription()) {
+            $dataArray['description'] = $data->getDescription();
         }
+        if ($data->isInitialized('required') && null !== $data->getRequired()) {
+            $dataArray['required'] = $data->getRequired();
+        }
+        if ($data->isInitialized('order') && null !== $data->getOrder()) {
+            $dataArray['order'] = $data->getOrder();
+        }
+        if ($data->isInitialized('showWhenMatchingConditions') && null !== $data->getShowWhenMatchingConditions()) {
+            $dataArray['show_when_matching_conditions'] = $data->getShowWhenMatchingConditions();
+        }
+        if ($data->isInitialized('conditionType') && null !== $data->getConditionType()) {
+            $dataArray['condition_type'] = $data->getConditionType();
+        }
+        if ($data->isInitialized('conditions') && null !== $data->getConditions()) {
+            $values = [];
+            foreach ($data->getConditions() as $value) {
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
+            }
+            $dataArray['conditions'] = $values;
+        }
+        if ($data->isInitialized('conditionGroups') && null !== $data->getConditionGroups()) {
+            $values_1 = [];
+            foreach ($data->getConditionGroups() as $value_1) {
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
+            }
+            $dataArray['condition_groups'] = $values_1;
+        }
+        if ($data->isInitialized('groups') && null !== $data->getGroups()) {
+            $values_2 = [];
+            foreach ($data->getGroups() as $value_2) {
+                $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
+            }
+            $dataArray['groups'] = $values_2;
+        }
+        if ($data->isInitialized('fieldComponent') && null !== $data->getFieldComponent()) {
+            $dataArray['field_component'] = $data->getFieldComponent();
+        }
+        foreach ($data as $key => $value_3) {
+            if (preg_match('/.*/', (string) $key)) {
+                $dataArray[$key] = $value_3;
+            }
+        }
+
+        return $dataArray;
+    }
+
+    public function getSupportedTypes(?string $format = null): array
+    {
+        return [\CedricZiel\Baserow\Generated\Model\PublicFormViewFieldOptions::class => false];
     }
 }
