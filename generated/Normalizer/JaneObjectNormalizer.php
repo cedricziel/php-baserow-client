@@ -12,7 +12,6 @@ namespace CedricZiel\Baserow\Generated\Normalizer;
 
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\CheckArray;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\ValidatorTrait;
-use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -20,7051 +19,3524 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
-    class JaneObjectNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class JaneObjectNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+{
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+    use CheckArray;
+    use ValidatorTrait;
+    protected $normalizers = [
+        \CedricZiel\Baserow\Generated\Model\AIFieldCreateField::class => AIFieldCreateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\AIFieldField::class => AIFieldFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\AIFieldFieldSerializerWithRelatedFields::class => AIFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\AIFieldUpdateField::class => AIFieldUpdateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\Account::class => AccountNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ActionScopes::class => ActionScopesNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\AdminDashboard::class => AdminDashboardNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\AdminDashboardPerDay::class => AdminDashboardPerDayNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\AirtableImportJobCreateJob::class => AirtableImportJobCreateJobNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\AirtableImportJobJob::class => AirtableImportJobJobNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\AuditLog::class => AuditLogNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\AuditLogActionType::class => AuditLogActionTypeNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\AuditLogExportJobCreateJob::class => AuditLogExportJobCreateJobNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\AuditLogExportJobJob::class => AuditLogExportJobJobNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\AuditLogUser::class => AuditLogUserNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\AuditLogWorkspace::class => AuditLogWorkspaceNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\AuthFormElementCreateElement::class => AuthFormElementCreateElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\AuthFormElementCreateElementStyleBackgroundFile::class => AuthFormElementCreateElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\AuthFormElementElement::class => AuthFormElementElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\AuthFormElementElementStyleBackgroundFile::class => AuthFormElementElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\AuthFormElementPublicElement::class => AuthFormElementPublicElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\AuthFormElementPublicElementStyleBackgroundFile::class => AuthFormElementPublicElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\AuthFormElementUpdateElement::class => AuthFormElementUpdateElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\AuthFormElementUpdateElementStyleBackgroundFile::class => AuthFormElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\AutonumberFieldCreateField::class => AutonumberFieldCreateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\AutonumberFieldField::class => AutonumberFieldFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\AutonumberFieldFieldSerializerWithRelatedFields::class => AutonumberFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\AutonumberFieldUpdateField::class => AutonumberFieldUpdateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\BaseExporterOptions::class => BaseExporterOptionsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\BaserowImpersonateAuthToken::class => BaserowImpersonateAuthTokenNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\BatchCreateRoleAssignment::class => BatchCreateRoleAssignmentNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\BatchDeleteRows::class => BatchDeleteRowsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\BooleanFieldCreateField::class => BooleanFieldCreateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\BooleanFieldField::class => BooleanFieldFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\BooleanFieldFieldSerializerWithRelatedFields::class => BooleanFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\BooleanFieldUpdateField::class => BooleanFieldUpdateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\BuilderApplication::class => BuilderApplicationNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\BuilderApplicationGroup::class => BuilderApplicationGroupNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\BuilderApplicationWorkspace::class => BuilderApplicationWorkspaceNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\BuilderApplicationTheme::class => BuilderApplicationThemeNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\BuilderApplicationFaviconFile::class => BuilderApplicationFaviconFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\BuilderBaseApplicationCreatePolymorphic::class => BuilderBaseApplicationCreatePolymorphicNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\BuilderBaseApplicationCreatePolymorphicFaviconFile::class => BuilderBaseApplicationCreatePolymorphicFaviconFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\BuilderBaseApplicationUpdatePolymorphic::class => BuilderBaseApplicationUpdatePolymorphicNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\BuilderBaseApplicationUpdatePolymorphicFaviconFile::class => BuilderBaseApplicationUpdatePolymorphicFaviconFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\BuilderWorkflowAction::class => BuilderWorkflowActionNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ButtonConfigBlock::class => ButtonConfigBlockNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ButtonConfigBlockButton::class => ButtonConfigBlockButtonNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ButtonElementCreateElement::class => ButtonElementCreateElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ButtonElementCreateElementStyleBackgroundFile::class => ButtonElementCreateElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ButtonElementElement::class => ButtonElementElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ButtonElementElementStyleBackgroundFile::class => ButtonElementElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ButtonElementPublicElement::class => ButtonElementPublicElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ButtonElementPublicElementStyleBackgroundFile::class => ButtonElementPublicElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ButtonElementUpdateElement::class => ButtonElementUpdateElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ButtonElementUpdateElementStyleBackgroundFile::class => ButtonElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ButtonLinkConfigBlock::class => ButtonLinkConfigBlockNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ButtonLinkConfigBlockButton::class => ButtonLinkConfigBlockButtonNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ButtonLinkConfigBlockLink::class => ButtonLinkConfigBlockLinkNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ButtonThemeConfigBlock::class => ButtonThemeConfigBlockNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CalendarViewCreateView::class => CalendarViewCreateViewNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CalendarViewExampleResponse::class => CalendarViewExampleResponseNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CalendarViewExampleResponseStack::class => CalendarViewExampleResponseStackNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CalendarViewFieldOptions::class => CalendarViewFieldOptionsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CalendarViewView::class => CalendarViewViewNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ChangePasswordBodyValidation::class => ChangePasswordBodyValidationNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CheckboxElementCreateElement::class => CheckboxElementCreateElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CheckboxElementCreateElementStyleBackgroundFile::class => CheckboxElementCreateElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CheckboxElementElement::class => CheckboxElementElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CheckboxElementElementStyleBackgroundFile::class => CheckboxElementElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CheckboxElementPublicElement::class => CheckboxElementPublicElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CheckboxElementPublicElementStyleBackgroundFile::class => CheckboxElementPublicElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CheckboxElementUpdateElement::class => CheckboxElementUpdateElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CheckboxElementUpdateElementStyleBackgroundFile::class => CheckboxElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ChoiceElementCreateElement::class => ChoiceElementCreateElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ChoiceElementCreateElementStyleBackgroundFile::class => ChoiceElementCreateElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ChoiceElementElement::class => ChoiceElementElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ChoiceElementElementStyleBackgroundFile::class => ChoiceElementElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ChoiceElementPublicElement::class => ChoiceElementPublicElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ChoiceElementPublicElementStyleBackgroundFile::class => ChoiceElementPublicElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ChoiceElementUpdateElement::class => ChoiceElementUpdateElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ChoiceElementUpdateElementStyleBackgroundFile::class => ChoiceElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ChoiceOption::class => ChoiceOptionNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\Collaborator::class => CollaboratorNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CollectionField::class => CollectionFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ColumnElementCreateElement::class => ColumnElementCreateElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ColumnElementCreateElementStyleBackgroundFile::class => ColumnElementCreateElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ColumnElementElement::class => ColumnElementElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ColumnElementElementStyleBackgroundFile::class => ColumnElementElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ColumnElementPublicElement::class => ColumnElementPublicElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ColumnElementPublicElementStyleBackgroundFile::class => ColumnElementPublicElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ColumnElementUpdateElement::class => ColumnElementUpdateElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ColumnElementUpdateElementStyleBackgroundFile::class => ColumnElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CombinedThemeConfigBlocks::class => CombinedThemeConfigBlocksNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CombinedThemeConfigBlocksPageBackgroundFile::class => CombinedThemeConfigBlocksPageBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColor::class => ConditionalColorValueProviderConfColorNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColorFilter::class => ConditionalColorValueProviderConfColorFilterNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColorFilterGroup::class => ConditionalColorValueProviderConfColorFilterGroupNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColors::class => ConditionalColorValueProviderConfColorsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CountFieldCreateField::class => CountFieldCreateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CountFieldField::class => CountFieldFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CountFieldFieldSerializerWithRelatedFields::class => CountFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CountFieldUpdateField::class => CountFieldUpdateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CreatePage::class => CreatePageNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CreateRoleAssignment::class => CreateRoleAssignmentNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CreateSnapshotJobCreateJob::class => CreateSnapshotJobCreateJobNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CreateSnapshotJobJob::class => CreateSnapshotJobJobNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CreateViewFilter::class => CreateViewFilterNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CreateViewFilterGroup::class => CreateViewFilterGroupNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CreateViewGroupBy::class => CreateViewGroupByNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CreateViewSort::class => CreateViewSortNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CreateWorkspaceInvitation::class => CreateWorkspaceInvitationNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CreatedByFieldCreateField::class => CreatedByFieldCreateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CreatedByFieldField::class => CreatedByFieldFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CreatedByFieldFieldSerializerWithRelatedFields::class => CreatedByFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CreatedByFieldUpdateField::class => CreatedByFieldUpdateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CreatedOnFieldCreateField::class => CreatedOnFieldCreateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CreatedOnFieldField::class => CreatedOnFieldFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CreatedOnFieldFieldSerializerWithRelatedFields::class => CreatedOnFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CreatedOnFieldUpdateField::class => CreatedOnFieldUpdateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CsvExporterOptions::class => CsvExporterOptionsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CustomDomainCreateDomain::class => CustomDomainCreateDomainNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CustomDomainDomain::class => CustomDomainDomainNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\Dashboard::class => DashboardNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\DatabaseApplication::class => DatabaseApplicationNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\DatabaseApplicationGroup::class => DatabaseApplicationGroupNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\DatabaseApplicationWorkspace::class => DatabaseApplicationWorkspaceNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\DatabaseBaseApplicationCreatePolymorphic::class => DatabaseBaseApplicationCreatePolymorphicNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\DatabaseBaseApplicationUpdatePolymorphic::class => DatabaseBaseApplicationUpdatePolymorphicNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\DateFieldCreateField::class => DateFieldCreateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\DateFieldField::class => DateFieldFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\DateFieldFieldSerializerWithRelatedFields::class => DateFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\DateFieldUpdateField::class => DateFieldUpdateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\DuplicateApplicationJobCreateJob::class => DuplicateApplicationJobCreateJobNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\DuplicateApplicationJobJob::class => DuplicateApplicationJobJobNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\DuplicateElement::class => DuplicateElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\DuplicateFieldJobCreateJob::class => DuplicateFieldJobCreateJobNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\DuplicateFieldJobJob::class => DuplicateFieldJobJobNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\DuplicateFieldJobJobOriginalField::class => DuplicateFieldJobJobOriginalFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\DuplicateFieldJobJobDuplicatedField::class => DuplicateFieldJobJobDuplicatedFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\DuplicatePageJobCreateJob::class => DuplicatePageJobCreateJobNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\DuplicatePageJobJob::class => DuplicatePageJobJobNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\DuplicatePageJobJobOriginalPage::class => DuplicatePageJobJobOriginalPageNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\DuplicatePageJobJobDuplicatedPage::class => DuplicatePageJobJobDuplicatedPageNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\DuplicateTableJobCreateJob::class => DuplicateTableJobCreateJobNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\DuplicateTableJobJob::class => DuplicateTableJobJobNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\DuplicateTableJobJobOriginalTable::class => DuplicateTableJobJobOriginalTableNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\DuplicateTableJobJobDuplicatedTable::class => DuplicateTableJobJobDuplicatedTableNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\DurationFieldCreateField::class => DurationFieldCreateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\DurationFieldField::class => DurationFieldFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\DurationFieldFieldSerializerWithRelatedFields::class => DurationFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\DurationFieldUpdateField::class => DurationFieldUpdateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\Element::class => ElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ElementStyleBackgroundFile::class => ElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\EmailFieldCreateField::class => EmailFieldCreateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\EmailFieldField::class => EmailFieldFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\EmailFieldFieldSerializerWithRelatedFields::class => EmailFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\EmailFieldUpdateField::class => EmailFieldUpdateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\EmailTesterRequest::class => EmailTesterRequestNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\EmailTesterResponse::class => EmailTesterResponseNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\BatchCreateRowRequest::class => BatchCreateRowRequestNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ExampleBatchRowsResponse::class => ExampleBatchRowsResponseNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\BatchUpdateRow::class => BatchUpdateRowNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ExampleRowRequest::class => ExampleRowRequestNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CreateRowRequest::class => CreateRowRequestNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ExampleRowResponse::class => ExampleRowResponseNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ExampleRowResponseField10::class => ExampleRowResponseField10Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ExampleRowResponseField12::class => ExampleRowResponseField12Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ExampleRowResponseField16::class => ExampleRowResponseField16Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\RowResponse::class => RowResponseNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ExportJob::class => ExportJobNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\FacebookAuthProviderModelAuthProvider::class => FacebookAuthProviderModelAuthProviderNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\Field::class => FieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\FieldSerializerWithRelatedFields::class => FieldSerializerWithRelatedFieldsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\FileFieldCreateField::class => FileFieldCreateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\FileFieldField::class => FileFieldFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\FileFieldFieldSerializerWithRelatedFields::class => FileFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\FileFieldResponse::class => FileFieldResponseNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\FileFieldUpdateField::class => FileFieldUpdateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\FileImportJobCreateJob::class => FileImportJobCreateJobNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\FileImportJobJob::class => FileImportJobJobNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\FileImportJobJobReport::class => FileImportJobJobReportNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\FormContainerElementCreateElement::class => FormContainerElementCreateElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\FormContainerElementCreateElementStyleBackgroundFile::class => FormContainerElementCreateElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\FormContainerElementElement::class => FormContainerElementElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\FormContainerElementElementStyleBackgroundFile::class => FormContainerElementElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\FormContainerElementPublicElement::class => FormContainerElementPublicElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\FormContainerElementPublicElementStyleBackgroundFile::class => FormContainerElementPublicElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\FormContainerElementUpdateElement::class => FormContainerElementUpdateElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\FormContainerElementUpdateElementStyleBackgroundFile::class => FormContainerElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\FormViewCreateView::class => FormViewCreateViewNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\FormViewCreateViewCoverImage::class => FormViewCreateViewCoverImageNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\FormViewCreateViewLogoImage::class => FormViewCreateViewLogoImageNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\FormViewFieldOptions::class => FormViewFieldOptionsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\FormViewFieldOptionsCondition::class => FormViewFieldOptionsConditionNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\FormViewFieldOptionsConditionGroup::class => FormViewFieldOptionsConditionGroupNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\FormViewSubmitted::class => FormViewSubmittedNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\FormViewView::class => FormViewViewNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\FormViewViewCoverImage::class => FormViewViewCoverImageNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\FormViewViewLogoImage::class => FormViewViewLogoImageNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\FormulaFieldCreateField::class => FormulaFieldCreateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\FormulaFieldField::class => FormulaFieldFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\FormulaFieldFieldSerializerWithRelatedFields::class => FormulaFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\FormulaFieldUpdateField::class => FormulaFieldUpdateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\FullHealthCheck::class => FullHealthCheckNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\GalleryViewCreateView::class => GalleryViewCreateViewNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\GalleryViewFieldOptions::class => GalleryViewFieldOptionsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\GalleryViewView::class => GalleryViewViewNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\GenerateFormulaWithAIRequest::class => GenerateFormulaWithAIRequestNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\GenerateFormulaWithAIResponse::class => GenerateFormulaWithAIResponseNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\GeneratedConditionalColorCreateViewDecoration::class => GeneratedConditionalColorCreateViewDecorationNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\GeneratedConditionalColorCreateViewDecorationValueProviderConf::class => GeneratedConditionalColorCreateViewDecorationValueProviderConfNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\GeneratedConditionalColorUpdateViewDecoration::class => GeneratedConditionalColorUpdateViewDecorationNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\GeneratedConditionalColorUpdateViewDecorationValueProviderConf::class => GeneratedConditionalColorUpdateViewDecorationValueProviderConfNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\GeneratedConditionalColorViewDecoration::class => GeneratedConditionalColorViewDecorationNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\GeneratedConditionalColorViewDecorationValueProviderConf::class => GeneratedConditionalColorViewDecorationValueProviderConfNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\GeneratedSingleSelectColorCreateViewDecoration::class => GeneratedSingleSelectColorCreateViewDecorationNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\GeneratedSingleSelectColorCreateViewDecorationValueProviderConf::class => GeneratedSingleSelectColorCreateViewDecorationValueProviderConfNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\GeneratedSingleSelectColorUpdateViewDecoration::class => GeneratedSingleSelectColorUpdateViewDecorationNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\GeneratedSingleSelectColorUpdateViewDecorationValueProviderConf::class => GeneratedSingleSelectColorUpdateViewDecorationValueProviderConfNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\GeneratedSingleSelectColorViewDecoration::class => GeneratedSingleSelectColorViewDecorationNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\GeneratedSingleSelectColorViewDecorationValueProviderConf::class => GeneratedSingleSelectColorViewDecorationValueProviderConfNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\GenerativeAISettings::class => GenerativeAISettingsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\GitHubAuthProviderModelAuthProvider::class => GitHubAuthProviderModelAuthProviderNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\GitLabAuthProviderModelAuthProvider::class => GitLabAuthProviderModelAuthProviderNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\GoogleAuthProviderModelAuthProvider::class => GoogleAuthProviderModelAuthProviderNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\GridViewCreateView::class => GridViewCreateViewNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\GridViewFieldOptions::class => GridViewFieldOptionsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\GridViewFilter::class => GridViewFilterNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\GridViewView::class => GridViewViewNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\HeadingElementCreateElement::class => HeadingElementCreateElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\HeadingElementCreateElementStyleBackgroundFile::class => HeadingElementCreateElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\HeadingElementElement::class => HeadingElementElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\HeadingElementElementStyleBackgroundFile::class => HeadingElementElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\HeadingElementPublicElement::class => HeadingElementPublicElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\HeadingElementPublicElementStyleBackgroundFile::class => HeadingElementPublicElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\HeadingElementUpdateElement::class => HeadingElementUpdateElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\HeadingElementUpdateElementStyleBackgroundFile::class => HeadingElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\IFrameElementCreateElement::class => IFrameElementCreateElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\IFrameElementCreateElementStyleBackgroundFile::class => IFrameElementCreateElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\IFrameElementElement::class => IFrameElementElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\IFrameElementElementStyleBackgroundFile::class => IFrameElementElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\IFrameElementPublicElement::class => IFrameElementPublicElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\IFrameElementPublicElementStyleBackgroundFile::class => IFrameElementPublicElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\IFrameElementUpdateElement::class => IFrameElementUpdateElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\IFrameElementUpdateElementStyleBackgroundFile::class => IFrameElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ImageConfigBlock::class => ImageConfigBlockNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ImageConfigBlockImage::class => ImageConfigBlockImageNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ImageElementCreateElement::class => ImageElementCreateElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ImageElementCreateElementStyleBackgroundFile::class => ImageElementCreateElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ImageElementCreateElementImageFile::class => ImageElementCreateElementImageFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ImageElementElement::class => ImageElementElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ImageElementElementStyleBackgroundFile::class => ImageElementElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ImageElementPublicElement::class => ImageElementPublicElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ImageElementPublicElementStyleBackgroundFile::class => ImageElementPublicElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ImageElementUpdateElement::class => ImageElementUpdateElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ImageElementUpdateElementStyleBackgroundFile::class => ImageElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ImageElementUpdateElementImageFile::class => ImageElementUpdateElementImageFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ImageThemeConfigBlock::class => ImageThemeConfigBlockNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\InputTextElementCreateElement::class => InputTextElementCreateElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\InputTextElementCreateElementStyleBackgroundFile::class => InputTextElementCreateElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\InputTextElementElement::class => InputTextElementElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\InputTextElementElementStyleBackgroundFile::class => InputTextElementElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\InputTextElementPublicElement::class => InputTextElementPublicElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\InputTextElementPublicElementStyleBackgroundFile::class => InputTextElementPublicElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\InputTextElementUpdateElement::class => InputTextElementUpdateElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\InputTextElementUpdateElementStyleBackgroundFile::class => InputTextElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\InstallTemplateJobCreateJob::class => InstallTemplateJobCreateJobNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\InstallTemplateJobJob::class => InstallTemplateJobJobNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\InstallTemplateJobJobWorkspace::class => InstallTemplateJobJobWorkspaceNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\InstallTemplateJobJobTemplate::class => InstallTemplateJobJobTemplateNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\InstallTemplateJobJobGroup::class => InstallTemplateJobJobGroupNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\InstanceId::class => InstanceIdNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\Job::class => JobNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\KanbanViewCreateView::class => KanbanViewCreateViewNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\KanbanViewExampleResponse::class => KanbanViewExampleResponseNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\KanbanViewExampleResponseStack::class => KanbanViewExampleResponseStackNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\KanbanViewFieldOptions::class => KanbanViewFieldOptionsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\KanbanViewView::class => KanbanViewViewNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LastModifiedByFieldCreateField::class => LastModifiedByFieldCreateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LastModifiedByFieldField::class => LastModifiedByFieldFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LastModifiedByFieldFieldSerializerWithRelatedFields::class => LastModifiedByFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LastModifiedByFieldUpdateField::class => LastModifiedByFieldUpdateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LastModifiedFieldCreateField::class => LastModifiedFieldCreateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LastModifiedFieldField::class => LastModifiedFieldFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LastModifiedFieldFieldSerializerWithRelatedFields::class => LastModifiedFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LastModifiedFieldUpdateField::class => LastModifiedFieldUpdateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\License::class => LicenseNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LicenseUser::class => LicenseUserNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LicenseUserLookup::class => LicenseUserLookupNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LicenseWithUsers::class => LicenseWithUsersNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LinkElementCreateElement::class => LinkElementCreateElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LinkElementCreateElementStyleBackgroundFile::class => LinkElementCreateElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LinkElementElement::class => LinkElementElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LinkElementElementStyleBackgroundFile::class => LinkElementElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LinkElementPublicElement::class => LinkElementPublicElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LinkElementPublicElementStyleBackgroundFile::class => LinkElementPublicElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LinkElementUpdateElement::class => LinkElementUpdateElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LinkElementUpdateElementStyleBackgroundFile::class => LinkElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LinkRowFieldCreateField::class => LinkRowFieldCreateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LinkRowFieldField::class => LinkRowFieldFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LinkRowFieldFieldSerializerWithRelatedFields::class => LinkRowFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LinkRowFieldUpdateField::class => LinkRowFieldUpdateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LinkRowValue::class => LinkRowValueNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LinkThemeConfigBlock::class => LinkThemeConfigBlockNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ListWorkspaceUsersWithMemberData::class => ListWorkspaceUsersWithMemberDataNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowContextData::class => LocalBaserowContextDataNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowCreateRowWorkflowActionBuilderWorkflowAction::class => LocalBaserowCreateRowWorkflowActionBuilderWorkflowActionNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowCreateRowWorkflowActionCreateBuilderWorkflowAction::class => LocalBaserowCreateRowWorkflowActionCreateBuilderWorkflowActionNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowCreateRowWorkflowActionUpdateBuilderWorkflowActions::class => LocalBaserowCreateRowWorkflowActionUpdateBuilderWorkflowActionsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowField::class => LocalBaserowFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowGetRow::class => LocalBaserowGetRowNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowGetRowCreateDataSource::class => LocalBaserowGetRowCreateDataSourceNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowGetRowDataSource::class => LocalBaserowGetRowDataSourceNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowGetRowPublicDataSource::class => LocalBaserowGetRowPublicDataSourceNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowGetRowService::class => LocalBaserowGetRowServiceNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowGetRowUpdateDataSource::class => LocalBaserowGetRowUpdateDataSourceNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationCreateIntegration::class => LocalBaserowIntegrationCreateIntegrationNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationCreateIntegrationContextData::class => LocalBaserowIntegrationCreateIntegrationContextDataNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationCreateIntegrationAuthorizedUser::class => LocalBaserowIntegrationCreateIntegrationAuthorizedUserNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationIntegration::class => LocalBaserowIntegrationIntegrationNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationIntegrationContextData::class => LocalBaserowIntegrationIntegrationContextDataNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationIntegrationAuthorizedUser::class => LocalBaserowIntegrationIntegrationAuthorizedUserNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationUpdateIntegration::class => LocalBaserowIntegrationUpdateIntegrationNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationUpdateIntegrationContextData::class => LocalBaserowIntegrationUpdateIntegrationContextDataNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationUpdateIntegrationAuthorizedUser::class => LocalBaserowIntegrationUpdateIntegrationAuthorizedUserNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowListRows::class => LocalBaserowListRowsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsCreateDataSource::class => LocalBaserowListRowsCreateDataSourceNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsDataSource::class => LocalBaserowListRowsDataSourceNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsPublicDataSource::class => LocalBaserowListRowsPublicDataSourceNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsService::class => LocalBaserowListRowsServiceNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsUpdateDataSource::class => LocalBaserowListRowsUpdateDataSourceNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowPasswordAppAuthProviderAppAuthProvider::class => LocalBaserowPasswordAppAuthProviderAppAuthProviderNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowPasswordAppAuthProviderBaseAppAuthProvider::class => LocalBaserowPasswordAppAuthProviderBaseAppAuthProviderNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowTableServiceFieldMapping::class => LocalBaserowTableServiceFieldMappingNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowTableServiceFilter::class => LocalBaserowTableServiceFilterNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowTableServiceSort::class => LocalBaserowTableServiceSortNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowUpdateRowWorkflowActionBuilderWorkflowAction::class => LocalBaserowUpdateRowWorkflowActionBuilderWorkflowActionNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowUpdateRowWorkflowActionCreateBuilderWorkflowAction::class => LocalBaserowUpdateRowWorkflowActionCreateBuilderWorkflowActionNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowUpdateRowWorkflowActionUpdateBuilderWorkflowActions::class => LocalBaserowUpdateRowWorkflowActionUpdateBuilderWorkflowActionsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRow::class => LocalBaserowUpsertRowNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowCreateDataSource::class => LocalBaserowUpsertRowCreateDataSourceNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowDataSource::class => LocalBaserowUpsertRowDataSourceNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowPublicDataSource::class => LocalBaserowUpsertRowPublicDataSourceNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowService::class => LocalBaserowUpsertRowServiceNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowUpdateDataSource::class => LocalBaserowUpsertRowUpdateDataSourceNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceBasePublicUserSource::class => LocalBaserowUserSourceBasePublicUserSourceNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceCreateUserSource::class => LocalBaserowUserSourceCreateUserSourceNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceUpdateUserSource::class => LocalBaserowUserSourceUpdateUserSourceNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceUserSource::class => LocalBaserowUserSourceUserSourceNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceUserSourceRoles::class => LocalBaserowUserSourceUserSourceRolesNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LocalBaserowView::class => LocalBaserowViewNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LogoutWorkflowActionBuilderWorkflowAction::class => LogoutWorkflowActionBuilderWorkflowActionNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LogoutWorkflowActionCreateBuilderWorkflowAction::class => LogoutWorkflowActionCreateBuilderWorkflowActionNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LogoutWorkflowActionUpdateBuilderWorkflowActions::class => LogoutWorkflowActionUpdateBuilderWorkflowActionsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LongTextFieldCreateField::class => LongTextFieldCreateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LongTextFieldField::class => LongTextFieldFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LongTextFieldFieldSerializerWithRelatedFields::class => LongTextFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LongTextFieldUpdateField::class => LongTextFieldUpdateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LookupFieldCreateField::class => LookupFieldCreateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LookupFieldField::class => LookupFieldFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LookupFieldFieldSerializerWithRelatedFields::class => LookupFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\LookupFieldUpdateField::class => LookupFieldUpdateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\MultipleCollaboratorsFieldCreateField::class => MultipleCollaboratorsFieldCreateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\MultipleCollaboratorsFieldField::class => MultipleCollaboratorsFieldFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\MultipleCollaboratorsFieldFieldSerializerWithRelatedFields::class => MultipleCollaboratorsFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\MultipleCollaboratorsFieldUpdateField::class => MultipleCollaboratorsFieldUpdateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\MultipleSelectFieldCreateField::class => MultipleSelectFieldCreateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\MultipleSelectFieldField::class => MultipleSelectFieldFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\MultipleSelectFieldFieldSerializerWithRelatedFields::class => MultipleSelectFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\MultipleSelectFieldUpdateField::class => MultipleSelectFieldUpdateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\NotificationRecipient::class => NotificationRecipientNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\NotificationRecipientSender::class => NotificationRecipientSenderNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\NotificationWorkflowActionBuilderWorkflowAction::class => NotificationWorkflowActionBuilderWorkflowActionNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\NotificationWorkflowActionCreateBuilderWorkflowAction::class => NotificationWorkflowActionCreateBuilderWorkflowActionNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\NotificationWorkflowActionUpdateBuilderWorkflowActions::class => NotificationWorkflowActionUpdateBuilderWorkflowActionsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\NumberFieldCreateField::class => NumberFieldCreateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\NumberFieldField::class => NumberFieldFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\NumberFieldFieldSerializerWithRelatedFields::class => NumberFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\NumberFieldUpdateField::class => NumberFieldUpdateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\OllamaSettings::class => OllamaSettingsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\OpenAISettings::class => OpenAISettingsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\OpenApiRoleAssignment::class => OpenApiRoleAssignmentNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\OpenApiRoleAssignmentSubject::class => OpenApiRoleAssignmentSubjectNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\OpenApiSubjectField::class => OpenApiSubjectFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\OpenIdConnectAuthProviderModelAuthProvider::class => OpenIdConnectAuthProviderModelAuthProviderNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\OpenPageWorkflowActionBuilderWorkflowAction::class => OpenPageWorkflowActionBuilderWorkflowActionNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\OpenPageWorkflowActionCreateBuilderWorkflowAction::class => OpenPageWorkflowActionCreateBuilderWorkflowActionNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\OpenPageWorkflowActionUpdateBuilderWorkflowActions::class => OpenPageWorkflowActionUpdateBuilderWorkflowActionsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\OrderApplications::class => OrderApplicationsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\OrderDomains::class => OrderDomainsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\OrderPages::class => OrderPagesNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\OrderTables::class => OrderTablesNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\OrderViews::class => OrderViewsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\OrderWorkflowActions::class => OrderWorkflowActionsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\OrderWorkspaces::class => OrderWorkspacesNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\Page::class => PageNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PageParameterValue::class => PageParameterValueNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PaginationSerializerAuditLog::class => PaginationSerializerAuditLogNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PaginationSerializerAuditLogUser::class => PaginationSerializerAuditLogUserNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PaginationSerializerAuditLogWorkspace::class => PaginationSerializerAuditLogWorkspaceNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PaginationRowResponse::class => PaginationRowResponseNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PaginationSerializerLicenseUserLookup::class => PaginationSerializerLicenseUserLookupNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PaginationSerializerLinkRowValue::class => PaginationSerializerLinkRowValueNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PaginationSerializerNotificationRecipient::class => PaginationSerializerNotificationRecipientNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PaginationSerializerRowComment::class => PaginationSerializerRowCommentNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PaginationSerializerRowHistory::class => PaginationSerializerRowHistoryNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PaginationSerializerTrashContents::class => PaginationSerializerTrashContentsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PaginationSerializerUserAdminResponse::class => PaginationSerializerUserAdminResponseNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PaginationSerializerWithGalleryViewFieldOptionsExampleRowResponse::class => PaginationSerializerWithGalleryViewFieldOptionsExampleRowResponseNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PaginationSerializerWithGridViewFieldOptionsExampleRowResponse::class => PaginationSerializerWithGridViewFieldOptionsExampleRowResponseNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PaginationSerializerWorkspacesAdminResponse::class => PaginationSerializerWorkspacesAdminResponseNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PasswordAuthProviderModelAuthProvider::class => PasswordAuthProviderModelAuthProviderNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PasswordFieldCreateField::class => PasswordFieldCreateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PasswordFieldField::class => PasswordFieldFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PasswordFieldFieldSerializerWithRelatedFields::class => PasswordFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PasswordFieldUpdateField::class => PasswordFieldUpdateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PatchedAccount::class => PatchedAccountNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PatchedCombinedThemeConfigBlocks::class => PatchedCombinedThemeConfigBlocksNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PatchedCombinedThemeConfigBlocksPageBackgroundFile::class => PatchedCombinedThemeConfigBlocksPageBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PatchRowsRequest::class => PatchRowsRequestNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PatchRowRequest::class => PatchRowRequestNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PatchedGenerativeAISettings::class => PatchedGenerativeAISettingsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PatchedMoveDataSource::class => PatchedMoveDataSourceNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PatchedMoveElement::class => PatchedMoveElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PatchedMoveIntegration::class => PatchedMoveIntegrationNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PatchedMoveUserSource::class => PatchedMoveUserSourceNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PatchedSettings::class => PatchedSettingsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PatchedSettingsCoBrandingLogo::class => PatchedSettingsCoBrandingLogoNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PatchedTableUpdate::class => PatchedTableUpdateNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PatchedTableWebhookUpdateRequest::class => PatchedTableWebhookUpdateRequestNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PatchedTokenUpdate::class => PatchedTokenUpdateNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PatchedTokenUpdatePermissions::class => PatchedTokenUpdatePermissionsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PatchedTrashEntryRequest::class => PatchedTrashEntryRequestNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PatchedUndoRedoRequest::class => PatchedUndoRedoRequestNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PatchedUndoRedoRequestScopes::class => PatchedUndoRedoRequestScopesNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PatchedUpdateDomain::class => PatchedUpdateDomainNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PatchedUpdatePage::class => PatchedUpdatePageNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PatchedUpdatePremiumViewAttributes::class => PatchedUpdatePremiumViewAttributesNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PatchedUpdateViewFilter::class => PatchedUpdateViewFilterNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PatchedUpdateViewFilterGroup::class => PatchedUpdateViewFilterGroupNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PatchedUpdateViewGroupBy::class => PatchedUpdateViewGroupByNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PatchedUpdateViewSort::class => PatchedUpdateViewSortNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PatchedUpdateWorkspaceInvitation::class => PatchedUpdateWorkspaceInvitationNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PatchedUpdateWorkspaceUser::class => PatchedUpdateWorkspaceUserNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PatchedUserAdminUpdate::class => PatchedUserAdminUpdateNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PatchedWorkspace::class => PatchedWorkspaceNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PathParam::class => PathParamNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PermissionObject::class => PermissionObjectNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PhoneNumberFieldCreateField::class => PhoneNumberFieldCreateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PhoneNumberFieldField::class => PhoneNumberFieldFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PhoneNumberFieldFieldSerializerWithRelatedFields::class => PhoneNumberFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PhoneNumberFieldUpdateField::class => PhoneNumberFieldUpdateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PublicBuilder::class => PublicBuilderNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PublicBuilderTheme::class => PublicBuilderThemeNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PublicField::class => PublicFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PublicFormView::class => PublicFormViewNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PublicFormViewCoverImage::class => PublicFormViewCoverImageNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PublicFormViewLogoImage::class => PublicFormViewLogoImageNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PublicFormViewField::class => PublicFormViewFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PublicFormViewFieldOptions::class => PublicFormViewFieldOptionsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PublicFormViewFieldOptionsField::class => PublicFormViewFieldOptionsFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PublicNone::class => PublicNoneNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PublicPage::class => PublicPageNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PublicPaginationSerializerWithGalleryViewFieldOptionsExampleRowResponse::class => PublicPaginationSerializerWithGalleryViewFieldOptionsExampleRowResponseNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PublicPaginationSerializerWithGridViewFieldOptionsExampleRowResponse::class => PublicPaginationSerializerWithGridViewFieldOptionsExampleRowResponseNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PublicView::class => PublicViewNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PublicViewAuthRequest::class => PublicViewAuthRequestNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PublicViewAuthResponse::class => PublicViewAuthResponseNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PublicViewGroupBy::class => PublicViewGroupByNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PublicViewInfo::class => PublicViewInfoNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PublicViewInfoView::class => PublicViewInfoViewNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PublicViewSort::class => PublicViewSortNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PublicViewTable::class => PublicViewTableNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PublishDomainJobCreateJob::class => PublishDomainJobCreateJobNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\PublishDomainJobJob::class => PublishDomainJobJobNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\RatingFieldCreateField::class => RatingFieldCreateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\RatingFieldField::class => RatingFieldFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\RatingFieldFieldSerializerWithRelatedFields::class => RatingFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\RatingFieldUpdateField::class => RatingFieldUpdateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\RefreshDataSourceWorkflowActionBuilderWorkflowAction::class => RefreshDataSourceWorkflowActionBuilderWorkflowActionNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\RefreshDataSourceWorkflowActionCreateBuilderWorkflowAction::class => RefreshDataSourceWorkflowActionCreateBuilderWorkflowActionNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\RefreshDataSourceWorkflowActionUpdateBuilderWorkflowActions::class => RefreshDataSourceWorkflowActionUpdateBuilderWorkflowActionsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\Register::class => RegisterNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\RegisterLicense::class => RegisterLicenseNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\RelatedFields::class => RelatedFieldsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\RepeatElementCreateElement::class => RepeatElementCreateElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\RepeatElementCreateElementStyleBackgroundFile::class => RepeatElementCreateElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\RepeatElementElement::class => RepeatElementElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\RepeatElementElementStyleBackgroundFile::class => RepeatElementElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\RepeatElementPublicElement::class => RepeatElementPublicElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\RepeatElementPublicElementStyleBackgroundFile::class => RepeatElementPublicElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\RepeatElementUpdateElement::class => RepeatElementUpdateElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\RepeatElementUpdateElementStyleBackgroundFile::class => RepeatElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\Report::class => ReportNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ResetPasswordBodyValidation::class => ResetPasswordBodyValidationNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\RestoreSnapshotJobCreateJob::class => RestoreSnapshotJobCreateJobNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\RestoreSnapshotJobJob::class => RestoreSnapshotJobJobNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\RollupFieldCreateField::class => RollupFieldCreateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\RollupFieldField::class => RollupFieldFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\RollupFieldFieldSerializerWithRelatedFields::class => RollupFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\RollupFieldUpdateField::class => RollupFieldUpdateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\RowComment::class => RowCommentNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\RowCommentCreate::class => RowCommentCreateNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\RowCommentsNotificationMode::class => RowCommentsNotificationModeNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\RowHistory::class => RowHistoryNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\RowHistoryUser::class => RowHistoryUserNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\RowMetadata::class => RowMetadataNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\SAMLResponse::class => SAMLResponseNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\SamlAuthProviderModelAuthProvider::class => SamlAuthProviderModelAuthProviderNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\SelectColorValueProviderConf::class => SelectColorValueProviderConfNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\SelectOption::class => SelectOptionNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\SendResetPasswordEmailBodyValidation::class => SendResetPasswordEmailBodyValidationNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\Sender::class => SenderNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\Settings::class => SettingsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\SettingsCoBrandingLogo::class => SettingsCoBrandingLogoNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\SingleAuditLogExportJobRequest::class => SingleAuditLogExportJobRequestNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\SingleAuditLogExportJobResponse::class => SingleAuditLogExportJobResponseNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\SingleDuplicateApplicationJobType::class => SingleDuplicateApplicationJobTypeNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\SingleDuplicateFieldJobType::class => SingleDuplicateFieldJobTypeNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\SingleDuplicateFieldJobTypeOriginalField::class => SingleDuplicateFieldJobTypeOriginalFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\SingleDuplicateFieldJobTypeDuplicatedField::class => SingleDuplicateFieldJobTypeDuplicatedFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\SingleDuplicatePageJobType::class => SingleDuplicatePageJobTypeNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\SingleDuplicatePageJobTypeOriginalPage::class => SingleDuplicatePageJobTypeOriginalPageNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\SingleDuplicatePageJobTypeDuplicatedPage::class => SingleDuplicatePageJobTypeDuplicatedPageNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\SingleDuplicateTableJobType::class => SingleDuplicateTableJobTypeNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\SingleDuplicateTableJobTypeOriginalTable::class => SingleDuplicateTableJobTypeOriginalTableNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\SingleDuplicateTableJobTypeDuplicatedTable::class => SingleDuplicateTableJobTypeDuplicatedTableNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\SingleFileImportJobSerializerClass::class => SingleFileImportJobSerializerClassNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\SingleFileImportJobSerializerClassReport::class => SingleFileImportJobSerializerClassReportNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\SingleInstallTemplateJobType::class => SingleInstallTemplateJobTypeNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\SingleInstallTemplateJobTypeWorkspace::class => SingleInstallTemplateJobTypeWorkspaceNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\SingleInstallTemplateJobTypeTemplate::class => SingleInstallTemplateJobTypeTemplateNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\SingleInstallTemplateJobTypeGroup::class => SingleInstallTemplateJobTypeGroupNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\SingleSelectFieldCreateField::class => SingleSelectFieldCreateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\SingleSelectFieldField::class => SingleSelectFieldFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\SingleSelectFieldFieldSerializerWithRelatedFields::class => SingleSelectFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\SingleSelectFieldUpdateField::class => SingleSelectFieldUpdateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\Snapshot::class => SnapshotNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\SnapshotCreatedBy::class => SnapshotCreatedByNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\SubDomainCreateDomain::class => SubDomainCreateDomainNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\SubDomainDomain::class => SubDomainDomainNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\SubjectUser::class => SubjectUserNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\Table::class => TableNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TableCreate::class => TableCreateNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TableElementCreateElement::class => TableElementCreateElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TableElementCreateElementStyleBackgroundFile::class => TableElementCreateElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TableElementElement::class => TableElementElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TableElementElementStyleBackgroundFile::class => TableElementElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TableElementPublicElement::class => TableElementPublicElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TableElementPublicElementStyleBackgroundFile::class => TableElementPublicElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TableElementUpdateElement::class => TableElementUpdateElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TableElementUpdateElementStyleBackgroundFile::class => TableElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TableImport::class => TableImportNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TableSerializerWithFields::class => TableSerializerWithFieldsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TableWebhook::class => TableWebhookNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TableWebhookCall::class => TableWebhookCallNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TableWebhookCreateRequest::class => TableWebhookCreateRequestNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TableWebhookTestCallRequest::class => TableWebhookTestCallRequestNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TableWebhookTestCallResponse::class => TableWebhookTestCallResponseNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\Team::class => TeamNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TeamResponse::class => TeamResponseNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TeamSampleSubject::class => TeamSampleSubjectNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TeamSubject::class => TeamSubjectNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TeamSubjectResponse::class => TeamSubjectResponseNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\Template::class => TemplateNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TemplateCategories::class => TemplateCategoriesNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TextElementCreateElement::class => TextElementCreateElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TextElementCreateElementStyleBackgroundFile::class => TextElementCreateElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TextElementElement::class => TextElementElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TextElementElementStyleBackgroundFile::class => TextElementElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TextElementPublicElement::class => TextElementPublicElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TextElementPublicElementStyleBackgroundFile::class => TextElementPublicElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TextElementUpdateElement::class => TextElementUpdateElementNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TextElementUpdateElementStyleBackgroundFile::class => TextElementUpdateElementStyleBackgroundFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TextFieldCreateField::class => TextFieldCreateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TextFieldField::class => TextFieldFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TextFieldFieldSerializerWithRelatedFields::class => TextFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TextFieldUpdateField::class => TextFieldUpdateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\Token::class => TokenNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TokenPermissions::class => TokenPermissionsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TokenBlacklist::class => TokenBlacklistNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TokenCreate::class => TokenCreateNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TokenObtainPair::class => TokenObtainPairNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TokenObtainPairWithUser::class => TokenObtainPairWithUserNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TokenRefreshWithUser::class => TokenRefreshWithUserNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TokenVerifyWithUser::class => TokenVerifyWithUserNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TrashContents::class => TrashContentsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TrashStructure::class => TrashStructureNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TrashStructureApplication::class => TrashStructureApplicationNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TrashStructureGroup::class => TrashStructureGroupNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TypeFormulaRequest::class => TypeFormulaRequestNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TypeFormulaResult::class => TypeFormulaResultNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TypographyConfigBlock::class => TypographyConfigBlockNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TypographyConfigBlockTypography::class => TypographyConfigBlockTypographyNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\TypographyThemeConfigBlock::class => TypographyThemeConfigBlockNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\URLFieldCreateField::class => URLFieldCreateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\URLFieldField::class => URLFieldFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\URLFieldFieldSerializerWithRelatedFields::class => URLFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\URLFieldUpdateField::class => URLFieldUpdateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\UUIDFieldCreateField::class => UUIDFieldCreateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\UUIDFieldField::class => UUIDFieldFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\UUIDFieldFieldSerializerWithRelatedFields::class => UUIDFieldFieldSerializerWithRelatedFieldsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\UUIDFieldUpdateField::class => UUIDFieldUpdateFieldNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\UndoRedoAction::class => UndoRedoActionNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\UndoRedoResponse::class => UndoRedoResponseNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\UniqueRowValues::class => UniqueRowValuesNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\User::class => UserNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\UserAdminCreate::class => UserAdminCreateNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\UserAdminGroups::class => UserAdminGroupsNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\UserAdminResponse::class => UserAdminResponseNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\UserFile::class => UserFileNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\UserFileUploadViaURLRequest::class => UserFileUploadViaURLRequestNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\UserSourceUser::class => UserSourceUserNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\UserWorkspaceInvitation::class => UserWorkspaceInvitationNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\UsersPerUserSource::class => UsersPerUserSourceNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\VerifyEmailAddress::class => VerifyEmailAddressNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\View::class => ViewNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ViewDecoration::class => ViewDecorationNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ViewFilter::class => ViewFilterNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ViewFilterGroup::class => ViewFilterGroupNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ViewGroupBy::class => ViewGroupByNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ViewSort::class => ViewSortNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\Workspace::class => WorkspaceNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\WorkspaceAdminUsers::class => WorkspaceAdminUsersNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\WorkspaceInvitation::class => WorkspaceInvitationNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\WorkspaceUser::class => WorkspaceUserNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\WorkspaceUserEnterpriseTeam::class => WorkspaceUserEnterpriseTeamNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\WorkspaceUserWorkspace::class => WorkspaceUserWorkspaceNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\WorkspacesAdminResponse::class => WorkspacesAdminResponseNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\CalendarViewUpdate::class => CalendarViewUpdateNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\FormViewUpdate::class => FormViewUpdateNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\FormViewUpdateCoverImage::class => FormViewUpdateCoverImageNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\FormViewUpdateLogoImage::class => FormViewUpdateLogoImageNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\GalleryViewUpdate::class => GalleryViewUpdateNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\GridViewUpdate::class => GridViewUpdateNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\KanbanViewUpdate::class => KanbanViewUpdateNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiHealthEmailPostResponse400::class => ApiHealthEmailPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogGetResponse400::class => ApiAdminAuditLogGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogActionTypesGetResponse400::class => ApiAdminAuditLogActionTypesGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogExportPostResponse400::class => ApiAdminAuditLogExportPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogExportPostResponse404::class => ApiAdminAuditLogExportPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogUsersGetResponse400::class => ApiAdminAuditLogUsersGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogWorkspacesGetResponse400::class => ApiAdminAuditLogWorkspacesGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderPostResponse400::class => ApiAdminAuthProviderPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderAuthProviderIdDeleteResponse404::class => ApiAdminAuthProviderAuthProviderIdDeleteResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderAuthProviderIdGetResponse404::class => ApiAdminAuthProviderAuthProviderIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderAuthProviderIdPatchResponse400::class => ApiAdminAuthProviderAuthProviderIdPatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderAuthProviderIdPatchResponse404::class => ApiAdminAuthProviderAuthProviderIdPatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiAdminGroupsGetResponse400::class => ApiAdminGroupsGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiAdminGroupsGroupIdDeleteResponse400::class => ApiAdminGroupsGroupIdDeleteResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiAdminUsersGetResponse400::class => ApiAdminUsersGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiAdminUsersPostResponse400::class => ApiAdminUsersPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiAdminUsersUserIdDeleteResponse400::class => ApiAdminUsersUserIdDeleteResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiAdminUsersUserIdPatchResponse400::class => ApiAdminUsersUserIdPatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiAdminUsersImpersonatePostResponse200::class => ApiAdminUsersImpersonatePostResponse200Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiAdminUsersImpersonatePostResponse200User::class => ApiAdminUsersImpersonatePostResponse200UserNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiAdminWorkspacesGetResponse400::class => ApiAdminWorkspacesGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiAdminWorkspacesWorkspaceIdDeleteResponse400::class => ApiAdminWorkspacesWorkspaceIdDeleteResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdIntegrationsGetResponse404::class => ApiApplicationApplicationIdIntegrationsGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdIntegrationsPostResponse400::class => ApiApplicationApplicationIdIntegrationsPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdIntegrationsPostResponse404::class => ApiApplicationApplicationIdIntegrationsPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdListUserSourceUsersGetResponse404::class => ApiApplicationApplicationIdListUserSourceUsersGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdUserSourcesGetResponse404::class => ApiApplicationApplicationIdUserSourcesGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdUserSourcesPostResponse400::class => ApiApplicationApplicationIdUserSourcesPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdUserSourcesPostResponse404::class => ApiApplicationApplicationIdUserSourcesPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdUserSourcesRolesGetResponse404::class => ApiApplicationApplicationIdUserSourcesRolesGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiApplicationsGetResponse400::class => ApiApplicationsGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdDeleteResponse400::class => ApiApplicationsApplicationIdDeleteResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdDeleteResponse404::class => ApiApplicationsApplicationIdDeleteResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdGetResponse400::class => ApiApplicationsApplicationIdGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdGetResponse404::class => ApiApplicationsApplicationIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdPatchResponse400::class => ApiApplicationsApplicationIdPatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdPatchResponse404::class => ApiApplicationsApplicationIdPatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdDuplicateAsyncPostResponse400::class => ApiApplicationsApplicationIdDuplicateAsyncPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdDuplicateAsyncPostResponse404::class => ApiApplicationsApplicationIdDuplicateAsyncPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdGetResponse400::class => ApiApplicationsGroupGroupIdGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdGetResponse404::class => ApiApplicationsGroupGroupIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdPostResponse400::class => ApiApplicationsGroupGroupIdPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdPostResponse404::class => ApiApplicationsGroupGroupIdPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdOrderPostResponse400::class => ApiApplicationsGroupGroupIdOrderPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdOrderPostResponse404::class => ApiApplicationsGroupGroupIdOrderPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdGetResponse400::class => ApiApplicationsWorkspaceWorkspaceIdGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdGetResponse404::class => ApiApplicationsWorkspaceWorkspaceIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdPostResponse400::class => ApiApplicationsWorkspaceWorkspaceIdPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdPostResponse404::class => ApiApplicationsWorkspaceWorkspaceIdPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdOrderPostResponse400::class => ApiApplicationsWorkspaceWorkspaceIdOrderPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdOrderPostResponse404::class => ApiApplicationsWorkspaceWorkspaceIdOrderPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiAuditLogGetResponse400::class => ApiAuditLogGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiAuditLogActionTypesGetResponse400::class => ApiAuditLogActionTypesGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiAuditLogExportPostResponse400::class => ApiAuditLogExportPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiAuditLogExportPostResponse404::class => ApiAuditLogExportPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiAuditLogUsersGetResponse400::class => ApiAuditLogUsersGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiAuditLogWorkspacesGetResponse400::class => ApiAuditLogWorkspacesGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsGetResponse400::class => ApiBuilderBuilderIdDomainsGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsGetResponse404::class => ApiBuilderBuilderIdDomainsGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsPostResponse400::class => ApiBuilderBuilderIdDomainsPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsPostResponse404::class => ApiBuilderBuilderIdDomainsPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsOrderPostResponse400::class => ApiBuilderBuilderIdDomainsOrderPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsOrderPostResponse404::class => ApiBuilderBuilderIdDomainsOrderPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdPagesPostResponse400::class => ApiBuilderBuilderIdPagesPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdPagesPostResponse404::class => ApiBuilderBuilderIdPagesPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdPagesOrderPostResponse400::class => ApiBuilderBuilderIdPagesOrderPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdPagesOrderPostResponse404::class => ApiBuilderBuilderIdPagesOrderPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdThemePatchResponse400::class => ApiBuilderBuilderIdThemePatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdThemePatchResponse404::class => ApiBuilderBuilderIdThemePatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdDeleteResponse400::class => ApiBuilderDataSourceDataSourceIdDeleteResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdDeleteResponse404::class => ApiBuilderDataSourceDataSourceIdDeleteResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdPatchResponse400::class => ApiBuilderDataSourceDataSourceIdPatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdPatchResponse404::class => ApiBuilderDataSourceDataSourceIdPatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdDispatchPostResponse404::class => ApiBuilderDataSourceDataSourceIdDispatchPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdMovePatchResponse400::class => ApiBuilderDataSourceDataSourceIdMovePatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdMovePatchResponse404::class => ApiBuilderDataSourceDataSourceIdMovePatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdDeleteResponse400::class => ApiBuilderDomainsDomainIdDeleteResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdDeleteResponse404::class => ApiBuilderDomainsDomainIdDeleteResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdPatchResponse400::class => ApiBuilderDomainsDomainIdPatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdPatchResponse404::class => ApiBuilderDomainsDomainIdPatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdPublishAsyncPostResponse400::class => ApiBuilderDomainsDomainIdPublishAsyncPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdPublishAsyncPostResponse404::class => ApiBuilderDomainsDomainIdPublishAsyncPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsPublishedByIdBuilderIdGetResponse404::class => ApiBuilderDomainsPublishedByIdBuilderIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsPublishedByNameDomainNameGetResponse404::class => ApiBuilderDomainsPublishedByNameDomainNameGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsPublishedPagePageIdDataSourcesGetResponse404::class => ApiBuilderDomainsPublishedPagePageIdDataSourcesGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsPublishedPagePageIdElementsGetResponse404::class => ApiBuilderDomainsPublishedPagePageIdElementsGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsPublishedPagePageIdWorkflowActionsGetResponse404::class => ApiBuilderDomainsPublishedPagePageIdWorkflowActionsGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdDeleteResponse400::class => ApiBuilderElementElementIdDeleteResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdDeleteResponse404::class => ApiBuilderElementElementIdDeleteResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdPatchResponse400::class => ApiBuilderElementElementIdPatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdPatchResponse404::class => ApiBuilderElementElementIdPatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdDuplicatePostResponse400::class => ApiBuilderElementElementIdDuplicatePostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdDuplicatePostResponse404::class => ApiBuilderElementElementIdDuplicatePostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdMovePatchResponse400::class => ApiBuilderElementElementIdMovePatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdMovePatchResponse404::class => ApiBuilderElementElementIdMovePatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdDataSourcesGetResponse404::class => ApiBuilderPagePageIdDataSourcesGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdDataSourcesPostResponse400::class => ApiBuilderPagePageIdDataSourcesPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdDataSourcesPostResponse404::class => ApiBuilderPagePageIdDataSourcesPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdDispatchDataSourcesPostResponse404::class => ApiBuilderPagePageIdDispatchDataSourcesPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdElementsGetResponse404::class => ApiBuilderPagePageIdElementsGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdElementsPostResponse400::class => ApiBuilderPagePageIdElementsPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdElementsPostResponse404::class => ApiBuilderPagePageIdElementsPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdWorkflowActionsGetResponse404::class => ApiBuilderPagePageIdWorkflowActionsGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdWorkflowActionsPostResponse400::class => ApiBuilderPagePageIdWorkflowActionsPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdWorkflowActionsPostResponse404::class => ApiBuilderPagePageIdWorkflowActionsPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdWorkflowActionsOrderPostResponse400::class => ApiBuilderPagePageIdWorkflowActionsOrderPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdWorkflowActionsOrderPostResponse404::class => ApiBuilderPagePageIdWorkflowActionsOrderPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdDeleteResponse400::class => ApiBuilderPagesPageIdDeleteResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdDeleteResponse404::class => ApiBuilderPagesPageIdDeleteResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdPatchResponse400::class => ApiBuilderPagesPageIdPatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdPatchResponse404::class => ApiBuilderPagesPageIdPatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdDuplicateAsyncPostResponse400::class => ApiBuilderPagesPageIdDuplicateAsyncPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdDuplicateAsyncPostResponse404::class => ApiBuilderPagesPageIdDuplicateAsyncPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse400::class => ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse404::class => ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdPatchResponse400::class => ApiBuilderWorkflowActionWorkflowActionIdPatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdPatchResponse404::class => ApiBuilderWorkflowActionWorkflowActionIdPatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDispatchPostResponse400::class => ApiBuilderWorkflowActionWorkflowActionIdDispatchPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseExportJobIdGetResponse404::class => ApiDatabaseExportJobIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseExportTableTableIdPostResponse400::class => ApiDatabaseExportTableTableIdPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseExportTableTableIdPostResponse404::class => ApiDatabaseExportTableTableIdPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdDeleteResponse400::class => ApiDatabaseFieldsFieldIdDeleteResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdDeleteResponse404::class => ApiDatabaseFieldsFieldIdDeleteResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdGetResponse400::class => ApiDatabaseFieldsFieldIdGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdGetResponse404::class => ApiDatabaseFieldsFieldIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdPatchResponse400::class => ApiDatabaseFieldsFieldIdPatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdPatchResponse404::class => ApiDatabaseFieldsFieldIdPatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse400::class => ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse404::class => ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse400::class => ApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse404::class => ApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse400::class => ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse404::class => ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdGetResponse400::class => ApiDatabaseFieldsTableTableIdGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdGetResponse401::class => ApiDatabaseFieldsTableTableIdGetResponse401Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdGetResponse404::class => ApiDatabaseFieldsTableTableIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdPostResponse400::class => ApiDatabaseFieldsTableTableIdPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdPostResponse401::class => ApiDatabaseFieldsTableTableIdPostResponse401Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdPostResponse404::class => ApiDatabaseFieldsTableTableIdPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse400::class => ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse404::class => ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseFormulaTableIdTypePostResponse400::class => ApiDatabaseFormulaTableIdTypePostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseFormulaTableIdTypePostResponse404::class => ApiDatabaseFormulaTableIdTypePostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse200::class => ApiDatabaseRowsNamesGetResponse200Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse200TableId::class => ApiDatabaseRowsNamesGetResponse200TableIdNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse400::class => ApiDatabaseRowsNamesGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse401::class => ApiDatabaseRowsNamesGetResponse401Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse404::class => ApiDatabaseRowsNamesGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdGetResponse400::class => ApiDatabaseRowsTableTableIdGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdGetResponse401::class => ApiDatabaseRowsTableTableIdGetResponse401Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdGetResponse404::class => ApiDatabaseRowsTableTableIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdPostResponse400::class => ApiDatabaseRowsTableTableIdPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdPostResponse401::class => ApiDatabaseRowsTableTableIdPostResponse401Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdPostResponse404::class => ApiDatabaseRowsTableTableIdPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdDeleteResponse400::class => ApiDatabaseRowsTableTableIdRowIdDeleteResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdDeleteResponse404::class => ApiDatabaseRowsTableTableIdRowIdDeleteResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdGetResponse400::class => ApiDatabaseRowsTableTableIdRowIdGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdGetResponse401::class => ApiDatabaseRowsTableTableIdRowIdGetResponse401Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdGetResponse404::class => ApiDatabaseRowsTableTableIdRowIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdPatchResponse400::class => ApiDatabaseRowsTableTableIdRowIdPatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdPatchResponse401::class => ApiDatabaseRowsTableTableIdRowIdPatchResponse401Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdPatchResponse404::class => ApiDatabaseRowsTableTableIdRowIdPatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdAdjacentGetResponse400::class => ApiDatabaseRowsTableTableIdRowIdAdjacentGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdAdjacentGetResponse404::class => ApiDatabaseRowsTableTableIdRowIdAdjacentGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdHistoryGetResponse400::class => ApiDatabaseRowsTableTableIdRowIdHistoryGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdHistoryGetResponse404::class => ApiDatabaseRowsTableTableIdRowIdHistoryGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdMovePatchResponse400::class => ApiDatabaseRowsTableTableIdRowIdMovePatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdMovePatchResponse401::class => ApiDatabaseRowsTableTableIdRowIdMovePatchResponse401Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdMovePatchResponse404::class => ApiDatabaseRowsTableTableIdRowIdMovePatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse400::class => ApiDatabaseRowsTableTableIdBatchPatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse401::class => ApiDatabaseRowsTableTableIdBatchPatchResponse401Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse404::class => ApiDatabaseRowsTableTableIdBatchPatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPostResponse400::class => ApiDatabaseRowsTableTableIdBatchPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPostResponse401::class => ApiDatabaseRowsTableTableIdBatchPostResponse401Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPostResponse404::class => ApiDatabaseRowsTableTableIdBatchPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchDeletePostResponse400::class => ApiDatabaseRowsTableTableIdBatchDeletePostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchDeletePostResponse404::class => ApiDatabaseRowsTableTableIdBatchDeletePostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdDeleteResponse400::class => ApiDatabaseTablesTableIdDeleteResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdDeleteResponse404::class => ApiDatabaseTablesTableIdDeleteResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdGetResponse400::class => ApiDatabaseTablesTableIdGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdGetResponse404::class => ApiDatabaseTablesTableIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdPatchResponse400::class => ApiDatabaseTablesTableIdPatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdPatchResponse404::class => ApiDatabaseTablesTableIdPatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdDuplicateAsyncPostResponse400::class => ApiDatabaseTablesTableIdDuplicateAsyncPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdDuplicateAsyncPostResponse404::class => ApiDatabaseTablesTableIdDuplicateAsyncPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdImportAsyncPostResponse400::class => ApiDatabaseTablesTableIdImportAsyncPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdImportAsyncPostResponse404::class => ApiDatabaseTablesTableIdImportAsyncPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdGetResponse400::class => ApiDatabaseTablesDatabaseDatabaseIdGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdGetResponse404::class => ApiDatabaseTablesDatabaseDatabaseIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdPostResponse400::class => ApiDatabaseTablesDatabaseDatabaseIdPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdPostResponse404::class => ApiDatabaseTablesDatabaseDatabaseIdPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdAsyncPostResponse400::class => ApiDatabaseTablesDatabaseDatabaseIdAsyncPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdAsyncPostResponse404::class => ApiDatabaseTablesDatabaseDatabaseIdAsyncPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdOrderPostResponse400::class => ApiDatabaseTablesDatabaseDatabaseIdOrderPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdOrderPostResponse404::class => ApiDatabaseTablesDatabaseDatabaseIdOrderPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensPostResponse400::class => ApiDatabaseTokensPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdDeleteResponse400::class => ApiDatabaseTokensTokenIdDeleteResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdDeleteResponse404::class => ApiDatabaseTokensTokenIdDeleteResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdGetResponse400::class => ApiDatabaseTokensTokenIdGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdGetResponse404::class => ApiDatabaseTokensTokenIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdPatchResponse400::class => ApiDatabaseTokensTokenIdPatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdPatchResponse404::class => ApiDatabaseTokensTokenIdPatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensCheckGetResponse403::class => ApiDatabaseTokensCheckGetResponse403Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewViewIdPremiumPatchResponse400::class => ApiDatabaseViewViewIdPremiumPatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewViewIdPremiumPatchResponse404::class => ApiDatabaseViewViewIdPremiumPatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse401::class => ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse401Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse404::class => ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugPublicAuthPostResponse404::class => ApiDatabaseViewsSlugPublicAuthPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugPublicInfoGetResponse400::class => ApiDatabaseViewsSlugPublicInfoGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugPublicInfoGetResponse401::class => ApiDatabaseViewsSlugPublicInfoGetResponse401Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugPublicInfoGetResponse404::class => ApiDatabaseViewsSlugPublicInfoGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDeleteResponse400::class => ApiDatabaseViewsViewIdDeleteResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDeleteResponse404::class => ApiDatabaseViewsViewIdDeleteResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGetResponse400::class => ApiDatabaseViewsViewIdGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGetResponse404::class => ApiDatabaseViewsViewIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdPatchResponse400::class => ApiDatabaseViewsViewIdPatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdPatchResponse404::class => ApiDatabaseViewsViewIdPatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDecorationsGetResponse400::class => ApiDatabaseViewsViewIdDecorationsGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDecorationsGetResponse404::class => ApiDatabaseViewsViewIdDecorationsGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDecorationsPostResponse400::class => ApiDatabaseViewsViewIdDecorationsPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDecorationsPostResponse404::class => ApiDatabaseViewsViewIdDecorationsPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDuplicatePostResponse400::class => ApiDatabaseViewsViewIdDuplicatePostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDuplicatePostResponse404::class => ApiDatabaseViewsViewIdDuplicatePostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsGetResponse400::class => ApiDatabaseViewsViewIdFieldOptionsGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsGetResponse404::class => ApiDatabaseViewsViewIdFieldOptionsGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsPatchResponse400::class => ApiDatabaseViewsViewIdFieldOptionsPatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsPatchResponse404::class => ApiDatabaseViewsViewIdFieldOptionsPatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFilterGroupsPostResponse400::class => ApiDatabaseViewsViewIdFilterGroupsPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFilterGroupsPostResponse404::class => ApiDatabaseViewsViewIdFilterGroupsPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFiltersGetResponse400::class => ApiDatabaseViewsViewIdFiltersGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFiltersGetResponse404::class => ApiDatabaseViewsViewIdFiltersGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFiltersPostResponse400::class => ApiDatabaseViewsViewIdFiltersPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFiltersPostResponse404::class => ApiDatabaseViewsViewIdFiltersPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGroupBysGetResponse400::class => ApiDatabaseViewsViewIdGroupBysGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGroupBysGetResponse404::class => ApiDatabaseViewsViewIdGroupBysGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGroupBysPostResponse400::class => ApiDatabaseViewsViewIdGroupBysPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGroupBysPostResponse404::class => ApiDatabaseViewsViewIdGroupBysPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdRotateSlugPostResponse400::class => ApiDatabaseViewsViewIdRotateSlugPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdRotateSlugPostResponse404::class => ApiDatabaseViewsViewIdRotateSlugPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdSortingsGetResponse400::class => ApiDatabaseViewsViewIdSortingsGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdSortingsGetResponse404::class => ApiDatabaseViewsViewIdSortingsGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdSortingsPostResponse400::class => ApiDatabaseViewsViewIdSortingsPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdSortingsPostResponse404::class => ApiDatabaseViewsViewIdSortingsPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse401::class => ApiDatabaseViewsCalendarSlugPublicRowsGetResponse401Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse400::class => ApiDatabaseViewsCalendarSlugPublicRowsGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse404::class => ApiDatabaseViewsCalendarSlugPublicRowsGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarViewIdGetResponse400::class => ApiDatabaseViewsCalendarViewIdGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarViewIdGetResponse404::class => ApiDatabaseViewsCalendarViewIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdDeleteResponse400::class => ApiDatabaseViewsDecorationViewDecorationIdDeleteResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdDeleteResponse404::class => ApiDatabaseViewsDecorationViewDecorationIdDeleteResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdGetResponse400::class => ApiDatabaseViewsDecorationViewDecorationIdGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdGetResponse404::class => ApiDatabaseViewsDecorationViewDecorationIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdPatchResponse400::class => ApiDatabaseViewsDecorationViewDecorationIdPatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdPatchResponse404::class => ApiDatabaseViewsDecorationViewDecorationIdPatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdDeleteResponse400::class => ApiDatabaseViewsFilterGroupFilterGroupIdDeleteResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdDeleteResponse404::class => ApiDatabaseViewsFilterGroupFilterGroupIdDeleteResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse400::class => ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse404::class => ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdPatchResponse400::class => ApiDatabaseViewsFilterGroupFilterGroupIdPatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdPatchResponse404::class => ApiDatabaseViewsFilterGroupFilterGroupIdPatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdDeleteResponse400::class => ApiDatabaseViewsFilterViewFilterIdDeleteResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdDeleteResponse404::class => ApiDatabaseViewsFilterViewFilterIdDeleteResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdGetResponse400::class => ApiDatabaseViewsFilterViewFilterIdGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdGetResponse404::class => ApiDatabaseViewsFilterViewFilterIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdPatchResponse400::class => ApiDatabaseViewsFilterViewFilterIdPatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdPatchResponse404::class => ApiDatabaseViewsFilterViewFilterIdPatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugSubmitGetResponse401::class => ApiDatabaseViewsFormSlugSubmitGetResponse401Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugSubmitGetResponse404::class => ApiDatabaseViewsFormSlugSubmitGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugSubmitPostResponse401::class => ApiDatabaseViewsFormSlugSubmitPostResponse401Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugSubmitPostResponse404::class => ApiDatabaseViewsFormSlugSubmitPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse401::class => ApiDatabaseViewsFormSlugUploadFilePostResponse401Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse400::class => ApiDatabaseViewsFormSlugUploadFilePostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse404::class => ApiDatabaseViewsFormSlugUploadFilePostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse400::class => ApiDatabaseViewsGallerySlugPublicRowsGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse401::class => ApiDatabaseViewsGallerySlugPublicRowsGetResponse401Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse404::class => ApiDatabaseViewsGallerySlugPublicRowsGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGalleryViewIdGetResponse400::class => ApiDatabaseViewsGalleryViewIdGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGalleryViewIdGetResponse404::class => ApiDatabaseViewsGalleryViewIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse200::class => ApiDatabaseViewsGridSlugPublicAggregationsGetResponse200Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse400::class => ApiDatabaseViewsGridSlugPublicAggregationsGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse401::class => ApiDatabaseViewsGridSlugPublicAggregationsGetResponse401Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse404::class => ApiDatabaseViewsGridSlugPublicAggregationsGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse400::class => ApiDatabaseViewsGridSlugPublicRowsGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse401::class => ApiDatabaseViewsGridSlugPublicRowsGetResponse401Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse404::class => ApiDatabaseViewsGridSlugPublicRowsGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdGetResponse400::class => ApiDatabaseViewsGridViewIdGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdGetResponse404::class => ApiDatabaseViewsGridViewIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdPostResponse400::class => ApiDatabaseViewsGridViewIdPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdPostResponse404::class => ApiDatabaseViewsGridViewIdPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse200::class => ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse200Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse400::class => ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse404::class => ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse200::class => ApiDatabaseViewsGridViewIdAggregationsGetResponse200Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse400::class => ApiDatabaseViewsGridViewIdAggregationsGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse404::class => ApiDatabaseViewsGridViewIdAggregationsGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse400::class => ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse404::class => ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdGetResponse400::class => ApiDatabaseViewsGroupByViewGroupByIdGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdGetResponse404::class => ApiDatabaseViewsGroupByViewGroupByIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdPatchResponse400::class => ApiDatabaseViewsGroupByViewGroupByIdPatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdPatchResponse404::class => ApiDatabaseViewsGroupByViewGroupByIdPatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse401::class => ApiDatabaseViewsKanbanSlugPublicRowsGetResponse401Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse400::class => ApiDatabaseViewsKanbanSlugPublicRowsGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse404::class => ApiDatabaseViewsKanbanSlugPublicRowsGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanViewIdGetResponse400::class => ApiDatabaseViewsKanbanViewIdGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanViewIdGetResponse404::class => ApiDatabaseViewsKanbanViewIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdDeleteResponse400::class => ApiDatabaseViewsSortViewSortIdDeleteResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdDeleteResponse404::class => ApiDatabaseViewsSortViewSortIdDeleteResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdGetResponse400::class => ApiDatabaseViewsSortViewSortIdGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdGetResponse404::class => ApiDatabaseViewsSortViewSortIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdPatchResponse400::class => ApiDatabaseViewsSortViewSortIdPatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdPatchResponse404::class => ApiDatabaseViewsSortViewSortIdPatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdGetResponse400::class => ApiDatabaseViewsTableTableIdGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdGetResponse404::class => ApiDatabaseViewsTableTableIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdPostResponse400::class => ApiDatabaseViewsTableTableIdPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdPostResponse404::class => ApiDatabaseViewsTableTableIdPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdOrderPostResponse400::class => ApiDatabaseViewsTableTableIdOrderPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdOrderPostResponse404::class => ApiDatabaseViewsTableTableIdOrderPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdDeleteResponse400::class => ApiDatabaseWebhooksWebhookIdDeleteResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdDeleteResponse404::class => ApiDatabaseWebhooksWebhookIdDeleteResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdGetResponse400::class => ApiDatabaseWebhooksWebhookIdGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdGetResponse404::class => ApiDatabaseWebhooksWebhookIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdPatchResponse400::class => ApiDatabaseWebhooksWebhookIdPatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdPatchResponse404::class => ApiDatabaseWebhooksWebhookIdPatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdGetResponse400::class => ApiDatabaseWebhooksTableTableIdGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdGetResponse404::class => ApiDatabaseWebhooksTableTableIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdPostResponse400::class => ApiDatabaseWebhooksTableTableIdPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdPostResponse404::class => ApiDatabaseWebhooksTableTableIdPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdTestCallPostResponse400::class => ApiDatabaseWebhooksTableTableIdTestCallPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdTestCallPostResponse404::class => ApiDatabaseWebhooksTableTableIdTestCallPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiFilesSignedDataGetResponse403::class => ApiFilesSignedDataGetResponse403Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdDeleteResponse400::class => ApiGroupsGroupIdDeleteResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdDeleteResponse404::class => ApiGroupsGroupIdDeleteResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdPatchResponse400::class => ApiGroupsGroupIdPatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdPatchResponse404::class => ApiGroupsGroupIdPatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdLeavePostResponse400::class => ApiGroupsGroupIdLeavePostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdLeavePostResponse404::class => ApiGroupsGroupIdLeavePostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdPermissionsGetResponse404::class => ApiGroupsGroupIdPermissionsGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdDeleteResponse400::class => ApiGroupsInvitationsGroupInvitationIdDeleteResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdDeleteResponse404::class => ApiGroupsInvitationsGroupInvitationIdDeleteResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdGetResponse400::class => ApiGroupsInvitationsGroupInvitationIdGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdGetResponse404::class => ApiGroupsInvitationsGroupInvitationIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdPatchResponse400::class => ApiGroupsInvitationsGroupInvitationIdPatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdPatchResponse404::class => ApiGroupsInvitationsGroupInvitationIdPatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdAcceptPostResponse400::class => ApiGroupsInvitationsGroupInvitationIdAcceptPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdAcceptPostResponse404::class => ApiGroupsInvitationsGroupInvitationIdAcceptPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdRejectPostResponse400::class => ApiGroupsInvitationsGroupInvitationIdRejectPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdRejectPostResponse404::class => ApiGroupsInvitationsGroupInvitationIdRejectPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupGroupIdGetResponse400::class => ApiGroupsInvitationsGroupGroupIdGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupGroupIdGetResponse404::class => ApiGroupsInvitationsGroupGroupIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupGroupIdPostResponse400::class => ApiGroupsInvitationsGroupGroupIdPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupGroupIdPostResponse404::class => ApiGroupsInvitationsGroupGroupIdPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsTokenTokenGetResponse400::class => ApiGroupsInvitationsTokenTokenGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsTokenTokenGetResponse404::class => ApiGroupsInvitationsTokenTokenGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse400::class => ApiGroupsUsersGroupUserIdDeleteResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse404::class => ApiGroupsUsersGroupUserIdDeleteResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdPatchResponse400::class => ApiGroupsUsersGroupUserIdPatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdPatchResponse404::class => ApiGroupsUsersGroupUserIdPatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupGroupIdGetResponse400::class => ApiGroupsUsersGroupGroupIdGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupGroupIdGetResponse404::class => ApiGroupsUsersGroupGroupIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdDeleteResponse400::class => ApiIntegrationIntegrationIdDeleteResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdDeleteResponse404::class => ApiIntegrationIntegrationIdDeleteResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdPatchResponse400::class => ApiIntegrationIntegrationIdPatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdPatchResponse404::class => ApiIntegrationIntegrationIdPatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdMovePatchResponse400::class => ApiIntegrationIntegrationIdMovePatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdMovePatchResponse404::class => ApiIntegrationIntegrationIdMovePatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiJobsPostResponse400::class => ApiJobsPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiJobsPostResponse404::class => ApiJobsPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiJobsJobIdGetResponse404::class => ApiJobsJobIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiLicensesPostResponse400::class => ApiLicensesPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiLicensesIdDeleteResponse404::class => ApiLicensesIdDeleteResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiLicensesIdGetResponse404::class => ApiLicensesIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiLicensesIdUserIdDeleteResponse400::class => ApiLicensesIdUserIdDeleteResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiLicensesIdUserIdDeleteResponse404::class => ApiLicensesIdUserIdDeleteResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiLicensesIdUserIdPostResponse400::class => ApiLicensesIdUserIdPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiLicensesIdUserIdPostResponse404::class => ApiLicensesIdUserIdPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiLicensesIdCheckGetResponse404::class => ApiLicensesIdCheckGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiLicensesIdFillSeatsPostResponse400::class => ApiLicensesIdFillSeatsPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiLicensesIdFillSeatsPostResponse404::class => ApiLicensesIdFillSeatsPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiLicensesIdLookupUsersGetResponse404::class => ApiLicensesIdLookupUsersGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiLicensesIdRemoveAllUsersPostResponse400::class => ApiLicensesIdRemoveAllUsersPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiLicensesIdRemoveAllUsersPostResponse404::class => ApiLicensesIdRemoveAllUsersPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse400::class => ApiNotificationsWorkspaceIdDeleteResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse404::class => ApiNotificationsWorkspaceIdDeleteResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdGetResponse400::class => ApiNotificationsWorkspaceIdGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdGetResponse404::class => ApiNotificationsWorkspaceIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdNotificationIdPatchResponse400::class => ApiNotificationsWorkspaceIdNotificationIdPatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdNotificationIdPatchResponse404::class => ApiNotificationsWorkspaceIdNotificationIdPatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdMarkAllAsReadPostResponse400::class => ApiNotificationsWorkspaceIdMarkAllAsReadPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdMarkAllAsReadPostResponse404::class => ApiNotificationsWorkspaceIdMarkAllAsReadPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdGetResponse400::class => ApiRoleGroupIdGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdGetResponse404::class => ApiRoleGroupIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdPostResponse400::class => ApiRoleGroupIdPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdPostResponse404::class => ApiRoleGroupIdPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdBatchPostResponse400::class => ApiRoleGroupIdBatchPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdBatchPostResponse404::class => ApiRoleGroupIdBatchPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdGetResponse400::class => ApiRoleWorkspaceIdGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdGetResponse404::class => ApiRoleWorkspaceIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdPostResponse400::class => ApiRoleWorkspaceIdPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdPostResponse404::class => ApiRoleWorkspaceIdPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdBatchPostResponse400::class => ApiRoleWorkspaceIdBatchPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdBatchPostResponse404::class => ApiRoleWorkspaceIdBatchPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdGetResponse400::class => ApiRowCommentsTableIdRowIdGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdGetResponse404::class => ApiRowCommentsTableIdRowIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdPostResponse400::class => ApiRowCommentsTableIdRowIdPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdPostResponse404::class => ApiRowCommentsTableIdRowIdPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdNotificationModePutResponse400::class => ApiRowCommentsTableIdRowIdNotificationModePutResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdNotificationModePutResponse404::class => ApiRowCommentsTableIdRowIdNotificationModePutResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse400::class => ApiRowCommentsTableIdCommentCommentIdDeleteResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse401::class => ApiRowCommentsTableIdCommentCommentIdDeleteResponse401Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse404::class => ApiRowCommentsTableIdCommentCommentIdDeleteResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdPatchResponse400::class => ApiRowCommentsTableIdCommentCommentIdPatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdPatchResponse401::class => ApiRowCommentsTableIdCommentCommentIdPatchResponse401Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdPatchResponse404::class => ApiRowCommentsTableIdCommentCommentIdPatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiSnapshotsSnapshotIdDeleteResponse400::class => ApiSnapshotsSnapshotIdDeleteResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiSnapshotsSnapshotIdDeleteResponse404::class => ApiSnapshotsSnapshotIdDeleteResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiSnapshotsSnapshotIdRestorePostResponse400::class => ApiSnapshotsSnapshotIdRestorePostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiSnapshotsSnapshotIdRestorePostResponse404::class => ApiSnapshotsSnapshotIdRestorePostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiSnapshotsApplicationApplicationIdGetResponse400::class => ApiSnapshotsApplicationApplicationIdGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiSnapshotsApplicationApplicationIdGetResponse404::class => ApiSnapshotsApplicationApplicationIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiSnapshotsApplicationApplicationIdPostResponse400::class => ApiSnapshotsApplicationApplicationIdPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiSnapshotsApplicationApplicationIdPostResponse404::class => ApiSnapshotsApplicationApplicationIdPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiSsoSamlLoginUrlGetResponse400::class => ApiSsoSamlLoginUrlGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdDeleteResponse400::class => ApiTeamsTeamIdDeleteResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdDeleteResponse404::class => ApiTeamsTeamIdDeleteResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdGetResponse404::class => ApiTeamsTeamIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdPutResponse400::class => ApiTeamsTeamIdPutResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdPutResponse404::class => ApiTeamsTeamIdPutResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsGetResponse400::class => ApiTeamsTeamIdSubjectsGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsPostResponse400::class => ApiTeamsTeamIdSubjectsPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsPostResponse404::class => ApiTeamsTeamIdSubjectsPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsSubjectIdDeleteResponse400::class => ApiTeamsTeamIdSubjectsSubjectIdDeleteResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsSubjectIdDeleteResponse404::class => ApiTeamsTeamIdSubjectsSubjectIdDeleteResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsSubjectIdGetResponse404::class => ApiTeamsTeamIdSubjectsSubjectIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiTeamsGroupGroupIdGetResponse404::class => ApiTeamsGroupGroupIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiTeamsGroupGroupIdPostResponse400::class => ApiTeamsGroupGroupIdPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiTeamsGroupGroupIdPostResponse404::class => ApiTeamsGroupGroupIdPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiTeamsWorkspaceWorkspaceIdGetResponse404::class => ApiTeamsWorkspaceWorkspaceIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiTeamsWorkspaceWorkspaceIdPostResponse400::class => ApiTeamsWorkspaceWorkspaceIdPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiTeamsWorkspaceWorkspaceIdPostResponse404::class => ApiTeamsWorkspaceWorkspaceIdPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdPostResponse400::class => ApiTemplatesInstallGroupIdTemplateIdPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdPostResponse404::class => ApiTemplatesInstallGroupIdTemplateIdPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse400::class => ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse404::class => ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdPostResponse400::class => ApiTemplatesInstallWorkspaceIdTemplateIdPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdPostResponse404::class => ApiTemplatesInstallWorkspaceIdTemplateIdPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse400::class => ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse404::class => ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiTrashGroupGroupIdDeleteResponse400::class => ApiTrashGroupGroupIdDeleteResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiTrashGroupGroupIdGetResponse400::class => ApiTrashGroupGroupIdGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiTrashRestorePatchResponse400::class => ApiTrashRestorePatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiTrashWorkspaceWorkspaceIdDeleteResponse400::class => ApiTrashWorkspaceWorkspaceIdDeleteResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiTrashWorkspaceWorkspaceIdGetResponse400::class => ApiTrashWorkspaceWorkspaceIdGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiUserPostResponse200::class => ApiUserPostResponse200Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiUserPostResponse200User::class => ApiUserPostResponse200UserNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiUserPostResponse400::class => ApiUserPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiUserPostResponse404::class => ApiUserPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiUserFilesUploadFilePostResponse400::class => ApiUserFilesUploadFilePostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiUserFilesUploadViaUrlPostResponse400::class => ApiUserFilesUploadViaUrlPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiUserSourceAuthRefreshPostResponse200::class => ApiUserSourceAuthRefreshPostResponse200Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdDeleteResponse400::class => ApiUserSourceUserSourceIdDeleteResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdDeleteResponse404::class => ApiUserSourceUserSourceIdDeleteResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdPatchResponse400::class => ApiUserSourceUserSourceIdPatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdPatchResponse404::class => ApiUserSourceUserSourceIdPatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdForceTokenAuthPostResponse200::class => ApiUserSourceUserSourceIdForceTokenAuthPostResponse200Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdMovePatchResponse400::class => ApiUserSourceUserSourceIdMovePatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdMovePatchResponse404::class => ApiUserSourceUserSourceIdMovePatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdTokenAuthPostResponse200::class => ApiUserSourceUserSourceIdTokenAuthPostResponse200Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiUserAccountPatchResponse400::class => ApiUserAccountPatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiUserChangePasswordPostResponse400::class => ApiUserChangePasswordPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiUserResetPasswordPostResponse400::class => ApiUserResetPasswordPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiUserScheduleAccountDeletionPostResponse400::class => ApiUserScheduleAccountDeletionPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiUserSendResetPasswordEmailPostResponse400::class => ApiUserSendResetPasswordEmailPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiUserTokenAuthPostResponse200::class => ApiUserTokenAuthPostResponse200Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiUserTokenAuthPostResponse200User::class => ApiUserTokenAuthPostResponse200UserNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiUserTokenAuthPostResponse401::class => ApiUserTokenAuthPostResponse401Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiUserTokenRefreshPostResponse200::class => ApiUserTokenRefreshPostResponse200Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiUserTokenRefreshPostResponse200User::class => ApiUserTokenRefreshPostResponse200UserNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiUserTokenRefreshPostResponse401::class => ApiUserTokenRefreshPostResponse401Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiUserTokenVerifyPostResponse200::class => ApiUserTokenVerifyPostResponse200Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiUserTokenVerifyPostResponse200User::class => ApiUserTokenVerifyPostResponse200UserNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiUserTokenVerifyPostResponse401::class => ApiUserTokenVerifyPostResponse401Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiUserVerifyEmailPostResponse200::class => ApiUserVerifyEmailPostResponse200Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiUserVerifyEmailPostResponse200User::class => ApiUserVerifyEmailPostResponse200UserNormalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiUserVerifyEmailPostResponse400::class => ApiUserVerifyEmailPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiUserVerifyEmailPostResponse401::class => ApiUserVerifyEmailPostResponse401Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdDeleteResponse400::class => ApiWorkspacesWorkspaceIdDeleteResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdDeleteResponse404::class => ApiWorkspacesWorkspaceIdDeleteResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdPatchResponse400::class => ApiWorkspacesWorkspaceIdPatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdPatchResponse404::class => ApiWorkspacesWorkspaceIdPatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdLeavePostResponse400::class => ApiWorkspacesWorkspaceIdLeavePostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdLeavePostResponse404::class => ApiWorkspacesWorkspaceIdLeavePostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdPermissionsGetResponse404::class => ApiWorkspacesWorkspaceIdPermissionsGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse400::class => ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse404::class => ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse400::class => ApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse404::class => ApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdGetResponse400::class => ApiWorkspacesInvitationsWorkspaceInvitationIdGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdGetResponse404::class => ApiWorkspacesInvitationsWorkspaceInvitationIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdPatchResponse400::class => ApiWorkspacesInvitationsWorkspaceInvitationIdPatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdPatchResponse404::class => ApiWorkspacesInvitationsWorkspaceInvitationIdPatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdAcceptPostResponse400::class => ApiWorkspacesInvitationsWorkspaceInvitationIdAcceptPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdAcceptPostResponse404::class => ApiWorkspacesInvitationsWorkspaceInvitationIdAcceptPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdRejectPostResponse400::class => ApiWorkspacesInvitationsWorkspaceInvitationIdRejectPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdRejectPostResponse404::class => ApiWorkspacesInvitationsWorkspaceInvitationIdRejectPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsTokenTokenGetResponse400::class => ApiWorkspacesInvitationsTokenTokenGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsTokenTokenGetResponse404::class => ApiWorkspacesInvitationsTokenTokenGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse400::class => ApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse404::class => ApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdPostResponse400::class => ApiWorkspacesInvitationsWorkspaceWorkspaceIdPostResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdPostResponse404::class => ApiWorkspacesInvitationsWorkspaceWorkspaceIdPostResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdDeleteResponse400::class => ApiWorkspacesUsersWorkspaceUserIdDeleteResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdDeleteResponse404::class => ApiWorkspacesUsersWorkspaceUserIdDeleteResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdPatchResponse400::class => ApiWorkspacesUsersWorkspaceUserIdPatchResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdPatchResponse404::class => ApiWorkspacesUsersWorkspaceUserIdPatchResponse404Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse400::class => ApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse400Normalizer::class,
+
+        \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse404::class => ApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse404Normalizer::class,
+
+        \Jane\Component\JsonSchemaRuntime\Reference::class => \CedricZiel\Baserow\Generated\Runtime\Normalizer\ReferenceNormalizer::class,
+    ];
+    protected $normalizersCache = [];
+
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
-        protected $normalizers = [
-            \CedricZiel\Baserow\Generated\Model\AIFieldCreateField::class => AIFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AIFieldField::class => AIFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AIFieldFieldSerializerWithRelatedFields::class => AIFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AIFieldUpdateField::class => AIFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\Account::class => AccountNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ActionScopes::class => ActionScopesNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AdminDashboard::class => AdminDashboardNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AdminDashboardPerDay::class => AdminDashboardPerDayNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AirtableImportJobCreateJob::class => AirtableImportJobCreateJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AirtableImportJobJob::class => AirtableImportJobJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AuditLog::class => AuditLogNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AuditLogActionType::class => AuditLogActionTypeNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AuditLogExportJobCreateJob::class => AuditLogExportJobCreateJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AuditLogExportJobJob::class => AuditLogExportJobJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AuditLogUser::class => AuditLogUserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AuditLogWorkspace::class => AuditLogWorkspaceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AuthFormElementCreateElement::class => AuthFormElementCreateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AuthFormElementCreateElementStyleBackgroundFile::class => AuthFormElementCreateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AuthFormElementElement::class => AuthFormElementElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AuthFormElementElementStyleBackgroundFile::class => AuthFormElementElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AuthFormElementPublicElement::class => AuthFormElementPublicElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AuthFormElementPublicElementStyleBackgroundFile::class => AuthFormElementPublicElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AuthFormElementUpdateElement::class => AuthFormElementUpdateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AuthFormElementUpdateElementStyleBackgroundFile::class => AuthFormElementUpdateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AutonumberFieldCreateField::class => AutonumberFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AutonumberFieldField::class => AutonumberFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AutonumberFieldFieldSerializerWithRelatedFields::class => AutonumberFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AutonumberFieldUpdateField::class => AutonumberFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BaseExporterOptions::class => BaseExporterOptionsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BaserowImpersonateAuthToken::class => BaserowImpersonateAuthTokenNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BatchCreateRoleAssignment::class => BatchCreateRoleAssignmentNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BatchDeleteRows::class => BatchDeleteRowsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BooleanFieldCreateField::class => BooleanFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BooleanFieldField::class => BooleanFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BooleanFieldFieldSerializerWithRelatedFields::class => BooleanFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BooleanFieldUpdateField::class => BooleanFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BuilderApplication::class => BuilderApplicationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BuilderApplicationGroup::class => BuilderApplicationGroupNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BuilderApplicationWorkspace::class => BuilderApplicationWorkspaceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BuilderApplicationTheme::class => BuilderApplicationThemeNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BuilderApplicationFaviconFile::class => BuilderApplicationFaviconFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BuilderBaseApplicationCreatePolymorphic::class => BuilderBaseApplicationCreatePolymorphicNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BuilderBaseApplicationCreatePolymorphicFaviconFile::class => BuilderBaseApplicationCreatePolymorphicFaviconFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BuilderBaseApplicationUpdatePolymorphic::class => BuilderBaseApplicationUpdatePolymorphicNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BuilderBaseApplicationUpdatePolymorphicFaviconFile::class => BuilderBaseApplicationUpdatePolymorphicFaviconFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BuilderWorkflowAction::class => BuilderWorkflowActionNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ButtonConfigBlock::class => ButtonConfigBlockNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ButtonConfigBlockButton::class => ButtonConfigBlockButtonNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ButtonElementCreateElement::class => ButtonElementCreateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ButtonElementCreateElementStyleBackgroundFile::class => ButtonElementCreateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ButtonElementElement::class => ButtonElementElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ButtonElementElementStyleBackgroundFile::class => ButtonElementElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ButtonElementPublicElement::class => ButtonElementPublicElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ButtonElementPublicElementStyleBackgroundFile::class => ButtonElementPublicElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ButtonElementUpdateElement::class => ButtonElementUpdateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ButtonElementUpdateElementStyleBackgroundFile::class => ButtonElementUpdateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ButtonLinkConfigBlock::class => ButtonLinkConfigBlockNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ButtonLinkConfigBlockButton::class => ButtonLinkConfigBlockButtonNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ButtonLinkConfigBlockLink::class => ButtonLinkConfigBlockLinkNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ButtonThemeConfigBlock::class => ButtonThemeConfigBlockNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CalendarViewCreateView::class => CalendarViewCreateViewNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CalendarViewExampleResponse::class => CalendarViewExampleResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CalendarViewExampleResponseStack::class => CalendarViewExampleResponseStackNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CalendarViewFieldOptions::class => CalendarViewFieldOptionsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CalendarViewView::class => CalendarViewViewNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ChangePasswordBodyValidation::class => ChangePasswordBodyValidationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CheckboxElementCreateElement::class => CheckboxElementCreateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CheckboxElementCreateElementStyleBackgroundFile::class => CheckboxElementCreateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CheckboxElementElement::class => CheckboxElementElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CheckboxElementElementStyleBackgroundFile::class => CheckboxElementElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CheckboxElementPublicElement::class => CheckboxElementPublicElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CheckboxElementPublicElementStyleBackgroundFile::class => CheckboxElementPublicElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CheckboxElementUpdateElement::class => CheckboxElementUpdateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CheckboxElementUpdateElementStyleBackgroundFile::class => CheckboxElementUpdateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ChoiceElementCreateElement::class => ChoiceElementCreateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ChoiceElementCreateElementStyleBackgroundFile::class => ChoiceElementCreateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ChoiceElementElement::class => ChoiceElementElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ChoiceElementElementStyleBackgroundFile::class => ChoiceElementElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ChoiceElementPublicElement::class => ChoiceElementPublicElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ChoiceElementPublicElementStyleBackgroundFile::class => ChoiceElementPublicElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ChoiceElementUpdateElement::class => ChoiceElementUpdateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ChoiceElementUpdateElementStyleBackgroundFile::class => ChoiceElementUpdateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ChoiceOption::class => ChoiceOptionNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\Collaborator::class => CollaboratorNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CollectionField::class => CollectionFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ColumnElementCreateElement::class => ColumnElementCreateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ColumnElementCreateElementStyleBackgroundFile::class => ColumnElementCreateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ColumnElementElement::class => ColumnElementElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ColumnElementElementStyleBackgroundFile::class => ColumnElementElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ColumnElementPublicElement::class => ColumnElementPublicElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ColumnElementPublicElementStyleBackgroundFile::class => ColumnElementPublicElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ColumnElementUpdateElement::class => ColumnElementUpdateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ColumnElementUpdateElementStyleBackgroundFile::class => ColumnElementUpdateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CombinedThemeConfigBlocks::class => CombinedThemeConfigBlocksNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CombinedThemeConfigBlocksPageBackgroundFile::class => CombinedThemeConfigBlocksPageBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColor::class => ConditionalColorValueProviderConfColorNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColorFilter::class => ConditionalColorValueProviderConfColorFilterNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColorFilterGroup::class => ConditionalColorValueProviderConfColorFilterGroupNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColors::class => ConditionalColorValueProviderConfColorsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CountFieldCreateField::class => CountFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CountFieldField::class => CountFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CountFieldFieldSerializerWithRelatedFields::class => CountFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CountFieldUpdateField::class => CountFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CreatePage::class => CreatePageNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CreateRoleAssignment::class => CreateRoleAssignmentNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CreateSnapshotJobCreateJob::class => CreateSnapshotJobCreateJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CreateSnapshotJobJob::class => CreateSnapshotJobJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CreateViewFilter::class => CreateViewFilterNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CreateViewFilterGroup::class => CreateViewFilterGroupNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CreateViewGroupBy::class => CreateViewGroupByNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CreateViewSort::class => CreateViewSortNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CreateWorkspaceInvitation::class => CreateWorkspaceInvitationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CreatedByFieldCreateField::class => CreatedByFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CreatedByFieldField::class => CreatedByFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CreatedByFieldFieldSerializerWithRelatedFields::class => CreatedByFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CreatedByFieldUpdateField::class => CreatedByFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CreatedOnFieldCreateField::class => CreatedOnFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CreatedOnFieldField::class => CreatedOnFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CreatedOnFieldFieldSerializerWithRelatedFields::class => CreatedOnFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CreatedOnFieldUpdateField::class => CreatedOnFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CsvExporterOptions::class => CsvExporterOptionsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CustomDomainCreateDomain::class => CustomDomainCreateDomainNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CustomDomainDomain::class => CustomDomainDomainNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\Dashboard::class => DashboardNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DatabaseApplication::class => DatabaseApplicationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DatabaseApplicationGroup::class => DatabaseApplicationGroupNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DatabaseApplicationWorkspace::class => DatabaseApplicationWorkspaceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DatabaseBaseApplicationCreatePolymorphic::class => DatabaseBaseApplicationCreatePolymorphicNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DatabaseBaseApplicationUpdatePolymorphic::class => DatabaseBaseApplicationUpdatePolymorphicNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DateFieldCreateField::class => DateFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DateFieldField::class => DateFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DateFieldFieldSerializerWithRelatedFields::class => DateFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DateFieldUpdateField::class => DateFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DuplicateApplicationJobCreateJob::class => DuplicateApplicationJobCreateJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DuplicateApplicationJobJob::class => DuplicateApplicationJobJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DuplicateElement::class => DuplicateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DuplicateFieldJobCreateJob::class => DuplicateFieldJobCreateJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DuplicateFieldJobJob::class => DuplicateFieldJobJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DuplicateFieldJobJobOriginalField::class => DuplicateFieldJobJobOriginalFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DuplicateFieldJobJobDuplicatedField::class => DuplicateFieldJobJobDuplicatedFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DuplicatePageJobCreateJob::class => DuplicatePageJobCreateJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DuplicatePageJobJob::class => DuplicatePageJobJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DuplicatePageJobJobOriginalPage::class => DuplicatePageJobJobOriginalPageNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DuplicatePageJobJobDuplicatedPage::class => DuplicatePageJobJobDuplicatedPageNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DuplicateTableJobCreateJob::class => DuplicateTableJobCreateJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DuplicateTableJobJob::class => DuplicateTableJobJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DuplicateTableJobJobOriginalTable::class => DuplicateTableJobJobOriginalTableNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DuplicateTableJobJobDuplicatedTable::class => DuplicateTableJobJobDuplicatedTableNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DurationFieldCreateField::class => DurationFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DurationFieldField::class => DurationFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DurationFieldFieldSerializerWithRelatedFields::class => DurationFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DurationFieldUpdateField::class => DurationFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\Element::class => ElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ElementStyleBackgroundFile::class => ElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\EmailFieldCreateField::class => EmailFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\EmailFieldField::class => EmailFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\EmailFieldFieldSerializerWithRelatedFields::class => EmailFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\EmailFieldUpdateField::class => EmailFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\EmailTesterRequest::class => EmailTesterRequestNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\EmailTesterResponse::class => EmailTesterResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BatchCreateRowRequest::class => BatchCreateRowRequestNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ExampleBatchRowsResponse::class => ExampleBatchRowsResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BatchUpdateRow::class => BatchUpdateRowNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ExampleRowRequest::class => ExampleRowRequestNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CreateRowRequest::class => CreateRowRequestNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ExampleRowResponse::class => ExampleRowResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ExampleRowResponseField10::class => ExampleRowResponseField10Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ExampleRowResponseField12::class => ExampleRowResponseField12Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ExampleRowResponseField16::class => ExampleRowResponseField16Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RowResponse::class => RowResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ExportJob::class => ExportJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FacebookAuthProviderModelAuthProvider::class => FacebookAuthProviderModelAuthProviderNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\Field::class => FieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FieldSerializerWithRelatedFields::class => FieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FileFieldCreateField::class => FileFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FileFieldField::class => FileFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FileFieldFieldSerializerWithRelatedFields::class => FileFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FileFieldResponse::class => FileFieldResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FileFieldUpdateField::class => FileFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FileImportJobCreateJob::class => FileImportJobCreateJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FileImportJobJob::class => FileImportJobJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FileImportJobJobReport::class => FileImportJobJobReportNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormContainerElementCreateElement::class => FormContainerElementCreateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormContainerElementCreateElementStyleBackgroundFile::class => FormContainerElementCreateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormContainerElementElement::class => FormContainerElementElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormContainerElementElementStyleBackgroundFile::class => FormContainerElementElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormContainerElementPublicElement::class => FormContainerElementPublicElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormContainerElementPublicElementStyleBackgroundFile::class => FormContainerElementPublicElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormContainerElementUpdateElement::class => FormContainerElementUpdateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormContainerElementUpdateElementStyleBackgroundFile::class => FormContainerElementUpdateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormViewCreateView::class => FormViewCreateViewNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormViewCreateViewCoverImage::class => FormViewCreateViewCoverImageNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormViewCreateViewLogoImage::class => FormViewCreateViewLogoImageNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormViewFieldOptions::class => FormViewFieldOptionsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormViewFieldOptionsCondition::class => FormViewFieldOptionsConditionNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormViewFieldOptionsConditionGroup::class => FormViewFieldOptionsConditionGroupNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormViewSubmitted::class => FormViewSubmittedNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormViewView::class => FormViewViewNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormViewViewCoverImage::class => FormViewViewCoverImageNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormViewViewLogoImage::class => FormViewViewLogoImageNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormulaFieldCreateField::class => FormulaFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormulaFieldField::class => FormulaFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormulaFieldFieldSerializerWithRelatedFields::class => FormulaFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormulaFieldUpdateField::class => FormulaFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FullHealthCheck::class => FullHealthCheckNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GalleryViewCreateView::class => GalleryViewCreateViewNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GalleryViewFieldOptions::class => GalleryViewFieldOptionsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GalleryViewView::class => GalleryViewViewNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GenerateFormulaWithAIRequest::class => GenerateFormulaWithAIRequestNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GenerateFormulaWithAIResponse::class => GenerateFormulaWithAIResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GeneratedConditionalColorCreateViewDecoration::class => GeneratedConditionalColorCreateViewDecorationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GeneratedConditionalColorCreateViewDecorationValueProviderConf::class => GeneratedConditionalColorCreateViewDecorationValueProviderConfNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GeneratedConditionalColorUpdateViewDecoration::class => GeneratedConditionalColorUpdateViewDecorationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GeneratedConditionalColorUpdateViewDecorationValueProviderConf::class => GeneratedConditionalColorUpdateViewDecorationValueProviderConfNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GeneratedConditionalColorViewDecoration::class => GeneratedConditionalColorViewDecorationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GeneratedConditionalColorViewDecorationValueProviderConf::class => GeneratedConditionalColorViewDecorationValueProviderConfNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GeneratedSingleSelectColorCreateViewDecoration::class => GeneratedSingleSelectColorCreateViewDecorationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GeneratedSingleSelectColorCreateViewDecorationValueProviderConf::class => GeneratedSingleSelectColorCreateViewDecorationValueProviderConfNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GeneratedSingleSelectColorUpdateViewDecoration::class => GeneratedSingleSelectColorUpdateViewDecorationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GeneratedSingleSelectColorUpdateViewDecorationValueProviderConf::class => GeneratedSingleSelectColorUpdateViewDecorationValueProviderConfNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GeneratedSingleSelectColorViewDecoration::class => GeneratedSingleSelectColorViewDecorationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GeneratedSingleSelectColorViewDecorationValueProviderConf::class => GeneratedSingleSelectColorViewDecorationValueProviderConfNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GenerativeAISettings::class => GenerativeAISettingsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GitHubAuthProviderModelAuthProvider::class => GitHubAuthProviderModelAuthProviderNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GitLabAuthProviderModelAuthProvider::class => GitLabAuthProviderModelAuthProviderNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GoogleAuthProviderModelAuthProvider::class => GoogleAuthProviderModelAuthProviderNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GridViewCreateView::class => GridViewCreateViewNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GridViewFieldOptions::class => GridViewFieldOptionsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GridViewFilter::class => GridViewFilterNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GridViewView::class => GridViewViewNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\HeadingElementCreateElement::class => HeadingElementCreateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\HeadingElementCreateElementStyleBackgroundFile::class => HeadingElementCreateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\HeadingElementElement::class => HeadingElementElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\HeadingElementElementStyleBackgroundFile::class => HeadingElementElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\HeadingElementPublicElement::class => HeadingElementPublicElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\HeadingElementPublicElementStyleBackgroundFile::class => HeadingElementPublicElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\HeadingElementUpdateElement::class => HeadingElementUpdateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\HeadingElementUpdateElementStyleBackgroundFile::class => HeadingElementUpdateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\IFrameElementCreateElement::class => IFrameElementCreateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\IFrameElementCreateElementStyleBackgroundFile::class => IFrameElementCreateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\IFrameElementElement::class => IFrameElementElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\IFrameElementElementStyleBackgroundFile::class => IFrameElementElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\IFrameElementPublicElement::class => IFrameElementPublicElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\IFrameElementPublicElementStyleBackgroundFile::class => IFrameElementPublicElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\IFrameElementUpdateElement::class => IFrameElementUpdateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\IFrameElementUpdateElementStyleBackgroundFile::class => IFrameElementUpdateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ImageConfigBlock::class => ImageConfigBlockNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ImageConfigBlockImage::class => ImageConfigBlockImageNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ImageElementCreateElement::class => ImageElementCreateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ImageElementCreateElementStyleBackgroundFile::class => ImageElementCreateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ImageElementCreateElementImageFile::class => ImageElementCreateElementImageFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ImageElementElement::class => ImageElementElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ImageElementElementStyleBackgroundFile::class => ImageElementElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ImageElementPublicElement::class => ImageElementPublicElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ImageElementPublicElementStyleBackgroundFile::class => ImageElementPublicElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ImageElementUpdateElement::class => ImageElementUpdateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ImageElementUpdateElementStyleBackgroundFile::class => ImageElementUpdateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ImageElementUpdateElementImageFile::class => ImageElementUpdateElementImageFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ImageThemeConfigBlock::class => ImageThemeConfigBlockNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\InputTextElementCreateElement::class => InputTextElementCreateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\InputTextElementCreateElementStyleBackgroundFile::class => InputTextElementCreateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\InputTextElementElement::class => InputTextElementElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\InputTextElementElementStyleBackgroundFile::class => InputTextElementElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\InputTextElementPublicElement::class => InputTextElementPublicElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\InputTextElementPublicElementStyleBackgroundFile::class => InputTextElementPublicElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\InputTextElementUpdateElement::class => InputTextElementUpdateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\InputTextElementUpdateElementStyleBackgroundFile::class => InputTextElementUpdateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\InstallTemplateJobCreateJob::class => InstallTemplateJobCreateJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\InstallTemplateJobJob::class => InstallTemplateJobJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\InstallTemplateJobJobWorkspace::class => InstallTemplateJobJobWorkspaceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\InstallTemplateJobJobTemplate::class => InstallTemplateJobJobTemplateNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\InstallTemplateJobJobGroup::class => InstallTemplateJobJobGroupNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\InstanceId::class => InstanceIdNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\Job::class => JobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\KanbanViewCreateView::class => KanbanViewCreateViewNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\KanbanViewExampleResponse::class => KanbanViewExampleResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\KanbanViewExampleResponseStack::class => KanbanViewExampleResponseStackNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\KanbanViewFieldOptions::class => KanbanViewFieldOptionsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\KanbanViewView::class => KanbanViewViewNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LastModifiedByFieldCreateField::class => LastModifiedByFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LastModifiedByFieldField::class => LastModifiedByFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LastModifiedByFieldFieldSerializerWithRelatedFields::class => LastModifiedByFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LastModifiedByFieldUpdateField::class => LastModifiedByFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LastModifiedFieldCreateField::class => LastModifiedFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LastModifiedFieldField::class => LastModifiedFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LastModifiedFieldFieldSerializerWithRelatedFields::class => LastModifiedFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LastModifiedFieldUpdateField::class => LastModifiedFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\License::class => LicenseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LicenseUser::class => LicenseUserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LicenseUserLookup::class => LicenseUserLookupNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LicenseWithUsers::class => LicenseWithUsersNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LinkElementCreateElement::class => LinkElementCreateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LinkElementCreateElementStyleBackgroundFile::class => LinkElementCreateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LinkElementElement::class => LinkElementElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LinkElementElementStyleBackgroundFile::class => LinkElementElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LinkElementPublicElement::class => LinkElementPublicElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LinkElementPublicElementStyleBackgroundFile::class => LinkElementPublicElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LinkElementUpdateElement::class => LinkElementUpdateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LinkElementUpdateElementStyleBackgroundFile::class => LinkElementUpdateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LinkRowFieldCreateField::class => LinkRowFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LinkRowFieldField::class => LinkRowFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LinkRowFieldFieldSerializerWithRelatedFields::class => LinkRowFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LinkRowFieldUpdateField::class => LinkRowFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LinkRowValue::class => LinkRowValueNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LinkThemeConfigBlock::class => LinkThemeConfigBlockNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ListWorkspaceUsersWithMemberData::class => ListWorkspaceUsersWithMemberDataNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowContextData::class => LocalBaserowContextDataNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowCreateRowWorkflowActionBuilderWorkflowAction::class => LocalBaserowCreateRowWorkflowActionBuilderWorkflowActionNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowCreateRowWorkflowActionCreateBuilderWorkflowAction::class => LocalBaserowCreateRowWorkflowActionCreateBuilderWorkflowActionNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowCreateRowWorkflowActionUpdateBuilderWorkflowActions::class => LocalBaserowCreateRowWorkflowActionUpdateBuilderWorkflowActionsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowField::class => LocalBaserowFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowGetRow::class => LocalBaserowGetRowNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowGetRowCreateDataSource::class => LocalBaserowGetRowCreateDataSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowGetRowDataSource::class => LocalBaserowGetRowDataSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowGetRowPublicDataSource::class => LocalBaserowGetRowPublicDataSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowGetRowService::class => LocalBaserowGetRowServiceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowGetRowUpdateDataSource::class => LocalBaserowGetRowUpdateDataSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationCreateIntegration::class => LocalBaserowIntegrationCreateIntegrationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationCreateIntegrationContextData::class => LocalBaserowIntegrationCreateIntegrationContextDataNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationCreateIntegrationAuthorizedUser::class => LocalBaserowIntegrationCreateIntegrationAuthorizedUserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationIntegration::class => LocalBaserowIntegrationIntegrationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationIntegrationContextData::class => LocalBaserowIntegrationIntegrationContextDataNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationIntegrationAuthorizedUser::class => LocalBaserowIntegrationIntegrationAuthorizedUserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationUpdateIntegration::class => LocalBaserowIntegrationUpdateIntegrationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationUpdateIntegrationContextData::class => LocalBaserowIntegrationUpdateIntegrationContextDataNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationUpdateIntegrationAuthorizedUser::class => LocalBaserowIntegrationUpdateIntegrationAuthorizedUserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowListRows::class => LocalBaserowListRowsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsCreateDataSource::class => LocalBaserowListRowsCreateDataSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsDataSource::class => LocalBaserowListRowsDataSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsPublicDataSource::class => LocalBaserowListRowsPublicDataSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsService::class => LocalBaserowListRowsServiceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsUpdateDataSource::class => LocalBaserowListRowsUpdateDataSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowPasswordAppAuthProviderAppAuthProvider::class => LocalBaserowPasswordAppAuthProviderAppAuthProviderNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowPasswordAppAuthProviderBaseAppAuthProvider::class => LocalBaserowPasswordAppAuthProviderBaseAppAuthProviderNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowTableServiceFieldMapping::class => LocalBaserowTableServiceFieldMappingNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowTableServiceFilter::class => LocalBaserowTableServiceFilterNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowTableServiceSort::class => LocalBaserowTableServiceSortNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowUpdateRowWorkflowActionBuilderWorkflowAction::class => LocalBaserowUpdateRowWorkflowActionBuilderWorkflowActionNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowUpdateRowWorkflowActionCreateBuilderWorkflowAction::class => LocalBaserowUpdateRowWorkflowActionCreateBuilderWorkflowActionNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowUpdateRowWorkflowActionUpdateBuilderWorkflowActions::class => LocalBaserowUpdateRowWorkflowActionUpdateBuilderWorkflowActionsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRow::class => LocalBaserowUpsertRowNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowCreateDataSource::class => LocalBaserowUpsertRowCreateDataSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowDataSource::class => LocalBaserowUpsertRowDataSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowPublicDataSource::class => LocalBaserowUpsertRowPublicDataSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowService::class => LocalBaserowUpsertRowServiceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowUpdateDataSource::class => LocalBaserowUpsertRowUpdateDataSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceBasePublicUserSource::class => LocalBaserowUserSourceBasePublicUserSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceCreateUserSource::class => LocalBaserowUserSourceCreateUserSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceUpdateUserSource::class => LocalBaserowUserSourceUpdateUserSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceUserSource::class => LocalBaserowUserSourceUserSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceUserSourceRoles::class => LocalBaserowUserSourceUserSourceRolesNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowView::class => LocalBaserowViewNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LogoutWorkflowActionBuilderWorkflowAction::class => LogoutWorkflowActionBuilderWorkflowActionNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LogoutWorkflowActionCreateBuilderWorkflowAction::class => LogoutWorkflowActionCreateBuilderWorkflowActionNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LogoutWorkflowActionUpdateBuilderWorkflowActions::class => LogoutWorkflowActionUpdateBuilderWorkflowActionsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LongTextFieldCreateField::class => LongTextFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LongTextFieldField::class => LongTextFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LongTextFieldFieldSerializerWithRelatedFields::class => LongTextFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LongTextFieldUpdateField::class => LongTextFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LookupFieldCreateField::class => LookupFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LookupFieldField::class => LookupFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LookupFieldFieldSerializerWithRelatedFields::class => LookupFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LookupFieldUpdateField::class => LookupFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\MultipleCollaboratorsFieldCreateField::class => MultipleCollaboratorsFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\MultipleCollaboratorsFieldField::class => MultipleCollaboratorsFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\MultipleCollaboratorsFieldFieldSerializerWithRelatedFields::class => MultipleCollaboratorsFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\MultipleCollaboratorsFieldUpdateField::class => MultipleCollaboratorsFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\MultipleSelectFieldCreateField::class => MultipleSelectFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\MultipleSelectFieldField::class => MultipleSelectFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\MultipleSelectFieldFieldSerializerWithRelatedFields::class => MultipleSelectFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\MultipleSelectFieldUpdateField::class => MultipleSelectFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\NotificationRecipient::class => NotificationRecipientNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\NotificationRecipientSender::class => NotificationRecipientSenderNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\NotificationWorkflowActionBuilderWorkflowAction::class => NotificationWorkflowActionBuilderWorkflowActionNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\NotificationWorkflowActionCreateBuilderWorkflowAction::class => NotificationWorkflowActionCreateBuilderWorkflowActionNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\NotificationWorkflowActionUpdateBuilderWorkflowActions::class => NotificationWorkflowActionUpdateBuilderWorkflowActionsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\NumberFieldCreateField::class => NumberFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\NumberFieldField::class => NumberFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\NumberFieldFieldSerializerWithRelatedFields::class => NumberFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\NumberFieldUpdateField::class => NumberFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\OllamaSettings::class => OllamaSettingsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\OpenAISettings::class => OpenAISettingsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\OpenApiRoleAssignment::class => OpenApiRoleAssignmentNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\OpenApiRoleAssignmentSubject::class => OpenApiRoleAssignmentSubjectNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\OpenApiSubjectField::class => OpenApiSubjectFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\OpenIdConnectAuthProviderModelAuthProvider::class => OpenIdConnectAuthProviderModelAuthProviderNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\OpenPageWorkflowActionBuilderWorkflowAction::class => OpenPageWorkflowActionBuilderWorkflowActionNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\OpenPageWorkflowActionCreateBuilderWorkflowAction::class => OpenPageWorkflowActionCreateBuilderWorkflowActionNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\OpenPageWorkflowActionUpdateBuilderWorkflowActions::class => OpenPageWorkflowActionUpdateBuilderWorkflowActionsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\OrderApplications::class => OrderApplicationsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\OrderDomains::class => OrderDomainsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\OrderPages::class => OrderPagesNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\OrderTables::class => OrderTablesNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\OrderViews::class => OrderViewsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\OrderWorkflowActions::class => OrderWorkflowActionsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\OrderWorkspaces::class => OrderWorkspacesNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\Page::class => PageNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PageParameterValue::class => PageParameterValueNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PaginationSerializerAuditLog::class => PaginationSerializerAuditLogNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PaginationSerializerAuditLogUser::class => PaginationSerializerAuditLogUserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PaginationSerializerAuditLogWorkspace::class => PaginationSerializerAuditLogWorkspaceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PaginationRowResponse::class => PaginationRowResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PaginationSerializerLicenseUserLookup::class => PaginationSerializerLicenseUserLookupNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PaginationSerializerLinkRowValue::class => PaginationSerializerLinkRowValueNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PaginationSerializerNotificationRecipient::class => PaginationSerializerNotificationRecipientNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PaginationSerializerRowComment::class => PaginationSerializerRowCommentNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PaginationSerializerRowHistory::class => PaginationSerializerRowHistoryNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PaginationSerializerTrashContents::class => PaginationSerializerTrashContentsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PaginationSerializerUserAdminResponse::class => PaginationSerializerUserAdminResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PaginationSerializerWithGalleryViewFieldOptionsExampleRowResponse::class => PaginationSerializerWithGalleryViewFieldOptionsExampleRowResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PaginationSerializerWithGridViewFieldOptionsExampleRowResponse::class => PaginationSerializerWithGridViewFieldOptionsExampleRowResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PaginationSerializerWorkspacesAdminResponse::class => PaginationSerializerWorkspacesAdminResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PasswordAuthProviderModelAuthProvider::class => PasswordAuthProviderModelAuthProviderNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PasswordFieldCreateField::class => PasswordFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PasswordFieldField::class => PasswordFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PasswordFieldFieldSerializerWithRelatedFields::class => PasswordFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PasswordFieldUpdateField::class => PasswordFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedAccount::class => PatchedAccountNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedCombinedThemeConfigBlocks::class => PatchedCombinedThemeConfigBlocksNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedCombinedThemeConfigBlocksPageBackgroundFile::class => PatchedCombinedThemeConfigBlocksPageBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchRowsRequest::class => PatchRowsRequestNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchRowRequest::class => PatchRowRequestNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedGenerativeAISettings::class => PatchedGenerativeAISettingsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedMoveDataSource::class => PatchedMoveDataSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedMoveElement::class => PatchedMoveElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedMoveIntegration::class => PatchedMoveIntegrationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedMoveUserSource::class => PatchedMoveUserSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedSettings::class => PatchedSettingsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedSettingsCoBrandingLogo::class => PatchedSettingsCoBrandingLogoNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedTableUpdate::class => PatchedTableUpdateNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedTableWebhookUpdateRequest::class => PatchedTableWebhookUpdateRequestNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedTokenUpdate::class => PatchedTokenUpdateNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedTokenUpdatePermissions::class => PatchedTokenUpdatePermissionsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedTrashEntryRequest::class => PatchedTrashEntryRequestNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedUndoRedoRequest::class => PatchedUndoRedoRequestNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedUndoRedoRequestScopes::class => PatchedUndoRedoRequestScopesNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedUpdateDomain::class => PatchedUpdateDomainNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedUpdatePage::class => PatchedUpdatePageNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedUpdatePremiumViewAttributes::class => PatchedUpdatePremiumViewAttributesNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedUpdateViewFilter::class => PatchedUpdateViewFilterNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedUpdateViewFilterGroup::class => PatchedUpdateViewFilterGroupNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedUpdateViewGroupBy::class => PatchedUpdateViewGroupByNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedUpdateViewSort::class => PatchedUpdateViewSortNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedUpdateWorkspaceInvitation::class => PatchedUpdateWorkspaceInvitationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedUpdateWorkspaceUser::class => PatchedUpdateWorkspaceUserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedUserAdminUpdate::class => PatchedUserAdminUpdateNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedWorkspace::class => PatchedWorkspaceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PathParam::class => PathParamNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PermissionObject::class => PermissionObjectNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PhoneNumberFieldCreateField::class => PhoneNumberFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PhoneNumberFieldField::class => PhoneNumberFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PhoneNumberFieldFieldSerializerWithRelatedFields::class => PhoneNumberFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PhoneNumberFieldUpdateField::class => PhoneNumberFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicBuilder::class => PublicBuilderNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicBuilderTheme::class => PublicBuilderThemeNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicField::class => PublicFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicFormView::class => PublicFormViewNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicFormViewCoverImage::class => PublicFormViewCoverImageNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicFormViewLogoImage::class => PublicFormViewLogoImageNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicFormViewField::class => PublicFormViewFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicFormViewFieldOptions::class => PublicFormViewFieldOptionsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicFormViewFieldOptionsField::class => PublicFormViewFieldOptionsFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicNone::class => PublicNoneNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicPage::class => PublicPageNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicPaginationSerializerWithGalleryViewFieldOptionsExampleRowResponse::class => PublicPaginationSerializerWithGalleryViewFieldOptionsExampleRowResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicPaginationSerializerWithGridViewFieldOptionsExampleRowResponse::class => PublicPaginationSerializerWithGridViewFieldOptionsExampleRowResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicView::class => PublicViewNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicViewAuthRequest::class => PublicViewAuthRequestNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicViewAuthResponse::class => PublicViewAuthResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicViewGroupBy::class => PublicViewGroupByNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicViewInfo::class => PublicViewInfoNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicViewInfoView::class => PublicViewInfoViewNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicViewSort::class => PublicViewSortNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicViewTable::class => PublicViewTableNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublishDomainJobCreateJob::class => PublishDomainJobCreateJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublishDomainJobJob::class => PublishDomainJobJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RatingFieldCreateField::class => RatingFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RatingFieldField::class => RatingFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RatingFieldFieldSerializerWithRelatedFields::class => RatingFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RatingFieldUpdateField::class => RatingFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RefreshDataSourceWorkflowActionBuilderWorkflowAction::class => RefreshDataSourceWorkflowActionBuilderWorkflowActionNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RefreshDataSourceWorkflowActionCreateBuilderWorkflowAction::class => RefreshDataSourceWorkflowActionCreateBuilderWorkflowActionNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RefreshDataSourceWorkflowActionUpdateBuilderWorkflowActions::class => RefreshDataSourceWorkflowActionUpdateBuilderWorkflowActionsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\Register::class => RegisterNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RegisterLicense::class => RegisterLicenseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RelatedFields::class => RelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RepeatElementCreateElement::class => RepeatElementCreateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RepeatElementCreateElementStyleBackgroundFile::class => RepeatElementCreateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RepeatElementElement::class => RepeatElementElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RepeatElementElementStyleBackgroundFile::class => RepeatElementElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RepeatElementPublicElement::class => RepeatElementPublicElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RepeatElementPublicElementStyleBackgroundFile::class => RepeatElementPublicElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RepeatElementUpdateElement::class => RepeatElementUpdateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RepeatElementUpdateElementStyleBackgroundFile::class => RepeatElementUpdateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\Report::class => ReportNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ResetPasswordBodyValidation::class => ResetPasswordBodyValidationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RestoreSnapshotJobCreateJob::class => RestoreSnapshotJobCreateJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RestoreSnapshotJobJob::class => RestoreSnapshotJobJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RollupFieldCreateField::class => RollupFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RollupFieldField::class => RollupFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RollupFieldFieldSerializerWithRelatedFields::class => RollupFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RollupFieldUpdateField::class => RollupFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RowComment::class => RowCommentNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RowCommentCreate::class => RowCommentCreateNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RowCommentsNotificationMode::class => RowCommentsNotificationModeNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RowHistory::class => RowHistoryNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RowHistoryUser::class => RowHistoryUserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RowMetadata::class => RowMetadataNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SAMLResponse::class => SAMLResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SamlAuthProviderModelAuthProvider::class => SamlAuthProviderModelAuthProviderNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SelectColorValueProviderConf::class => SelectColorValueProviderConfNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SelectOption::class => SelectOptionNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SendResetPasswordEmailBodyValidation::class => SendResetPasswordEmailBodyValidationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\Sender::class => SenderNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\Settings::class => SettingsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SettingsCoBrandingLogo::class => SettingsCoBrandingLogoNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleAuditLogExportJobRequest::class => SingleAuditLogExportJobRequestNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleAuditLogExportJobResponse::class => SingleAuditLogExportJobResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleDuplicateApplicationJobType::class => SingleDuplicateApplicationJobTypeNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleDuplicateFieldJobType::class => SingleDuplicateFieldJobTypeNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleDuplicateFieldJobTypeOriginalField::class => SingleDuplicateFieldJobTypeOriginalFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleDuplicateFieldJobTypeDuplicatedField::class => SingleDuplicateFieldJobTypeDuplicatedFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleDuplicatePageJobType::class => SingleDuplicatePageJobTypeNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleDuplicatePageJobTypeOriginalPage::class => SingleDuplicatePageJobTypeOriginalPageNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleDuplicatePageJobTypeDuplicatedPage::class => SingleDuplicatePageJobTypeDuplicatedPageNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleDuplicateTableJobType::class => SingleDuplicateTableJobTypeNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleDuplicateTableJobTypeOriginalTable::class => SingleDuplicateTableJobTypeOriginalTableNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleDuplicateTableJobTypeDuplicatedTable::class => SingleDuplicateTableJobTypeDuplicatedTableNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleFileImportJobSerializerClass::class => SingleFileImportJobSerializerClassNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleFileImportJobSerializerClassReport::class => SingleFileImportJobSerializerClassReportNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleInstallTemplateJobType::class => SingleInstallTemplateJobTypeNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleInstallTemplateJobTypeWorkspace::class => SingleInstallTemplateJobTypeWorkspaceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleInstallTemplateJobTypeTemplate::class => SingleInstallTemplateJobTypeTemplateNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleInstallTemplateJobTypeGroup::class => SingleInstallTemplateJobTypeGroupNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleSelectFieldCreateField::class => SingleSelectFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleSelectFieldField::class => SingleSelectFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleSelectFieldFieldSerializerWithRelatedFields::class => SingleSelectFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleSelectFieldUpdateField::class => SingleSelectFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\Snapshot::class => SnapshotNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SnapshotCreatedBy::class => SnapshotCreatedByNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SubDomainCreateDomain::class => SubDomainCreateDomainNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SubDomainDomain::class => SubDomainDomainNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SubjectUser::class => SubjectUserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\Table::class => TableNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TableCreate::class => TableCreateNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TableElementCreateElement::class => TableElementCreateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TableElementCreateElementStyleBackgroundFile::class => TableElementCreateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TableElementElement::class => TableElementElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TableElementElementStyleBackgroundFile::class => TableElementElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TableElementPublicElement::class => TableElementPublicElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TableElementPublicElementStyleBackgroundFile::class => TableElementPublicElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TableElementUpdateElement::class => TableElementUpdateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TableElementUpdateElementStyleBackgroundFile::class => TableElementUpdateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TableImport::class => TableImportNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TableSerializerWithFields::class => TableSerializerWithFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TableWebhook::class => TableWebhookNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TableWebhookCall::class => TableWebhookCallNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TableWebhookCreateRequest::class => TableWebhookCreateRequestNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TableWebhookTestCallRequest::class => TableWebhookTestCallRequestNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TableWebhookTestCallResponse::class => TableWebhookTestCallResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\Team::class => TeamNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TeamResponse::class => TeamResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TeamSampleSubject::class => TeamSampleSubjectNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TeamSubject::class => TeamSubjectNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TeamSubjectResponse::class => TeamSubjectResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\Template::class => TemplateNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TemplateCategories::class => TemplateCategoriesNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TextElementCreateElement::class => TextElementCreateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TextElementCreateElementStyleBackgroundFile::class => TextElementCreateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TextElementElement::class => TextElementElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TextElementElementStyleBackgroundFile::class => TextElementElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TextElementPublicElement::class => TextElementPublicElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TextElementPublicElementStyleBackgroundFile::class => TextElementPublicElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TextElementUpdateElement::class => TextElementUpdateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TextElementUpdateElementStyleBackgroundFile::class => TextElementUpdateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TextFieldCreateField::class => TextFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TextFieldField::class => TextFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TextFieldFieldSerializerWithRelatedFields::class => TextFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TextFieldUpdateField::class => TextFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\Token::class => TokenNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TokenPermissions::class => TokenPermissionsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TokenBlacklist::class => TokenBlacklistNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TokenCreate::class => TokenCreateNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TokenObtainPair::class => TokenObtainPairNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TokenObtainPairWithUser::class => TokenObtainPairWithUserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TokenRefreshWithUser::class => TokenRefreshWithUserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TokenVerifyWithUser::class => TokenVerifyWithUserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TrashContents::class => TrashContentsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TrashStructure::class => TrashStructureNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TrashStructureApplication::class => TrashStructureApplicationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TrashStructureGroup::class => TrashStructureGroupNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TypeFormulaRequest::class => TypeFormulaRequestNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TypeFormulaResult::class => TypeFormulaResultNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TypographyConfigBlock::class => TypographyConfigBlockNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TypographyConfigBlockTypography::class => TypographyConfigBlockTypographyNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TypographyThemeConfigBlock::class => TypographyThemeConfigBlockNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\URLFieldCreateField::class => URLFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\URLFieldField::class => URLFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\URLFieldFieldSerializerWithRelatedFields::class => URLFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\URLFieldUpdateField::class => URLFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\UUIDFieldCreateField::class => UUIDFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\UUIDFieldField::class => UUIDFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\UUIDFieldFieldSerializerWithRelatedFields::class => UUIDFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\UUIDFieldUpdateField::class => UUIDFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\UndoRedoAction::class => UndoRedoActionNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\UndoRedoResponse::class => UndoRedoResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\UniqueRowValues::class => UniqueRowValuesNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\User::class => UserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\UserAdminCreate::class => UserAdminCreateNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\UserAdminGroups::class => UserAdminGroupsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\UserAdminResponse::class => UserAdminResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\UserFile::class => UserFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\UserFileUploadViaURLRequest::class => UserFileUploadViaURLRequestNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\UserSourceUser::class => UserSourceUserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\UserWorkspaceInvitation::class => UserWorkspaceInvitationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\UsersPerUserSource::class => UsersPerUserSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\VerifyEmailAddress::class => VerifyEmailAddressNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\View::class => ViewNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ViewDecoration::class => ViewDecorationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ViewFilter::class => ViewFilterNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ViewFilterGroup::class => ViewFilterGroupNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ViewGroupBy::class => ViewGroupByNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ViewSort::class => ViewSortNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\Workspace::class => WorkspaceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\WorkspaceAdminUsers::class => WorkspaceAdminUsersNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\WorkspaceInvitation::class => WorkspaceInvitationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\WorkspaceUser::class => WorkspaceUserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\WorkspaceUserEnterpriseTeam::class => WorkspaceUserEnterpriseTeamNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\WorkspaceUserWorkspace::class => WorkspaceUserWorkspaceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\WorkspacesAdminResponse::class => WorkspacesAdminResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CalendarViewUpdate::class => CalendarViewUpdateNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormViewUpdate::class => FormViewUpdateNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormViewUpdateCoverImage::class => FormViewUpdateCoverImageNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormViewUpdateLogoImage::class => FormViewUpdateLogoImageNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GalleryViewUpdate::class => GalleryViewUpdateNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GridViewUpdate::class => GridViewUpdateNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\KanbanViewUpdate::class => KanbanViewUpdateNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiHealthEmailPostResponse400::class => ApiHealthEmailPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogGetResponse400::class => ApiAdminAuditLogGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogActionTypesGetResponse400::class => ApiAdminAuditLogActionTypesGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogExportPostResponse400::class => ApiAdminAuditLogExportPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogExportPostResponse404::class => ApiAdminAuditLogExportPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogUsersGetResponse400::class => ApiAdminAuditLogUsersGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogWorkspacesGetResponse400::class => ApiAdminAuditLogWorkspacesGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderPostResponse400::class => ApiAdminAuthProviderPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderAuthProviderIdDeleteResponse404::class => ApiAdminAuthProviderAuthProviderIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderAuthProviderIdGetResponse404::class => ApiAdminAuthProviderAuthProviderIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderAuthProviderIdPatchResponse400::class => ApiAdminAuthProviderAuthProviderIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderAuthProviderIdPatchResponse404::class => ApiAdminAuthProviderAuthProviderIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminGroupsGetResponse400::class => ApiAdminGroupsGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminGroupsGroupIdDeleteResponse400::class => ApiAdminGroupsGroupIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminUsersGetResponse400::class => ApiAdminUsersGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminUsersPostResponse400::class => ApiAdminUsersPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminUsersUserIdDeleteResponse400::class => ApiAdminUsersUserIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminUsersUserIdPatchResponse400::class => ApiAdminUsersUserIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminUsersImpersonatePostResponse200::class => ApiAdminUsersImpersonatePostResponse200Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminUsersImpersonatePostResponse200User::class => ApiAdminUsersImpersonatePostResponse200UserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminWorkspacesGetResponse400::class => ApiAdminWorkspacesGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminWorkspacesWorkspaceIdDeleteResponse400::class => ApiAdminWorkspacesWorkspaceIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdIntegrationsGetResponse404::class => ApiApplicationApplicationIdIntegrationsGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdIntegrationsPostResponse400::class => ApiApplicationApplicationIdIntegrationsPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdIntegrationsPostResponse404::class => ApiApplicationApplicationIdIntegrationsPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdListUserSourceUsersGetResponse404::class => ApiApplicationApplicationIdListUserSourceUsersGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdUserSourcesGetResponse404::class => ApiApplicationApplicationIdUserSourcesGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdUserSourcesPostResponse400::class => ApiApplicationApplicationIdUserSourcesPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdUserSourcesPostResponse404::class => ApiApplicationApplicationIdUserSourcesPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdUserSourcesRolesGetResponse404::class => ApiApplicationApplicationIdUserSourcesRolesGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsGetResponse400::class => ApiApplicationsGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdDeleteResponse400::class => ApiApplicationsApplicationIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdDeleteResponse404::class => ApiApplicationsApplicationIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdGetResponse400::class => ApiApplicationsApplicationIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdGetResponse404::class => ApiApplicationsApplicationIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdPatchResponse400::class => ApiApplicationsApplicationIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdPatchResponse404::class => ApiApplicationsApplicationIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdDuplicateAsyncPostResponse400::class => ApiApplicationsApplicationIdDuplicateAsyncPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdDuplicateAsyncPostResponse404::class => ApiApplicationsApplicationIdDuplicateAsyncPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdGetResponse400::class => ApiApplicationsGroupGroupIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdGetResponse404::class => ApiApplicationsGroupGroupIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdPostResponse400::class => ApiApplicationsGroupGroupIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdPostResponse404::class => ApiApplicationsGroupGroupIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdOrderPostResponse400::class => ApiApplicationsGroupGroupIdOrderPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdOrderPostResponse404::class => ApiApplicationsGroupGroupIdOrderPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdGetResponse400::class => ApiApplicationsWorkspaceWorkspaceIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdGetResponse404::class => ApiApplicationsWorkspaceWorkspaceIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdPostResponse400::class => ApiApplicationsWorkspaceWorkspaceIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdPostResponse404::class => ApiApplicationsWorkspaceWorkspaceIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdOrderPostResponse400::class => ApiApplicationsWorkspaceWorkspaceIdOrderPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdOrderPostResponse404::class => ApiApplicationsWorkspaceWorkspaceIdOrderPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAuditLogGetResponse400::class => ApiAuditLogGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAuditLogActionTypesGetResponse400::class => ApiAuditLogActionTypesGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAuditLogExportPostResponse400::class => ApiAuditLogExportPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAuditLogExportPostResponse404::class => ApiAuditLogExportPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAuditLogUsersGetResponse400::class => ApiAuditLogUsersGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAuditLogWorkspacesGetResponse400::class => ApiAuditLogWorkspacesGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsGetResponse400::class => ApiBuilderBuilderIdDomainsGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsGetResponse404::class => ApiBuilderBuilderIdDomainsGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsPostResponse400::class => ApiBuilderBuilderIdDomainsPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsPostResponse404::class => ApiBuilderBuilderIdDomainsPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsOrderPostResponse400::class => ApiBuilderBuilderIdDomainsOrderPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsOrderPostResponse404::class => ApiBuilderBuilderIdDomainsOrderPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdPagesPostResponse400::class => ApiBuilderBuilderIdPagesPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdPagesPostResponse404::class => ApiBuilderBuilderIdPagesPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdPagesOrderPostResponse400::class => ApiBuilderBuilderIdPagesOrderPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdPagesOrderPostResponse404::class => ApiBuilderBuilderIdPagesOrderPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdThemePatchResponse400::class => ApiBuilderBuilderIdThemePatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdThemePatchResponse404::class => ApiBuilderBuilderIdThemePatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdDeleteResponse400::class => ApiBuilderDataSourceDataSourceIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdDeleteResponse404::class => ApiBuilderDataSourceDataSourceIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdPatchResponse400::class => ApiBuilderDataSourceDataSourceIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdPatchResponse404::class => ApiBuilderDataSourceDataSourceIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdDispatchPostResponse404::class => ApiBuilderDataSourceDataSourceIdDispatchPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdMovePatchResponse400::class => ApiBuilderDataSourceDataSourceIdMovePatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdMovePatchResponse404::class => ApiBuilderDataSourceDataSourceIdMovePatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdDeleteResponse400::class => ApiBuilderDomainsDomainIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdDeleteResponse404::class => ApiBuilderDomainsDomainIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdPatchResponse400::class => ApiBuilderDomainsDomainIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdPatchResponse404::class => ApiBuilderDomainsDomainIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdPublishAsyncPostResponse400::class => ApiBuilderDomainsDomainIdPublishAsyncPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdPublishAsyncPostResponse404::class => ApiBuilderDomainsDomainIdPublishAsyncPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsPublishedByIdBuilderIdGetResponse404::class => ApiBuilderDomainsPublishedByIdBuilderIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsPublishedByNameDomainNameGetResponse404::class => ApiBuilderDomainsPublishedByNameDomainNameGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsPublishedPagePageIdDataSourcesGetResponse404::class => ApiBuilderDomainsPublishedPagePageIdDataSourcesGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsPublishedPagePageIdElementsGetResponse404::class => ApiBuilderDomainsPublishedPagePageIdElementsGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsPublishedPagePageIdWorkflowActionsGetResponse404::class => ApiBuilderDomainsPublishedPagePageIdWorkflowActionsGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdDeleteResponse400::class => ApiBuilderElementElementIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdDeleteResponse404::class => ApiBuilderElementElementIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdPatchResponse400::class => ApiBuilderElementElementIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdPatchResponse404::class => ApiBuilderElementElementIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdDuplicatePostResponse400::class => ApiBuilderElementElementIdDuplicatePostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdDuplicatePostResponse404::class => ApiBuilderElementElementIdDuplicatePostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdMovePatchResponse400::class => ApiBuilderElementElementIdMovePatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdMovePatchResponse404::class => ApiBuilderElementElementIdMovePatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdDataSourcesGetResponse404::class => ApiBuilderPagePageIdDataSourcesGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdDataSourcesPostResponse400::class => ApiBuilderPagePageIdDataSourcesPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdDataSourcesPostResponse404::class => ApiBuilderPagePageIdDataSourcesPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdDispatchDataSourcesPostResponse404::class => ApiBuilderPagePageIdDispatchDataSourcesPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdElementsGetResponse404::class => ApiBuilderPagePageIdElementsGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdElementsPostResponse400::class => ApiBuilderPagePageIdElementsPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdElementsPostResponse404::class => ApiBuilderPagePageIdElementsPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdWorkflowActionsGetResponse404::class => ApiBuilderPagePageIdWorkflowActionsGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdWorkflowActionsPostResponse400::class => ApiBuilderPagePageIdWorkflowActionsPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdWorkflowActionsPostResponse404::class => ApiBuilderPagePageIdWorkflowActionsPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdWorkflowActionsOrderPostResponse400::class => ApiBuilderPagePageIdWorkflowActionsOrderPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdWorkflowActionsOrderPostResponse404::class => ApiBuilderPagePageIdWorkflowActionsOrderPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdDeleteResponse400::class => ApiBuilderPagesPageIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdDeleteResponse404::class => ApiBuilderPagesPageIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdPatchResponse400::class => ApiBuilderPagesPageIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdPatchResponse404::class => ApiBuilderPagesPageIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdDuplicateAsyncPostResponse400::class => ApiBuilderPagesPageIdDuplicateAsyncPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdDuplicateAsyncPostResponse404::class => ApiBuilderPagesPageIdDuplicateAsyncPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse400::class => ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse404::class => ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdPatchResponse400::class => ApiBuilderWorkflowActionWorkflowActionIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdPatchResponse404::class => ApiBuilderWorkflowActionWorkflowActionIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDispatchPostResponse400::class => ApiBuilderWorkflowActionWorkflowActionIdDispatchPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseExportJobIdGetResponse404::class => ApiDatabaseExportJobIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseExportTableTableIdPostResponse400::class => ApiDatabaseExportTableTableIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseExportTableTableIdPostResponse404::class => ApiDatabaseExportTableTableIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdDeleteResponse400::class => ApiDatabaseFieldsFieldIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdDeleteResponse404::class => ApiDatabaseFieldsFieldIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdGetResponse400::class => ApiDatabaseFieldsFieldIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdGetResponse404::class => ApiDatabaseFieldsFieldIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdPatchResponse400::class => ApiDatabaseFieldsFieldIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdPatchResponse404::class => ApiDatabaseFieldsFieldIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse400::class => ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse404::class => ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse400::class => ApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse404::class => ApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse400::class => ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse404::class => ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdGetResponse400::class => ApiDatabaseFieldsTableTableIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdGetResponse401::class => ApiDatabaseFieldsTableTableIdGetResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdGetResponse404::class => ApiDatabaseFieldsTableTableIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdPostResponse400::class => ApiDatabaseFieldsTableTableIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdPostResponse401::class => ApiDatabaseFieldsTableTableIdPostResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdPostResponse404::class => ApiDatabaseFieldsTableTableIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse400::class => ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse404::class => ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFormulaTableIdTypePostResponse400::class => ApiDatabaseFormulaTableIdTypePostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFormulaTableIdTypePostResponse404::class => ApiDatabaseFormulaTableIdTypePostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse200::class => ApiDatabaseRowsNamesGetResponse200Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse200TableId::class => ApiDatabaseRowsNamesGetResponse200TableIdNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse400::class => ApiDatabaseRowsNamesGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse401::class => ApiDatabaseRowsNamesGetResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse404::class => ApiDatabaseRowsNamesGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdGetResponse400::class => ApiDatabaseRowsTableTableIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdGetResponse401::class => ApiDatabaseRowsTableTableIdGetResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdGetResponse404::class => ApiDatabaseRowsTableTableIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdPostResponse400::class => ApiDatabaseRowsTableTableIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdPostResponse401::class => ApiDatabaseRowsTableTableIdPostResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdPostResponse404::class => ApiDatabaseRowsTableTableIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdDeleteResponse400::class => ApiDatabaseRowsTableTableIdRowIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdDeleteResponse404::class => ApiDatabaseRowsTableTableIdRowIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdGetResponse400::class => ApiDatabaseRowsTableTableIdRowIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdGetResponse401::class => ApiDatabaseRowsTableTableIdRowIdGetResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdGetResponse404::class => ApiDatabaseRowsTableTableIdRowIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdPatchResponse400::class => ApiDatabaseRowsTableTableIdRowIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdPatchResponse401::class => ApiDatabaseRowsTableTableIdRowIdPatchResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdPatchResponse404::class => ApiDatabaseRowsTableTableIdRowIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdAdjacentGetResponse400::class => ApiDatabaseRowsTableTableIdRowIdAdjacentGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdAdjacentGetResponse404::class => ApiDatabaseRowsTableTableIdRowIdAdjacentGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdHistoryGetResponse400::class => ApiDatabaseRowsTableTableIdRowIdHistoryGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdHistoryGetResponse404::class => ApiDatabaseRowsTableTableIdRowIdHistoryGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdMovePatchResponse400::class => ApiDatabaseRowsTableTableIdRowIdMovePatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdMovePatchResponse401::class => ApiDatabaseRowsTableTableIdRowIdMovePatchResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdMovePatchResponse404::class => ApiDatabaseRowsTableTableIdRowIdMovePatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse400::class => ApiDatabaseRowsTableTableIdBatchPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse401::class => ApiDatabaseRowsTableTableIdBatchPatchResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse404::class => ApiDatabaseRowsTableTableIdBatchPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPostResponse400::class => ApiDatabaseRowsTableTableIdBatchPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPostResponse401::class => ApiDatabaseRowsTableTableIdBatchPostResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPostResponse404::class => ApiDatabaseRowsTableTableIdBatchPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchDeletePostResponse400::class => ApiDatabaseRowsTableTableIdBatchDeletePostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchDeletePostResponse404::class => ApiDatabaseRowsTableTableIdBatchDeletePostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdDeleteResponse400::class => ApiDatabaseTablesTableIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdDeleteResponse404::class => ApiDatabaseTablesTableIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdGetResponse400::class => ApiDatabaseTablesTableIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdGetResponse404::class => ApiDatabaseTablesTableIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdPatchResponse400::class => ApiDatabaseTablesTableIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdPatchResponse404::class => ApiDatabaseTablesTableIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdDuplicateAsyncPostResponse400::class => ApiDatabaseTablesTableIdDuplicateAsyncPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdDuplicateAsyncPostResponse404::class => ApiDatabaseTablesTableIdDuplicateAsyncPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdImportAsyncPostResponse400::class => ApiDatabaseTablesTableIdImportAsyncPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdImportAsyncPostResponse404::class => ApiDatabaseTablesTableIdImportAsyncPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdGetResponse400::class => ApiDatabaseTablesDatabaseDatabaseIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdGetResponse404::class => ApiDatabaseTablesDatabaseDatabaseIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdPostResponse400::class => ApiDatabaseTablesDatabaseDatabaseIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdPostResponse404::class => ApiDatabaseTablesDatabaseDatabaseIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdAsyncPostResponse400::class => ApiDatabaseTablesDatabaseDatabaseIdAsyncPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdAsyncPostResponse404::class => ApiDatabaseTablesDatabaseDatabaseIdAsyncPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdOrderPostResponse400::class => ApiDatabaseTablesDatabaseDatabaseIdOrderPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdOrderPostResponse404::class => ApiDatabaseTablesDatabaseDatabaseIdOrderPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensPostResponse400::class => ApiDatabaseTokensPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdDeleteResponse400::class => ApiDatabaseTokensTokenIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdDeleteResponse404::class => ApiDatabaseTokensTokenIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdGetResponse400::class => ApiDatabaseTokensTokenIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdGetResponse404::class => ApiDatabaseTokensTokenIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdPatchResponse400::class => ApiDatabaseTokensTokenIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdPatchResponse404::class => ApiDatabaseTokensTokenIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensCheckGetResponse403::class => ApiDatabaseTokensCheckGetResponse403Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewViewIdPremiumPatchResponse400::class => ApiDatabaseViewViewIdPremiumPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewViewIdPremiumPatchResponse404::class => ApiDatabaseViewViewIdPremiumPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse401::class => ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse404::class => ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugPublicAuthPostResponse404::class => ApiDatabaseViewsSlugPublicAuthPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugPublicInfoGetResponse400::class => ApiDatabaseViewsSlugPublicInfoGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugPublicInfoGetResponse401::class => ApiDatabaseViewsSlugPublicInfoGetResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugPublicInfoGetResponse404::class => ApiDatabaseViewsSlugPublicInfoGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDeleteResponse400::class => ApiDatabaseViewsViewIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDeleteResponse404::class => ApiDatabaseViewsViewIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGetResponse400::class => ApiDatabaseViewsViewIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGetResponse404::class => ApiDatabaseViewsViewIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdPatchResponse400::class => ApiDatabaseViewsViewIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdPatchResponse404::class => ApiDatabaseViewsViewIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDecorationsGetResponse400::class => ApiDatabaseViewsViewIdDecorationsGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDecorationsGetResponse404::class => ApiDatabaseViewsViewIdDecorationsGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDecorationsPostResponse400::class => ApiDatabaseViewsViewIdDecorationsPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDecorationsPostResponse404::class => ApiDatabaseViewsViewIdDecorationsPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDuplicatePostResponse400::class => ApiDatabaseViewsViewIdDuplicatePostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDuplicatePostResponse404::class => ApiDatabaseViewsViewIdDuplicatePostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsGetResponse400::class => ApiDatabaseViewsViewIdFieldOptionsGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsGetResponse404::class => ApiDatabaseViewsViewIdFieldOptionsGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsPatchResponse400::class => ApiDatabaseViewsViewIdFieldOptionsPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsPatchResponse404::class => ApiDatabaseViewsViewIdFieldOptionsPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFilterGroupsPostResponse400::class => ApiDatabaseViewsViewIdFilterGroupsPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFilterGroupsPostResponse404::class => ApiDatabaseViewsViewIdFilterGroupsPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFiltersGetResponse400::class => ApiDatabaseViewsViewIdFiltersGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFiltersGetResponse404::class => ApiDatabaseViewsViewIdFiltersGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFiltersPostResponse400::class => ApiDatabaseViewsViewIdFiltersPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFiltersPostResponse404::class => ApiDatabaseViewsViewIdFiltersPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGroupBysGetResponse400::class => ApiDatabaseViewsViewIdGroupBysGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGroupBysGetResponse404::class => ApiDatabaseViewsViewIdGroupBysGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGroupBysPostResponse400::class => ApiDatabaseViewsViewIdGroupBysPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGroupBysPostResponse404::class => ApiDatabaseViewsViewIdGroupBysPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdRotateSlugPostResponse400::class => ApiDatabaseViewsViewIdRotateSlugPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdRotateSlugPostResponse404::class => ApiDatabaseViewsViewIdRotateSlugPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdSortingsGetResponse400::class => ApiDatabaseViewsViewIdSortingsGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdSortingsGetResponse404::class => ApiDatabaseViewsViewIdSortingsGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdSortingsPostResponse400::class => ApiDatabaseViewsViewIdSortingsPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdSortingsPostResponse404::class => ApiDatabaseViewsViewIdSortingsPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse401::class => ApiDatabaseViewsCalendarSlugPublicRowsGetResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse400::class => ApiDatabaseViewsCalendarSlugPublicRowsGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse404::class => ApiDatabaseViewsCalendarSlugPublicRowsGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarViewIdGetResponse400::class => ApiDatabaseViewsCalendarViewIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarViewIdGetResponse404::class => ApiDatabaseViewsCalendarViewIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdDeleteResponse400::class => ApiDatabaseViewsDecorationViewDecorationIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdDeleteResponse404::class => ApiDatabaseViewsDecorationViewDecorationIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdGetResponse400::class => ApiDatabaseViewsDecorationViewDecorationIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdGetResponse404::class => ApiDatabaseViewsDecorationViewDecorationIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdPatchResponse400::class => ApiDatabaseViewsDecorationViewDecorationIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdPatchResponse404::class => ApiDatabaseViewsDecorationViewDecorationIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdDeleteResponse400::class => ApiDatabaseViewsFilterGroupFilterGroupIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdDeleteResponse404::class => ApiDatabaseViewsFilterGroupFilterGroupIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse400::class => ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse404::class => ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdPatchResponse400::class => ApiDatabaseViewsFilterGroupFilterGroupIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdPatchResponse404::class => ApiDatabaseViewsFilterGroupFilterGroupIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdDeleteResponse400::class => ApiDatabaseViewsFilterViewFilterIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdDeleteResponse404::class => ApiDatabaseViewsFilterViewFilterIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdGetResponse400::class => ApiDatabaseViewsFilterViewFilterIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdGetResponse404::class => ApiDatabaseViewsFilterViewFilterIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdPatchResponse400::class => ApiDatabaseViewsFilterViewFilterIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdPatchResponse404::class => ApiDatabaseViewsFilterViewFilterIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugSubmitGetResponse401::class => ApiDatabaseViewsFormSlugSubmitGetResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugSubmitGetResponse404::class => ApiDatabaseViewsFormSlugSubmitGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugSubmitPostResponse401::class => ApiDatabaseViewsFormSlugSubmitPostResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugSubmitPostResponse404::class => ApiDatabaseViewsFormSlugSubmitPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse401::class => ApiDatabaseViewsFormSlugUploadFilePostResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse400::class => ApiDatabaseViewsFormSlugUploadFilePostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse404::class => ApiDatabaseViewsFormSlugUploadFilePostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse400::class => ApiDatabaseViewsGallerySlugPublicRowsGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse401::class => ApiDatabaseViewsGallerySlugPublicRowsGetResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse404::class => ApiDatabaseViewsGallerySlugPublicRowsGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGalleryViewIdGetResponse400::class => ApiDatabaseViewsGalleryViewIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGalleryViewIdGetResponse404::class => ApiDatabaseViewsGalleryViewIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse200::class => ApiDatabaseViewsGridSlugPublicAggregationsGetResponse200Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse400::class => ApiDatabaseViewsGridSlugPublicAggregationsGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse401::class => ApiDatabaseViewsGridSlugPublicAggregationsGetResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse404::class => ApiDatabaseViewsGridSlugPublicAggregationsGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse400::class => ApiDatabaseViewsGridSlugPublicRowsGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse401::class => ApiDatabaseViewsGridSlugPublicRowsGetResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse404::class => ApiDatabaseViewsGridSlugPublicRowsGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdGetResponse400::class => ApiDatabaseViewsGridViewIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdGetResponse404::class => ApiDatabaseViewsGridViewIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdPostResponse400::class => ApiDatabaseViewsGridViewIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdPostResponse404::class => ApiDatabaseViewsGridViewIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse200::class => ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse200Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse400::class => ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse404::class => ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse200::class => ApiDatabaseViewsGridViewIdAggregationsGetResponse200Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse400::class => ApiDatabaseViewsGridViewIdAggregationsGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse404::class => ApiDatabaseViewsGridViewIdAggregationsGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse400::class => ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse404::class => ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdGetResponse400::class => ApiDatabaseViewsGroupByViewGroupByIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdGetResponse404::class => ApiDatabaseViewsGroupByViewGroupByIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdPatchResponse400::class => ApiDatabaseViewsGroupByViewGroupByIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdPatchResponse404::class => ApiDatabaseViewsGroupByViewGroupByIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse401::class => ApiDatabaseViewsKanbanSlugPublicRowsGetResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse400::class => ApiDatabaseViewsKanbanSlugPublicRowsGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse404::class => ApiDatabaseViewsKanbanSlugPublicRowsGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanViewIdGetResponse400::class => ApiDatabaseViewsKanbanViewIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanViewIdGetResponse404::class => ApiDatabaseViewsKanbanViewIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdDeleteResponse400::class => ApiDatabaseViewsSortViewSortIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdDeleteResponse404::class => ApiDatabaseViewsSortViewSortIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdGetResponse400::class => ApiDatabaseViewsSortViewSortIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdGetResponse404::class => ApiDatabaseViewsSortViewSortIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdPatchResponse400::class => ApiDatabaseViewsSortViewSortIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdPatchResponse404::class => ApiDatabaseViewsSortViewSortIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdGetResponse400::class => ApiDatabaseViewsTableTableIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdGetResponse404::class => ApiDatabaseViewsTableTableIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdPostResponse400::class => ApiDatabaseViewsTableTableIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdPostResponse404::class => ApiDatabaseViewsTableTableIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdOrderPostResponse400::class => ApiDatabaseViewsTableTableIdOrderPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdOrderPostResponse404::class => ApiDatabaseViewsTableTableIdOrderPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdDeleteResponse400::class => ApiDatabaseWebhooksWebhookIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdDeleteResponse404::class => ApiDatabaseWebhooksWebhookIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdGetResponse400::class => ApiDatabaseWebhooksWebhookIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdGetResponse404::class => ApiDatabaseWebhooksWebhookIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdPatchResponse400::class => ApiDatabaseWebhooksWebhookIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdPatchResponse404::class => ApiDatabaseWebhooksWebhookIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdGetResponse400::class => ApiDatabaseWebhooksTableTableIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdGetResponse404::class => ApiDatabaseWebhooksTableTableIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdPostResponse400::class => ApiDatabaseWebhooksTableTableIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdPostResponse404::class => ApiDatabaseWebhooksTableTableIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdTestCallPostResponse400::class => ApiDatabaseWebhooksTableTableIdTestCallPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdTestCallPostResponse404::class => ApiDatabaseWebhooksTableTableIdTestCallPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiFilesSignedDataGetResponse403::class => ApiFilesSignedDataGetResponse403Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdDeleteResponse400::class => ApiGroupsGroupIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdDeleteResponse404::class => ApiGroupsGroupIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdPatchResponse400::class => ApiGroupsGroupIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdPatchResponse404::class => ApiGroupsGroupIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdLeavePostResponse400::class => ApiGroupsGroupIdLeavePostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdLeavePostResponse404::class => ApiGroupsGroupIdLeavePostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdPermissionsGetResponse404::class => ApiGroupsGroupIdPermissionsGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdDeleteResponse400::class => ApiGroupsInvitationsGroupInvitationIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdDeleteResponse404::class => ApiGroupsInvitationsGroupInvitationIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdGetResponse400::class => ApiGroupsInvitationsGroupInvitationIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdGetResponse404::class => ApiGroupsInvitationsGroupInvitationIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdPatchResponse400::class => ApiGroupsInvitationsGroupInvitationIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdPatchResponse404::class => ApiGroupsInvitationsGroupInvitationIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdAcceptPostResponse400::class => ApiGroupsInvitationsGroupInvitationIdAcceptPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdAcceptPostResponse404::class => ApiGroupsInvitationsGroupInvitationIdAcceptPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdRejectPostResponse400::class => ApiGroupsInvitationsGroupInvitationIdRejectPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdRejectPostResponse404::class => ApiGroupsInvitationsGroupInvitationIdRejectPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupGroupIdGetResponse400::class => ApiGroupsInvitationsGroupGroupIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupGroupIdGetResponse404::class => ApiGroupsInvitationsGroupGroupIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupGroupIdPostResponse400::class => ApiGroupsInvitationsGroupGroupIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupGroupIdPostResponse404::class => ApiGroupsInvitationsGroupGroupIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsTokenTokenGetResponse400::class => ApiGroupsInvitationsTokenTokenGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsTokenTokenGetResponse404::class => ApiGroupsInvitationsTokenTokenGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse400::class => ApiGroupsUsersGroupUserIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse404::class => ApiGroupsUsersGroupUserIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdPatchResponse400::class => ApiGroupsUsersGroupUserIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdPatchResponse404::class => ApiGroupsUsersGroupUserIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupGroupIdGetResponse400::class => ApiGroupsUsersGroupGroupIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupGroupIdGetResponse404::class => ApiGroupsUsersGroupGroupIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdDeleteResponse400::class => ApiIntegrationIntegrationIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdDeleteResponse404::class => ApiIntegrationIntegrationIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdPatchResponse400::class => ApiIntegrationIntegrationIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdPatchResponse404::class => ApiIntegrationIntegrationIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdMovePatchResponse400::class => ApiIntegrationIntegrationIdMovePatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdMovePatchResponse404::class => ApiIntegrationIntegrationIdMovePatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiJobsPostResponse400::class => ApiJobsPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiJobsPostResponse404::class => ApiJobsPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiJobsJobIdGetResponse404::class => ApiJobsJobIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiLicensesPostResponse400::class => ApiLicensesPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiLicensesIdDeleteResponse404::class => ApiLicensesIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiLicensesIdGetResponse404::class => ApiLicensesIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiLicensesIdUserIdDeleteResponse400::class => ApiLicensesIdUserIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiLicensesIdUserIdDeleteResponse404::class => ApiLicensesIdUserIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiLicensesIdUserIdPostResponse400::class => ApiLicensesIdUserIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiLicensesIdUserIdPostResponse404::class => ApiLicensesIdUserIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiLicensesIdCheckGetResponse404::class => ApiLicensesIdCheckGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiLicensesIdFillSeatsPostResponse400::class => ApiLicensesIdFillSeatsPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiLicensesIdFillSeatsPostResponse404::class => ApiLicensesIdFillSeatsPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiLicensesIdLookupUsersGetResponse404::class => ApiLicensesIdLookupUsersGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiLicensesIdRemoveAllUsersPostResponse400::class => ApiLicensesIdRemoveAllUsersPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiLicensesIdRemoveAllUsersPostResponse404::class => ApiLicensesIdRemoveAllUsersPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse400::class => ApiNotificationsWorkspaceIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse404::class => ApiNotificationsWorkspaceIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdGetResponse400::class => ApiNotificationsWorkspaceIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdGetResponse404::class => ApiNotificationsWorkspaceIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdNotificationIdPatchResponse400::class => ApiNotificationsWorkspaceIdNotificationIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdNotificationIdPatchResponse404::class => ApiNotificationsWorkspaceIdNotificationIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdMarkAllAsReadPostResponse400::class => ApiNotificationsWorkspaceIdMarkAllAsReadPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdMarkAllAsReadPostResponse404::class => ApiNotificationsWorkspaceIdMarkAllAsReadPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdGetResponse400::class => ApiRoleGroupIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdGetResponse404::class => ApiRoleGroupIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdPostResponse400::class => ApiRoleGroupIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdPostResponse404::class => ApiRoleGroupIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdBatchPostResponse400::class => ApiRoleGroupIdBatchPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdBatchPostResponse404::class => ApiRoleGroupIdBatchPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdGetResponse400::class => ApiRoleWorkspaceIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdGetResponse404::class => ApiRoleWorkspaceIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdPostResponse400::class => ApiRoleWorkspaceIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdPostResponse404::class => ApiRoleWorkspaceIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdBatchPostResponse400::class => ApiRoleWorkspaceIdBatchPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdBatchPostResponse404::class => ApiRoleWorkspaceIdBatchPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdGetResponse400::class => ApiRowCommentsTableIdRowIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdGetResponse404::class => ApiRowCommentsTableIdRowIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdPostResponse400::class => ApiRowCommentsTableIdRowIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdPostResponse404::class => ApiRowCommentsTableIdRowIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdNotificationModePutResponse400::class => ApiRowCommentsTableIdRowIdNotificationModePutResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdNotificationModePutResponse404::class => ApiRowCommentsTableIdRowIdNotificationModePutResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse400::class => ApiRowCommentsTableIdCommentCommentIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse401::class => ApiRowCommentsTableIdCommentCommentIdDeleteResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse404::class => ApiRowCommentsTableIdCommentCommentIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdPatchResponse400::class => ApiRowCommentsTableIdCommentCommentIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdPatchResponse401::class => ApiRowCommentsTableIdCommentCommentIdPatchResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdPatchResponse404::class => ApiRowCommentsTableIdCommentCommentIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiSnapshotsSnapshotIdDeleteResponse400::class => ApiSnapshotsSnapshotIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiSnapshotsSnapshotIdDeleteResponse404::class => ApiSnapshotsSnapshotIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiSnapshotsSnapshotIdRestorePostResponse400::class => ApiSnapshotsSnapshotIdRestorePostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiSnapshotsSnapshotIdRestorePostResponse404::class => ApiSnapshotsSnapshotIdRestorePostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiSnapshotsApplicationApplicationIdGetResponse400::class => ApiSnapshotsApplicationApplicationIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiSnapshotsApplicationApplicationIdGetResponse404::class => ApiSnapshotsApplicationApplicationIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiSnapshotsApplicationApplicationIdPostResponse400::class => ApiSnapshotsApplicationApplicationIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiSnapshotsApplicationApplicationIdPostResponse404::class => ApiSnapshotsApplicationApplicationIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiSsoSamlLoginUrlGetResponse400::class => ApiSsoSamlLoginUrlGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdDeleteResponse400::class => ApiTeamsTeamIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdDeleteResponse404::class => ApiTeamsTeamIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdGetResponse404::class => ApiTeamsTeamIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdPutResponse400::class => ApiTeamsTeamIdPutResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdPutResponse404::class => ApiTeamsTeamIdPutResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsGetResponse400::class => ApiTeamsTeamIdSubjectsGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsPostResponse400::class => ApiTeamsTeamIdSubjectsPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsPostResponse404::class => ApiTeamsTeamIdSubjectsPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsSubjectIdDeleteResponse400::class => ApiTeamsTeamIdSubjectsSubjectIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsSubjectIdDeleteResponse404::class => ApiTeamsTeamIdSubjectsSubjectIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsSubjectIdGetResponse404::class => ApiTeamsTeamIdSubjectsSubjectIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTeamsGroupGroupIdGetResponse404::class => ApiTeamsGroupGroupIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTeamsGroupGroupIdPostResponse400::class => ApiTeamsGroupGroupIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTeamsGroupGroupIdPostResponse404::class => ApiTeamsGroupGroupIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTeamsWorkspaceWorkspaceIdGetResponse404::class => ApiTeamsWorkspaceWorkspaceIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTeamsWorkspaceWorkspaceIdPostResponse400::class => ApiTeamsWorkspaceWorkspaceIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTeamsWorkspaceWorkspaceIdPostResponse404::class => ApiTeamsWorkspaceWorkspaceIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdPostResponse400::class => ApiTemplatesInstallGroupIdTemplateIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdPostResponse404::class => ApiTemplatesInstallGroupIdTemplateIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse400::class => ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse404::class => ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdPostResponse400::class => ApiTemplatesInstallWorkspaceIdTemplateIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdPostResponse404::class => ApiTemplatesInstallWorkspaceIdTemplateIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse400::class => ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse404::class => ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTrashGroupGroupIdDeleteResponse400::class => ApiTrashGroupGroupIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTrashGroupGroupIdGetResponse400::class => ApiTrashGroupGroupIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTrashRestorePatchResponse400::class => ApiTrashRestorePatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTrashWorkspaceWorkspaceIdDeleteResponse400::class => ApiTrashWorkspaceWorkspaceIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTrashWorkspaceWorkspaceIdGetResponse400::class => ApiTrashWorkspaceWorkspaceIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserPostResponse200::class => ApiUserPostResponse200Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserPostResponse200User::class => ApiUserPostResponse200UserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserPostResponse400::class => ApiUserPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserPostResponse404::class => ApiUserPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserFilesUploadFilePostResponse400::class => ApiUserFilesUploadFilePostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserFilesUploadViaUrlPostResponse400::class => ApiUserFilesUploadViaUrlPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserSourceAuthRefreshPostResponse200::class => ApiUserSourceAuthRefreshPostResponse200Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdDeleteResponse400::class => ApiUserSourceUserSourceIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdDeleteResponse404::class => ApiUserSourceUserSourceIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdPatchResponse400::class => ApiUserSourceUserSourceIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdPatchResponse404::class => ApiUserSourceUserSourceIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdForceTokenAuthPostResponse200::class => ApiUserSourceUserSourceIdForceTokenAuthPostResponse200Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdMovePatchResponse400::class => ApiUserSourceUserSourceIdMovePatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdMovePatchResponse404::class => ApiUserSourceUserSourceIdMovePatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdTokenAuthPostResponse200::class => ApiUserSourceUserSourceIdTokenAuthPostResponse200Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserAccountPatchResponse400::class => ApiUserAccountPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserChangePasswordPostResponse400::class => ApiUserChangePasswordPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserResetPasswordPostResponse400::class => ApiUserResetPasswordPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserScheduleAccountDeletionPostResponse400::class => ApiUserScheduleAccountDeletionPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserSendResetPasswordEmailPostResponse400::class => ApiUserSendResetPasswordEmailPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserTokenAuthPostResponse200::class => ApiUserTokenAuthPostResponse200Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserTokenAuthPostResponse200User::class => ApiUserTokenAuthPostResponse200UserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserTokenAuthPostResponse401::class => ApiUserTokenAuthPostResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserTokenRefreshPostResponse200::class => ApiUserTokenRefreshPostResponse200Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserTokenRefreshPostResponse200User::class => ApiUserTokenRefreshPostResponse200UserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserTokenRefreshPostResponse401::class => ApiUserTokenRefreshPostResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserTokenVerifyPostResponse200::class => ApiUserTokenVerifyPostResponse200Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserTokenVerifyPostResponse200User::class => ApiUserTokenVerifyPostResponse200UserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserTokenVerifyPostResponse401::class => ApiUserTokenVerifyPostResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserVerifyEmailPostResponse200::class => ApiUserVerifyEmailPostResponse200Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserVerifyEmailPostResponse200User::class => ApiUserVerifyEmailPostResponse200UserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserVerifyEmailPostResponse400::class => ApiUserVerifyEmailPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserVerifyEmailPostResponse401::class => ApiUserVerifyEmailPostResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdDeleteResponse400::class => ApiWorkspacesWorkspaceIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdDeleteResponse404::class => ApiWorkspacesWorkspaceIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdPatchResponse400::class => ApiWorkspacesWorkspaceIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdPatchResponse404::class => ApiWorkspacesWorkspaceIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdLeavePostResponse400::class => ApiWorkspacesWorkspaceIdLeavePostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdLeavePostResponse404::class => ApiWorkspacesWorkspaceIdLeavePostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdPermissionsGetResponse404::class => ApiWorkspacesWorkspaceIdPermissionsGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse400::class => ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse404::class => ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse400::class => ApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse404::class => ApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdGetResponse400::class => ApiWorkspacesInvitationsWorkspaceInvitationIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdGetResponse404::class => ApiWorkspacesInvitationsWorkspaceInvitationIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdPatchResponse400::class => ApiWorkspacesInvitationsWorkspaceInvitationIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdPatchResponse404::class => ApiWorkspacesInvitationsWorkspaceInvitationIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdAcceptPostResponse400::class => ApiWorkspacesInvitationsWorkspaceInvitationIdAcceptPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdAcceptPostResponse404::class => ApiWorkspacesInvitationsWorkspaceInvitationIdAcceptPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdRejectPostResponse400::class => ApiWorkspacesInvitationsWorkspaceInvitationIdRejectPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdRejectPostResponse404::class => ApiWorkspacesInvitationsWorkspaceInvitationIdRejectPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsTokenTokenGetResponse400::class => ApiWorkspacesInvitationsTokenTokenGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsTokenTokenGetResponse404::class => ApiWorkspacesInvitationsTokenTokenGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse400::class => ApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse404::class => ApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdPostResponse400::class => ApiWorkspacesInvitationsWorkspaceWorkspaceIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdPostResponse404::class => ApiWorkspacesInvitationsWorkspaceWorkspaceIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdDeleteResponse400::class => ApiWorkspacesUsersWorkspaceUserIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdDeleteResponse404::class => ApiWorkspacesUsersWorkspaceUserIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdPatchResponse400::class => ApiWorkspacesUsersWorkspaceUserIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdPatchResponse404::class => ApiWorkspacesUsersWorkspaceUserIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse400::class => ApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse404::class => ApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse404Normalizer::class,
-
-            \Jane\Component\JsonSchemaRuntime\Reference::class => \CedricZiel\Baserow\Generated\Runtime\Normalizer\ReferenceNormalizer::class,
-        ];
-        protected $normalizersCache = [];
-
-        public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
-        {
-            return array_key_exists($type, $this->normalizers);
-        }
-
-        public function supportsNormalization($data, $format = null, array $context = []): bool
-        {
-            return is_object($data) && array_key_exists(get_class($data), $this->normalizers);
-        }
-
-        public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
-        {
-            $normalizerClass = $this->normalizers[get_class($object)];
-            $normalizer = $this->getNormalizer($normalizerClass);
-
-            return $normalizer->normalize($object, $format, $context);
-        }
-
-        public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
-        {
-            $denormalizerClass = $this->normalizers[$type];
-            $denormalizer = $this->getNormalizer($denormalizerClass);
-
-            return $denormalizer->denormalize($data, $type, $format, $context);
-        }
-
-        private function getNormalizer(string $normalizerClass)
-        {
-            return $this->normalizersCache[$normalizerClass] ?? $this->initNormalizer($normalizerClass);
-        }
-
-        private function initNormalizer(string $normalizerClass)
-        {
-            $normalizer = new $normalizerClass();
-            $normalizer->setNormalizer($this->normalizer);
-            $normalizer->setDenormalizer($this->denormalizer);
-            $this->normalizersCache[$normalizerClass] = $normalizer;
-
-            return $normalizer;
-        }
-
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [
-                \CedricZiel\Baserow\Generated\Model\AIFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\AIFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\AIFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\AIFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\Account::class => false,
-                \CedricZiel\Baserow\Generated\Model\ActionScopes::class => false,
-                \CedricZiel\Baserow\Generated\Model\AdminDashboard::class => false,
-                \CedricZiel\Baserow\Generated\Model\AdminDashboardPerDay::class => false,
-                \CedricZiel\Baserow\Generated\Model\AirtableImportJobCreateJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\AirtableImportJobJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\AuditLog::class => false,
-                \CedricZiel\Baserow\Generated\Model\AuditLogActionType::class => false,
-                \CedricZiel\Baserow\Generated\Model\AuditLogExportJobCreateJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\AuditLogExportJobJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\AuditLogUser::class => false,
-                \CedricZiel\Baserow\Generated\Model\AuditLogWorkspace::class => false,
-                \CedricZiel\Baserow\Generated\Model\AuthFormElementCreateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\AuthFormElementCreateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\AuthFormElementElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\AuthFormElementElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\AuthFormElementPublicElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\AuthFormElementPublicElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\AuthFormElementUpdateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\AuthFormElementUpdateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\AutonumberFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\AutonumberFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\AutonumberFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\AutonumberFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\BaseExporterOptions::class => false,
-                \CedricZiel\Baserow\Generated\Model\BaserowImpersonateAuthToken::class => false,
-                \CedricZiel\Baserow\Generated\Model\BatchCreateRoleAssignment::class => false,
-                \CedricZiel\Baserow\Generated\Model\BatchDeleteRows::class => false,
-                \CedricZiel\Baserow\Generated\Model\BooleanFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\BooleanFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\BooleanFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\BooleanFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\BuilderApplication::class => false,
-                \CedricZiel\Baserow\Generated\Model\BuilderApplicationGroup::class => false,
-                \CedricZiel\Baserow\Generated\Model\BuilderApplicationWorkspace::class => false,
-                \CedricZiel\Baserow\Generated\Model\BuilderApplicationTheme::class => false,
-                \CedricZiel\Baserow\Generated\Model\BuilderApplicationFaviconFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\BuilderBaseApplicationCreatePolymorphic::class => false,
-                \CedricZiel\Baserow\Generated\Model\BuilderBaseApplicationCreatePolymorphicFaviconFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\BuilderBaseApplicationUpdatePolymorphic::class => false,
-                \CedricZiel\Baserow\Generated\Model\BuilderBaseApplicationUpdatePolymorphicFaviconFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\BuilderWorkflowAction::class => false,
-                \CedricZiel\Baserow\Generated\Model\ButtonConfigBlock::class => false,
-                \CedricZiel\Baserow\Generated\Model\ButtonConfigBlockButton::class => false,
-                \CedricZiel\Baserow\Generated\Model\ButtonElementCreateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\ButtonElementCreateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ButtonElementElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\ButtonElementElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ButtonElementPublicElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\ButtonElementPublicElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ButtonElementUpdateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\ButtonElementUpdateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ButtonLinkConfigBlock::class => false,
-                \CedricZiel\Baserow\Generated\Model\ButtonLinkConfigBlockButton::class => false,
-                \CedricZiel\Baserow\Generated\Model\ButtonLinkConfigBlockLink::class => false,
-                \CedricZiel\Baserow\Generated\Model\ButtonThemeConfigBlock::class => false,
-                \CedricZiel\Baserow\Generated\Model\CalendarViewCreateView::class => false,
-                \CedricZiel\Baserow\Generated\Model\CalendarViewExampleResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\CalendarViewExampleResponseStack::class => false,
-                \CedricZiel\Baserow\Generated\Model\CalendarViewFieldOptions::class => false,
-                \CedricZiel\Baserow\Generated\Model\CalendarViewView::class => false,
-                \CedricZiel\Baserow\Generated\Model\ChangePasswordBodyValidation::class => false,
-                \CedricZiel\Baserow\Generated\Model\CheckboxElementCreateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\CheckboxElementCreateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\CheckboxElementElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\CheckboxElementElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\CheckboxElementPublicElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\CheckboxElementPublicElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\CheckboxElementUpdateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\CheckboxElementUpdateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ChoiceElementCreateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\ChoiceElementCreateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ChoiceElementElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\ChoiceElementElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ChoiceElementPublicElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\ChoiceElementPublicElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ChoiceElementUpdateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\ChoiceElementUpdateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ChoiceOption::class => false,
-                \CedricZiel\Baserow\Generated\Model\Collaborator::class => false,
-                \CedricZiel\Baserow\Generated\Model\CollectionField::class => false,
-                \CedricZiel\Baserow\Generated\Model\ColumnElementCreateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\ColumnElementCreateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ColumnElementElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\ColumnElementElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ColumnElementPublicElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\ColumnElementPublicElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ColumnElementUpdateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\ColumnElementUpdateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\CombinedThemeConfigBlocks::class => false,
-                \CedricZiel\Baserow\Generated\Model\CombinedThemeConfigBlocksPageBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColor::class => false,
-                \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColorFilter::class => false,
-                \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColorFilterGroup::class => false,
-                \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColors::class => false,
-                \CedricZiel\Baserow\Generated\Model\CountFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\CountFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\CountFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\CountFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\CreatePage::class => false,
-                \CedricZiel\Baserow\Generated\Model\CreateRoleAssignment::class => false,
-                \CedricZiel\Baserow\Generated\Model\CreateSnapshotJobCreateJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\CreateSnapshotJobJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\CreateViewFilter::class => false,
-                \CedricZiel\Baserow\Generated\Model\CreateViewFilterGroup::class => false,
-                \CedricZiel\Baserow\Generated\Model\CreateViewGroupBy::class => false,
-                \CedricZiel\Baserow\Generated\Model\CreateViewSort::class => false,
-                \CedricZiel\Baserow\Generated\Model\CreateWorkspaceInvitation::class => false,
-                \CedricZiel\Baserow\Generated\Model\CreatedByFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\CreatedByFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\CreatedByFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\CreatedByFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\CreatedOnFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\CreatedOnFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\CreatedOnFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\CreatedOnFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\CsvExporterOptions::class => false,
-                \CedricZiel\Baserow\Generated\Model\CustomDomainCreateDomain::class => false,
-                \CedricZiel\Baserow\Generated\Model\CustomDomainDomain::class => false,
-                \CedricZiel\Baserow\Generated\Model\Dashboard::class => false,
-                \CedricZiel\Baserow\Generated\Model\DatabaseApplication::class => false,
-                \CedricZiel\Baserow\Generated\Model\DatabaseApplicationGroup::class => false,
-                \CedricZiel\Baserow\Generated\Model\DatabaseApplicationWorkspace::class => false,
-                \CedricZiel\Baserow\Generated\Model\DatabaseBaseApplicationCreatePolymorphic::class => false,
-                \CedricZiel\Baserow\Generated\Model\DatabaseBaseApplicationUpdatePolymorphic::class => false,
-                \CedricZiel\Baserow\Generated\Model\DateFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\DateFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\DateFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\DateFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\DuplicateApplicationJobCreateJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\DuplicateApplicationJobJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\DuplicateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\DuplicateFieldJobCreateJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\DuplicateFieldJobJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\DuplicateFieldJobJobOriginalField::class => false,
-                \CedricZiel\Baserow\Generated\Model\DuplicateFieldJobJobDuplicatedField::class => false,
-                \CedricZiel\Baserow\Generated\Model\DuplicatePageJobCreateJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\DuplicatePageJobJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\DuplicatePageJobJobOriginalPage::class => false,
-                \CedricZiel\Baserow\Generated\Model\DuplicatePageJobJobDuplicatedPage::class => false,
-                \CedricZiel\Baserow\Generated\Model\DuplicateTableJobCreateJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\DuplicateTableJobJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\DuplicateTableJobJobOriginalTable::class => false,
-                \CedricZiel\Baserow\Generated\Model\DuplicateTableJobJobDuplicatedTable::class => false,
-                \CedricZiel\Baserow\Generated\Model\DurationFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\DurationFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\DurationFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\DurationFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\Element::class => false,
-                \CedricZiel\Baserow\Generated\Model\ElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\EmailFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\EmailFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\EmailFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\EmailFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\EmailTesterRequest::class => false,
-                \CedricZiel\Baserow\Generated\Model\EmailTesterResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\BatchCreateRowRequest::class => false,
-                \CedricZiel\Baserow\Generated\Model\ExampleBatchRowsResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\BatchUpdateRow::class => false,
-                \CedricZiel\Baserow\Generated\Model\ExampleRowRequest::class => false,
-                \CedricZiel\Baserow\Generated\Model\CreateRowRequest::class => false,
-                \CedricZiel\Baserow\Generated\Model\ExampleRowResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\ExampleRowResponseField10::class => false,
-                \CedricZiel\Baserow\Generated\Model\ExampleRowResponseField12::class => false,
-                \CedricZiel\Baserow\Generated\Model\ExampleRowResponseField16::class => false,
-                \CedricZiel\Baserow\Generated\Model\RowResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\ExportJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\FacebookAuthProviderModelAuthProvider::class => false,
-                \CedricZiel\Baserow\Generated\Model\Field::class => false,
-                \CedricZiel\Baserow\Generated\Model\FieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\FileFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\FileFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\FileFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\FileFieldResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\FileFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\FileImportJobCreateJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\FileImportJobJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\FileImportJobJobReport::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormContainerElementCreateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormContainerElementCreateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormContainerElementElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormContainerElementElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormContainerElementPublicElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormContainerElementPublicElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormContainerElementUpdateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormContainerElementUpdateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormViewCreateView::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormViewCreateViewCoverImage::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormViewCreateViewLogoImage::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormViewFieldOptions::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormViewFieldOptionsCondition::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormViewFieldOptionsConditionGroup::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormViewSubmitted::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormViewView::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormViewViewCoverImage::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormViewViewLogoImage::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormulaFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormulaFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormulaFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormulaFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\FullHealthCheck::class => false,
-                \CedricZiel\Baserow\Generated\Model\GalleryViewCreateView::class => false,
-                \CedricZiel\Baserow\Generated\Model\GalleryViewFieldOptions::class => false,
-                \CedricZiel\Baserow\Generated\Model\GalleryViewView::class => false,
-                \CedricZiel\Baserow\Generated\Model\GenerateFormulaWithAIRequest::class => false,
-                \CedricZiel\Baserow\Generated\Model\GenerateFormulaWithAIResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\GeneratedConditionalColorCreateViewDecoration::class => false,
-                \CedricZiel\Baserow\Generated\Model\GeneratedConditionalColorCreateViewDecorationValueProviderConf::class => false,
-                \CedricZiel\Baserow\Generated\Model\GeneratedConditionalColorUpdateViewDecoration::class => false,
-                \CedricZiel\Baserow\Generated\Model\GeneratedConditionalColorUpdateViewDecorationValueProviderConf::class => false,
-                \CedricZiel\Baserow\Generated\Model\GeneratedConditionalColorViewDecoration::class => false,
-                \CedricZiel\Baserow\Generated\Model\GeneratedConditionalColorViewDecorationValueProviderConf::class => false,
-                \CedricZiel\Baserow\Generated\Model\GeneratedSingleSelectColorCreateViewDecoration::class => false,
-                \CedricZiel\Baserow\Generated\Model\GeneratedSingleSelectColorCreateViewDecorationValueProviderConf::class => false,
-                \CedricZiel\Baserow\Generated\Model\GeneratedSingleSelectColorUpdateViewDecoration::class => false,
-                \CedricZiel\Baserow\Generated\Model\GeneratedSingleSelectColorUpdateViewDecorationValueProviderConf::class => false,
-                \CedricZiel\Baserow\Generated\Model\GeneratedSingleSelectColorViewDecoration::class => false,
-                \CedricZiel\Baserow\Generated\Model\GeneratedSingleSelectColorViewDecorationValueProviderConf::class => false,
-                \CedricZiel\Baserow\Generated\Model\GenerativeAISettings::class => false,
-                \CedricZiel\Baserow\Generated\Model\GitHubAuthProviderModelAuthProvider::class => false,
-                \CedricZiel\Baserow\Generated\Model\GitLabAuthProviderModelAuthProvider::class => false,
-                \CedricZiel\Baserow\Generated\Model\GoogleAuthProviderModelAuthProvider::class => false,
-                \CedricZiel\Baserow\Generated\Model\GridViewCreateView::class => false,
-                \CedricZiel\Baserow\Generated\Model\GridViewFieldOptions::class => false,
-                \CedricZiel\Baserow\Generated\Model\GridViewFilter::class => false,
-                \CedricZiel\Baserow\Generated\Model\GridViewView::class => false,
-                \CedricZiel\Baserow\Generated\Model\HeadingElementCreateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\HeadingElementCreateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\HeadingElementElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\HeadingElementElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\HeadingElementPublicElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\HeadingElementPublicElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\HeadingElementUpdateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\HeadingElementUpdateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\IFrameElementCreateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\IFrameElementCreateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\IFrameElementElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\IFrameElementElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\IFrameElementPublicElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\IFrameElementPublicElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\IFrameElementUpdateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\IFrameElementUpdateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ImageConfigBlock::class => false,
-                \CedricZiel\Baserow\Generated\Model\ImageConfigBlockImage::class => false,
-                \CedricZiel\Baserow\Generated\Model\ImageElementCreateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\ImageElementCreateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ImageElementCreateElementImageFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ImageElementElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\ImageElementElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ImageElementPublicElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\ImageElementPublicElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ImageElementUpdateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\ImageElementUpdateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ImageElementUpdateElementImageFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ImageThemeConfigBlock::class => false,
-                \CedricZiel\Baserow\Generated\Model\InputTextElementCreateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\InputTextElementCreateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\InputTextElementElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\InputTextElementElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\InputTextElementPublicElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\InputTextElementPublicElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\InputTextElementUpdateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\InputTextElementUpdateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\InstallTemplateJobCreateJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\InstallTemplateJobJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\InstallTemplateJobJobWorkspace::class => false,
-                \CedricZiel\Baserow\Generated\Model\InstallTemplateJobJobTemplate::class => false,
-                \CedricZiel\Baserow\Generated\Model\InstallTemplateJobJobGroup::class => false,
-                \CedricZiel\Baserow\Generated\Model\InstanceId::class => false,
-                \CedricZiel\Baserow\Generated\Model\Job::class => false,
-                \CedricZiel\Baserow\Generated\Model\KanbanViewCreateView::class => false,
-                \CedricZiel\Baserow\Generated\Model\KanbanViewExampleResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\KanbanViewExampleResponseStack::class => false,
-                \CedricZiel\Baserow\Generated\Model\KanbanViewFieldOptions::class => false,
-                \CedricZiel\Baserow\Generated\Model\KanbanViewView::class => false,
-                \CedricZiel\Baserow\Generated\Model\LastModifiedByFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\LastModifiedByFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\LastModifiedByFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\LastModifiedByFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\LastModifiedFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\LastModifiedFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\LastModifiedFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\LastModifiedFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\License::class => false,
-                \CedricZiel\Baserow\Generated\Model\LicenseUser::class => false,
-                \CedricZiel\Baserow\Generated\Model\LicenseUserLookup::class => false,
-                \CedricZiel\Baserow\Generated\Model\LicenseWithUsers::class => false,
-                \CedricZiel\Baserow\Generated\Model\LinkElementCreateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\LinkElementCreateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\LinkElementElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\LinkElementElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\LinkElementPublicElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\LinkElementPublicElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\LinkElementUpdateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\LinkElementUpdateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\LinkRowFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\LinkRowFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\LinkRowFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\LinkRowFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\LinkRowValue::class => false,
-                \CedricZiel\Baserow\Generated\Model\LinkThemeConfigBlock::class => false,
-                \CedricZiel\Baserow\Generated\Model\ListWorkspaceUsersWithMemberData::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowContextData::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowCreateRowWorkflowActionBuilderWorkflowAction::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowCreateRowWorkflowActionCreateBuilderWorkflowAction::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowCreateRowWorkflowActionUpdateBuilderWorkflowActions::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowField::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowGetRow::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowGetRowCreateDataSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowGetRowDataSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowGetRowPublicDataSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowGetRowService::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowGetRowUpdateDataSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationCreateIntegration::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationCreateIntegrationContextData::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationCreateIntegrationAuthorizedUser::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationIntegration::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationIntegrationContextData::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationIntegrationAuthorizedUser::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationUpdateIntegration::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationUpdateIntegrationContextData::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationUpdateIntegrationAuthorizedUser::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowListRows::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsCreateDataSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsDataSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsPublicDataSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsService::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsUpdateDataSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowPasswordAppAuthProviderAppAuthProvider::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowPasswordAppAuthProviderBaseAppAuthProvider::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowTableServiceFieldMapping::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowTableServiceFilter::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowTableServiceSort::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowUpdateRowWorkflowActionBuilderWorkflowAction::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowUpdateRowWorkflowActionCreateBuilderWorkflowAction::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowUpdateRowWorkflowActionUpdateBuilderWorkflowActions::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRow::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowCreateDataSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowDataSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowPublicDataSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowService::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowUpdateDataSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceBasePublicUserSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceCreateUserSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceUpdateUserSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceUserSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceUserSourceRoles::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowView::class => false,
-                \CedricZiel\Baserow\Generated\Model\LogoutWorkflowActionBuilderWorkflowAction::class => false,
-                \CedricZiel\Baserow\Generated\Model\LogoutWorkflowActionCreateBuilderWorkflowAction::class => false,
-                \CedricZiel\Baserow\Generated\Model\LogoutWorkflowActionUpdateBuilderWorkflowActions::class => false,
-                \CedricZiel\Baserow\Generated\Model\LongTextFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\LongTextFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\LongTextFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\LongTextFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\LookupFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\LookupFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\LookupFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\LookupFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\MultipleCollaboratorsFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\MultipleCollaboratorsFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\MultipleCollaboratorsFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\MultipleCollaboratorsFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\MultipleSelectFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\MultipleSelectFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\MultipleSelectFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\MultipleSelectFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\NotificationRecipient::class => false,
-                \CedricZiel\Baserow\Generated\Model\NotificationRecipientSender::class => false,
-                \CedricZiel\Baserow\Generated\Model\NotificationWorkflowActionBuilderWorkflowAction::class => false,
-                \CedricZiel\Baserow\Generated\Model\NotificationWorkflowActionCreateBuilderWorkflowAction::class => false,
-                \CedricZiel\Baserow\Generated\Model\NotificationWorkflowActionUpdateBuilderWorkflowActions::class => false,
-                \CedricZiel\Baserow\Generated\Model\NumberFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\NumberFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\NumberFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\NumberFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\OllamaSettings::class => false,
-                \CedricZiel\Baserow\Generated\Model\OpenAISettings::class => false,
-                \CedricZiel\Baserow\Generated\Model\OpenApiRoleAssignment::class => false,
-                \CedricZiel\Baserow\Generated\Model\OpenApiRoleAssignmentSubject::class => false,
-                \CedricZiel\Baserow\Generated\Model\OpenApiSubjectField::class => false,
-                \CedricZiel\Baserow\Generated\Model\OpenIdConnectAuthProviderModelAuthProvider::class => false,
-                \CedricZiel\Baserow\Generated\Model\OpenPageWorkflowActionBuilderWorkflowAction::class => false,
-                \CedricZiel\Baserow\Generated\Model\OpenPageWorkflowActionCreateBuilderWorkflowAction::class => false,
-                \CedricZiel\Baserow\Generated\Model\OpenPageWorkflowActionUpdateBuilderWorkflowActions::class => false,
-                \CedricZiel\Baserow\Generated\Model\OrderApplications::class => false,
-                \CedricZiel\Baserow\Generated\Model\OrderDomains::class => false,
-                \CedricZiel\Baserow\Generated\Model\OrderPages::class => false,
-                \CedricZiel\Baserow\Generated\Model\OrderTables::class => false,
-                \CedricZiel\Baserow\Generated\Model\OrderViews::class => false,
-                \CedricZiel\Baserow\Generated\Model\OrderWorkflowActions::class => false,
-                \CedricZiel\Baserow\Generated\Model\OrderWorkspaces::class => false,
-                \CedricZiel\Baserow\Generated\Model\Page::class => false,
-                \CedricZiel\Baserow\Generated\Model\PageParameterValue::class => false,
-                \CedricZiel\Baserow\Generated\Model\PaginationSerializerAuditLog::class => false,
-                \CedricZiel\Baserow\Generated\Model\PaginationSerializerAuditLogUser::class => false,
-                \CedricZiel\Baserow\Generated\Model\PaginationSerializerAuditLogWorkspace::class => false,
-                \CedricZiel\Baserow\Generated\Model\PaginationRowResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\PaginationSerializerLicenseUserLookup::class => false,
-                \CedricZiel\Baserow\Generated\Model\PaginationSerializerLinkRowValue::class => false,
-                \CedricZiel\Baserow\Generated\Model\PaginationSerializerNotificationRecipient::class => false,
-                \CedricZiel\Baserow\Generated\Model\PaginationSerializerRowComment::class => false,
-                \CedricZiel\Baserow\Generated\Model\PaginationSerializerRowHistory::class => false,
-                \CedricZiel\Baserow\Generated\Model\PaginationSerializerTrashContents::class => false,
-                \CedricZiel\Baserow\Generated\Model\PaginationSerializerUserAdminResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\PaginationSerializerWithGalleryViewFieldOptionsExampleRowResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\PaginationSerializerWithGridViewFieldOptionsExampleRowResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\PaginationSerializerWorkspacesAdminResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\PasswordAuthProviderModelAuthProvider::class => false,
-                \CedricZiel\Baserow\Generated\Model\PasswordFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\PasswordFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\PasswordFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\PasswordFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedAccount::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedCombinedThemeConfigBlocks::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedCombinedThemeConfigBlocksPageBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchRowsRequest::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchRowRequest::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedGenerativeAISettings::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedMoveDataSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedMoveElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedMoveIntegration::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedMoveUserSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedSettings::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedSettingsCoBrandingLogo::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedTableUpdate::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedTableWebhookUpdateRequest::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedTokenUpdate::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedTokenUpdatePermissions::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedTrashEntryRequest::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedUndoRedoRequest::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedUndoRedoRequestScopes::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedUpdateDomain::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedUpdatePage::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedUpdatePremiumViewAttributes::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedUpdateViewFilter::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedUpdateViewFilterGroup::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedUpdateViewGroupBy::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedUpdateViewSort::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedUpdateWorkspaceInvitation::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedUpdateWorkspaceUser::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedUserAdminUpdate::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedWorkspace::class => false,
-                \CedricZiel\Baserow\Generated\Model\PathParam::class => false,
-                \CedricZiel\Baserow\Generated\Model\PermissionObject::class => false,
-                \CedricZiel\Baserow\Generated\Model\PhoneNumberFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\PhoneNumberFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\PhoneNumberFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\PhoneNumberFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicBuilder::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicBuilderTheme::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicField::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicFormView::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicFormViewCoverImage::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicFormViewLogoImage::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicFormViewField::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicFormViewFieldOptions::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicFormViewFieldOptionsField::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicNone::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicPage::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicPaginationSerializerWithGalleryViewFieldOptionsExampleRowResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicPaginationSerializerWithGridViewFieldOptionsExampleRowResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicView::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicViewAuthRequest::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicViewAuthResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicViewGroupBy::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicViewInfo::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicViewInfoView::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicViewSort::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicViewTable::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublishDomainJobCreateJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublishDomainJobJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\RatingFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\RatingFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\RatingFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\RatingFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\RefreshDataSourceWorkflowActionBuilderWorkflowAction::class => false,
-                \CedricZiel\Baserow\Generated\Model\RefreshDataSourceWorkflowActionCreateBuilderWorkflowAction::class => false,
-                \CedricZiel\Baserow\Generated\Model\RefreshDataSourceWorkflowActionUpdateBuilderWorkflowActions::class => false,
-                \CedricZiel\Baserow\Generated\Model\Register::class => false,
-                \CedricZiel\Baserow\Generated\Model\RegisterLicense::class => false,
-                \CedricZiel\Baserow\Generated\Model\RelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\RepeatElementCreateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\RepeatElementCreateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\RepeatElementElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\RepeatElementElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\RepeatElementPublicElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\RepeatElementPublicElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\RepeatElementUpdateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\RepeatElementUpdateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\Report::class => false,
-                \CedricZiel\Baserow\Generated\Model\ResetPasswordBodyValidation::class => false,
-                \CedricZiel\Baserow\Generated\Model\RestoreSnapshotJobCreateJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\RestoreSnapshotJobJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\RollupFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\RollupFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\RollupFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\RollupFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\RowComment::class => false,
-                \CedricZiel\Baserow\Generated\Model\RowCommentCreate::class => false,
-                \CedricZiel\Baserow\Generated\Model\RowCommentsNotificationMode::class => false,
-                \CedricZiel\Baserow\Generated\Model\RowHistory::class => false,
-                \CedricZiel\Baserow\Generated\Model\RowHistoryUser::class => false,
-                \CedricZiel\Baserow\Generated\Model\RowMetadata::class => false,
-                \CedricZiel\Baserow\Generated\Model\SAMLResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\SamlAuthProviderModelAuthProvider::class => false,
-                \CedricZiel\Baserow\Generated\Model\SelectColorValueProviderConf::class => false,
-                \CedricZiel\Baserow\Generated\Model\SelectOption::class => false,
-                \CedricZiel\Baserow\Generated\Model\SendResetPasswordEmailBodyValidation::class => false,
-                \CedricZiel\Baserow\Generated\Model\Sender::class => false,
-                \CedricZiel\Baserow\Generated\Model\Settings::class => false,
-                \CedricZiel\Baserow\Generated\Model\SettingsCoBrandingLogo::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleAuditLogExportJobRequest::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleAuditLogExportJobResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleDuplicateApplicationJobType::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleDuplicateFieldJobType::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleDuplicateFieldJobTypeOriginalField::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleDuplicateFieldJobTypeDuplicatedField::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleDuplicatePageJobType::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleDuplicatePageJobTypeOriginalPage::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleDuplicatePageJobTypeDuplicatedPage::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleDuplicateTableJobType::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleDuplicateTableJobTypeOriginalTable::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleDuplicateTableJobTypeDuplicatedTable::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleFileImportJobSerializerClass::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleFileImportJobSerializerClassReport::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleInstallTemplateJobType::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleInstallTemplateJobTypeWorkspace::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleInstallTemplateJobTypeTemplate::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleInstallTemplateJobTypeGroup::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleSelectFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleSelectFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleSelectFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleSelectFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\Snapshot::class => false,
-                \CedricZiel\Baserow\Generated\Model\SnapshotCreatedBy::class => false,
-                \CedricZiel\Baserow\Generated\Model\SubDomainCreateDomain::class => false,
-                \CedricZiel\Baserow\Generated\Model\SubDomainDomain::class => false,
-                \CedricZiel\Baserow\Generated\Model\SubjectUser::class => false,
-                \CedricZiel\Baserow\Generated\Model\Table::class => false,
-                \CedricZiel\Baserow\Generated\Model\TableCreate::class => false,
-                \CedricZiel\Baserow\Generated\Model\TableElementCreateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\TableElementCreateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\TableElementElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\TableElementElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\TableElementPublicElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\TableElementPublicElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\TableElementUpdateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\TableElementUpdateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\TableImport::class => false,
-                \CedricZiel\Baserow\Generated\Model\TableSerializerWithFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\TableWebhook::class => false,
-                \CedricZiel\Baserow\Generated\Model\TableWebhookCall::class => false,
-                \CedricZiel\Baserow\Generated\Model\TableWebhookCreateRequest::class => false,
-                \CedricZiel\Baserow\Generated\Model\TableWebhookTestCallRequest::class => false,
-                \CedricZiel\Baserow\Generated\Model\TableWebhookTestCallResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\Team::class => false,
-                \CedricZiel\Baserow\Generated\Model\TeamResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\TeamSampleSubject::class => false,
-                \CedricZiel\Baserow\Generated\Model\TeamSubject::class => false,
-                \CedricZiel\Baserow\Generated\Model\TeamSubjectResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\Template::class => false,
-                \CedricZiel\Baserow\Generated\Model\TemplateCategories::class => false,
-                \CedricZiel\Baserow\Generated\Model\TextElementCreateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\TextElementCreateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\TextElementElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\TextElementElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\TextElementPublicElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\TextElementPublicElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\TextElementUpdateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\TextElementUpdateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\TextFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\TextFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\TextFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\TextFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\Token::class => false,
-                \CedricZiel\Baserow\Generated\Model\TokenPermissions::class => false,
-                \CedricZiel\Baserow\Generated\Model\TokenBlacklist::class => false,
-                \CedricZiel\Baserow\Generated\Model\TokenCreate::class => false,
-                \CedricZiel\Baserow\Generated\Model\TokenObtainPair::class => false,
-                \CedricZiel\Baserow\Generated\Model\TokenObtainPairWithUser::class => false,
-                \CedricZiel\Baserow\Generated\Model\TokenRefreshWithUser::class => false,
-                \CedricZiel\Baserow\Generated\Model\TokenVerifyWithUser::class => false,
-                \CedricZiel\Baserow\Generated\Model\TrashContents::class => false,
-                \CedricZiel\Baserow\Generated\Model\TrashStructure::class => false,
-                \CedricZiel\Baserow\Generated\Model\TrashStructureApplication::class => false,
-                \CedricZiel\Baserow\Generated\Model\TrashStructureGroup::class => false,
-                \CedricZiel\Baserow\Generated\Model\TypeFormulaRequest::class => false,
-                \CedricZiel\Baserow\Generated\Model\TypeFormulaResult::class => false,
-                \CedricZiel\Baserow\Generated\Model\TypographyConfigBlock::class => false,
-                \CedricZiel\Baserow\Generated\Model\TypographyConfigBlockTypography::class => false,
-                \CedricZiel\Baserow\Generated\Model\TypographyThemeConfigBlock::class => false,
-                \CedricZiel\Baserow\Generated\Model\URLFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\URLFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\URLFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\URLFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\UUIDFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\UUIDFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\UUIDFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\UUIDFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\UndoRedoAction::class => false,
-                \CedricZiel\Baserow\Generated\Model\UndoRedoResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\UniqueRowValues::class => false,
-                \CedricZiel\Baserow\Generated\Model\User::class => false,
-                \CedricZiel\Baserow\Generated\Model\UserAdminCreate::class => false,
-                \CedricZiel\Baserow\Generated\Model\UserAdminGroups::class => false,
-                \CedricZiel\Baserow\Generated\Model\UserAdminResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\UserFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\UserFileUploadViaURLRequest::class => false,
-                \CedricZiel\Baserow\Generated\Model\UserSourceUser::class => false,
-                \CedricZiel\Baserow\Generated\Model\UserWorkspaceInvitation::class => false,
-                \CedricZiel\Baserow\Generated\Model\UsersPerUserSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\VerifyEmailAddress::class => false,
-                \CedricZiel\Baserow\Generated\Model\View::class => false,
-                \CedricZiel\Baserow\Generated\Model\ViewDecoration::class => false,
-                \CedricZiel\Baserow\Generated\Model\ViewFilter::class => false,
-                \CedricZiel\Baserow\Generated\Model\ViewFilterGroup::class => false,
-                \CedricZiel\Baserow\Generated\Model\ViewGroupBy::class => false,
-                \CedricZiel\Baserow\Generated\Model\ViewSort::class => false,
-                \CedricZiel\Baserow\Generated\Model\Workspace::class => false,
-                \CedricZiel\Baserow\Generated\Model\WorkspaceAdminUsers::class => false,
-                \CedricZiel\Baserow\Generated\Model\WorkspaceInvitation::class => false,
-                \CedricZiel\Baserow\Generated\Model\WorkspaceUser::class => false,
-                \CedricZiel\Baserow\Generated\Model\WorkspaceUserEnterpriseTeam::class => false,
-                \CedricZiel\Baserow\Generated\Model\WorkspaceUserWorkspace::class => false,
-                \CedricZiel\Baserow\Generated\Model\WorkspacesAdminResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\CalendarViewUpdate::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormViewUpdate::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormViewUpdateCoverImage::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormViewUpdateLogoImage::class => false,
-                \CedricZiel\Baserow\Generated\Model\GalleryViewUpdate::class => false,
-                \CedricZiel\Baserow\Generated\Model\GridViewUpdate::class => false,
-                \CedricZiel\Baserow\Generated\Model\KanbanViewUpdate::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiHealthEmailPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogActionTypesGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogExportPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogExportPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogUsersGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogWorkspacesGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderAuthProviderIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderAuthProviderIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderAuthProviderIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderAuthProviderIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminGroupsGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminGroupsGroupIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminUsersGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminUsersPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminUsersUserIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminUsersUserIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminUsersImpersonatePostResponse200::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminUsersImpersonatePostResponse200User::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminWorkspacesGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminWorkspacesWorkspaceIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdIntegrationsGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdIntegrationsPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdIntegrationsPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdListUserSourceUsersGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdUserSourcesGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdUserSourcesPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdUserSourcesPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdUserSourcesRolesGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdDuplicateAsyncPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdDuplicateAsyncPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdOrderPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdOrderPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdOrderPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdOrderPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAuditLogGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAuditLogActionTypesGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAuditLogExportPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAuditLogExportPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAuditLogUsersGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAuditLogWorkspacesGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsOrderPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsOrderPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdPagesPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdPagesPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdPagesOrderPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdPagesOrderPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdThemePatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdThemePatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdDispatchPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdMovePatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdMovePatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdPublishAsyncPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdPublishAsyncPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsPublishedByIdBuilderIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsPublishedByNameDomainNameGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsPublishedPagePageIdDataSourcesGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsPublishedPagePageIdElementsGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsPublishedPagePageIdWorkflowActionsGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdDuplicatePostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdDuplicatePostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdMovePatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdMovePatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdDataSourcesGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdDataSourcesPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdDataSourcesPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdDispatchDataSourcesPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdElementsGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdElementsPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdElementsPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdWorkflowActionsGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdWorkflowActionsPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdWorkflowActionsPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdWorkflowActionsOrderPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdWorkflowActionsOrderPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdDuplicateAsyncPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdDuplicateAsyncPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDispatchPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseExportJobIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseExportTableTableIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseExportTableTableIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdGetResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdPostResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFormulaTableIdTypePostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFormulaTableIdTypePostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse200::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse200TableId::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdGetResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdPostResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdGetResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdPatchResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdAdjacentGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdAdjacentGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdHistoryGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdHistoryGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdMovePatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdMovePatchResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdMovePatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPostResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchDeletePostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchDeletePostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdDuplicateAsyncPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdDuplicateAsyncPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdImportAsyncPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdImportAsyncPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdAsyncPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdAsyncPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdOrderPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdOrderPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensCheckGetResponse403::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewViewIdPremiumPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewViewIdPremiumPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugPublicAuthPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugPublicInfoGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugPublicInfoGetResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugPublicInfoGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDecorationsGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDecorationsGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDecorationsPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDecorationsPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDuplicatePostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDuplicatePostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFilterGroupsPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFilterGroupsPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFiltersGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFiltersGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFiltersPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFiltersPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGroupBysGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGroupBysGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGroupBysPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGroupBysPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdRotateSlugPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdRotateSlugPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdSortingsGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdSortingsGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdSortingsPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdSortingsPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarViewIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarViewIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugSubmitGetResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugSubmitGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugSubmitPostResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugSubmitPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGalleryViewIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGalleryViewIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse200::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse200::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse200::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanViewIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanViewIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdOrderPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdOrderPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdTestCallPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdTestCallPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiFilesSignedDataGetResponse403::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdLeavePostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdLeavePostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdPermissionsGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdAcceptPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdAcceptPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdRejectPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdRejectPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupGroupIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupGroupIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupGroupIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupGroupIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsTokenTokenGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsTokenTokenGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupGroupIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupGroupIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdMovePatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdMovePatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiJobsPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiJobsPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiJobsJobIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiLicensesPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiLicensesIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiLicensesIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiLicensesIdUserIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiLicensesIdUserIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiLicensesIdUserIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiLicensesIdUserIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiLicensesIdCheckGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiLicensesIdFillSeatsPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiLicensesIdFillSeatsPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiLicensesIdLookupUsersGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiLicensesIdRemoveAllUsersPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiLicensesIdRemoveAllUsersPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdNotificationIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdNotificationIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdMarkAllAsReadPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdMarkAllAsReadPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdBatchPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdBatchPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdBatchPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdBatchPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdNotificationModePutResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdNotificationModePutResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdPatchResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiSnapshotsSnapshotIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiSnapshotsSnapshotIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiSnapshotsSnapshotIdRestorePostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiSnapshotsSnapshotIdRestorePostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiSnapshotsApplicationApplicationIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiSnapshotsApplicationApplicationIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiSnapshotsApplicationApplicationIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiSnapshotsApplicationApplicationIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiSsoSamlLoginUrlGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdPutResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdPutResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsSubjectIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsSubjectIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsSubjectIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTeamsGroupGroupIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTeamsGroupGroupIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTeamsGroupGroupIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTeamsWorkspaceWorkspaceIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTeamsWorkspaceWorkspaceIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTeamsWorkspaceWorkspaceIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTrashGroupGroupIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTrashGroupGroupIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTrashRestorePatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTrashWorkspaceWorkspaceIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTrashWorkspaceWorkspaceIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserPostResponse200::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserPostResponse200User::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserFilesUploadFilePostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserFilesUploadViaUrlPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserSourceAuthRefreshPostResponse200::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdForceTokenAuthPostResponse200::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdMovePatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdMovePatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdTokenAuthPostResponse200::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserAccountPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserChangePasswordPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserResetPasswordPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserScheduleAccountDeletionPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserSendResetPasswordEmailPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserTokenAuthPostResponse200::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserTokenAuthPostResponse200User::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserTokenAuthPostResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserTokenRefreshPostResponse200::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserTokenRefreshPostResponse200User::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserTokenRefreshPostResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserTokenVerifyPostResponse200::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserTokenVerifyPostResponse200User::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserTokenVerifyPostResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserVerifyEmailPostResponse200::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserVerifyEmailPostResponse200User::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserVerifyEmailPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserVerifyEmailPostResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdLeavePostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdLeavePostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdPermissionsGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdAcceptPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdAcceptPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdRejectPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdRejectPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsTokenTokenGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsTokenTokenGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse404::class => false,
-                \Jane\Component\JsonSchemaRuntime\Reference::class => false,
-            ];
-        }
+        return array_key_exists($type, $this->normalizers);
     }
-} else {
-    class JaneObjectNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
-        protected $normalizers = [
-            \CedricZiel\Baserow\Generated\Model\AIFieldCreateField::class => AIFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AIFieldField::class => AIFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AIFieldFieldSerializerWithRelatedFields::class => AIFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AIFieldUpdateField::class => AIFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\Account::class => AccountNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ActionScopes::class => ActionScopesNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AdminDashboard::class => AdminDashboardNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AdminDashboardPerDay::class => AdminDashboardPerDayNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AirtableImportJobCreateJob::class => AirtableImportJobCreateJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AirtableImportJobJob::class => AirtableImportJobJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AuditLog::class => AuditLogNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AuditLogActionType::class => AuditLogActionTypeNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AuditLogExportJobCreateJob::class => AuditLogExportJobCreateJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AuditLogExportJobJob::class => AuditLogExportJobJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AuditLogUser::class => AuditLogUserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AuditLogWorkspace::class => AuditLogWorkspaceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AuthFormElementCreateElement::class => AuthFormElementCreateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AuthFormElementCreateElementStyleBackgroundFile::class => AuthFormElementCreateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AuthFormElementElement::class => AuthFormElementElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AuthFormElementElementStyleBackgroundFile::class => AuthFormElementElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AuthFormElementPublicElement::class => AuthFormElementPublicElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AuthFormElementPublicElementStyleBackgroundFile::class => AuthFormElementPublicElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AuthFormElementUpdateElement::class => AuthFormElementUpdateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AuthFormElementUpdateElementStyleBackgroundFile::class => AuthFormElementUpdateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AutonumberFieldCreateField::class => AutonumberFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AutonumberFieldField::class => AutonumberFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AutonumberFieldFieldSerializerWithRelatedFields::class => AutonumberFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\AutonumberFieldUpdateField::class => AutonumberFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BaseExporterOptions::class => BaseExporterOptionsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BaserowImpersonateAuthToken::class => BaserowImpersonateAuthTokenNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BatchCreateRoleAssignment::class => BatchCreateRoleAssignmentNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BatchDeleteRows::class => BatchDeleteRowsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BooleanFieldCreateField::class => BooleanFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BooleanFieldField::class => BooleanFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BooleanFieldFieldSerializerWithRelatedFields::class => BooleanFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BooleanFieldUpdateField::class => BooleanFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BuilderApplication::class => BuilderApplicationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BuilderApplicationGroup::class => BuilderApplicationGroupNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BuilderApplicationWorkspace::class => BuilderApplicationWorkspaceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BuilderApplicationTheme::class => BuilderApplicationThemeNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BuilderApplicationFaviconFile::class => BuilderApplicationFaviconFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BuilderBaseApplicationCreatePolymorphic::class => BuilderBaseApplicationCreatePolymorphicNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BuilderBaseApplicationCreatePolymorphicFaviconFile::class => BuilderBaseApplicationCreatePolymorphicFaviconFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BuilderBaseApplicationUpdatePolymorphic::class => BuilderBaseApplicationUpdatePolymorphicNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BuilderBaseApplicationUpdatePolymorphicFaviconFile::class => BuilderBaseApplicationUpdatePolymorphicFaviconFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BuilderWorkflowAction::class => BuilderWorkflowActionNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ButtonConfigBlock::class => ButtonConfigBlockNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ButtonConfigBlockButton::class => ButtonConfigBlockButtonNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ButtonElementCreateElement::class => ButtonElementCreateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ButtonElementCreateElementStyleBackgroundFile::class => ButtonElementCreateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ButtonElementElement::class => ButtonElementElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ButtonElementElementStyleBackgroundFile::class => ButtonElementElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ButtonElementPublicElement::class => ButtonElementPublicElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ButtonElementPublicElementStyleBackgroundFile::class => ButtonElementPublicElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ButtonElementUpdateElement::class => ButtonElementUpdateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ButtonElementUpdateElementStyleBackgroundFile::class => ButtonElementUpdateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ButtonLinkConfigBlock::class => ButtonLinkConfigBlockNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ButtonLinkConfigBlockButton::class => ButtonLinkConfigBlockButtonNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ButtonLinkConfigBlockLink::class => ButtonLinkConfigBlockLinkNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ButtonThemeConfigBlock::class => ButtonThemeConfigBlockNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CalendarViewCreateView::class => CalendarViewCreateViewNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CalendarViewExampleResponse::class => CalendarViewExampleResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CalendarViewExampleResponseStack::class => CalendarViewExampleResponseStackNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CalendarViewFieldOptions::class => CalendarViewFieldOptionsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CalendarViewView::class => CalendarViewViewNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ChangePasswordBodyValidation::class => ChangePasswordBodyValidationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CheckboxElementCreateElement::class => CheckboxElementCreateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CheckboxElementCreateElementStyleBackgroundFile::class => CheckboxElementCreateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CheckboxElementElement::class => CheckboxElementElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CheckboxElementElementStyleBackgroundFile::class => CheckboxElementElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CheckboxElementPublicElement::class => CheckboxElementPublicElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CheckboxElementPublicElementStyleBackgroundFile::class => CheckboxElementPublicElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CheckboxElementUpdateElement::class => CheckboxElementUpdateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CheckboxElementUpdateElementStyleBackgroundFile::class => CheckboxElementUpdateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ChoiceElementCreateElement::class => ChoiceElementCreateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ChoiceElementCreateElementStyleBackgroundFile::class => ChoiceElementCreateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ChoiceElementElement::class => ChoiceElementElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ChoiceElementElementStyleBackgroundFile::class => ChoiceElementElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ChoiceElementPublicElement::class => ChoiceElementPublicElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ChoiceElementPublicElementStyleBackgroundFile::class => ChoiceElementPublicElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ChoiceElementUpdateElement::class => ChoiceElementUpdateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ChoiceElementUpdateElementStyleBackgroundFile::class => ChoiceElementUpdateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ChoiceOption::class => ChoiceOptionNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\Collaborator::class => CollaboratorNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CollectionField::class => CollectionFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ColumnElementCreateElement::class => ColumnElementCreateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ColumnElementCreateElementStyleBackgroundFile::class => ColumnElementCreateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ColumnElementElement::class => ColumnElementElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ColumnElementElementStyleBackgroundFile::class => ColumnElementElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ColumnElementPublicElement::class => ColumnElementPublicElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ColumnElementPublicElementStyleBackgroundFile::class => ColumnElementPublicElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ColumnElementUpdateElement::class => ColumnElementUpdateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ColumnElementUpdateElementStyleBackgroundFile::class => ColumnElementUpdateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CombinedThemeConfigBlocks::class => CombinedThemeConfigBlocksNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CombinedThemeConfigBlocksPageBackgroundFile::class => CombinedThemeConfigBlocksPageBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColor::class => ConditionalColorValueProviderConfColorNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColorFilter::class => ConditionalColorValueProviderConfColorFilterNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColorFilterGroup::class => ConditionalColorValueProviderConfColorFilterGroupNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColors::class => ConditionalColorValueProviderConfColorsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CountFieldCreateField::class => CountFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CountFieldField::class => CountFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CountFieldFieldSerializerWithRelatedFields::class => CountFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CountFieldUpdateField::class => CountFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CreatePage::class => CreatePageNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CreateRoleAssignment::class => CreateRoleAssignmentNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CreateSnapshotJobCreateJob::class => CreateSnapshotJobCreateJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CreateSnapshotJobJob::class => CreateSnapshotJobJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CreateViewFilter::class => CreateViewFilterNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CreateViewFilterGroup::class => CreateViewFilterGroupNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CreateViewGroupBy::class => CreateViewGroupByNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CreateViewSort::class => CreateViewSortNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CreateWorkspaceInvitation::class => CreateWorkspaceInvitationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CreatedByFieldCreateField::class => CreatedByFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CreatedByFieldField::class => CreatedByFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CreatedByFieldFieldSerializerWithRelatedFields::class => CreatedByFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CreatedByFieldUpdateField::class => CreatedByFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CreatedOnFieldCreateField::class => CreatedOnFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CreatedOnFieldField::class => CreatedOnFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CreatedOnFieldFieldSerializerWithRelatedFields::class => CreatedOnFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CreatedOnFieldUpdateField::class => CreatedOnFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CsvExporterOptions::class => CsvExporterOptionsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CustomDomainCreateDomain::class => CustomDomainCreateDomainNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CustomDomainDomain::class => CustomDomainDomainNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\Dashboard::class => DashboardNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DatabaseApplication::class => DatabaseApplicationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DatabaseApplicationGroup::class => DatabaseApplicationGroupNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DatabaseApplicationWorkspace::class => DatabaseApplicationWorkspaceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DatabaseBaseApplicationCreatePolymorphic::class => DatabaseBaseApplicationCreatePolymorphicNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DatabaseBaseApplicationUpdatePolymorphic::class => DatabaseBaseApplicationUpdatePolymorphicNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DateFieldCreateField::class => DateFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DateFieldField::class => DateFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DateFieldFieldSerializerWithRelatedFields::class => DateFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DateFieldUpdateField::class => DateFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DuplicateApplicationJobCreateJob::class => DuplicateApplicationJobCreateJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DuplicateApplicationJobJob::class => DuplicateApplicationJobJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DuplicateElement::class => DuplicateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DuplicateFieldJobCreateJob::class => DuplicateFieldJobCreateJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DuplicateFieldJobJob::class => DuplicateFieldJobJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DuplicateFieldJobJobOriginalField::class => DuplicateFieldJobJobOriginalFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DuplicateFieldJobJobDuplicatedField::class => DuplicateFieldJobJobDuplicatedFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DuplicatePageJobCreateJob::class => DuplicatePageJobCreateJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DuplicatePageJobJob::class => DuplicatePageJobJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DuplicatePageJobJobOriginalPage::class => DuplicatePageJobJobOriginalPageNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DuplicatePageJobJobDuplicatedPage::class => DuplicatePageJobJobDuplicatedPageNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DuplicateTableJobCreateJob::class => DuplicateTableJobCreateJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DuplicateTableJobJob::class => DuplicateTableJobJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DuplicateTableJobJobOriginalTable::class => DuplicateTableJobJobOriginalTableNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DuplicateTableJobJobDuplicatedTable::class => DuplicateTableJobJobDuplicatedTableNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DurationFieldCreateField::class => DurationFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DurationFieldField::class => DurationFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DurationFieldFieldSerializerWithRelatedFields::class => DurationFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\DurationFieldUpdateField::class => DurationFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\Element::class => ElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ElementStyleBackgroundFile::class => ElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\EmailFieldCreateField::class => EmailFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\EmailFieldField::class => EmailFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\EmailFieldFieldSerializerWithRelatedFields::class => EmailFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\EmailFieldUpdateField::class => EmailFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\EmailTesterRequest::class => EmailTesterRequestNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\EmailTesterResponse::class => EmailTesterResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BatchCreateRowRequest::class => BatchCreateRowRequestNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ExampleBatchRowsResponse::class => ExampleBatchRowsResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\BatchUpdateRow::class => BatchUpdateRowNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ExampleRowRequest::class => ExampleRowRequestNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CreateRowRequest::class => CreateRowRequestNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ExampleRowResponse::class => ExampleRowResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ExampleRowResponseField10::class => ExampleRowResponseField10Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ExampleRowResponseField12::class => ExampleRowResponseField12Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ExampleRowResponseField16::class => ExampleRowResponseField16Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RowResponse::class => RowResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ExportJob::class => ExportJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FacebookAuthProviderModelAuthProvider::class => FacebookAuthProviderModelAuthProviderNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\Field::class => FieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FieldSerializerWithRelatedFields::class => FieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FileFieldCreateField::class => FileFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FileFieldField::class => FileFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FileFieldFieldSerializerWithRelatedFields::class => FileFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FileFieldResponse::class => FileFieldResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FileFieldUpdateField::class => FileFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FileImportJobCreateJob::class => FileImportJobCreateJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FileImportJobJob::class => FileImportJobJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FileImportJobJobReport::class => FileImportJobJobReportNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormContainerElementCreateElement::class => FormContainerElementCreateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormContainerElementCreateElementStyleBackgroundFile::class => FormContainerElementCreateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormContainerElementElement::class => FormContainerElementElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormContainerElementElementStyleBackgroundFile::class => FormContainerElementElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormContainerElementPublicElement::class => FormContainerElementPublicElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormContainerElementPublicElementStyleBackgroundFile::class => FormContainerElementPublicElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormContainerElementUpdateElement::class => FormContainerElementUpdateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormContainerElementUpdateElementStyleBackgroundFile::class => FormContainerElementUpdateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormViewCreateView::class => FormViewCreateViewNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormViewCreateViewCoverImage::class => FormViewCreateViewCoverImageNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormViewCreateViewLogoImage::class => FormViewCreateViewLogoImageNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormViewFieldOptions::class => FormViewFieldOptionsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormViewFieldOptionsCondition::class => FormViewFieldOptionsConditionNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormViewFieldOptionsConditionGroup::class => FormViewFieldOptionsConditionGroupNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormViewSubmitted::class => FormViewSubmittedNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormViewView::class => FormViewViewNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormViewViewCoverImage::class => FormViewViewCoverImageNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormViewViewLogoImage::class => FormViewViewLogoImageNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormulaFieldCreateField::class => FormulaFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormulaFieldField::class => FormulaFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormulaFieldFieldSerializerWithRelatedFields::class => FormulaFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormulaFieldUpdateField::class => FormulaFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FullHealthCheck::class => FullHealthCheckNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GalleryViewCreateView::class => GalleryViewCreateViewNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GalleryViewFieldOptions::class => GalleryViewFieldOptionsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GalleryViewView::class => GalleryViewViewNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GenerateFormulaWithAIRequest::class => GenerateFormulaWithAIRequestNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GenerateFormulaWithAIResponse::class => GenerateFormulaWithAIResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GeneratedConditionalColorCreateViewDecoration::class => GeneratedConditionalColorCreateViewDecorationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GeneratedConditionalColorCreateViewDecorationValueProviderConf::class => GeneratedConditionalColorCreateViewDecorationValueProviderConfNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GeneratedConditionalColorUpdateViewDecoration::class => GeneratedConditionalColorUpdateViewDecorationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GeneratedConditionalColorUpdateViewDecorationValueProviderConf::class => GeneratedConditionalColorUpdateViewDecorationValueProviderConfNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GeneratedConditionalColorViewDecoration::class => GeneratedConditionalColorViewDecorationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GeneratedConditionalColorViewDecorationValueProviderConf::class => GeneratedConditionalColorViewDecorationValueProviderConfNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GeneratedSingleSelectColorCreateViewDecoration::class => GeneratedSingleSelectColorCreateViewDecorationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GeneratedSingleSelectColorCreateViewDecorationValueProviderConf::class => GeneratedSingleSelectColorCreateViewDecorationValueProviderConfNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GeneratedSingleSelectColorUpdateViewDecoration::class => GeneratedSingleSelectColorUpdateViewDecorationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GeneratedSingleSelectColorUpdateViewDecorationValueProviderConf::class => GeneratedSingleSelectColorUpdateViewDecorationValueProviderConfNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GeneratedSingleSelectColorViewDecoration::class => GeneratedSingleSelectColorViewDecorationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GeneratedSingleSelectColorViewDecorationValueProviderConf::class => GeneratedSingleSelectColorViewDecorationValueProviderConfNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GenerativeAISettings::class => GenerativeAISettingsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GitHubAuthProviderModelAuthProvider::class => GitHubAuthProviderModelAuthProviderNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GitLabAuthProviderModelAuthProvider::class => GitLabAuthProviderModelAuthProviderNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GoogleAuthProviderModelAuthProvider::class => GoogleAuthProviderModelAuthProviderNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GridViewCreateView::class => GridViewCreateViewNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GridViewFieldOptions::class => GridViewFieldOptionsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GridViewFilter::class => GridViewFilterNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GridViewView::class => GridViewViewNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\HeadingElementCreateElement::class => HeadingElementCreateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\HeadingElementCreateElementStyleBackgroundFile::class => HeadingElementCreateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\HeadingElementElement::class => HeadingElementElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\HeadingElementElementStyleBackgroundFile::class => HeadingElementElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\HeadingElementPublicElement::class => HeadingElementPublicElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\HeadingElementPublicElementStyleBackgroundFile::class => HeadingElementPublicElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\HeadingElementUpdateElement::class => HeadingElementUpdateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\HeadingElementUpdateElementStyleBackgroundFile::class => HeadingElementUpdateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\IFrameElementCreateElement::class => IFrameElementCreateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\IFrameElementCreateElementStyleBackgroundFile::class => IFrameElementCreateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\IFrameElementElement::class => IFrameElementElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\IFrameElementElementStyleBackgroundFile::class => IFrameElementElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\IFrameElementPublicElement::class => IFrameElementPublicElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\IFrameElementPublicElementStyleBackgroundFile::class => IFrameElementPublicElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\IFrameElementUpdateElement::class => IFrameElementUpdateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\IFrameElementUpdateElementStyleBackgroundFile::class => IFrameElementUpdateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ImageConfigBlock::class => ImageConfigBlockNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ImageConfigBlockImage::class => ImageConfigBlockImageNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ImageElementCreateElement::class => ImageElementCreateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ImageElementCreateElementStyleBackgroundFile::class => ImageElementCreateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ImageElementCreateElementImageFile::class => ImageElementCreateElementImageFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ImageElementElement::class => ImageElementElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ImageElementElementStyleBackgroundFile::class => ImageElementElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ImageElementPublicElement::class => ImageElementPublicElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ImageElementPublicElementStyleBackgroundFile::class => ImageElementPublicElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ImageElementUpdateElement::class => ImageElementUpdateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ImageElementUpdateElementStyleBackgroundFile::class => ImageElementUpdateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ImageElementUpdateElementImageFile::class => ImageElementUpdateElementImageFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ImageThemeConfigBlock::class => ImageThemeConfigBlockNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\InputTextElementCreateElement::class => InputTextElementCreateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\InputTextElementCreateElementStyleBackgroundFile::class => InputTextElementCreateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\InputTextElementElement::class => InputTextElementElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\InputTextElementElementStyleBackgroundFile::class => InputTextElementElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\InputTextElementPublicElement::class => InputTextElementPublicElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\InputTextElementPublicElementStyleBackgroundFile::class => InputTextElementPublicElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\InputTextElementUpdateElement::class => InputTextElementUpdateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\InputTextElementUpdateElementStyleBackgroundFile::class => InputTextElementUpdateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\InstallTemplateJobCreateJob::class => InstallTemplateJobCreateJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\InstallTemplateJobJob::class => InstallTemplateJobJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\InstallTemplateJobJobWorkspace::class => InstallTemplateJobJobWorkspaceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\InstallTemplateJobJobTemplate::class => InstallTemplateJobJobTemplateNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\InstallTemplateJobJobGroup::class => InstallTemplateJobJobGroupNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\InstanceId::class => InstanceIdNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\Job::class => JobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\KanbanViewCreateView::class => KanbanViewCreateViewNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\KanbanViewExampleResponse::class => KanbanViewExampleResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\KanbanViewExampleResponseStack::class => KanbanViewExampleResponseStackNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\KanbanViewFieldOptions::class => KanbanViewFieldOptionsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\KanbanViewView::class => KanbanViewViewNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LastModifiedByFieldCreateField::class => LastModifiedByFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LastModifiedByFieldField::class => LastModifiedByFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LastModifiedByFieldFieldSerializerWithRelatedFields::class => LastModifiedByFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LastModifiedByFieldUpdateField::class => LastModifiedByFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LastModifiedFieldCreateField::class => LastModifiedFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LastModifiedFieldField::class => LastModifiedFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LastModifiedFieldFieldSerializerWithRelatedFields::class => LastModifiedFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LastModifiedFieldUpdateField::class => LastModifiedFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\License::class => LicenseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LicenseUser::class => LicenseUserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LicenseUserLookup::class => LicenseUserLookupNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LicenseWithUsers::class => LicenseWithUsersNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LinkElementCreateElement::class => LinkElementCreateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LinkElementCreateElementStyleBackgroundFile::class => LinkElementCreateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LinkElementElement::class => LinkElementElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LinkElementElementStyleBackgroundFile::class => LinkElementElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LinkElementPublicElement::class => LinkElementPublicElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LinkElementPublicElementStyleBackgroundFile::class => LinkElementPublicElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LinkElementUpdateElement::class => LinkElementUpdateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LinkElementUpdateElementStyleBackgroundFile::class => LinkElementUpdateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LinkRowFieldCreateField::class => LinkRowFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LinkRowFieldField::class => LinkRowFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LinkRowFieldFieldSerializerWithRelatedFields::class => LinkRowFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LinkRowFieldUpdateField::class => LinkRowFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LinkRowValue::class => LinkRowValueNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LinkThemeConfigBlock::class => LinkThemeConfigBlockNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ListWorkspaceUsersWithMemberData::class => ListWorkspaceUsersWithMemberDataNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowContextData::class => LocalBaserowContextDataNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowCreateRowWorkflowActionBuilderWorkflowAction::class => LocalBaserowCreateRowWorkflowActionBuilderWorkflowActionNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowCreateRowWorkflowActionCreateBuilderWorkflowAction::class => LocalBaserowCreateRowWorkflowActionCreateBuilderWorkflowActionNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowCreateRowWorkflowActionUpdateBuilderWorkflowActions::class => LocalBaserowCreateRowWorkflowActionUpdateBuilderWorkflowActionsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowField::class => LocalBaserowFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowGetRow::class => LocalBaserowGetRowNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowGetRowCreateDataSource::class => LocalBaserowGetRowCreateDataSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowGetRowDataSource::class => LocalBaserowGetRowDataSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowGetRowPublicDataSource::class => LocalBaserowGetRowPublicDataSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowGetRowService::class => LocalBaserowGetRowServiceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowGetRowUpdateDataSource::class => LocalBaserowGetRowUpdateDataSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationCreateIntegration::class => LocalBaserowIntegrationCreateIntegrationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationCreateIntegrationContextData::class => LocalBaserowIntegrationCreateIntegrationContextDataNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationCreateIntegrationAuthorizedUser::class => LocalBaserowIntegrationCreateIntegrationAuthorizedUserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationIntegration::class => LocalBaserowIntegrationIntegrationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationIntegrationContextData::class => LocalBaserowIntegrationIntegrationContextDataNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationIntegrationAuthorizedUser::class => LocalBaserowIntegrationIntegrationAuthorizedUserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationUpdateIntegration::class => LocalBaserowIntegrationUpdateIntegrationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationUpdateIntegrationContextData::class => LocalBaserowIntegrationUpdateIntegrationContextDataNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationUpdateIntegrationAuthorizedUser::class => LocalBaserowIntegrationUpdateIntegrationAuthorizedUserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowListRows::class => LocalBaserowListRowsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsCreateDataSource::class => LocalBaserowListRowsCreateDataSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsDataSource::class => LocalBaserowListRowsDataSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsPublicDataSource::class => LocalBaserowListRowsPublicDataSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsService::class => LocalBaserowListRowsServiceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsUpdateDataSource::class => LocalBaserowListRowsUpdateDataSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowPasswordAppAuthProviderAppAuthProvider::class => LocalBaserowPasswordAppAuthProviderAppAuthProviderNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowPasswordAppAuthProviderBaseAppAuthProvider::class => LocalBaserowPasswordAppAuthProviderBaseAppAuthProviderNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowTableServiceFieldMapping::class => LocalBaserowTableServiceFieldMappingNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowTableServiceFilter::class => LocalBaserowTableServiceFilterNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowTableServiceSort::class => LocalBaserowTableServiceSortNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowUpdateRowWorkflowActionBuilderWorkflowAction::class => LocalBaserowUpdateRowWorkflowActionBuilderWorkflowActionNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowUpdateRowWorkflowActionCreateBuilderWorkflowAction::class => LocalBaserowUpdateRowWorkflowActionCreateBuilderWorkflowActionNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowUpdateRowWorkflowActionUpdateBuilderWorkflowActions::class => LocalBaserowUpdateRowWorkflowActionUpdateBuilderWorkflowActionsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRow::class => LocalBaserowUpsertRowNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowCreateDataSource::class => LocalBaserowUpsertRowCreateDataSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowDataSource::class => LocalBaserowUpsertRowDataSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowPublicDataSource::class => LocalBaserowUpsertRowPublicDataSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowService::class => LocalBaserowUpsertRowServiceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowUpdateDataSource::class => LocalBaserowUpsertRowUpdateDataSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceBasePublicUserSource::class => LocalBaserowUserSourceBasePublicUserSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceCreateUserSource::class => LocalBaserowUserSourceCreateUserSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceUpdateUserSource::class => LocalBaserowUserSourceUpdateUserSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceUserSource::class => LocalBaserowUserSourceUserSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceUserSourceRoles::class => LocalBaserowUserSourceUserSourceRolesNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LocalBaserowView::class => LocalBaserowViewNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LogoutWorkflowActionBuilderWorkflowAction::class => LogoutWorkflowActionBuilderWorkflowActionNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LogoutWorkflowActionCreateBuilderWorkflowAction::class => LogoutWorkflowActionCreateBuilderWorkflowActionNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LogoutWorkflowActionUpdateBuilderWorkflowActions::class => LogoutWorkflowActionUpdateBuilderWorkflowActionsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LongTextFieldCreateField::class => LongTextFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LongTextFieldField::class => LongTextFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LongTextFieldFieldSerializerWithRelatedFields::class => LongTextFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LongTextFieldUpdateField::class => LongTextFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LookupFieldCreateField::class => LookupFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LookupFieldField::class => LookupFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LookupFieldFieldSerializerWithRelatedFields::class => LookupFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\LookupFieldUpdateField::class => LookupFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\MultipleCollaboratorsFieldCreateField::class => MultipleCollaboratorsFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\MultipleCollaboratorsFieldField::class => MultipleCollaboratorsFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\MultipleCollaboratorsFieldFieldSerializerWithRelatedFields::class => MultipleCollaboratorsFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\MultipleCollaboratorsFieldUpdateField::class => MultipleCollaboratorsFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\MultipleSelectFieldCreateField::class => MultipleSelectFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\MultipleSelectFieldField::class => MultipleSelectFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\MultipleSelectFieldFieldSerializerWithRelatedFields::class => MultipleSelectFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\MultipleSelectFieldUpdateField::class => MultipleSelectFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\NotificationRecipient::class => NotificationRecipientNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\NotificationRecipientSender::class => NotificationRecipientSenderNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\NotificationWorkflowActionBuilderWorkflowAction::class => NotificationWorkflowActionBuilderWorkflowActionNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\NotificationWorkflowActionCreateBuilderWorkflowAction::class => NotificationWorkflowActionCreateBuilderWorkflowActionNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\NotificationWorkflowActionUpdateBuilderWorkflowActions::class => NotificationWorkflowActionUpdateBuilderWorkflowActionsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\NumberFieldCreateField::class => NumberFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\NumberFieldField::class => NumberFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\NumberFieldFieldSerializerWithRelatedFields::class => NumberFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\NumberFieldUpdateField::class => NumberFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\OllamaSettings::class => OllamaSettingsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\OpenAISettings::class => OpenAISettingsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\OpenApiRoleAssignment::class => OpenApiRoleAssignmentNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\OpenApiRoleAssignmentSubject::class => OpenApiRoleAssignmentSubjectNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\OpenApiSubjectField::class => OpenApiSubjectFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\OpenIdConnectAuthProviderModelAuthProvider::class => OpenIdConnectAuthProviderModelAuthProviderNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\OpenPageWorkflowActionBuilderWorkflowAction::class => OpenPageWorkflowActionBuilderWorkflowActionNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\OpenPageWorkflowActionCreateBuilderWorkflowAction::class => OpenPageWorkflowActionCreateBuilderWorkflowActionNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\OpenPageWorkflowActionUpdateBuilderWorkflowActions::class => OpenPageWorkflowActionUpdateBuilderWorkflowActionsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\OrderApplications::class => OrderApplicationsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\OrderDomains::class => OrderDomainsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\OrderPages::class => OrderPagesNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\OrderTables::class => OrderTablesNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\OrderViews::class => OrderViewsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\OrderWorkflowActions::class => OrderWorkflowActionsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\OrderWorkspaces::class => OrderWorkspacesNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\Page::class => PageNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PageParameterValue::class => PageParameterValueNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PaginationSerializerAuditLog::class => PaginationSerializerAuditLogNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PaginationSerializerAuditLogUser::class => PaginationSerializerAuditLogUserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PaginationSerializerAuditLogWorkspace::class => PaginationSerializerAuditLogWorkspaceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PaginationRowResponse::class => PaginationRowResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PaginationSerializerLicenseUserLookup::class => PaginationSerializerLicenseUserLookupNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PaginationSerializerLinkRowValue::class => PaginationSerializerLinkRowValueNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PaginationSerializerNotificationRecipient::class => PaginationSerializerNotificationRecipientNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PaginationSerializerRowComment::class => PaginationSerializerRowCommentNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PaginationSerializerRowHistory::class => PaginationSerializerRowHistoryNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PaginationSerializerTrashContents::class => PaginationSerializerTrashContentsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PaginationSerializerUserAdminResponse::class => PaginationSerializerUserAdminResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PaginationSerializerWithGalleryViewFieldOptionsExampleRowResponse::class => PaginationSerializerWithGalleryViewFieldOptionsExampleRowResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PaginationSerializerWithGridViewFieldOptionsExampleRowResponse::class => PaginationSerializerWithGridViewFieldOptionsExampleRowResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PaginationSerializerWorkspacesAdminResponse::class => PaginationSerializerWorkspacesAdminResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PasswordAuthProviderModelAuthProvider::class => PasswordAuthProviderModelAuthProviderNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PasswordFieldCreateField::class => PasswordFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PasswordFieldField::class => PasswordFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PasswordFieldFieldSerializerWithRelatedFields::class => PasswordFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PasswordFieldUpdateField::class => PasswordFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedAccount::class => PatchedAccountNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedCombinedThemeConfigBlocks::class => PatchedCombinedThemeConfigBlocksNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedCombinedThemeConfigBlocksPageBackgroundFile::class => PatchedCombinedThemeConfigBlocksPageBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchRowsRequest::class => PatchRowsRequestNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchRowRequest::class => PatchRowRequestNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedGenerativeAISettings::class => PatchedGenerativeAISettingsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedMoveDataSource::class => PatchedMoveDataSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedMoveElement::class => PatchedMoveElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedMoveIntegration::class => PatchedMoveIntegrationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedMoveUserSource::class => PatchedMoveUserSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedSettings::class => PatchedSettingsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedSettingsCoBrandingLogo::class => PatchedSettingsCoBrandingLogoNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedTableUpdate::class => PatchedTableUpdateNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedTableWebhookUpdateRequest::class => PatchedTableWebhookUpdateRequestNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedTokenUpdate::class => PatchedTokenUpdateNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedTokenUpdatePermissions::class => PatchedTokenUpdatePermissionsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedTrashEntryRequest::class => PatchedTrashEntryRequestNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedUndoRedoRequest::class => PatchedUndoRedoRequestNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedUndoRedoRequestScopes::class => PatchedUndoRedoRequestScopesNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedUpdateDomain::class => PatchedUpdateDomainNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedUpdatePage::class => PatchedUpdatePageNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedUpdatePremiumViewAttributes::class => PatchedUpdatePremiumViewAttributesNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedUpdateViewFilter::class => PatchedUpdateViewFilterNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedUpdateViewFilterGroup::class => PatchedUpdateViewFilterGroupNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedUpdateViewGroupBy::class => PatchedUpdateViewGroupByNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedUpdateViewSort::class => PatchedUpdateViewSortNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedUpdateWorkspaceInvitation::class => PatchedUpdateWorkspaceInvitationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedUpdateWorkspaceUser::class => PatchedUpdateWorkspaceUserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedUserAdminUpdate::class => PatchedUserAdminUpdateNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PatchedWorkspace::class => PatchedWorkspaceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PathParam::class => PathParamNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PermissionObject::class => PermissionObjectNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PhoneNumberFieldCreateField::class => PhoneNumberFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PhoneNumberFieldField::class => PhoneNumberFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PhoneNumberFieldFieldSerializerWithRelatedFields::class => PhoneNumberFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PhoneNumberFieldUpdateField::class => PhoneNumberFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicBuilder::class => PublicBuilderNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicBuilderTheme::class => PublicBuilderThemeNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicField::class => PublicFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicFormView::class => PublicFormViewNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicFormViewCoverImage::class => PublicFormViewCoverImageNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicFormViewLogoImage::class => PublicFormViewLogoImageNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicFormViewField::class => PublicFormViewFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicFormViewFieldOptions::class => PublicFormViewFieldOptionsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicFormViewFieldOptionsField::class => PublicFormViewFieldOptionsFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicNone::class => PublicNoneNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicPage::class => PublicPageNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicPaginationSerializerWithGalleryViewFieldOptionsExampleRowResponse::class => PublicPaginationSerializerWithGalleryViewFieldOptionsExampleRowResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicPaginationSerializerWithGridViewFieldOptionsExampleRowResponse::class => PublicPaginationSerializerWithGridViewFieldOptionsExampleRowResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicView::class => PublicViewNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicViewAuthRequest::class => PublicViewAuthRequestNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicViewAuthResponse::class => PublicViewAuthResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicViewGroupBy::class => PublicViewGroupByNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicViewInfo::class => PublicViewInfoNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicViewInfoView::class => PublicViewInfoViewNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicViewSort::class => PublicViewSortNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublicViewTable::class => PublicViewTableNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublishDomainJobCreateJob::class => PublishDomainJobCreateJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\PublishDomainJobJob::class => PublishDomainJobJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RatingFieldCreateField::class => RatingFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RatingFieldField::class => RatingFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RatingFieldFieldSerializerWithRelatedFields::class => RatingFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RatingFieldUpdateField::class => RatingFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RefreshDataSourceWorkflowActionBuilderWorkflowAction::class => RefreshDataSourceWorkflowActionBuilderWorkflowActionNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RefreshDataSourceWorkflowActionCreateBuilderWorkflowAction::class => RefreshDataSourceWorkflowActionCreateBuilderWorkflowActionNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RefreshDataSourceWorkflowActionUpdateBuilderWorkflowActions::class => RefreshDataSourceWorkflowActionUpdateBuilderWorkflowActionsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\Register::class => RegisterNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RegisterLicense::class => RegisterLicenseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RelatedFields::class => RelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RepeatElementCreateElement::class => RepeatElementCreateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RepeatElementCreateElementStyleBackgroundFile::class => RepeatElementCreateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RepeatElementElement::class => RepeatElementElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RepeatElementElementStyleBackgroundFile::class => RepeatElementElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RepeatElementPublicElement::class => RepeatElementPublicElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RepeatElementPublicElementStyleBackgroundFile::class => RepeatElementPublicElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RepeatElementUpdateElement::class => RepeatElementUpdateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RepeatElementUpdateElementStyleBackgroundFile::class => RepeatElementUpdateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\Report::class => ReportNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ResetPasswordBodyValidation::class => ResetPasswordBodyValidationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RestoreSnapshotJobCreateJob::class => RestoreSnapshotJobCreateJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RestoreSnapshotJobJob::class => RestoreSnapshotJobJobNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RollupFieldCreateField::class => RollupFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RollupFieldField::class => RollupFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RollupFieldFieldSerializerWithRelatedFields::class => RollupFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RollupFieldUpdateField::class => RollupFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RowComment::class => RowCommentNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RowCommentCreate::class => RowCommentCreateNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RowCommentsNotificationMode::class => RowCommentsNotificationModeNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RowHistory::class => RowHistoryNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RowHistoryUser::class => RowHistoryUserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\RowMetadata::class => RowMetadataNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SAMLResponse::class => SAMLResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SamlAuthProviderModelAuthProvider::class => SamlAuthProviderModelAuthProviderNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SelectColorValueProviderConf::class => SelectColorValueProviderConfNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SelectOption::class => SelectOptionNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SendResetPasswordEmailBodyValidation::class => SendResetPasswordEmailBodyValidationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\Sender::class => SenderNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\Settings::class => SettingsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SettingsCoBrandingLogo::class => SettingsCoBrandingLogoNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleAuditLogExportJobRequest::class => SingleAuditLogExportJobRequestNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleAuditLogExportJobResponse::class => SingleAuditLogExportJobResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleDuplicateApplicationJobType::class => SingleDuplicateApplicationJobTypeNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleDuplicateFieldJobType::class => SingleDuplicateFieldJobTypeNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleDuplicateFieldJobTypeOriginalField::class => SingleDuplicateFieldJobTypeOriginalFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleDuplicateFieldJobTypeDuplicatedField::class => SingleDuplicateFieldJobTypeDuplicatedFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleDuplicatePageJobType::class => SingleDuplicatePageJobTypeNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleDuplicatePageJobTypeOriginalPage::class => SingleDuplicatePageJobTypeOriginalPageNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleDuplicatePageJobTypeDuplicatedPage::class => SingleDuplicatePageJobTypeDuplicatedPageNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleDuplicateTableJobType::class => SingleDuplicateTableJobTypeNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleDuplicateTableJobTypeOriginalTable::class => SingleDuplicateTableJobTypeOriginalTableNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleDuplicateTableJobTypeDuplicatedTable::class => SingleDuplicateTableJobTypeDuplicatedTableNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleFileImportJobSerializerClass::class => SingleFileImportJobSerializerClassNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleFileImportJobSerializerClassReport::class => SingleFileImportJobSerializerClassReportNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleInstallTemplateJobType::class => SingleInstallTemplateJobTypeNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleInstallTemplateJobTypeWorkspace::class => SingleInstallTemplateJobTypeWorkspaceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleInstallTemplateJobTypeTemplate::class => SingleInstallTemplateJobTypeTemplateNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleInstallTemplateJobTypeGroup::class => SingleInstallTemplateJobTypeGroupNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleSelectFieldCreateField::class => SingleSelectFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleSelectFieldField::class => SingleSelectFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleSelectFieldFieldSerializerWithRelatedFields::class => SingleSelectFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SingleSelectFieldUpdateField::class => SingleSelectFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\Snapshot::class => SnapshotNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SnapshotCreatedBy::class => SnapshotCreatedByNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SubDomainCreateDomain::class => SubDomainCreateDomainNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SubDomainDomain::class => SubDomainDomainNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\SubjectUser::class => SubjectUserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\Table::class => TableNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TableCreate::class => TableCreateNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TableElementCreateElement::class => TableElementCreateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TableElementCreateElementStyleBackgroundFile::class => TableElementCreateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TableElementElement::class => TableElementElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TableElementElementStyleBackgroundFile::class => TableElementElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TableElementPublicElement::class => TableElementPublicElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TableElementPublicElementStyleBackgroundFile::class => TableElementPublicElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TableElementUpdateElement::class => TableElementUpdateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TableElementUpdateElementStyleBackgroundFile::class => TableElementUpdateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TableImport::class => TableImportNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TableSerializerWithFields::class => TableSerializerWithFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TableWebhook::class => TableWebhookNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TableWebhookCall::class => TableWebhookCallNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TableWebhookCreateRequest::class => TableWebhookCreateRequestNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TableWebhookTestCallRequest::class => TableWebhookTestCallRequestNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TableWebhookTestCallResponse::class => TableWebhookTestCallResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\Team::class => TeamNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TeamResponse::class => TeamResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TeamSampleSubject::class => TeamSampleSubjectNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TeamSubject::class => TeamSubjectNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TeamSubjectResponse::class => TeamSubjectResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\Template::class => TemplateNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TemplateCategories::class => TemplateCategoriesNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TextElementCreateElement::class => TextElementCreateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TextElementCreateElementStyleBackgroundFile::class => TextElementCreateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TextElementElement::class => TextElementElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TextElementElementStyleBackgroundFile::class => TextElementElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TextElementPublicElement::class => TextElementPublicElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TextElementPublicElementStyleBackgroundFile::class => TextElementPublicElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TextElementUpdateElement::class => TextElementUpdateElementNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TextElementUpdateElementStyleBackgroundFile::class => TextElementUpdateElementStyleBackgroundFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TextFieldCreateField::class => TextFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TextFieldField::class => TextFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TextFieldFieldSerializerWithRelatedFields::class => TextFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TextFieldUpdateField::class => TextFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\Token::class => TokenNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TokenPermissions::class => TokenPermissionsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TokenBlacklist::class => TokenBlacklistNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TokenCreate::class => TokenCreateNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TokenObtainPair::class => TokenObtainPairNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TokenObtainPairWithUser::class => TokenObtainPairWithUserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TokenRefreshWithUser::class => TokenRefreshWithUserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TokenVerifyWithUser::class => TokenVerifyWithUserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TrashContents::class => TrashContentsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TrashStructure::class => TrashStructureNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TrashStructureApplication::class => TrashStructureApplicationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TrashStructureGroup::class => TrashStructureGroupNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TypeFormulaRequest::class => TypeFormulaRequestNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TypeFormulaResult::class => TypeFormulaResultNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TypographyConfigBlock::class => TypographyConfigBlockNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TypographyConfigBlockTypography::class => TypographyConfigBlockTypographyNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\TypographyThemeConfigBlock::class => TypographyThemeConfigBlockNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\URLFieldCreateField::class => URLFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\URLFieldField::class => URLFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\URLFieldFieldSerializerWithRelatedFields::class => URLFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\URLFieldUpdateField::class => URLFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\UUIDFieldCreateField::class => UUIDFieldCreateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\UUIDFieldField::class => UUIDFieldFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\UUIDFieldFieldSerializerWithRelatedFields::class => UUIDFieldFieldSerializerWithRelatedFieldsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\UUIDFieldUpdateField::class => UUIDFieldUpdateFieldNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\UndoRedoAction::class => UndoRedoActionNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\UndoRedoResponse::class => UndoRedoResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\UniqueRowValues::class => UniqueRowValuesNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\User::class => UserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\UserAdminCreate::class => UserAdminCreateNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\UserAdminGroups::class => UserAdminGroupsNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\UserAdminResponse::class => UserAdminResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\UserFile::class => UserFileNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\UserFileUploadViaURLRequest::class => UserFileUploadViaURLRequestNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\UserSourceUser::class => UserSourceUserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\UserWorkspaceInvitation::class => UserWorkspaceInvitationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\UsersPerUserSource::class => UsersPerUserSourceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\VerifyEmailAddress::class => VerifyEmailAddressNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\View::class => ViewNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ViewDecoration::class => ViewDecorationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ViewFilter::class => ViewFilterNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ViewFilterGroup::class => ViewFilterGroupNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ViewGroupBy::class => ViewGroupByNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ViewSort::class => ViewSortNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\Workspace::class => WorkspaceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\WorkspaceAdminUsers::class => WorkspaceAdminUsersNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\WorkspaceInvitation::class => WorkspaceInvitationNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\WorkspaceUser::class => WorkspaceUserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\WorkspaceUserEnterpriseTeam::class => WorkspaceUserEnterpriseTeamNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\WorkspaceUserWorkspace::class => WorkspaceUserWorkspaceNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\WorkspacesAdminResponse::class => WorkspacesAdminResponseNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\CalendarViewUpdate::class => CalendarViewUpdateNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormViewUpdate::class => FormViewUpdateNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormViewUpdateCoverImage::class => FormViewUpdateCoverImageNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\FormViewUpdateLogoImage::class => FormViewUpdateLogoImageNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GalleryViewUpdate::class => GalleryViewUpdateNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\GridViewUpdate::class => GridViewUpdateNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\KanbanViewUpdate::class => KanbanViewUpdateNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiHealthEmailPostResponse400::class => ApiHealthEmailPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogGetResponse400::class => ApiAdminAuditLogGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogActionTypesGetResponse400::class => ApiAdminAuditLogActionTypesGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogExportPostResponse400::class => ApiAdminAuditLogExportPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogExportPostResponse404::class => ApiAdminAuditLogExportPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogUsersGetResponse400::class => ApiAdminAuditLogUsersGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogWorkspacesGetResponse400::class => ApiAdminAuditLogWorkspacesGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderPostResponse400::class => ApiAdminAuthProviderPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderAuthProviderIdDeleteResponse404::class => ApiAdminAuthProviderAuthProviderIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderAuthProviderIdGetResponse404::class => ApiAdminAuthProviderAuthProviderIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderAuthProviderIdPatchResponse400::class => ApiAdminAuthProviderAuthProviderIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderAuthProviderIdPatchResponse404::class => ApiAdminAuthProviderAuthProviderIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminGroupsGetResponse400::class => ApiAdminGroupsGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminGroupsGroupIdDeleteResponse400::class => ApiAdminGroupsGroupIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminUsersGetResponse400::class => ApiAdminUsersGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminUsersPostResponse400::class => ApiAdminUsersPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminUsersUserIdDeleteResponse400::class => ApiAdminUsersUserIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminUsersUserIdPatchResponse400::class => ApiAdminUsersUserIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminUsersImpersonatePostResponse200::class => ApiAdminUsersImpersonatePostResponse200Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminUsersImpersonatePostResponse200User::class => ApiAdminUsersImpersonatePostResponse200UserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminWorkspacesGetResponse400::class => ApiAdminWorkspacesGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAdminWorkspacesWorkspaceIdDeleteResponse400::class => ApiAdminWorkspacesWorkspaceIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdIntegrationsGetResponse404::class => ApiApplicationApplicationIdIntegrationsGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdIntegrationsPostResponse400::class => ApiApplicationApplicationIdIntegrationsPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdIntegrationsPostResponse404::class => ApiApplicationApplicationIdIntegrationsPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdListUserSourceUsersGetResponse404::class => ApiApplicationApplicationIdListUserSourceUsersGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdUserSourcesGetResponse404::class => ApiApplicationApplicationIdUserSourcesGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdUserSourcesPostResponse400::class => ApiApplicationApplicationIdUserSourcesPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdUserSourcesPostResponse404::class => ApiApplicationApplicationIdUserSourcesPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdUserSourcesRolesGetResponse404::class => ApiApplicationApplicationIdUserSourcesRolesGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsGetResponse400::class => ApiApplicationsGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdDeleteResponse400::class => ApiApplicationsApplicationIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdDeleteResponse404::class => ApiApplicationsApplicationIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdGetResponse400::class => ApiApplicationsApplicationIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdGetResponse404::class => ApiApplicationsApplicationIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdPatchResponse400::class => ApiApplicationsApplicationIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdPatchResponse404::class => ApiApplicationsApplicationIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdDuplicateAsyncPostResponse400::class => ApiApplicationsApplicationIdDuplicateAsyncPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdDuplicateAsyncPostResponse404::class => ApiApplicationsApplicationIdDuplicateAsyncPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdGetResponse400::class => ApiApplicationsGroupGroupIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdGetResponse404::class => ApiApplicationsGroupGroupIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdPostResponse400::class => ApiApplicationsGroupGroupIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdPostResponse404::class => ApiApplicationsGroupGroupIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdOrderPostResponse400::class => ApiApplicationsGroupGroupIdOrderPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdOrderPostResponse404::class => ApiApplicationsGroupGroupIdOrderPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdGetResponse400::class => ApiApplicationsWorkspaceWorkspaceIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdGetResponse404::class => ApiApplicationsWorkspaceWorkspaceIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdPostResponse400::class => ApiApplicationsWorkspaceWorkspaceIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdPostResponse404::class => ApiApplicationsWorkspaceWorkspaceIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdOrderPostResponse400::class => ApiApplicationsWorkspaceWorkspaceIdOrderPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdOrderPostResponse404::class => ApiApplicationsWorkspaceWorkspaceIdOrderPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAuditLogGetResponse400::class => ApiAuditLogGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAuditLogActionTypesGetResponse400::class => ApiAuditLogActionTypesGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAuditLogExportPostResponse400::class => ApiAuditLogExportPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAuditLogExportPostResponse404::class => ApiAuditLogExportPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAuditLogUsersGetResponse400::class => ApiAuditLogUsersGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiAuditLogWorkspacesGetResponse400::class => ApiAuditLogWorkspacesGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsGetResponse400::class => ApiBuilderBuilderIdDomainsGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsGetResponse404::class => ApiBuilderBuilderIdDomainsGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsPostResponse400::class => ApiBuilderBuilderIdDomainsPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsPostResponse404::class => ApiBuilderBuilderIdDomainsPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsOrderPostResponse400::class => ApiBuilderBuilderIdDomainsOrderPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsOrderPostResponse404::class => ApiBuilderBuilderIdDomainsOrderPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdPagesPostResponse400::class => ApiBuilderBuilderIdPagesPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdPagesPostResponse404::class => ApiBuilderBuilderIdPagesPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdPagesOrderPostResponse400::class => ApiBuilderBuilderIdPagesOrderPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdPagesOrderPostResponse404::class => ApiBuilderBuilderIdPagesOrderPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdThemePatchResponse400::class => ApiBuilderBuilderIdThemePatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdThemePatchResponse404::class => ApiBuilderBuilderIdThemePatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdDeleteResponse400::class => ApiBuilderDataSourceDataSourceIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdDeleteResponse404::class => ApiBuilderDataSourceDataSourceIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdPatchResponse400::class => ApiBuilderDataSourceDataSourceIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdPatchResponse404::class => ApiBuilderDataSourceDataSourceIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdDispatchPostResponse404::class => ApiBuilderDataSourceDataSourceIdDispatchPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdMovePatchResponse400::class => ApiBuilderDataSourceDataSourceIdMovePatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdMovePatchResponse404::class => ApiBuilderDataSourceDataSourceIdMovePatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdDeleteResponse400::class => ApiBuilderDomainsDomainIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdDeleteResponse404::class => ApiBuilderDomainsDomainIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdPatchResponse400::class => ApiBuilderDomainsDomainIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdPatchResponse404::class => ApiBuilderDomainsDomainIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdPublishAsyncPostResponse400::class => ApiBuilderDomainsDomainIdPublishAsyncPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdPublishAsyncPostResponse404::class => ApiBuilderDomainsDomainIdPublishAsyncPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsPublishedByIdBuilderIdGetResponse404::class => ApiBuilderDomainsPublishedByIdBuilderIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsPublishedByNameDomainNameGetResponse404::class => ApiBuilderDomainsPublishedByNameDomainNameGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsPublishedPagePageIdDataSourcesGetResponse404::class => ApiBuilderDomainsPublishedPagePageIdDataSourcesGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsPublishedPagePageIdElementsGetResponse404::class => ApiBuilderDomainsPublishedPagePageIdElementsGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsPublishedPagePageIdWorkflowActionsGetResponse404::class => ApiBuilderDomainsPublishedPagePageIdWorkflowActionsGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdDeleteResponse400::class => ApiBuilderElementElementIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdDeleteResponse404::class => ApiBuilderElementElementIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdPatchResponse400::class => ApiBuilderElementElementIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdPatchResponse404::class => ApiBuilderElementElementIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdDuplicatePostResponse400::class => ApiBuilderElementElementIdDuplicatePostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdDuplicatePostResponse404::class => ApiBuilderElementElementIdDuplicatePostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdMovePatchResponse400::class => ApiBuilderElementElementIdMovePatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdMovePatchResponse404::class => ApiBuilderElementElementIdMovePatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdDataSourcesGetResponse404::class => ApiBuilderPagePageIdDataSourcesGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdDataSourcesPostResponse400::class => ApiBuilderPagePageIdDataSourcesPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdDataSourcesPostResponse404::class => ApiBuilderPagePageIdDataSourcesPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdDispatchDataSourcesPostResponse404::class => ApiBuilderPagePageIdDispatchDataSourcesPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdElementsGetResponse404::class => ApiBuilderPagePageIdElementsGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdElementsPostResponse400::class => ApiBuilderPagePageIdElementsPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdElementsPostResponse404::class => ApiBuilderPagePageIdElementsPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdWorkflowActionsGetResponse404::class => ApiBuilderPagePageIdWorkflowActionsGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdWorkflowActionsPostResponse400::class => ApiBuilderPagePageIdWorkflowActionsPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdWorkflowActionsPostResponse404::class => ApiBuilderPagePageIdWorkflowActionsPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdWorkflowActionsOrderPostResponse400::class => ApiBuilderPagePageIdWorkflowActionsOrderPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdWorkflowActionsOrderPostResponse404::class => ApiBuilderPagePageIdWorkflowActionsOrderPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdDeleteResponse400::class => ApiBuilderPagesPageIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdDeleteResponse404::class => ApiBuilderPagesPageIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdPatchResponse400::class => ApiBuilderPagesPageIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdPatchResponse404::class => ApiBuilderPagesPageIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdDuplicateAsyncPostResponse400::class => ApiBuilderPagesPageIdDuplicateAsyncPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdDuplicateAsyncPostResponse404::class => ApiBuilderPagesPageIdDuplicateAsyncPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse400::class => ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse404::class => ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdPatchResponse400::class => ApiBuilderWorkflowActionWorkflowActionIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdPatchResponse404::class => ApiBuilderWorkflowActionWorkflowActionIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDispatchPostResponse400::class => ApiBuilderWorkflowActionWorkflowActionIdDispatchPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseExportJobIdGetResponse404::class => ApiDatabaseExportJobIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseExportTableTableIdPostResponse400::class => ApiDatabaseExportTableTableIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseExportTableTableIdPostResponse404::class => ApiDatabaseExportTableTableIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdDeleteResponse400::class => ApiDatabaseFieldsFieldIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdDeleteResponse404::class => ApiDatabaseFieldsFieldIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdGetResponse400::class => ApiDatabaseFieldsFieldIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdGetResponse404::class => ApiDatabaseFieldsFieldIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdPatchResponse400::class => ApiDatabaseFieldsFieldIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdPatchResponse404::class => ApiDatabaseFieldsFieldIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse400::class => ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse404::class => ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse400::class => ApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse404::class => ApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse400::class => ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse404::class => ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdGetResponse400::class => ApiDatabaseFieldsTableTableIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdGetResponse401::class => ApiDatabaseFieldsTableTableIdGetResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdGetResponse404::class => ApiDatabaseFieldsTableTableIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdPostResponse400::class => ApiDatabaseFieldsTableTableIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdPostResponse401::class => ApiDatabaseFieldsTableTableIdPostResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdPostResponse404::class => ApiDatabaseFieldsTableTableIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse400::class => ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse404::class => ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFormulaTableIdTypePostResponse400::class => ApiDatabaseFormulaTableIdTypePostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFormulaTableIdTypePostResponse404::class => ApiDatabaseFormulaTableIdTypePostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse200::class => ApiDatabaseRowsNamesGetResponse200Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse200TableId::class => ApiDatabaseRowsNamesGetResponse200TableIdNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse400::class => ApiDatabaseRowsNamesGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse401::class => ApiDatabaseRowsNamesGetResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse404::class => ApiDatabaseRowsNamesGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdGetResponse400::class => ApiDatabaseRowsTableTableIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdGetResponse401::class => ApiDatabaseRowsTableTableIdGetResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdGetResponse404::class => ApiDatabaseRowsTableTableIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdPostResponse400::class => ApiDatabaseRowsTableTableIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdPostResponse401::class => ApiDatabaseRowsTableTableIdPostResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdPostResponse404::class => ApiDatabaseRowsTableTableIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdDeleteResponse400::class => ApiDatabaseRowsTableTableIdRowIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdDeleteResponse404::class => ApiDatabaseRowsTableTableIdRowIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdGetResponse400::class => ApiDatabaseRowsTableTableIdRowIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdGetResponse401::class => ApiDatabaseRowsTableTableIdRowIdGetResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdGetResponse404::class => ApiDatabaseRowsTableTableIdRowIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdPatchResponse400::class => ApiDatabaseRowsTableTableIdRowIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdPatchResponse401::class => ApiDatabaseRowsTableTableIdRowIdPatchResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdPatchResponse404::class => ApiDatabaseRowsTableTableIdRowIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdAdjacentGetResponse400::class => ApiDatabaseRowsTableTableIdRowIdAdjacentGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdAdjacentGetResponse404::class => ApiDatabaseRowsTableTableIdRowIdAdjacentGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdHistoryGetResponse400::class => ApiDatabaseRowsTableTableIdRowIdHistoryGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdHistoryGetResponse404::class => ApiDatabaseRowsTableTableIdRowIdHistoryGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdMovePatchResponse400::class => ApiDatabaseRowsTableTableIdRowIdMovePatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdMovePatchResponse401::class => ApiDatabaseRowsTableTableIdRowIdMovePatchResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdMovePatchResponse404::class => ApiDatabaseRowsTableTableIdRowIdMovePatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse400::class => ApiDatabaseRowsTableTableIdBatchPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse401::class => ApiDatabaseRowsTableTableIdBatchPatchResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse404::class => ApiDatabaseRowsTableTableIdBatchPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPostResponse400::class => ApiDatabaseRowsTableTableIdBatchPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPostResponse401::class => ApiDatabaseRowsTableTableIdBatchPostResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPostResponse404::class => ApiDatabaseRowsTableTableIdBatchPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchDeletePostResponse400::class => ApiDatabaseRowsTableTableIdBatchDeletePostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchDeletePostResponse404::class => ApiDatabaseRowsTableTableIdBatchDeletePostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdDeleteResponse400::class => ApiDatabaseTablesTableIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdDeleteResponse404::class => ApiDatabaseTablesTableIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdGetResponse400::class => ApiDatabaseTablesTableIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdGetResponse404::class => ApiDatabaseTablesTableIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdPatchResponse400::class => ApiDatabaseTablesTableIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdPatchResponse404::class => ApiDatabaseTablesTableIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdDuplicateAsyncPostResponse400::class => ApiDatabaseTablesTableIdDuplicateAsyncPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdDuplicateAsyncPostResponse404::class => ApiDatabaseTablesTableIdDuplicateAsyncPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdImportAsyncPostResponse400::class => ApiDatabaseTablesTableIdImportAsyncPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdImportAsyncPostResponse404::class => ApiDatabaseTablesTableIdImportAsyncPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdGetResponse400::class => ApiDatabaseTablesDatabaseDatabaseIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdGetResponse404::class => ApiDatabaseTablesDatabaseDatabaseIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdPostResponse400::class => ApiDatabaseTablesDatabaseDatabaseIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdPostResponse404::class => ApiDatabaseTablesDatabaseDatabaseIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdAsyncPostResponse400::class => ApiDatabaseTablesDatabaseDatabaseIdAsyncPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdAsyncPostResponse404::class => ApiDatabaseTablesDatabaseDatabaseIdAsyncPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdOrderPostResponse400::class => ApiDatabaseTablesDatabaseDatabaseIdOrderPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdOrderPostResponse404::class => ApiDatabaseTablesDatabaseDatabaseIdOrderPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensPostResponse400::class => ApiDatabaseTokensPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdDeleteResponse400::class => ApiDatabaseTokensTokenIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdDeleteResponse404::class => ApiDatabaseTokensTokenIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdGetResponse400::class => ApiDatabaseTokensTokenIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdGetResponse404::class => ApiDatabaseTokensTokenIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdPatchResponse400::class => ApiDatabaseTokensTokenIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdPatchResponse404::class => ApiDatabaseTokensTokenIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensCheckGetResponse403::class => ApiDatabaseTokensCheckGetResponse403Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewViewIdPremiumPatchResponse400::class => ApiDatabaseViewViewIdPremiumPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewViewIdPremiumPatchResponse404::class => ApiDatabaseViewViewIdPremiumPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse401::class => ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse404::class => ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugPublicAuthPostResponse404::class => ApiDatabaseViewsSlugPublicAuthPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugPublicInfoGetResponse400::class => ApiDatabaseViewsSlugPublicInfoGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugPublicInfoGetResponse401::class => ApiDatabaseViewsSlugPublicInfoGetResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugPublicInfoGetResponse404::class => ApiDatabaseViewsSlugPublicInfoGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDeleteResponse400::class => ApiDatabaseViewsViewIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDeleteResponse404::class => ApiDatabaseViewsViewIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGetResponse400::class => ApiDatabaseViewsViewIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGetResponse404::class => ApiDatabaseViewsViewIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdPatchResponse400::class => ApiDatabaseViewsViewIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdPatchResponse404::class => ApiDatabaseViewsViewIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDecorationsGetResponse400::class => ApiDatabaseViewsViewIdDecorationsGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDecorationsGetResponse404::class => ApiDatabaseViewsViewIdDecorationsGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDecorationsPostResponse400::class => ApiDatabaseViewsViewIdDecorationsPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDecorationsPostResponse404::class => ApiDatabaseViewsViewIdDecorationsPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDuplicatePostResponse400::class => ApiDatabaseViewsViewIdDuplicatePostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDuplicatePostResponse404::class => ApiDatabaseViewsViewIdDuplicatePostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsGetResponse400::class => ApiDatabaseViewsViewIdFieldOptionsGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsGetResponse404::class => ApiDatabaseViewsViewIdFieldOptionsGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsPatchResponse400::class => ApiDatabaseViewsViewIdFieldOptionsPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsPatchResponse404::class => ApiDatabaseViewsViewIdFieldOptionsPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFilterGroupsPostResponse400::class => ApiDatabaseViewsViewIdFilterGroupsPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFilterGroupsPostResponse404::class => ApiDatabaseViewsViewIdFilterGroupsPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFiltersGetResponse400::class => ApiDatabaseViewsViewIdFiltersGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFiltersGetResponse404::class => ApiDatabaseViewsViewIdFiltersGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFiltersPostResponse400::class => ApiDatabaseViewsViewIdFiltersPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFiltersPostResponse404::class => ApiDatabaseViewsViewIdFiltersPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGroupBysGetResponse400::class => ApiDatabaseViewsViewIdGroupBysGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGroupBysGetResponse404::class => ApiDatabaseViewsViewIdGroupBysGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGroupBysPostResponse400::class => ApiDatabaseViewsViewIdGroupBysPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGroupBysPostResponse404::class => ApiDatabaseViewsViewIdGroupBysPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdRotateSlugPostResponse400::class => ApiDatabaseViewsViewIdRotateSlugPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdRotateSlugPostResponse404::class => ApiDatabaseViewsViewIdRotateSlugPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdSortingsGetResponse400::class => ApiDatabaseViewsViewIdSortingsGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdSortingsGetResponse404::class => ApiDatabaseViewsViewIdSortingsGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdSortingsPostResponse400::class => ApiDatabaseViewsViewIdSortingsPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdSortingsPostResponse404::class => ApiDatabaseViewsViewIdSortingsPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse401::class => ApiDatabaseViewsCalendarSlugPublicRowsGetResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse400::class => ApiDatabaseViewsCalendarSlugPublicRowsGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse404::class => ApiDatabaseViewsCalendarSlugPublicRowsGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarViewIdGetResponse400::class => ApiDatabaseViewsCalendarViewIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarViewIdGetResponse404::class => ApiDatabaseViewsCalendarViewIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdDeleteResponse400::class => ApiDatabaseViewsDecorationViewDecorationIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdDeleteResponse404::class => ApiDatabaseViewsDecorationViewDecorationIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdGetResponse400::class => ApiDatabaseViewsDecorationViewDecorationIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdGetResponse404::class => ApiDatabaseViewsDecorationViewDecorationIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdPatchResponse400::class => ApiDatabaseViewsDecorationViewDecorationIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdPatchResponse404::class => ApiDatabaseViewsDecorationViewDecorationIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdDeleteResponse400::class => ApiDatabaseViewsFilterGroupFilterGroupIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdDeleteResponse404::class => ApiDatabaseViewsFilterGroupFilterGroupIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse400::class => ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse404::class => ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdPatchResponse400::class => ApiDatabaseViewsFilterGroupFilterGroupIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdPatchResponse404::class => ApiDatabaseViewsFilterGroupFilterGroupIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdDeleteResponse400::class => ApiDatabaseViewsFilterViewFilterIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdDeleteResponse404::class => ApiDatabaseViewsFilterViewFilterIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdGetResponse400::class => ApiDatabaseViewsFilterViewFilterIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdGetResponse404::class => ApiDatabaseViewsFilterViewFilterIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdPatchResponse400::class => ApiDatabaseViewsFilterViewFilterIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdPatchResponse404::class => ApiDatabaseViewsFilterViewFilterIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugSubmitGetResponse401::class => ApiDatabaseViewsFormSlugSubmitGetResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugSubmitGetResponse404::class => ApiDatabaseViewsFormSlugSubmitGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugSubmitPostResponse401::class => ApiDatabaseViewsFormSlugSubmitPostResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugSubmitPostResponse404::class => ApiDatabaseViewsFormSlugSubmitPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse401::class => ApiDatabaseViewsFormSlugUploadFilePostResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse400::class => ApiDatabaseViewsFormSlugUploadFilePostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse404::class => ApiDatabaseViewsFormSlugUploadFilePostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse400::class => ApiDatabaseViewsGallerySlugPublicRowsGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse401::class => ApiDatabaseViewsGallerySlugPublicRowsGetResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse404::class => ApiDatabaseViewsGallerySlugPublicRowsGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGalleryViewIdGetResponse400::class => ApiDatabaseViewsGalleryViewIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGalleryViewIdGetResponse404::class => ApiDatabaseViewsGalleryViewIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse200::class => ApiDatabaseViewsGridSlugPublicAggregationsGetResponse200Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse400::class => ApiDatabaseViewsGridSlugPublicAggregationsGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse401::class => ApiDatabaseViewsGridSlugPublicAggregationsGetResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse404::class => ApiDatabaseViewsGridSlugPublicAggregationsGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse400::class => ApiDatabaseViewsGridSlugPublicRowsGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse401::class => ApiDatabaseViewsGridSlugPublicRowsGetResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse404::class => ApiDatabaseViewsGridSlugPublicRowsGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdGetResponse400::class => ApiDatabaseViewsGridViewIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdGetResponse404::class => ApiDatabaseViewsGridViewIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdPostResponse400::class => ApiDatabaseViewsGridViewIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdPostResponse404::class => ApiDatabaseViewsGridViewIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse200::class => ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse200Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse400::class => ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse404::class => ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse200::class => ApiDatabaseViewsGridViewIdAggregationsGetResponse200Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse400::class => ApiDatabaseViewsGridViewIdAggregationsGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse404::class => ApiDatabaseViewsGridViewIdAggregationsGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse400::class => ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse404::class => ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdGetResponse400::class => ApiDatabaseViewsGroupByViewGroupByIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdGetResponse404::class => ApiDatabaseViewsGroupByViewGroupByIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdPatchResponse400::class => ApiDatabaseViewsGroupByViewGroupByIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdPatchResponse404::class => ApiDatabaseViewsGroupByViewGroupByIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse401::class => ApiDatabaseViewsKanbanSlugPublicRowsGetResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse400::class => ApiDatabaseViewsKanbanSlugPublicRowsGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse404::class => ApiDatabaseViewsKanbanSlugPublicRowsGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanViewIdGetResponse400::class => ApiDatabaseViewsKanbanViewIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanViewIdGetResponse404::class => ApiDatabaseViewsKanbanViewIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdDeleteResponse400::class => ApiDatabaseViewsSortViewSortIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdDeleteResponse404::class => ApiDatabaseViewsSortViewSortIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdGetResponse400::class => ApiDatabaseViewsSortViewSortIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdGetResponse404::class => ApiDatabaseViewsSortViewSortIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdPatchResponse400::class => ApiDatabaseViewsSortViewSortIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdPatchResponse404::class => ApiDatabaseViewsSortViewSortIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdGetResponse400::class => ApiDatabaseViewsTableTableIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdGetResponse404::class => ApiDatabaseViewsTableTableIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdPostResponse400::class => ApiDatabaseViewsTableTableIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdPostResponse404::class => ApiDatabaseViewsTableTableIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdOrderPostResponse400::class => ApiDatabaseViewsTableTableIdOrderPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdOrderPostResponse404::class => ApiDatabaseViewsTableTableIdOrderPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdDeleteResponse400::class => ApiDatabaseWebhooksWebhookIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdDeleteResponse404::class => ApiDatabaseWebhooksWebhookIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdGetResponse400::class => ApiDatabaseWebhooksWebhookIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdGetResponse404::class => ApiDatabaseWebhooksWebhookIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdPatchResponse400::class => ApiDatabaseWebhooksWebhookIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdPatchResponse404::class => ApiDatabaseWebhooksWebhookIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdGetResponse400::class => ApiDatabaseWebhooksTableTableIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdGetResponse404::class => ApiDatabaseWebhooksTableTableIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdPostResponse400::class => ApiDatabaseWebhooksTableTableIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdPostResponse404::class => ApiDatabaseWebhooksTableTableIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdTestCallPostResponse400::class => ApiDatabaseWebhooksTableTableIdTestCallPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdTestCallPostResponse404::class => ApiDatabaseWebhooksTableTableIdTestCallPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiFilesSignedDataGetResponse403::class => ApiFilesSignedDataGetResponse403Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdDeleteResponse400::class => ApiGroupsGroupIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdDeleteResponse404::class => ApiGroupsGroupIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdPatchResponse400::class => ApiGroupsGroupIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdPatchResponse404::class => ApiGroupsGroupIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdLeavePostResponse400::class => ApiGroupsGroupIdLeavePostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdLeavePostResponse404::class => ApiGroupsGroupIdLeavePostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdPermissionsGetResponse404::class => ApiGroupsGroupIdPermissionsGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdDeleteResponse400::class => ApiGroupsInvitationsGroupInvitationIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdDeleteResponse404::class => ApiGroupsInvitationsGroupInvitationIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdGetResponse400::class => ApiGroupsInvitationsGroupInvitationIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdGetResponse404::class => ApiGroupsInvitationsGroupInvitationIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdPatchResponse400::class => ApiGroupsInvitationsGroupInvitationIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdPatchResponse404::class => ApiGroupsInvitationsGroupInvitationIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdAcceptPostResponse400::class => ApiGroupsInvitationsGroupInvitationIdAcceptPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdAcceptPostResponse404::class => ApiGroupsInvitationsGroupInvitationIdAcceptPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdRejectPostResponse400::class => ApiGroupsInvitationsGroupInvitationIdRejectPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdRejectPostResponse404::class => ApiGroupsInvitationsGroupInvitationIdRejectPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupGroupIdGetResponse400::class => ApiGroupsInvitationsGroupGroupIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupGroupIdGetResponse404::class => ApiGroupsInvitationsGroupGroupIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupGroupIdPostResponse400::class => ApiGroupsInvitationsGroupGroupIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupGroupIdPostResponse404::class => ApiGroupsInvitationsGroupGroupIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsTokenTokenGetResponse400::class => ApiGroupsInvitationsTokenTokenGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsTokenTokenGetResponse404::class => ApiGroupsInvitationsTokenTokenGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse400::class => ApiGroupsUsersGroupUserIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse404::class => ApiGroupsUsersGroupUserIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdPatchResponse400::class => ApiGroupsUsersGroupUserIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdPatchResponse404::class => ApiGroupsUsersGroupUserIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupGroupIdGetResponse400::class => ApiGroupsUsersGroupGroupIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupGroupIdGetResponse404::class => ApiGroupsUsersGroupGroupIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdDeleteResponse400::class => ApiIntegrationIntegrationIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdDeleteResponse404::class => ApiIntegrationIntegrationIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdPatchResponse400::class => ApiIntegrationIntegrationIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdPatchResponse404::class => ApiIntegrationIntegrationIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdMovePatchResponse400::class => ApiIntegrationIntegrationIdMovePatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdMovePatchResponse404::class => ApiIntegrationIntegrationIdMovePatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiJobsPostResponse400::class => ApiJobsPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiJobsPostResponse404::class => ApiJobsPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiJobsJobIdGetResponse404::class => ApiJobsJobIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiLicensesPostResponse400::class => ApiLicensesPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiLicensesIdDeleteResponse404::class => ApiLicensesIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiLicensesIdGetResponse404::class => ApiLicensesIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiLicensesIdUserIdDeleteResponse400::class => ApiLicensesIdUserIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiLicensesIdUserIdDeleteResponse404::class => ApiLicensesIdUserIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiLicensesIdUserIdPostResponse400::class => ApiLicensesIdUserIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiLicensesIdUserIdPostResponse404::class => ApiLicensesIdUserIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiLicensesIdCheckGetResponse404::class => ApiLicensesIdCheckGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiLicensesIdFillSeatsPostResponse400::class => ApiLicensesIdFillSeatsPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiLicensesIdFillSeatsPostResponse404::class => ApiLicensesIdFillSeatsPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiLicensesIdLookupUsersGetResponse404::class => ApiLicensesIdLookupUsersGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiLicensesIdRemoveAllUsersPostResponse400::class => ApiLicensesIdRemoveAllUsersPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiLicensesIdRemoveAllUsersPostResponse404::class => ApiLicensesIdRemoveAllUsersPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse400::class => ApiNotificationsWorkspaceIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse404::class => ApiNotificationsWorkspaceIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdGetResponse400::class => ApiNotificationsWorkspaceIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdGetResponse404::class => ApiNotificationsWorkspaceIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdNotificationIdPatchResponse400::class => ApiNotificationsWorkspaceIdNotificationIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdNotificationIdPatchResponse404::class => ApiNotificationsWorkspaceIdNotificationIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdMarkAllAsReadPostResponse400::class => ApiNotificationsWorkspaceIdMarkAllAsReadPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdMarkAllAsReadPostResponse404::class => ApiNotificationsWorkspaceIdMarkAllAsReadPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdGetResponse400::class => ApiRoleGroupIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdGetResponse404::class => ApiRoleGroupIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdPostResponse400::class => ApiRoleGroupIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdPostResponse404::class => ApiRoleGroupIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdBatchPostResponse400::class => ApiRoleGroupIdBatchPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdBatchPostResponse404::class => ApiRoleGroupIdBatchPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdGetResponse400::class => ApiRoleWorkspaceIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdGetResponse404::class => ApiRoleWorkspaceIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdPostResponse400::class => ApiRoleWorkspaceIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdPostResponse404::class => ApiRoleWorkspaceIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdBatchPostResponse400::class => ApiRoleWorkspaceIdBatchPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdBatchPostResponse404::class => ApiRoleWorkspaceIdBatchPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdGetResponse400::class => ApiRowCommentsTableIdRowIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdGetResponse404::class => ApiRowCommentsTableIdRowIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdPostResponse400::class => ApiRowCommentsTableIdRowIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdPostResponse404::class => ApiRowCommentsTableIdRowIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdNotificationModePutResponse400::class => ApiRowCommentsTableIdRowIdNotificationModePutResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdNotificationModePutResponse404::class => ApiRowCommentsTableIdRowIdNotificationModePutResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse400::class => ApiRowCommentsTableIdCommentCommentIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse401::class => ApiRowCommentsTableIdCommentCommentIdDeleteResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse404::class => ApiRowCommentsTableIdCommentCommentIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdPatchResponse400::class => ApiRowCommentsTableIdCommentCommentIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdPatchResponse401::class => ApiRowCommentsTableIdCommentCommentIdPatchResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdPatchResponse404::class => ApiRowCommentsTableIdCommentCommentIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiSnapshotsSnapshotIdDeleteResponse400::class => ApiSnapshotsSnapshotIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiSnapshotsSnapshotIdDeleteResponse404::class => ApiSnapshotsSnapshotIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiSnapshotsSnapshotIdRestorePostResponse400::class => ApiSnapshotsSnapshotIdRestorePostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiSnapshotsSnapshotIdRestorePostResponse404::class => ApiSnapshotsSnapshotIdRestorePostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiSnapshotsApplicationApplicationIdGetResponse400::class => ApiSnapshotsApplicationApplicationIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiSnapshotsApplicationApplicationIdGetResponse404::class => ApiSnapshotsApplicationApplicationIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiSnapshotsApplicationApplicationIdPostResponse400::class => ApiSnapshotsApplicationApplicationIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiSnapshotsApplicationApplicationIdPostResponse404::class => ApiSnapshotsApplicationApplicationIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiSsoSamlLoginUrlGetResponse400::class => ApiSsoSamlLoginUrlGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdDeleteResponse400::class => ApiTeamsTeamIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdDeleteResponse404::class => ApiTeamsTeamIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdGetResponse404::class => ApiTeamsTeamIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdPutResponse400::class => ApiTeamsTeamIdPutResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdPutResponse404::class => ApiTeamsTeamIdPutResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsGetResponse400::class => ApiTeamsTeamIdSubjectsGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsPostResponse400::class => ApiTeamsTeamIdSubjectsPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsPostResponse404::class => ApiTeamsTeamIdSubjectsPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsSubjectIdDeleteResponse400::class => ApiTeamsTeamIdSubjectsSubjectIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsSubjectIdDeleteResponse404::class => ApiTeamsTeamIdSubjectsSubjectIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsSubjectIdGetResponse404::class => ApiTeamsTeamIdSubjectsSubjectIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTeamsGroupGroupIdGetResponse404::class => ApiTeamsGroupGroupIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTeamsGroupGroupIdPostResponse400::class => ApiTeamsGroupGroupIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTeamsGroupGroupIdPostResponse404::class => ApiTeamsGroupGroupIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTeamsWorkspaceWorkspaceIdGetResponse404::class => ApiTeamsWorkspaceWorkspaceIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTeamsWorkspaceWorkspaceIdPostResponse400::class => ApiTeamsWorkspaceWorkspaceIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTeamsWorkspaceWorkspaceIdPostResponse404::class => ApiTeamsWorkspaceWorkspaceIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdPostResponse400::class => ApiTemplatesInstallGroupIdTemplateIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdPostResponse404::class => ApiTemplatesInstallGroupIdTemplateIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse400::class => ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse404::class => ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdPostResponse400::class => ApiTemplatesInstallWorkspaceIdTemplateIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdPostResponse404::class => ApiTemplatesInstallWorkspaceIdTemplateIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse400::class => ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse404::class => ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTrashGroupGroupIdDeleteResponse400::class => ApiTrashGroupGroupIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTrashGroupGroupIdGetResponse400::class => ApiTrashGroupGroupIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTrashRestorePatchResponse400::class => ApiTrashRestorePatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTrashWorkspaceWorkspaceIdDeleteResponse400::class => ApiTrashWorkspaceWorkspaceIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiTrashWorkspaceWorkspaceIdGetResponse400::class => ApiTrashWorkspaceWorkspaceIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserPostResponse200::class => ApiUserPostResponse200Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserPostResponse200User::class => ApiUserPostResponse200UserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserPostResponse400::class => ApiUserPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserPostResponse404::class => ApiUserPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserFilesUploadFilePostResponse400::class => ApiUserFilesUploadFilePostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserFilesUploadViaUrlPostResponse400::class => ApiUserFilesUploadViaUrlPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserSourceAuthRefreshPostResponse200::class => ApiUserSourceAuthRefreshPostResponse200Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdDeleteResponse400::class => ApiUserSourceUserSourceIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdDeleteResponse404::class => ApiUserSourceUserSourceIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdPatchResponse400::class => ApiUserSourceUserSourceIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdPatchResponse404::class => ApiUserSourceUserSourceIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdForceTokenAuthPostResponse200::class => ApiUserSourceUserSourceIdForceTokenAuthPostResponse200Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdMovePatchResponse400::class => ApiUserSourceUserSourceIdMovePatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdMovePatchResponse404::class => ApiUserSourceUserSourceIdMovePatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdTokenAuthPostResponse200::class => ApiUserSourceUserSourceIdTokenAuthPostResponse200Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserAccountPatchResponse400::class => ApiUserAccountPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserChangePasswordPostResponse400::class => ApiUserChangePasswordPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserResetPasswordPostResponse400::class => ApiUserResetPasswordPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserScheduleAccountDeletionPostResponse400::class => ApiUserScheduleAccountDeletionPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserSendResetPasswordEmailPostResponse400::class => ApiUserSendResetPasswordEmailPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserTokenAuthPostResponse200::class => ApiUserTokenAuthPostResponse200Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserTokenAuthPostResponse200User::class => ApiUserTokenAuthPostResponse200UserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserTokenAuthPostResponse401::class => ApiUserTokenAuthPostResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserTokenRefreshPostResponse200::class => ApiUserTokenRefreshPostResponse200Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserTokenRefreshPostResponse200User::class => ApiUserTokenRefreshPostResponse200UserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserTokenRefreshPostResponse401::class => ApiUserTokenRefreshPostResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserTokenVerifyPostResponse200::class => ApiUserTokenVerifyPostResponse200Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserTokenVerifyPostResponse200User::class => ApiUserTokenVerifyPostResponse200UserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserTokenVerifyPostResponse401::class => ApiUserTokenVerifyPostResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserVerifyEmailPostResponse200::class => ApiUserVerifyEmailPostResponse200Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserVerifyEmailPostResponse200User::class => ApiUserVerifyEmailPostResponse200UserNormalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserVerifyEmailPostResponse400::class => ApiUserVerifyEmailPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiUserVerifyEmailPostResponse401::class => ApiUserVerifyEmailPostResponse401Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdDeleteResponse400::class => ApiWorkspacesWorkspaceIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdDeleteResponse404::class => ApiWorkspacesWorkspaceIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdPatchResponse400::class => ApiWorkspacesWorkspaceIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdPatchResponse404::class => ApiWorkspacesWorkspaceIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdLeavePostResponse400::class => ApiWorkspacesWorkspaceIdLeavePostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdLeavePostResponse404::class => ApiWorkspacesWorkspaceIdLeavePostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdPermissionsGetResponse404::class => ApiWorkspacesWorkspaceIdPermissionsGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse400::class => ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse404::class => ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse400::class => ApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse404::class => ApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdGetResponse400::class => ApiWorkspacesInvitationsWorkspaceInvitationIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdGetResponse404::class => ApiWorkspacesInvitationsWorkspaceInvitationIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdPatchResponse400::class => ApiWorkspacesInvitationsWorkspaceInvitationIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdPatchResponse404::class => ApiWorkspacesInvitationsWorkspaceInvitationIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdAcceptPostResponse400::class => ApiWorkspacesInvitationsWorkspaceInvitationIdAcceptPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdAcceptPostResponse404::class => ApiWorkspacesInvitationsWorkspaceInvitationIdAcceptPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdRejectPostResponse400::class => ApiWorkspacesInvitationsWorkspaceInvitationIdRejectPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdRejectPostResponse404::class => ApiWorkspacesInvitationsWorkspaceInvitationIdRejectPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsTokenTokenGetResponse400::class => ApiWorkspacesInvitationsTokenTokenGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsTokenTokenGetResponse404::class => ApiWorkspacesInvitationsTokenTokenGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse400::class => ApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse404::class => ApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdPostResponse400::class => ApiWorkspacesInvitationsWorkspaceWorkspaceIdPostResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdPostResponse404::class => ApiWorkspacesInvitationsWorkspaceWorkspaceIdPostResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdDeleteResponse400::class => ApiWorkspacesUsersWorkspaceUserIdDeleteResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdDeleteResponse404::class => ApiWorkspacesUsersWorkspaceUserIdDeleteResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdPatchResponse400::class => ApiWorkspacesUsersWorkspaceUserIdPatchResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdPatchResponse404::class => ApiWorkspacesUsersWorkspaceUserIdPatchResponse404Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse400::class => ApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse400Normalizer::class,
-
-            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse404::class => ApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse404Normalizer::class,
-
-            \Jane\Component\JsonSchemaRuntime\Reference::class => \CedricZiel\Baserow\Generated\Runtime\Normalizer\ReferenceNormalizer::class,
+        return is_object($data) && array_key_exists(get_class($data), $this->normalizers);
+    }
+
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    {
+        $normalizerClass = $this->normalizers[get_class($data)];
+        $normalizer = $this->getNormalizer($normalizerClass);
+
+        return $normalizer->normalize($data, $format, $context);
+    }
+
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
+    {
+        $denormalizerClass = $this->normalizers[$type];
+        $denormalizer = $this->getNormalizer($denormalizerClass);
+
+        return $denormalizer->denormalize($data, $type, $format, $context);
+    }
+
+    private function getNormalizer(string $normalizerClass)
+    {
+        return $this->normalizersCache[$normalizerClass] ?? $this->initNormalizer($normalizerClass);
+    }
+
+    private function initNormalizer(string $normalizerClass)
+    {
+        $normalizer = new $normalizerClass();
+        $normalizer->setNormalizer($this->normalizer);
+        $normalizer->setDenormalizer($this->denormalizer);
+        $this->normalizersCache[$normalizerClass] = $normalizer;
+
+        return $normalizer;
+    }
+
+    public function getSupportedTypes(?string $format = null): array
+    {
+        return [
+            \CedricZiel\Baserow\Generated\Model\AIFieldCreateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\AIFieldField::class => false,
+            \CedricZiel\Baserow\Generated\Model\AIFieldFieldSerializerWithRelatedFields::class => false,
+            \CedricZiel\Baserow\Generated\Model\AIFieldUpdateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\Account::class => false,
+            \CedricZiel\Baserow\Generated\Model\ActionScopes::class => false,
+            \CedricZiel\Baserow\Generated\Model\AdminDashboard::class => false,
+            \CedricZiel\Baserow\Generated\Model\AdminDashboardPerDay::class => false,
+            \CedricZiel\Baserow\Generated\Model\AirtableImportJobCreateJob::class => false,
+            \CedricZiel\Baserow\Generated\Model\AirtableImportJobJob::class => false,
+            \CedricZiel\Baserow\Generated\Model\AuditLog::class => false,
+            \CedricZiel\Baserow\Generated\Model\AuditLogActionType::class => false,
+            \CedricZiel\Baserow\Generated\Model\AuditLogExportJobCreateJob::class => false,
+            \CedricZiel\Baserow\Generated\Model\AuditLogExportJobJob::class => false,
+            \CedricZiel\Baserow\Generated\Model\AuditLogUser::class => false,
+            \CedricZiel\Baserow\Generated\Model\AuditLogWorkspace::class => false,
+            \CedricZiel\Baserow\Generated\Model\AuthFormElementCreateElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\AuthFormElementCreateElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\AuthFormElementElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\AuthFormElementElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\AuthFormElementPublicElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\AuthFormElementPublicElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\AuthFormElementUpdateElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\AuthFormElementUpdateElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\AutonumberFieldCreateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\AutonumberFieldField::class => false,
+            \CedricZiel\Baserow\Generated\Model\AutonumberFieldFieldSerializerWithRelatedFields::class => false,
+            \CedricZiel\Baserow\Generated\Model\AutonumberFieldUpdateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\BaseExporterOptions::class => false,
+            \CedricZiel\Baserow\Generated\Model\BaserowImpersonateAuthToken::class => false,
+            \CedricZiel\Baserow\Generated\Model\BatchCreateRoleAssignment::class => false,
+            \CedricZiel\Baserow\Generated\Model\BatchDeleteRows::class => false,
+            \CedricZiel\Baserow\Generated\Model\BooleanFieldCreateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\BooleanFieldField::class => false,
+            \CedricZiel\Baserow\Generated\Model\BooleanFieldFieldSerializerWithRelatedFields::class => false,
+            \CedricZiel\Baserow\Generated\Model\BooleanFieldUpdateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\BuilderApplication::class => false,
+            \CedricZiel\Baserow\Generated\Model\BuilderApplicationGroup::class => false,
+            \CedricZiel\Baserow\Generated\Model\BuilderApplicationWorkspace::class => false,
+            \CedricZiel\Baserow\Generated\Model\BuilderApplicationTheme::class => false,
+            \CedricZiel\Baserow\Generated\Model\BuilderApplicationFaviconFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\BuilderBaseApplicationCreatePolymorphic::class => false,
+            \CedricZiel\Baserow\Generated\Model\BuilderBaseApplicationCreatePolymorphicFaviconFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\BuilderBaseApplicationUpdatePolymorphic::class => false,
+            \CedricZiel\Baserow\Generated\Model\BuilderBaseApplicationUpdatePolymorphicFaviconFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\BuilderWorkflowAction::class => false,
+            \CedricZiel\Baserow\Generated\Model\ButtonConfigBlock::class => false,
+            \CedricZiel\Baserow\Generated\Model\ButtonConfigBlockButton::class => false,
+            \CedricZiel\Baserow\Generated\Model\ButtonElementCreateElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\ButtonElementCreateElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\ButtonElementElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\ButtonElementElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\ButtonElementPublicElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\ButtonElementPublicElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\ButtonElementUpdateElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\ButtonElementUpdateElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\ButtonLinkConfigBlock::class => false,
+            \CedricZiel\Baserow\Generated\Model\ButtonLinkConfigBlockButton::class => false,
+            \CedricZiel\Baserow\Generated\Model\ButtonLinkConfigBlockLink::class => false,
+            \CedricZiel\Baserow\Generated\Model\ButtonThemeConfigBlock::class => false,
+            \CedricZiel\Baserow\Generated\Model\CalendarViewCreateView::class => false,
+            \CedricZiel\Baserow\Generated\Model\CalendarViewExampleResponse::class => false,
+            \CedricZiel\Baserow\Generated\Model\CalendarViewExampleResponseStack::class => false,
+            \CedricZiel\Baserow\Generated\Model\CalendarViewFieldOptions::class => false,
+            \CedricZiel\Baserow\Generated\Model\CalendarViewView::class => false,
+            \CedricZiel\Baserow\Generated\Model\ChangePasswordBodyValidation::class => false,
+            \CedricZiel\Baserow\Generated\Model\CheckboxElementCreateElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\CheckboxElementCreateElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\CheckboxElementElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\CheckboxElementElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\CheckboxElementPublicElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\CheckboxElementPublicElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\CheckboxElementUpdateElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\CheckboxElementUpdateElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\ChoiceElementCreateElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\ChoiceElementCreateElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\ChoiceElementElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\ChoiceElementElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\ChoiceElementPublicElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\ChoiceElementPublicElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\ChoiceElementUpdateElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\ChoiceElementUpdateElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\ChoiceOption::class => false,
+            \CedricZiel\Baserow\Generated\Model\Collaborator::class => false,
+            \CedricZiel\Baserow\Generated\Model\CollectionField::class => false,
+            \CedricZiel\Baserow\Generated\Model\ColumnElementCreateElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\ColumnElementCreateElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\ColumnElementElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\ColumnElementElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\ColumnElementPublicElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\ColumnElementPublicElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\ColumnElementUpdateElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\ColumnElementUpdateElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\CombinedThemeConfigBlocks::class => false,
+            \CedricZiel\Baserow\Generated\Model\CombinedThemeConfigBlocksPageBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColor::class => false,
+            \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColorFilter::class => false,
+            \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColorFilterGroup::class => false,
+            \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColors::class => false,
+            \CedricZiel\Baserow\Generated\Model\CountFieldCreateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\CountFieldField::class => false,
+            \CedricZiel\Baserow\Generated\Model\CountFieldFieldSerializerWithRelatedFields::class => false,
+            \CedricZiel\Baserow\Generated\Model\CountFieldUpdateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\CreatePage::class => false,
+            \CedricZiel\Baserow\Generated\Model\CreateRoleAssignment::class => false,
+            \CedricZiel\Baserow\Generated\Model\CreateSnapshotJobCreateJob::class => false,
+            \CedricZiel\Baserow\Generated\Model\CreateSnapshotJobJob::class => false,
+            \CedricZiel\Baserow\Generated\Model\CreateViewFilter::class => false,
+            \CedricZiel\Baserow\Generated\Model\CreateViewFilterGroup::class => false,
+            \CedricZiel\Baserow\Generated\Model\CreateViewGroupBy::class => false,
+            \CedricZiel\Baserow\Generated\Model\CreateViewSort::class => false,
+            \CedricZiel\Baserow\Generated\Model\CreateWorkspaceInvitation::class => false,
+            \CedricZiel\Baserow\Generated\Model\CreatedByFieldCreateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\CreatedByFieldField::class => false,
+            \CedricZiel\Baserow\Generated\Model\CreatedByFieldFieldSerializerWithRelatedFields::class => false,
+            \CedricZiel\Baserow\Generated\Model\CreatedByFieldUpdateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\CreatedOnFieldCreateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\CreatedOnFieldField::class => false,
+            \CedricZiel\Baserow\Generated\Model\CreatedOnFieldFieldSerializerWithRelatedFields::class => false,
+            \CedricZiel\Baserow\Generated\Model\CreatedOnFieldUpdateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\CsvExporterOptions::class => false,
+            \CedricZiel\Baserow\Generated\Model\CustomDomainCreateDomain::class => false,
+            \CedricZiel\Baserow\Generated\Model\CustomDomainDomain::class => false,
+            \CedricZiel\Baserow\Generated\Model\Dashboard::class => false,
+            \CedricZiel\Baserow\Generated\Model\DatabaseApplication::class => false,
+            \CedricZiel\Baserow\Generated\Model\DatabaseApplicationGroup::class => false,
+            \CedricZiel\Baserow\Generated\Model\DatabaseApplicationWorkspace::class => false,
+            \CedricZiel\Baserow\Generated\Model\DatabaseBaseApplicationCreatePolymorphic::class => false,
+            \CedricZiel\Baserow\Generated\Model\DatabaseBaseApplicationUpdatePolymorphic::class => false,
+            \CedricZiel\Baserow\Generated\Model\DateFieldCreateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\DateFieldField::class => false,
+            \CedricZiel\Baserow\Generated\Model\DateFieldFieldSerializerWithRelatedFields::class => false,
+            \CedricZiel\Baserow\Generated\Model\DateFieldUpdateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\DuplicateApplicationJobCreateJob::class => false,
+            \CedricZiel\Baserow\Generated\Model\DuplicateApplicationJobJob::class => false,
+            \CedricZiel\Baserow\Generated\Model\DuplicateElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\DuplicateFieldJobCreateJob::class => false,
+            \CedricZiel\Baserow\Generated\Model\DuplicateFieldJobJob::class => false,
+            \CedricZiel\Baserow\Generated\Model\DuplicateFieldJobJobOriginalField::class => false,
+            \CedricZiel\Baserow\Generated\Model\DuplicateFieldJobJobDuplicatedField::class => false,
+            \CedricZiel\Baserow\Generated\Model\DuplicatePageJobCreateJob::class => false,
+            \CedricZiel\Baserow\Generated\Model\DuplicatePageJobJob::class => false,
+            \CedricZiel\Baserow\Generated\Model\DuplicatePageJobJobOriginalPage::class => false,
+            \CedricZiel\Baserow\Generated\Model\DuplicatePageJobJobDuplicatedPage::class => false,
+            \CedricZiel\Baserow\Generated\Model\DuplicateTableJobCreateJob::class => false,
+            \CedricZiel\Baserow\Generated\Model\DuplicateTableJobJob::class => false,
+            \CedricZiel\Baserow\Generated\Model\DuplicateTableJobJobOriginalTable::class => false,
+            \CedricZiel\Baserow\Generated\Model\DuplicateTableJobJobDuplicatedTable::class => false,
+            \CedricZiel\Baserow\Generated\Model\DurationFieldCreateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\DurationFieldField::class => false,
+            \CedricZiel\Baserow\Generated\Model\DurationFieldFieldSerializerWithRelatedFields::class => false,
+            \CedricZiel\Baserow\Generated\Model\DurationFieldUpdateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\Element::class => false,
+            \CedricZiel\Baserow\Generated\Model\ElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\EmailFieldCreateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\EmailFieldField::class => false,
+            \CedricZiel\Baserow\Generated\Model\EmailFieldFieldSerializerWithRelatedFields::class => false,
+            \CedricZiel\Baserow\Generated\Model\EmailFieldUpdateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\EmailTesterRequest::class => false,
+            \CedricZiel\Baserow\Generated\Model\EmailTesterResponse::class => false,
+            \CedricZiel\Baserow\Generated\Model\BatchCreateRowRequest::class => false,
+            \CedricZiel\Baserow\Generated\Model\ExampleBatchRowsResponse::class => false,
+            \CedricZiel\Baserow\Generated\Model\BatchUpdateRow::class => false,
+            \CedricZiel\Baserow\Generated\Model\ExampleRowRequest::class => false,
+            \CedricZiel\Baserow\Generated\Model\CreateRowRequest::class => false,
+            \CedricZiel\Baserow\Generated\Model\ExampleRowResponse::class => false,
+            \CedricZiel\Baserow\Generated\Model\ExampleRowResponseField10::class => false,
+            \CedricZiel\Baserow\Generated\Model\ExampleRowResponseField12::class => false,
+            \CedricZiel\Baserow\Generated\Model\ExampleRowResponseField16::class => false,
+            \CedricZiel\Baserow\Generated\Model\RowResponse::class => false,
+            \CedricZiel\Baserow\Generated\Model\ExportJob::class => false,
+            \CedricZiel\Baserow\Generated\Model\FacebookAuthProviderModelAuthProvider::class => false,
+            \CedricZiel\Baserow\Generated\Model\Field::class => false,
+            \CedricZiel\Baserow\Generated\Model\FieldSerializerWithRelatedFields::class => false,
+            \CedricZiel\Baserow\Generated\Model\FileFieldCreateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\FileFieldField::class => false,
+            \CedricZiel\Baserow\Generated\Model\FileFieldFieldSerializerWithRelatedFields::class => false,
+            \CedricZiel\Baserow\Generated\Model\FileFieldResponse::class => false,
+            \CedricZiel\Baserow\Generated\Model\FileFieldUpdateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\FileImportJobCreateJob::class => false,
+            \CedricZiel\Baserow\Generated\Model\FileImportJobJob::class => false,
+            \CedricZiel\Baserow\Generated\Model\FileImportJobJobReport::class => false,
+            \CedricZiel\Baserow\Generated\Model\FormContainerElementCreateElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\FormContainerElementCreateElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\FormContainerElementElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\FormContainerElementElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\FormContainerElementPublicElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\FormContainerElementPublicElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\FormContainerElementUpdateElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\FormContainerElementUpdateElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\FormViewCreateView::class => false,
+            \CedricZiel\Baserow\Generated\Model\FormViewCreateViewCoverImage::class => false,
+            \CedricZiel\Baserow\Generated\Model\FormViewCreateViewLogoImage::class => false,
+            \CedricZiel\Baserow\Generated\Model\FormViewFieldOptions::class => false,
+            \CedricZiel\Baserow\Generated\Model\FormViewFieldOptionsCondition::class => false,
+            \CedricZiel\Baserow\Generated\Model\FormViewFieldOptionsConditionGroup::class => false,
+            \CedricZiel\Baserow\Generated\Model\FormViewSubmitted::class => false,
+            \CedricZiel\Baserow\Generated\Model\FormViewView::class => false,
+            \CedricZiel\Baserow\Generated\Model\FormViewViewCoverImage::class => false,
+            \CedricZiel\Baserow\Generated\Model\FormViewViewLogoImage::class => false,
+            \CedricZiel\Baserow\Generated\Model\FormulaFieldCreateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\FormulaFieldField::class => false,
+            \CedricZiel\Baserow\Generated\Model\FormulaFieldFieldSerializerWithRelatedFields::class => false,
+            \CedricZiel\Baserow\Generated\Model\FormulaFieldUpdateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\FullHealthCheck::class => false,
+            \CedricZiel\Baserow\Generated\Model\GalleryViewCreateView::class => false,
+            \CedricZiel\Baserow\Generated\Model\GalleryViewFieldOptions::class => false,
+            \CedricZiel\Baserow\Generated\Model\GalleryViewView::class => false,
+            \CedricZiel\Baserow\Generated\Model\GenerateFormulaWithAIRequest::class => false,
+            \CedricZiel\Baserow\Generated\Model\GenerateFormulaWithAIResponse::class => false,
+            \CedricZiel\Baserow\Generated\Model\GeneratedConditionalColorCreateViewDecoration::class => false,
+            \CedricZiel\Baserow\Generated\Model\GeneratedConditionalColorCreateViewDecorationValueProviderConf::class => false,
+            \CedricZiel\Baserow\Generated\Model\GeneratedConditionalColorUpdateViewDecoration::class => false,
+            \CedricZiel\Baserow\Generated\Model\GeneratedConditionalColorUpdateViewDecorationValueProviderConf::class => false,
+            \CedricZiel\Baserow\Generated\Model\GeneratedConditionalColorViewDecoration::class => false,
+            \CedricZiel\Baserow\Generated\Model\GeneratedConditionalColorViewDecorationValueProviderConf::class => false,
+            \CedricZiel\Baserow\Generated\Model\GeneratedSingleSelectColorCreateViewDecoration::class => false,
+            \CedricZiel\Baserow\Generated\Model\GeneratedSingleSelectColorCreateViewDecorationValueProviderConf::class => false,
+            \CedricZiel\Baserow\Generated\Model\GeneratedSingleSelectColorUpdateViewDecoration::class => false,
+            \CedricZiel\Baserow\Generated\Model\GeneratedSingleSelectColorUpdateViewDecorationValueProviderConf::class => false,
+            \CedricZiel\Baserow\Generated\Model\GeneratedSingleSelectColorViewDecoration::class => false,
+            \CedricZiel\Baserow\Generated\Model\GeneratedSingleSelectColorViewDecorationValueProviderConf::class => false,
+            \CedricZiel\Baserow\Generated\Model\GenerativeAISettings::class => false,
+            \CedricZiel\Baserow\Generated\Model\GitHubAuthProviderModelAuthProvider::class => false,
+            \CedricZiel\Baserow\Generated\Model\GitLabAuthProviderModelAuthProvider::class => false,
+            \CedricZiel\Baserow\Generated\Model\GoogleAuthProviderModelAuthProvider::class => false,
+            \CedricZiel\Baserow\Generated\Model\GridViewCreateView::class => false,
+            \CedricZiel\Baserow\Generated\Model\GridViewFieldOptions::class => false,
+            \CedricZiel\Baserow\Generated\Model\GridViewFilter::class => false,
+            \CedricZiel\Baserow\Generated\Model\GridViewView::class => false,
+            \CedricZiel\Baserow\Generated\Model\HeadingElementCreateElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\HeadingElementCreateElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\HeadingElementElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\HeadingElementElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\HeadingElementPublicElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\HeadingElementPublicElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\HeadingElementUpdateElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\HeadingElementUpdateElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\IFrameElementCreateElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\IFrameElementCreateElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\IFrameElementElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\IFrameElementElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\IFrameElementPublicElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\IFrameElementPublicElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\IFrameElementUpdateElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\IFrameElementUpdateElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\ImageConfigBlock::class => false,
+            \CedricZiel\Baserow\Generated\Model\ImageConfigBlockImage::class => false,
+            \CedricZiel\Baserow\Generated\Model\ImageElementCreateElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\ImageElementCreateElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\ImageElementCreateElementImageFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\ImageElementElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\ImageElementElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\ImageElementPublicElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\ImageElementPublicElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\ImageElementUpdateElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\ImageElementUpdateElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\ImageElementUpdateElementImageFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\ImageThemeConfigBlock::class => false,
+            \CedricZiel\Baserow\Generated\Model\InputTextElementCreateElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\InputTextElementCreateElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\InputTextElementElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\InputTextElementElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\InputTextElementPublicElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\InputTextElementPublicElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\InputTextElementUpdateElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\InputTextElementUpdateElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\InstallTemplateJobCreateJob::class => false,
+            \CedricZiel\Baserow\Generated\Model\InstallTemplateJobJob::class => false,
+            \CedricZiel\Baserow\Generated\Model\InstallTemplateJobJobWorkspace::class => false,
+            \CedricZiel\Baserow\Generated\Model\InstallTemplateJobJobTemplate::class => false,
+            \CedricZiel\Baserow\Generated\Model\InstallTemplateJobJobGroup::class => false,
+            \CedricZiel\Baserow\Generated\Model\InstanceId::class => false,
+            \CedricZiel\Baserow\Generated\Model\Job::class => false,
+            \CedricZiel\Baserow\Generated\Model\KanbanViewCreateView::class => false,
+            \CedricZiel\Baserow\Generated\Model\KanbanViewExampleResponse::class => false,
+            \CedricZiel\Baserow\Generated\Model\KanbanViewExampleResponseStack::class => false,
+            \CedricZiel\Baserow\Generated\Model\KanbanViewFieldOptions::class => false,
+            \CedricZiel\Baserow\Generated\Model\KanbanViewView::class => false,
+            \CedricZiel\Baserow\Generated\Model\LastModifiedByFieldCreateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\LastModifiedByFieldField::class => false,
+            \CedricZiel\Baserow\Generated\Model\LastModifiedByFieldFieldSerializerWithRelatedFields::class => false,
+            \CedricZiel\Baserow\Generated\Model\LastModifiedByFieldUpdateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\LastModifiedFieldCreateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\LastModifiedFieldField::class => false,
+            \CedricZiel\Baserow\Generated\Model\LastModifiedFieldFieldSerializerWithRelatedFields::class => false,
+            \CedricZiel\Baserow\Generated\Model\LastModifiedFieldUpdateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\License::class => false,
+            \CedricZiel\Baserow\Generated\Model\LicenseUser::class => false,
+            \CedricZiel\Baserow\Generated\Model\LicenseUserLookup::class => false,
+            \CedricZiel\Baserow\Generated\Model\LicenseWithUsers::class => false,
+            \CedricZiel\Baserow\Generated\Model\LinkElementCreateElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\LinkElementCreateElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\LinkElementElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\LinkElementElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\LinkElementPublicElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\LinkElementPublicElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\LinkElementUpdateElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\LinkElementUpdateElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\LinkRowFieldCreateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\LinkRowFieldField::class => false,
+            \CedricZiel\Baserow\Generated\Model\LinkRowFieldFieldSerializerWithRelatedFields::class => false,
+            \CedricZiel\Baserow\Generated\Model\LinkRowFieldUpdateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\LinkRowValue::class => false,
+            \CedricZiel\Baserow\Generated\Model\LinkThemeConfigBlock::class => false,
+            \CedricZiel\Baserow\Generated\Model\ListWorkspaceUsersWithMemberData::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowContextData::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowCreateRowWorkflowActionBuilderWorkflowAction::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowCreateRowWorkflowActionCreateBuilderWorkflowAction::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowCreateRowWorkflowActionUpdateBuilderWorkflowActions::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowField::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowGetRow::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowGetRowCreateDataSource::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowGetRowDataSource::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowGetRowPublicDataSource::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowGetRowService::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowGetRowUpdateDataSource::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationCreateIntegration::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationCreateIntegrationContextData::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationCreateIntegrationAuthorizedUser::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationIntegration::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationIntegrationContextData::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationIntegrationAuthorizedUser::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationUpdateIntegration::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationUpdateIntegrationContextData::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationUpdateIntegrationAuthorizedUser::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowListRows::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsCreateDataSource::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsDataSource::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsPublicDataSource::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsService::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsUpdateDataSource::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowPasswordAppAuthProviderAppAuthProvider::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowPasswordAppAuthProviderBaseAppAuthProvider::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowTableServiceFieldMapping::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowTableServiceFilter::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowTableServiceSort::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowUpdateRowWorkflowActionBuilderWorkflowAction::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowUpdateRowWorkflowActionCreateBuilderWorkflowAction::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowUpdateRowWorkflowActionUpdateBuilderWorkflowActions::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRow::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowCreateDataSource::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowDataSource::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowPublicDataSource::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowService::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowUpdateDataSource::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceBasePublicUserSource::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceCreateUserSource::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceUpdateUserSource::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceUserSource::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceUserSourceRoles::class => false,
+            \CedricZiel\Baserow\Generated\Model\LocalBaserowView::class => false,
+            \CedricZiel\Baserow\Generated\Model\LogoutWorkflowActionBuilderWorkflowAction::class => false,
+            \CedricZiel\Baserow\Generated\Model\LogoutWorkflowActionCreateBuilderWorkflowAction::class => false,
+            \CedricZiel\Baserow\Generated\Model\LogoutWorkflowActionUpdateBuilderWorkflowActions::class => false,
+            \CedricZiel\Baserow\Generated\Model\LongTextFieldCreateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\LongTextFieldField::class => false,
+            \CedricZiel\Baserow\Generated\Model\LongTextFieldFieldSerializerWithRelatedFields::class => false,
+            \CedricZiel\Baserow\Generated\Model\LongTextFieldUpdateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\LookupFieldCreateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\LookupFieldField::class => false,
+            \CedricZiel\Baserow\Generated\Model\LookupFieldFieldSerializerWithRelatedFields::class => false,
+            \CedricZiel\Baserow\Generated\Model\LookupFieldUpdateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\MultipleCollaboratorsFieldCreateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\MultipleCollaboratorsFieldField::class => false,
+            \CedricZiel\Baserow\Generated\Model\MultipleCollaboratorsFieldFieldSerializerWithRelatedFields::class => false,
+            \CedricZiel\Baserow\Generated\Model\MultipleCollaboratorsFieldUpdateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\MultipleSelectFieldCreateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\MultipleSelectFieldField::class => false,
+            \CedricZiel\Baserow\Generated\Model\MultipleSelectFieldFieldSerializerWithRelatedFields::class => false,
+            \CedricZiel\Baserow\Generated\Model\MultipleSelectFieldUpdateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\NotificationRecipient::class => false,
+            \CedricZiel\Baserow\Generated\Model\NotificationRecipientSender::class => false,
+            \CedricZiel\Baserow\Generated\Model\NotificationWorkflowActionBuilderWorkflowAction::class => false,
+            \CedricZiel\Baserow\Generated\Model\NotificationWorkflowActionCreateBuilderWorkflowAction::class => false,
+            \CedricZiel\Baserow\Generated\Model\NotificationWorkflowActionUpdateBuilderWorkflowActions::class => false,
+            \CedricZiel\Baserow\Generated\Model\NumberFieldCreateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\NumberFieldField::class => false,
+            \CedricZiel\Baserow\Generated\Model\NumberFieldFieldSerializerWithRelatedFields::class => false,
+            \CedricZiel\Baserow\Generated\Model\NumberFieldUpdateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\OllamaSettings::class => false,
+            \CedricZiel\Baserow\Generated\Model\OpenAISettings::class => false,
+            \CedricZiel\Baserow\Generated\Model\OpenApiRoleAssignment::class => false,
+            \CedricZiel\Baserow\Generated\Model\OpenApiRoleAssignmentSubject::class => false,
+            \CedricZiel\Baserow\Generated\Model\OpenApiSubjectField::class => false,
+            \CedricZiel\Baserow\Generated\Model\OpenIdConnectAuthProviderModelAuthProvider::class => false,
+            \CedricZiel\Baserow\Generated\Model\OpenPageWorkflowActionBuilderWorkflowAction::class => false,
+            \CedricZiel\Baserow\Generated\Model\OpenPageWorkflowActionCreateBuilderWorkflowAction::class => false,
+            \CedricZiel\Baserow\Generated\Model\OpenPageWorkflowActionUpdateBuilderWorkflowActions::class => false,
+            \CedricZiel\Baserow\Generated\Model\OrderApplications::class => false,
+            \CedricZiel\Baserow\Generated\Model\OrderDomains::class => false,
+            \CedricZiel\Baserow\Generated\Model\OrderPages::class => false,
+            \CedricZiel\Baserow\Generated\Model\OrderTables::class => false,
+            \CedricZiel\Baserow\Generated\Model\OrderViews::class => false,
+            \CedricZiel\Baserow\Generated\Model\OrderWorkflowActions::class => false,
+            \CedricZiel\Baserow\Generated\Model\OrderWorkspaces::class => false,
+            \CedricZiel\Baserow\Generated\Model\Page::class => false,
+            \CedricZiel\Baserow\Generated\Model\PageParameterValue::class => false,
+            \CedricZiel\Baserow\Generated\Model\PaginationSerializerAuditLog::class => false,
+            \CedricZiel\Baserow\Generated\Model\PaginationSerializerAuditLogUser::class => false,
+            \CedricZiel\Baserow\Generated\Model\PaginationSerializerAuditLogWorkspace::class => false,
+            \CedricZiel\Baserow\Generated\Model\PaginationRowResponse::class => false,
+            \CedricZiel\Baserow\Generated\Model\PaginationSerializerLicenseUserLookup::class => false,
+            \CedricZiel\Baserow\Generated\Model\PaginationSerializerLinkRowValue::class => false,
+            \CedricZiel\Baserow\Generated\Model\PaginationSerializerNotificationRecipient::class => false,
+            \CedricZiel\Baserow\Generated\Model\PaginationSerializerRowComment::class => false,
+            \CedricZiel\Baserow\Generated\Model\PaginationSerializerRowHistory::class => false,
+            \CedricZiel\Baserow\Generated\Model\PaginationSerializerTrashContents::class => false,
+            \CedricZiel\Baserow\Generated\Model\PaginationSerializerUserAdminResponse::class => false,
+            \CedricZiel\Baserow\Generated\Model\PaginationSerializerWithGalleryViewFieldOptionsExampleRowResponse::class => false,
+            \CedricZiel\Baserow\Generated\Model\PaginationSerializerWithGridViewFieldOptionsExampleRowResponse::class => false,
+            \CedricZiel\Baserow\Generated\Model\PaginationSerializerWorkspacesAdminResponse::class => false,
+            \CedricZiel\Baserow\Generated\Model\PasswordAuthProviderModelAuthProvider::class => false,
+            \CedricZiel\Baserow\Generated\Model\PasswordFieldCreateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\PasswordFieldField::class => false,
+            \CedricZiel\Baserow\Generated\Model\PasswordFieldFieldSerializerWithRelatedFields::class => false,
+            \CedricZiel\Baserow\Generated\Model\PasswordFieldUpdateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\PatchedAccount::class => false,
+            \CedricZiel\Baserow\Generated\Model\PatchedCombinedThemeConfigBlocks::class => false,
+            \CedricZiel\Baserow\Generated\Model\PatchedCombinedThemeConfigBlocksPageBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\PatchRowsRequest::class => false,
+            \CedricZiel\Baserow\Generated\Model\PatchRowRequest::class => false,
+            \CedricZiel\Baserow\Generated\Model\PatchedGenerativeAISettings::class => false,
+            \CedricZiel\Baserow\Generated\Model\PatchedMoveDataSource::class => false,
+            \CedricZiel\Baserow\Generated\Model\PatchedMoveElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\PatchedMoveIntegration::class => false,
+            \CedricZiel\Baserow\Generated\Model\PatchedMoveUserSource::class => false,
+            \CedricZiel\Baserow\Generated\Model\PatchedSettings::class => false,
+            \CedricZiel\Baserow\Generated\Model\PatchedSettingsCoBrandingLogo::class => false,
+            \CedricZiel\Baserow\Generated\Model\PatchedTableUpdate::class => false,
+            \CedricZiel\Baserow\Generated\Model\PatchedTableWebhookUpdateRequest::class => false,
+            \CedricZiel\Baserow\Generated\Model\PatchedTokenUpdate::class => false,
+            \CedricZiel\Baserow\Generated\Model\PatchedTokenUpdatePermissions::class => false,
+            \CedricZiel\Baserow\Generated\Model\PatchedTrashEntryRequest::class => false,
+            \CedricZiel\Baserow\Generated\Model\PatchedUndoRedoRequest::class => false,
+            \CedricZiel\Baserow\Generated\Model\PatchedUndoRedoRequestScopes::class => false,
+            \CedricZiel\Baserow\Generated\Model\PatchedUpdateDomain::class => false,
+            \CedricZiel\Baserow\Generated\Model\PatchedUpdatePage::class => false,
+            \CedricZiel\Baserow\Generated\Model\PatchedUpdatePremiumViewAttributes::class => false,
+            \CedricZiel\Baserow\Generated\Model\PatchedUpdateViewFilter::class => false,
+            \CedricZiel\Baserow\Generated\Model\PatchedUpdateViewFilterGroup::class => false,
+            \CedricZiel\Baserow\Generated\Model\PatchedUpdateViewGroupBy::class => false,
+            \CedricZiel\Baserow\Generated\Model\PatchedUpdateViewSort::class => false,
+            \CedricZiel\Baserow\Generated\Model\PatchedUpdateWorkspaceInvitation::class => false,
+            \CedricZiel\Baserow\Generated\Model\PatchedUpdateWorkspaceUser::class => false,
+            \CedricZiel\Baserow\Generated\Model\PatchedUserAdminUpdate::class => false,
+            \CedricZiel\Baserow\Generated\Model\PatchedWorkspace::class => false,
+            \CedricZiel\Baserow\Generated\Model\PathParam::class => false,
+            \CedricZiel\Baserow\Generated\Model\PermissionObject::class => false,
+            \CedricZiel\Baserow\Generated\Model\PhoneNumberFieldCreateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\PhoneNumberFieldField::class => false,
+            \CedricZiel\Baserow\Generated\Model\PhoneNumberFieldFieldSerializerWithRelatedFields::class => false,
+            \CedricZiel\Baserow\Generated\Model\PhoneNumberFieldUpdateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\PublicBuilder::class => false,
+            \CedricZiel\Baserow\Generated\Model\PublicBuilderTheme::class => false,
+            \CedricZiel\Baserow\Generated\Model\PublicField::class => false,
+            \CedricZiel\Baserow\Generated\Model\PublicFormView::class => false,
+            \CedricZiel\Baserow\Generated\Model\PublicFormViewCoverImage::class => false,
+            \CedricZiel\Baserow\Generated\Model\PublicFormViewLogoImage::class => false,
+            \CedricZiel\Baserow\Generated\Model\PublicFormViewField::class => false,
+            \CedricZiel\Baserow\Generated\Model\PublicFormViewFieldOptions::class => false,
+            \CedricZiel\Baserow\Generated\Model\PublicFormViewFieldOptionsField::class => false,
+            \CedricZiel\Baserow\Generated\Model\PublicNone::class => false,
+            \CedricZiel\Baserow\Generated\Model\PublicPage::class => false,
+            \CedricZiel\Baserow\Generated\Model\PublicPaginationSerializerWithGalleryViewFieldOptionsExampleRowResponse::class => false,
+            \CedricZiel\Baserow\Generated\Model\PublicPaginationSerializerWithGridViewFieldOptionsExampleRowResponse::class => false,
+            \CedricZiel\Baserow\Generated\Model\PublicView::class => false,
+            \CedricZiel\Baserow\Generated\Model\PublicViewAuthRequest::class => false,
+            \CedricZiel\Baserow\Generated\Model\PublicViewAuthResponse::class => false,
+            \CedricZiel\Baserow\Generated\Model\PublicViewGroupBy::class => false,
+            \CedricZiel\Baserow\Generated\Model\PublicViewInfo::class => false,
+            \CedricZiel\Baserow\Generated\Model\PublicViewInfoView::class => false,
+            \CedricZiel\Baserow\Generated\Model\PublicViewSort::class => false,
+            \CedricZiel\Baserow\Generated\Model\PublicViewTable::class => false,
+            \CedricZiel\Baserow\Generated\Model\PublishDomainJobCreateJob::class => false,
+            \CedricZiel\Baserow\Generated\Model\PublishDomainJobJob::class => false,
+            \CedricZiel\Baserow\Generated\Model\RatingFieldCreateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\RatingFieldField::class => false,
+            \CedricZiel\Baserow\Generated\Model\RatingFieldFieldSerializerWithRelatedFields::class => false,
+            \CedricZiel\Baserow\Generated\Model\RatingFieldUpdateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\RefreshDataSourceWorkflowActionBuilderWorkflowAction::class => false,
+            \CedricZiel\Baserow\Generated\Model\RefreshDataSourceWorkflowActionCreateBuilderWorkflowAction::class => false,
+            \CedricZiel\Baserow\Generated\Model\RefreshDataSourceWorkflowActionUpdateBuilderWorkflowActions::class => false,
+            \CedricZiel\Baserow\Generated\Model\Register::class => false,
+            \CedricZiel\Baserow\Generated\Model\RegisterLicense::class => false,
+            \CedricZiel\Baserow\Generated\Model\RelatedFields::class => false,
+            \CedricZiel\Baserow\Generated\Model\RepeatElementCreateElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\RepeatElementCreateElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\RepeatElementElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\RepeatElementElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\RepeatElementPublicElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\RepeatElementPublicElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\RepeatElementUpdateElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\RepeatElementUpdateElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\Report::class => false,
+            \CedricZiel\Baserow\Generated\Model\ResetPasswordBodyValidation::class => false,
+            \CedricZiel\Baserow\Generated\Model\RestoreSnapshotJobCreateJob::class => false,
+            \CedricZiel\Baserow\Generated\Model\RestoreSnapshotJobJob::class => false,
+            \CedricZiel\Baserow\Generated\Model\RollupFieldCreateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\RollupFieldField::class => false,
+            \CedricZiel\Baserow\Generated\Model\RollupFieldFieldSerializerWithRelatedFields::class => false,
+            \CedricZiel\Baserow\Generated\Model\RollupFieldUpdateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\RowComment::class => false,
+            \CedricZiel\Baserow\Generated\Model\RowCommentCreate::class => false,
+            \CedricZiel\Baserow\Generated\Model\RowCommentsNotificationMode::class => false,
+            \CedricZiel\Baserow\Generated\Model\RowHistory::class => false,
+            \CedricZiel\Baserow\Generated\Model\RowHistoryUser::class => false,
+            \CedricZiel\Baserow\Generated\Model\RowMetadata::class => false,
+            \CedricZiel\Baserow\Generated\Model\SAMLResponse::class => false,
+            \CedricZiel\Baserow\Generated\Model\SamlAuthProviderModelAuthProvider::class => false,
+            \CedricZiel\Baserow\Generated\Model\SelectColorValueProviderConf::class => false,
+            \CedricZiel\Baserow\Generated\Model\SelectOption::class => false,
+            \CedricZiel\Baserow\Generated\Model\SendResetPasswordEmailBodyValidation::class => false,
+            \CedricZiel\Baserow\Generated\Model\Sender::class => false,
+            \CedricZiel\Baserow\Generated\Model\Settings::class => false,
+            \CedricZiel\Baserow\Generated\Model\SettingsCoBrandingLogo::class => false,
+            \CedricZiel\Baserow\Generated\Model\SingleAuditLogExportJobRequest::class => false,
+            \CedricZiel\Baserow\Generated\Model\SingleAuditLogExportJobResponse::class => false,
+            \CedricZiel\Baserow\Generated\Model\SingleDuplicateApplicationJobType::class => false,
+            \CedricZiel\Baserow\Generated\Model\SingleDuplicateFieldJobType::class => false,
+            \CedricZiel\Baserow\Generated\Model\SingleDuplicateFieldJobTypeOriginalField::class => false,
+            \CedricZiel\Baserow\Generated\Model\SingleDuplicateFieldJobTypeDuplicatedField::class => false,
+            \CedricZiel\Baserow\Generated\Model\SingleDuplicatePageJobType::class => false,
+            \CedricZiel\Baserow\Generated\Model\SingleDuplicatePageJobTypeOriginalPage::class => false,
+            \CedricZiel\Baserow\Generated\Model\SingleDuplicatePageJobTypeDuplicatedPage::class => false,
+            \CedricZiel\Baserow\Generated\Model\SingleDuplicateTableJobType::class => false,
+            \CedricZiel\Baserow\Generated\Model\SingleDuplicateTableJobTypeOriginalTable::class => false,
+            \CedricZiel\Baserow\Generated\Model\SingleDuplicateTableJobTypeDuplicatedTable::class => false,
+            \CedricZiel\Baserow\Generated\Model\SingleFileImportJobSerializerClass::class => false,
+            \CedricZiel\Baserow\Generated\Model\SingleFileImportJobSerializerClassReport::class => false,
+            \CedricZiel\Baserow\Generated\Model\SingleInstallTemplateJobType::class => false,
+            \CedricZiel\Baserow\Generated\Model\SingleInstallTemplateJobTypeWorkspace::class => false,
+            \CedricZiel\Baserow\Generated\Model\SingleInstallTemplateJobTypeTemplate::class => false,
+            \CedricZiel\Baserow\Generated\Model\SingleInstallTemplateJobTypeGroup::class => false,
+            \CedricZiel\Baserow\Generated\Model\SingleSelectFieldCreateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\SingleSelectFieldField::class => false,
+            \CedricZiel\Baserow\Generated\Model\SingleSelectFieldFieldSerializerWithRelatedFields::class => false,
+            \CedricZiel\Baserow\Generated\Model\SingleSelectFieldUpdateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\Snapshot::class => false,
+            \CedricZiel\Baserow\Generated\Model\SnapshotCreatedBy::class => false,
+            \CedricZiel\Baserow\Generated\Model\SubDomainCreateDomain::class => false,
+            \CedricZiel\Baserow\Generated\Model\SubDomainDomain::class => false,
+            \CedricZiel\Baserow\Generated\Model\SubjectUser::class => false,
+            \CedricZiel\Baserow\Generated\Model\Table::class => false,
+            \CedricZiel\Baserow\Generated\Model\TableCreate::class => false,
+            \CedricZiel\Baserow\Generated\Model\TableElementCreateElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\TableElementCreateElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\TableElementElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\TableElementElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\TableElementPublicElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\TableElementPublicElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\TableElementUpdateElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\TableElementUpdateElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\TableImport::class => false,
+            \CedricZiel\Baserow\Generated\Model\TableSerializerWithFields::class => false,
+            \CedricZiel\Baserow\Generated\Model\TableWebhook::class => false,
+            \CedricZiel\Baserow\Generated\Model\TableWebhookCall::class => false,
+            \CedricZiel\Baserow\Generated\Model\TableWebhookCreateRequest::class => false,
+            \CedricZiel\Baserow\Generated\Model\TableWebhookTestCallRequest::class => false,
+            \CedricZiel\Baserow\Generated\Model\TableWebhookTestCallResponse::class => false,
+            \CedricZiel\Baserow\Generated\Model\Team::class => false,
+            \CedricZiel\Baserow\Generated\Model\TeamResponse::class => false,
+            \CedricZiel\Baserow\Generated\Model\TeamSampleSubject::class => false,
+            \CedricZiel\Baserow\Generated\Model\TeamSubject::class => false,
+            \CedricZiel\Baserow\Generated\Model\TeamSubjectResponse::class => false,
+            \CedricZiel\Baserow\Generated\Model\Template::class => false,
+            \CedricZiel\Baserow\Generated\Model\TemplateCategories::class => false,
+            \CedricZiel\Baserow\Generated\Model\TextElementCreateElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\TextElementCreateElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\TextElementElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\TextElementElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\TextElementPublicElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\TextElementPublicElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\TextElementUpdateElement::class => false,
+            \CedricZiel\Baserow\Generated\Model\TextElementUpdateElementStyleBackgroundFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\TextFieldCreateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\TextFieldField::class => false,
+            \CedricZiel\Baserow\Generated\Model\TextFieldFieldSerializerWithRelatedFields::class => false,
+            \CedricZiel\Baserow\Generated\Model\TextFieldUpdateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\Token::class => false,
+            \CedricZiel\Baserow\Generated\Model\TokenPermissions::class => false,
+            \CedricZiel\Baserow\Generated\Model\TokenBlacklist::class => false,
+            \CedricZiel\Baserow\Generated\Model\TokenCreate::class => false,
+            \CedricZiel\Baserow\Generated\Model\TokenObtainPair::class => false,
+            \CedricZiel\Baserow\Generated\Model\TokenObtainPairWithUser::class => false,
+            \CedricZiel\Baserow\Generated\Model\TokenRefreshWithUser::class => false,
+            \CedricZiel\Baserow\Generated\Model\TokenVerifyWithUser::class => false,
+            \CedricZiel\Baserow\Generated\Model\TrashContents::class => false,
+            \CedricZiel\Baserow\Generated\Model\TrashStructure::class => false,
+            \CedricZiel\Baserow\Generated\Model\TrashStructureApplication::class => false,
+            \CedricZiel\Baserow\Generated\Model\TrashStructureGroup::class => false,
+            \CedricZiel\Baserow\Generated\Model\TypeFormulaRequest::class => false,
+            \CedricZiel\Baserow\Generated\Model\TypeFormulaResult::class => false,
+            \CedricZiel\Baserow\Generated\Model\TypographyConfigBlock::class => false,
+            \CedricZiel\Baserow\Generated\Model\TypographyConfigBlockTypography::class => false,
+            \CedricZiel\Baserow\Generated\Model\TypographyThemeConfigBlock::class => false,
+            \CedricZiel\Baserow\Generated\Model\URLFieldCreateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\URLFieldField::class => false,
+            \CedricZiel\Baserow\Generated\Model\URLFieldFieldSerializerWithRelatedFields::class => false,
+            \CedricZiel\Baserow\Generated\Model\URLFieldUpdateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\UUIDFieldCreateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\UUIDFieldField::class => false,
+            \CedricZiel\Baserow\Generated\Model\UUIDFieldFieldSerializerWithRelatedFields::class => false,
+            \CedricZiel\Baserow\Generated\Model\UUIDFieldUpdateField::class => false,
+            \CedricZiel\Baserow\Generated\Model\UndoRedoAction::class => false,
+            \CedricZiel\Baserow\Generated\Model\UndoRedoResponse::class => false,
+            \CedricZiel\Baserow\Generated\Model\UniqueRowValues::class => false,
+            \CedricZiel\Baserow\Generated\Model\User::class => false,
+            \CedricZiel\Baserow\Generated\Model\UserAdminCreate::class => false,
+            \CedricZiel\Baserow\Generated\Model\UserAdminGroups::class => false,
+            \CedricZiel\Baserow\Generated\Model\UserAdminResponse::class => false,
+            \CedricZiel\Baserow\Generated\Model\UserFile::class => false,
+            \CedricZiel\Baserow\Generated\Model\UserFileUploadViaURLRequest::class => false,
+            \CedricZiel\Baserow\Generated\Model\UserSourceUser::class => false,
+            \CedricZiel\Baserow\Generated\Model\UserWorkspaceInvitation::class => false,
+            \CedricZiel\Baserow\Generated\Model\UsersPerUserSource::class => false,
+            \CedricZiel\Baserow\Generated\Model\VerifyEmailAddress::class => false,
+            \CedricZiel\Baserow\Generated\Model\View::class => false,
+            \CedricZiel\Baserow\Generated\Model\ViewDecoration::class => false,
+            \CedricZiel\Baserow\Generated\Model\ViewFilter::class => false,
+            \CedricZiel\Baserow\Generated\Model\ViewFilterGroup::class => false,
+            \CedricZiel\Baserow\Generated\Model\ViewGroupBy::class => false,
+            \CedricZiel\Baserow\Generated\Model\ViewSort::class => false,
+            \CedricZiel\Baserow\Generated\Model\Workspace::class => false,
+            \CedricZiel\Baserow\Generated\Model\WorkspaceAdminUsers::class => false,
+            \CedricZiel\Baserow\Generated\Model\WorkspaceInvitation::class => false,
+            \CedricZiel\Baserow\Generated\Model\WorkspaceUser::class => false,
+            \CedricZiel\Baserow\Generated\Model\WorkspaceUserEnterpriseTeam::class => false,
+            \CedricZiel\Baserow\Generated\Model\WorkspaceUserWorkspace::class => false,
+            \CedricZiel\Baserow\Generated\Model\WorkspacesAdminResponse::class => false,
+            \CedricZiel\Baserow\Generated\Model\CalendarViewUpdate::class => false,
+            \CedricZiel\Baserow\Generated\Model\FormViewUpdate::class => false,
+            \CedricZiel\Baserow\Generated\Model\FormViewUpdateCoverImage::class => false,
+            \CedricZiel\Baserow\Generated\Model\FormViewUpdateLogoImage::class => false,
+            \CedricZiel\Baserow\Generated\Model\GalleryViewUpdate::class => false,
+            \CedricZiel\Baserow\Generated\Model\GridViewUpdate::class => false,
+            \CedricZiel\Baserow\Generated\Model\KanbanViewUpdate::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiHealthEmailPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogActionTypesGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogExportPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogExportPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogUsersGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogWorkspacesGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderAuthProviderIdDeleteResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderAuthProviderIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderAuthProviderIdPatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderAuthProviderIdPatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiAdminGroupsGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiAdminGroupsGroupIdDeleteResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiAdminUsersGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiAdminUsersPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiAdminUsersUserIdDeleteResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiAdminUsersUserIdPatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiAdminUsersImpersonatePostResponse200::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiAdminUsersImpersonatePostResponse200User::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiAdminWorkspacesGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiAdminWorkspacesWorkspaceIdDeleteResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdIntegrationsGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdIntegrationsPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdIntegrationsPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdListUserSourceUsersGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdUserSourcesGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdUserSourcesPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdUserSourcesPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdUserSourcesRolesGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiApplicationsGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdDeleteResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdDeleteResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdPatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdPatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdDuplicateAsyncPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdDuplicateAsyncPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdOrderPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdOrderPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdOrderPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdOrderPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiAuditLogGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiAuditLogActionTypesGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiAuditLogExportPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiAuditLogExportPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiAuditLogUsersGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiAuditLogWorkspacesGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsOrderPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsOrderPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdPagesPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdPagesPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdPagesOrderPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdPagesOrderPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdThemePatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdThemePatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdDeleteResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdDeleteResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdPatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdPatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdDispatchPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdMovePatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdMovePatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdDeleteResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdDeleteResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdPatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdPatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdPublishAsyncPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdPublishAsyncPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsPublishedByIdBuilderIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsPublishedByNameDomainNameGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsPublishedPagePageIdDataSourcesGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsPublishedPagePageIdElementsGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsPublishedPagePageIdWorkflowActionsGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdDeleteResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdDeleteResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdPatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdPatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdDuplicatePostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdDuplicatePostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdMovePatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdMovePatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdDataSourcesGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdDataSourcesPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdDataSourcesPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdDispatchDataSourcesPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdElementsGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdElementsPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdElementsPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdWorkflowActionsGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdWorkflowActionsPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdWorkflowActionsPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdWorkflowActionsOrderPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdWorkflowActionsOrderPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdDeleteResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdDeleteResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdPatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdPatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdDuplicateAsyncPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdDuplicateAsyncPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdPatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdPatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDispatchPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseExportJobIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseExportTableTableIdPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseExportTableTableIdPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdDeleteResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdDeleteResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdPatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdPatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdGetResponse401::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdPostResponse401::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFormulaTableIdTypePostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseFormulaTableIdTypePostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse200::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse200TableId::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse401::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdGetResponse401::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdPostResponse401::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdDeleteResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdDeleteResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdGetResponse401::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdPatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdPatchResponse401::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdPatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdAdjacentGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdAdjacentGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdHistoryGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdHistoryGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdMovePatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdMovePatchResponse401::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdMovePatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse401::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPostResponse401::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchDeletePostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchDeletePostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdDeleteResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdDeleteResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdPatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdPatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdDuplicateAsyncPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdDuplicateAsyncPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdImportAsyncPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdImportAsyncPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdAsyncPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdAsyncPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdOrderPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdOrderPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdDeleteResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdDeleteResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdPatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdPatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensCheckGetResponse403::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewViewIdPremiumPatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewViewIdPremiumPatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse401::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugPublicAuthPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugPublicInfoGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugPublicInfoGetResponse401::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugPublicInfoGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDeleteResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDeleteResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdPatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdPatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDecorationsGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDecorationsGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDecorationsPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDecorationsPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDuplicatePostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDuplicatePostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsPatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsPatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFilterGroupsPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFilterGroupsPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFiltersGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFiltersGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFiltersPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFiltersPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGroupBysGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGroupBysGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGroupBysPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGroupBysPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdRotateSlugPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdRotateSlugPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdSortingsGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdSortingsGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdSortingsPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdSortingsPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse401::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarViewIdGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarViewIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdDeleteResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdDeleteResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdPatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdPatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdDeleteResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdDeleteResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdPatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdPatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdDeleteResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdDeleteResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdPatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdPatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugSubmitGetResponse401::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugSubmitGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugSubmitPostResponse401::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugSubmitPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse401::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse401::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGalleryViewIdGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGalleryViewIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse200::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse401::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse401::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse200::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse200::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdPatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdPatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse401::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanViewIdGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanViewIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdDeleteResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdDeleteResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdPatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdPatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdOrderPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdOrderPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdDeleteResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdDeleteResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdPatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdPatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdTestCallPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdTestCallPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiFilesSignedDataGetResponse403::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdDeleteResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdDeleteResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdPatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdPatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdLeavePostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdLeavePostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdPermissionsGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdDeleteResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdDeleteResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdPatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdPatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdAcceptPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdAcceptPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdRejectPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdRejectPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupGroupIdGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupGroupIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupGroupIdPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupGroupIdPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsTokenTokenGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsTokenTokenGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdPatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdPatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupGroupIdGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupGroupIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdDeleteResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdDeleteResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdPatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdPatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdMovePatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdMovePatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiJobsPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiJobsPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiJobsJobIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiLicensesPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiLicensesIdDeleteResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiLicensesIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiLicensesIdUserIdDeleteResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiLicensesIdUserIdDeleteResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiLicensesIdUserIdPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiLicensesIdUserIdPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiLicensesIdCheckGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiLicensesIdFillSeatsPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiLicensesIdFillSeatsPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiLicensesIdLookupUsersGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiLicensesIdRemoveAllUsersPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiLicensesIdRemoveAllUsersPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdNotificationIdPatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdNotificationIdPatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdMarkAllAsReadPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdMarkAllAsReadPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdBatchPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdBatchPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdBatchPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdBatchPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdNotificationModePutResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdNotificationModePutResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse401::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdPatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdPatchResponse401::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdPatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiSnapshotsSnapshotIdDeleteResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiSnapshotsSnapshotIdDeleteResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiSnapshotsSnapshotIdRestorePostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiSnapshotsSnapshotIdRestorePostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiSnapshotsApplicationApplicationIdGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiSnapshotsApplicationApplicationIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiSnapshotsApplicationApplicationIdPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiSnapshotsApplicationApplicationIdPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiSsoSamlLoginUrlGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdDeleteResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdDeleteResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdPutResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdPutResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsSubjectIdDeleteResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsSubjectIdDeleteResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsSubjectIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiTeamsGroupGroupIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiTeamsGroupGroupIdPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiTeamsGroupGroupIdPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiTeamsWorkspaceWorkspaceIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiTeamsWorkspaceWorkspaceIdPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiTeamsWorkspaceWorkspaceIdPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiTrashGroupGroupIdDeleteResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiTrashGroupGroupIdGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiTrashRestorePatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiTrashWorkspaceWorkspaceIdDeleteResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiTrashWorkspaceWorkspaceIdGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiUserPostResponse200::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiUserPostResponse200User::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiUserPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiUserPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiUserFilesUploadFilePostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiUserFilesUploadViaUrlPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiUserSourceAuthRefreshPostResponse200::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdDeleteResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdDeleteResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdPatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdPatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdForceTokenAuthPostResponse200::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdMovePatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdMovePatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdTokenAuthPostResponse200::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiUserAccountPatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiUserChangePasswordPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiUserResetPasswordPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiUserScheduleAccountDeletionPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiUserSendResetPasswordEmailPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiUserTokenAuthPostResponse200::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiUserTokenAuthPostResponse200User::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiUserTokenAuthPostResponse401::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiUserTokenRefreshPostResponse200::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiUserTokenRefreshPostResponse200User::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiUserTokenRefreshPostResponse401::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiUserTokenVerifyPostResponse200::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiUserTokenVerifyPostResponse200User::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiUserTokenVerifyPostResponse401::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiUserVerifyEmailPostResponse200::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiUserVerifyEmailPostResponse200User::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiUserVerifyEmailPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiUserVerifyEmailPostResponse401::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdDeleteResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdDeleteResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdPatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdPatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdLeavePostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdLeavePostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdPermissionsGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdPatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdPatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdAcceptPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdAcceptPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdRejectPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdRejectPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsTokenTokenGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsTokenTokenGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdPostResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdPostResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdDeleteResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdDeleteResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdPatchResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdPatchResponse404::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse400::class => false,
+            \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse404::class => false,
+            \Jane\Component\JsonSchemaRuntime\Reference::class => false,
         ];
-        protected $normalizersCache = [];
-
-        public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
-        {
-            return array_key_exists($type, $this->normalizers);
-        }
-
-        public function supportsNormalization($data, $format = null, array $context = []): bool
-        {
-            return is_object($data) && array_key_exists(get_class($data), $this->normalizers);
-        }
-
-        /**
-         * @return array|string|int|float|bool|\ArrayObject|null
-         */
-        public function normalize($object, $format = null, array $context = [])
-        {
-            $normalizerClass = $this->normalizers[get_class($object)];
-            $normalizer = $this->getNormalizer($normalizerClass);
-
-            return $normalizer->normalize($object, $format, $context);
-        }
-
-        public function denormalize($data, $type, $format = null, array $context = [])
-        {
-            $denormalizerClass = $this->normalizers[$type];
-            $denormalizer = $this->getNormalizer($denormalizerClass);
-
-            return $denormalizer->denormalize($data, $type, $format, $context);
-        }
-
-        private function getNormalizer(string $normalizerClass)
-        {
-            return $this->normalizersCache[$normalizerClass] ?? $this->initNormalizer($normalizerClass);
-        }
-
-        private function initNormalizer(string $normalizerClass)
-        {
-            $normalizer = new $normalizerClass();
-            $normalizer->setNormalizer($this->normalizer);
-            $normalizer->setDenormalizer($this->denormalizer);
-            $this->normalizersCache[$normalizerClass] = $normalizer;
-
-            return $normalizer;
-        }
-
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [
-                \CedricZiel\Baserow\Generated\Model\AIFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\AIFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\AIFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\AIFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\Account::class => false,
-                \CedricZiel\Baserow\Generated\Model\ActionScopes::class => false,
-                \CedricZiel\Baserow\Generated\Model\AdminDashboard::class => false,
-                \CedricZiel\Baserow\Generated\Model\AdminDashboardPerDay::class => false,
-                \CedricZiel\Baserow\Generated\Model\AirtableImportJobCreateJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\AirtableImportJobJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\AuditLog::class => false,
-                \CedricZiel\Baserow\Generated\Model\AuditLogActionType::class => false,
-                \CedricZiel\Baserow\Generated\Model\AuditLogExportJobCreateJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\AuditLogExportJobJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\AuditLogUser::class => false,
-                \CedricZiel\Baserow\Generated\Model\AuditLogWorkspace::class => false,
-                \CedricZiel\Baserow\Generated\Model\AuthFormElementCreateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\AuthFormElementCreateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\AuthFormElementElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\AuthFormElementElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\AuthFormElementPublicElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\AuthFormElementPublicElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\AuthFormElementUpdateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\AuthFormElementUpdateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\AutonumberFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\AutonumberFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\AutonumberFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\AutonumberFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\BaseExporterOptions::class => false,
-                \CedricZiel\Baserow\Generated\Model\BaserowImpersonateAuthToken::class => false,
-                \CedricZiel\Baserow\Generated\Model\BatchCreateRoleAssignment::class => false,
-                \CedricZiel\Baserow\Generated\Model\BatchDeleteRows::class => false,
-                \CedricZiel\Baserow\Generated\Model\BooleanFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\BooleanFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\BooleanFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\BooleanFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\BuilderApplication::class => false,
-                \CedricZiel\Baserow\Generated\Model\BuilderApplicationGroup::class => false,
-                \CedricZiel\Baserow\Generated\Model\BuilderApplicationWorkspace::class => false,
-                \CedricZiel\Baserow\Generated\Model\BuilderApplicationTheme::class => false,
-                \CedricZiel\Baserow\Generated\Model\BuilderApplicationFaviconFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\BuilderBaseApplicationCreatePolymorphic::class => false,
-                \CedricZiel\Baserow\Generated\Model\BuilderBaseApplicationCreatePolymorphicFaviconFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\BuilderBaseApplicationUpdatePolymorphic::class => false,
-                \CedricZiel\Baserow\Generated\Model\BuilderBaseApplicationUpdatePolymorphicFaviconFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\BuilderWorkflowAction::class => false,
-                \CedricZiel\Baserow\Generated\Model\ButtonConfigBlock::class => false,
-                \CedricZiel\Baserow\Generated\Model\ButtonConfigBlockButton::class => false,
-                \CedricZiel\Baserow\Generated\Model\ButtonElementCreateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\ButtonElementCreateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ButtonElementElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\ButtonElementElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ButtonElementPublicElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\ButtonElementPublicElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ButtonElementUpdateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\ButtonElementUpdateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ButtonLinkConfigBlock::class => false,
-                \CedricZiel\Baserow\Generated\Model\ButtonLinkConfigBlockButton::class => false,
-                \CedricZiel\Baserow\Generated\Model\ButtonLinkConfigBlockLink::class => false,
-                \CedricZiel\Baserow\Generated\Model\ButtonThemeConfigBlock::class => false,
-                \CedricZiel\Baserow\Generated\Model\CalendarViewCreateView::class => false,
-                \CedricZiel\Baserow\Generated\Model\CalendarViewExampleResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\CalendarViewExampleResponseStack::class => false,
-                \CedricZiel\Baserow\Generated\Model\CalendarViewFieldOptions::class => false,
-                \CedricZiel\Baserow\Generated\Model\CalendarViewView::class => false,
-                \CedricZiel\Baserow\Generated\Model\ChangePasswordBodyValidation::class => false,
-                \CedricZiel\Baserow\Generated\Model\CheckboxElementCreateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\CheckboxElementCreateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\CheckboxElementElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\CheckboxElementElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\CheckboxElementPublicElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\CheckboxElementPublicElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\CheckboxElementUpdateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\CheckboxElementUpdateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ChoiceElementCreateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\ChoiceElementCreateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ChoiceElementElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\ChoiceElementElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ChoiceElementPublicElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\ChoiceElementPublicElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ChoiceElementUpdateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\ChoiceElementUpdateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ChoiceOption::class => false,
-                \CedricZiel\Baserow\Generated\Model\Collaborator::class => false,
-                \CedricZiel\Baserow\Generated\Model\CollectionField::class => false,
-                \CedricZiel\Baserow\Generated\Model\ColumnElementCreateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\ColumnElementCreateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ColumnElementElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\ColumnElementElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ColumnElementPublicElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\ColumnElementPublicElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ColumnElementUpdateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\ColumnElementUpdateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\CombinedThemeConfigBlocks::class => false,
-                \CedricZiel\Baserow\Generated\Model\CombinedThemeConfigBlocksPageBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColor::class => false,
-                \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColorFilter::class => false,
-                \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColorFilterGroup::class => false,
-                \CedricZiel\Baserow\Generated\Model\ConditionalColorValueProviderConfColors::class => false,
-                \CedricZiel\Baserow\Generated\Model\CountFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\CountFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\CountFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\CountFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\CreatePage::class => false,
-                \CedricZiel\Baserow\Generated\Model\CreateRoleAssignment::class => false,
-                \CedricZiel\Baserow\Generated\Model\CreateSnapshotJobCreateJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\CreateSnapshotJobJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\CreateViewFilter::class => false,
-                \CedricZiel\Baserow\Generated\Model\CreateViewFilterGroup::class => false,
-                \CedricZiel\Baserow\Generated\Model\CreateViewGroupBy::class => false,
-                \CedricZiel\Baserow\Generated\Model\CreateViewSort::class => false,
-                \CedricZiel\Baserow\Generated\Model\CreateWorkspaceInvitation::class => false,
-                \CedricZiel\Baserow\Generated\Model\CreatedByFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\CreatedByFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\CreatedByFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\CreatedByFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\CreatedOnFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\CreatedOnFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\CreatedOnFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\CreatedOnFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\CsvExporterOptions::class => false,
-                \CedricZiel\Baserow\Generated\Model\CustomDomainCreateDomain::class => false,
-                \CedricZiel\Baserow\Generated\Model\CustomDomainDomain::class => false,
-                \CedricZiel\Baserow\Generated\Model\Dashboard::class => false,
-                \CedricZiel\Baserow\Generated\Model\DatabaseApplication::class => false,
-                \CedricZiel\Baserow\Generated\Model\DatabaseApplicationGroup::class => false,
-                \CedricZiel\Baserow\Generated\Model\DatabaseApplicationWorkspace::class => false,
-                \CedricZiel\Baserow\Generated\Model\DatabaseBaseApplicationCreatePolymorphic::class => false,
-                \CedricZiel\Baserow\Generated\Model\DatabaseBaseApplicationUpdatePolymorphic::class => false,
-                \CedricZiel\Baserow\Generated\Model\DateFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\DateFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\DateFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\DateFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\DuplicateApplicationJobCreateJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\DuplicateApplicationJobJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\DuplicateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\DuplicateFieldJobCreateJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\DuplicateFieldJobJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\DuplicateFieldJobJobOriginalField::class => false,
-                \CedricZiel\Baserow\Generated\Model\DuplicateFieldJobJobDuplicatedField::class => false,
-                \CedricZiel\Baserow\Generated\Model\DuplicatePageJobCreateJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\DuplicatePageJobJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\DuplicatePageJobJobOriginalPage::class => false,
-                \CedricZiel\Baserow\Generated\Model\DuplicatePageJobJobDuplicatedPage::class => false,
-                \CedricZiel\Baserow\Generated\Model\DuplicateTableJobCreateJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\DuplicateTableJobJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\DuplicateTableJobJobOriginalTable::class => false,
-                \CedricZiel\Baserow\Generated\Model\DuplicateTableJobJobDuplicatedTable::class => false,
-                \CedricZiel\Baserow\Generated\Model\DurationFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\DurationFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\DurationFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\DurationFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\Element::class => false,
-                \CedricZiel\Baserow\Generated\Model\ElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\EmailFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\EmailFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\EmailFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\EmailFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\EmailTesterRequest::class => false,
-                \CedricZiel\Baserow\Generated\Model\EmailTesterResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\BatchCreateRowRequest::class => false,
-                \CedricZiel\Baserow\Generated\Model\ExampleBatchRowsResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\BatchUpdateRow::class => false,
-                \CedricZiel\Baserow\Generated\Model\ExampleRowRequest::class => false,
-                \CedricZiel\Baserow\Generated\Model\CreateRowRequest::class => false,
-                \CedricZiel\Baserow\Generated\Model\ExampleRowResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\ExampleRowResponseField10::class => false,
-                \CedricZiel\Baserow\Generated\Model\ExampleRowResponseField12::class => false,
-                \CedricZiel\Baserow\Generated\Model\ExampleRowResponseField16::class => false,
-                \CedricZiel\Baserow\Generated\Model\RowResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\ExportJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\FacebookAuthProviderModelAuthProvider::class => false,
-                \CedricZiel\Baserow\Generated\Model\Field::class => false,
-                \CedricZiel\Baserow\Generated\Model\FieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\FileFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\FileFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\FileFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\FileFieldResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\FileFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\FileImportJobCreateJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\FileImportJobJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\FileImportJobJobReport::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormContainerElementCreateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormContainerElementCreateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormContainerElementElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormContainerElementElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormContainerElementPublicElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormContainerElementPublicElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormContainerElementUpdateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormContainerElementUpdateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormViewCreateView::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormViewCreateViewCoverImage::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormViewCreateViewLogoImage::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormViewFieldOptions::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormViewFieldOptionsCondition::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormViewFieldOptionsConditionGroup::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormViewSubmitted::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormViewView::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormViewViewCoverImage::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormViewViewLogoImage::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormulaFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormulaFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormulaFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormulaFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\FullHealthCheck::class => false,
-                \CedricZiel\Baserow\Generated\Model\GalleryViewCreateView::class => false,
-                \CedricZiel\Baserow\Generated\Model\GalleryViewFieldOptions::class => false,
-                \CedricZiel\Baserow\Generated\Model\GalleryViewView::class => false,
-                \CedricZiel\Baserow\Generated\Model\GenerateFormulaWithAIRequest::class => false,
-                \CedricZiel\Baserow\Generated\Model\GenerateFormulaWithAIResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\GeneratedConditionalColorCreateViewDecoration::class => false,
-                \CedricZiel\Baserow\Generated\Model\GeneratedConditionalColorCreateViewDecorationValueProviderConf::class => false,
-                \CedricZiel\Baserow\Generated\Model\GeneratedConditionalColorUpdateViewDecoration::class => false,
-                \CedricZiel\Baserow\Generated\Model\GeneratedConditionalColorUpdateViewDecorationValueProviderConf::class => false,
-                \CedricZiel\Baserow\Generated\Model\GeneratedConditionalColorViewDecoration::class => false,
-                \CedricZiel\Baserow\Generated\Model\GeneratedConditionalColorViewDecorationValueProviderConf::class => false,
-                \CedricZiel\Baserow\Generated\Model\GeneratedSingleSelectColorCreateViewDecoration::class => false,
-                \CedricZiel\Baserow\Generated\Model\GeneratedSingleSelectColorCreateViewDecorationValueProviderConf::class => false,
-                \CedricZiel\Baserow\Generated\Model\GeneratedSingleSelectColorUpdateViewDecoration::class => false,
-                \CedricZiel\Baserow\Generated\Model\GeneratedSingleSelectColorUpdateViewDecorationValueProviderConf::class => false,
-                \CedricZiel\Baserow\Generated\Model\GeneratedSingleSelectColorViewDecoration::class => false,
-                \CedricZiel\Baserow\Generated\Model\GeneratedSingleSelectColorViewDecorationValueProviderConf::class => false,
-                \CedricZiel\Baserow\Generated\Model\GenerativeAISettings::class => false,
-                \CedricZiel\Baserow\Generated\Model\GitHubAuthProviderModelAuthProvider::class => false,
-                \CedricZiel\Baserow\Generated\Model\GitLabAuthProviderModelAuthProvider::class => false,
-                \CedricZiel\Baserow\Generated\Model\GoogleAuthProviderModelAuthProvider::class => false,
-                \CedricZiel\Baserow\Generated\Model\GridViewCreateView::class => false,
-                \CedricZiel\Baserow\Generated\Model\GridViewFieldOptions::class => false,
-                \CedricZiel\Baserow\Generated\Model\GridViewFilter::class => false,
-                \CedricZiel\Baserow\Generated\Model\GridViewView::class => false,
-                \CedricZiel\Baserow\Generated\Model\HeadingElementCreateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\HeadingElementCreateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\HeadingElementElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\HeadingElementElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\HeadingElementPublicElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\HeadingElementPublicElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\HeadingElementUpdateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\HeadingElementUpdateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\IFrameElementCreateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\IFrameElementCreateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\IFrameElementElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\IFrameElementElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\IFrameElementPublicElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\IFrameElementPublicElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\IFrameElementUpdateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\IFrameElementUpdateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ImageConfigBlock::class => false,
-                \CedricZiel\Baserow\Generated\Model\ImageConfigBlockImage::class => false,
-                \CedricZiel\Baserow\Generated\Model\ImageElementCreateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\ImageElementCreateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ImageElementCreateElementImageFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ImageElementElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\ImageElementElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ImageElementPublicElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\ImageElementPublicElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ImageElementUpdateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\ImageElementUpdateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ImageElementUpdateElementImageFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\ImageThemeConfigBlock::class => false,
-                \CedricZiel\Baserow\Generated\Model\InputTextElementCreateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\InputTextElementCreateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\InputTextElementElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\InputTextElementElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\InputTextElementPublicElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\InputTextElementPublicElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\InputTextElementUpdateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\InputTextElementUpdateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\InstallTemplateJobCreateJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\InstallTemplateJobJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\InstallTemplateJobJobWorkspace::class => false,
-                \CedricZiel\Baserow\Generated\Model\InstallTemplateJobJobTemplate::class => false,
-                \CedricZiel\Baserow\Generated\Model\InstallTemplateJobJobGroup::class => false,
-                \CedricZiel\Baserow\Generated\Model\InstanceId::class => false,
-                \CedricZiel\Baserow\Generated\Model\Job::class => false,
-                \CedricZiel\Baserow\Generated\Model\KanbanViewCreateView::class => false,
-                \CedricZiel\Baserow\Generated\Model\KanbanViewExampleResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\KanbanViewExampleResponseStack::class => false,
-                \CedricZiel\Baserow\Generated\Model\KanbanViewFieldOptions::class => false,
-                \CedricZiel\Baserow\Generated\Model\KanbanViewView::class => false,
-                \CedricZiel\Baserow\Generated\Model\LastModifiedByFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\LastModifiedByFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\LastModifiedByFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\LastModifiedByFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\LastModifiedFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\LastModifiedFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\LastModifiedFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\LastModifiedFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\License::class => false,
-                \CedricZiel\Baserow\Generated\Model\LicenseUser::class => false,
-                \CedricZiel\Baserow\Generated\Model\LicenseUserLookup::class => false,
-                \CedricZiel\Baserow\Generated\Model\LicenseWithUsers::class => false,
-                \CedricZiel\Baserow\Generated\Model\LinkElementCreateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\LinkElementCreateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\LinkElementElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\LinkElementElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\LinkElementPublicElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\LinkElementPublicElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\LinkElementUpdateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\LinkElementUpdateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\LinkRowFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\LinkRowFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\LinkRowFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\LinkRowFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\LinkRowValue::class => false,
-                \CedricZiel\Baserow\Generated\Model\LinkThemeConfigBlock::class => false,
-                \CedricZiel\Baserow\Generated\Model\ListWorkspaceUsersWithMemberData::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowContextData::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowCreateRowWorkflowActionBuilderWorkflowAction::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowCreateRowWorkflowActionCreateBuilderWorkflowAction::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowCreateRowWorkflowActionUpdateBuilderWorkflowActions::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowField::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowGetRow::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowGetRowCreateDataSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowGetRowDataSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowGetRowPublicDataSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowGetRowService::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowGetRowUpdateDataSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationCreateIntegration::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationCreateIntegrationContextData::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationCreateIntegrationAuthorizedUser::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationIntegration::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationIntegrationContextData::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationIntegrationAuthorizedUser::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationUpdateIntegration::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationUpdateIntegrationContextData::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowIntegrationUpdateIntegrationAuthorizedUser::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowListRows::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsCreateDataSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsDataSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsPublicDataSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsService::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowListRowsUpdateDataSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowPasswordAppAuthProviderAppAuthProvider::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowPasswordAppAuthProviderBaseAppAuthProvider::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowTableServiceFieldMapping::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowTableServiceFilter::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowTableServiceSort::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowUpdateRowWorkflowActionBuilderWorkflowAction::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowUpdateRowWorkflowActionCreateBuilderWorkflowAction::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowUpdateRowWorkflowActionUpdateBuilderWorkflowActions::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRow::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowCreateDataSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowDataSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowPublicDataSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowService::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowUpsertRowUpdateDataSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceBasePublicUserSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceCreateUserSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceUpdateUserSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceUserSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceUserSourceRoles::class => false,
-                \CedricZiel\Baserow\Generated\Model\LocalBaserowView::class => false,
-                \CedricZiel\Baserow\Generated\Model\LogoutWorkflowActionBuilderWorkflowAction::class => false,
-                \CedricZiel\Baserow\Generated\Model\LogoutWorkflowActionCreateBuilderWorkflowAction::class => false,
-                \CedricZiel\Baserow\Generated\Model\LogoutWorkflowActionUpdateBuilderWorkflowActions::class => false,
-                \CedricZiel\Baserow\Generated\Model\LongTextFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\LongTextFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\LongTextFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\LongTextFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\LookupFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\LookupFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\LookupFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\LookupFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\MultipleCollaboratorsFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\MultipleCollaboratorsFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\MultipleCollaboratorsFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\MultipleCollaboratorsFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\MultipleSelectFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\MultipleSelectFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\MultipleSelectFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\MultipleSelectFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\NotificationRecipient::class => false,
-                \CedricZiel\Baserow\Generated\Model\NotificationRecipientSender::class => false,
-                \CedricZiel\Baserow\Generated\Model\NotificationWorkflowActionBuilderWorkflowAction::class => false,
-                \CedricZiel\Baserow\Generated\Model\NotificationWorkflowActionCreateBuilderWorkflowAction::class => false,
-                \CedricZiel\Baserow\Generated\Model\NotificationWorkflowActionUpdateBuilderWorkflowActions::class => false,
-                \CedricZiel\Baserow\Generated\Model\NumberFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\NumberFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\NumberFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\NumberFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\OllamaSettings::class => false,
-                \CedricZiel\Baserow\Generated\Model\OpenAISettings::class => false,
-                \CedricZiel\Baserow\Generated\Model\OpenApiRoleAssignment::class => false,
-                \CedricZiel\Baserow\Generated\Model\OpenApiRoleAssignmentSubject::class => false,
-                \CedricZiel\Baserow\Generated\Model\OpenApiSubjectField::class => false,
-                \CedricZiel\Baserow\Generated\Model\OpenIdConnectAuthProviderModelAuthProvider::class => false,
-                \CedricZiel\Baserow\Generated\Model\OpenPageWorkflowActionBuilderWorkflowAction::class => false,
-                \CedricZiel\Baserow\Generated\Model\OpenPageWorkflowActionCreateBuilderWorkflowAction::class => false,
-                \CedricZiel\Baserow\Generated\Model\OpenPageWorkflowActionUpdateBuilderWorkflowActions::class => false,
-                \CedricZiel\Baserow\Generated\Model\OrderApplications::class => false,
-                \CedricZiel\Baserow\Generated\Model\OrderDomains::class => false,
-                \CedricZiel\Baserow\Generated\Model\OrderPages::class => false,
-                \CedricZiel\Baserow\Generated\Model\OrderTables::class => false,
-                \CedricZiel\Baserow\Generated\Model\OrderViews::class => false,
-                \CedricZiel\Baserow\Generated\Model\OrderWorkflowActions::class => false,
-                \CedricZiel\Baserow\Generated\Model\OrderWorkspaces::class => false,
-                \CedricZiel\Baserow\Generated\Model\Page::class => false,
-                \CedricZiel\Baserow\Generated\Model\PageParameterValue::class => false,
-                \CedricZiel\Baserow\Generated\Model\PaginationSerializerAuditLog::class => false,
-                \CedricZiel\Baserow\Generated\Model\PaginationSerializerAuditLogUser::class => false,
-                \CedricZiel\Baserow\Generated\Model\PaginationSerializerAuditLogWorkspace::class => false,
-                \CedricZiel\Baserow\Generated\Model\PaginationRowResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\PaginationSerializerLicenseUserLookup::class => false,
-                \CedricZiel\Baserow\Generated\Model\PaginationSerializerLinkRowValue::class => false,
-                \CedricZiel\Baserow\Generated\Model\PaginationSerializerNotificationRecipient::class => false,
-                \CedricZiel\Baserow\Generated\Model\PaginationSerializerRowComment::class => false,
-                \CedricZiel\Baserow\Generated\Model\PaginationSerializerRowHistory::class => false,
-                \CedricZiel\Baserow\Generated\Model\PaginationSerializerTrashContents::class => false,
-                \CedricZiel\Baserow\Generated\Model\PaginationSerializerUserAdminResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\PaginationSerializerWithGalleryViewFieldOptionsExampleRowResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\PaginationSerializerWithGridViewFieldOptionsExampleRowResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\PaginationSerializerWorkspacesAdminResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\PasswordAuthProviderModelAuthProvider::class => false,
-                \CedricZiel\Baserow\Generated\Model\PasswordFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\PasswordFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\PasswordFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\PasswordFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedAccount::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedCombinedThemeConfigBlocks::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedCombinedThemeConfigBlocksPageBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchRowsRequest::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchRowRequest::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedGenerativeAISettings::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedMoveDataSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedMoveElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedMoveIntegration::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedMoveUserSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedSettings::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedSettingsCoBrandingLogo::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedTableUpdate::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedTableWebhookUpdateRequest::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedTokenUpdate::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedTokenUpdatePermissions::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedTrashEntryRequest::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedUndoRedoRequest::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedUndoRedoRequestScopes::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedUpdateDomain::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedUpdatePage::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedUpdatePremiumViewAttributes::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedUpdateViewFilter::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedUpdateViewFilterGroup::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedUpdateViewGroupBy::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedUpdateViewSort::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedUpdateWorkspaceInvitation::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedUpdateWorkspaceUser::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedUserAdminUpdate::class => false,
-                \CedricZiel\Baserow\Generated\Model\PatchedWorkspace::class => false,
-                \CedricZiel\Baserow\Generated\Model\PathParam::class => false,
-                \CedricZiel\Baserow\Generated\Model\PermissionObject::class => false,
-                \CedricZiel\Baserow\Generated\Model\PhoneNumberFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\PhoneNumberFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\PhoneNumberFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\PhoneNumberFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicBuilder::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicBuilderTheme::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicField::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicFormView::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicFormViewCoverImage::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicFormViewLogoImage::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicFormViewField::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicFormViewFieldOptions::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicFormViewFieldOptionsField::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicNone::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicPage::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicPaginationSerializerWithGalleryViewFieldOptionsExampleRowResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicPaginationSerializerWithGridViewFieldOptionsExampleRowResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicView::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicViewAuthRequest::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicViewAuthResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicViewGroupBy::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicViewInfo::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicViewInfoView::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicViewSort::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublicViewTable::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublishDomainJobCreateJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\PublishDomainJobJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\RatingFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\RatingFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\RatingFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\RatingFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\RefreshDataSourceWorkflowActionBuilderWorkflowAction::class => false,
-                \CedricZiel\Baserow\Generated\Model\RefreshDataSourceWorkflowActionCreateBuilderWorkflowAction::class => false,
-                \CedricZiel\Baserow\Generated\Model\RefreshDataSourceWorkflowActionUpdateBuilderWorkflowActions::class => false,
-                \CedricZiel\Baserow\Generated\Model\Register::class => false,
-                \CedricZiel\Baserow\Generated\Model\RegisterLicense::class => false,
-                \CedricZiel\Baserow\Generated\Model\RelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\RepeatElementCreateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\RepeatElementCreateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\RepeatElementElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\RepeatElementElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\RepeatElementPublicElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\RepeatElementPublicElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\RepeatElementUpdateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\RepeatElementUpdateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\Report::class => false,
-                \CedricZiel\Baserow\Generated\Model\ResetPasswordBodyValidation::class => false,
-                \CedricZiel\Baserow\Generated\Model\RestoreSnapshotJobCreateJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\RestoreSnapshotJobJob::class => false,
-                \CedricZiel\Baserow\Generated\Model\RollupFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\RollupFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\RollupFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\RollupFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\RowComment::class => false,
-                \CedricZiel\Baserow\Generated\Model\RowCommentCreate::class => false,
-                \CedricZiel\Baserow\Generated\Model\RowCommentsNotificationMode::class => false,
-                \CedricZiel\Baserow\Generated\Model\RowHistory::class => false,
-                \CedricZiel\Baserow\Generated\Model\RowHistoryUser::class => false,
-                \CedricZiel\Baserow\Generated\Model\RowMetadata::class => false,
-                \CedricZiel\Baserow\Generated\Model\SAMLResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\SamlAuthProviderModelAuthProvider::class => false,
-                \CedricZiel\Baserow\Generated\Model\SelectColorValueProviderConf::class => false,
-                \CedricZiel\Baserow\Generated\Model\SelectOption::class => false,
-                \CedricZiel\Baserow\Generated\Model\SendResetPasswordEmailBodyValidation::class => false,
-                \CedricZiel\Baserow\Generated\Model\Sender::class => false,
-                \CedricZiel\Baserow\Generated\Model\Settings::class => false,
-                \CedricZiel\Baserow\Generated\Model\SettingsCoBrandingLogo::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleAuditLogExportJobRequest::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleAuditLogExportJobResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleDuplicateApplicationJobType::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleDuplicateFieldJobType::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleDuplicateFieldJobTypeOriginalField::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleDuplicateFieldJobTypeDuplicatedField::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleDuplicatePageJobType::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleDuplicatePageJobTypeOriginalPage::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleDuplicatePageJobTypeDuplicatedPage::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleDuplicateTableJobType::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleDuplicateTableJobTypeOriginalTable::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleDuplicateTableJobTypeDuplicatedTable::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleFileImportJobSerializerClass::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleFileImportJobSerializerClassReport::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleInstallTemplateJobType::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleInstallTemplateJobTypeWorkspace::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleInstallTemplateJobTypeTemplate::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleInstallTemplateJobTypeGroup::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleSelectFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleSelectFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleSelectFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\SingleSelectFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\Snapshot::class => false,
-                \CedricZiel\Baserow\Generated\Model\SnapshotCreatedBy::class => false,
-                \CedricZiel\Baserow\Generated\Model\SubDomainCreateDomain::class => false,
-                \CedricZiel\Baserow\Generated\Model\SubDomainDomain::class => false,
-                \CedricZiel\Baserow\Generated\Model\SubjectUser::class => false,
-                \CedricZiel\Baserow\Generated\Model\Table::class => false,
-                \CedricZiel\Baserow\Generated\Model\TableCreate::class => false,
-                \CedricZiel\Baserow\Generated\Model\TableElementCreateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\TableElementCreateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\TableElementElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\TableElementElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\TableElementPublicElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\TableElementPublicElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\TableElementUpdateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\TableElementUpdateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\TableImport::class => false,
-                \CedricZiel\Baserow\Generated\Model\TableSerializerWithFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\TableWebhook::class => false,
-                \CedricZiel\Baserow\Generated\Model\TableWebhookCall::class => false,
-                \CedricZiel\Baserow\Generated\Model\TableWebhookCreateRequest::class => false,
-                \CedricZiel\Baserow\Generated\Model\TableWebhookTestCallRequest::class => false,
-                \CedricZiel\Baserow\Generated\Model\TableWebhookTestCallResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\Team::class => false,
-                \CedricZiel\Baserow\Generated\Model\TeamResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\TeamSampleSubject::class => false,
-                \CedricZiel\Baserow\Generated\Model\TeamSubject::class => false,
-                \CedricZiel\Baserow\Generated\Model\TeamSubjectResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\Template::class => false,
-                \CedricZiel\Baserow\Generated\Model\TemplateCategories::class => false,
-                \CedricZiel\Baserow\Generated\Model\TextElementCreateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\TextElementCreateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\TextElementElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\TextElementElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\TextElementPublicElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\TextElementPublicElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\TextElementUpdateElement::class => false,
-                \CedricZiel\Baserow\Generated\Model\TextElementUpdateElementStyleBackgroundFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\TextFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\TextFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\TextFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\TextFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\Token::class => false,
-                \CedricZiel\Baserow\Generated\Model\TokenPermissions::class => false,
-                \CedricZiel\Baserow\Generated\Model\TokenBlacklist::class => false,
-                \CedricZiel\Baserow\Generated\Model\TokenCreate::class => false,
-                \CedricZiel\Baserow\Generated\Model\TokenObtainPair::class => false,
-                \CedricZiel\Baserow\Generated\Model\TokenObtainPairWithUser::class => false,
-                \CedricZiel\Baserow\Generated\Model\TokenRefreshWithUser::class => false,
-                \CedricZiel\Baserow\Generated\Model\TokenVerifyWithUser::class => false,
-                \CedricZiel\Baserow\Generated\Model\TrashContents::class => false,
-                \CedricZiel\Baserow\Generated\Model\TrashStructure::class => false,
-                \CedricZiel\Baserow\Generated\Model\TrashStructureApplication::class => false,
-                \CedricZiel\Baserow\Generated\Model\TrashStructureGroup::class => false,
-                \CedricZiel\Baserow\Generated\Model\TypeFormulaRequest::class => false,
-                \CedricZiel\Baserow\Generated\Model\TypeFormulaResult::class => false,
-                \CedricZiel\Baserow\Generated\Model\TypographyConfigBlock::class => false,
-                \CedricZiel\Baserow\Generated\Model\TypographyConfigBlockTypography::class => false,
-                \CedricZiel\Baserow\Generated\Model\TypographyThemeConfigBlock::class => false,
-                \CedricZiel\Baserow\Generated\Model\URLFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\URLFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\URLFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\URLFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\UUIDFieldCreateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\UUIDFieldField::class => false,
-                \CedricZiel\Baserow\Generated\Model\UUIDFieldFieldSerializerWithRelatedFields::class => false,
-                \CedricZiel\Baserow\Generated\Model\UUIDFieldUpdateField::class => false,
-                \CedricZiel\Baserow\Generated\Model\UndoRedoAction::class => false,
-                \CedricZiel\Baserow\Generated\Model\UndoRedoResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\UniqueRowValues::class => false,
-                \CedricZiel\Baserow\Generated\Model\User::class => false,
-                \CedricZiel\Baserow\Generated\Model\UserAdminCreate::class => false,
-                \CedricZiel\Baserow\Generated\Model\UserAdminGroups::class => false,
-                \CedricZiel\Baserow\Generated\Model\UserAdminResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\UserFile::class => false,
-                \CedricZiel\Baserow\Generated\Model\UserFileUploadViaURLRequest::class => false,
-                \CedricZiel\Baserow\Generated\Model\UserSourceUser::class => false,
-                \CedricZiel\Baserow\Generated\Model\UserWorkspaceInvitation::class => false,
-                \CedricZiel\Baserow\Generated\Model\UsersPerUserSource::class => false,
-                \CedricZiel\Baserow\Generated\Model\VerifyEmailAddress::class => false,
-                \CedricZiel\Baserow\Generated\Model\View::class => false,
-                \CedricZiel\Baserow\Generated\Model\ViewDecoration::class => false,
-                \CedricZiel\Baserow\Generated\Model\ViewFilter::class => false,
-                \CedricZiel\Baserow\Generated\Model\ViewFilterGroup::class => false,
-                \CedricZiel\Baserow\Generated\Model\ViewGroupBy::class => false,
-                \CedricZiel\Baserow\Generated\Model\ViewSort::class => false,
-                \CedricZiel\Baserow\Generated\Model\Workspace::class => false,
-                \CedricZiel\Baserow\Generated\Model\WorkspaceAdminUsers::class => false,
-                \CedricZiel\Baserow\Generated\Model\WorkspaceInvitation::class => false,
-                \CedricZiel\Baserow\Generated\Model\WorkspaceUser::class => false,
-                \CedricZiel\Baserow\Generated\Model\WorkspaceUserEnterpriseTeam::class => false,
-                \CedricZiel\Baserow\Generated\Model\WorkspaceUserWorkspace::class => false,
-                \CedricZiel\Baserow\Generated\Model\WorkspacesAdminResponse::class => false,
-                \CedricZiel\Baserow\Generated\Model\CalendarViewUpdate::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormViewUpdate::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormViewUpdateCoverImage::class => false,
-                \CedricZiel\Baserow\Generated\Model\FormViewUpdateLogoImage::class => false,
-                \CedricZiel\Baserow\Generated\Model\GalleryViewUpdate::class => false,
-                \CedricZiel\Baserow\Generated\Model\GridViewUpdate::class => false,
-                \CedricZiel\Baserow\Generated\Model\KanbanViewUpdate::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiHealthEmailPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogActionTypesGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogExportPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogExportPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogUsersGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogWorkspacesGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderAuthProviderIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderAuthProviderIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderAuthProviderIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminAuthProviderAuthProviderIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminGroupsGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminGroupsGroupIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminUsersGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminUsersPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminUsersUserIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminUsersUserIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminUsersImpersonatePostResponse200::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminUsersImpersonatePostResponse200User::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminWorkspacesGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAdminWorkspacesWorkspaceIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdIntegrationsGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdIntegrationsPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdIntegrationsPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdListUserSourceUsersGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdUserSourcesGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdUserSourcesPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdUserSourcesPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdUserSourcesRolesGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdDuplicateAsyncPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsApplicationIdDuplicateAsyncPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdOrderPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdOrderPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdOrderPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiApplicationsWorkspaceWorkspaceIdOrderPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAuditLogGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAuditLogActionTypesGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAuditLogExportPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAuditLogExportPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAuditLogUsersGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiAuditLogWorkspacesGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsOrderPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsOrderPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdPagesPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdPagesPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdPagesOrderPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdPagesOrderPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdThemePatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdThemePatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdDispatchPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdMovePatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderDataSourceDataSourceIdMovePatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdPublishAsyncPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsDomainIdPublishAsyncPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsPublishedByIdBuilderIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsPublishedByNameDomainNameGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsPublishedPagePageIdDataSourcesGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsPublishedPagePageIdElementsGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderDomainsPublishedPagePageIdWorkflowActionsGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdDuplicatePostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdDuplicatePostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdMovePatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderElementElementIdMovePatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdDataSourcesGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdDataSourcesPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdDataSourcesPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdDispatchDataSourcesPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdElementsGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdElementsPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdElementsPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdWorkflowActionsGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdWorkflowActionsPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdWorkflowActionsPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdWorkflowActionsOrderPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderPagePageIdWorkflowActionsOrderPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdDuplicateAsyncPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderPagesPageIdDuplicateAsyncPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiBuilderWorkflowActionWorkflowActionIdDispatchPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseExportJobIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseExportTableTableIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseExportTableTableIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdDuplicateAsyncPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdGenerateAiFieldValuesPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsFieldIdUniqueRowValuesGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdGetResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdPostResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFieldsTableTableIdGenerateAiFormulaPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFormulaTableIdTypePostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseFormulaTableIdTypePostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse200::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse200TableId::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsNamesGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdGetResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdPostResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdGetResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdPatchResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdAdjacentGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdAdjacentGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdHistoryGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdHistoryGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdMovePatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdMovePatchResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdRowIdMovePatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPostResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchDeletePostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchDeletePostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdDuplicateAsyncPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdDuplicateAsyncPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdImportAsyncPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesTableIdImportAsyncPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdAsyncPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdAsyncPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdOrderPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTablesDatabaseDatabaseIdOrderPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensTokenIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensCheckGetResponse403::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewViewIdPremiumPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewViewIdPremiumPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugLinkRowFieldLookupFieldIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugPublicAuthPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugPublicInfoGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugPublicInfoGetResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSlugPublicInfoGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDecorationsGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDecorationsGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDecorationsPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDecorationsPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDuplicatePostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdDuplicatePostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFieldOptionsPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFilterGroupsPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFilterGroupsPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFiltersGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFiltersGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFiltersPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdFiltersPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGroupBysGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGroupBysGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGroupBysPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdGroupBysPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdRotateSlugPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdRotateSlugPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdSortingsGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdSortingsGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdSortingsPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsViewIdSortingsPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarSlugPublicRowsGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarViewIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsCalendarViewIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterViewFilterIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugSubmitGetResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugSubmitGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugSubmitPostResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugSubmitPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFormSlugUploadFilePostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGallerySlugPublicRowsGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGalleryViewIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGalleryViewIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse200::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicAggregationsGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridSlugPublicRowsGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse200::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationFieldIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse200::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGridViewIdAggregationsGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanSlugPublicRowsGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanViewIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsKanbanViewIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsSortViewSortIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdOrderPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsTableTableIdOrderPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdTestCallPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksTableTableIdTestCallPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiFilesSignedDataGetResponse403::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdLeavePostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdLeavePostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdPermissionsGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdAcceptPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdAcceptPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdRejectPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdRejectPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupGroupIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupGroupIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupGroupIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupGroupIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsTokenTokenGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsTokenTokenGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupGroupIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupGroupIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdMovePatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiIntegrationIntegrationIdMovePatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiJobsPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiJobsPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiJobsJobIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiLicensesPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiLicensesIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiLicensesIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiLicensesIdUserIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiLicensesIdUserIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiLicensesIdUserIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiLicensesIdUserIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiLicensesIdCheckGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiLicensesIdFillSeatsPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiLicensesIdFillSeatsPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiLicensesIdLookupUsersGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiLicensesIdRemoveAllUsersPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiLicensesIdRemoveAllUsersPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdNotificationIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdNotificationIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdMarkAllAsReadPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdMarkAllAsReadPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdBatchPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdBatchPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdBatchPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdBatchPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdNotificationModePutResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdNotificationModePutResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdPatchResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdCommentCommentIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiSnapshotsSnapshotIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiSnapshotsSnapshotIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiSnapshotsSnapshotIdRestorePostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiSnapshotsSnapshotIdRestorePostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiSnapshotsApplicationApplicationIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiSnapshotsApplicationApplicationIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiSnapshotsApplicationApplicationIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiSnapshotsApplicationApplicationIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiSsoSamlLoginUrlGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdPutResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdPutResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsSubjectIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsSubjectIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsSubjectIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTeamsGroupGroupIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTeamsGroupGroupIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTeamsGroupGroupIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTeamsWorkspaceWorkspaceIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTeamsWorkspaceWorkspaceIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTeamsWorkspaceWorkspaceIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTrashGroupGroupIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTrashGroupGroupIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTrashRestorePatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTrashWorkspaceWorkspaceIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiTrashWorkspaceWorkspaceIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserPostResponse200::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserPostResponse200User::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserFilesUploadFilePostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserFilesUploadViaUrlPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserSourceAuthRefreshPostResponse200::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdForceTokenAuthPostResponse200::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdMovePatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdMovePatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdTokenAuthPostResponse200::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserAccountPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserChangePasswordPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserResetPasswordPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserScheduleAccountDeletionPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserSendResetPasswordEmailPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserTokenAuthPostResponse200::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserTokenAuthPostResponse200User::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserTokenAuthPostResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserTokenRefreshPostResponse200::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserTokenRefreshPostResponse200User::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserTokenRefreshPostResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserTokenVerifyPostResponse200::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserTokenVerifyPostResponse200User::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserTokenVerifyPostResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserVerifyEmailPostResponse200::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserVerifyEmailPostResponse200User::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserVerifyEmailPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiUserVerifyEmailPostResponse401::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdLeavePostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdLeavePostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdPermissionsGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesWorkspaceIdSettingsGenerativeAiPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdAcceptPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdAcceptPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdRejectPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceInvitationIdRejectPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsTokenTokenGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsTokenTokenGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdGetResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdPostResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesInvitationsWorkspaceWorkspaceIdPostResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdDeleteResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdDeleteResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdPatchResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceUserIdPatchResponse404::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse400::class => false,
-                \CedricZiel\Baserow\Generated\Model\ApiWorkspacesUsersWorkspaceWorkspaceIdGetResponse404::class => false,
-                \Jane\Component\JsonSchemaRuntime\Reference::class => false,
-            ];
-        }
     }
 }

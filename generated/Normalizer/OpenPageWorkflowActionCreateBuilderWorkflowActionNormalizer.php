@@ -13,7 +13,6 @@ namespace CedricZiel\Baserow\Generated\Normalizer;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\CheckArray;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\ValidatorTrait;
 use Jane\Component\JsonSchemaRuntime\Reference;
-use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -21,269 +20,133 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
-    class OpenPageWorkflowActionCreateBuilderWorkflowActionNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OpenPageWorkflowActionCreateBuilderWorkflowActionNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+{
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+    use CheckArray;
+    use ValidatorTrait;
+
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
-
-        public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\OpenPageWorkflowActionCreateBuilderWorkflowAction::class === $type;
-        }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\OpenPageWorkflowActionCreateBuilderWorkflowAction::class === get_class($data);
-        }
-
-        public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\OpenPageWorkflowActionCreateBuilderWorkflowAction();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('id', $data)) {
-                $object->setId($data['id']);
-                unset($data['id']);
-            }
-            if (\array_key_exists('element_id', $data) && null !== $data['element_id']) {
-                $object->setElementId($data['element_id']);
-                unset($data['element_id']);
-            } elseif (\array_key_exists('element_id', $data) && null === $data['element_id']) {
-                $object->setElementId(null);
-            }
-            if (\array_key_exists('type', $data)) {
-                $object->setType($data['type']);
-                unset($data['type']);
-            }
-            if (\array_key_exists('event', $data)) {
-                $object->setEvent($data['event']);
-                unset($data['event']);
-            }
-            if (\array_key_exists('navigation_type', $data)) {
-                $object->setNavigationType($data['navigation_type']);
-                unset($data['navigation_type']);
-            }
-            if (\array_key_exists('navigate_to_page_id', $data) && null !== $data['navigate_to_page_id']) {
-                $object->setNavigateToPageId($data['navigate_to_page_id']);
-                unset($data['navigate_to_page_id']);
-            } elseif (\array_key_exists('navigate_to_page_id', $data) && null === $data['navigate_to_page_id']) {
-                $object->setNavigateToPageId(null);
-            }
-            if (\array_key_exists('navigate_to_url', $data)) {
-                $object->setNavigateToUrl($data['navigate_to_url']);
-                unset($data['navigate_to_url']);
-            }
-            if (\array_key_exists('page_parameters', $data)) {
-                $values = [];
-                foreach ($data['page_parameters'] as $value) {
-                    $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\PageParameterValue::class, 'json', $context);
-                }
-                $object->setPageParameters($values);
-                unset($data['page_parameters']);
-            }
-            if (\array_key_exists('target', $data)) {
-                $object->setTarget($data['target']);
-                unset($data['target']);
-            }
-            if (\array_key_exists('url', $data)) {
-                $object->setUrl($data['url']);
-                unset($data['url']);
-            }
-            foreach ($data as $key => $value_1) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value_1;
-                }
-            }
-
-            return $object;
-        }
-
-        public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
-        {
-            $data = [];
-            if ($object->isInitialized('elementId') && null !== $object->getElementId()) {
-                $data['element_id'] = $object->getElementId();
-            }
-            $data['type'] = $object->getType();
-            $data['event'] = $object->getEvent();
-            if ($object->isInitialized('navigationType') && null !== $object->getNavigationType()) {
-                $data['navigation_type'] = $object->getNavigationType();
-            }
-            if ($object->isInitialized('navigateToPageId') && null !== $object->getNavigateToPageId()) {
-                $data['navigate_to_page_id'] = $object->getNavigateToPageId();
-            }
-            if ($object->isInitialized('navigateToUrl') && null !== $object->getNavigateToUrl()) {
-                $data['navigate_to_url'] = $object->getNavigateToUrl();
-            }
-            if ($object->isInitialized('pageParameters') && null !== $object->getPageParameters()) {
-                $values = [];
-                foreach ($object->getPageParameters() as $value) {
-                    $values[] = $this->normalizer->normalize($value, 'json', $context);
-                }
-                $data['page_parameters'] = $values;
-            }
-            if ($object->isInitialized('target') && null !== $object->getTarget()) {
-                $data['target'] = $object->getTarget();
-            }
-            if ($object->isInitialized('url') && null !== $object->getUrl()) {
-                $data['url'] = $object->getUrl();
-            }
-            foreach ($object as $key => $value_1) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value_1;
-                }
-            }
-
-            return $data;
-        }
-
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\OpenPageWorkflowActionCreateBuilderWorkflowAction::class => false];
-        }
+        return \CedricZiel\Baserow\Generated\Model\OpenPageWorkflowActionCreateBuilderWorkflowAction::class === $type;
     }
-} else {
-    class OpenPageWorkflowActionCreateBuilderWorkflowActionNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
+        return is_object($data) && \CedricZiel\Baserow\Generated\Model\OpenPageWorkflowActionCreateBuilderWorkflowAction::class === get_class($data);
+    }
 
-        public function supportsDenormalization($data, $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\OpenPageWorkflowActionCreateBuilderWorkflowAction::class === $type;
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
+    {
+        if (isset($data['$ref'])) {
+            return new Reference($data['$ref'], $context['document-origin']);
         }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\OpenPageWorkflowActionCreateBuilderWorkflowAction::class === get_class($data);
+        if (isset($data['$recursiveRef'])) {
+            return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-
-        public function denormalize($data, $type, $format = null, array $context = [])
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\OpenPageWorkflowActionCreateBuilderWorkflowAction();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('id', $data)) {
-                $object->setId($data['id']);
-                unset($data['id']);
-            }
-            if (\array_key_exists('element_id', $data) && null !== $data['element_id']) {
-                $object->setElementId($data['element_id']);
-                unset($data['element_id']);
-            } elseif (\array_key_exists('element_id', $data) && null === $data['element_id']) {
-                $object->setElementId(null);
-            }
-            if (\array_key_exists('type', $data)) {
-                $object->setType($data['type']);
-                unset($data['type']);
-            }
-            if (\array_key_exists('event', $data)) {
-                $object->setEvent($data['event']);
-                unset($data['event']);
-            }
-            if (\array_key_exists('navigation_type', $data)) {
-                $object->setNavigationType($data['navigation_type']);
-                unset($data['navigation_type']);
-            }
-            if (\array_key_exists('navigate_to_page_id', $data) && null !== $data['navigate_to_page_id']) {
-                $object->setNavigateToPageId($data['navigate_to_page_id']);
-                unset($data['navigate_to_page_id']);
-            } elseif (\array_key_exists('navigate_to_page_id', $data) && null === $data['navigate_to_page_id']) {
-                $object->setNavigateToPageId(null);
-            }
-            if (\array_key_exists('navigate_to_url', $data)) {
-                $object->setNavigateToUrl($data['navigate_to_url']);
-                unset($data['navigate_to_url']);
-            }
-            if (\array_key_exists('page_parameters', $data)) {
-                $values = [];
-                foreach ($data['page_parameters'] as $value) {
-                    $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\PageParameterValue::class, 'json', $context);
-                }
-                $object->setPageParameters($values);
-                unset($data['page_parameters']);
-            }
-            if (\array_key_exists('target', $data)) {
-                $object->setTarget($data['target']);
-                unset($data['target']);
-            }
-            if (\array_key_exists('url', $data)) {
-                $object->setUrl($data['url']);
-                unset($data['url']);
-            }
-            foreach ($data as $key => $value_1) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value_1;
-                }
-            }
-
+        $object = new \CedricZiel\Baserow\Generated\Model\OpenPageWorkflowActionCreateBuilderWorkflowAction();
+        if (null === $data || false === \is_array($data)) {
             return $object;
         }
-
-        /**
-         * @return array|string|int|float|bool|\ArrayObject|null
-         */
-        public function normalize($object, $format = null, array $context = [])
-        {
-            $data = [];
-            if ($object->isInitialized('elementId') && null !== $object->getElementId()) {
-                $data['element_id'] = $object->getElementId();
+        if (\array_key_exists('id', $data)) {
+            $object->setId($data['id']);
+            unset($data['id']);
+        }
+        if (\array_key_exists('element_id', $data) && null !== $data['element_id']) {
+            $object->setElementId($data['element_id']);
+            unset($data['element_id']);
+        } elseif (\array_key_exists('element_id', $data) && null === $data['element_id']) {
+            $object->setElementId(null);
+        }
+        if (\array_key_exists('type', $data)) {
+            $object->setType($data['type']);
+            unset($data['type']);
+        }
+        if (\array_key_exists('event', $data)) {
+            $object->setEvent($data['event']);
+            unset($data['event']);
+        }
+        if (\array_key_exists('navigation_type', $data)) {
+            $object->setNavigationType($data['navigation_type']);
+            unset($data['navigation_type']);
+        }
+        if (\array_key_exists('navigate_to_page_id', $data) && null !== $data['navigate_to_page_id']) {
+            $object->setNavigateToPageId($data['navigate_to_page_id']);
+            unset($data['navigate_to_page_id']);
+        } elseif (\array_key_exists('navigate_to_page_id', $data) && null === $data['navigate_to_page_id']) {
+            $object->setNavigateToPageId(null);
+        }
+        if (\array_key_exists('navigate_to_url', $data)) {
+            $object->setNavigateToUrl($data['navigate_to_url']);
+            unset($data['navigate_to_url']);
+        }
+        if (\array_key_exists('page_parameters', $data)) {
+            $values = [];
+            foreach ($data['page_parameters'] as $value) {
+                $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\PageParameterValue::class, 'json', $context);
             }
-            $data['type'] = $object->getType();
-            $data['event'] = $object->getEvent();
-            if ($object->isInitialized('navigationType') && null !== $object->getNavigationType()) {
-                $data['navigation_type'] = $object->getNavigationType();
+            $object->setPageParameters($values);
+            unset($data['page_parameters']);
+        }
+        if (\array_key_exists('target', $data)) {
+            $object->setTarget($data['target']);
+            unset($data['target']);
+        }
+        if (\array_key_exists('url', $data)) {
+            $object->setUrl($data['url']);
+            unset($data['url']);
+        }
+        foreach ($data as $key => $value_1) {
+            if (preg_match('/.*/', (string) $key)) {
+                $object[$key] = $value_1;
             }
-            if ($object->isInitialized('navigateToPageId') && null !== $object->getNavigateToPageId()) {
-                $data['navigate_to_page_id'] = $object->getNavigateToPageId();
-            }
-            if ($object->isInitialized('navigateToUrl') && null !== $object->getNavigateToUrl()) {
-                $data['navigate_to_url'] = $object->getNavigateToUrl();
-            }
-            if ($object->isInitialized('pageParameters') && null !== $object->getPageParameters()) {
-                $values = [];
-                foreach ($object->getPageParameters() as $value) {
-                    $values[] = $this->normalizer->normalize($value, 'json', $context);
-                }
-                $data['page_parameters'] = $values;
-            }
-            if ($object->isInitialized('target') && null !== $object->getTarget()) {
-                $data['target'] = $object->getTarget();
-            }
-            if ($object->isInitialized('url') && null !== $object->getUrl()) {
-                $data['url'] = $object->getUrl();
-            }
-            foreach ($object as $key => $value_1) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value_1;
-                }
-            }
-
-            return $data;
         }
 
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\OpenPageWorkflowActionCreateBuilderWorkflowAction::class => false];
+        return $object;
+    }
+
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    {
+        $dataArray = [];
+        if ($data->isInitialized('elementId') && null !== $data->getElementId()) {
+            $dataArray['element_id'] = $data->getElementId();
         }
+        $dataArray['type'] = $data->getType();
+        $dataArray['event'] = $data->getEvent();
+        if ($data->isInitialized('navigationType') && null !== $data->getNavigationType()) {
+            $dataArray['navigation_type'] = $data->getNavigationType();
+        }
+        if ($data->isInitialized('navigateToPageId') && null !== $data->getNavigateToPageId()) {
+            $dataArray['navigate_to_page_id'] = $data->getNavigateToPageId();
+        }
+        if ($data->isInitialized('navigateToUrl') && null !== $data->getNavigateToUrl()) {
+            $dataArray['navigate_to_url'] = $data->getNavigateToUrl();
+        }
+        if ($data->isInitialized('pageParameters') && null !== $data->getPageParameters()) {
+            $values = [];
+            foreach ($data->getPageParameters() as $value) {
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
+            }
+            $dataArray['page_parameters'] = $values;
+        }
+        if ($data->isInitialized('target') && null !== $data->getTarget()) {
+            $dataArray['target'] = $data->getTarget();
+        }
+        if ($data->isInitialized('url') && null !== $data->getUrl()) {
+            $dataArray['url'] = $data->getUrl();
+        }
+        foreach ($data as $key => $value_1) {
+            if (preg_match('/.*/', (string) $key)) {
+                $dataArray[$key] = $value_1;
+            }
+        }
+
+        return $dataArray;
+    }
+
+    public function getSupportedTypes(?string $format = null): array
+    {
+        return [\CedricZiel\Baserow\Generated\Model\OpenPageWorkflowActionCreateBuilderWorkflowAction::class => false];
     }
 }
