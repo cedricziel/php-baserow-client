@@ -13,7 +13,6 @@ namespace CedricZiel\Baserow\Generated\Normalizer;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\CheckArray;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\ValidatorTrait;
 use Jane\Component\JsonSchemaRuntime\Reference;
-use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -21,175 +20,89 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
-    class PatchedAccountNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class PatchedAccountNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+{
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+    use CheckArray;
+    use ValidatorTrait;
+
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
-
-        public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\PatchedAccount::class === $type;
-        }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\PatchedAccount::class === get_class($data);
-        }
-
-        public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\PatchedAccount();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('first_name', $data)) {
-                $object->setFirstName($data['first_name']);
-                unset($data['first_name']);
-            }
-            if (\array_key_exists('language', $data)) {
-                $object->setLanguage($data['language']);
-                unset($data['language']);
-            }
-            if (\array_key_exists('email_notification_frequency', $data)) {
-                $object->setEmailNotificationFrequency($data['email_notification_frequency']);
-                unset($data['email_notification_frequency']);
-            }
-            if (\array_key_exists('completed_onboarding', $data)) {
-                $object->setCompletedOnboarding($data['completed_onboarding']);
-                unset($data['completed_onboarding']);
-            }
-            foreach ($data as $key => $value) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value;
-                }
-            }
-
-            return $object;
-        }
-
-        public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
-        {
-            $data = [];
-            if ($object->isInitialized('firstName') && null !== $object->getFirstName()) {
-                $data['first_name'] = $object->getFirstName();
-            }
-            if ($object->isInitialized('language') && null !== $object->getLanguage()) {
-                $data['language'] = $object->getLanguage();
-            }
-            if ($object->isInitialized('emailNotificationFrequency') && null !== $object->getEmailNotificationFrequency()) {
-                $data['email_notification_frequency'] = $object->getEmailNotificationFrequency();
-            }
-            if ($object->isInitialized('completedOnboarding') && null !== $object->getCompletedOnboarding()) {
-                $data['completed_onboarding'] = $object->getCompletedOnboarding();
-            }
-            foreach ($object as $key => $value) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value;
-                }
-            }
-
-            return $data;
-        }
-
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\PatchedAccount::class => false];
-        }
+        return \CedricZiel\Baserow\Generated\Model\PatchedAccount::class === $type;
     }
-} else {
-    class PatchedAccountNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
+        return is_object($data) && \CedricZiel\Baserow\Generated\Model\PatchedAccount::class === get_class($data);
+    }
 
-        public function supportsDenormalization($data, $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\PatchedAccount::class === $type;
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
+    {
+        if (isset($data['$ref'])) {
+            return new Reference($data['$ref'], $context['document-origin']);
         }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\PatchedAccount::class === get_class($data);
+        if (isset($data['$recursiveRef'])) {
+            return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-
-        public function denormalize($data, $type, $format = null, array $context = [])
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\PatchedAccount();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('first_name', $data)) {
-                $object->setFirstName($data['first_name']);
-                unset($data['first_name']);
-            }
-            if (\array_key_exists('language', $data)) {
-                $object->setLanguage($data['language']);
-                unset($data['language']);
-            }
-            if (\array_key_exists('email_notification_frequency', $data)) {
-                $object->setEmailNotificationFrequency($data['email_notification_frequency']);
-                unset($data['email_notification_frequency']);
-            }
-            if (\array_key_exists('completed_onboarding', $data)) {
-                $object->setCompletedOnboarding($data['completed_onboarding']);
-                unset($data['completed_onboarding']);
-            }
-            foreach ($data as $key => $value) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value;
-                }
-            }
-
+        $object = new \CedricZiel\Baserow\Generated\Model\PatchedAccount();
+        if (\array_key_exists('completed_onboarding', $data) && \is_int($data['completed_onboarding'])) {
+            $data['completed_onboarding'] = (bool) $data['completed_onboarding'];
+        }
+        if (null === $data || false === \is_array($data)) {
             return $object;
         }
-
-        /**
-         * @return array|string|int|float|bool|\ArrayObject|null
-         */
-        public function normalize($object, $format = null, array $context = [])
-        {
-            $data = [];
-            if ($object->isInitialized('firstName') && null !== $object->getFirstName()) {
-                $data['first_name'] = $object->getFirstName();
+        if (\array_key_exists('first_name', $data)) {
+            $object->setFirstName($data['first_name']);
+            unset($data['first_name']);
+        }
+        if (\array_key_exists('language', $data)) {
+            $object->setLanguage($data['language']);
+            unset($data['language']);
+        }
+        if (\array_key_exists('email_notification_frequency', $data)) {
+            $object->setEmailNotificationFrequency($data['email_notification_frequency']);
+            unset($data['email_notification_frequency']);
+        }
+        if (\array_key_exists('completed_onboarding', $data)) {
+            $object->setCompletedOnboarding($data['completed_onboarding']);
+            unset($data['completed_onboarding']);
+        }
+        foreach ($data as $key => $value) {
+            if (preg_match('/.*/', (string) $key)) {
+                $object[$key] = $value;
             }
-            if ($object->isInitialized('language') && null !== $object->getLanguage()) {
-                $data['language'] = $object->getLanguage();
-            }
-            if ($object->isInitialized('emailNotificationFrequency') && null !== $object->getEmailNotificationFrequency()) {
-                $data['email_notification_frequency'] = $object->getEmailNotificationFrequency();
-            }
-            if ($object->isInitialized('completedOnboarding') && null !== $object->getCompletedOnboarding()) {
-                $data['completed_onboarding'] = $object->getCompletedOnboarding();
-            }
-            foreach ($object as $key => $value) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value;
-                }
-            }
-
-            return $data;
         }
 
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\PatchedAccount::class => false];
+        return $object;
+    }
+
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    {
+        $dataArray = [];
+        if ($data->isInitialized('firstName') && null !== $data->getFirstName()) {
+            $dataArray['first_name'] = $data->getFirstName();
         }
+        if ($data->isInitialized('language') && null !== $data->getLanguage()) {
+            $dataArray['language'] = $data->getLanguage();
+        }
+        if ($data->isInitialized('emailNotificationFrequency') && null !== $data->getEmailNotificationFrequency()) {
+            $dataArray['email_notification_frequency'] = $data->getEmailNotificationFrequency();
+        }
+        if ($data->isInitialized('completedOnboarding') && null !== $data->getCompletedOnboarding()) {
+            $dataArray['completed_onboarding'] = $data->getCompletedOnboarding();
+        }
+        foreach ($data as $key => $value) {
+            if (preg_match('/.*/', (string) $key)) {
+                $dataArray[$key] = $value;
+            }
+        }
+
+        return $dataArray;
+    }
+
+    public function getSupportedTypes(?string $format = null): array
+    {
+        return [\CedricZiel\Baserow\Generated\Model\PatchedAccount::class => false];
     }
 }
