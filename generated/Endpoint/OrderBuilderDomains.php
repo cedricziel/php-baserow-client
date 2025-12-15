@@ -92,10 +92,10 @@ class OrderBuilderDomains extends \CedricZiel\Baserow\Generated\Runtime\Client\B
         if (204 === $status) {
             return null;
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\OrderBuilderDomainsBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsOrderPostResponse400', 'json'), $response);
         }
-        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\OrderBuilderDomainsNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiBuilderBuilderIdDomainsOrderPostResponse404', 'json'), $response);
         }
     }

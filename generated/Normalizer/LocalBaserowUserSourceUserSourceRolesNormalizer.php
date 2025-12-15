@@ -13,7 +13,6 @@ namespace CedricZiel\Baserow\Generated\Normalizer;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\CheckArray;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\ValidatorTrait;
 use Jane\Component\JsonSchemaRuntime\Reference;
-use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -21,215 +20,106 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
-    class LocalBaserowUserSourceUserSourceRolesNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class LocalBaserowUserSourceUserSourceRolesNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+{
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+    use CheckArray;
+    use ValidatorTrait;
+
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
-
-        public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceUserSourceRoles::class === $type;
-        }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceUserSourceRoles::class === get_class($data);
-        }
-
-        public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceUserSourceRoles();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('id', $data)) {
-                $object->setId($data['id']);
-                unset($data['id']);
-            }
-            if (\array_key_exists('roles', $data)) {
-                $values = [];
-                foreach ($data['roles'] as $value) {
-                    $values[] = $value;
-                }
-                $object->setRoles($values);
-                unset($data['roles']);
-            }
-            if (\array_key_exists('table_id', $data) && null !== $data['table_id']) {
-                $object->setTableId($data['table_id']);
-                unset($data['table_id']);
-            } elseif (\array_key_exists('table_id', $data) && null === $data['table_id']) {
-                $object->setTableId(null);
-            }
-            if (\array_key_exists('email_field_id', $data) && null !== $data['email_field_id']) {
-                $object->setEmailFieldId($data['email_field_id']);
-                unset($data['email_field_id']);
-            } elseif (\array_key_exists('email_field_id', $data) && null === $data['email_field_id']) {
-                $object->setEmailFieldId(null);
-            }
-            if (\array_key_exists('name_field_id', $data) && null !== $data['name_field_id']) {
-                $object->setNameFieldId($data['name_field_id']);
-                unset($data['name_field_id']);
-            } elseif (\array_key_exists('name_field_id', $data) && null === $data['name_field_id']) {
-                $object->setNameFieldId(null);
-            }
-            if (\array_key_exists('role_field_id', $data) && null !== $data['role_field_id']) {
-                $object->setRoleFieldId($data['role_field_id']);
-                unset($data['role_field_id']);
-            } elseif (\array_key_exists('role_field_id', $data) && null === $data['role_field_id']) {
-                $object->setRoleFieldId(null);
-            }
-            foreach ($data as $key => $value_1) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value_1;
-                }
-            }
-
-            return $object;
-        }
-
-        public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
-        {
-            $data = [];
-            if ($object->isInitialized('tableId') && null !== $object->getTableId()) {
-                $data['table_id'] = $object->getTableId();
-            }
-            if ($object->isInitialized('emailFieldId') && null !== $object->getEmailFieldId()) {
-                $data['email_field_id'] = $object->getEmailFieldId();
-            }
-            if ($object->isInitialized('nameFieldId') && null !== $object->getNameFieldId()) {
-                $data['name_field_id'] = $object->getNameFieldId();
-            }
-            if ($object->isInitialized('roleFieldId') && null !== $object->getRoleFieldId()) {
-                $data['role_field_id'] = $object->getRoleFieldId();
-            }
-            foreach ($object as $key => $value) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value;
-                }
-            }
-
-            return $data;
-        }
-
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceUserSourceRoles::class => false];
-        }
+        return \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceUserSourceRoles::class === $type;
     }
-} else {
-    class LocalBaserowUserSourceUserSourceRolesNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
+        return is_object($data) && \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceUserSourceRoles::class === get_class($data);
+    }
 
-        public function supportsDenormalization($data, $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceUserSourceRoles::class === $type;
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
+    {
+        if (isset($data['$ref'])) {
+            return new Reference($data['$ref'], $context['document-origin']);
         }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceUserSourceRoles::class === get_class($data);
+        if (isset($data['$recursiveRef'])) {
+            return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-
-        public function denormalize($data, $type, $format = null, array $context = [])
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceUserSourceRoles();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('id', $data)) {
-                $object->setId($data['id']);
-                unset($data['id']);
-            }
-            if (\array_key_exists('roles', $data)) {
-                $values = [];
-                foreach ($data['roles'] as $value) {
-                    $values[] = $value;
-                }
-                $object->setRoles($values);
-                unset($data['roles']);
-            }
-            if (\array_key_exists('table_id', $data) && null !== $data['table_id']) {
-                $object->setTableId($data['table_id']);
-                unset($data['table_id']);
-            } elseif (\array_key_exists('table_id', $data) && null === $data['table_id']) {
-                $object->setTableId(null);
-            }
-            if (\array_key_exists('email_field_id', $data) && null !== $data['email_field_id']) {
-                $object->setEmailFieldId($data['email_field_id']);
-                unset($data['email_field_id']);
-            } elseif (\array_key_exists('email_field_id', $data) && null === $data['email_field_id']) {
-                $object->setEmailFieldId(null);
-            }
-            if (\array_key_exists('name_field_id', $data) && null !== $data['name_field_id']) {
-                $object->setNameFieldId($data['name_field_id']);
-                unset($data['name_field_id']);
-            } elseif (\array_key_exists('name_field_id', $data) && null === $data['name_field_id']) {
-                $object->setNameFieldId(null);
-            }
-            if (\array_key_exists('role_field_id', $data) && null !== $data['role_field_id']) {
-                $object->setRoleFieldId($data['role_field_id']);
-                unset($data['role_field_id']);
-            } elseif (\array_key_exists('role_field_id', $data) && null === $data['role_field_id']) {
-                $object->setRoleFieldId(null);
-            }
-            foreach ($data as $key => $value_1) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value_1;
-                }
-            }
-
+        $object = new \CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceUserSourceRoles();
+        if (null === $data || false === \is_array($data)) {
             return $object;
         }
-
-        /**
-         * @return array|string|int|float|bool|\ArrayObject|null
-         */
-        public function normalize($object, $format = null, array $context = [])
-        {
-            $data = [];
-            if ($object->isInitialized('tableId') && null !== $object->getTableId()) {
-                $data['table_id'] = $object->getTableId();
+        if (\array_key_exists('id', $data)) {
+            $object->setId($data['id']);
+            unset($data['id']);
+        }
+        if (\array_key_exists('roles', $data)) {
+            $values = [];
+            foreach ($data['roles'] as $value) {
+                $values[] = $value;
             }
-            if ($object->isInitialized('emailFieldId') && null !== $object->getEmailFieldId()) {
-                $data['email_field_id'] = $object->getEmailFieldId();
+            $object->setRoles($values);
+            unset($data['roles']);
+        }
+        if (\array_key_exists('table_id', $data) && null !== $data['table_id']) {
+            $object->setTableId($data['table_id']);
+            unset($data['table_id']);
+        } elseif (\array_key_exists('table_id', $data) && null === $data['table_id']) {
+            $object->setTableId(null);
+        }
+        if (\array_key_exists('email_field_id', $data) && null !== $data['email_field_id']) {
+            $object->setEmailFieldId($data['email_field_id']);
+            unset($data['email_field_id']);
+        } elseif (\array_key_exists('email_field_id', $data) && null === $data['email_field_id']) {
+            $object->setEmailFieldId(null);
+        }
+        if (\array_key_exists('name_field_id', $data) && null !== $data['name_field_id']) {
+            $object->setNameFieldId($data['name_field_id']);
+            unset($data['name_field_id']);
+        } elseif (\array_key_exists('name_field_id', $data) && null === $data['name_field_id']) {
+            $object->setNameFieldId(null);
+        }
+        if (\array_key_exists('role_field_id', $data) && null !== $data['role_field_id']) {
+            $object->setRoleFieldId($data['role_field_id']);
+            unset($data['role_field_id']);
+        } elseif (\array_key_exists('role_field_id', $data) && null === $data['role_field_id']) {
+            $object->setRoleFieldId(null);
+        }
+        foreach ($data as $key => $value_1) {
+            if (preg_match('/.*/', (string) $key)) {
+                $object[$key] = $value_1;
             }
-            if ($object->isInitialized('nameFieldId') && null !== $object->getNameFieldId()) {
-                $data['name_field_id'] = $object->getNameFieldId();
-            }
-            if ($object->isInitialized('roleFieldId') && null !== $object->getRoleFieldId()) {
-                $data['role_field_id'] = $object->getRoleFieldId();
-            }
-            foreach ($object as $key => $value) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value;
-                }
-            }
-
-            return $data;
         }
 
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceUserSourceRoles::class => false];
+        return $object;
+    }
+
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    {
+        $dataArray = [];
+        if ($data->isInitialized('tableId')) {
+            $dataArray['table_id'] = $data->getTableId();
         }
+        if ($data->isInitialized('emailFieldId')) {
+            $dataArray['email_field_id'] = $data->getEmailFieldId();
+        }
+        if ($data->isInitialized('nameFieldId')) {
+            $dataArray['name_field_id'] = $data->getNameFieldId();
+        }
+        if ($data->isInitialized('roleFieldId')) {
+            $dataArray['role_field_id'] = $data->getRoleFieldId();
+        }
+        foreach ($data as $key => $value) {
+            if (preg_match('/.*/', (string) $key)) {
+                $dataArray[$key] = $value;
+            }
+        }
+
+        return $dataArray;
+    }
+
+    public function getSupportedTypes(?string $format = null): array
+    {
+        return [\CedricZiel\Baserow\Generated\Model\LocalBaserowUserSourceUserSourceRoles::class => false];
     }
 }

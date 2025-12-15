@@ -71,7 +71,7 @@ class ResetPassword extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEnd
         if (204 === $status) {
             return null;
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\ResetPasswordBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiUserResetPasswordPostResponse400', 'json'), $response);
         }
     }

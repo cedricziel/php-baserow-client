@@ -24,8 +24,8 @@ class GeneratedConditionalColorCreateViewDecoration extends \ArrayObject
     /**
      * The decorator type. This is then interpreted by the frontend to display the decoration.
      *
-     * `left_border_color` - left_border_color
-     * `background_color` - background_color
+     * * `left_border_color` - left_border_color
+     * * `background_color` - background_color
      *
      * @var string
      */
@@ -33,9 +33,9 @@ class GeneratedConditionalColorCreateViewDecoration extends \ArrayObject
     /**
      * The value provider type that gives the value to the decorator.
      *
-     * `` -
-     * `single_select_color` - single_select_color
-     * `conditional_color` - conditional_color
+     * * `` -
+     * * `single_select_color` - single_select_color
+     * * `conditional_color` - conditional_color
      */
     protected $valueProviderType = '';
     /**
@@ -54,8 +54,8 @@ class GeneratedConditionalColorCreateViewDecoration extends \ArrayObject
     /**
      * The decorator type. This is then interpreted by the frontend to display the decoration.
      *
-     * `left_border_color` - left_border_color
-     * `background_color` - background_color
+     * * `left_border_color` - left_border_color
+     * * `background_color` - background_color
      */
     public function getType(): string
     {
@@ -79,9 +79,9 @@ class GeneratedConditionalColorCreateViewDecoration extends \ArrayObject
     /**
      * The value provider type that gives the value to the decorator.
      *
-     * `` -
-     * `single_select_color` - single_select_color
-     * `conditional_color` - conditional_color
+     * * `` -
+     * * `single_select_color` - single_select_color
+     * * `conditional_color` - conditional_color
      */
     public function getValueProviderType()
     {

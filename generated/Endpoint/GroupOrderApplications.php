@@ -18,9 +18,9 @@ class GroupOrderApplications extends \CedricZiel\Baserow\Generated\Runtime\Clien
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [workspace_order_applications](#tag/Applications/operation/workspace_order_applications).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Changes the order of the provided application ids to the matching position that the id has in the list. If the authorized user does not belong to the group it will be ignored. The order of the not provided tables will be set to `0`.
+     *  Changes the order of the provided application ids to the matching position that the id has in the list. If the authorized user does not belong to the group it will be ignored. The order of the not provided tables will be set to `0`.
      *
      * @param int   $groupId          updates the order of the applications in the group related to the provided value
      * @param array $headerParameters {
@@ -98,10 +98,10 @@ class GroupOrderApplications extends \CedricZiel\Baserow\Generated\Runtime\Clien
         if (204 === $status) {
             return null;
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\GroupOrderApplicationsBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdOrderPostResponse400', 'json'), $response);
         }
-        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\GroupOrderApplicationsNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdOrderPostResponse404', 'json'), $response);
         }
     }

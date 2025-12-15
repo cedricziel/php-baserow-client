@@ -69,13 +69,13 @@ class VerifyEmail extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpo
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
-        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiUserVerifyEmailPostResponse200', 'json');
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\VerifyEmailBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiUserVerifyEmailPostResponse400', 'json'), $response);
         }
-        if (false === is_null($contentType) && (401 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (401 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\VerifyEmailUnauthorizedException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiUserVerifyEmailPostResponse401', 'json'), $response);
         }
     }

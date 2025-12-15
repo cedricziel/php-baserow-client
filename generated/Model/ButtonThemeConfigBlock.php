@@ -31,23 +31,23 @@ class ButtonThemeConfigBlock extends \ArrayObject
     protected $buttonFontSize;
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      *
      * @var string
      */
     protected $buttonAlignment;
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      *
      * @var string
      */
     protected $buttonTextAlignment;
     /**
      * * `auto` - Auto
-     * `full` - Full.
+     * * `full` - Full.
      *
      * @var string
      */
@@ -141,8 +141,8 @@ class ButtonThemeConfigBlock extends \ArrayObject
 
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      */
     public function getButtonAlignment(): string
     {
@@ -164,8 +164,8 @@ class ButtonThemeConfigBlock extends \ArrayObject
 
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      */
     public function getButtonTextAlignment(): string
     {
@@ -187,7 +187,7 @@ class ButtonThemeConfigBlock extends \ArrayObject
 
     /**
      * * `auto` - Auto
-     * `full` - Full.
+     * * `full` - Full.
      */
     public function getButtonWidth(): string
     {

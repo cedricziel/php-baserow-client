@@ -30,12 +30,12 @@ class TableWebhookTestCallRequest extends \ArrayObject
     /**
      * The event type that must be used for the test call.
      *
-     * `rows.created` - rows.created
-     * `row.created` - row.created
-     * `rows.updated` - rows.updated
-     * `row.updated` - row.updated
-     * `rows.deleted` - rows.deleted
-     * `row.deleted` - row.deleted
+     * * `rows.created` - rows.created
+     * * `row.created` - row.created
+     * * `rows.updated` - rows.updated
+     * * `row.updated` - row.updated
+     * * `rows.deleted` - rows.deleted
+     * * `row.deleted` - row.deleted
      *
      * @var string
      */
@@ -43,11 +43,11 @@ class TableWebhookTestCallRequest extends \ArrayObject
     /**
      * The request method that be used when the event occurs.
      *
-     * `POST` - Post
-     * `GET` - Get
-     * `PUT` - Put
-     * `PATCH` - Patch
-     * `DELETE` - Delete
+     * * `POST` - Post
+     * * `GET` - Get
+     * * `PUT` - Put
+     * * `PATCH` - Patch
+     * * `DELETE` - Delete
      *
      * @var string
      */
@@ -87,12 +87,12 @@ class TableWebhookTestCallRequest extends \ArrayObject
     /**
      * The event type that must be used for the test call.
      *
-     * `rows.created` - rows.created
-     * `row.created` - row.created
-     * `rows.updated` - rows.updated
-     * `row.updated` - row.updated
-     * `rows.deleted` - rows.deleted
-     * `row.deleted` - row.deleted
+     * * `rows.created` - rows.created
+     * * `row.created` - row.created
+     * * `rows.updated` - rows.updated
+     * * `row.updated` - row.updated
+     * * `rows.deleted` - rows.deleted
+     * * `row.deleted` - row.deleted
      */
     public function getEventType(): string
     {
@@ -120,11 +120,11 @@ class TableWebhookTestCallRequest extends \ArrayObject
     /**
      * The request method that be used when the event occurs.
      *
-     * `POST` - Post
-     * `GET` - Get
-     * `PUT` - Put
-     * `PATCH` - Patch
-     * `DELETE` - Delete
+     * * `POST` - Post
+     * * `GET` - Get
+     * * `PUT` - Put
+     * * `PATCH` - Patch
+     * * `DELETE` - Delete
      */
     public function getRequestMethod(): string
     {

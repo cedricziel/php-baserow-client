@@ -31,16 +31,16 @@ class PatchedTrashEntryRequest extends \ArrayObject
     protected $parentTrashItemId;
     /**
      * * `workspace` - workspace
-     * `application` - application
-     * `group` - group
-     * `table` - table
-     * `field` - field
-     * `row` - row
-     * `rows` - rows
-     * `view` - view
-     * `builder_domain` - builder_domain
-     * `row_comment` - row_comment
-     * `team` - team.
+     * * `application` - application
+     * * `group` - group
+     * * `table` - table
+     * * `field` - field
+     * * `row` - row
+     * * `rows` - rows
+     * * `view` - view
+     * * `builder_domain` - builder_domain
+     * * `row_comment` - row_comment
+     * * `team` - team.
      *
      * @var string
      */
@@ -74,16 +74,16 @@ class PatchedTrashEntryRequest extends \ArrayObject
 
     /**
      * * `workspace` - workspace
-     * `application` - application
-     * `group` - group
-     * `table` - table
-     * `field` - field
-     * `row` - row
-     * `rows` - rows
-     * `view` - view
-     * `builder_domain` - builder_domain
-     * `row_comment` - row_comment
-     * `team` - team.
+     * * `application` - application
+     * * `group` - group
+     * * `table` - table
+     * * `field` - field
+     * * `row` - row
+     * * `rows` - rows
+     * * `view` - view
+     * * `builder_domain` - builder_domain
+     * * `row_comment` - row_comment
+     * * `team` - team.
      */
     public function getTrashItemType(): string
     {

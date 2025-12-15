@@ -19,9 +19,9 @@ class GroupInstallTemplateAsync extends \CedricZiel\Baserow\Generated\Runtime\Cl
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [workspace_install_template_async](#tag/Templates/operation/workspace_install_template_async).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Start an async job to install the applications of the given template into the given group if the user has access to that group. The response contains those newly created applications.
+     *  Start an async job to install the applications of the given template into the given group if the user has access to that group. The response contains those newly created applications.
      *
      * @param int   $groupId          the id related to the group where the template applications must be installed into
      * @param int   $templateId       the id related to the template that must be installed
@@ -80,13 +80,13 @@ class GroupInstallTemplateAsync extends \CedricZiel\Baserow\Generated\Runtime\Cl
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
-        if (false === is_null($contentType) && (202 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (202 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\SingleInstallTemplateJobType', 'json');
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\GroupInstallTemplateAsyncBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse400', 'json'), $response);
         }
-        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\GroupInstallTemplateAsyncNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallGroupIdTemplateIdAsyncPostResponse404', 'json'), $response);
         }
     }

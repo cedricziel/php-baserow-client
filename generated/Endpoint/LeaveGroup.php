@@ -18,9 +18,9 @@ class LeaveGroup extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoi
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [leave_workspace](#tag/Workspaces/operation/leave_workspace).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Makes the authenticated user leave the group related to the provided `group_id` if the user is in that group. If the user is the last admin in the group, they will not be able to leave it. There must always be one admin in the group, otherwise it will be left without control. If that is the case, they must either delete the group or give another member admin permissions first.
+     *  Makes the authenticated user leave the group related to the provided `group_id` if the user is in that group. If the user is the last admin in the group, they will not be able to leave it. There must always be one admin in the group, otherwise it will be left without control. If that is the case, they must either delete the group or give another member admin permissions first.
      *
      * @param int $groupId leaves the group related to the value
      */
@@ -62,10 +62,10 @@ class LeaveGroup extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoi
         if (204 === $status) {
             return null;
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\LeaveGroupBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdLeavePostResponse400', 'json'), $response);
         }
-        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\LeaveGroupNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdLeavePostResponse404', 'json'), $response);
         }
     }

@@ -74,10 +74,10 @@ class AuditLogWorkspaces2 extends \CedricZiel\Baserow\Generated\Runtime\Client\B
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
-        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\PaginationSerializerAuditLogWorkspace', 'json');
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\AuditLogWorkspaces2BadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiAuditLogWorkspacesGetResponse400', 'json'), $response);
         }
         if (401 === $status) {

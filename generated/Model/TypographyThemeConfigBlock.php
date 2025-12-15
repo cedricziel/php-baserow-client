@@ -35,8 +35,8 @@ class TypographyThemeConfigBlock extends \ArrayObject
     protected $bodyTextColor;
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      *
      * @var string
      */
@@ -55,8 +55,8 @@ class TypographyThemeConfigBlock extends \ArrayObject
     protected $heading1TextColor;
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      *
      * @var string
      */
@@ -75,8 +75,8 @@ class TypographyThemeConfigBlock extends \ArrayObject
     protected $heading2TextColor;
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      *
      * @var string
      */
@@ -95,8 +95,8 @@ class TypographyThemeConfigBlock extends \ArrayObject
     protected $heading3TextColor;
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      *
      * @var string
      */
@@ -115,8 +115,8 @@ class TypographyThemeConfigBlock extends \ArrayObject
     protected $heading4TextColor;
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      *
      * @var string
      */
@@ -135,8 +135,8 @@ class TypographyThemeConfigBlock extends \ArrayObject
     protected $heading5TextColor;
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      *
      * @var string
      */
@@ -155,8 +155,8 @@ class TypographyThemeConfigBlock extends \ArrayObject
     protected $heading6TextColor;
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      *
      * @var string
      */
@@ -203,8 +203,8 @@ class TypographyThemeConfigBlock extends \ArrayObject
 
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      */
     public function getBodyTextAlignment(): string
     {
@@ -265,8 +265,8 @@ class TypographyThemeConfigBlock extends \ArrayObject
 
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      */
     public function getHeading1TextAlignment(): string
     {
@@ -327,8 +327,8 @@ class TypographyThemeConfigBlock extends \ArrayObject
 
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      */
     public function getHeading2TextAlignment(): string
     {
@@ -389,8 +389,8 @@ class TypographyThemeConfigBlock extends \ArrayObject
 
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      */
     public function getHeading3TextAlignment(): string
     {
@@ -451,8 +451,8 @@ class TypographyThemeConfigBlock extends \ArrayObject
 
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      */
     public function getHeading4TextAlignment(): string
     {
@@ -513,8 +513,8 @@ class TypographyThemeConfigBlock extends \ArrayObject
 
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      */
     public function getHeading5TextAlignment(): string
     {
@@ -575,8 +575,8 @@ class TypographyThemeConfigBlock extends \ArrayObject
 
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      */
     public function getHeading6TextAlignment(): string
     {

@@ -46,7 +46,7 @@ class CheckDatabaseToken extends \CedricZiel\Baserow\Generated\Runtime\Client\Ba
         if (200 === $status) {
             return null;
         }
-        if (false === is_null($contentType) && (403 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (403 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\CheckDatabaseTokenForbiddenException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseTokensCheckGetResponse403', 'json'), $response);
         }
     }

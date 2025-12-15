@@ -13,7 +13,6 @@ namespace CedricZiel\Baserow\Generated\Normalizer;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\CheckArray;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\ValidatorTrait;
 use Jane\Component\JsonSchemaRuntime\Reference;
-use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -21,269 +20,136 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
-    class ListWorkspaceUsersWithMemberDataNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class ListWorkspaceUsersWithMemberDataNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+{
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+    use CheckArray;
+    use ValidatorTrait;
+
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
-
-        public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\ListWorkspaceUsersWithMemberData::class === $type;
-        }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\ListWorkspaceUsersWithMemberData::class === get_class($data);
-        }
-
-        public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\ListWorkspaceUsersWithMemberData();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('id', $data)) {
-                $object->setId($data['id']);
-                unset($data['id']);
-            }
-            if (\array_key_exists('name', $data)) {
-                $object->setName($data['name']);
-                unset($data['name']);
-            }
-            if (\array_key_exists('email', $data)) {
-                $object->setEmail($data['email']);
-                unset($data['email']);
-            }
-            if (\array_key_exists('group', $data)) {
-                $object->setGroup($data['group']);
-                unset($data['group']);
-            }
-            if (\array_key_exists('workspace', $data)) {
-                $object->setWorkspace($data['workspace']);
-                unset($data['workspace']);
-            }
-            if (\array_key_exists('permissions', $data)) {
-                $object->setPermissions($data['permissions']);
-                unset($data['permissions']);
-            }
-            if (\array_key_exists('created_on', $data)) {
-                $object->setCreatedOn(\DateTime::createFromFormat('Y-m-d\TH:i:sP', $data['created_on']));
-                unset($data['created_on']);
-            }
-            if (\array_key_exists('user_id', $data)) {
-                $object->setUserId($data['user_id']);
-                unset($data['user_id']);
-            }
-            if (\array_key_exists('to_be_deleted', $data)) {
-                $object->setToBeDeleted($data['to_be_deleted']);
-                unset($data['to_be_deleted']);
-            }
-            if (\array_key_exists('teams', $data)) {
-                $values = [];
-                foreach ($data['teams'] as $value) {
-                    $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\WorkspaceUserEnterpriseTeam::class, 'json', $context);
-                }
-                $object->setTeams($values);
-                unset($data['teams']);
-            }
-            if (\array_key_exists('role_uid', $data) && null !== $data['role_uid']) {
-                $object->setRoleUid($data['role_uid']);
-                unset($data['role_uid']);
-            } elseif (\array_key_exists('role_uid', $data) && null === $data['role_uid']) {
-                $object->setRoleUid(null);
-            }
-            if (\array_key_exists('highest_role_uid', $data) && null !== $data['highest_role_uid']) {
-                $object->setHighestRoleUid($data['highest_role_uid']);
-                unset($data['highest_role_uid']);
-            } elseif (\array_key_exists('highest_role_uid', $data) && null === $data['highest_role_uid']) {
-                $object->setHighestRoleUid(null);
-            }
-            foreach ($data as $key => $value_1) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value_1;
-                }
-            }
-
-            return $object;
-        }
-
-        public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
-        {
-            $data = [];
-            $data['group'] = $object->getGroup();
-            $data['workspace'] = $object->getWorkspace();
-            if ($object->isInitialized('permissions') && null !== $object->getPermissions()) {
-                $data['permissions'] = $object->getPermissions();
-            }
-            $data['to_be_deleted'] = $object->getToBeDeleted();
-            if ($object->isInitialized('teams') && null !== $object->getTeams()) {
-                $values = [];
-                foreach ($object->getTeams() as $value) {
-                    $values[] = $this->normalizer->normalize($value, 'json', $context);
-                }
-                $data['teams'] = $values;
-            }
-            if ($object->isInitialized('roleUid') && null !== $object->getRoleUid()) {
-                $data['role_uid'] = $object->getRoleUid();
-            }
-            if ($object->isInitialized('highestRoleUid') && null !== $object->getHighestRoleUid()) {
-                $data['highest_role_uid'] = $object->getHighestRoleUid();
-            }
-            foreach ($object as $key => $value_1) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value_1;
-                }
-            }
-
-            return $data;
-        }
-
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\ListWorkspaceUsersWithMemberData::class => false];
-        }
+        return \CedricZiel\Baserow\Generated\Model\ListWorkspaceUsersWithMemberData::class === $type;
     }
-} else {
-    class ListWorkspaceUsersWithMemberDataNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
+        return is_object($data) && \CedricZiel\Baserow\Generated\Model\ListWorkspaceUsersWithMemberData::class === get_class($data);
+    }
 
-        public function supportsDenormalization($data, $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\ListWorkspaceUsersWithMemberData::class === $type;
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
+    {
+        if (isset($data['$ref'])) {
+            return new Reference($data['$ref'], $context['document-origin']);
         }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\ListWorkspaceUsersWithMemberData::class === get_class($data);
+        if (isset($data['$recursiveRef'])) {
+            return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-
-        public function denormalize($data, $type, $format = null, array $context = [])
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\ListWorkspaceUsersWithMemberData();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('id', $data)) {
-                $object->setId($data['id']);
-                unset($data['id']);
-            }
-            if (\array_key_exists('name', $data)) {
-                $object->setName($data['name']);
-                unset($data['name']);
-            }
-            if (\array_key_exists('email', $data)) {
-                $object->setEmail($data['email']);
-                unset($data['email']);
-            }
-            if (\array_key_exists('group', $data)) {
-                $object->setGroup($data['group']);
-                unset($data['group']);
-            }
-            if (\array_key_exists('workspace', $data)) {
-                $object->setWorkspace($data['workspace']);
-                unset($data['workspace']);
-            }
-            if (\array_key_exists('permissions', $data)) {
-                $object->setPermissions($data['permissions']);
-                unset($data['permissions']);
-            }
-            if (\array_key_exists('created_on', $data)) {
-                $object->setCreatedOn(\DateTime::createFromFormat('Y-m-d\TH:i:sP', $data['created_on']));
-                unset($data['created_on']);
-            }
-            if (\array_key_exists('user_id', $data)) {
-                $object->setUserId($data['user_id']);
-                unset($data['user_id']);
-            }
-            if (\array_key_exists('to_be_deleted', $data)) {
-                $object->setToBeDeleted($data['to_be_deleted']);
-                unset($data['to_be_deleted']);
-            }
-            if (\array_key_exists('teams', $data)) {
-                $values = [];
-                foreach ($data['teams'] as $value) {
-                    $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\WorkspaceUserEnterpriseTeam::class, 'json', $context);
-                }
-                $object->setTeams($values);
-                unset($data['teams']);
-            }
-            if (\array_key_exists('role_uid', $data) && null !== $data['role_uid']) {
-                $object->setRoleUid($data['role_uid']);
-                unset($data['role_uid']);
-            } elseif (\array_key_exists('role_uid', $data) && null === $data['role_uid']) {
-                $object->setRoleUid(null);
-            }
-            if (\array_key_exists('highest_role_uid', $data) && null !== $data['highest_role_uid']) {
-                $object->setHighestRoleUid($data['highest_role_uid']);
-                unset($data['highest_role_uid']);
-            } elseif (\array_key_exists('highest_role_uid', $data) && null === $data['highest_role_uid']) {
-                $object->setHighestRoleUid(null);
-            }
-            foreach ($data as $key => $value_1) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value_1;
-                }
-            }
-
+        $object = new \CedricZiel\Baserow\Generated\Model\ListWorkspaceUsersWithMemberData();
+        if (\array_key_exists('to_be_deleted', $data) && \is_int($data['to_be_deleted'])) {
+            $data['to_be_deleted'] = (bool) $data['to_be_deleted'];
+        }
+        if (null === $data || false === \is_array($data)) {
             return $object;
         }
-
-        /**
-         * @return array|string|int|float|bool|\ArrayObject|null
-         */
-        public function normalize($object, $format = null, array $context = [])
-        {
-            $data = [];
-            $data['group'] = $object->getGroup();
-            $data['workspace'] = $object->getWorkspace();
-            if ($object->isInitialized('permissions') && null !== $object->getPermissions()) {
-                $data['permissions'] = $object->getPermissions();
+        if (\array_key_exists('id', $data)) {
+            $object->setId($data['id']);
+            unset($data['id']);
+        }
+        if (\array_key_exists('name', $data)) {
+            $object->setName($data['name']);
+            unset($data['name']);
+        }
+        if (\array_key_exists('email', $data)) {
+            $object->setEmail($data['email']);
+            unset($data['email']);
+        }
+        if (\array_key_exists('group', $data)) {
+            $object->setGroup($data['group']);
+            unset($data['group']);
+        }
+        if (\array_key_exists('workspace', $data)) {
+            $object->setWorkspace($data['workspace']);
+            unset($data['workspace']);
+        }
+        if (\array_key_exists('permissions', $data)) {
+            $object->setPermissions($data['permissions']);
+            unset($data['permissions']);
+        }
+        if (\array_key_exists('created_on', $data)) {
+            $object->setCreatedOn(\DateTime::createFromFormat('Y-m-d\TH:i:sP', $data['created_on']));
+            unset($data['created_on']);
+        }
+        if (\array_key_exists('user_id', $data)) {
+            $object->setUserId($data['user_id']);
+            unset($data['user_id']);
+        }
+        if (\array_key_exists('to_be_deleted', $data)) {
+            $object->setToBeDeleted($data['to_be_deleted']);
+            unset($data['to_be_deleted']);
+        }
+        if (\array_key_exists('teams', $data)) {
+            $values = [];
+            foreach ($data['teams'] as $value) {
+                $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\WorkspaceUserEnterpriseTeam::class, 'json', $context);
             }
-            $data['to_be_deleted'] = $object->getToBeDeleted();
-            if ($object->isInitialized('teams') && null !== $object->getTeams()) {
-                $values = [];
-                foreach ($object->getTeams() as $value) {
-                    $values[] = $this->normalizer->normalize($value, 'json', $context);
-                }
-                $data['teams'] = $values;
+            $object->setTeams($values);
+            unset($data['teams']);
+        }
+        if (\array_key_exists('role_uid', $data) && null !== $data['role_uid']) {
+            $object->setRoleUid($data['role_uid']);
+            unset($data['role_uid']);
+        } elseif (\array_key_exists('role_uid', $data) && null === $data['role_uid']) {
+            $object->setRoleUid(null);
+        }
+        if (\array_key_exists('highest_role_uid', $data) && null !== $data['highest_role_uid']) {
+            $object->setHighestRoleUid($data['highest_role_uid']);
+            unset($data['highest_role_uid']);
+        } elseif (\array_key_exists('highest_role_uid', $data) && null === $data['highest_role_uid']) {
+            $object->setHighestRoleUid(null);
+        }
+        foreach ($data as $key => $value_1) {
+            if (preg_match('/.*/', (string) $key)) {
+                $object[$key] = $value_1;
             }
-            if ($object->isInitialized('roleUid') && null !== $object->getRoleUid()) {
-                $data['role_uid'] = $object->getRoleUid();
-            }
-            if ($object->isInitialized('highestRoleUid') && null !== $object->getHighestRoleUid()) {
-                $data['highest_role_uid'] = $object->getHighestRoleUid();
-            }
-            foreach ($object as $key => $value_1) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value_1;
-                }
-            }
-
-            return $data;
         }
 
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\ListWorkspaceUsersWithMemberData::class => false];
+        return $object;
+    }
+
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    {
+        $dataArray = [];
+        $dataArray['group'] = $data->getGroup();
+        $dataArray['workspace'] = $data->getWorkspace();
+        if ($data->isInitialized('permissions') && null !== $data->getPermissions()) {
+            $dataArray['permissions'] = $data->getPermissions();
         }
+        $dataArray['to_be_deleted'] = $data->getToBeDeleted();
+        if ($data->isInitialized('teams') && null !== $data->getTeams()) {
+            $values = [];
+            foreach ($data->getTeams() as $value) {
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
+            }
+            $dataArray['teams'] = $values;
+        }
+        if ($data->isInitialized('roleUid')) {
+            $dataArray['role_uid'] = $data->getRoleUid();
+        }
+        if ($data->isInitialized('highestRoleUid')) {
+            $dataArray['highest_role_uid'] = $data->getHighestRoleUid();
+        }
+        foreach ($data as $key => $value_1) {
+            if (preg_match('/.*/', (string) $key)) {
+                $dataArray[$key] = $value_1;
+            }
+        }
+
+        return $dataArray;
+    }
+
+    public function getSupportedTypes(?string $format = null): array
+    {
+        return [\CedricZiel\Baserow\Generated\Model\ListWorkspaceUsersWithMemberData::class => false];
     }
 }

@@ -29,7 +29,8 @@ class LocalBaserowUserSourceCreateUserSource extends \ArrayObject
     protected $beforeId;
     /**
      * The type of the user_source.
-     * `local_baserow` - local_baserow.
+     *
+     * * `local_baserow` - local_baserow
      *
      * @var string
      */
@@ -96,7 +97,8 @@ class LocalBaserowUserSourceCreateUserSource extends \ArrayObject
 
     /**
      * The type of the user_source.
-     * `local_baserow` - local_baserow.
+     *
+     * * `local_baserow` - local_baserow
      */
     public function getType(): string
     {

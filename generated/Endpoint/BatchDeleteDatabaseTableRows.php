@@ -17,7 +17,8 @@ class BatchDeleteDatabaseTableRows extends \CedricZiel\Baserow\Generated\Runtime
 
     /**
      * Deletes existing rows in the table if the user has access to the table's workspace.
-     **WARNING:**  This endpoint doesn't yet work with row deleted webhooks.
+     *
+     *  **WARNING:**  This endpoint doesn't yet work with row deleted webhooks.
      *
      * @param int   $tableId          deletes the rows in the table related to the value
      * @param array $headerParameters {
@@ -95,10 +96,10 @@ class BatchDeleteDatabaseTableRows extends \CedricZiel\Baserow\Generated\Runtime
         if (204 === $status) {
             return null;
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\BatchDeleteDatabaseTableRowsBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchDeletePostResponse400', 'json'), $response);
         }
-        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\BatchDeleteDatabaseTableRowsNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchDeletePostResponse404', 'json'), $response);
         }
     }

@@ -27,32 +27,32 @@ class CreatedOnFieldUpdateField extends \ArrayObject
     protected $name;
     /**
      * * `text` - text
-     * `long_text` - long_text
-     * `url` - url
-     * `email` - email
-     * `number` - number
-     * `rating` - rating
-     * `boolean` - boolean
-     * `date` - date
-     * `last_modified` - last_modified
-     * `last_modified_by` - last_modified_by
-     * `created_on` - created_on
-     * `created_by` - created_by
-     * `duration` - duration
-     * `link_row` - link_row
-     * `file` - file
-     * `single_select` - single_select
-     * `multiple_select` - multiple_select
-     * `phone_number` - phone_number
-     * `formula` - formula
-     * `count` - count
-     * `rollup` - rollup
-     * `lookup` - lookup
-     * `multiple_collaborators` - multiple_collaborators
-     * `uuid` - uuid
-     * `autonumber` - autonumber
-     * `password` - password
-     * `ai` - ai.
+     * * `long_text` - long_text
+     * * `url` - url
+     * * `email` - email
+     * * `number` - number
+     * * `rating` - rating
+     * * `boolean` - boolean
+     * * `date` - date
+     * * `last_modified` - last_modified
+     * * `last_modified_by` - last_modified_by
+     * * `created_on` - created_on
+     * * `created_by` - created_by
+     * * `duration` - duration
+     * * `link_row` - link_row
+     * * `file` - file
+     * * `single_select` - single_select
+     * * `multiple_select` - multiple_select
+     * * `phone_number` - phone_number
+     * * `formula` - formula
+     * * `count` - count
+     * * `rollup` - rollup
+     * * `lookup` - lookup
+     * * `multiple_collaborators` - multiple_collaborators
+     * * `uuid` - uuid
+     * * `autonumber` - autonumber
+     * * `password` - password
+     * * `ai` - ai.
      *
      * @var string
      */
@@ -66,9 +66,9 @@ class CreatedOnFieldUpdateField extends \ArrayObject
     /**
      * EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20).
      *
-     * `EU` - European (D/M/Y)
-     * `US` - US (M/D/Y)
-     * `ISO` - ISO (Y-M-D)
+     * * `EU` - European (D/M/Y)
+     * * `US` - US (M/D/Y)
+     * * `ISO` - ISO (Y-M-D)
      *
      * @var string
      */
@@ -82,8 +82,8 @@ class CreatedOnFieldUpdateField extends \ArrayObject
     /**
      * 24 (14:30) or 12 (02:30 PM).
      *
-     * `24` - 24 hour
-     * `12` - 12 hour
+     * * `24` - 24 hour
+     * * `12` - 12 hour
      *
      * @var string
      */
@@ -122,32 +122,32 @@ class CreatedOnFieldUpdateField extends \ArrayObject
 
     /**
      * * `text` - text
-     * `long_text` - long_text
-     * `url` - url
-     * `email` - email
-     * `number` - number
-     * `rating` - rating
-     * `boolean` - boolean
-     * `date` - date
-     * `last_modified` - last_modified
-     * `last_modified_by` - last_modified_by
-     * `created_on` - created_on
-     * `created_by` - created_by
-     * `duration` - duration
-     * `link_row` - link_row
-     * `file` - file
-     * `single_select` - single_select
-     * `multiple_select` - multiple_select
-     * `phone_number` - phone_number
-     * `formula` - formula
-     * `count` - count
-     * `rollup` - rollup
-     * `lookup` - lookup
-     * `multiple_collaborators` - multiple_collaborators
-     * `uuid` - uuid
-     * `autonumber` - autonumber
-     * `password` - password
-     * `ai` - ai.
+     * * `long_text` - long_text
+     * * `url` - url
+     * * `email` - email
+     * * `number` - number
+     * * `rating` - rating
+     * * `boolean` - boolean
+     * * `date` - date
+     * * `last_modified` - last_modified
+     * * `last_modified_by` - last_modified_by
+     * * `created_on` - created_on
+     * * `created_by` - created_by
+     * * `duration` - duration
+     * * `link_row` - link_row
+     * * `file` - file
+     * * `single_select` - single_select
+     * * `multiple_select` - multiple_select
+     * * `phone_number` - phone_number
+     * * `formula` - formula
+     * * `count` - count
+     * * `rollup` - rollup
+     * * `lookup` - lookup
+     * * `multiple_collaborators` - multiple_collaborators
+     * * `uuid` - uuid
+     * * `autonumber` - autonumber
+     * * `password` - password
+     * * `ai` - ai.
      */
     public function getType(): string
     {
@@ -213,9 +213,9 @@ class CreatedOnFieldUpdateField extends \ArrayObject
     /**
      * EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20).
      *
-     * `EU` - European (D/M/Y)
-     * `US` - US (M/D/Y)
-     * `ISO` - ISO (Y-M-D)
+     * * `EU` - European (D/M/Y)
+     * * `US` - US (M/D/Y)
+     * * `ISO` - ISO (Y-M-D)
      */
     public function getDateFormat(): string
     {
@@ -259,8 +259,8 @@ class CreatedOnFieldUpdateField extends \ArrayObject
     /**
      * 24 (14:30) or 12 (02:30 PM).
      *
-     * `24` - 24 hour
-     * `12` - 12 hour
+     * * `24` - 24 hour
+     * * `12` - 12 hour
      */
     public function getDateTimeFormat(): string
     {

@@ -27,10 +27,10 @@ class CalendarViewCreateView extends \ArrayObject
     protected $name;
     /**
      * * `grid` - grid
-     * `gallery` - gallery
-     * `form` - form
-     * `kanban` - kanban
-     * `calendar` - calendar.
+     * * `gallery` - gallery
+     * * `form` - form
+     * * `kanban` - kanban
+     * * `calendar` - calendar.
      *
      * @var string
      */
@@ -42,8 +42,8 @@ class CalendarViewCreateView extends \ArrayObject
     /**
      * Indicates whether all the rows should apply to all filters (AND) or to any filter (OR).
      *
-     * `AND` - And
-     * `OR` - Or
+     * * `AND` - And
+     * * `OR` - Or
      *
      * @var string
      */
@@ -86,10 +86,10 @@ class CalendarViewCreateView extends \ArrayObject
 
     /**
      * * `grid` - grid
-     * `gallery` - gallery
-     * `form` - form
-     * `kanban` - kanban
-     * `calendar` - calendar.
+     * * `gallery` - gallery
+     * * `form` - form
+     * * `kanban` - kanban
+     * * `calendar` - calendar.
      */
     public function getType(): string
     {
@@ -127,8 +127,8 @@ class CalendarViewCreateView extends \ArrayObject
     /**
      * Indicates whether all the rows should apply to all filters (AND) or to any filter (OR).
      *
-     * `AND` - And
-     * `OR` - Or
+     * * `AND` - And
+     * * `OR` - Or
      */
     public function getFilterType(): string
     {

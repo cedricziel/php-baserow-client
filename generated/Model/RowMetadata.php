@@ -29,7 +29,7 @@ class RowMetadata extends \ArrayObject
     protected $rowCommentCount;
     /**
      * * `all` - all
-     * `mentions` - mentions.
+     * * `mentions` - mentions.
      *
      * @var string
      */
@@ -56,7 +56,7 @@ class RowMetadata extends \ArrayObject
 
     /**
      * * `all` - all
-     * `mentions` - mentions.
+     * * `mentions` - mentions.
      */
     public function getRowCommentsNotificationMode(): string
     {

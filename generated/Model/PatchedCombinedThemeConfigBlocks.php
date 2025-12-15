@@ -59,8 +59,8 @@ class PatchedCombinedThemeConfigBlocks extends \ArrayObject
     protected $bodyTextColor;
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      *
      * @var string
      */
@@ -79,8 +79,8 @@ class PatchedCombinedThemeConfigBlocks extends \ArrayObject
     protected $heading1TextColor;
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      *
      * @var string
      */
@@ -99,8 +99,8 @@ class PatchedCombinedThemeConfigBlocks extends \ArrayObject
     protected $heading2TextColor;
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      *
      * @var string
      */
@@ -119,8 +119,8 @@ class PatchedCombinedThemeConfigBlocks extends \ArrayObject
     protected $heading3TextColor;
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      *
      * @var string
      */
@@ -139,8 +139,8 @@ class PatchedCombinedThemeConfigBlocks extends \ArrayObject
     protected $heading4TextColor;
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      *
      * @var string
      */
@@ -159,8 +159,8 @@ class PatchedCombinedThemeConfigBlocks extends \ArrayObject
     protected $heading5TextColor;
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      *
      * @var string
      */
@@ -179,8 +179,8 @@ class PatchedCombinedThemeConfigBlocks extends \ArrayObject
     protected $heading6TextColor;
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      *
      * @var string
      */
@@ -195,23 +195,23 @@ class PatchedCombinedThemeConfigBlocks extends \ArrayObject
     protected $buttonFontSize;
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      *
      * @var string
      */
     protected $buttonAlignment;
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      *
      * @var string
      */
     protected $buttonTextAlignment;
     /**
      * * `auto` - Auto
-     * `full` - Full.
+     * * `full` - Full.
      *
      * @var string
      */
@@ -286,8 +286,8 @@ class PatchedCombinedThemeConfigBlocks extends \ArrayObject
     protected $linkFontSize;
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      *
      * @var string
      */
@@ -312,8 +312,8 @@ class PatchedCombinedThemeConfigBlocks extends \ArrayObject
     protected $imageMaxHeight;
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      *
      * @var string
      */
@@ -327,9 +327,9 @@ class PatchedCombinedThemeConfigBlocks extends \ArrayObject
     /**
      * The image constraint to apply to this image.
      *
-     * `cover` - Cover
-     * `contain` - Contain
-     * `full-width` - Full Width
+     * * `cover` - Cover
+     * * `contain` - Contain
+     * * `full-width` - Full Width
      *
      * @var string
      */
@@ -349,9 +349,9 @@ class PatchedCombinedThemeConfigBlocks extends \ArrayObject
     /**
      * The mode of the background image.
      *
-     * `tile` - Tile
-     * `fill` - Fill
-     * `fit` - Fit
+     * * `tile` - Tile
+     * * `fill` - Fill
+     * * `fit` - Fit
      *
      * @var string
      */
@@ -476,8 +476,8 @@ class PatchedCombinedThemeConfigBlocks extends \ArrayObject
 
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      */
     public function getBodyTextAlignment(): string
     {
@@ -538,8 +538,8 @@ class PatchedCombinedThemeConfigBlocks extends \ArrayObject
 
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      */
     public function getHeading1TextAlignment(): string
     {
@@ -600,8 +600,8 @@ class PatchedCombinedThemeConfigBlocks extends \ArrayObject
 
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      */
     public function getHeading2TextAlignment(): string
     {
@@ -662,8 +662,8 @@ class PatchedCombinedThemeConfigBlocks extends \ArrayObject
 
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      */
     public function getHeading3TextAlignment(): string
     {
@@ -724,8 +724,8 @@ class PatchedCombinedThemeConfigBlocks extends \ArrayObject
 
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      */
     public function getHeading4TextAlignment(): string
     {
@@ -786,8 +786,8 @@ class PatchedCombinedThemeConfigBlocks extends \ArrayObject
 
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      */
     public function getHeading5TextAlignment(): string
     {
@@ -848,8 +848,8 @@ class PatchedCombinedThemeConfigBlocks extends \ArrayObject
 
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      */
     public function getHeading6TextAlignment(): string
     {
@@ -897,8 +897,8 @@ class PatchedCombinedThemeConfigBlocks extends \ArrayObject
 
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      */
     public function getButtonAlignment(): string
     {
@@ -920,8 +920,8 @@ class PatchedCombinedThemeConfigBlocks extends \ArrayObject
 
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      */
     public function getButtonTextAlignment(): string
     {
@@ -943,7 +943,7 @@ class PatchedCombinedThemeConfigBlocks extends \ArrayObject
 
     /**
      * * `auto` - Auto
-     * `full` - Full.
+     * * `full` - Full.
      */
     public function getButtonWidth(): string
     {
@@ -1180,8 +1180,8 @@ class PatchedCombinedThemeConfigBlocks extends \ArrayObject
 
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      */
     public function getLinkTextAlignment(): string
     {
@@ -1260,8 +1260,8 @@ class PatchedCombinedThemeConfigBlocks extends \ArrayObject
 
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      */
     public function getImageAlignment(): string
     {
@@ -1303,9 +1303,9 @@ class PatchedCombinedThemeConfigBlocks extends \ArrayObject
     /**
      * The image constraint to apply to this image.
      *
-     * `cover` - Cover
-     * `contain` - Contain
-     * `full-width` - Full Width
+     * * `cover` - Cover
+     * * `contain` - Contain
+     * * `full-width` - Full Width
      */
     public function getImageConstraint(): string
     {
@@ -1368,9 +1368,9 @@ class PatchedCombinedThemeConfigBlocks extends \ArrayObject
     /**
      * The mode of the background image.
      *
-     * `tile` - Tile
-     * `fill` - Fill
-     * `fit` - Fit
+     * * `tile` - Tile
+     * * `fill` - Fill
+     * * `fit` - Fit
      */
     public function getPageBackgroundMode(): string
     {

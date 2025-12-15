@@ -30,8 +30,8 @@ class ConditionalColorValueProviderConfColorFilterGroup extends \ArrayObject
     /**
      * The boolean operator used to group all conditions.
      *
-     * `AND` - And
-     * `OR` - Or
+     * * `AND` - And
+     * * `OR` - Or
      *
      * @var string
      */
@@ -65,8 +65,8 @@ class ConditionalColorValueProviderConfColorFilterGroup extends \ArrayObject
     /**
      * The boolean operator used to group all conditions.
      *
-     * `AND` - And
-     * `OR` - Or
+     * * `AND` - And
+     * * `OR` - Or
      */
     public function getFilterType(): string
     {

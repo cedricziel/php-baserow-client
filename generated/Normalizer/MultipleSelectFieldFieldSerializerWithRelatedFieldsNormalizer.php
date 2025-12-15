@@ -13,7 +13,6 @@ namespace CedricZiel\Baserow\Generated\Normalizer;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\CheckArray;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\ValidatorTrait;
 use Jane\Component\JsonSchemaRuntime\Reference;
-use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -21,249 +20,129 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
-    class MultipleSelectFieldFieldSerializerWithRelatedFieldsNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class MultipleSelectFieldFieldSerializerWithRelatedFieldsNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+{
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+    use CheckArray;
+    use ValidatorTrait;
+
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
-
-        public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\MultipleSelectFieldFieldSerializerWithRelatedFields::class === $type;
-        }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\MultipleSelectFieldFieldSerializerWithRelatedFields::class === get_class($data);
-        }
-
-        public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\MultipleSelectFieldFieldSerializerWithRelatedFields();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('id', $data)) {
-                $object->setId($data['id']);
-                unset($data['id']);
-            }
-            if (\array_key_exists('table_id', $data)) {
-                $object->setTableId($data['table_id']);
-                unset($data['table_id']);
-            }
-            if (\array_key_exists('name', $data)) {
-                $object->setName($data['name']);
-                unset($data['name']);
-            }
-            if (\array_key_exists('order', $data)) {
-                $object->setOrder($data['order']);
-                unset($data['order']);
-            }
-            if (\array_key_exists('type', $data)) {
-                $object->setType($data['type']);
-                unset($data['type']);
-            }
-            if (\array_key_exists('primary', $data)) {
-                $object->setPrimary($data['primary']);
-                unset($data['primary']);
-            }
-            if (\array_key_exists('read_only', $data)) {
-                $object->setReadOnly($data['read_only']);
-                unset($data['read_only']);
-            }
-            if (\array_key_exists('description', $data) && null !== $data['description']) {
-                $object->setDescription($data['description']);
-                unset($data['description']);
-            } elseif (\array_key_exists('description', $data) && null === $data['description']) {
-                $object->setDescription(null);
-            }
-            if (\array_key_exists('related_fields', $data)) {
-                $values = [];
-                foreach ($data['related_fields'] as $value) {
-                    $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\Field::class, 'json', $context);
-                }
-                $object->setRelatedFields($values);
-                unset($data['related_fields']);
-            }
-            if (\array_key_exists('select_options', $data)) {
-                $values_1 = [];
-                foreach ($data['select_options'] as $value_1) {
-                    $values_1[] = $this->denormalizer->denormalize($value_1, \CedricZiel\Baserow\Generated\Model\SelectOption::class, 'json', $context);
-                }
-                $object->setSelectOptions($values_1);
-                unset($data['select_options']);
-            }
-            foreach ($data as $key => $value_2) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value_2;
-                }
-            }
-
-            return $object;
-        }
-
-        public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
-        {
-            $data = [];
-            $data['name'] = $object->getName();
-            $data['order'] = $object->getOrder();
-            if ($object->isInitialized('primary') && null !== $object->getPrimary()) {
-                $data['primary'] = $object->getPrimary();
-            }
-            if ($object->isInitialized('description') && null !== $object->getDescription()) {
-                $data['description'] = $object->getDescription();
-            }
-            if ($object->isInitialized('selectOptions') && null !== $object->getSelectOptions()) {
-                $values = [];
-                foreach ($object->getSelectOptions() as $value) {
-                    $values[] = $this->normalizer->normalize($value, 'json', $context);
-                }
-                $data['select_options'] = $values;
-            }
-            foreach ($object as $key => $value_1) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value_1;
-                }
-            }
-
-            return $data;
-        }
-
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\MultipleSelectFieldFieldSerializerWithRelatedFields::class => false];
-        }
+        return \CedricZiel\Baserow\Generated\Model\MultipleSelectFieldFieldSerializerWithRelatedFields::class === $type;
     }
-} else {
-    class MultipleSelectFieldFieldSerializerWithRelatedFieldsNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
+        return is_object($data) && \CedricZiel\Baserow\Generated\Model\MultipleSelectFieldFieldSerializerWithRelatedFields::class === get_class($data);
+    }
 
-        public function supportsDenormalization($data, $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\MultipleSelectFieldFieldSerializerWithRelatedFields::class === $type;
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
+    {
+        if (isset($data['$ref'])) {
+            return new Reference($data['$ref'], $context['document-origin']);
         }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\MultipleSelectFieldFieldSerializerWithRelatedFields::class === get_class($data);
+        if (isset($data['$recursiveRef'])) {
+            return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-
-        public function denormalize($data, $type, $format = null, array $context = [])
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\MultipleSelectFieldFieldSerializerWithRelatedFields();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('id', $data)) {
-                $object->setId($data['id']);
-                unset($data['id']);
-            }
-            if (\array_key_exists('table_id', $data)) {
-                $object->setTableId($data['table_id']);
-                unset($data['table_id']);
-            }
-            if (\array_key_exists('name', $data)) {
-                $object->setName($data['name']);
-                unset($data['name']);
-            }
-            if (\array_key_exists('order', $data)) {
-                $object->setOrder($data['order']);
-                unset($data['order']);
-            }
-            if (\array_key_exists('type', $data)) {
-                $object->setType($data['type']);
-                unset($data['type']);
-            }
-            if (\array_key_exists('primary', $data)) {
-                $object->setPrimary($data['primary']);
-                unset($data['primary']);
-            }
-            if (\array_key_exists('read_only', $data)) {
-                $object->setReadOnly($data['read_only']);
-                unset($data['read_only']);
-            }
-            if (\array_key_exists('description', $data) && null !== $data['description']) {
-                $object->setDescription($data['description']);
-                unset($data['description']);
-            } elseif (\array_key_exists('description', $data) && null === $data['description']) {
-                $object->setDescription(null);
-            }
-            if (\array_key_exists('related_fields', $data)) {
-                $values = [];
-                foreach ($data['related_fields'] as $value) {
-                    $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\Field::class, 'json', $context);
-                }
-                $object->setRelatedFields($values);
-                unset($data['related_fields']);
-            }
-            if (\array_key_exists('select_options', $data)) {
-                $values_1 = [];
-                foreach ($data['select_options'] as $value_1) {
-                    $values_1[] = $this->denormalizer->denormalize($value_1, \CedricZiel\Baserow\Generated\Model\SelectOption::class, 'json', $context);
-                }
-                $object->setSelectOptions($values_1);
-                unset($data['select_options']);
-            }
-            foreach ($data as $key => $value_2) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value_2;
-                }
-            }
-
+        $object = new \CedricZiel\Baserow\Generated\Model\MultipleSelectFieldFieldSerializerWithRelatedFields();
+        if (\array_key_exists('primary', $data) && \is_int($data['primary'])) {
+            $data['primary'] = (bool) $data['primary'];
+        }
+        if (\array_key_exists('read_only', $data) && \is_int($data['read_only'])) {
+            $data['read_only'] = (bool) $data['read_only'];
+        }
+        if (null === $data || false === \is_array($data)) {
             return $object;
         }
-
-        /**
-         * @return array|string|int|float|bool|\ArrayObject|null
-         */
-        public function normalize($object, $format = null, array $context = [])
-        {
-            $data = [];
-            $data['name'] = $object->getName();
-            $data['order'] = $object->getOrder();
-            if ($object->isInitialized('primary') && null !== $object->getPrimary()) {
-                $data['primary'] = $object->getPrimary();
+        if (\array_key_exists('id', $data)) {
+            $object->setId($data['id']);
+            unset($data['id']);
+        }
+        if (\array_key_exists('table_id', $data)) {
+            $object->setTableId($data['table_id']);
+            unset($data['table_id']);
+        }
+        if (\array_key_exists('name', $data)) {
+            $object->setName($data['name']);
+            unset($data['name']);
+        }
+        if (\array_key_exists('order', $data)) {
+            $object->setOrder($data['order']);
+            unset($data['order']);
+        }
+        if (\array_key_exists('type', $data)) {
+            $object->setType($data['type']);
+            unset($data['type']);
+        }
+        if (\array_key_exists('primary', $data)) {
+            $object->setPrimary($data['primary']);
+            unset($data['primary']);
+        }
+        if (\array_key_exists('read_only', $data)) {
+            $object->setReadOnly($data['read_only']);
+            unset($data['read_only']);
+        }
+        if (\array_key_exists('description', $data) && null !== $data['description']) {
+            $object->setDescription($data['description']);
+            unset($data['description']);
+        } elseif (\array_key_exists('description', $data) && null === $data['description']) {
+            $object->setDescription(null);
+        }
+        if (\array_key_exists('related_fields', $data)) {
+            $values = [];
+            foreach ($data['related_fields'] as $value) {
+                $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\Field::class, 'json', $context);
             }
-            if ($object->isInitialized('description') && null !== $object->getDescription()) {
-                $data['description'] = $object->getDescription();
+            $object->setRelatedFields($values);
+            unset($data['related_fields']);
+        }
+        if (\array_key_exists('select_options', $data)) {
+            $values_1 = [];
+            foreach ($data['select_options'] as $value_1) {
+                $values_1[] = $this->denormalizer->denormalize($value_1, \CedricZiel\Baserow\Generated\Model\SelectOption::class, 'json', $context);
             }
-            if ($object->isInitialized('selectOptions') && null !== $object->getSelectOptions()) {
-                $values = [];
-                foreach ($object->getSelectOptions() as $value) {
-                    $values[] = $this->normalizer->normalize($value, 'json', $context);
-                }
-                $data['select_options'] = $values;
+            $object->setSelectOptions($values_1);
+            unset($data['select_options']);
+        }
+        foreach ($data as $key => $value_2) {
+            if (preg_match('/.*/', (string) $key)) {
+                $object[$key] = $value_2;
             }
-            foreach ($object as $key => $value_1) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value_1;
-                }
-            }
-
-            return $data;
         }
 
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\MultipleSelectFieldFieldSerializerWithRelatedFields::class => false];
+        return $object;
+    }
+
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    {
+        $dataArray = [];
+        $dataArray['name'] = $data->getName();
+        $dataArray['order'] = $data->getOrder();
+        if ($data->isInitialized('primary') && null !== $data->getPrimary()) {
+            $dataArray['primary'] = $data->getPrimary();
         }
+        if ($data->isInitialized('description')) {
+            $dataArray['description'] = $data->getDescription();
+        }
+        if ($data->isInitialized('selectOptions') && null !== $data->getSelectOptions()) {
+            $values = [];
+            foreach ($data->getSelectOptions() as $value) {
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
+            }
+            $dataArray['select_options'] = $values;
+        }
+        foreach ($data as $key => $value_1) {
+            if (preg_match('/.*/', (string) $key)) {
+                $dataArray[$key] = $value_1;
+            }
+        }
+
+        return $dataArray;
+    }
+
+    public function getSupportedTypes(?string $format = null): array
+    {
+        return [\CedricZiel\Baserow\Generated\Model\MultipleSelectFieldFieldSerializerWithRelatedFields::class => false];
     }
 }

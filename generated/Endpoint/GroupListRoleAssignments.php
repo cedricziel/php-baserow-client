@@ -18,9 +18,9 @@ class GroupListRoleAssignments extends \CedricZiel\Baserow\Generated\Runtime\Cli
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [workspace_assign_role](#tag/Role-assignments/operation/workspace_assign_role).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * You can list the role assignments within a group, optionally filtered down to a specific scope inside of that group. If the scope isn't specified,the group will be considered the scope.
+     *  You can list the role assignments within a group, optionally filtered down to a specific scope inside of that group. If the scope isn't specified,the group will be considered the scope.
      *
      * @param int   $groupId         the group in which the role assignments are related to
      * @param array $queryParameters {
@@ -77,13 +77,13 @@ class GroupListRoleAssignments extends \CedricZiel\Baserow\Generated\Runtime\Cli
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
-        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\OpenApiRoleAssignment[]', 'json');
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\GroupListRoleAssignmentsBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdGetResponse400', 'json'), $response);
         }
-        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\GroupListRoleAssignmentsNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdGetResponse404', 'json'), $response);
         }
     }

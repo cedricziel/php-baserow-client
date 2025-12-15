@@ -52,10 +52,10 @@ class ListTeamSubjects extends \CedricZiel\Baserow\Generated\Runtime\Client\Base
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
-        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\TeamSubjectResponse[]', 'json');
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\ListTeamSubjectsBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiTeamsTeamIdSubjectsGetResponse400', 'json'), $response);
         }
     }

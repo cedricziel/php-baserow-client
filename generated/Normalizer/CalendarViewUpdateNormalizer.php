@@ -13,7 +13,6 @@ namespace CedricZiel\Baserow\Generated\Normalizer;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\CheckArray;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\ValidatorTrait;
 use Jane\Component\JsonSchemaRuntime\Reference;
-use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -21,229 +20,119 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
-    class CalendarViewUpdateNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class CalendarViewUpdateNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+{
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+    use CheckArray;
+    use ValidatorTrait;
+
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
-
-        public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\CalendarViewUpdate::class === $type;
-        }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\CalendarViewUpdate::class === get_class($data);
-        }
-
-        public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\CalendarViewUpdate();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('name', $data)) {
-                $object->setName($data['name']);
-                unset($data['name']);
-            }
-            if (\array_key_exists('filter_type', $data)) {
-                $object->setFilterType($data['filter_type']);
-                unset($data['filter_type']);
-            }
-            if (\array_key_exists('filters_disabled', $data)) {
-                $object->setFiltersDisabled($data['filters_disabled']);
-                unset($data['filters_disabled']);
-            }
-            if (\array_key_exists('public_view_password', $data)) {
-                $object->setPublicViewPassword($data['public_view_password']);
-                unset($data['public_view_password']);
-            }
-            if (\array_key_exists('ownership_type', $data)) {
-                $object->setOwnershipType($data['ownership_type']);
-                unset($data['ownership_type']);
-            }
-            if (\array_key_exists('date_field', $data) && null !== $data['date_field']) {
-                $object->setDateField($data['date_field']);
-                unset($data['date_field']);
-            } elseif (\array_key_exists('date_field', $data) && null === $data['date_field']) {
-                $object->setDateField(null);
-            }
-            if (\array_key_exists('public', $data)) {
-                $object->setPublic($data['public']);
-                unset($data['public']);
-            }
-            if (\array_key_exists('slug', $data)) {
-                $object->setSlug($data['slug']);
-                unset($data['slug']);
-            }
-            foreach ($data as $key => $value) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value;
-                }
-            }
-
-            return $object;
-        }
-
-        public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
-        {
-            $data = [];
-            if ($object->isInitialized('name') && null !== $object->getName()) {
-                $data['name'] = $object->getName();
-            }
-            if ($object->isInitialized('filterType') && null !== $object->getFilterType()) {
-                $data['filter_type'] = $object->getFilterType();
-            }
-            if ($object->isInitialized('filtersDisabled') && null !== $object->getFiltersDisabled()) {
-                $data['filters_disabled'] = $object->getFiltersDisabled();
-            }
-            if ($object->isInitialized('publicViewPassword') && null !== $object->getPublicViewPassword()) {
-                $data['public_view_password'] = $object->getPublicViewPassword();
-            }
-            if ($object->isInitialized('ownershipType') && null !== $object->getOwnershipType()) {
-                $data['ownership_type'] = $object->getOwnershipType();
-            }
-            if ($object->isInitialized('dateField') && null !== $object->getDateField()) {
-                $data['date_field'] = $object->getDateField();
-            }
-            if ($object->isInitialized('public') && null !== $object->getPublic()) {
-                $data['public'] = $object->getPublic();
-            }
-            foreach ($object as $key => $value) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value;
-                }
-            }
-
-            return $data;
-        }
-
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\CalendarViewUpdate::class => false];
-        }
+        return \CedricZiel\Baserow\Generated\Model\CalendarViewUpdate::class === $type;
     }
-} else {
-    class CalendarViewUpdateNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
+        return is_object($data) && \CedricZiel\Baserow\Generated\Model\CalendarViewUpdate::class === get_class($data);
+    }
 
-        public function supportsDenormalization($data, $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\CalendarViewUpdate::class === $type;
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
+    {
+        if (isset($data['$ref'])) {
+            return new Reference($data['$ref'], $context['document-origin']);
         }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\CalendarViewUpdate::class === get_class($data);
+        if (isset($data['$recursiveRef'])) {
+            return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-
-        public function denormalize($data, $type, $format = null, array $context = [])
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\CalendarViewUpdate();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('name', $data)) {
-                $object->setName($data['name']);
-                unset($data['name']);
-            }
-            if (\array_key_exists('filter_type', $data)) {
-                $object->setFilterType($data['filter_type']);
-                unset($data['filter_type']);
-            }
-            if (\array_key_exists('filters_disabled', $data)) {
-                $object->setFiltersDisabled($data['filters_disabled']);
-                unset($data['filters_disabled']);
-            }
-            if (\array_key_exists('public_view_password', $data)) {
-                $object->setPublicViewPassword($data['public_view_password']);
-                unset($data['public_view_password']);
-            }
-            if (\array_key_exists('ownership_type', $data)) {
-                $object->setOwnershipType($data['ownership_type']);
-                unset($data['ownership_type']);
-            }
-            if (\array_key_exists('date_field', $data) && null !== $data['date_field']) {
-                $object->setDateField($data['date_field']);
-                unset($data['date_field']);
-            } elseif (\array_key_exists('date_field', $data) && null === $data['date_field']) {
-                $object->setDateField(null);
-            }
-            if (\array_key_exists('public', $data)) {
-                $object->setPublic($data['public']);
-                unset($data['public']);
-            }
-            if (\array_key_exists('slug', $data)) {
-                $object->setSlug($data['slug']);
-                unset($data['slug']);
-            }
-            foreach ($data as $key => $value) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value;
-                }
-            }
-
+        $object = new \CedricZiel\Baserow\Generated\Model\CalendarViewUpdate();
+        if (\array_key_exists('filters_disabled', $data) && \is_int($data['filters_disabled'])) {
+            $data['filters_disabled'] = (bool) $data['filters_disabled'];
+        }
+        if (\array_key_exists('public', $data) && \is_int($data['public'])) {
+            $data['public'] = (bool) $data['public'];
+        }
+        if (null === $data || false === \is_array($data)) {
             return $object;
         }
-
-        /**
-         * @return array|string|int|float|bool|\ArrayObject|null
-         */
-        public function normalize($object, $format = null, array $context = [])
-        {
-            $data = [];
-            if ($object->isInitialized('name') && null !== $object->getName()) {
-                $data['name'] = $object->getName();
+        if (\array_key_exists('name', $data)) {
+            $object->setName($data['name']);
+            unset($data['name']);
+        }
+        if (\array_key_exists('filter_type', $data)) {
+            $object->setFilterType($data['filter_type']);
+            unset($data['filter_type']);
+        }
+        if (\array_key_exists('filters_disabled', $data)) {
+            $object->setFiltersDisabled($data['filters_disabled']);
+            unset($data['filters_disabled']);
+        }
+        if (\array_key_exists('public_view_password', $data)) {
+            $object->setPublicViewPassword($data['public_view_password']);
+            unset($data['public_view_password']);
+        }
+        if (\array_key_exists('ownership_type', $data)) {
+            $object->setOwnershipType($data['ownership_type']);
+            unset($data['ownership_type']);
+        }
+        if (\array_key_exists('date_field', $data) && null !== $data['date_field']) {
+            $object->setDateField($data['date_field']);
+            unset($data['date_field']);
+        } elseif (\array_key_exists('date_field', $data) && null === $data['date_field']) {
+            $object->setDateField(null);
+        }
+        if (\array_key_exists('public', $data)) {
+            $object->setPublic($data['public']);
+            unset($data['public']);
+        }
+        if (\array_key_exists('slug', $data)) {
+            $object->setSlug($data['slug']);
+            unset($data['slug']);
+        }
+        foreach ($data as $key => $value) {
+            if (preg_match('/.*/', (string) $key)) {
+                $object[$key] = $value;
             }
-            if ($object->isInitialized('filterType') && null !== $object->getFilterType()) {
-                $data['filter_type'] = $object->getFilterType();
-            }
-            if ($object->isInitialized('filtersDisabled') && null !== $object->getFiltersDisabled()) {
-                $data['filters_disabled'] = $object->getFiltersDisabled();
-            }
-            if ($object->isInitialized('publicViewPassword') && null !== $object->getPublicViewPassword()) {
-                $data['public_view_password'] = $object->getPublicViewPassword();
-            }
-            if ($object->isInitialized('ownershipType') && null !== $object->getOwnershipType()) {
-                $data['ownership_type'] = $object->getOwnershipType();
-            }
-            if ($object->isInitialized('dateField') && null !== $object->getDateField()) {
-                $data['date_field'] = $object->getDateField();
-            }
-            if ($object->isInitialized('public') && null !== $object->getPublic()) {
-                $data['public'] = $object->getPublic();
-            }
-            foreach ($object as $key => $value) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value;
-                }
-            }
-
-            return $data;
         }
 
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\CalendarViewUpdate::class => false];
+        return $object;
+    }
+
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    {
+        $dataArray = [];
+        if ($data->isInitialized('name') && null !== $data->getName()) {
+            $dataArray['name'] = $data->getName();
         }
+        if ($data->isInitialized('filterType') && null !== $data->getFilterType()) {
+            $dataArray['filter_type'] = $data->getFilterType();
+        }
+        if ($data->isInitialized('filtersDisabled') && null !== $data->getFiltersDisabled()) {
+            $dataArray['filters_disabled'] = $data->getFiltersDisabled();
+        }
+        if ($data->isInitialized('publicViewPassword') && null !== $data->getPublicViewPassword()) {
+            $dataArray['public_view_password'] = $data->getPublicViewPassword();
+        }
+        if ($data->isInitialized('ownershipType') && null !== $data->getOwnershipType()) {
+            $dataArray['ownership_type'] = $data->getOwnershipType();
+        }
+        if ($data->isInitialized('dateField')) {
+            $dataArray['date_field'] = $data->getDateField();
+        }
+        if ($data->isInitialized('public') && null !== $data->getPublic()) {
+            $dataArray['public'] = $data->getPublic();
+        }
+        foreach ($data as $key => $value) {
+            if (preg_match('/.*/', (string) $key)) {
+                $dataArray[$key] = $value;
+            }
+        }
+
+        return $dataArray;
+    }
+
+    public function getSupportedTypes(?string $format = null): array
+    {
+        return [\CedricZiel\Baserow\Generated\Model\CalendarViewUpdate::class => false];
     }
 }

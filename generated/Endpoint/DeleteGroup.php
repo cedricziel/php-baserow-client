@@ -18,9 +18,9 @@ class DeleteGroup extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpo
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [delete_workspace](#tag/Workspaces/operation/delete_workspace).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Deletes an existing group if the authorized user belongs to the group. All the applications, databases, tables etc that were in the group are going to be deleted also.
+     *  Deletes an existing group if the authorized user belongs to the group. All the applications, databases, tables etc that were in the group are going to be deleted also.
      *
      * @param int   $groupId          deletes the group related to the provided value
      * @param array $headerParameters {
@@ -80,10 +80,10 @@ class DeleteGroup extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpo
         if (204 === $status) {
             return null;
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\DeleteGroupBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdDeleteResponse400', 'json'), $response);
         }
-        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\DeleteGroupNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdDeleteResponse404', 'json'), $response);
         }
     }

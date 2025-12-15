@@ -18,7 +18,7 @@ class ListGroupUsers extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEn
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [list_workspace_users](#tag/Workspaces/operation/list_workspace_users).**.
      *
-     * Lists all the users that are in a group if the authorized user has admin permissions to the related group. To add a user to a group an invitation must be sent first.
+     *  Lists all the users that are in a group if the authorized user has admin permissions to the related group. To add a user to a group an invitation must be sent first.
      *
      * @param int   $groupId         lists group users related to the provided group value
      * @param array $queryParameters {
@@ -75,13 +75,13 @@ class ListGroupUsers extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEn
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
-        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ListWorkspaceUsersWithMemberData[]', 'json');
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\ListGroupUsersBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupGroupIdGetResponse400', 'json'), $response);
         }
-        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\ListGroupUsersNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupGroupIdGetResponse404', 'json'), $response);
         }
     }

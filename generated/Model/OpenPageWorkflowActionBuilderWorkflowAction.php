@@ -48,8 +48,8 @@ class OpenPageWorkflowActionBuilderWorkflowAction extends \ArrayObject
     /**
      * The navigation type.
      *
-     * `page` - Page
-     * `custom` - Custom
+     * * `page` - Page
+     * * `custom` - Custom
      *
      * @var string
      */
@@ -75,8 +75,8 @@ class OpenPageWorkflowActionBuilderWorkflowAction extends \ArrayObject
     /**
      * The target of the link when we click on it.
      *
-     * `self` - Self
-     * `blank` - Blank
+     * * `self` - Self
+     * * `blank` - Blank
      *
      * @var string
      */
@@ -168,8 +168,8 @@ class OpenPageWorkflowActionBuilderWorkflowAction extends \ArrayObject
     /**
      * The navigation type.
      *
-     * `page` - Page
-     * `custom` - Custom
+     * * `page` - Page
+     * * `custom` - Custom
      */
     public function getNavigationType(): string
     {
@@ -254,8 +254,8 @@ class OpenPageWorkflowActionBuilderWorkflowAction extends \ArrayObject
     /**
      * The target of the link when we click on it.
      *
-     * `self` - Self
-     * `blank` - Blank
+     * * `self` - Self
+     * * `blank` - Blank
      */
     public function getTarget(): string
     {

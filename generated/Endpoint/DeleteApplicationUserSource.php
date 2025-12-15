@@ -74,10 +74,10 @@ class DeleteApplicationUserSource extends \CedricZiel\Baserow\Generated\Runtime\
         if (204 === $status) {
             return null;
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\DeleteApplicationUserSourceBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdDeleteResponse400', 'json'), $response);
         }
-        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\DeleteApplicationUserSourceNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiUserSourceUserSourceIdDeleteResponse404', 'json'), $response);
         }
     }

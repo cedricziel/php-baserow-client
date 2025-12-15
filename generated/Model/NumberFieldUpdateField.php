@@ -27,32 +27,32 @@ class NumberFieldUpdateField extends \ArrayObject
     protected $name;
     /**
      * * `text` - text
-     * `long_text` - long_text
-     * `url` - url
-     * `email` - email
-     * `number` - number
-     * `rating` - rating
-     * `boolean` - boolean
-     * `date` - date
-     * `last_modified` - last_modified
-     * `last_modified_by` - last_modified_by
-     * `created_on` - created_on
-     * `created_by` - created_by
-     * `duration` - duration
-     * `link_row` - link_row
-     * `file` - file
-     * `single_select` - single_select
-     * `multiple_select` - multiple_select
-     * `phone_number` - phone_number
-     * `formula` - formula
-     * `count` - count
-     * `rollup` - rollup
-     * `lookup` - lookup
-     * `multiple_collaborators` - multiple_collaborators
-     * `uuid` - uuid
-     * `autonumber` - autonumber
-     * `password` - password
-     * `ai` - ai.
+     * * `long_text` - long_text
+     * * `url` - url
+     * * `email` - email
+     * * `number` - number
+     * * `rating` - rating
+     * * `boolean` - boolean
+     * * `date` - date
+     * * `last_modified` - last_modified
+     * * `last_modified_by` - last_modified_by
+     * * `created_on` - created_on
+     * * `created_by` - created_by
+     * * `duration` - duration
+     * * `link_row` - link_row
+     * * `file` - file
+     * * `single_select` - single_select
+     * * `multiple_select` - multiple_select
+     * * `phone_number` - phone_number
+     * * `formula` - formula
+     * * `count` - count
+     * * `rollup` - rollup
+     * * `lookup` - lookup
+     * * `multiple_collaborators` - multiple_collaborators
+     * * `uuid` - uuid
+     * * `autonumber` - autonumber
+     * * `password` - password
+     * * `ai` - ai.
      *
      * @var string
      */
@@ -66,17 +66,17 @@ class NumberFieldUpdateField extends \ArrayObject
     /**
      * The amount of digits allowed after the point.
      *
-     * `0` - 1
-     * `1` - 1.0
-     * `2` - 1.00
-     * `3` - 1.000
-     * `4` - 1.0000
-     * `5` - 1.00000
-     * `6` - 1.000000
-     * `7` - 1.0000000
-     * `8` - 1.00000000
-     * `9` - 1.000000000
-     * `10` - 1.0000000000
+     * * `0` - 1
+     * * `1` - 1.0
+     * * `2` - 1.00
+     * * `3` - 1.000
+     * * `4` - 1.0000
+     * * `5` - 1.00000
+     * * `6` - 1.000000
+     * * `7` - 1.0000000
+     * * `8` - 1.00000000
+     * * `9` - 1.000000000
+     * * `10` - 1.0000000000
      *
      * @var int
      */
@@ -103,32 +103,32 @@ class NumberFieldUpdateField extends \ArrayObject
 
     /**
      * * `text` - text
-     * `long_text` - long_text
-     * `url` - url
-     * `email` - email
-     * `number` - number
-     * `rating` - rating
-     * `boolean` - boolean
-     * `date` - date
-     * `last_modified` - last_modified
-     * `last_modified_by` - last_modified_by
-     * `created_on` - created_on
-     * `created_by` - created_by
-     * `duration` - duration
-     * `link_row` - link_row
-     * `file` - file
-     * `single_select` - single_select
-     * `multiple_select` - multiple_select
-     * `phone_number` - phone_number
-     * `formula` - formula
-     * `count` - count
-     * `rollup` - rollup
-     * `lookup` - lookup
-     * `multiple_collaborators` - multiple_collaborators
-     * `uuid` - uuid
-     * `autonumber` - autonumber
-     * `password` - password
-     * `ai` - ai.
+     * * `long_text` - long_text
+     * * `url` - url
+     * * `email` - email
+     * * `number` - number
+     * * `rating` - rating
+     * * `boolean` - boolean
+     * * `date` - date
+     * * `last_modified` - last_modified
+     * * `last_modified_by` - last_modified_by
+     * * `created_on` - created_on
+     * * `created_by` - created_by
+     * * `duration` - duration
+     * * `link_row` - link_row
+     * * `file` - file
+     * * `single_select` - single_select
+     * * `multiple_select` - multiple_select
+     * * `phone_number` - phone_number
+     * * `formula` - formula
+     * * `count` - count
+     * * `rollup` - rollup
+     * * `lookup` - lookup
+     * * `multiple_collaborators` - multiple_collaborators
+     * * `uuid` - uuid
+     * * `autonumber` - autonumber
+     * * `password` - password
+     * * `ai` - ai.
      */
     public function getType(): string
     {
@@ -194,17 +194,17 @@ class NumberFieldUpdateField extends \ArrayObject
     /**
      * The amount of digits allowed after the point.
      *
-     * `0` - 1
-     * `1` - 1.0
-     * `2` - 1.00
-     * `3` - 1.000
-     * `4` - 1.0000
-     * `5` - 1.00000
-     * `6` - 1.000000
-     * `7` - 1.0000000
-     * `8` - 1.00000000
-     * `9` - 1.000000000
-     * `10` - 1.0000000000
+     * * `0` - 1
+     * * `1` - 1.0
+     * * `2` - 1.00
+     * * `3` - 1.000
+     * * `4` - 1.0000
+     * * `5` - 1.00000
+     * * `6` - 1.000000
+     * * `7` - 1.0000000
+     * * `8` - 1.00000000
+     * * `9` - 1.000000000
+     * * `10` - 1.0000000000
      */
     public function getNumberDecimalPlaces(): int
     {

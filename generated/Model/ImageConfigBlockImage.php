@@ -23,8 +23,8 @@ class ImageConfigBlockImage extends \ArrayObject
     }
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      *
      * @var string
      */
@@ -44,9 +44,9 @@ class ImageConfigBlockImage extends \ArrayObject
     /**
      * The image constraint to apply to this image.
      *
-     * `cover` - Cover
-     * `contain` - Contain
-     * `full-width` - Full Width
+     * * `cover` - Cover
+     * * `contain` - Contain
+     * * `full-width` - Full Width
      *
      * @var string
      */
@@ -54,8 +54,8 @@ class ImageConfigBlockImage extends \ArrayObject
 
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      */
     public function getImageAlignment(): string
     {
@@ -116,9 +116,9 @@ class ImageConfigBlockImage extends \ArrayObject
     /**
      * The image constraint to apply to this image.
      *
-     * `cover` - Cover
-     * `contain` - Contain
-     * `full-width` - Full Width
+     * * `cover` - Cover
+     * * `contain` - Contain
+     * * `full-width` - Full Width
      */
     public function getImageConstraint(): string
     {

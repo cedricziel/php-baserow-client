@@ -27,32 +27,32 @@ class DurationFieldCreateField extends \ArrayObject
     protected $name;
     /**
      * * `text` - text
-     * `long_text` - long_text
-     * `url` - url
-     * `email` - email
-     * `number` - number
-     * `rating` - rating
-     * `boolean` - boolean
-     * `date` - date
-     * `last_modified` - last_modified
-     * `last_modified_by` - last_modified_by
-     * `created_on` - created_on
-     * `created_by` - created_by
-     * `duration` - duration
-     * `link_row` - link_row
-     * `file` - file
-     * `single_select` - single_select
-     * `multiple_select` - multiple_select
-     * `phone_number` - phone_number
-     * `formula` - formula
-     * `count` - count
-     * `rollup` - rollup
-     * `lookup` - lookup
-     * `multiple_collaborators` - multiple_collaborators
-     * `uuid` - uuid
-     * `autonumber` - autonumber
-     * `password` - password
-     * `ai` - ai.
+     * * `long_text` - long_text
+     * * `url` - url
+     * * `email` - email
+     * * `number` - number
+     * * `rating` - rating
+     * * `boolean` - boolean
+     * * `date` - date
+     * * `last_modified` - last_modified
+     * * `last_modified_by` - last_modified_by
+     * * `created_on` - created_on
+     * * `created_by` - created_by
+     * * `duration` - duration
+     * * `link_row` - link_row
+     * * `file` - file
+     * * `single_select` - single_select
+     * * `multiple_select` - multiple_select
+     * * `phone_number` - phone_number
+     * * `formula` - formula
+     * * `count` - count
+     * * `rollup` - rollup
+     * * `lookup` - lookup
+     * * `multiple_collaborators` - multiple_collaborators
+     * * `uuid` - uuid
+     * * `autonumber` - autonumber
+     * * `password` - password
+     * * `ai` - ai.
      *
      * @var string
      */
@@ -66,16 +66,16 @@ class DurationFieldCreateField extends \ArrayObject
     /**
      * The format of the duration.
      *
-     * `h:mm` - hours:minutes
-     * `h:mm:ss` - hours:minutes:seconds
-     * `h:mm:ss.s` - hours:minutes:seconds:deciseconds
-     * `h:mm:ss.ss` - hours:minutes:seconds:centiseconds
-     * `h:mm:ss.sss` - hours:minutes:seconds:milliseconds
-     * `d h` - days:hours
-     * `d h:mm` - days:hours:minutes
-     * `d h:mm:ss` - days:hours:minutes:seconds
-     * `d h mm` - days:hours:minutes:with_spaces
-     * `d h mm ss` - days:hours:minutes:seconds:with_spaces
+     * * `h:mm` - hours:minutes
+     * * `h:mm:ss` - hours:minutes:seconds
+     * * `h:mm:ss.s` - hours:minutes:seconds:deciseconds
+     * * `h:mm:ss.ss` - hours:minutes:seconds:centiseconds
+     * * `h:mm:ss.sss` - hours:minutes:seconds:milliseconds
+     * * `d h` - days:hours
+     * * `d h:mm` - days:hours:minutes
+     * * `d h:mm:ss` - days:hours:minutes:seconds
+     * * `d h mm` - days:hours:minutes:with_spaces
+     * * `d h mm ss` - days:hours:minutes:seconds:with_spaces
      *
      * @var string
      */
@@ -96,32 +96,32 @@ class DurationFieldCreateField extends \ArrayObject
 
     /**
      * * `text` - text
-     * `long_text` - long_text
-     * `url` - url
-     * `email` - email
-     * `number` - number
-     * `rating` - rating
-     * `boolean` - boolean
-     * `date` - date
-     * `last_modified` - last_modified
-     * `last_modified_by` - last_modified_by
-     * `created_on` - created_on
-     * `created_by` - created_by
-     * `duration` - duration
-     * `link_row` - link_row
-     * `file` - file
-     * `single_select` - single_select
-     * `multiple_select` - multiple_select
-     * `phone_number` - phone_number
-     * `formula` - formula
-     * `count` - count
-     * `rollup` - rollup
-     * `lookup` - lookup
-     * `multiple_collaborators` - multiple_collaborators
-     * `uuid` - uuid
-     * `autonumber` - autonumber
-     * `password` - password
-     * `ai` - ai.
+     * * `long_text` - long_text
+     * * `url` - url
+     * * `email` - email
+     * * `number` - number
+     * * `rating` - rating
+     * * `boolean` - boolean
+     * * `date` - date
+     * * `last_modified` - last_modified
+     * * `last_modified_by` - last_modified_by
+     * * `created_on` - created_on
+     * * `created_by` - created_by
+     * * `duration` - duration
+     * * `link_row` - link_row
+     * * `file` - file
+     * * `single_select` - single_select
+     * * `multiple_select` - multiple_select
+     * * `phone_number` - phone_number
+     * * `formula` - formula
+     * * `count` - count
+     * * `rollup` - rollup
+     * * `lookup` - lookup
+     * * `multiple_collaborators` - multiple_collaborators
+     * * `uuid` - uuid
+     * * `autonumber` - autonumber
+     * * `password` - password
+     * * `ai` - ai.
      */
     public function getType(): string
     {
@@ -187,16 +187,16 @@ class DurationFieldCreateField extends \ArrayObject
     /**
      * The format of the duration.
      *
-     * `h:mm` - hours:minutes
-     * `h:mm:ss` - hours:minutes:seconds
-     * `h:mm:ss.s` - hours:minutes:seconds:deciseconds
-     * `h:mm:ss.ss` - hours:minutes:seconds:centiseconds
-     * `h:mm:ss.sss` - hours:minutes:seconds:milliseconds
-     * `d h` - days:hours
-     * `d h:mm` - days:hours:minutes
-     * `d h:mm:ss` - days:hours:minutes:seconds
-     * `d h mm` - days:hours:minutes:with_spaces
-     * `d h mm ss` - days:hours:minutes:seconds:with_spaces
+     * * `h:mm` - hours:minutes
+     * * `h:mm:ss` - hours:minutes:seconds
+     * * `h:mm:ss.s` - hours:minutes:seconds:deciseconds
+     * * `h:mm:ss.ss` - hours:minutes:seconds:centiseconds
+     * * `h:mm:ss.sss` - hours:minutes:seconds:milliseconds
+     * * `d h` - days:hours
+     * * `d h:mm` - days:hours:minutes
+     * * `d h:mm:ss` - days:hours:minutes:seconds
+     * * `d h mm` - days:hours:minutes:with_spaces
+     * * `d h mm ss` - days:hours:minutes:seconds:with_spaces
      */
     public function getDurationFormat(): string
     {

@@ -51,8 +51,8 @@ class RepeatElementPublicElement extends \ArrayObject
     protected $placeInContainer;
     /**
      * * `all` - All
-     * `logged-in` - Logged In
-     * `not-logged` - Not Logged.
+     * * `logged-in` - Logged In
+     * * `not-logged` - Not Logged.
      *
      * @var string
      */
@@ -162,9 +162,9 @@ class RepeatElementPublicElement extends \ArrayObject
     /**
      * What type of background the element should have.
      *
-     * `none` - None
-     * `color` - Color
-     * `image` - Image
+     * * `none` - None
+     * * `color` - Color
+     * * `image` - Image
      *
      * @var string
      */
@@ -184,9 +184,9 @@ class RepeatElementPublicElement extends \ArrayObject
     /**
      * The mode of the background image.
      *
-     * `tile` - Tile
-     * `fill` - Fill
-     * `fit` - Fit
+     * * `tile` - Tile
+     * * `fill` - Fill
+     * * `fit` - Fit
      *
      * @var mixed|null
      */
@@ -194,11 +194,11 @@ class RepeatElementPublicElement extends \ArrayObject
     /**
      * Indicates the width of the element.
      *
-     * `full` - Full
-     * `full-width` - Full Width
-     * `normal` - Normal
-     * `medium` - Medium
-     * `small` - Small
+     * * `full` - Full
+     * * `full-width` - Full Width
+     * * `normal` - Normal
+     * * `medium` - Medium
+     * * `small` - Small
      *
      * @var string
      */
@@ -233,7 +233,7 @@ class RepeatElementPublicElement extends \ArrayObject
     protected $buttonLoadMoreLabel = '';
     /**
      * * `vertical` - Vertical
-     * `horizontal` - Horizontal.
+     * * `horizontal` - Horizontal.
      *
      * @var string
      */
@@ -334,8 +334,8 @@ class RepeatElementPublicElement extends \ArrayObject
 
     /**
      * * `all` - All
-     * `logged-in` - Logged In
-     * `not-logged` - Not Logged.
+     * * `logged-in` - Logged In
+     * * `not-logged` - Not Logged.
      */
     public function getVisibility(): string
     {
@@ -681,9 +681,9 @@ class RepeatElementPublicElement extends \ArrayObject
     /**
      * What type of background the element should have.
      *
-     * `none` - None
-     * `color` - Color
-     * `image` - Image
+     * * `none` - None
+     * * `color` - Color
+     * * `image` - Image
      */
     public function getStyleBackground(): string
     {
@@ -746,9 +746,9 @@ class RepeatElementPublicElement extends \ArrayObject
     /**
      * The mode of the background image.
      *
-     * `tile` - Tile
-     * `fill` - Fill
-     * `fit` - Fit
+     * * `tile` - Tile
+     * * `fill` - Fill
+     * * `fit` - Fit
      */
     public function getStyleBackgroundMode()
     {
@@ -773,11 +773,11 @@ class RepeatElementPublicElement extends \ArrayObject
     /**
      * Indicates the width of the element.
      *
-     * `full` - Full
-     * `full-width` - Full Width
-     * `normal` - Normal
-     * `medium` - Medium
-     * `small` - Small
+     * * `full` - Full
+     * * `full-width` - Full Width
+     * * `normal` - Normal
+     * * `medium` - Medium
+     * * `small` - Small
      */
     public function getStyleWidth(): string
     {
@@ -892,7 +892,7 @@ class RepeatElementPublicElement extends \ArrayObject
 
     /**
      * * `vertical` - Vertical
-     * `horizontal` - Horizontal.
+     * * `horizontal` - Horizontal.
      */
     public function getOrientation(): string
     {

@@ -18,9 +18,9 @@ class GroupBatchAssignRole extends \CedricZiel\Baserow\Generated\Runtime\Client\
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [workspace_batch_assign_role](#tag/Role-assignments/operation/workspace_batch_assign_role).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * You can assign a role to a multiple subjects into the given group for the given scope with this endpoint. If you want to remove the role you can omit the role property.
+     *  You can assign a role to a multiple subjects into the given group for the given scope with this endpoint. If you want to remove the role you can omit the role property.
      *
      * @param int $groupId the group in which the role assignment takes place
      */
@@ -77,13 +77,13 @@ class GroupBatchAssignRole extends \CedricZiel\Baserow\Generated\Runtime\Client\
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
-        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\OpenApiRoleAssignment[]', 'json');
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\GroupBatchAssignRoleBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdBatchPostResponse400', 'json'), $response);
         }
-        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\GroupBatchAssignRoleNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiRoleGroupIdBatchPostResponse404', 'json'), $response);
         }
     }

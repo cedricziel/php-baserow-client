@@ -18,9 +18,9 @@ class GroupListApplications extends \CedricZiel\Baserow\Generated\Runtime\Client
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [workspace_list_applications](#tag/Applications/operation/workspace_list_applications).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Lists all the applications of the group related to the provided `group_id` parameter if the authorized user is in that group. If the group is related to a template, then this endpoint will be publicly accessible. The properties that belong to the application can differ per type. An application always belongs to a single group.
+     *  Lists all the applications of the group related to the provided `group_id` parameter if the authorized user is in that group. If the group is related to a template, then this endpoint will be publicly accessible. The properties that belong to the application can differ per type. An application always belongs to a single group.
      *
      * @param int $groupId returns only applications that are in the group related to the provided value
      */
@@ -59,13 +59,13 @@ class GroupListApplications extends \CedricZiel\Baserow\Generated\Runtime\Client
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
-        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             return json_decode($body);
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\GroupListApplicationsBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdGetResponse400', 'json'), $response);
         }
-        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\GroupListApplicationsNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdGetResponse404', 'json'), $response);
         }
     }

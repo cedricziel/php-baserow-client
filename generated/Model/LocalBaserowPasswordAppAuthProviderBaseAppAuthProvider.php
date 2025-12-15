@@ -23,7 +23,8 @@ class LocalBaserowPasswordAppAuthProviderBaseAppAuthProvider extends \ArrayObjec
     }
     /**
      * The type of the app_auth_provider.
-     * `local_baserow_password` - local_baserow_password.
+     *
+     * * `local_baserow_password` - local_baserow_password
      *
      * @var string
      */
@@ -45,7 +46,8 @@ class LocalBaserowPasswordAppAuthProviderBaseAppAuthProvider extends \ArrayObjec
 
     /**
      * The type of the app_auth_provider.
-     * `local_baserow_password` - local_baserow_password.
+     *
+     * * `local_baserow_password` - local_baserow_password
      */
     public function getType(): string
     {

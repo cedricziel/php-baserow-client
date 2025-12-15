@@ -55,8 +55,8 @@ class TextElementElement extends \ArrayObject
     protected $placeInContainer;
     /**
      * * `all` - All
-     * `logged-in` - Logged In
-     * `not-logged` - Not Logged.
+     * * `logged-in` - Logged In
+     * * `not-logged` - Not Logged.
      *
      * @var string
      */
@@ -166,9 +166,9 @@ class TextElementElement extends \ArrayObject
     /**
      * What type of background the element should have.
      *
-     * `none` - None
-     * `color` - Color
-     * `image` - Image
+     * * `none` - None
+     * * `color` - Color
+     * * `image` - Image
      *
      * @var string
      */
@@ -188,9 +188,9 @@ class TextElementElement extends \ArrayObject
     /**
      * The mode of the background image.
      *
-     * `tile` - Tile
-     * `fill` - Fill
-     * `fit` - Fit
+     * * `tile` - Tile
+     * * `fill` - Fill
+     * * `fit` - Fit
      *
      * @var mixed|null
      */
@@ -198,11 +198,11 @@ class TextElementElement extends \ArrayObject
     /**
      * Indicates the width of the element.
      *
-     * `full` - Full
-     * `full-width` - Full Width
-     * `normal` - Normal
-     * `medium` - Medium
-     * `small` - Small
+     * * `full` - Full
+     * * `full-width` - Full Width
+     * * `normal` - Normal
+     * * `medium` - Medium
+     * * `small` - Small
      *
      * @var string
      */
@@ -225,8 +225,8 @@ class TextElementElement extends \ArrayObject
     protected $value = '';
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      *
      * @var string
      */
@@ -234,8 +234,8 @@ class TextElementElement extends \ArrayObject
     /**
      * The format of the text.
      *
-     * `plain` - Plain
-     * `markdown` - Markdown
+     * * `plain` - Plain
+     * * `markdown` - Markdown
      *
      * @var string
      */
@@ -345,8 +345,8 @@ class TextElementElement extends \ArrayObject
 
     /**
      * * `all` - All
-     * `logged-in` - Logged In
-     * `not-logged` - Not Logged.
+     * * `logged-in` - Logged In
+     * * `not-logged` - Not Logged.
      */
     public function getVisibility(): string
     {
@@ -692,9 +692,9 @@ class TextElementElement extends \ArrayObject
     /**
      * What type of background the element should have.
      *
-     * `none` - None
-     * `color` - Color
-     * `image` - Image
+     * * `none` - None
+     * * `color` - Color
+     * * `image` - Image
      */
     public function getStyleBackground(): string
     {
@@ -757,9 +757,9 @@ class TextElementElement extends \ArrayObject
     /**
      * The mode of the background image.
      *
-     * `tile` - Tile
-     * `fill` - Fill
-     * `fit` - Fit
+     * * `tile` - Tile
+     * * `fill` - Fill
+     * * `fit` - Fit
      */
     public function getStyleBackgroundMode()
     {
@@ -784,11 +784,11 @@ class TextElementElement extends \ArrayObject
     /**
      * Indicates the width of the element.
      *
-     * `full` - Full
-     * `full-width` - Full Width
-     * `normal` - Normal
-     * `medium` - Medium
-     * `small` - Small
+     * * `full` - Full
+     * * `full-width` - Full Width
+     * * `normal` - Normal
+     * * `medium` - Medium
+     * * `small` - Small
      */
     public function getStyleWidth(): string
     {
@@ -865,8 +865,8 @@ class TextElementElement extends \ArrayObject
 
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      */
     public function getAlignment(): string
     {
@@ -889,8 +889,8 @@ class TextElementElement extends \ArrayObject
     /**
      * The format of the text.
      *
-     * `plain` - Plain
-     * `markdown` - Markdown
+     * * `plain` - Plain
+     * * `markdown` - Markdown
      */
     public function getFormat(): string
     {

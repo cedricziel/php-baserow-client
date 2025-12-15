@@ -24,8 +24,8 @@ class FormViewSubmitted extends \ArrayObject
     /**
      * The action that must be performed after the visitor has filled out the form.
      *
-     * `MESSAGE` - Message
-     * `REDIRECT` - Redirect
+     * * `MESSAGE` - Message
+     * * `REDIRECT` - Redirect
      *
      * @var string
      */
@@ -50,8 +50,8 @@ class FormViewSubmitted extends \ArrayObject
     /**
      * The action that must be performed after the visitor has filled out the form.
      *
-     * `MESSAGE` - Message
-     * `REDIRECT` - Redirect
+     * * `MESSAGE` - Message
+     * * `REDIRECT` - Redirect
      */
     public function getSubmitAction(): string
     {

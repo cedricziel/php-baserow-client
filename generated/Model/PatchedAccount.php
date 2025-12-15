@@ -34,10 +34,10 @@ class PatchedAccount extends \ArrayObject
     /**
      * The maximum frequency at which the user wants to receive email notifications.
      *
-     * `instant` - instant
-     * `daily` - daily
-     * `weekly` - weekly
-     * `never` - never
+     * * `instant` - instant
+     * * `daily` - daily
+     * * `weekly` - weekly
+     * * `never` - never
      *
      * @var string
      */
@@ -84,10 +84,10 @@ class PatchedAccount extends \ArrayObject
     /**
      * The maximum frequency at which the user wants to receive email notifications.
      *
-     * `instant` - instant
-     * `daily` - daily
-     * `weekly` - weekly
-     * `never` - never
+     * * `instant` - instant
+     * * `daily` - daily
+     * * `weekly` - weekly
+     * * `never` - never
      */
     public function getEmailNotificationFrequency(): string
     {

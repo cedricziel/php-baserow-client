@@ -30,11 +30,11 @@ class CreateRoleAssignment extends \ArrayObject
     /**
      * The subject type.
      *
-     * `auth.User` - auth.User
-     * `anonymous` - anonymous
-     * `user_source.user` - user_source.user
-     * `core.Token` - core.Token
-     * `baserow_enterprise.Team` - baserow_enterprise.Team
+     * * `auth.User` - auth.User
+     * * `anonymous` - anonymous
+     * * `user_source.user` - user_source.user
+     * * `core.Token` - core.Token
+     * * `baserow_enterprise.Team` - baserow_enterprise.Team
      *
      * @var string
      */
@@ -54,33 +54,33 @@ class CreateRoleAssignment extends \ArrayObject
     /**
      * The scope object type.
      *
-     * `core` - core
-     * `application` - application
-     * `workspace` - workspace
-     * `workspace_invitation` - workspace_invitation
-     * `snapshot` - snapshot
-     * `workspace_user` - workspace_user
-     * `integration` - integration
-     * `user_source` - user_source
-     * `database` - database
-     * `database_table` - database_table
-     * `database_field` - database_field
-     * `database_view` - database_view
-     * `database_view_decoration` - database_view_decoration
-     * `database_view_sort` - database_view_sort
-     * `database_view_group` - database_view_group
-     * `database_view_filter` - database_view_filter
-     * `database_view_filter_group` - database_view_filter_group
-     * `token` - token
-     * `builder` - builder
-     * `builder_page` - builder_page
-     * `builder_element` - builder_element
-     * `builder_domain` - builder_domain
-     * `builder_data_source` - builder_data_source
-     * `builder_workflow_action` - builder_workflow_action
-     * `team` - team
-     * `team_subject` - team_subject
-     * `license` - license
+     * * `core` - core
+     * * `application` - application
+     * * `workspace` - workspace
+     * * `workspace_invitation` - workspace_invitation
+     * * `snapshot` - snapshot
+     * * `workspace_user` - workspace_user
+     * * `integration` - integration
+     * * `user_source` - user_source
+     * * `database` - database
+     * * `database_table` - database_table
+     * * `database_field` - database_field
+     * * `database_view` - database_view
+     * * `database_view_decoration` - database_view_decoration
+     * * `database_view_sort` - database_view_sort
+     * * `database_view_group` - database_view_group
+     * * `database_view_filter` - database_view_filter
+     * * `database_view_filter_group` - database_view_filter_group
+     * * `token` - token
+     * * `builder` - builder
+     * * `builder_page` - builder_page
+     * * `builder_element` - builder_element
+     * * `builder_domain` - builder_domain
+     * * `builder_data_source` - builder_data_source
+     * * `builder_workflow_action` - builder_workflow_action
+     * * `team` - team
+     * * `team_subject` - team_subject
+     * * `license` - license
      *
      * @var string
      */
@@ -108,11 +108,11 @@ class CreateRoleAssignment extends \ArrayObject
     /**
      * The subject type.
      *
-     * `auth.User` - auth.User
-     * `anonymous` - anonymous
-     * `user_source.user` - user_source.user
-     * `core.Token` - core.Token
-     * `baserow_enterprise.Team` - baserow_enterprise.Team
+     * * `auth.User` - auth.User
+     * * `anonymous` - anonymous
+     * * `user_source.user` - user_source.user
+     * * `core.Token` - core.Token
+     * * `baserow_enterprise.Team` - baserow_enterprise.Team
      */
     public function getSubjectType(): string
     {
@@ -177,33 +177,33 @@ class CreateRoleAssignment extends \ArrayObject
     /**
      * The scope object type.
      *
-     * `core` - core
-     * `application` - application
-     * `workspace` - workspace
-     * `workspace_invitation` - workspace_invitation
-     * `snapshot` - snapshot
-     * `workspace_user` - workspace_user
-     * `integration` - integration
-     * `user_source` - user_source
-     * `database` - database
-     * `database_table` - database_table
-     * `database_field` - database_field
-     * `database_view` - database_view
-     * `database_view_decoration` - database_view_decoration
-     * `database_view_sort` - database_view_sort
-     * `database_view_group` - database_view_group
-     * `database_view_filter` - database_view_filter
-     * `database_view_filter_group` - database_view_filter_group
-     * `token` - token
-     * `builder` - builder
-     * `builder_page` - builder_page
-     * `builder_element` - builder_element
-     * `builder_domain` - builder_domain
-     * `builder_data_source` - builder_data_source
-     * `builder_workflow_action` - builder_workflow_action
-     * `team` - team
-     * `team_subject` - team_subject
-     * `license` - license
+     * * `core` - core
+     * * `application` - application
+     * * `workspace` - workspace
+     * * `workspace_invitation` - workspace_invitation
+     * * `snapshot` - snapshot
+     * * `workspace_user` - workspace_user
+     * * `integration` - integration
+     * * `user_source` - user_source
+     * * `database` - database
+     * * `database_table` - database_table
+     * * `database_field` - database_field
+     * * `database_view` - database_view
+     * * `database_view_decoration` - database_view_decoration
+     * * `database_view_sort` - database_view_sort
+     * * `database_view_group` - database_view_group
+     * * `database_view_filter` - database_view_filter
+     * * `database_view_filter_group` - database_view_filter_group
+     * * `token` - token
+     * * `builder` - builder
+     * * `builder_page` - builder_page
+     * * `builder_element` - builder_element
+     * * `builder_domain` - builder_domain
+     * * `builder_data_source` - builder_data_source
+     * * `builder_workflow_action` - builder_workflow_action
+     * * `team` - team
+     * * `team_subject` - team_subject
+     * * `license` - license
      */
     public function getScopeType(): string
     {

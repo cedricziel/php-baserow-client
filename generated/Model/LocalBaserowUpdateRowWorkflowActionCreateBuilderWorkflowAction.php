@@ -34,12 +34,12 @@ class LocalBaserowUpdateRowWorkflowActionCreateBuilderWorkflowAction extends \Ar
     /**
      * The type of the workflow action.
      *
-     * `notification` - notification
-     * `open_page` - open_page
-     * `create_row` - create_row
-     * `update_row` - update_row
-     * `logout` - logout
-     * `refresh_data_source` - refresh_data_source
+     * * `notification` - notification
+     * * `open_page` - open_page
+     * * `create_row` - create_row
+     * * `update_row` - update_row
+     * * `logout` - logout
+     * * `refresh_data_source` - refresh_data_source
      *
      * @var string
      */
@@ -90,12 +90,12 @@ class LocalBaserowUpdateRowWorkflowActionCreateBuilderWorkflowAction extends \Ar
     /**
      * The type of the workflow action.
      *
-     * `notification` - notification
-     * `open_page` - open_page
-     * `create_row` - create_row
-     * `update_row` - update_row
-     * `logout` - logout
-     * `refresh_data_source` - refresh_data_source
+     * * `notification` - notification
+     * * `open_page` - open_page
+     * * `create_row` - create_row
+     * * `update_row` - update_row
+     * * `logout` - logout
+     * * `refresh_data_source` - refresh_data_source
      */
     public function getType(): string
     {

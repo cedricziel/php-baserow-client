@@ -39,11 +39,11 @@ class ExportJob extends \ArrayObject
     protected $exporterType;
     /**
      * * `pending` - pending
-     * `exporting` - exporting
-     * `cancelled` - cancelled
-     * `finished` - finished
-     * `failed` - failed
-     * `expired` - expired.
+     * * `exporting` - exporting
+     * * `cancelled` - cancelled
+     * * `finished` - finished
+     * * `failed` - failed
+     * * `expired` - expired.
      *
      * @var string
      */
@@ -125,11 +125,11 @@ class ExportJob extends \ArrayObject
 
     /**
      * * `pending` - pending
-     * `exporting` - exporting
-     * `cancelled` - cancelled
-     * `finished` - finished
-     * `failed` - failed
-     * `expired` - expired.
+     * * `exporting` - exporting
+     * * `cancelled` - cancelled
+     * * `finished` - finished
+     * * `failed` - failed
+     * * `expired` - expired.
      */
     public function getState(): string
     {

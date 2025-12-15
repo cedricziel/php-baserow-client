@@ -24,9 +24,9 @@ class LocalBaserowGetRowCreateDataSource extends \ArrayObject
     /**
      * The type of the service.
      *
-     * `local_baserow_get_row` - local_baserow_get_row
-     * `local_baserow_list_rows` - local_baserow_list_rows
-     * `local_baserow_upsert_row` - local_baserow_upsert_row
+     * * `local_baserow_get_row` - local_baserow_get_row
+     * * `local_baserow_list_rows` - local_baserow_list_rows
+     * * `local_baserow_upsert_row` - local_baserow_upsert_row
      *
      * @var string
      */
@@ -64,8 +64,8 @@ class LocalBaserowGetRowCreateDataSource extends \ArrayObject
     /**
      * Indicates whether all the rows should apply to all filters (AND) or to any filter (OR).
      *
-     * `AND` - And
-     * `OR` - Or
+     * * `AND` - And
+     * * `OR` - Or
      *
      * @var string
      */
@@ -84,9 +84,9 @@ class LocalBaserowGetRowCreateDataSource extends \ArrayObject
     /**
      * The type of the service.
      *
-     * `local_baserow_get_row` - local_baserow_get_row
-     * `local_baserow_list_rows` - local_baserow_list_rows
-     * `local_baserow_upsert_row` - local_baserow_upsert_row
+     * * `local_baserow_get_row` - local_baserow_get_row
+     * * `local_baserow_list_rows` - local_baserow_list_rows
+     * * `local_baserow_upsert_row` - local_baserow_upsert_row
      */
     public function getType(): string
     {
@@ -207,8 +207,8 @@ class LocalBaserowGetRowCreateDataSource extends \ArrayObject
     /**
      * Indicates whether all the rows should apply to all filters (AND) or to any filter (OR).
      *
-     * `AND` - And
-     * `OR` - Or
+     * * `AND` - And
+     * * `OR` - Or
      */
     public function getFilterType(): string
     {

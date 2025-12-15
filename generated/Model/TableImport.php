@@ -27,8 +27,8 @@ class TableImport extends \ArrayObject
      * Ex:
      * ```json
      * [
-     * ["row1_field1_value", "row1_field2_value"],
-     * ["row2_field1_value", "row2_field2_value"],
+     *   ["row1_field1_value", "row1_field2_value"],
+     *   ["row2_field1_value", "row2_field2_value"],
      * ]
      * ```
      * for adding two rows to a table with two writable fields.
@@ -43,8 +43,8 @@ class TableImport extends \ArrayObject
      * Ex:
      * ```json
      * [
-     * ["row1_field1_value", "row1_field2_value"],
-     * ["row2_field1_value", "row2_field2_value"],
+     *   ["row1_field1_value", "row1_field2_value"],
+     *   ["row2_field1_value", "row2_field2_value"],
      * ]
      * ```
      * for adding two rows to a table with two writable fields.

@@ -27,10 +27,10 @@ class GridViewCreateView extends \ArrayObject
     protected $name;
     /**
      * * `grid` - grid
-     * `gallery` - gallery
-     * `form` - form
-     * `kanban` - kanban
-     * `calendar` - calendar.
+     * * `gallery` - gallery
+     * * `form` - form
+     * * `kanban` - kanban
+     * * `calendar` - calendar.
      *
      * @var string
      */
@@ -42,8 +42,8 @@ class GridViewCreateView extends \ArrayObject
     /**
      * Indicates whether all the rows should apply to all filters (AND) or to any filter (OR).
      *
-     * `AND` - And
-     * `OR` - Or
+     * * `AND` - And
+     * * `OR` - Or
      *
      * @var string
      */
@@ -56,7 +56,7 @@ class GridViewCreateView extends \ArrayObject
     protected $filtersDisabled;
     /**
      * * `id` - Id
-     * `count` - Count.
+     * * `count` - Count.
      *
      * @var string
      */
@@ -89,10 +89,10 @@ class GridViewCreateView extends \ArrayObject
 
     /**
      * * `grid` - grid
-     * `gallery` - gallery
-     * `form` - form
-     * `kanban` - kanban
-     * `calendar` - calendar.
+     * * `gallery` - gallery
+     * * `form` - form
+     * * `kanban` - kanban
+     * * `calendar` - calendar.
      */
     public function getType(): string
     {
@@ -130,8 +130,8 @@ class GridViewCreateView extends \ArrayObject
     /**
      * Indicates whether all the rows should apply to all filters (AND) or to any filter (OR).
      *
-     * `AND` - And
-     * `OR` - Or
+     * * `AND` - And
+     * * `OR` - Or
      */
     public function getFilterType(): string
     {
@@ -173,7 +173,7 @@ class GridViewCreateView extends \ArrayObject
 
     /**
      * * `id` - Id
-     * `count` - Count.
+     * * `count` - Count.
      */
     public function getRowIdentifierType(): string
     {

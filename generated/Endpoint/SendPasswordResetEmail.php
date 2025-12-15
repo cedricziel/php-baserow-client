@@ -71,7 +71,7 @@ class SendPasswordResetEmail extends \CedricZiel\Baserow\Generated\Runtime\Clien
         if (204 === $status) {
             return null;
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\SendPasswordResetEmailBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiUserSendResetPasswordEmailPostResponse400', 'json'), $response);
         }
     }

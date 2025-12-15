@@ -17,9 +17,9 @@ class AdminListGroups extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseE
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [admin_list_workspaces](#tag/Admin/operation/admin_list_workspaces).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Returns all groups with detailed information on each group, if the requesting user is staff.
+     *  Returns all groups with detailed information on each group, if the requesting user is staff.
      *
      * This is a **premium** feature.
      *
@@ -80,10 +80,10 @@ class AdminListGroups extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseE
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
-        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\PaginationSerializerWorkspacesAdminResponse', 'json');
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\AdminListGroupsBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiAdminGroupsGetResponse400', 'json'), $response);
         }
         if (401 === $status) {

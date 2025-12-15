@@ -29,7 +29,8 @@ class LocalBaserowIntegrationCreateIntegration extends \ArrayObject
     protected $beforeId;
     /**
      * The type of the integration.
-     * `local_baserow` - local_baserow.
+     *
+     * * `local_baserow` - local_baserow
      *
      * @var string
      */
@@ -68,7 +69,8 @@ class LocalBaserowIntegrationCreateIntegration extends \ArrayObject
 
     /**
      * The type of the integration.
-     * `local_baserow` - local_baserow.
+     *
+     * * `local_baserow` - local_baserow
      */
     public function getType(): string
     {
