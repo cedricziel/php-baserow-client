@@ -24,12 +24,12 @@ class OpenPageWorkflowActionUpdateBuilderWorkflowActions extends \ArrayObject
     /**
      * The type of the workflow action.
      *
-     * `notification` - notification
-     * `open_page` - open_page
-     * `create_row` - create_row
-     * `update_row` - update_row
-     * `logout` - logout
-     * `refresh_data_source` - refresh_data_source
+     * * `notification` - notification
+     * * `open_page` - open_page
+     * * `create_row` - create_row
+     * * `update_row` - update_row
+     * * `logout` - logout
+     * * `refresh_data_source` - refresh_data_source
      *
      * @var string
      */
@@ -37,8 +37,8 @@ class OpenPageWorkflowActionUpdateBuilderWorkflowActions extends \ArrayObject
     /**
      * The navigation type.
      *
-     * `page` - Page
-     * `custom` - Custom
+     * * `page` - Page
+     * * `custom` - Custom
      *
      * @var string
      */
@@ -64,8 +64,8 @@ class OpenPageWorkflowActionUpdateBuilderWorkflowActions extends \ArrayObject
     /**
      * The target of the link when we click on it.
      *
-     * `self` - Self
-     * `blank` - Blank
+     * * `self` - Self
+     * * `blank` - Blank
      *
      * @var string
      */
@@ -80,12 +80,12 @@ class OpenPageWorkflowActionUpdateBuilderWorkflowActions extends \ArrayObject
     /**
      * The type of the workflow action.
      *
-     * `notification` - notification
-     * `open_page` - open_page
-     * `create_row` - create_row
-     * `update_row` - update_row
-     * `logout` - logout
-     * `refresh_data_source` - refresh_data_source
+     * * `notification` - notification
+     * * `open_page` - open_page
+     * * `create_row` - create_row
+     * * `update_row` - update_row
+     * * `logout` - logout
+     * * `refresh_data_source` - refresh_data_source
      */
     public function getType(): string
     {
@@ -113,8 +113,8 @@ class OpenPageWorkflowActionUpdateBuilderWorkflowActions extends \ArrayObject
     /**
      * The navigation type.
      *
-     * `page` - Page
-     * `custom` - Custom
+     * * `page` - Page
+     * * `custom` - Custom
      */
     public function getNavigationType(): string
     {
@@ -199,8 +199,8 @@ class OpenPageWorkflowActionUpdateBuilderWorkflowActions extends \ArrayObject
     /**
      * The target of the link when we click on it.
      *
-     * `self` - Self
-     * `blank` - Blank
+     * * `self` - Self
+     * * `blank` - Blank
      */
     public function getTarget(): string
     {

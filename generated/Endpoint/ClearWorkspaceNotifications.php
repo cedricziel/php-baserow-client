@@ -58,10 +58,10 @@ class ClearWorkspaceNotifications extends \CedricZiel\Baserow\Generated\Runtime\
         if (204 === $status) {
             return null;
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\ClearWorkspaceNotificationsBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse400', 'json'), $response);
         }
-        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\ClearWorkspaceNotificationsNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdDeleteResponse404', 'json'), $response);
         }
     }

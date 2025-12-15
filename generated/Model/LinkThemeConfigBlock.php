@@ -31,8 +31,8 @@ class LinkThemeConfigBlock extends \ArrayObject
     protected $linkFontSize;
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      *
      * @var string
      */
@@ -78,8 +78,8 @@ class LinkThemeConfigBlock extends \ArrayObject
 
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      */
     public function getLinkTextAlignment(): string
     {

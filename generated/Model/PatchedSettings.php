@@ -90,9 +90,9 @@ class PatchedSettings extends \ArrayObject
     /**
      * Controls whether user email addresses have to be verified.
      *
-     * `no_verification` - no_verification
-     * `recommended` - recommended
-     * `enforced` - enforced
+     * * `no_verification` - no_verification
+     * * `recommended` - recommended
+     * * `enforced` - enforced
      *
      * @var mixed|null
      */
@@ -310,9 +310,9 @@ class PatchedSettings extends \ArrayObject
     /**
      * Controls whether user email addresses have to be verified.
      *
-     * `no_verification` - no_verification
-     * `recommended` - recommended
-     * `enforced` - enforced
+     * * `no_verification` - no_verification
+     * * `recommended` - recommended
+     * * `enforced` - enforced
      */
     public function getEmailVerification()
     {

@@ -18,10 +18,10 @@ class GroupPermissions extends \CedricZiel\Baserow\Generated\Runtime\Client\Base
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [workspace_permissions](#tag/Workspaces/operation/workspace_permissions).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Returns a the permission data necessary to determine the permissions of a specific user over a specific group.
-     * See `core.handler.CoreHandler.get_permissions()` for more details.
+     *  Returns a the permission data necessary to determine the permissions of a specific user over a specific group.
+     *  See `core.handler.CoreHandler.get_permissions()` for more details.
      *
      * @param int $groupId the group id we want the permission object for
      */
@@ -59,10 +59,10 @@ class GroupPermissions extends \CedricZiel\Baserow\Generated\Runtime\Client\Base
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
-        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\PermissionObject[]', 'json');
         }
-        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\GroupPermissionsNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdPermissionsGetResponse404', 'json'), $response);
         }
     }

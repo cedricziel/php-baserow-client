@@ -46,7 +46,7 @@ class UpdateDatabaseTableViewDecoration extends \CedricZiel\Baserow\Generated\Ru
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         if (isset($this->body)) {
-            return [['Content-Type' => ['application/json']], json_encode($this->body)];
+            return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
         if (isset($this->body)) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
@@ -92,13 +92,13 @@ class UpdateDatabaseTableViewDecoration extends \CedricZiel\Baserow\Generated\Ru
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
-        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             return json_decode($body);
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\UpdateDatabaseTableViewDecorationBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdPatchResponse400', 'json'), $response);
         }
-        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\UpdateDatabaseTableViewDecorationNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsDecorationViewDecorationIdPatchResponse404', 'json'), $response);
         }
     }

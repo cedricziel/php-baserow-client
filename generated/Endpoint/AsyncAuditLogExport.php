@@ -88,13 +88,13 @@ class AsyncAuditLogExport extends \CedricZiel\Baserow\Generated\Runtime\Client\B
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
-        if (false === is_null($contentType) && (202 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (202 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\SingleAuditLogExportJobResponse', 'json');
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\AsyncAuditLogExportBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogExportPostResponse400', 'json'), $response);
         }
-        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\AsyncAuditLogExportNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiAdminAuditLogExportPostResponse404', 'json'), $response);
         }
     }

@@ -24,17 +24,17 @@ class AirtableImportJobCreateJob extends \ArrayObject
     /**
      * The type of the job.
      *
-     * `duplicate_application` - duplicate_application
-     * `install_template` - install_template
-     * `create_snapshot` - create_snapshot
-     * `restore_snapshot` - restore_snapshot
-     * `airtable` - airtable
-     * `file_import` - file_import
-     * `duplicate_table` - duplicate_table
-     * `duplicate_field` - duplicate_field
-     * `duplicate_page` - duplicate_page
-     * `publish_domain` - publish_domain
-     * `audit_log_export` - audit_log_export
+     * * `duplicate_application` - duplicate_application
+     * * `install_template` - install_template
+     * * `create_snapshot` - create_snapshot
+     * * `restore_snapshot` - restore_snapshot
+     * * `airtable` - airtable
+     * * `file_import` - file_import
+     * * `duplicate_table` - duplicate_table
+     * * `duplicate_field` - duplicate_field
+     * * `duplicate_page` - duplicate_page
+     * * `publish_domain` - publish_domain
+     * * `audit_log_export` - audit_log_export
      *
      * @var string
      */
@@ -61,17 +61,17 @@ class AirtableImportJobCreateJob extends \ArrayObject
     /**
      * The type of the job.
      *
-     * `duplicate_application` - duplicate_application
-     * `install_template` - install_template
-     * `create_snapshot` - create_snapshot
-     * `restore_snapshot` - restore_snapshot
-     * `airtable` - airtable
-     * `file_import` - file_import
-     * `duplicate_table` - duplicate_table
-     * `duplicate_field` - duplicate_field
-     * `duplicate_page` - duplicate_page
-     * `publish_domain` - publish_domain
-     * `audit_log_export` - audit_log_export
+     * * `duplicate_application` - duplicate_application
+     * * `install_template` - install_template
+     * * `create_snapshot` - create_snapshot
+     * * `restore_snapshot` - restore_snapshot
+     * * `airtable` - airtable
+     * * `file_import` - file_import
+     * * `duplicate_table` - duplicate_table
+     * * `duplicate_field` - duplicate_field
+     * * `duplicate_page` - duplicate_page
+     * * `publish_domain` - publish_domain
+     * * `audit_log_export` - audit_log_export
      */
     public function getType(): string
     {

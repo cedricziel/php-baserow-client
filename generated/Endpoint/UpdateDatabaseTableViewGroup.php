@@ -91,13 +91,13 @@ class UpdateDatabaseTableViewGroup extends \CedricZiel\Baserow\Generated\Runtime
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
-        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ViewGroupBy', 'json');
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\UpdateDatabaseTableViewGroupBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdPatchResponse400', 'json'), $response);
         }
-        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\UpdateDatabaseTableViewGroupNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsGroupByViewGroupByIdPatchResponse404', 'json'), $response);
         }
     }

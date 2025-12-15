@@ -24,8 +24,8 @@ class SubDomainCreateDomain extends \ArrayObject
     /**
      * The type of the domain.
      *
-     * `custom` - custom
-     * `sub_domain` - sub_domain
+     * * `custom` - custom
+     * * `sub_domain` - sub_domain
      *
      * @var string
      */
@@ -38,8 +38,8 @@ class SubDomainCreateDomain extends \ArrayObject
     /**
      * The type of the domain.
      *
-     * `custom` - custom
-     * `sub_domain` - sub_domain
+     * * `custom` - custom
+     * * `sub_domain` - sub_domain
      */
     public function getType(): string
     {

@@ -55,13 +55,13 @@ class GetDatabaseTableWebhook extends \CedricZiel\Baserow\Generated\Runtime\Clie
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
-        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\TableWebhook', 'json');
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\GetDatabaseTableWebhookBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdGetResponse400', 'json'), $response);
         }
-        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\GetDatabaseTableWebhookNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseWebhooksWebhookIdGetResponse404', 'json'), $response);
         }
     }

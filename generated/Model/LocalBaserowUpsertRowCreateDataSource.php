@@ -24,9 +24,9 @@ class LocalBaserowUpsertRowCreateDataSource extends \ArrayObject
     /**
      * The type of the service.
      *
-     * `local_baserow_get_row` - local_baserow_get_row
-     * `local_baserow_list_rows` - local_baserow_list_rows
-     * `local_baserow_upsert_row` - local_baserow_upsert_row
+     * * `local_baserow_get_row` - local_baserow_get_row
+     * * `local_baserow_list_rows` - local_baserow_list_rows
+     * * `local_baserow_upsert_row` - local_baserow_upsert_row
      *
      * @var string
      */
@@ -77,9 +77,9 @@ class LocalBaserowUpsertRowCreateDataSource extends \ArrayObject
     /**
      * The type of the service.
      *
-     * `local_baserow_get_row` - local_baserow_get_row
-     * `local_baserow_list_rows` - local_baserow_list_rows
-     * `local_baserow_upsert_row` - local_baserow_upsert_row
+     * * `local_baserow_get_row` - local_baserow_get_row
+     * * `local_baserow_list_rows` - local_baserow_list_rows
+     * * `local_baserow_upsert_row` - local_baserow_upsert_row
      */
     public function getType(): string
     {

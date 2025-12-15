@@ -58,10 +58,10 @@ class DeleteSnapshot extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEn
         if (204 === $status) {
             return null;
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\DeleteSnapshotBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiSnapshotsSnapshotIdDeleteResponse400', 'json'), $response);
         }
-        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\DeleteSnapshotNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiSnapshotsSnapshotIdDeleteResponse404', 'json'), $response);
         }
     }

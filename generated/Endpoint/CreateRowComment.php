@@ -78,13 +78,13 @@ class CreateRowComment extends \CedricZiel\Baserow\Generated\Runtime\Client\Base
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
-        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\RowComment', 'json');
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\CreateRowCommentBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdPostResponse400', 'json'), $response);
         }
-        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\CreateRowCommentNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiRowCommentsTableIdRowIdPostResponse404', 'json'), $response);
         }
     }

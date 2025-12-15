@@ -36,20 +36,20 @@ class ButtonElementCreateElement extends \ArrayObject
     /**
      * The type of the element.
      *
-     * `heading` - heading
-     * `text` - text
-     * `link` - link
-     * `image` - image
-     * `input_text` - input_text
-     * `column` - column
-     * `button` - button
-     * `table` - table
-     * `repeat` - repeat
-     * `form_container` - form_container
-     * `choice` - choice
-     * `checkbox` - checkbox
-     * `iframe` - iframe
-     * `auth_form` - auth_form
+     * * `heading` - heading
+     * * `text` - text
+     * * `link` - link
+     * * `image` - image
+     * * `input_text` - input_text
+     * * `column` - column
+     * * `button` - button
+     * * `table` - table
+     * * `repeat` - repeat
+     * * `form_container` - form_container
+     * * `choice` - choice
+     * * `checkbox` - checkbox
+     * * `iframe` - iframe
+     * * `auth_form` - auth_form
      *
      * @var string
      */
@@ -175,9 +175,9 @@ class ButtonElementCreateElement extends \ArrayObject
     /**
      * What type of background the element should have.
      *
-     * `none` - None
-     * `color` - Color
-     * `image` - Image
+     * * `none` - None
+     * * `color` - Color
+     * * `image` - Image
      *
      * @var string
      */
@@ -197,9 +197,9 @@ class ButtonElementCreateElement extends \ArrayObject
     /**
      * The mode of the background image.
      *
-     * `tile` - Tile
-     * `fill` - Fill
-     * `fit` - Fit
+     * * `tile` - Tile
+     * * `fill` - Fill
+     * * `fit` - Fit
      *
      * @var mixed|null
      */
@@ -207,11 +207,11 @@ class ButtonElementCreateElement extends \ArrayObject
     /**
      * Indicates the width of the element.
      *
-     * `full` - Full
-     * `full-width` - Full Width
-     * `normal` - Normal
-     * `medium` - Medium
-     * `small` - Small
+     * * `full` - Full
+     * * `full-width` - Full Width
+     * * `normal` - Normal
+     * * `medium` - Medium
+     * * `small` - Small
      *
      * @var string
      */
@@ -224,15 +224,15 @@ class ButtonElementCreateElement extends \ArrayObject
     protected $value = '';
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      *
      * @var string
      */
     protected $alignment;
     /**
      * * `auto` - Auto
-     * `full` - Full.
+     * * `full` - Full.
      *
      * @var string
      */
@@ -285,20 +285,20 @@ class ButtonElementCreateElement extends \ArrayObject
     /**
      * The type of the element.
      *
-     * `heading` - heading
-     * `text` - text
-     * `link` - link
-     * `image` - image
-     * `input_text` - input_text
-     * `column` - column
-     * `button` - button
-     * `table` - table
-     * `repeat` - repeat
-     * `form_container` - form_container
-     * `choice` - choice
-     * `checkbox` - checkbox
-     * `iframe` - iframe
-     * `auth_form` - auth_form
+     * * `heading` - heading
+     * * `text` - text
+     * * `link` - link
+     * * `image` - image
+     * * `input_text` - input_text
+     * * `column` - column
+     * * `button` - button
+     * * `table` - table
+     * * `repeat` - repeat
+     * * `form_container` - form_container
+     * * `choice` - choice
+     * * `checkbox` - checkbox
+     * * `iframe` - iframe
+     * * `auth_form` - auth_form
      */
     public function getType(): string
     {
@@ -708,9 +708,9 @@ class ButtonElementCreateElement extends \ArrayObject
     /**
      * What type of background the element should have.
      *
-     * `none` - None
-     * `color` - Color
-     * `image` - Image
+     * * `none` - None
+     * * `color` - Color
+     * * `image` - Image
      */
     public function getStyleBackground(): string
     {
@@ -773,9 +773,9 @@ class ButtonElementCreateElement extends \ArrayObject
     /**
      * The mode of the background image.
      *
-     * `tile` - Tile
-     * `fill` - Fill
-     * `fit` - Fit
+     * * `tile` - Tile
+     * * `fill` - Fill
+     * * `fit` - Fit
      */
     public function getStyleBackgroundMode()
     {
@@ -800,11 +800,11 @@ class ButtonElementCreateElement extends \ArrayObject
     /**
      * Indicates the width of the element.
      *
-     * `full` - Full
-     * `full-width` - Full Width
-     * `normal` - Normal
-     * `medium` - Medium
-     * `small` - Small
+     * * `full` - Full
+     * * `full-width` - Full Width
+     * * `normal` - Normal
+     * * `medium` - Medium
+     * * `small` - Small
      */
     public function getStyleWidth(): string
     {
@@ -849,8 +849,8 @@ class ButtonElementCreateElement extends \ArrayObject
 
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      */
     public function getAlignment(): string
     {
@@ -872,7 +872,7 @@ class ButtonElementCreateElement extends \ArrayObject
 
     /**
      * * `auto` - Auto
-     * `full` - Full.
+     * * `full` - Full.
      */
     public function getWidth(): string
     {

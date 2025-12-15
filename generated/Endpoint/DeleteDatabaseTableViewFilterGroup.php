@@ -78,10 +78,10 @@ class DeleteDatabaseTableViewFilterGroup extends \CedricZiel\Baserow\Generated\R
         if (204 === $status) {
             return null;
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\DeleteDatabaseTableViewFilterGroupBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdDeleteResponse400', 'json'), $response);
         }
-        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\DeleteDatabaseTableViewFilterGroupNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseViewsFilterGroupFilterGroupIdDeleteResponse404', 'json'), $response);
         }
     }

@@ -13,7 +13,6 @@ namespace CedricZiel\Baserow\Generated\Normalizer;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\CheckArray;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\ValidatorTrait;
 use Jane\Component\JsonSchemaRuntime\Reference;
-use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -21,331 +20,164 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
-    class AdminDashboardNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class AdminDashboardNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+{
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+    use CheckArray;
+    use ValidatorTrait;
+
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
-
-        public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\AdminDashboard::class === $type;
-        }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\AdminDashboard::class === get_class($data);
-        }
-
-        public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\AdminDashboard();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('total_users', $data)) {
-                $object->setTotalUsers($data['total_users']);
-                unset($data['total_users']);
-            }
-            if (\array_key_exists('total_groups', $data)) {
-                $object->setTotalGroups($data['total_groups']);
-                unset($data['total_groups']);
-            }
-            if (\array_key_exists('total_workspaces', $data)) {
-                $object->setTotalWorkspaces($data['total_workspaces']);
-                unset($data['total_workspaces']);
-            }
-            if (\array_key_exists('total_applications', $data)) {
-                $object->setTotalApplications($data['total_applications']);
-                unset($data['total_applications']);
-            }
-            if (\array_key_exists('new_users_last_24_hours', $data)) {
-                $object->setNewUsersLast24Hours($data['new_users_last_24_hours']);
-                unset($data['new_users_last_24_hours']);
-            }
-            if (\array_key_exists('new_users_last_7_days', $data)) {
-                $object->setNewUsersLast7Days($data['new_users_last_7_days']);
-                unset($data['new_users_last_7_days']);
-            }
-            if (\array_key_exists('new_users_last_30_days', $data)) {
-                $object->setNewUsersLast30Days($data['new_users_last_30_days']);
-                unset($data['new_users_last_30_days']);
-            }
-            if (\array_key_exists('previous_new_users_last_24_hours', $data)) {
-                $object->setPreviousNewUsersLast24Hours($data['previous_new_users_last_24_hours']);
-                unset($data['previous_new_users_last_24_hours']);
-            }
-            if (\array_key_exists('previous_new_users_last_7_days', $data)) {
-                $object->setPreviousNewUsersLast7Days($data['previous_new_users_last_7_days']);
-                unset($data['previous_new_users_last_7_days']);
-            }
-            if (\array_key_exists('previous_new_users_last_30_days', $data)) {
-                $object->setPreviousNewUsersLast30Days($data['previous_new_users_last_30_days']);
-                unset($data['previous_new_users_last_30_days']);
-            }
-            if (\array_key_exists('active_users_last_24_hours', $data)) {
-                $object->setActiveUsersLast24Hours($data['active_users_last_24_hours']);
-                unset($data['active_users_last_24_hours']);
-            }
-            if (\array_key_exists('active_users_last_7_days', $data)) {
-                $object->setActiveUsersLast7Days($data['active_users_last_7_days']);
-                unset($data['active_users_last_7_days']);
-            }
-            if (\array_key_exists('active_users_last_30_days', $data)) {
-                $object->setActiveUsersLast30Days($data['active_users_last_30_days']);
-                unset($data['active_users_last_30_days']);
-            }
-            if (\array_key_exists('previous_active_users_last_24_hours', $data)) {
-                $object->setPreviousActiveUsersLast24Hours($data['previous_active_users_last_24_hours']);
-                unset($data['previous_active_users_last_24_hours']);
-            }
-            if (\array_key_exists('previous_active_users_last_7_days', $data)) {
-                $object->setPreviousActiveUsersLast7Days($data['previous_active_users_last_7_days']);
-                unset($data['previous_active_users_last_7_days']);
-            }
-            if (\array_key_exists('previous_active_users_last_30_days', $data)) {
-                $object->setPreviousActiveUsersLast30Days($data['previous_active_users_last_30_days']);
-                unset($data['previous_active_users_last_30_days']);
-            }
-            if (\array_key_exists('new_users_per_day', $data)) {
-                $values = [];
-                foreach ($data['new_users_per_day'] as $value) {
-                    $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\AdminDashboardPerDay::class, 'json', $context);
-                }
-                $object->setNewUsersPerDay($values);
-                unset($data['new_users_per_day']);
-            }
-            if (\array_key_exists('active_users_per_day', $data)) {
-                $values_1 = [];
-                foreach ($data['active_users_per_day'] as $value_1) {
-                    $values_1[] = $this->denormalizer->denormalize($value_1, \CedricZiel\Baserow\Generated\Model\AdminDashboardPerDay::class, 'json', $context);
-                }
-                $object->setActiveUsersPerDay($values_1);
-                unset($data['active_users_per_day']);
-            }
-            foreach ($data as $key => $value_2) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value_2;
-                }
-            }
-
-            return $object;
-        }
-
-        public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
-        {
-            $data = [];
-            $data['total_users'] = $object->getTotalUsers();
-            $data['total_groups'] = $object->getTotalGroups();
-            $data['total_workspaces'] = $object->getTotalWorkspaces();
-            $data['total_applications'] = $object->getTotalApplications();
-            $data['new_users_last_24_hours'] = $object->getNewUsersLast24Hours();
-            $data['new_users_last_7_days'] = $object->getNewUsersLast7Days();
-            $data['new_users_last_30_days'] = $object->getNewUsersLast30Days();
-            $data['previous_new_users_last_24_hours'] = $object->getPreviousNewUsersLast24Hours();
-            $data['previous_new_users_last_7_days'] = $object->getPreviousNewUsersLast7Days();
-            $data['previous_new_users_last_30_days'] = $object->getPreviousNewUsersLast30Days();
-            $data['active_users_last_24_hours'] = $object->getActiveUsersLast24Hours();
-            $data['active_users_last_7_days'] = $object->getActiveUsersLast7Days();
-            $data['active_users_last_30_days'] = $object->getActiveUsersLast30Days();
-            $data['previous_active_users_last_24_hours'] = $object->getPreviousActiveUsersLast24Hours();
-            $data['previous_active_users_last_7_days'] = $object->getPreviousActiveUsersLast7Days();
-            $data['previous_active_users_last_30_days'] = $object->getPreviousActiveUsersLast30Days();
-            $values = [];
-            foreach ($object->getNewUsersPerDay() as $value) {
-                $values[] = $this->normalizer->normalize($value, 'json', $context);
-            }
-            $data['new_users_per_day'] = $values;
-            $values_1 = [];
-            foreach ($object->getActiveUsersPerDay() as $value_1) {
-                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
-            }
-            $data['active_users_per_day'] = $values_1;
-            foreach ($object as $key => $value_2) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value_2;
-                }
-            }
-
-            return $data;
-        }
-
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\AdminDashboard::class => false];
-        }
+        return \CedricZiel\Baserow\Generated\Model\AdminDashboard::class === $type;
     }
-} else {
-    class AdminDashboardNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
+        return is_object($data) && \CedricZiel\Baserow\Generated\Model\AdminDashboard::class === get_class($data);
+    }
 
-        public function supportsDenormalization($data, $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\AdminDashboard::class === $type;
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
+    {
+        if (isset($data['$ref'])) {
+            return new Reference($data['$ref'], $context['document-origin']);
         }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\AdminDashboard::class === get_class($data);
+        if (isset($data['$recursiveRef'])) {
+            return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-
-        public function denormalize($data, $type, $format = null, array $context = [])
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\AdminDashboard();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('total_users', $data)) {
-                $object->setTotalUsers($data['total_users']);
-                unset($data['total_users']);
-            }
-            if (\array_key_exists('total_groups', $data)) {
-                $object->setTotalGroups($data['total_groups']);
-                unset($data['total_groups']);
-            }
-            if (\array_key_exists('total_workspaces', $data)) {
-                $object->setTotalWorkspaces($data['total_workspaces']);
-                unset($data['total_workspaces']);
-            }
-            if (\array_key_exists('total_applications', $data)) {
-                $object->setTotalApplications($data['total_applications']);
-                unset($data['total_applications']);
-            }
-            if (\array_key_exists('new_users_last_24_hours', $data)) {
-                $object->setNewUsersLast24Hours($data['new_users_last_24_hours']);
-                unset($data['new_users_last_24_hours']);
-            }
-            if (\array_key_exists('new_users_last_7_days', $data)) {
-                $object->setNewUsersLast7Days($data['new_users_last_7_days']);
-                unset($data['new_users_last_7_days']);
-            }
-            if (\array_key_exists('new_users_last_30_days', $data)) {
-                $object->setNewUsersLast30Days($data['new_users_last_30_days']);
-                unset($data['new_users_last_30_days']);
-            }
-            if (\array_key_exists('previous_new_users_last_24_hours', $data)) {
-                $object->setPreviousNewUsersLast24Hours($data['previous_new_users_last_24_hours']);
-                unset($data['previous_new_users_last_24_hours']);
-            }
-            if (\array_key_exists('previous_new_users_last_7_days', $data)) {
-                $object->setPreviousNewUsersLast7Days($data['previous_new_users_last_7_days']);
-                unset($data['previous_new_users_last_7_days']);
-            }
-            if (\array_key_exists('previous_new_users_last_30_days', $data)) {
-                $object->setPreviousNewUsersLast30Days($data['previous_new_users_last_30_days']);
-                unset($data['previous_new_users_last_30_days']);
-            }
-            if (\array_key_exists('active_users_last_24_hours', $data)) {
-                $object->setActiveUsersLast24Hours($data['active_users_last_24_hours']);
-                unset($data['active_users_last_24_hours']);
-            }
-            if (\array_key_exists('active_users_last_7_days', $data)) {
-                $object->setActiveUsersLast7Days($data['active_users_last_7_days']);
-                unset($data['active_users_last_7_days']);
-            }
-            if (\array_key_exists('active_users_last_30_days', $data)) {
-                $object->setActiveUsersLast30Days($data['active_users_last_30_days']);
-                unset($data['active_users_last_30_days']);
-            }
-            if (\array_key_exists('previous_active_users_last_24_hours', $data)) {
-                $object->setPreviousActiveUsersLast24Hours($data['previous_active_users_last_24_hours']);
-                unset($data['previous_active_users_last_24_hours']);
-            }
-            if (\array_key_exists('previous_active_users_last_7_days', $data)) {
-                $object->setPreviousActiveUsersLast7Days($data['previous_active_users_last_7_days']);
-                unset($data['previous_active_users_last_7_days']);
-            }
-            if (\array_key_exists('previous_active_users_last_30_days', $data)) {
-                $object->setPreviousActiveUsersLast30Days($data['previous_active_users_last_30_days']);
-                unset($data['previous_active_users_last_30_days']);
-            }
-            if (\array_key_exists('new_users_per_day', $data)) {
-                $values = [];
-                foreach ($data['new_users_per_day'] as $value) {
-                    $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\AdminDashboardPerDay::class, 'json', $context);
-                }
-                $object->setNewUsersPerDay($values);
-                unset($data['new_users_per_day']);
-            }
-            if (\array_key_exists('active_users_per_day', $data)) {
-                $values_1 = [];
-                foreach ($data['active_users_per_day'] as $value_1) {
-                    $values_1[] = $this->denormalizer->denormalize($value_1, \CedricZiel\Baserow\Generated\Model\AdminDashboardPerDay::class, 'json', $context);
-                }
-                $object->setActiveUsersPerDay($values_1);
-                unset($data['active_users_per_day']);
-            }
-            foreach ($data as $key => $value_2) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value_2;
-                }
-            }
-
+        $object = new \CedricZiel\Baserow\Generated\Model\AdminDashboard();
+        if (null === $data || false === \is_array($data)) {
             return $object;
         }
-
-        /**
-         * @return array|string|int|float|bool|\ArrayObject|null
-         */
-        public function normalize($object, $format = null, array $context = [])
-        {
-            $data = [];
-            $data['total_users'] = $object->getTotalUsers();
-            $data['total_groups'] = $object->getTotalGroups();
-            $data['total_workspaces'] = $object->getTotalWorkspaces();
-            $data['total_applications'] = $object->getTotalApplications();
-            $data['new_users_last_24_hours'] = $object->getNewUsersLast24Hours();
-            $data['new_users_last_7_days'] = $object->getNewUsersLast7Days();
-            $data['new_users_last_30_days'] = $object->getNewUsersLast30Days();
-            $data['previous_new_users_last_24_hours'] = $object->getPreviousNewUsersLast24Hours();
-            $data['previous_new_users_last_7_days'] = $object->getPreviousNewUsersLast7Days();
-            $data['previous_new_users_last_30_days'] = $object->getPreviousNewUsersLast30Days();
-            $data['active_users_last_24_hours'] = $object->getActiveUsersLast24Hours();
-            $data['active_users_last_7_days'] = $object->getActiveUsersLast7Days();
-            $data['active_users_last_30_days'] = $object->getActiveUsersLast30Days();
-            $data['previous_active_users_last_24_hours'] = $object->getPreviousActiveUsersLast24Hours();
-            $data['previous_active_users_last_7_days'] = $object->getPreviousActiveUsersLast7Days();
-            $data['previous_active_users_last_30_days'] = $object->getPreviousActiveUsersLast30Days();
+        if (\array_key_exists('total_users', $data)) {
+            $object->setTotalUsers($data['total_users']);
+            unset($data['total_users']);
+        }
+        if (\array_key_exists('total_groups', $data)) {
+            $object->setTotalGroups($data['total_groups']);
+            unset($data['total_groups']);
+        }
+        if (\array_key_exists('total_workspaces', $data)) {
+            $object->setTotalWorkspaces($data['total_workspaces']);
+            unset($data['total_workspaces']);
+        }
+        if (\array_key_exists('total_applications', $data)) {
+            $object->setTotalApplications($data['total_applications']);
+            unset($data['total_applications']);
+        }
+        if (\array_key_exists('new_users_last_24_hours', $data)) {
+            $object->setNewUsersLast24Hours($data['new_users_last_24_hours']);
+            unset($data['new_users_last_24_hours']);
+        }
+        if (\array_key_exists('new_users_last_7_days', $data)) {
+            $object->setNewUsersLast7Days($data['new_users_last_7_days']);
+            unset($data['new_users_last_7_days']);
+        }
+        if (\array_key_exists('new_users_last_30_days', $data)) {
+            $object->setNewUsersLast30Days($data['new_users_last_30_days']);
+            unset($data['new_users_last_30_days']);
+        }
+        if (\array_key_exists('previous_new_users_last_24_hours', $data)) {
+            $object->setPreviousNewUsersLast24Hours($data['previous_new_users_last_24_hours']);
+            unset($data['previous_new_users_last_24_hours']);
+        }
+        if (\array_key_exists('previous_new_users_last_7_days', $data)) {
+            $object->setPreviousNewUsersLast7Days($data['previous_new_users_last_7_days']);
+            unset($data['previous_new_users_last_7_days']);
+        }
+        if (\array_key_exists('previous_new_users_last_30_days', $data)) {
+            $object->setPreviousNewUsersLast30Days($data['previous_new_users_last_30_days']);
+            unset($data['previous_new_users_last_30_days']);
+        }
+        if (\array_key_exists('active_users_last_24_hours', $data)) {
+            $object->setActiveUsersLast24Hours($data['active_users_last_24_hours']);
+            unset($data['active_users_last_24_hours']);
+        }
+        if (\array_key_exists('active_users_last_7_days', $data)) {
+            $object->setActiveUsersLast7Days($data['active_users_last_7_days']);
+            unset($data['active_users_last_7_days']);
+        }
+        if (\array_key_exists('active_users_last_30_days', $data)) {
+            $object->setActiveUsersLast30Days($data['active_users_last_30_days']);
+            unset($data['active_users_last_30_days']);
+        }
+        if (\array_key_exists('previous_active_users_last_24_hours', $data)) {
+            $object->setPreviousActiveUsersLast24Hours($data['previous_active_users_last_24_hours']);
+            unset($data['previous_active_users_last_24_hours']);
+        }
+        if (\array_key_exists('previous_active_users_last_7_days', $data)) {
+            $object->setPreviousActiveUsersLast7Days($data['previous_active_users_last_7_days']);
+            unset($data['previous_active_users_last_7_days']);
+        }
+        if (\array_key_exists('previous_active_users_last_30_days', $data)) {
+            $object->setPreviousActiveUsersLast30Days($data['previous_active_users_last_30_days']);
+            unset($data['previous_active_users_last_30_days']);
+        }
+        if (\array_key_exists('new_users_per_day', $data)) {
             $values = [];
-            foreach ($object->getNewUsersPerDay() as $value) {
-                $values[] = $this->normalizer->normalize($value, 'json', $context);
+            foreach ($data['new_users_per_day'] as $value) {
+                $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\AdminDashboardPerDay::class, 'json', $context);
             }
-            $data['new_users_per_day'] = $values;
+            $object->setNewUsersPerDay($values);
+            unset($data['new_users_per_day']);
+        }
+        if (\array_key_exists('active_users_per_day', $data)) {
             $values_1 = [];
-            foreach ($object->getActiveUsersPerDay() as $value_1) {
-                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
+            foreach ($data['active_users_per_day'] as $value_1) {
+                $values_1[] = $this->denormalizer->denormalize($value_1, \CedricZiel\Baserow\Generated\Model\AdminDashboardPerDay::class, 'json', $context);
             }
-            $data['active_users_per_day'] = $values_1;
-            foreach ($object as $key => $value_2) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value_2;
-                }
+            $object->setActiveUsersPerDay($values_1);
+            unset($data['active_users_per_day']);
+        }
+        foreach ($data as $key => $value_2) {
+            if (preg_match('/.*/', (string) $key)) {
+                $object[$key] = $value_2;
             }
-
-            return $data;
         }
 
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\AdminDashboard::class => false];
+        return $object;
+    }
+
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    {
+        $dataArray = [];
+        $dataArray['total_users'] = $data->getTotalUsers();
+        $dataArray['total_groups'] = $data->getTotalGroups();
+        $dataArray['total_workspaces'] = $data->getTotalWorkspaces();
+        $dataArray['total_applications'] = $data->getTotalApplications();
+        $dataArray['new_users_last_24_hours'] = $data->getNewUsersLast24Hours();
+        $dataArray['new_users_last_7_days'] = $data->getNewUsersLast7Days();
+        $dataArray['new_users_last_30_days'] = $data->getNewUsersLast30Days();
+        $dataArray['previous_new_users_last_24_hours'] = $data->getPreviousNewUsersLast24Hours();
+        $dataArray['previous_new_users_last_7_days'] = $data->getPreviousNewUsersLast7Days();
+        $dataArray['previous_new_users_last_30_days'] = $data->getPreviousNewUsersLast30Days();
+        $dataArray['active_users_last_24_hours'] = $data->getActiveUsersLast24Hours();
+        $dataArray['active_users_last_7_days'] = $data->getActiveUsersLast7Days();
+        $dataArray['active_users_last_30_days'] = $data->getActiveUsersLast30Days();
+        $dataArray['previous_active_users_last_24_hours'] = $data->getPreviousActiveUsersLast24Hours();
+        $dataArray['previous_active_users_last_7_days'] = $data->getPreviousActiveUsersLast7Days();
+        $dataArray['previous_active_users_last_30_days'] = $data->getPreviousActiveUsersLast30Days();
+        $values = [];
+        foreach ($data->getNewUsersPerDay() as $value) {
+            $values[] = $this->normalizer->normalize($value, 'json', $context);
         }
+        $dataArray['new_users_per_day'] = $values;
+        $values_1 = [];
+        foreach ($data->getActiveUsersPerDay() as $value_1) {
+            $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
+        }
+        $dataArray['active_users_per_day'] = $values_1;
+        foreach ($data as $key => $value_2) {
+            if (preg_match('/.*/', (string) $key)) {
+                $dataArray[$key] = $value_2;
+            }
+        }
+
+        return $dataArray;
+    }
+
+    public function getSupportedTypes(?string $format = null): array
+    {
+        return [\CedricZiel\Baserow\Generated\Model\AdminDashboard::class => false];
     }
 }

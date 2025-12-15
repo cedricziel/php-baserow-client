@@ -41,7 +41,7 @@ class ListDatabaseTokens extends \CedricZiel\Baserow\Generated\Runtime\Client\Ba
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
-        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\Token[]', 'json');
         }
     }

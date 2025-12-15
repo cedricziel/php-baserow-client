@@ -58,10 +58,10 @@ class MarkAllWorkspaceNotificationsAsRead extends \CedricZiel\Baserow\Generated\
         if (204 === $status) {
             return null;
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\MarkAllWorkspaceNotificationsAsReadBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdMarkAllAsReadPostResponse400', 'json'), $response);
         }
-        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\MarkAllWorkspaceNotificationsAsReadNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdMarkAllAsReadPostResponse404', 'json'), $response);
         }
     }

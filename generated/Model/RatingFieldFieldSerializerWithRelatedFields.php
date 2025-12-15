@@ -84,11 +84,11 @@ class RatingFieldFieldSerializerWithRelatedFields extends \ArrayObject
     /**
      * Rating style. Allowed values: star, heart, thumbs-up, flag, smile.
      *
-     * `star` - Star
-     * `heart` - Heart
-     * `thumbs-up` - Thumbs-up
-     * `flag` - Flags
-     * `smile` - Smile
+     * * `star` - Star
+     * * `heart` - Heart
+     * * `thumbs-up` - Thumbs-up
+     * * `flag` - Flags
+     * * `smile` - Smile
      *
      * @var string
      */
@@ -292,11 +292,11 @@ class RatingFieldFieldSerializerWithRelatedFields extends \ArrayObject
     /**
      * Rating style. Allowed values: star, heart, thumbs-up, flag, smile.
      *
-     * `star` - Star
-     * `heart` - Heart
-     * `thumbs-up` - Thumbs-up
-     * `flag` - Flags
-     * `smile` - Smile
+     * * `star` - Star
+     * * `heart` - Heart
+     * * `thumbs-up` - Thumbs-up
+     * * `flag` - Flags
+     * * `smile` - Smile
      */
     public function getStyle(): string
     {

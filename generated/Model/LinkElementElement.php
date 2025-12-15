@@ -55,8 +55,8 @@ class LinkElementElement extends \ArrayObject
     protected $placeInContainer;
     /**
      * * `all` - All
-     * `logged-in` - Logged In
-     * `not-logged` - Not Logged.
+     * * `logged-in` - Logged In
+     * * `not-logged` - Not Logged.
      *
      * @var string
      */
@@ -166,9 +166,9 @@ class LinkElementElement extends \ArrayObject
     /**
      * What type of background the element should have.
      *
-     * `none` - None
-     * `color` - Color
-     * `image` - Image
+     * * `none` - None
+     * * `color` - Color
+     * * `image` - Image
      *
      * @var string
      */
@@ -188,9 +188,9 @@ class LinkElementElement extends \ArrayObject
     /**
      * The mode of the background image.
      *
-     * `tile` - Tile
-     * `fill` - Fill
-     * `fit` - Fit
+     * * `tile` - Tile
+     * * `fill` - Fill
+     * * `fit` - Fit
      *
      * @var mixed|null
      */
@@ -198,11 +198,11 @@ class LinkElementElement extends \ArrayObject
     /**
      * Indicates the width of the element.
      *
-     * `full` - Full
-     * `full-width` - Full Width
-     * `normal` - Normal
-     * `medium` - Medium
-     * `small` - Small
+     * * `full` - Full
+     * * `full-width` - Full Width
+     * * `normal` - Normal
+     * * `medium` - Medium
+     * * `small` - Small
      *
      * @var string
      */
@@ -220,8 +220,8 @@ class LinkElementElement extends \ArrayObject
     /**
      * The navigation type.
      *
-     * `page` - Page
-     * `custom` - Custom
+     * * `page` - Page
+     * * `custom` - Custom
      *
      * @var string
      */
@@ -247,8 +247,8 @@ class LinkElementElement extends \ArrayObject
     /**
      * The target of the link when we click on it.
      *
-     * `self` - Self
-     * `blank` - Blank
+     * * `self` - Self
+     * * `blank` - Blank
      *
      * @var string
      */
@@ -262,23 +262,23 @@ class LinkElementElement extends \ArrayObject
     /**
      * The variant of the link.
      *
-     * `link` - Link
-     * `button` - Button
+     * * `link` - Link
+     * * `button` - Button
      *
      * @var string
      */
     protected $variant;
     /**
      * * `auto` - Auto
-     * `full` - Full.
+     * * `full` - Full.
      *
      * @var string
      */
     protected $width;
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      *
      * @var string
      */
@@ -394,8 +394,8 @@ class LinkElementElement extends \ArrayObject
 
     /**
      * * `all` - All
-     * `logged-in` - Logged In
-     * `not-logged` - Not Logged.
+     * * `logged-in` - Logged In
+     * * `not-logged` - Not Logged.
      */
     public function getVisibility(): string
     {
@@ -741,9 +741,9 @@ class LinkElementElement extends \ArrayObject
     /**
      * What type of background the element should have.
      *
-     * `none` - None
-     * `color` - Color
-     * `image` - Image
+     * * `none` - None
+     * * `color` - Color
+     * * `image` - Image
      */
     public function getStyleBackground(): string
     {
@@ -806,9 +806,9 @@ class LinkElementElement extends \ArrayObject
     /**
      * The mode of the background image.
      *
-     * `tile` - Tile
-     * `fill` - Fill
-     * `fit` - Fit
+     * * `tile` - Tile
+     * * `fill` - Fill
+     * * `fit` - Fit
      */
     public function getStyleBackgroundMode()
     {
@@ -833,11 +833,11 @@ class LinkElementElement extends \ArrayObject
     /**
      * Indicates the width of the element.
      *
-     * `full` - Full
-     * `full-width` - Full Width
-     * `normal` - Normal
-     * `medium` - Medium
-     * `small` - Small
+     * * `full` - Full
+     * * `full-width` - Full Width
+     * * `normal` - Normal
+     * * `medium` - Medium
+     * * `small` - Small
      */
     public function getStyleWidth(): string
     {
@@ -896,8 +896,8 @@ class LinkElementElement extends \ArrayObject
     /**
      * The navigation type.
      *
-     * `page` - Page
-     * `custom` - Custom
+     * * `page` - Page
+     * * `custom` - Custom
      */
     public function getNavigationType(): string
     {
@@ -982,8 +982,8 @@ class LinkElementElement extends \ArrayObject
     /**
      * The target of the link when we click on it.
      *
-     * `self` - Self
-     * `blank` - Blank
+     * * `self` - Self
+     * * `blank` - Blank
      */
     public function getTarget(): string
     {
@@ -1026,8 +1026,8 @@ class LinkElementElement extends \ArrayObject
     /**
      * The variant of the link.
      *
-     * `link` - Link
-     * `button` - Button
+     * * `link` - Link
+     * * `button` - Button
      */
     public function getVariant(): string
     {
@@ -1050,7 +1050,7 @@ class LinkElementElement extends \ArrayObject
 
     /**
      * * `auto` - Auto
-     * `full` - Full.
+     * * `full` - Full.
      */
     public function getWidth(): string
     {
@@ -1071,8 +1071,8 @@ class LinkElementElement extends \ArrayObject
 
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      */
     public function getAlignment(): string
     {

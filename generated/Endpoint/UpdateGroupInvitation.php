@@ -18,9 +18,9 @@ class UpdateGroupInvitation extends \CedricZiel\Baserow\Generated\Runtime\Client
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [update_workspace_invitation](#tag/Workspace-invitations/operation/update_workspace_invitation).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Updates the existing group invitation related to the provided `group_invitation_id` param if the authorized user has admin rights to the related group.
+     *  Updates the existing group invitation related to the provided `group_invitation_id` param if the authorized user has admin rights to the related group.
      *
      * @param int $groupInvitationId updates the group invitation related to the provided value
      */
@@ -77,13 +77,13 @@ class UpdateGroupInvitation extends \CedricZiel\Baserow\Generated\Runtime\Client
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
-        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\WorkspaceInvitation', 'json');
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\UpdateGroupInvitationBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdPatchResponse400', 'json'), $response);
         }
-        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\UpdateGroupInvitationNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdPatchResponse404', 'json'), $response);
         }
     }

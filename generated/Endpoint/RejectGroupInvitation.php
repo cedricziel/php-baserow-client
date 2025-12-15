@@ -18,9 +18,9 @@ class RejectGroupInvitation extends \CedricZiel\Baserow\Generated\Runtime\Client
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [reject_workspace_invitation](#tag/Workspace-invitations/operation/reject_workspace_invitation).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Rejects a group invitation with the given id if the email address of the user matches that of the invitation.
+     *  Rejects a group invitation with the given id if the email address of the user matches that of the invitation.
      *
      * @param int $groupInvitationId rejects the group invitation related to the provided value
      */
@@ -62,10 +62,10 @@ class RejectGroupInvitation extends \CedricZiel\Baserow\Generated\Runtime\Client
         if (204 === $status) {
             return null;
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\RejectGroupInvitationBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdRejectPostResponse400', 'json'), $response);
         }
-        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\RejectGroupInvitationNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdRejectPostResponse404', 'json'), $response);
         }
     }

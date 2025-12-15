@@ -18,7 +18,7 @@ class DeleteGroupUser extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseE
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [delete_workspace_user](#tag/Workspaces/operation/delete_workspace_user).**.
      *
-     * Deletes a group user if the authorized user has admin rights to the related group.
+     *  Deletes a group user if the authorized user has admin rights to the related group.
      *
      * @param int $groupUserId deletes the group user related to the provided value
      */
@@ -60,10 +60,10 @@ class DeleteGroupUser extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseE
         if (204 === $status) {
             return null;
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\DeleteGroupUserBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse400', 'json'), $response);
         }
-        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\DeleteGroupUserNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiGroupsUsersGroupUserIdDeleteResponse404', 'json'), $response);
         }
     }

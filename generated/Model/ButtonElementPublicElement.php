@@ -51,8 +51,8 @@ class ButtonElementPublicElement extends \ArrayObject
     protected $placeInContainer;
     /**
      * * `all` - All
-     * `logged-in` - Logged In
-     * `not-logged` - Not Logged.
+     * * `logged-in` - Logged In
+     * * `not-logged` - Not Logged.
      *
      * @var string
      */
@@ -162,9 +162,9 @@ class ButtonElementPublicElement extends \ArrayObject
     /**
      * What type of background the element should have.
      *
-     * `none` - None
-     * `color` - Color
-     * `image` - Image
+     * * `none` - None
+     * * `color` - Color
+     * * `image` - Image
      *
      * @var string
      */
@@ -184,9 +184,9 @@ class ButtonElementPublicElement extends \ArrayObject
     /**
      * The mode of the background image.
      *
-     * `tile` - Tile
-     * `fill` - Fill
-     * `fit` - Fit
+     * * `tile` - Tile
+     * * `fill` - Fill
+     * * `fit` - Fit
      *
      * @var mixed|null
      */
@@ -194,11 +194,11 @@ class ButtonElementPublicElement extends \ArrayObject
     /**
      * Indicates the width of the element.
      *
-     * `full` - Full
-     * `full-width` - Full Width
-     * `normal` - Normal
-     * `medium` - Medium
-     * `small` - Small
+     * * `full` - Full
+     * * `full-width` - Full Width
+     * * `normal` - Normal
+     * * `medium` - Medium
+     * * `small` - Small
      *
      * @var string
      */
@@ -221,15 +221,15 @@ class ButtonElementPublicElement extends \ArrayObject
     protected $value = '';
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      *
      * @var string
      */
     protected $alignment;
     /**
      * * `auto` - Auto
-     * `full` - Full.
+     * * `full` - Full.
      *
      * @var string
      */
@@ -332,8 +332,8 @@ class ButtonElementPublicElement extends \ArrayObject
 
     /**
      * * `all` - All
-     * `logged-in` - Logged In
-     * `not-logged` - Not Logged.
+     * * `logged-in` - Logged In
+     * * `not-logged` - Not Logged.
      */
     public function getVisibility(): string
     {
@@ -679,9 +679,9 @@ class ButtonElementPublicElement extends \ArrayObject
     /**
      * What type of background the element should have.
      *
-     * `none` - None
-     * `color` - Color
-     * `image` - Image
+     * * `none` - None
+     * * `color` - Color
+     * * `image` - Image
      */
     public function getStyleBackground(): string
     {
@@ -744,9 +744,9 @@ class ButtonElementPublicElement extends \ArrayObject
     /**
      * The mode of the background image.
      *
-     * `tile` - Tile
-     * `fill` - Fill
-     * `fit` - Fit
+     * * `tile` - Tile
+     * * `fill` - Fill
+     * * `fit` - Fit
      */
     public function getStyleBackgroundMode()
     {
@@ -771,11 +771,11 @@ class ButtonElementPublicElement extends \ArrayObject
     /**
      * Indicates the width of the element.
      *
-     * `full` - Full
-     * `full-width` - Full Width
-     * `normal` - Normal
-     * `medium` - Medium
-     * `small` - Small
+     * * `full` - Full
+     * * `full-width` - Full Width
+     * * `normal` - Normal
+     * * `medium` - Medium
+     * * `small` - Small
      */
     public function getStyleWidth(): string
     {
@@ -852,8 +852,8 @@ class ButtonElementPublicElement extends \ArrayObject
 
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      */
     public function getAlignment(): string
     {
@@ -875,7 +875,7 @@ class ButtonElementPublicElement extends \ArrayObject
 
     /**
      * * `auto` - Auto
-     * `full` - Full.
+     * * `full` - Full.
      */
     public function getWidth(): string
     {

@@ -18,9 +18,9 @@ class GroupCreateTeam extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseE
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [workspace_create_team](#tag/Teams/operation/create_workspace).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Creates a new team in a given group.
+     *  Creates a new team in a given group.
      *
      * @param array $headerParameters {
      *
@@ -92,13 +92,13 @@ class GroupCreateTeam extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseE
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
-        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\TeamResponse', 'json');
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\GroupCreateTeamBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiTeamsGroupGroupIdPostResponse400', 'json'), $response);
         }
-        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\GroupCreateTeamNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiTeamsGroupGroupIdPostResponse404', 'json'), $response);
         }
     }

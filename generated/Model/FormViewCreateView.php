@@ -27,10 +27,10 @@ class FormViewCreateView extends \ArrayObject
     protected $name;
     /**
      * * `grid` - grid
-     * `gallery` - gallery
-     * `form` - form
-     * `kanban` - kanban
-     * `calendar` - calendar.
+     * * `gallery` - gallery
+     * * `form` - form
+     * * `kanban` - kanban
+     * * `calendar` - calendar.
      *
      * @var string
      */
@@ -42,8 +42,8 @@ class FormViewCreateView extends \ArrayObject
     /**
      * Indicates whether all the rows should apply to all filters (AND) or to any filter (OR).
      *
-     * `AND` - And
-     * `OR` - Or
+     * * `AND` - And
+     * * `OR` - Or
      *
      * @var string
      */
@@ -69,8 +69,8 @@ class FormViewCreateView extends \ArrayObject
     /**
      * Configurable mode of the form.
      *
-     * `form` - form
-     * `survey` - survey
+     * * `form` - form
+     * * `survey` - survey
      *
      * @var string
      */
@@ -96,8 +96,8 @@ class FormViewCreateView extends \ArrayObject
     /**
      * The action that must be performed after the visitor has filled out the form.
      *
-     * `MESSAGE` - Message
-     * `REDIRECT` - Redirect
+     * * `MESSAGE` - Message
+     * * `REDIRECT` - Redirect
      *
      * @var string
      */
@@ -148,10 +148,10 @@ class FormViewCreateView extends \ArrayObject
 
     /**
      * * `grid` - grid
-     * `gallery` - gallery
-     * `form` - form
-     * `kanban` - kanban
-     * `calendar` - calendar.
+     * * `gallery` - gallery
+     * * `form` - form
+     * * `kanban` - kanban
+     * * `calendar` - calendar.
      */
     public function getType(): string
     {
@@ -189,8 +189,8 @@ class FormViewCreateView extends \ArrayObject
     /**
      * Indicates whether all the rows should apply to all filters (AND) or to any filter (OR).
      *
-     * `AND` - And
-     * `OR` - Or
+     * * `AND` - And
+     * * `OR` - Or
      */
     public function getFilterType(): string
     {
@@ -271,8 +271,8 @@ class FormViewCreateView extends \ArrayObject
     /**
      * Configurable mode of the form.
      *
-     * `form` - form
-     * `survey` - survey
+     * * `form` - form
+     * * `survey` - survey
      */
     public function getMode(): string
     {
@@ -353,8 +353,8 @@ class FormViewCreateView extends \ArrayObject
     /**
      * The action that must be performed after the visitor has filled out the form.
      *
-     * `MESSAGE` - Message
-     * `REDIRECT` - Redirect
+     * * `MESSAGE` - Message
+     * * `REDIRECT` - Redirect
      */
     public function getSubmitAction(): string
     {

@@ -28,8 +28,8 @@ class FormViewFieldOptionsConditionGroup extends \ArrayObject
     /**
      * Indicates whether all the rows should apply to all filters (AND) or to any filter (OR) in the group to be shown.
      *
-     * `AND` - And
-     * `OR` - Or
+     * * `AND` - And
+     * * `OR` - Or
      *
      * @var string
      */
@@ -55,8 +55,8 @@ class FormViewFieldOptionsConditionGroup extends \ArrayObject
     /**
      * Indicates whether all the rows should apply to all filters (AND) or to any filter (OR) in the group to be shown.
      *
-     * `AND` - And
-     * `OR` - Or
+     * * `AND` - And
+     * * `OR` - Or
      */
     public function getFilterType(): string
     {

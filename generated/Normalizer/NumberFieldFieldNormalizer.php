@@ -13,7 +13,6 @@ namespace CedricZiel\Baserow\Generated\Normalizer;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\CheckArray;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\ValidatorTrait;
 use Jane\Component\JsonSchemaRuntime\Reference;
-use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -21,231 +20,123 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
-    class NumberFieldFieldNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class NumberFieldFieldNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+{
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+    use CheckArray;
+    use ValidatorTrait;
+
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
-
-        public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\NumberFieldField::class === $type;
-        }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\NumberFieldField::class === get_class($data);
-        }
-
-        public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\NumberFieldField();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('id', $data)) {
-                $object->setId($data['id']);
-                unset($data['id']);
-            }
-            if (\array_key_exists('table_id', $data)) {
-                $object->setTableId($data['table_id']);
-                unset($data['table_id']);
-            }
-            if (\array_key_exists('name', $data)) {
-                $object->setName($data['name']);
-                unset($data['name']);
-            }
-            if (\array_key_exists('order', $data)) {
-                $object->setOrder($data['order']);
-                unset($data['order']);
-            }
-            if (\array_key_exists('type', $data)) {
-                $object->setType($data['type']);
-                unset($data['type']);
-            }
-            if (\array_key_exists('primary', $data)) {
-                $object->setPrimary($data['primary']);
-                unset($data['primary']);
-            }
-            if (\array_key_exists('read_only', $data)) {
-                $object->setReadOnly($data['read_only']);
-                unset($data['read_only']);
-            }
-            if (\array_key_exists('description', $data) && null !== $data['description']) {
-                $object->setDescription($data['description']);
-                unset($data['description']);
-            } elseif (\array_key_exists('description', $data) && null === $data['description']) {
-                $object->setDescription(null);
-            }
-            if (\array_key_exists('number_decimal_places', $data)) {
-                $object->setNumberDecimalPlaces($data['number_decimal_places']);
-                unset($data['number_decimal_places']);
-            }
-            if (\array_key_exists('number_negative', $data)) {
-                $object->setNumberNegative($data['number_negative']);
-                unset($data['number_negative']);
-            }
-            foreach ($data as $key => $value) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value;
-                }
-            }
-
-            return $object;
-        }
-
-        public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
-        {
-            $data = [];
-            $data['name'] = $object->getName();
-            $data['order'] = $object->getOrder();
-            if ($object->isInitialized('primary') && null !== $object->getPrimary()) {
-                $data['primary'] = $object->getPrimary();
-            }
-            if ($object->isInitialized('description') && null !== $object->getDescription()) {
-                $data['description'] = $object->getDescription();
-            }
-            if ($object->isInitialized('numberDecimalPlaces') && null !== $object->getNumberDecimalPlaces()) {
-                $data['number_decimal_places'] = $object->getNumberDecimalPlaces();
-            }
-            if ($object->isInitialized('numberNegative') && null !== $object->getNumberNegative()) {
-                $data['number_negative'] = $object->getNumberNegative();
-            }
-            foreach ($object as $key => $value) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value;
-                }
-            }
-
-            return $data;
-        }
-
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\NumberFieldField::class => false];
-        }
+        return \CedricZiel\Baserow\Generated\Model\NumberFieldField::class === $type;
     }
-} else {
-    class NumberFieldFieldNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
+        return is_object($data) && \CedricZiel\Baserow\Generated\Model\NumberFieldField::class === get_class($data);
+    }
 
-        public function supportsDenormalization($data, $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\NumberFieldField::class === $type;
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
+    {
+        if (isset($data['$ref'])) {
+            return new Reference($data['$ref'], $context['document-origin']);
         }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\NumberFieldField::class === get_class($data);
+        if (isset($data['$recursiveRef'])) {
+            return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-
-        public function denormalize($data, $type, $format = null, array $context = [])
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\NumberFieldField();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('id', $data)) {
-                $object->setId($data['id']);
-                unset($data['id']);
-            }
-            if (\array_key_exists('table_id', $data)) {
-                $object->setTableId($data['table_id']);
-                unset($data['table_id']);
-            }
-            if (\array_key_exists('name', $data)) {
-                $object->setName($data['name']);
-                unset($data['name']);
-            }
-            if (\array_key_exists('order', $data)) {
-                $object->setOrder($data['order']);
-                unset($data['order']);
-            }
-            if (\array_key_exists('type', $data)) {
-                $object->setType($data['type']);
-                unset($data['type']);
-            }
-            if (\array_key_exists('primary', $data)) {
-                $object->setPrimary($data['primary']);
-                unset($data['primary']);
-            }
-            if (\array_key_exists('read_only', $data)) {
-                $object->setReadOnly($data['read_only']);
-                unset($data['read_only']);
-            }
-            if (\array_key_exists('description', $data) && null !== $data['description']) {
-                $object->setDescription($data['description']);
-                unset($data['description']);
-            } elseif (\array_key_exists('description', $data) && null === $data['description']) {
-                $object->setDescription(null);
-            }
-            if (\array_key_exists('number_decimal_places', $data)) {
-                $object->setNumberDecimalPlaces($data['number_decimal_places']);
-                unset($data['number_decimal_places']);
-            }
-            if (\array_key_exists('number_negative', $data)) {
-                $object->setNumberNegative($data['number_negative']);
-                unset($data['number_negative']);
-            }
-            foreach ($data as $key => $value) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value;
-                }
-            }
-
+        $object = new \CedricZiel\Baserow\Generated\Model\NumberFieldField();
+        if (\array_key_exists('primary', $data) && \is_int($data['primary'])) {
+            $data['primary'] = (bool) $data['primary'];
+        }
+        if (\array_key_exists('read_only', $data) && \is_int($data['read_only'])) {
+            $data['read_only'] = (bool) $data['read_only'];
+        }
+        if (\array_key_exists('number_negative', $data) && \is_int($data['number_negative'])) {
+            $data['number_negative'] = (bool) $data['number_negative'];
+        }
+        if (null === $data || false === \is_array($data)) {
             return $object;
         }
-
-        /**
-         * @return array|string|int|float|bool|\ArrayObject|null
-         */
-        public function normalize($object, $format = null, array $context = [])
-        {
-            $data = [];
-            $data['name'] = $object->getName();
-            $data['order'] = $object->getOrder();
-            if ($object->isInitialized('primary') && null !== $object->getPrimary()) {
-                $data['primary'] = $object->getPrimary();
+        if (\array_key_exists('id', $data)) {
+            $object->setId($data['id']);
+            unset($data['id']);
+        }
+        if (\array_key_exists('table_id', $data)) {
+            $object->setTableId($data['table_id']);
+            unset($data['table_id']);
+        }
+        if (\array_key_exists('name', $data)) {
+            $object->setName($data['name']);
+            unset($data['name']);
+        }
+        if (\array_key_exists('order', $data)) {
+            $object->setOrder($data['order']);
+            unset($data['order']);
+        }
+        if (\array_key_exists('type', $data)) {
+            $object->setType($data['type']);
+            unset($data['type']);
+        }
+        if (\array_key_exists('primary', $data)) {
+            $object->setPrimary($data['primary']);
+            unset($data['primary']);
+        }
+        if (\array_key_exists('read_only', $data)) {
+            $object->setReadOnly($data['read_only']);
+            unset($data['read_only']);
+        }
+        if (\array_key_exists('description', $data) && null !== $data['description']) {
+            $object->setDescription($data['description']);
+            unset($data['description']);
+        } elseif (\array_key_exists('description', $data) && null === $data['description']) {
+            $object->setDescription(null);
+        }
+        if (\array_key_exists('number_decimal_places', $data)) {
+            $object->setNumberDecimalPlaces($data['number_decimal_places']);
+            unset($data['number_decimal_places']);
+        }
+        if (\array_key_exists('number_negative', $data)) {
+            $object->setNumberNegative($data['number_negative']);
+            unset($data['number_negative']);
+        }
+        foreach ($data as $key => $value) {
+            if (preg_match('/.*/', (string) $key)) {
+                $object[$key] = $value;
             }
-            if ($object->isInitialized('description') && null !== $object->getDescription()) {
-                $data['description'] = $object->getDescription();
-            }
-            if ($object->isInitialized('numberDecimalPlaces') && null !== $object->getNumberDecimalPlaces()) {
-                $data['number_decimal_places'] = $object->getNumberDecimalPlaces();
-            }
-            if ($object->isInitialized('numberNegative') && null !== $object->getNumberNegative()) {
-                $data['number_negative'] = $object->getNumberNegative();
-            }
-            foreach ($object as $key => $value) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value;
-                }
-            }
-
-            return $data;
         }
 
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\NumberFieldField::class => false];
+        return $object;
+    }
+
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    {
+        $dataArray = [];
+        $dataArray['name'] = $data->getName();
+        $dataArray['order'] = $data->getOrder();
+        if ($data->isInitialized('primary') && null !== $data->getPrimary()) {
+            $dataArray['primary'] = $data->getPrimary();
         }
+        if ($data->isInitialized('description')) {
+            $dataArray['description'] = $data->getDescription();
+        }
+        if ($data->isInitialized('numberDecimalPlaces') && null !== $data->getNumberDecimalPlaces()) {
+            $dataArray['number_decimal_places'] = $data->getNumberDecimalPlaces();
+        }
+        if ($data->isInitialized('numberNegative') && null !== $data->getNumberNegative()) {
+            $dataArray['number_negative'] = $data->getNumberNegative();
+        }
+        foreach ($data as $key => $value) {
+            if (preg_match('/.*/', (string) $key)) {
+                $dataArray[$key] = $value;
+            }
+        }
+
+        return $dataArray;
+    }
+
+    public function getSupportedTypes(?string $format = null): array
+    {
+        return [\CedricZiel\Baserow\Generated\Model\NumberFieldField::class => false];
     }
 }

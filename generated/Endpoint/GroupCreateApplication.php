@@ -18,9 +18,9 @@ class GroupCreateApplication extends \CedricZiel\Baserow\Generated\Runtime\Clien
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [workspace_create_application](#tag/Applications/operation/workspace_create_application).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Creates a new application based on the provided type. The newly created application is going to be added to the group related to the provided `group_id` parameter. If the authorized user does not belong to the group an error will be returned.
+     *  Creates a new application based on the provided type. The newly created application is going to be added to the group related to the provided `group_id` parameter. If the authorized user does not belong to the group an error will be returned.
      *
      * @param int        $groupId          creates an application for the group related to the provided value
      * @param mixed|null $requestBody
@@ -50,7 +50,7 @@ class GroupCreateApplication extends \CedricZiel\Baserow\Generated\Runtime\Clien
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         if (isset($this->body)) {
-            return [['Content-Type' => ['application/json']], json_encode($this->body)];
+            return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
         if (isset($this->body)) {
             return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($serializer->normalize($this->body, 'json'))];
@@ -96,13 +96,13 @@ class GroupCreateApplication extends \CedricZiel\Baserow\Generated\Runtime\Clien
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
-        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             return json_decode($body);
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\GroupCreateApplicationBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdPostResponse400', 'json'), $response);
         }
-        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\GroupCreateApplicationNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiApplicationsGroupGroupIdPostResponse404', 'json'), $response);
         }
     }

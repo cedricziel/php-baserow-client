@@ -73,16 +73,16 @@ class AssignRole extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpoi
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
-        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\OpenApiRoleAssignment', 'json');
         }
         if (204 === $status) {
             return null;
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\AssignRoleBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdPostResponse400', 'json'), $response);
         }
-        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\AssignRoleNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiRoleWorkspaceIdPostResponse404', 'json'), $response);
         }
     }

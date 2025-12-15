@@ -18,9 +18,9 @@ class AdminDeleteGroup extends \CedricZiel\Baserow\Generated\Runtime\Client\Base
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [admin_delete_workspace](#tag/Admin/operation/admin_delete_workspace).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Deletes the specified group and the applications inside that group, if the requesting user is staff.
+     *  Deletes the specified group and the applications inside that group, if the requesting user is staff.
      *
      * This is a **premium** feature.
      *
@@ -64,7 +64,7 @@ class AdminDeleteGroup extends \CedricZiel\Baserow\Generated\Runtime\Client\Base
         if (204 === $status) {
             return null;
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\AdminDeleteGroupBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiAdminGroupsGroupIdDeleteResponse400', 'json'), $response);
         }
         if (401 === $status) {

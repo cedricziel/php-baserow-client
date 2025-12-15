@@ -57,7 +57,7 @@ class AdminRemoveLicense extends \CedricZiel\Baserow\Generated\Runtime\Client\Ba
         if (204 === $status) {
             return null;
         }
-        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\AdminRemoveLicenseNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiLicensesIdDeleteResponse404', 'json'), $response);
         }
     }

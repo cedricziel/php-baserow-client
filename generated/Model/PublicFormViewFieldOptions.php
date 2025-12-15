@@ -60,8 +60,8 @@ class PublicFormViewFieldOptions extends \ArrayObject
     /**
      * Indicates whether all (AND) or any (OR) of the conditions should match before shown.
      *
-     * `AND` - And
-     * `OR` - Or
+     * * `AND` - And
+     * * `OR` - Or
      *
      * @var string
      */
@@ -202,8 +202,8 @@ class PublicFormViewFieldOptions extends \ArrayObject
     /**
      * Indicates whether all (AND) or any (OR) of the conditions should match before shown.
      *
-     * `AND` - And
-     * `OR` - Or
+     * * `AND` - And
+     * * `OR` - Or
      */
     public function getConditionType(): string
     {

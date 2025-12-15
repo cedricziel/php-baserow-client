@@ -76,13 +76,13 @@ class InstallTemplateAsync extends \CedricZiel\Baserow\Generated\Runtime\Client\
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
-        if (false === is_null($contentType) && (202 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (202 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\SingleInstallTemplateJobType', 'json');
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\InstallTemplateAsyncBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse400', 'json'), $response);
         }
-        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\InstallTemplateAsyncNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiTemplatesInstallWorkspaceIdTemplateIdAsyncPostResponse404', 'json'), $response);
         }
     }

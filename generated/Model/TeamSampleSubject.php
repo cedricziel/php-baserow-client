@@ -29,7 +29,8 @@ class TeamSampleSubject extends \ArrayObject
     protected $subjectId;
     /**
      * The type of subject who belongs to the team.
-     * `auth.User` - auth.User.
+     *
+     * * `auth.User` - auth.User
      *
      * @var string
      */
@@ -68,7 +69,8 @@ class TeamSampleSubject extends \ArrayObject
 
     /**
      * The type of subject who belongs to the team.
-     * `auth.User` - auth.User.
+     *
+     * * `auth.User` - auth.User
      */
     public function getSubjectType(): string
     {

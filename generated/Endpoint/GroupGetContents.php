@@ -18,9 +18,9 @@ class GroupGetContents extends \CedricZiel\Baserow\Generated\Runtime\Client\Base
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [workspace_get_contents](#tag/Trash/operation/workspace_get_contents).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Responds with trash contents for a group optionally filtered to a specific application.
+     *  Responds with trash contents for a group optionally filtered to a specific application.
      *
      * @param int   $groupId         returns the trash for the group with this id
      * @param array $queryParameters {
@@ -76,10 +76,10 @@ class GroupGetContents extends \CedricZiel\Baserow\Generated\Runtime\Client\Base
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
-        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\PaginationSerializerTrashContents', 'json');
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\GroupGetContentsBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiTrashGroupGroupIdGetResponse400', 'json'), $response);
         }
     }

@@ -36,20 +36,20 @@ class IFrameElementCreateElement extends \ArrayObject
     /**
      * The type of the element.
      *
-     * `heading` - heading
-     * `text` - text
-     * `link` - link
-     * `image` - image
-     * `input_text` - input_text
-     * `column` - column
-     * `button` - button
-     * `table` - table
-     * `repeat` - repeat
-     * `form_container` - form_container
-     * `choice` - choice
-     * `checkbox` - checkbox
-     * `iframe` - iframe
-     * `auth_form` - auth_form
+     * * `heading` - heading
+     * * `text` - text
+     * * `link` - link
+     * * `image` - image
+     * * `input_text` - input_text
+     * * `column` - column
+     * * `button` - button
+     * * `table` - table
+     * * `repeat` - repeat
+     * * `form_container` - form_container
+     * * `choice` - choice
+     * * `checkbox` - checkbox
+     * * `iframe` - iframe
+     * * `auth_form` - auth_form
      *
      * @var string
      */
@@ -175,9 +175,9 @@ class IFrameElementCreateElement extends \ArrayObject
     /**
      * What type of background the element should have.
      *
-     * `none` - None
-     * `color` - Color
-     * `image` - Image
+     * * `none` - None
+     * * `color` - Color
+     * * `image` - Image
      *
      * @var string
      */
@@ -197,9 +197,9 @@ class IFrameElementCreateElement extends \ArrayObject
     /**
      * The mode of the background image.
      *
-     * `tile` - Tile
-     * `fill` - Fill
-     * `fit` - Fit
+     * * `tile` - Tile
+     * * `fill` - Fill
+     * * `fit` - Fit
      *
      * @var mixed|null
      */
@@ -207,11 +207,11 @@ class IFrameElementCreateElement extends \ArrayObject
     /**
      * Indicates the width of the element.
      *
-     * `full` - Full
-     * `full-width` - Full Width
-     * `normal` - Normal
-     * `medium` - Medium
-     * `small` - Small
+     * * `full` - Full
+     * * `full-width` - Full Width
+     * * `normal` - Normal
+     * * `medium` - Medium
+     * * `small` - Small
      *
      * @var string
      */
@@ -280,20 +280,20 @@ class IFrameElementCreateElement extends \ArrayObject
     /**
      * The type of the element.
      *
-     * `heading` - heading
-     * `text` - text
-     * `link` - link
-     * `image` - image
-     * `input_text` - input_text
-     * `column` - column
-     * `button` - button
-     * `table` - table
-     * `repeat` - repeat
-     * `form_container` - form_container
-     * `choice` - choice
-     * `checkbox` - checkbox
-     * `iframe` - iframe
-     * `auth_form` - auth_form
+     * * `heading` - heading
+     * * `text` - text
+     * * `link` - link
+     * * `image` - image
+     * * `input_text` - input_text
+     * * `column` - column
+     * * `button` - button
+     * * `table` - table
+     * * `repeat` - repeat
+     * * `form_container` - form_container
+     * * `choice` - choice
+     * * `checkbox` - checkbox
+     * * `iframe` - iframe
+     * * `auth_form` - auth_form
      */
     public function getType(): string
     {
@@ -703,9 +703,9 @@ class IFrameElementCreateElement extends \ArrayObject
     /**
      * What type of background the element should have.
      *
-     * `none` - None
-     * `color` - Color
-     * `image` - Image
+     * * `none` - None
+     * * `color` - Color
+     * * `image` - Image
      */
     public function getStyleBackground(): string
     {
@@ -768,9 +768,9 @@ class IFrameElementCreateElement extends \ArrayObject
     /**
      * The mode of the background image.
      *
-     * `tile` - Tile
-     * `fill` - Fill
-     * `fit` - Fit
+     * * `tile` - Tile
+     * * `fill` - Fill
+     * * `fit` - Fit
      */
     public function getStyleBackgroundMode()
     {
@@ -795,11 +795,11 @@ class IFrameElementCreateElement extends \ArrayObject
     /**
      * Indicates the width of the element.
      *
-     * `full` - Full
-     * `full-width` - Full Width
-     * `normal` - Normal
-     * `medium` - Medium
-     * `small` - Small
+     * * `full` - Full
+     * * `full-width` - Full Width
+     * * `normal` - Normal
+     * * `medium` - Medium
+     * * `small` - Small
      */
     public function getStyleWidth(): string
     {

@@ -58,13 +58,13 @@ class MarkNotificationAsRead extends \CedricZiel\Baserow\Generated\Runtime\Clien
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
-        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\NotificationRecipient', 'json');
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\MarkNotificationAsReadBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdNotificationIdPatchResponse400', 'json'), $response);
         }
-        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\MarkNotificationAsReadNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiNotificationsWorkspaceIdNotificationIdPatchResponse404', 'json'), $response);
         }
     }

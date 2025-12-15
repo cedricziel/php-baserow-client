@@ -18,9 +18,9 @@ class DeleteGroupInvitation extends \CedricZiel\Baserow\Generated\Runtime\Client
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [delete_workspace_invitation](#tag/Workspace-invitations/operation/delete_workspace_invitation).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Deletes a group invitation if the authorized user has admin rights to the related group.
+     *  Deletes a group invitation if the authorized user has admin rights to the related group.
      *
      * @param int $groupInvitationId deletes the group invitation related to the provided value
      */
@@ -62,10 +62,10 @@ class DeleteGroupInvitation extends \CedricZiel\Baserow\Generated\Runtime\Client
         if (204 === $status) {
             return null;
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\DeleteGroupInvitationBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdDeleteResponse400', 'json'), $response);
         }
-        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\DeleteGroupInvitationNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiGroupsInvitationsGroupInvitationIdDeleteResponse404', 'json'), $response);
         }
     }

@@ -13,7 +13,6 @@ namespace CedricZiel\Baserow\Generated\Normalizer;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\CheckArray;
 use CedricZiel\Baserow\Generated\Runtime\Normalizer\ValidatorTrait;
 use Jane\Component\JsonSchemaRuntime\Reference;
-use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -21,561 +20,294 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
-    class FormViewViewNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class FormViewViewNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+{
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+    use CheckArray;
+    use ValidatorTrait;
+
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
-
-        public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\FormViewView::class === $type;
-        }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\FormViewView::class === get_class($data);
-        }
-
-        public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\FormViewView();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('id', $data)) {
-                $object->setId($data['id']);
-                unset($data['id']);
-            }
-            if (\array_key_exists('table_id', $data)) {
-                $object->setTableId($data['table_id']);
-                unset($data['table_id']);
-            }
-            if (\array_key_exists('name', $data)) {
-                $object->setName($data['name']);
-                unset($data['name']);
-            }
-            if (\array_key_exists('order', $data)) {
-                $object->setOrder($data['order']);
-                unset($data['order']);
-            }
-            if (\array_key_exists('type', $data)) {
-                $object->setType($data['type']);
-                unset($data['type']);
-            }
-            if (\array_key_exists('table', $data)) {
-                $object->setTable($this->denormalizer->denormalize($data['table'], \CedricZiel\Baserow\Generated\Model\Table::class, 'json', $context));
-                unset($data['table']);
-            }
-            if (\array_key_exists('filter_type', $data)) {
-                $object->setFilterType($data['filter_type']);
-                unset($data['filter_type']);
-            }
-            if (\array_key_exists('filters', $data)) {
-                $values = [];
-                foreach ($data['filters'] as $value) {
-                    $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\ViewFilter::class, 'json', $context);
-                }
-                $object->setFilters($values);
-                unset($data['filters']);
-            }
-            if (\array_key_exists('filter_groups', $data)) {
-                $values_1 = [];
-                foreach ($data['filter_groups'] as $value_1) {
-                    $values_1[] = $this->denormalizer->denormalize($value_1, \CedricZiel\Baserow\Generated\Model\ViewFilterGroup::class, 'json', $context);
-                }
-                $object->setFilterGroups($values_1);
-                unset($data['filter_groups']);
-            }
-            if (\array_key_exists('sortings', $data)) {
-                $values_2 = [];
-                foreach ($data['sortings'] as $value_2) {
-                    $values_2[] = $this->denormalizer->denormalize($value_2, \CedricZiel\Baserow\Generated\Model\ViewSort::class, 'json', $context);
-                }
-                $object->setSortings($values_2);
-                unset($data['sortings']);
-            }
-            if (\array_key_exists('group_bys', $data)) {
-                $values_3 = [];
-                foreach ($data['group_bys'] as $value_3) {
-                    $values_3[] = $this->denormalizer->denormalize($value_3, \CedricZiel\Baserow\Generated\Model\ViewGroupBy::class, 'json', $context);
-                }
-                $object->setGroupBys($values_3);
-                unset($data['group_bys']);
-            }
-            if (\array_key_exists('decorations', $data)) {
-                $values_4 = [];
-                foreach ($data['decorations'] as $value_4) {
-                    $values_4[] = $this->denormalizer->denormalize($value_4, \CedricZiel\Baserow\Generated\Model\ViewDecoration::class, 'json', $context);
-                }
-                $object->setDecorations($values_4);
-                unset($data['decorations']);
-            }
-            if (\array_key_exists('filters_disabled', $data)) {
-                $object->setFiltersDisabled($data['filters_disabled']);
-                unset($data['filters_disabled']);
-            }
-            if (\array_key_exists('public_view_has_password', $data)) {
-                $object->setPublicViewHasPassword($data['public_view_has_password']);
-                unset($data['public_view_has_password']);
-            }
-            if (\array_key_exists('show_logo', $data)) {
-                $object->setShowLogo($data['show_logo']);
-                unset($data['show_logo']);
-            }
-            if (\array_key_exists('ownership_type', $data)) {
-                $object->setOwnershipType($data['ownership_type']);
-                unset($data['ownership_type']);
-            }
-            if (\array_key_exists('owned_by_id', $data)) {
-                $object->setOwnedById($data['owned_by_id']);
-                unset($data['owned_by_id']);
-            }
-            if (\array_key_exists('title', $data)) {
-                $object->setTitle($data['title']);
-                unset($data['title']);
-            }
-            if (\array_key_exists('description', $data)) {
-                $object->setDescription($data['description']);
-                unset($data['description']);
-            }
-            if (\array_key_exists('mode', $data)) {
-                $object->setMode($data['mode']);
-                unset($data['mode']);
-            }
-            if (\array_key_exists('cover_image', $data) && null !== $data['cover_image']) {
-                $object->setCoverImage($this->denormalizer->denormalize($data['cover_image'], \CedricZiel\Baserow\Generated\Model\FormViewViewCoverImage::class, 'json', $context));
-                unset($data['cover_image']);
-            } elseif (\array_key_exists('cover_image', $data) && null === $data['cover_image']) {
-                $object->setCoverImage(null);
-            }
-            if (\array_key_exists('logo_image', $data) && null !== $data['logo_image']) {
-                $object->setLogoImage($this->denormalizer->denormalize($data['logo_image'], \CedricZiel\Baserow\Generated\Model\FormViewViewLogoImage::class, 'json', $context));
-                unset($data['logo_image']);
-            } elseif (\array_key_exists('logo_image', $data) && null === $data['logo_image']) {
-                $object->setLogoImage(null);
-            }
-            if (\array_key_exists('submit_text', $data)) {
-                $object->setSubmitText($data['submit_text']);
-                unset($data['submit_text']);
-            }
-            if (\array_key_exists('submit_action', $data)) {
-                $object->setSubmitAction($data['submit_action']);
-                unset($data['submit_action']);
-            }
-            if (\array_key_exists('submit_action_message', $data)) {
-                $object->setSubmitActionMessage($data['submit_action_message']);
-                unset($data['submit_action_message']);
-            }
-            if (\array_key_exists('submit_action_redirect_url', $data)) {
-                $object->setSubmitActionRedirectUrl($data['submit_action_redirect_url']);
-                unset($data['submit_action_redirect_url']);
-            }
-            if (\array_key_exists('receive_notification_on_submit', $data)) {
-                $object->setReceiveNotificationOnSubmit($data['receive_notification_on_submit']);
-                unset($data['receive_notification_on_submit']);
-            }
-            if (\array_key_exists('public', $data)) {
-                $object->setPublic($data['public']);
-                unset($data['public']);
-            }
-            if (\array_key_exists('slug', $data)) {
-                $object->setSlug($data['slug']);
-                unset($data['slug']);
-            }
-            foreach ($data as $key => $value_5) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value_5;
-                }
-            }
-
-            return $object;
-        }
-
-        public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
-        {
-            $data = [];
-            $data['name'] = $object->getName();
-            $data['order'] = $object->getOrder();
-            $data['table'] = $this->normalizer->normalize($object->getTable(), 'json', $context);
-            if ($object->isInitialized('filterType') && null !== $object->getFilterType()) {
-                $data['filter_type'] = $object->getFilterType();
-            }
-            if ($object->isInitialized('filters') && null !== $object->getFilters()) {
-                $values = [];
-                foreach ($object->getFilters() as $value) {
-                    $values[] = $this->normalizer->normalize($value, 'json', $context);
-                }
-                $data['filters'] = $values;
-            }
-            if ($object->isInitialized('filterGroups') && null !== $object->getFilterGroups()) {
-                $values_1 = [];
-                foreach ($object->getFilterGroups() as $value_1) {
-                    $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
-                }
-                $data['filter_groups'] = $values_1;
-            }
-            if ($object->isInitialized('sortings') && null !== $object->getSortings()) {
-                $values_2 = [];
-                foreach ($object->getSortings() as $value_2) {
-                    $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
-                }
-                $data['sortings'] = $values_2;
-            }
-            if ($object->isInitialized('groupBys') && null !== $object->getGroupBys()) {
-                $values_3 = [];
-                foreach ($object->getGroupBys() as $value_3) {
-                    $values_3[] = $this->normalizer->normalize($value_3, 'json', $context);
-                }
-                $data['group_bys'] = $values_3;
-            }
-            if ($object->isInitialized('decorations') && null !== $object->getDecorations()) {
-                $values_4 = [];
-                foreach ($object->getDecorations() as $value_4) {
-                    $values_4[] = $this->normalizer->normalize($value_4, 'json', $context);
-                }
-                $data['decorations'] = $values_4;
-            }
-            if ($object->isInitialized('filtersDisabled') && null !== $object->getFiltersDisabled()) {
-                $data['filters_disabled'] = $object->getFiltersDisabled();
-            }
-            if ($object->isInitialized('showLogo') && null !== $object->getShowLogo()) {
-                $data['show_logo'] = $object->getShowLogo();
-            }
-            $data['ownership_type'] = $object->getOwnershipType();
-            if ($object->isInitialized('ownedById') && null !== $object->getOwnedById()) {
-                $data['owned_by_id'] = $object->getOwnedById();
-            }
-            if ($object->isInitialized('title') && null !== $object->getTitle()) {
-                $data['title'] = $object->getTitle();
-            }
-            if ($object->isInitialized('description') && null !== $object->getDescription()) {
-                $data['description'] = $object->getDescription();
-            }
-            if ($object->isInitialized('mode') && null !== $object->getMode()) {
-                $data['mode'] = $object->getMode();
-            }
-            if ($object->isInitialized('coverImage') && null !== $object->getCoverImage()) {
-                $data['cover_image'] = $this->normalizer->normalize($object->getCoverImage(), 'json', $context);
-            }
-            if ($object->isInitialized('logoImage') && null !== $object->getLogoImage()) {
-                $data['logo_image'] = $this->normalizer->normalize($object->getLogoImage(), 'json', $context);
-            }
-            if ($object->isInitialized('submitText') && null !== $object->getSubmitText()) {
-                $data['submit_text'] = $object->getSubmitText();
-            }
-            if ($object->isInitialized('submitAction') && null !== $object->getSubmitAction()) {
-                $data['submit_action'] = $object->getSubmitAction();
-            }
-            if ($object->isInitialized('submitActionMessage') && null !== $object->getSubmitActionMessage()) {
-                $data['submit_action_message'] = $object->getSubmitActionMessage();
-            }
-            if ($object->isInitialized('submitActionRedirectUrl') && null !== $object->getSubmitActionRedirectUrl()) {
-                $data['submit_action_redirect_url'] = $object->getSubmitActionRedirectUrl();
-            }
-            if ($object->isInitialized('public') && null !== $object->getPublic()) {
-                $data['public'] = $object->getPublic();
-            }
-            foreach ($object as $key => $value_5) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value_5;
-                }
-            }
-
-            return $data;
-        }
-
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\FormViewView::class => false];
-        }
+        return \CedricZiel\Baserow\Generated\Model\FormViewView::class === $type;
     }
-} else {
-    class FormViewViewNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
-        use DenormalizerAwareTrait;
-        use NormalizerAwareTrait;
-        use CheckArray;
-        use ValidatorTrait;
+        return is_object($data) && \CedricZiel\Baserow\Generated\Model\FormViewView::class === get_class($data);
+    }
 
-        public function supportsDenormalization($data, $type, ?string $format = null, array $context = []): bool
-        {
-            return \CedricZiel\Baserow\Generated\Model\FormViewView::class === $type;
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
+    {
+        if (isset($data['$ref'])) {
+            return new Reference($data['$ref'], $context['document-origin']);
         }
-
-        public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-        {
-            return is_object($data) && \CedricZiel\Baserow\Generated\Model\FormViewView::class === get_class($data);
+        if (isset($data['$recursiveRef'])) {
+            return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-
-        public function denormalize($data, $type, $format = null, array $context = [])
-        {
-            if (isset($data['$ref'])) {
-                return new Reference($data['$ref'], $context['document-origin']);
-            }
-            if (isset($data['$recursiveRef'])) {
-                return new Reference($data['$recursiveRef'], $context['document-origin']);
-            }
-            $object = new \CedricZiel\Baserow\Generated\Model\FormViewView();
-            if (null === $data || false === \is_array($data)) {
-                return $object;
-            }
-            if (\array_key_exists('id', $data)) {
-                $object->setId($data['id']);
-                unset($data['id']);
-            }
-            if (\array_key_exists('table_id', $data)) {
-                $object->setTableId($data['table_id']);
-                unset($data['table_id']);
-            }
-            if (\array_key_exists('name', $data)) {
-                $object->setName($data['name']);
-                unset($data['name']);
-            }
-            if (\array_key_exists('order', $data)) {
-                $object->setOrder($data['order']);
-                unset($data['order']);
-            }
-            if (\array_key_exists('type', $data)) {
-                $object->setType($data['type']);
-                unset($data['type']);
-            }
-            if (\array_key_exists('table', $data)) {
-                $object->setTable($this->denormalizer->denormalize($data['table'], \CedricZiel\Baserow\Generated\Model\Table::class, 'json', $context));
-                unset($data['table']);
-            }
-            if (\array_key_exists('filter_type', $data)) {
-                $object->setFilterType($data['filter_type']);
-                unset($data['filter_type']);
-            }
-            if (\array_key_exists('filters', $data)) {
-                $values = [];
-                foreach ($data['filters'] as $value) {
-                    $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\ViewFilter::class, 'json', $context);
-                }
-                $object->setFilters($values);
-                unset($data['filters']);
-            }
-            if (\array_key_exists('filter_groups', $data)) {
-                $values_1 = [];
-                foreach ($data['filter_groups'] as $value_1) {
-                    $values_1[] = $this->denormalizer->denormalize($value_1, \CedricZiel\Baserow\Generated\Model\ViewFilterGroup::class, 'json', $context);
-                }
-                $object->setFilterGroups($values_1);
-                unset($data['filter_groups']);
-            }
-            if (\array_key_exists('sortings', $data)) {
-                $values_2 = [];
-                foreach ($data['sortings'] as $value_2) {
-                    $values_2[] = $this->denormalizer->denormalize($value_2, \CedricZiel\Baserow\Generated\Model\ViewSort::class, 'json', $context);
-                }
-                $object->setSortings($values_2);
-                unset($data['sortings']);
-            }
-            if (\array_key_exists('group_bys', $data)) {
-                $values_3 = [];
-                foreach ($data['group_bys'] as $value_3) {
-                    $values_3[] = $this->denormalizer->denormalize($value_3, \CedricZiel\Baserow\Generated\Model\ViewGroupBy::class, 'json', $context);
-                }
-                $object->setGroupBys($values_3);
-                unset($data['group_bys']);
-            }
-            if (\array_key_exists('decorations', $data)) {
-                $values_4 = [];
-                foreach ($data['decorations'] as $value_4) {
-                    $values_4[] = $this->denormalizer->denormalize($value_4, \CedricZiel\Baserow\Generated\Model\ViewDecoration::class, 'json', $context);
-                }
-                $object->setDecorations($values_4);
-                unset($data['decorations']);
-            }
-            if (\array_key_exists('filters_disabled', $data)) {
-                $object->setFiltersDisabled($data['filters_disabled']);
-                unset($data['filters_disabled']);
-            }
-            if (\array_key_exists('public_view_has_password', $data)) {
-                $object->setPublicViewHasPassword($data['public_view_has_password']);
-                unset($data['public_view_has_password']);
-            }
-            if (\array_key_exists('show_logo', $data)) {
-                $object->setShowLogo($data['show_logo']);
-                unset($data['show_logo']);
-            }
-            if (\array_key_exists('ownership_type', $data)) {
-                $object->setOwnershipType($data['ownership_type']);
-                unset($data['ownership_type']);
-            }
-            if (\array_key_exists('owned_by_id', $data)) {
-                $object->setOwnedById($data['owned_by_id']);
-                unset($data['owned_by_id']);
-            }
-            if (\array_key_exists('title', $data)) {
-                $object->setTitle($data['title']);
-                unset($data['title']);
-            }
-            if (\array_key_exists('description', $data)) {
-                $object->setDescription($data['description']);
-                unset($data['description']);
-            }
-            if (\array_key_exists('mode', $data)) {
-                $object->setMode($data['mode']);
-                unset($data['mode']);
-            }
-            if (\array_key_exists('cover_image', $data) && null !== $data['cover_image']) {
-                $object->setCoverImage($this->denormalizer->denormalize($data['cover_image'], \CedricZiel\Baserow\Generated\Model\FormViewViewCoverImage::class, 'json', $context));
-                unset($data['cover_image']);
-            } elseif (\array_key_exists('cover_image', $data) && null === $data['cover_image']) {
-                $object->setCoverImage(null);
-            }
-            if (\array_key_exists('logo_image', $data) && null !== $data['logo_image']) {
-                $object->setLogoImage($this->denormalizer->denormalize($data['logo_image'], \CedricZiel\Baserow\Generated\Model\FormViewViewLogoImage::class, 'json', $context));
-                unset($data['logo_image']);
-            } elseif (\array_key_exists('logo_image', $data) && null === $data['logo_image']) {
-                $object->setLogoImage(null);
-            }
-            if (\array_key_exists('submit_text', $data)) {
-                $object->setSubmitText($data['submit_text']);
-                unset($data['submit_text']);
-            }
-            if (\array_key_exists('submit_action', $data)) {
-                $object->setSubmitAction($data['submit_action']);
-                unset($data['submit_action']);
-            }
-            if (\array_key_exists('submit_action_message', $data)) {
-                $object->setSubmitActionMessage($data['submit_action_message']);
-                unset($data['submit_action_message']);
-            }
-            if (\array_key_exists('submit_action_redirect_url', $data)) {
-                $object->setSubmitActionRedirectUrl($data['submit_action_redirect_url']);
-                unset($data['submit_action_redirect_url']);
-            }
-            if (\array_key_exists('receive_notification_on_submit', $data)) {
-                $object->setReceiveNotificationOnSubmit($data['receive_notification_on_submit']);
-                unset($data['receive_notification_on_submit']);
-            }
-            if (\array_key_exists('public', $data)) {
-                $object->setPublic($data['public']);
-                unset($data['public']);
-            }
-            if (\array_key_exists('slug', $data)) {
-                $object->setSlug($data['slug']);
-                unset($data['slug']);
-            }
-            foreach ($data as $key => $value_5) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $object[$key] = $value_5;
-                }
-            }
-
+        $object = new \CedricZiel\Baserow\Generated\Model\FormViewView();
+        if (\array_key_exists('filters_disabled', $data) && \is_int($data['filters_disabled'])) {
+            $data['filters_disabled'] = (bool) $data['filters_disabled'];
+        }
+        if (\array_key_exists('public_view_has_password', $data) && \is_int($data['public_view_has_password'])) {
+            $data['public_view_has_password'] = (bool) $data['public_view_has_password'];
+        }
+        if (\array_key_exists('show_logo', $data) && \is_int($data['show_logo'])) {
+            $data['show_logo'] = (bool) $data['show_logo'];
+        }
+        if (\array_key_exists('receive_notification_on_submit', $data) && \is_int($data['receive_notification_on_submit'])) {
+            $data['receive_notification_on_submit'] = (bool) $data['receive_notification_on_submit'];
+        }
+        if (\array_key_exists('public', $data) && \is_int($data['public'])) {
+            $data['public'] = (bool) $data['public'];
+        }
+        if (null === $data || false === \is_array($data)) {
             return $object;
         }
-
-        /**
-         * @return array|string|int|float|bool|\ArrayObject|null
-         */
-        public function normalize($object, $format = null, array $context = [])
-        {
-            $data = [];
-            $data['name'] = $object->getName();
-            $data['order'] = $object->getOrder();
-            $data['table'] = $this->normalizer->normalize($object->getTable(), 'json', $context);
-            if ($object->isInitialized('filterType') && null !== $object->getFilterType()) {
-                $data['filter_type'] = $object->getFilterType();
+        if (\array_key_exists('id', $data)) {
+            $object->setId($data['id']);
+            unset($data['id']);
+        }
+        if (\array_key_exists('table_id', $data)) {
+            $object->setTableId($data['table_id']);
+            unset($data['table_id']);
+        }
+        if (\array_key_exists('name', $data)) {
+            $object->setName($data['name']);
+            unset($data['name']);
+        }
+        if (\array_key_exists('order', $data)) {
+            $object->setOrder($data['order']);
+            unset($data['order']);
+        }
+        if (\array_key_exists('type', $data)) {
+            $object->setType($data['type']);
+            unset($data['type']);
+        }
+        if (\array_key_exists('table', $data)) {
+            $object->setTable($this->denormalizer->denormalize($data['table'], \CedricZiel\Baserow\Generated\Model\Table::class, 'json', $context));
+            unset($data['table']);
+        }
+        if (\array_key_exists('filter_type', $data)) {
+            $object->setFilterType($data['filter_type']);
+            unset($data['filter_type']);
+        }
+        if (\array_key_exists('filters', $data)) {
+            $values = [];
+            foreach ($data['filters'] as $value) {
+                $values[] = $this->denormalizer->denormalize($value, \CedricZiel\Baserow\Generated\Model\ViewFilter::class, 'json', $context);
             }
-            if ($object->isInitialized('filters') && null !== $object->getFilters()) {
-                $values = [];
-                foreach ($object->getFilters() as $value) {
-                    $values[] = $this->normalizer->normalize($value, 'json', $context);
-                }
-                $data['filters'] = $values;
+            $object->setFilters($values);
+            unset($data['filters']);
+        }
+        if (\array_key_exists('filter_groups', $data)) {
+            $values_1 = [];
+            foreach ($data['filter_groups'] as $value_1) {
+                $values_1[] = $this->denormalizer->denormalize($value_1, \CedricZiel\Baserow\Generated\Model\ViewFilterGroup::class, 'json', $context);
             }
-            if ($object->isInitialized('filterGroups') && null !== $object->getFilterGroups()) {
-                $values_1 = [];
-                foreach ($object->getFilterGroups() as $value_1) {
-                    $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
-                }
-                $data['filter_groups'] = $values_1;
+            $object->setFilterGroups($values_1);
+            unset($data['filter_groups']);
+        }
+        if (\array_key_exists('sortings', $data)) {
+            $values_2 = [];
+            foreach ($data['sortings'] as $value_2) {
+                $values_2[] = $this->denormalizer->denormalize($value_2, \CedricZiel\Baserow\Generated\Model\ViewSort::class, 'json', $context);
             }
-            if ($object->isInitialized('sortings') && null !== $object->getSortings()) {
-                $values_2 = [];
-                foreach ($object->getSortings() as $value_2) {
-                    $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
-                }
-                $data['sortings'] = $values_2;
+            $object->setSortings($values_2);
+            unset($data['sortings']);
+        }
+        if (\array_key_exists('group_bys', $data)) {
+            $values_3 = [];
+            foreach ($data['group_bys'] as $value_3) {
+                $values_3[] = $this->denormalizer->denormalize($value_3, \CedricZiel\Baserow\Generated\Model\ViewGroupBy::class, 'json', $context);
             }
-            if ($object->isInitialized('groupBys') && null !== $object->getGroupBys()) {
-                $values_3 = [];
-                foreach ($object->getGroupBys() as $value_3) {
-                    $values_3[] = $this->normalizer->normalize($value_3, 'json', $context);
-                }
-                $data['group_bys'] = $values_3;
+            $object->setGroupBys($values_3);
+            unset($data['group_bys']);
+        }
+        if (\array_key_exists('decorations', $data)) {
+            $values_4 = [];
+            foreach ($data['decorations'] as $value_4) {
+                $values_4[] = $this->denormalizer->denormalize($value_4, \CedricZiel\Baserow\Generated\Model\ViewDecoration::class, 'json', $context);
             }
-            if ($object->isInitialized('decorations') && null !== $object->getDecorations()) {
-                $values_4 = [];
-                foreach ($object->getDecorations() as $value_4) {
-                    $values_4[] = $this->normalizer->normalize($value_4, 'json', $context);
-                }
-                $data['decorations'] = $values_4;
+            $object->setDecorations($values_4);
+            unset($data['decorations']);
+        }
+        if (\array_key_exists('filters_disabled', $data)) {
+            $object->setFiltersDisabled($data['filters_disabled']);
+            unset($data['filters_disabled']);
+        }
+        if (\array_key_exists('public_view_has_password', $data)) {
+            $object->setPublicViewHasPassword($data['public_view_has_password']);
+            unset($data['public_view_has_password']);
+        }
+        if (\array_key_exists('show_logo', $data)) {
+            $object->setShowLogo($data['show_logo']);
+            unset($data['show_logo']);
+        }
+        if (\array_key_exists('ownership_type', $data)) {
+            $object->setOwnershipType($data['ownership_type']);
+            unset($data['ownership_type']);
+        }
+        if (\array_key_exists('owned_by_id', $data)) {
+            $object->setOwnedById($data['owned_by_id']);
+            unset($data['owned_by_id']);
+        }
+        if (\array_key_exists('title', $data)) {
+            $object->setTitle($data['title']);
+            unset($data['title']);
+        }
+        if (\array_key_exists('description', $data)) {
+            $object->setDescription($data['description']);
+            unset($data['description']);
+        }
+        if (\array_key_exists('mode', $data)) {
+            $object->setMode($data['mode']);
+            unset($data['mode']);
+        }
+        if (\array_key_exists('cover_image', $data) && null !== $data['cover_image']) {
+            $object->setCoverImage($this->denormalizer->denormalize($data['cover_image'], \CedricZiel\Baserow\Generated\Model\FormViewViewCoverImage::class, 'json', $context));
+            unset($data['cover_image']);
+        } elseif (\array_key_exists('cover_image', $data) && null === $data['cover_image']) {
+            $object->setCoverImage(null);
+        }
+        if (\array_key_exists('logo_image', $data) && null !== $data['logo_image']) {
+            $object->setLogoImage($this->denormalizer->denormalize($data['logo_image'], \CedricZiel\Baserow\Generated\Model\FormViewViewLogoImage::class, 'json', $context));
+            unset($data['logo_image']);
+        } elseif (\array_key_exists('logo_image', $data) && null === $data['logo_image']) {
+            $object->setLogoImage(null);
+        }
+        if (\array_key_exists('submit_text', $data)) {
+            $object->setSubmitText($data['submit_text']);
+            unset($data['submit_text']);
+        }
+        if (\array_key_exists('submit_action', $data)) {
+            $object->setSubmitAction($data['submit_action']);
+            unset($data['submit_action']);
+        }
+        if (\array_key_exists('submit_action_message', $data)) {
+            $object->setSubmitActionMessage($data['submit_action_message']);
+            unset($data['submit_action_message']);
+        }
+        if (\array_key_exists('submit_action_redirect_url', $data)) {
+            $object->setSubmitActionRedirectUrl($data['submit_action_redirect_url']);
+            unset($data['submit_action_redirect_url']);
+        }
+        if (\array_key_exists('receive_notification_on_submit', $data)) {
+            $object->setReceiveNotificationOnSubmit($data['receive_notification_on_submit']);
+            unset($data['receive_notification_on_submit']);
+        }
+        if (\array_key_exists('public', $data)) {
+            $object->setPublic($data['public']);
+            unset($data['public']);
+        }
+        if (\array_key_exists('slug', $data)) {
+            $object->setSlug($data['slug']);
+            unset($data['slug']);
+        }
+        foreach ($data as $key => $value_5) {
+            if (preg_match('/.*/', (string) $key)) {
+                $object[$key] = $value_5;
             }
-            if ($object->isInitialized('filtersDisabled') && null !== $object->getFiltersDisabled()) {
-                $data['filters_disabled'] = $object->getFiltersDisabled();
-            }
-            if ($object->isInitialized('showLogo') && null !== $object->getShowLogo()) {
-                $data['show_logo'] = $object->getShowLogo();
-            }
-            $data['ownership_type'] = $object->getOwnershipType();
-            if ($object->isInitialized('ownedById') && null !== $object->getOwnedById()) {
-                $data['owned_by_id'] = $object->getOwnedById();
-            }
-            if ($object->isInitialized('title') && null !== $object->getTitle()) {
-                $data['title'] = $object->getTitle();
-            }
-            if ($object->isInitialized('description') && null !== $object->getDescription()) {
-                $data['description'] = $object->getDescription();
-            }
-            if ($object->isInitialized('mode') && null !== $object->getMode()) {
-                $data['mode'] = $object->getMode();
-            }
-            if ($object->isInitialized('coverImage') && null !== $object->getCoverImage()) {
-                $data['cover_image'] = $this->normalizer->normalize($object->getCoverImage(), 'json', $context);
-            }
-            if ($object->isInitialized('logoImage') && null !== $object->getLogoImage()) {
-                $data['logo_image'] = $this->normalizer->normalize($object->getLogoImage(), 'json', $context);
-            }
-            if ($object->isInitialized('submitText') && null !== $object->getSubmitText()) {
-                $data['submit_text'] = $object->getSubmitText();
-            }
-            if ($object->isInitialized('submitAction') && null !== $object->getSubmitAction()) {
-                $data['submit_action'] = $object->getSubmitAction();
-            }
-            if ($object->isInitialized('submitActionMessage') && null !== $object->getSubmitActionMessage()) {
-                $data['submit_action_message'] = $object->getSubmitActionMessage();
-            }
-            if ($object->isInitialized('submitActionRedirectUrl') && null !== $object->getSubmitActionRedirectUrl()) {
-                $data['submit_action_redirect_url'] = $object->getSubmitActionRedirectUrl();
-            }
-            if ($object->isInitialized('public') && null !== $object->getPublic()) {
-                $data['public'] = $object->getPublic();
-            }
-            foreach ($object as $key => $value_5) {
-                if (preg_match('/.*/', (string) $key)) {
-                    $data[$key] = $value_5;
-                }
-            }
-
-            return $data;
         }
 
-        public function getSupportedTypes(?string $format = null): array
-        {
-            return [\CedricZiel\Baserow\Generated\Model\FormViewView::class => false];
+        return $object;
+    }
+
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    {
+        $dataArray = [];
+        $dataArray['name'] = $data->getName();
+        $dataArray['order'] = $data->getOrder();
+        $dataArray['table'] = $this->normalizer->normalize($data->getTable(), 'json', $context);
+        if ($data->isInitialized('filterType') && null !== $data->getFilterType()) {
+            $dataArray['filter_type'] = $data->getFilterType();
         }
+        if ($data->isInitialized('filters') && null !== $data->getFilters()) {
+            $values = [];
+            foreach ($data->getFilters() as $value) {
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
+            }
+            $dataArray['filters'] = $values;
+        }
+        if ($data->isInitialized('filterGroups') && null !== $data->getFilterGroups()) {
+            $values_1 = [];
+            foreach ($data->getFilterGroups() as $value_1) {
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
+            }
+            $dataArray['filter_groups'] = $values_1;
+        }
+        if ($data->isInitialized('sortings') && null !== $data->getSortings()) {
+            $values_2 = [];
+            foreach ($data->getSortings() as $value_2) {
+                $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
+            }
+            $dataArray['sortings'] = $values_2;
+        }
+        if ($data->isInitialized('groupBys') && null !== $data->getGroupBys()) {
+            $values_3 = [];
+            foreach ($data->getGroupBys() as $value_3) {
+                $values_3[] = $this->normalizer->normalize($value_3, 'json', $context);
+            }
+            $dataArray['group_bys'] = $values_3;
+        }
+        if ($data->isInitialized('decorations') && null !== $data->getDecorations()) {
+            $values_4 = [];
+            foreach ($data->getDecorations() as $value_4) {
+                $values_4[] = $this->normalizer->normalize($value_4, 'json', $context);
+            }
+            $dataArray['decorations'] = $values_4;
+        }
+        if ($data->isInitialized('filtersDisabled') && null !== $data->getFiltersDisabled()) {
+            $dataArray['filters_disabled'] = $data->getFiltersDisabled();
+        }
+        if ($data->isInitialized('showLogo') && null !== $data->getShowLogo()) {
+            $dataArray['show_logo'] = $data->getShowLogo();
+        }
+        $dataArray['ownership_type'] = $data->getOwnershipType();
+        if ($data->isInitialized('ownedById') && null !== $data->getOwnedById()) {
+            $dataArray['owned_by_id'] = $data->getOwnedById();
+        }
+        if ($data->isInitialized('title') && null !== $data->getTitle()) {
+            $dataArray['title'] = $data->getTitle();
+        }
+        if ($data->isInitialized('description') && null !== $data->getDescription()) {
+            $dataArray['description'] = $data->getDescription();
+        }
+        if ($data->isInitialized('mode') && null !== $data->getMode()) {
+            $dataArray['mode'] = $data->getMode();
+        }
+        if ($data->isInitialized('coverImage')) {
+            $dataArray['cover_image'] = $this->normalizer->normalize($data->getCoverImage(), 'json', $context);
+        }
+        if ($data->isInitialized('logoImage')) {
+            $dataArray['logo_image'] = $this->normalizer->normalize($data->getLogoImage(), 'json', $context);
+        }
+        if ($data->isInitialized('submitText') && null !== $data->getSubmitText()) {
+            $dataArray['submit_text'] = $data->getSubmitText();
+        }
+        if ($data->isInitialized('submitAction') && null !== $data->getSubmitAction()) {
+            $dataArray['submit_action'] = $data->getSubmitAction();
+        }
+        if ($data->isInitialized('submitActionMessage') && null !== $data->getSubmitActionMessage()) {
+            $dataArray['submit_action_message'] = $data->getSubmitActionMessage();
+        }
+        if ($data->isInitialized('submitActionRedirectUrl') && null !== $data->getSubmitActionRedirectUrl()) {
+            $dataArray['submit_action_redirect_url'] = $data->getSubmitActionRedirectUrl();
+        }
+        if ($data->isInitialized('public') && null !== $data->getPublic()) {
+            $dataArray['public'] = $data->getPublic();
+        }
+        foreach ($data as $key => $value_5) {
+            if (preg_match('/.*/', (string) $key)) {
+                $dataArray[$key] = $value_5;
+            }
+        }
+
+        return $dataArray;
+    }
+
+    public function getSupportedTypes(?string $format = null): array
+    {
+        return [\CedricZiel\Baserow\Generated\Model\FormViewView::class => false];
     }
 }

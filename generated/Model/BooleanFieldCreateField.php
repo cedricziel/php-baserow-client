@@ -27,32 +27,32 @@ class BooleanFieldCreateField extends \ArrayObject
     protected $name;
     /**
      * * `text` - text
-     * `long_text` - long_text
-     * `url` - url
-     * `email` - email
-     * `number` - number
-     * `rating` - rating
-     * `boolean` - boolean
-     * `date` - date
-     * `last_modified` - last_modified
-     * `last_modified_by` - last_modified_by
-     * `created_on` - created_on
-     * `created_by` - created_by
-     * `duration` - duration
-     * `link_row` - link_row
-     * `file` - file
-     * `single_select` - single_select
-     * `multiple_select` - multiple_select
-     * `phone_number` - phone_number
-     * `formula` - formula
-     * `count` - count
-     * `rollup` - rollup
-     * `lookup` - lookup
-     * `multiple_collaborators` - multiple_collaborators
-     * `uuid` - uuid
-     * `autonumber` - autonumber
-     * `password` - password
-     * `ai` - ai.
+     * * `long_text` - long_text
+     * * `url` - url
+     * * `email` - email
+     * * `number` - number
+     * * `rating` - rating
+     * * `boolean` - boolean
+     * * `date` - date
+     * * `last_modified` - last_modified
+     * * `last_modified_by` - last_modified_by
+     * * `created_on` - created_on
+     * * `created_by` - created_by
+     * * `duration` - duration
+     * * `link_row` - link_row
+     * * `file` - file
+     * * `single_select` - single_select
+     * * `multiple_select` - multiple_select
+     * * `phone_number` - phone_number
+     * * `formula` - formula
+     * * `count` - count
+     * * `rollup` - rollup
+     * * `lookup` - lookup
+     * * `multiple_collaborators` - multiple_collaborators
+     * * `uuid` - uuid
+     * * `autonumber` - autonumber
+     * * `password` - password
+     * * `ai` - ai.
      *
      * @var string
      */
@@ -79,32 +79,32 @@ class BooleanFieldCreateField extends \ArrayObject
 
     /**
      * * `text` - text
-     * `long_text` - long_text
-     * `url` - url
-     * `email` - email
-     * `number` - number
-     * `rating` - rating
-     * `boolean` - boolean
-     * `date` - date
-     * `last_modified` - last_modified
-     * `last_modified_by` - last_modified_by
-     * `created_on` - created_on
-     * `created_by` - created_by
-     * `duration` - duration
-     * `link_row` - link_row
-     * `file` - file
-     * `single_select` - single_select
-     * `multiple_select` - multiple_select
-     * `phone_number` - phone_number
-     * `formula` - formula
-     * `count` - count
-     * `rollup` - rollup
-     * `lookup` - lookup
-     * `multiple_collaborators` - multiple_collaborators
-     * `uuid` - uuid
-     * `autonumber` - autonumber
-     * `password` - password
-     * `ai` - ai.
+     * * `long_text` - long_text
+     * * `url` - url
+     * * `email` - email
+     * * `number` - number
+     * * `rating` - rating
+     * * `boolean` - boolean
+     * * `date` - date
+     * * `last_modified` - last_modified
+     * * `last_modified_by` - last_modified_by
+     * * `created_on` - created_on
+     * * `created_by` - created_by
+     * * `duration` - duration
+     * * `link_row` - link_row
+     * * `file` - file
+     * * `single_select` - single_select
+     * * `multiple_select` - multiple_select
+     * * `phone_number` - phone_number
+     * * `formula` - formula
+     * * `count` - count
+     * * `rollup` - rollup
+     * * `lookup` - lookup
+     * * `multiple_collaborators` - multiple_collaborators
+     * * `uuid` - uuid
+     * * `autonumber` - autonumber
+     * * `password` - password
+     * * `ai` - ai.
      */
     public function getType(): string
     {

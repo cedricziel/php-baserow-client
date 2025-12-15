@@ -17,9 +17,9 @@ class OrderGroups extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpo
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [order_workspaces](#tag/Workspaces/operation/order_workspaces).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Changes the order of the provided group ids to the matching position that the id has in the list. If the authorized user does not belong to the group it will be ignored. The order will be custom for each user.
+     *  Changes the order of the provided group ids to the matching position that the id has in the list. If the authorized user does not belong to the group it will be ignored. The order will be custom for each user.
      *
      * @param array $headerParameters {
      *

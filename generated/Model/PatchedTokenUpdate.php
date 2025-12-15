@@ -33,12 +33,12 @@ class PatchedTokenUpdate extends \ArrayObject
      * Example:
      * ```json
      * {
-     * "create": true// Allows creating rows in all tables.
-     * // Allows reading rows from database 1 and table 10.
-     * "read": [["database", 1], ["table", 10]],
-     * "update": false  // Denies updating rows in all tables.
-     * "delete": []  // Denies deleting rows in all tables.
-     * }
+     *   "create": true// Allows creating rows in all tables.
+     *   // Allows reading rows from database 1 and table 10.
+     *   "read": [["database", 1], ["table", 10]],
+     *   "update": false  // Denies updating rows in all tables.
+     *   "delete": []  // Denies deleting rows in all tables.
+     *  }
      * ```
      *
      * @var PatchedTokenUpdatePermissions
@@ -76,12 +76,12 @@ class PatchedTokenUpdate extends \ArrayObject
      * Example:
      * ```json
      * {
-     * "create": true// Allows creating rows in all tables.
-     * // Allows reading rows from database 1 and table 10.
-     * "read": [["database", 1], ["table", 10]],
-     * "update": false  // Denies updating rows in all tables.
-     * "delete": []  // Denies deleting rows in all tables.
-     * }
+     *   "create": true// Allows creating rows in all tables.
+     *   // Allows reading rows from database 1 and table 10.
+     *   "read": [["database", 1], ["table", 10]],
+     *   "update": false  // Denies updating rows in all tables.
+     *   "delete": []  // Denies deleting rows in all tables.
+     *  }
      * ```
      */
     public function getPermissions(): PatchedTokenUpdatePermissions

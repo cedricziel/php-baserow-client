@@ -60,7 +60,7 @@ class AdminDeleteUser extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseE
         if (200 === $status) {
             return null;
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\AdminDeleteUserBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiAdminUsersUserIdDeleteResponse400', 'json'), $response);
         }
         if (401 === $status) {

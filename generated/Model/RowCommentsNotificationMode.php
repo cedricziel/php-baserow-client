@@ -24,8 +24,8 @@ class RowCommentsNotificationMode extends \ArrayObject
     /**
      * The mode to use to receive notifications for new comments on a table row.
      *
-     * `all` - all
-     * `mentions` - mentions
+     * * `all` - all
+     * * `mentions` - mentions
      *
      * @var string
      */
@@ -34,8 +34,8 @@ class RowCommentsNotificationMode extends \ArrayObject
     /**
      * The mode to use to receive notifications for new comments on a table row.
      *
-     * `all` - all
-     * `mentions` - mentions
+     * * `all` - all
+     * * `mentions` - mentions
      */
     public function getMode(): string
     {

@@ -39,7 +39,8 @@ class TeamSubject extends \ArrayObject
     protected $subjectUserEmail;
     /**
      * The type of subject that is being invited.
-     * `auth.User` - auth.User.
+     *
+     * * `auth.User` - auth.User
      *
      * @var string
      */
@@ -98,7 +99,8 @@ class TeamSubject extends \ArrayObject
 
     /**
      * The type of subject that is being invited.
-     * `auth.User` - auth.User.
+     *
+     * * `auth.User` - auth.User
      */
     public function getSubjectType(): string
     {

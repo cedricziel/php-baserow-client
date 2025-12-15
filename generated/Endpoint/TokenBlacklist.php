@@ -71,7 +71,7 @@ class TokenBlacklist extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEn
         if (204 === $status) {
             return null;
         }
-        if (false === is_null($contentType) && (401 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (401 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\TokenBlacklistUnauthorizedException($response);
         }
     }

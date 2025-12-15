@@ -18,9 +18,9 @@ class UpdateGroup extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpo
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [update_workspace](#tag/Workspaces/operation/update_workspace).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Updates the existing group related to the provided `group_id` parameter if the authorized user belongs to the group. It is not yet possible to add additional users to a group.
+     *  Updates the existing group related to the provided `group_id` parameter if the authorized user belongs to the group. It is not yet possible to add additional users to a group.
      *
      * @param int   $groupId          updates the group related to the provided value
      * @param array $headerParameters {
@@ -95,13 +95,13 @@ class UpdateGroup extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpo
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
-        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\Workspace', 'json');
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\UpdateGroupBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdPatchResponse400', 'json'), $response);
         }
-        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\UpdateGroupNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiGroupsGroupIdPatchResponse404', 'json'), $response);
         }
     }

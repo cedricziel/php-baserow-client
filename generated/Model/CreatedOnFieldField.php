@@ -66,9 +66,9 @@ class CreatedOnFieldField extends \ArrayObject
     /**
      * EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20).
      *
-     * `EU` - European (D/M/Y)
-     * `US` - US (M/D/Y)
-     * `ISO` - ISO (Y-M-D)
+     * * `EU` - European (D/M/Y)
+     * * `US` - US (M/D/Y)
+     * * `ISO` - ISO (Y-M-D)
      *
      * @var string
      */
@@ -82,8 +82,8 @@ class CreatedOnFieldField extends \ArrayObject
     /**
      * 24 (14:30) or 12 (02:30 PM).
      *
-     * `24` - 24 hour
-     * `12` - 12 hour
+     * * `24` - 24 hour
+     * * `12` - 12 hour
      *
      * @var string
      */
@@ -238,9 +238,9 @@ class CreatedOnFieldField extends \ArrayObject
     /**
      * EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20).
      *
-     * `EU` - European (D/M/Y)
-     * `US` - US (M/D/Y)
-     * `ISO` - ISO (Y-M-D)
+     * * `EU` - European (D/M/Y)
+     * * `US` - US (M/D/Y)
+     * * `ISO` - ISO (Y-M-D)
      */
     public function getDateFormat(): string
     {
@@ -284,8 +284,8 @@ class CreatedOnFieldField extends \ArrayObject
     /**
      * 24 (14:30) or 12 (02:30 PM).
      *
-     * `24` - 24 hour
-     * `12` - 12 hour
+     * * `24` - 24 hour
+     * * `12` - 12 hour
      */
     public function getDateTimeFormat(): string
     {

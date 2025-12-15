@@ -30,8 +30,8 @@ class CreateViewSort extends \ArrayObject
     /**
      * Indicates the sort order direction. ASC (Ascending) is from A to Z and DESC (Descending) is from Z to A.
      *
-     * `ASC` - Ascending
-     * `DESC` - Descending
+     * * `ASC` - Ascending
+     * * `DESC` - Descending
      *
      * @var string
      */
@@ -59,8 +59,8 @@ class CreateViewSort extends \ArrayObject
     /**
      * Indicates the sort order direction. ASC (Ascending) is from A to Z and DESC (Descending) is from Z to A.
      *
-     * `ASC` - Ascending
-     * `DESC` - Descending
+     * * `ASC` - Ascending
+     * * `DESC` - Descending
      */
     public function getOrder(): string
     {

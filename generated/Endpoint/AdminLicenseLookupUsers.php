@@ -74,10 +74,10 @@ class AdminLicenseLookupUsers extends \CedricZiel\Baserow\Generated\Runtime\Clie
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
-        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\PaginationSerializerLicenseUserLookup', 'json');
         }
-        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\AdminLicenseLookupUsersNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiLicensesIdLookupUsersGetResponse404', 'json'), $response);
         }
     }

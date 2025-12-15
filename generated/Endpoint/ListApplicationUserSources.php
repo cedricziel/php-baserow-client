@@ -54,10 +54,10 @@ class ListApplicationUserSources extends \CedricZiel\Baserow\Generated\Runtime\C
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
-        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             return json_decode($body);
         }
-        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\ListApplicationUserSourcesNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiApplicationApplicationIdUserSourcesGetResponse404', 'json'), $response);
         }
     }

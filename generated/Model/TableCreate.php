@@ -31,8 +31,8 @@ class TableCreate extends \ArrayObject
      * Ex:
      * ```json
      * [
-     * ["row1_field1_value", "row1_field2_value"],
-     * ["row2_field1_value", "row2_field2_value"],
+     *   ["row1_field1_value", "row1_field2_value"],
+     *   ["row2_field1_value", "row2_field2_value"],
      * ]
      * ```
      * for creating a two rows table with two fields.
@@ -68,8 +68,8 @@ class TableCreate extends \ArrayObject
      * Ex:
      * ```json
      * [
-     * ["row1_field1_value", "row1_field2_value"],
-     * ["row2_field1_value", "row2_field2_value"],
+     *   ["row1_field1_value", "row1_field2_value"],
+     *   ["row2_field1_value", "row2_field2_value"],
      * ]
      * ```
      * for creating a two rows table with two fields.

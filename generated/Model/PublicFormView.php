@@ -36,8 +36,8 @@ class PublicFormView extends \ArrayObject
     /**
      * Configurable mode of the form.
      *
-     * `form` - form
-     * `survey` - survey
+     * * `form` - form
+     * * `survey` - survey
      *
      * @var string
      */
@@ -110,8 +110,8 @@ class PublicFormView extends \ArrayObject
     /**
      * Configurable mode of the form.
      *
-     * `form` - form
-     * `survey` - survey
+     * * `form` - form
+     * * `survey` - survey
      */
     public function getMode(): string
     {

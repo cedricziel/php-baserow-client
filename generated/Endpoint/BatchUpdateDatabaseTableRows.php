@@ -17,7 +17,8 @@ class BatchUpdateDatabaseTableRows extends \CedricZiel\Baserow\Generated\Runtime
 
     /**
      * Updates existing rows in the table if the user has access to the related table's workspace. The accepted body fields are depending on the fields that the table has. For a complete overview of fields use the **list_database_table_fields** endpoint to list them all. None of the fields are required, if they are not provided the value is not going to be updated. When you want to update a value for the field with id `10`, the key must be named `field_10`. Or if the GET parameter `user_field_names` is provided the key of the field to update must be the name of the field. Multiple different fields to update can be provided for each row. In the examples below you will find all the different field types, the numbers/ids in the example are just there for example purposes, the field_ID must be replaced with the actual id of the field or the name of the field if `user_field_names` is provided.
-     **WARNING:** This endpoint doesn't yet work with row updated webhooks.
+     *
+     *  **WARNING:** This endpoint doesn't yet work with row updated webhooks.
      *
      * @param int   $tableId         updates the rows in the table
      * @param array $queryParameters {
@@ -110,16 +111,16 @@ class BatchUpdateDatabaseTableRows extends \CedricZiel\Baserow\Generated\Runtime
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
-        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ExampleBatchRowsResponse', 'json');
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\BatchUpdateDatabaseTableRowsBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse400', 'json'), $response);
         }
-        if (false === is_null($contentType) && (401 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (401 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\BatchUpdateDatabaseTableRowsUnauthorizedException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse401', 'json'), $response);
         }
-        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\BatchUpdateDatabaseTableRowsNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiDatabaseRowsTableTableIdBatchPatchResponse404', 'json'), $response);
         }
     }

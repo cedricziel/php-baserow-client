@@ -27,7 +27,7 @@ class DatabaseBaseApplicationCreatePolymorphic extends \ArrayObject
     protected $name;
     /**
      * * `database` - database
-     * `builder` - builder.
+     * * `builder` - builder.
      *
      * @var string
      */
@@ -52,7 +52,7 @@ class DatabaseBaseApplicationCreatePolymorphic extends \ArrayObject
 
     /**
      * * `database` - database
-     * `builder` - builder.
+     * * `builder` - builder.
      */
     public function getType(): string
     {

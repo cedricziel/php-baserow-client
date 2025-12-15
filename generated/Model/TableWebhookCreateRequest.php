@@ -42,11 +42,11 @@ class TableWebhookCreateRequest extends \ArrayObject
     /**
      * The request method that be used when the event occurs.
      *
-     * `POST` - Post
-     * `GET` - Get
-     * `PUT` - Put
-     * `PATCH` - Patch
-     * `DELETE` - Delete
+     * * `POST` - Post
+     * * `GET` - Get
+     * * `PUT` - Put
+     * * `PATCH` - Patch
+     * * `DELETE` - Delete
      *
      * @var string
      */
@@ -134,11 +134,11 @@ class TableWebhookCreateRequest extends \ArrayObject
     /**
      * The request method that be used when the event occurs.
      *
-     * `POST` - Post
-     * `GET` - Get
-     * `PUT` - Put
-     * `PATCH` - Patch
-     * `DELETE` - Delete
+     * * `POST` - Post
+     * * `GET` - Get
+     * * `PUT` - Put
+     * * `PATCH` - Patch
+     * * `DELETE` - Delete
      */
     public function getRequestMethod(): string
     {

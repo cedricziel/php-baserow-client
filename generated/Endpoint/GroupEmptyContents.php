@@ -18,9 +18,9 @@ class GroupEmptyContents extends \CedricZiel\Baserow\Generated\Runtime\Client\Ba
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [workspace_empty_contents](#tag/Trash/operation/workspace_empty_contents).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Empties the specified group and/or application of trash, including the group and application themselves if they are trashed also.
+     *  Empties the specified group and/or application of trash, including the group and application themselves if they are trashed also.
      *
      * @param int   $groupId         the group whose trash contents to empty, including the group itself if it is also trashed
      * @param array $queryParameters {
@@ -77,7 +77,7 @@ class GroupEmptyContents extends \CedricZiel\Baserow\Generated\Runtime\Client\Ba
         if (204 === $status) {
             return null;
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\GroupEmptyContentsBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiTrashGroupGroupIdDeleteResponse400', 'json'), $response);
         }
     }

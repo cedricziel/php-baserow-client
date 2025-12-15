@@ -18,9 +18,9 @@ class GroupListTeams extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEn
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [workspace_list_teams](#tag/Teams/operation/workspace_list_teams).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Lists all teams in a given group.
+     *  Lists all teams in a given group.
      *
      * @param int   $groupId         lists all teams in a given group
      * @param array $queryParameters {
@@ -76,10 +76,10 @@ class GroupListTeams extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEn
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
-        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\TeamResponse[]', 'json');
         }
-        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\GroupListTeamsNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiTeamsGroupGroupIdGetResponse404', 'json'), $response);
         }
     }

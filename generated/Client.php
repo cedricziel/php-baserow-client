@@ -78,7 +78,7 @@ class Client extends Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \CedricZiel\Baserow\Generated\Model\AuditLogActionType[]|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\AuditLogActionType[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\AuditLogActionTypesBadRequestException
      * @throws Exception\AuditLogActionTypesUnauthorizedException
@@ -242,9 +242,9 @@ class Client extends Runtime\Client\Client
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [admin_list_workspaces](#tag/Admin/operation/admin_list_workspaces).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Returns all groups with detailed information on each group, if the requesting user is staff.
+     *  Returns all groups with detailed information on each group, if the requesting user is staff.
      *
      * This is a **premium** feature.
      *
@@ -271,9 +271,9 @@ class Client extends Runtime\Client\Client
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [admin_delete_workspace](#tag/Admin/operation/admin_delete_workspace).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Deletes the specified group and the applications inside that group, if the requesting user is staff.
+     *  Deletes the specified group and the applications inside that group, if the requesting user is staff.
      *
      * This is a **premium** feature.
      *
@@ -626,9 +626,9 @@ class Client extends Runtime\Client\Client
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [workspace_list_applications](#tag/Applications/operation/workspace_list_applications).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Lists all the applications of the group related to the provided `group_id` parameter if the authorized user is in that group. If the group is related to a template, then this endpoint will be publicly accessible. The properties that belong to the application can differ per type. An application always belongs to a single group.
+     *  Lists all the applications of the group related to the provided `group_id` parameter if the authorized user is in that group. If the group is related to a template, then this endpoint will be publicly accessible. The properties that belong to the application can differ per type. An application always belongs to a single group.
      *
      * @param int    $groupId returns only applications that are in the group related to the provided value
      * @param string $fetch   Fetch mode to use (can be OBJECT or RESPONSE)
@@ -646,9 +646,9 @@ class Client extends Runtime\Client\Client
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [workspace_create_application](#tag/Applications/operation/workspace_create_application).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Creates a new application based on the provided type. The newly created application is going to be added to the group related to the provided `group_id` parameter. If the authorized user does not belong to the group an error will be returned.
+     *  Creates a new application based on the provided type. The newly created application is going to be added to the group related to the provided `group_id` parameter. If the authorized user does not belong to the group an error will be returned.
      *
      * @param int        $groupId          creates an application for the group related to the provided value
      * @param mixed|null $requestBody
@@ -673,9 +673,9 @@ class Client extends Runtime\Client\Client
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [workspace_order_applications](#tag/Applications/operation/workspace_order_applications).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Changes the order of the provided application ids to the matching position that the id has in the list. If the authorized user does not belong to the group it will be ignored. The order of the not provided tables will be set to `0`.
+     *  Changes the order of the provided application ids to the matching position that the id has in the list. If the authorized user does not belong to the group it will be ignored. The order of the not provided tables will be set to `0`.
      *
      * @param int   $groupId          updates the order of the applications in the group related to the provided value
      * @param array $headerParameters {
@@ -799,7 +799,7 @@ class Client extends Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \CedricZiel\Baserow\Generated\Model\AuditLogActionType[]|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\AuditLogActionType[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\AuditLogActionTypes2BadRequestException
      * @throws Exception\AuditLogActionTypes2UnauthorizedException
@@ -2109,7 +2109,8 @@ class Client extends Runtime\Client\Client
 
     /**
      * Updates existing rows in the table if the user has access to the related table's workspace. The accepted body fields are depending on the fields that the table has. For a complete overview of fields use the **list_database_table_fields** endpoint to list them all. None of the fields are required, if they are not provided the value is not going to be updated. When you want to update a value for the field with id `10`, the key must be named `field_10`. Or if the GET parameter `user_field_names` is provided the key of the field to update must be the name of the field. Multiple different fields to update can be provided for each row. In the examples below you will find all the different field types, the numbers/ids in the example are just there for example purposes, the field_ID must be replaced with the actual id of the field or the name of the field if `user_field_names` is provided.
-     **WARNING:** This endpoint doesn't yet work with row updated webhooks.
+     *
+     *  **WARNING:** This endpoint doesn't yet work with row updated webhooks.
      *
      * @param int   $tableId         updates the rows in the table
      * @param array $queryParameters {
@@ -2138,7 +2139,8 @@ class Client extends Runtime\Client\Client
 
     /**
      * Creates new rows in the table if the user has access to the related table's workspace. The accepted body fields are depending on the fields that the table has. For a complete overview of fields use the **list_database_table_fields** to list them all. None of the fields are required, if they are not provided the value is going to be `null` or `false` or some default value is that is set. If you want to add a value for the field with for example id `10`, the key must be named `field_10`. Or instead if the `user_field_names` GET param is provided the key must be the name of the field. Of course multiple fields can be provided in one request. In the examples below you will find all the different field types, the numbers/ids in the example are just there for example purposes, the field_ID must be replaced with the actual id of the field or the name of the field if `user_field_names` is provided.
-     **WARNING:** This endpoint doesn't yet work with row created webhooks.
+     *
+     *  **WARNING:** This endpoint doesn't yet work with row created webhooks.
      *
      * @param int   $tableId         creates the rows in the table
      * @param array $queryParameters {
@@ -2168,7 +2170,8 @@ class Client extends Runtime\Client\Client
 
     /**
      * Deletes existing rows in the table if the user has access to the table's workspace.
-     **WARNING:**  This endpoint doesn't yet work with row deleted webhooks.
+     *
+     *  **WARNING:**  This endpoint doesn't yet work with row deleted webhooks.
      *
      * @param int   $tableId          deletes the rows in the table related to the value
      * @param array $headerParameters {
@@ -2293,7 +2296,7 @@ class Client extends Runtime\Client\Client
      * @param int    $databaseId returns only tables that are related to the provided value
      * @param string $fetch      Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \CedricZiel\Baserow\Generated\Model\Table[]|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\Table[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\ListDatabaseTablesBadRequestException
      * @throws Exception\ListDatabaseTablesNotFoundException
@@ -2373,7 +2376,7 @@ class Client extends Runtime\Client\Client
     /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \CedricZiel\Baserow\Generated\Model\Token[]|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\Token[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function listDatabaseTokens(string $fetch = self::FETCH_OBJECT)
     {
@@ -2727,7 +2730,7 @@ class Client extends Runtime\Client\Client
      * @param int    $viewId returns only filters of the view related to the provided value
      * @param string $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \CedricZiel\Baserow\Generated\Model\ViewFilter[]|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\ViewFilter[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\ListDatabaseTableViewFiltersBadRequestException
      * @throws Exception\ListDatabaseTableViewFiltersNotFoundException
@@ -2765,7 +2768,7 @@ class Client extends Runtime\Client\Client
      * @param int    $viewId returns only groupings of the view related to the provided value
      * @param string $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \CedricZiel\Baserow\Generated\Model\ViewGroupBy[]|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\ViewGroupBy[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\ListDatabaseTableViewGroupingsBadRequestException
      * @throws Exception\ListDatabaseTableViewGroupingsNotFoundException
@@ -2825,7 +2828,7 @@ class Client extends Runtime\Client\Client
      * @param int    $viewId returns only sortings of the view related to the provided value
      * @param string $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \CedricZiel\Baserow\Generated\Model\ViewSort[]|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\ViewSort[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\ListDatabaseTableViewSortingsBadRequestException
      * @throws Exception\ListDatabaseTableViewSortingsNotFoundException
@@ -3384,7 +3387,7 @@ class Client extends Runtime\Client\Client
      * @param int    $viewId returns only rows that belong to the related view's table
      * @param string $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \CedricZiel\Baserow\Generated\Model\ExampleRowResponse[]|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\ExampleRowResponse[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\FilterDatabaseTableGridViewRowsBadRequestException
      * @throws Exception\FilterDatabaseTableGridViewRowsNotFoundException
@@ -3789,7 +3792,7 @@ class Client extends Runtime\Client\Client
      * @param int    $tableId returns only webhooks of the table related to this value
      * @param string $fetch   Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \CedricZiel\Baserow\Generated\Model\TableWebhook[]|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\TableWebhook[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\ListDatabaseTableWebhooksBadRequestException
      * @throws Exception\ListDatabaseTableWebhooksNotFoundException
@@ -3848,7 +3851,7 @@ class Client extends Runtime\Client\Client
     /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \CedricZiel\Baserow\Generated\Model\WorkspaceUserWorkspace[]|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\WorkspaceUserWorkspace[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function listGroups(string $fetch = self::FETCH_OBJECT)
     {
@@ -3858,9 +3861,9 @@ class Client extends Runtime\Client\Client
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [create_workspace](#tag/Workspaces/operation/create_workspace).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Creates a new group where only the authorized user has access to. No initial data like database applications are added, they have to be created via other endpoints.
+     *  Creates a new group where only the authorized user has access to. No initial data like database applications are added, they have to be created via other endpoints.
      *
      * @param array $headerParameters {
      *
@@ -3879,9 +3882,9 @@ class Client extends Runtime\Client\Client
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [delete_workspace](#tag/Workspaces/operation/delete_workspace).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Deletes an existing group if the authorized user belongs to the group. All the applications, databases, tables etc that were in the group are going to be deleted also.
+     *  Deletes an existing group if the authorized user belongs to the group. All the applications, databases, tables etc that were in the group are going to be deleted also.
      *
      * @param int   $groupId          deletes the group related to the provided value
      * @param array $headerParameters {
@@ -3905,9 +3908,9 @@ class Client extends Runtime\Client\Client
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [update_workspace](#tag/Workspaces/operation/update_workspace).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Updates the existing group related to the provided `group_id` parameter if the authorized user belongs to the group. It is not yet possible to add additional users to a group.
+     *  Updates the existing group related to the provided `group_id` parameter if the authorized user belongs to the group. It is not yet possible to add additional users to a group.
      *
      * @param int   $groupId          updates the group related to the provided value
      * @param array $headerParameters {
@@ -3931,9 +3934,9 @@ class Client extends Runtime\Client\Client
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [leave_workspace](#tag/Workspaces/operation/leave_workspace).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Makes the authenticated user leave the group related to the provided `group_id` if the user is in that group. If the user is the last admin in the group, they will not be able to leave it. There must always be one admin in the group, otherwise it will be left without control. If that is the case, they must either delete the group or give another member admin permissions first.
+     *  Makes the authenticated user leave the group related to the provided `group_id` if the user is in that group. If the user is the last admin in the group, they will not be able to leave it. There must always be one admin in the group, otherwise it will be left without control. If that is the case, they must either delete the group or give another member admin permissions first.
      *
      * @param int    $groupId leaves the group related to the value
      * @param string $fetch   Fetch mode to use (can be OBJECT or RESPONSE)
@@ -3951,15 +3954,15 @@ class Client extends Runtime\Client\Client
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [workspace_permissions](#tag/Workspaces/operation/workspace_permissions).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Returns a the permission data necessary to determine the permissions of a specific user over a specific group.
-     * See `core.handler.CoreHandler.get_permissions()` for more details.
+     *  Returns a the permission data necessary to determine the permissions of a specific user over a specific group.
+     *  See `core.handler.CoreHandler.get_permissions()` for more details.
      *
      * @param int    $groupId the group id we want the permission object for
      * @param string $fetch   Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \CedricZiel\Baserow\Generated\Model\PermissionObject[]|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\PermissionObject[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\GroupPermissionsNotFoundException
      */
@@ -3971,9 +3974,9 @@ class Client extends Runtime\Client\Client
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [delete_workspace_invitation](#tag/Workspace-invitations/operation/delete_workspace_invitation).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Deletes a group invitation if the authorized user has admin rights to the related group.
+     *  Deletes a group invitation if the authorized user has admin rights to the related group.
      *
      * @param int    $groupInvitationId deletes the group invitation related to the provided value
      * @param string $fetch             Fetch mode to use (can be OBJECT or RESPONSE)
@@ -3991,9 +3994,9 @@ class Client extends Runtime\Client\Client
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [get_workspace_invitation](#tag/Workspace-invitations/operation/get_workspace_invitation).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Returns the requested group invitation if the authorized user has admin right to the related group
+     *  Returns the requested group invitation if the authorized user has admin right to the related group
      *
      * @param int    $groupInvitationId returns the group invitation related to the provided value
      * @param string $fetch             Fetch mode to use (can be OBJECT or RESPONSE)
@@ -4011,9 +4014,9 @@ class Client extends Runtime\Client\Client
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [update_workspace_invitation](#tag/Workspace-invitations/operation/update_workspace_invitation).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Updates the existing group invitation related to the provided `group_invitation_id` param if the authorized user has admin rights to the related group.
+     *  Updates the existing group invitation related to the provided `group_invitation_id` param if the authorized user has admin rights to the related group.
      *
      * @param int    $groupInvitationId updates the group invitation related to the provided value
      * @param string $fetch             Fetch mode to use (can be OBJECT or RESPONSE)
@@ -4031,9 +4034,9 @@ class Client extends Runtime\Client\Client
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [accept_workspace_invitation](#tag/Workspace-invitations/operation/accept_workspace_invitation).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Accepts a group invitation with the given id if the email address of the user matches that of the invitation.
+     *  Accepts a group invitation with the given id if the email address of the user matches that of the invitation.
      *
      * @param int    $groupInvitationId accepts the group invitation related to the provided value
      * @param string $fetch             Fetch mode to use (can be OBJECT or RESPONSE)
@@ -4051,9 +4054,9 @@ class Client extends Runtime\Client\Client
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [reject_workspace_invitation](#tag/Workspace-invitations/operation/reject_workspace_invitation).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Rejects a group invitation with the given id if the email address of the user matches that of the invitation.
+     *  Rejects a group invitation with the given id if the email address of the user matches that of the invitation.
      *
      * @param int    $groupInvitationId rejects the group invitation related to the provided value
      * @param string $fetch             Fetch mode to use (can be OBJECT or RESPONSE)
@@ -4071,14 +4074,14 @@ class Client extends Runtime\Client\Client
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [list_workspace_invitations](#tag/Workspace-invitations/operation/list_workspace_invitations).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Lists all the group invitations of the group related to the provided `group_id` parameter if the authorized user has admin rights to that group.
+     *  Lists all the group invitations of the group related to the provided `group_id` parameter if the authorized user has admin rights to that group.
      *
      * @param int    $groupId returns only invitations that are in the group related to the provided value
      * @param string $fetch   Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \CedricZiel\Baserow\Generated\Model\WorkspaceInvitation[]|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\WorkspaceInvitation[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\ListGroupInvitationsBadRequestException
      * @throws Exception\ListGroupInvitationsNotFoundException
@@ -4091,9 +4094,9 @@ class Client extends Runtime\Client\Client
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [create_workspace_invitation](#tag/Workspace-invitations/operation/create_workspace_invitation).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Creates a new group invitations for an email address if the authorized user has admin rights to the related group. An email containing a sign up link will be send to the user.
+     *  Creates a new group invitations for an email address if the authorized user has admin rights to the related group. An email containing a sign up link will be send to the user.
      *
      * @param int    $groupId creates a group invitation to the group related to the provided value
      * @param string $fetch   Fetch mode to use (can be OBJECT or RESPONSE)
@@ -4111,9 +4114,9 @@ class Client extends Runtime\Client\Client
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [get_workspace_invitation_by_token](#tag/Workspace-invitations/operation/get_workspace_invitation_by_token).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Responds with the serialized group invitation if an invitation with the provided token is found.
+     *  Responds with the serialized group invitation if an invitation with the provided token is found.
      *
      * @param string $token returns the group invitation related to the provided token
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -4131,9 +4134,9 @@ class Client extends Runtime\Client\Client
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [order_workspaces](#tag/Workspaces/operation/order_workspaces).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Changes the order of the provided group ids to the matching position that the id has in the list. If the authorized user does not belong to the group it will be ignored. The order will be custom for each user.
+     *  Changes the order of the provided group ids to the matching position that the id has in the list. If the authorized user does not belong to the group it will be ignored. The order will be custom for each user.
      *
      * @param array $headerParameters {
      *
@@ -4153,7 +4156,7 @@ class Client extends Runtime\Client\Client
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [delete_workspace_user](#tag/Workspaces/operation/delete_workspace_user).**.
      *
-     * Deletes a group user if the authorized user has admin rights to the related group.
+     *  Deletes a group user if the authorized user has admin rights to the related group.
      *
      * @param int    $groupUserId deletes the group user related to the provided value
      * @param string $fetch       Fetch mode to use (can be OBJECT or RESPONSE)
@@ -4171,7 +4174,7 @@ class Client extends Runtime\Client\Client
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [update_workspace_user](#tag/Workspaces/operation/update_workspace_user).**.
      *
-     * Updates the existing group user related to the provided `group_user_id` param if the authorized user has admin rights to the related group.
+     *  Updates the existing group user related to the provided `group_user_id` param if the authorized user has admin rights to the related group.
      *
      * @param int    $groupUserId updates the group user related to the provided value
      * @param string $fetch       Fetch mode to use (can be OBJECT or RESPONSE)
@@ -4189,7 +4192,7 @@ class Client extends Runtime\Client\Client
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [list_workspace_users](#tag/Workspaces/operation/list_workspace_users).**.
      *
-     * Lists all the users that are in a group if the authorized user has admin permissions to the related group. To add a user to a group an invitation must be sent first.
+     *  Lists all the users that are in a group if the authorized user has admin permissions to the related group. To add a user to a group an invitation must be sent first.
      *
      * @param int   $groupId         lists group users related to the provided group value
      * @param array $queryParameters {
@@ -4200,7 +4203,7 @@ class Client extends Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \CedricZiel\Baserow\Generated\Model\ListWorkspaceUsersWithMemberData[]|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\ListWorkspaceUsersWithMemberData[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\ListGroupUsersBadRequestException
      * @throws Exception\ListGroupUsersNotFoundException
@@ -4326,7 +4329,7 @@ class Client extends Runtime\Client\Client
     /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \CedricZiel\Baserow\Generated\Model\License[]|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\License[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function adminLicenses(string $fetch = self::FETCH_OBJECT)
     {
@@ -4432,7 +4435,7 @@ class Client extends Runtime\Client\Client
      * @param int    $id    the internal identifier of the license, this is `id` and not `license_id`
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \CedricZiel\Baserow\Generated\Model\LicenseUser[]|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\LicenseUser[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\AdminFillRemainingSeatsOfLicenseBadRequestException
      * @throws Exception\AdminFillRemainingSeatsOfLicenseNotFoundException
@@ -4554,9 +4557,9 @@ class Client extends Runtime\Client\Client
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [workspace_assign_role](#tag/Role-assignments/operation/workspace_assign_role).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * You can list the role assignments within a group, optionally filtered down to a specific scope inside of that group. If the scope isn't specified,the group will be considered the scope.
+     *  You can list the role assignments within a group, optionally filtered down to a specific scope inside of that group. If the scope isn't specified,the group will be considered the scope.
      *
      * @param int   $groupId         the group in which the role assignments are related to
      * @param array $queryParameters {
@@ -4567,7 +4570,7 @@ class Client extends Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \CedricZiel\Baserow\Generated\Model\OpenApiRoleAssignment[]|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\OpenApiRoleAssignment[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\GroupListRoleAssignmentsBadRequestException
      * @throws Exception\GroupListRoleAssignmentsNotFoundException
@@ -4580,9 +4583,9 @@ class Client extends Runtime\Client\Client
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [workspace_assign_role](#tag/Role-assignments/operation/workspace_assign_role).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * You can assign a role to a subject into the given group for the given scope with this endpoint. If you want to remove the role you can omit the role property.
+     *  You can assign a role to a subject into the given group for the given scope with this endpoint. If you want to remove the role you can omit the role property.
      *
      * @param int    $groupId the group in which the role assignment takes place
      * @param string $fetch   Fetch mode to use (can be OBJECT or RESPONSE)
@@ -4600,14 +4603,14 @@ class Client extends Runtime\Client\Client
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [workspace_batch_assign_role](#tag/Role-assignments/operation/workspace_batch_assign_role).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * You can assign a role to a multiple subjects into the given group for the given scope with this endpoint. If you want to remove the role you can omit the role property.
+     *  You can assign a role to a multiple subjects into the given group for the given scope with this endpoint. If you want to remove the role you can omit the role property.
      *
      * @param int    $groupId the group in which the role assignment takes place
      * @param string $fetch   Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \CedricZiel\Baserow\Generated\Model\OpenApiRoleAssignment[]|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\OpenApiRoleAssignment[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\GroupBatchAssignRoleBadRequestException
      * @throws Exception\GroupBatchAssignRoleNotFoundException
@@ -4629,7 +4632,7 @@ class Client extends Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \CedricZiel\Baserow\Generated\Model\OpenApiRoleAssignment[]|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\OpenApiRoleAssignment[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\ListRoleAssignmentsBadRequestException
      * @throws Exception\ListRoleAssignmentsNotFoundException
@@ -4661,7 +4664,7 @@ class Client extends Runtime\Client\Client
      * @param int    $workspaceId the workspace in which the role assignment takes place
      * @param string $fetch       Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \CedricZiel\Baserow\Generated\Model\OpenApiRoleAssignment[]|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\OpenApiRoleAssignment[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\BatchAssignRoleBadRequestException
      * @throws Exception\BatchAssignRoleNotFoundException
@@ -4846,7 +4849,7 @@ class Client extends Runtime\Client\Client
      * @param int    $applicationId application ID for which to list snapshots
      * @param string $fetch         Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \CedricZiel\Baserow\Generated\Model\Snapshot[]|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\Snapshot[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\ListSnapshotsBadRequestException
      * @throws Exception\ListSnapshotsNotFoundException
@@ -5027,7 +5030,7 @@ class Client extends Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \CedricZiel\Baserow\Generated\Model\TeamSubjectResponse[]|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\TeamSubjectResponse[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\ListTeamSubjectsBadRequestException
      */
@@ -5096,9 +5099,9 @@ class Client extends Runtime\Client\Client
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [workspace_list_teams](#tag/Teams/operation/workspace_list_teams).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Lists all teams in a given group.
+     *  Lists all teams in a given group.
      *
      * @param int   $groupId         lists all teams in a given group
      * @param array $queryParameters {
@@ -5109,7 +5112,7 @@ class Client extends Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \CedricZiel\Baserow\Generated\Model\TeamResponse[]|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\TeamResponse[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\GroupListTeamsNotFoundException
      */
@@ -5121,9 +5124,9 @@ class Client extends Runtime\Client\Client
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [workspace_create_team](#tag/Teams/operation/create_workspace).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Creates a new team in a given group.
+     *  Creates a new team in a given group.
      *
      * @param array $headerParameters {
      *
@@ -5154,7 +5157,7 @@ class Client extends Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \CedricZiel\Baserow\Generated\Model\TeamResponse[]|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\TeamResponse[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\WorkspaceListTeamsNotFoundException
      */
@@ -5186,7 +5189,7 @@ class Client extends Runtime\Client\Client
     /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \CedricZiel\Baserow\Generated\Model\TemplateCategories[]|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\TemplateCategories[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function listTemplates(string $fetch = self::FETCH_OBJECT)
     {
@@ -5196,9 +5199,9 @@ class Client extends Runtime\Client\Client
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [workspace_install_template](#tag/Templates/operation/workspace_install_template).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Installs the applications of the given template into the given group if the user has access to that group. The response contains those newly created applications.
+     *  Installs the applications of the given template into the given group if the user has access to that group. The response contains those newly created applications.
      *
      * @param int   $groupId          the id related to the group where the template applications must be installed into
      * @param int   $templateId       the id related to the template that must be installed
@@ -5223,9 +5226,9 @@ class Client extends Runtime\Client\Client
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [workspace_install_template_async](#tag/Templates/operation/workspace_install_template_async).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Start an async job to install the applications of the given template into the given group if the user has access to that group. The response contains those newly created applications.
+     *  Start an async job to install the applications of the given template into the given group if the user has access to that group. The response contains those newly created applications.
      *
      * @param int   $groupId          the id related to the group where the template applications must be installed into
      * @param int   $templateId       the id related to the template that must be installed
@@ -5306,9 +5309,9 @@ class Client extends Runtime\Client\Client
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [workspace_empty_contents](#tag/Trash/operation/workspace_empty_contents).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Empties the specified group and/or application of trash, including the group and application themselves if they are trashed also.
+     *  Empties the specified group and/or application of trash, including the group and application themselves if they are trashed also.
      *
      * @param int   $groupId         the group whose trash contents to empty, including the group itself if it is also trashed
      * @param array $queryParameters {
@@ -5330,9 +5333,9 @@ class Client extends Runtime\Client\Client
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [workspace_get_contents](#tag/Trash/operation/workspace_get_contents).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Responds with trash contents for a group optionally filtered to a specific application.
+     *  Responds with trash contents for a group optionally filtered to a specific application.
      *
      * @param int   $groupId         returns the trash for the group with this id
      * @param array $queryParameters {
@@ -5764,7 +5767,7 @@ class Client extends Runtime\Client\Client
     /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \CedricZiel\Baserow\Generated\Model\WorkspaceUserWorkspace[]|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\WorkspaceUserWorkspace[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function listWorkspaces(string $fetch = self::FETCH_OBJECT)
     {
@@ -5855,7 +5858,7 @@ class Client extends Runtime\Client\Client
      * @param int    $workspaceId the workspace id we want the permission object for
      * @param string $fetch       Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \CedricZiel\Baserow\Generated\Model\PermissionObject[]|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\PermissionObject[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\WorkspacePermissionsNotFoundException
      */
@@ -6009,7 +6012,7 @@ class Client extends Runtime\Client\Client
      * @param int    $workspaceId returns only invitations that are in the workspace related to the provided value
      * @param string $fetch       Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \CedricZiel\Baserow\Generated\Model\WorkspaceInvitation[]|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\WorkspaceInvitation[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\ListWorkspaceInvitationsBadRequestException
      * @throws Exception\ListWorkspaceInvitationsNotFoundException
@@ -6097,7 +6100,7 @@ class Client extends Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \CedricZiel\Baserow\Generated\Model\ListWorkspaceUsersWithMemberData[]|\Psr\Http\Message\ResponseInterface|null
+     * @return Model\ListWorkspaceUsersWithMemberData[]|\Psr\Http\Message\ResponseInterface|null
      *
      * @throws Exception\ListWorkspaceUsersBadRequestException
      * @throws Exception\ListWorkspaceUsersNotFoundException

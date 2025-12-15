@@ -51,8 +51,8 @@ class ImageElementPublicElement extends \ArrayObject
     protected $placeInContainer;
     /**
      * * `all` - All
-     * `logged-in` - Logged In
-     * `not-logged` - Not Logged.
+     * * `logged-in` - Logged In
+     * * `not-logged` - Not Logged.
      *
      * @var string
      */
@@ -162,9 +162,9 @@ class ImageElementPublicElement extends \ArrayObject
     /**
      * What type of background the element should have.
      *
-     * `none` - None
-     * `color` - Color
-     * `image` - Image
+     * * `none` - None
+     * * `color` - Color
+     * * `image` - Image
      *
      * @var string
      */
@@ -184,9 +184,9 @@ class ImageElementPublicElement extends \ArrayObject
     /**
      * The mode of the background image.
      *
-     * `tile` - Tile
-     * `fill` - Fill
-     * `fit` - Fit
+     * * `tile` - Tile
+     * * `fill` - Fill
+     * * `fit` - Fit
      *
      * @var mixed|null
      */
@@ -194,11 +194,11 @@ class ImageElementPublicElement extends \ArrayObject
     /**
      * Indicates the width of the element.
      *
-     * `full` - Full
-     * `full-width` - Full Width
-     * `normal` - Normal
-     * `medium` - Medium
-     * `small` - Small
+     * * `full` - Full
+     * * `full-width` - Full Width
+     * * `normal` - Normal
+     * * `medium` - Medium
+     * * `small` - Small
      *
      * @var string
      */
@@ -215,7 +215,7 @@ class ImageElementPublicElement extends \ArrayObject
     protected $roles;
     /**
      * * `upload` - Upload
-     * `url` - Url.
+     * * `url` - Url.
      *
      * @var string
      */
@@ -238,8 +238,8 @@ class ImageElementPublicElement extends \ArrayObject
     protected $altText = '';
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      *
      * @var string
      */
@@ -247,9 +247,9 @@ class ImageElementPublicElement extends \ArrayObject
     /**
      * The image constraint to apply to this image.
      *
-     * `cover` - Cover
-     * `contain` - Contain
-     * `full-width` - Full Width
+     * * `cover` - Cover
+     * * `contain` - Contain
+     * * `full-width` - Full Width
      *
      * @var string
      */
@@ -358,8 +358,8 @@ class ImageElementPublicElement extends \ArrayObject
 
     /**
      * * `all` - All
-     * `logged-in` - Logged In
-     * `not-logged` - Not Logged.
+     * * `logged-in` - Logged In
+     * * `not-logged` - Not Logged.
      */
     public function getVisibility(): string
     {
@@ -705,9 +705,9 @@ class ImageElementPublicElement extends \ArrayObject
     /**
      * What type of background the element should have.
      *
-     * `none` - None
-     * `color` - Color
-     * `image` - Image
+     * * `none` - None
+     * * `color` - Color
+     * * `image` - Image
      */
     public function getStyleBackground(): string
     {
@@ -770,9 +770,9 @@ class ImageElementPublicElement extends \ArrayObject
     /**
      * The mode of the background image.
      *
-     * `tile` - Tile
-     * `fill` - Fill
-     * `fit` - Fit
+     * * `tile` - Tile
+     * * `fill` - Fill
+     * * `fit` - Fit
      */
     public function getStyleBackgroundMode()
     {
@@ -797,11 +797,11 @@ class ImageElementPublicElement extends \ArrayObject
     /**
      * Indicates the width of the element.
      *
-     * `full` - Full
-     * `full-width` - Full Width
-     * `normal` - Normal
-     * `medium` - Medium
-     * `small` - Small
+     * * `full` - Full
+     * * `full-width` - Full Width
+     * * `normal` - Normal
+     * * `medium` - Medium
+     * * `small` - Small
      */
     public function getStyleWidth(): string
     {
@@ -859,7 +859,7 @@ class ImageElementPublicElement extends \ArrayObject
 
     /**
      * * `upload` - Upload
-     * `url` - Url.
+     * * `url` - Url.
      */
     public function getImageSourceType(): string
     {
@@ -931,8 +931,8 @@ class ImageElementPublicElement extends \ArrayObject
 
     /**
      * * `left` - Left
-     * `center` - Center
-     * `right` - Right.
+     * * `center` - Center
+     * * `right` - Right.
      */
     public function getAlignment(): string
     {
@@ -955,9 +955,9 @@ class ImageElementPublicElement extends \ArrayObject
     /**
      * The image constraint to apply to this image.
      *
-     * `cover` - Cover
-     * `contain` - Contain
-     * `full-width` - Full Width
+     * * `cover` - Cover
+     * * `contain` - Contain
+     * * `full-width` - Full Width
      */
     public function getStyleImageConstraint(): string
     {

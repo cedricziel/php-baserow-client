@@ -30,8 +30,8 @@ class PathParam extends \ArrayObject
     /**
      * The type of the parameter.
      *
-     * `text` - text
-     * `numeric` - numeric
+     * * `text` - text
+     * * `numeric` - numeric
      *
      * @var string
      */
@@ -59,8 +59,8 @@ class PathParam extends \ArrayObject
     /**
      * The type of the parameter.
      *
-     * `text` - text
-     * `numeric` - numeric
+     * * `text` - text
+     * * `numeric` - numeric
      */
     public function getType(): string
     {

@@ -17,9 +17,9 @@ class CreateGroup extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpo
     /**
      * **This endpoint has been deprecated and replaced with a new endpoint, [create_workspace](#tag/Workspaces/operation/create_workspace).**.
      *
-     **Support for this endpoint will end in 2024.**
+     * **Support for this endpoint will end in 2024.**
      *
-     * Creates a new group where only the authorized user has access to. No initial data like database applications are added, they have to be created via other endpoints.
+     *  Creates a new group where only the authorized user has access to. No initial data like database applications are added, they have to be created via other endpoints.
      *
      * @param array $headerParameters {
      *
@@ -87,7 +87,7 @@ class CreateGroup extends \CedricZiel\Baserow\Generated\Runtime\Client\BaseEndpo
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
-        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (200 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             return $serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\WorkspaceUserWorkspace', 'json');
         }
     }

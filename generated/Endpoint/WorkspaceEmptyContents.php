@@ -73,7 +73,7 @@ class WorkspaceEmptyContents extends \CedricZiel\Baserow\Generated\Runtime\Clien
         if (204 === $status) {
             return null;
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\WorkspaceEmptyContentsBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiTrashWorkspaceWorkspaceIdDeleteResponse400', 'json'), $response);
         }
     }

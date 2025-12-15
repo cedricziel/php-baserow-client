@@ -58,10 +58,10 @@ class AdminRemoveAllUsersFromLicense extends \CedricZiel\Baserow\Generated\Runti
         if (204 === $status) {
             return null;
         }
-        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\AdminRemoveAllUsersFromLicenseBadRequestException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiLicensesIdRemoveAllUsersPostResponse400', 'json'), $response);
         }
-        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
+        if (false === is_null($contentType) && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
             throw new \CedricZiel\Baserow\Generated\Exception\AdminRemoveAllUsersFromLicenseNotFoundException($serializer->deserialize($body, 'CedricZiel\Baserow\Generated\Model\ApiLicensesIdRemoveAllUsersPostResponse404', 'json'), $response);
         }
     }
